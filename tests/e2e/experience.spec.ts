@@ -1,4 +1,5 @@
 import { test, expect, type Page } from '@playwright/test';
+import fs from 'node:fs/promises';
 
 async function simpleParking(page: Page) {
   await page.goto('/#/parent');
@@ -213,6 +214,58 @@ test('20 次进入退出停车后仅一个画布，无遗留会话', async ({ pa
   }
   await expect.poll(async () => (await sessions(page)).filter(s => s.state === 'exited').length).toBe(20);
   expect(errors).toEqual([]);
+});
+
+test('停车暂停后退出20次，实际销毁每个引擎并记录内存趋势', async ({ page, browserName }, info) => {
+  test.skip(browserName !== 'chromium', 'CDP measurements use Chromium');
+  test.setTimeout(90000);
+  const errors: string[] = []; page.on('pageerror', error => errors.push(error.message));
+  await page.goto('/#/play/M01');
+  await expect(page.locator('canvas')).toHaveCount(1);
+  await expect(page.getByText('停车场正在准备…')).not.toBeVisible();
+  // Observe Phaser's real destroy event without retaining games or replacing
+  // cleanup. A detached canvas alone cannot prove the engine was destroyed.
+  await page.evaluate(async () => {
+    const url = performance.getEntriesByType('resource').map(entry => entry.name)
+      .find(name => /\/phaser(?:[.-]|\.js)/.test(new URL(name).pathname));
+    if (!url) throw new Error('Phaser module was not loaded');
+    const Phaser = (await import(url)).default as typeof import('phaser');
+    const audit = { requested: 0, finished: 0, sleeping: 0 };
+    Reflect.set(window, '__parkingCleanupAudit', audit);
+    const original = Phaser.Game.prototype.destroy;
+    Phaser.Game.prototype.destroy = function (...args: Parameters<typeof original>) {
+      audit.requested++; if (!this.loop.running) audit.sleeping++;
+      this.events.once(Phaser.Core.Events.DESTROY, () => { audit.finished++; });
+      return original.apply(this, args);
+    };
+  });
+  const cdp = await page.context().newCDPSession(page);
+  await cdp.send('Performance.enable');
+  const measurements: Record<string, number>[] = [];
+  for (let i = 0; i < 20; i++) {
+    if (i) {
+      await page.getByRole('link', { name: /小车回家/ }).click();
+      await expect(page.locator('canvas')).toHaveCount(1);
+      await expect(page.getByText('停车场正在准备…')).not.toBeVisible();
+    }
+    await page.evaluate(() => { Object.defineProperty(document, 'hidden', { configurable: true, value: true }); document.dispatchEvent(new Event('visibilitychange')); });
+    await expect(page.getByRole('button', { name: '继续探索', exact: true })).toBeVisible();
+    // Returning to the foreground preserves the explicit pause. Exit without
+    // pressing Continue, as a user returning to choose another car would do.
+    await page.evaluate(() => { Object.defineProperty(document, 'hidden', { configurable: true, value: false }); document.dispatchEvent(new Event('visibilitychange')); });
+    await page.getByRole('link', { name: '回去看车', exact: true }).click();
+    await expect(page.locator('canvas')).toHaveCount(0);
+    await expect.poll(() => page.evaluate(() => Reflect.get(window, '__parkingCleanupAudit').finished), { timeout: 1500 }).toBe(i + 1);
+    await cdp.send('HeapProfiler.collectGarbage');
+    const { metrics } = await cdp.send('Performance.getMetrics');
+    measurements.push({ cycle: i + 1, ...Object.fromEntries(metrics.filter(metric => ['JSHeapUsedSize', 'Nodes', 'Documents', 'JSEventListeners'].includes(metric.name)).map(metric => [metric.name, metric.value])) });
+  }
+  const cleanup = await page.evaluate(() => Reflect.get(window, '__parkingCleanupAudit'));
+  expect(cleanup).toEqual({ requested: 20, finished: 20, sleeping: 20 });
+  expect(errors).toEqual([]);
+  const metricsPath = info.outputPath('parking-cleanup-metrics.json');
+  await fs.writeFile(metricsPath, JSON.stringify({ scope: 'Desktop Chromium; simulated visibility; forced GC between cycles; not mobile/device memory certification', cleanup, measurements }, null, 2) + '\n');
+  await info.attach('parking-cleanup-metrics', { path: metricsPath, contentType: 'application/json' });
 });
 
 test('局域网 HTTP 缺少 randomUUID 时仍能完成活动', async ({ page }) => {

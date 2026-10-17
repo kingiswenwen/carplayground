@@ -97,7 +97,14 @@ export default function ParkingCanvas(props: Props) {
     }).catch(() => { if (!disposed) latest.current.fallback(); });
     return () => {
       disposed = true; clearTimeout(watchdog); bridge.current = null;
-      if (game) { game.canvas?.removeEventListener('webglcontextlost', onContextLost); game.destroy(true); }
+      if (game) {
+        game.canvas?.removeEventListener('webglcontextlost', onContextLost);
+        game.destroy(true);
+        // Phaser defers destruction until its next step. A paused activity has
+        // put this loop to sleep, so wake it once to finish the pending destroy.
+        // Games still booting will process it when their normal loop starts.
+        if (game.isRunning && !game.loop.running) game.loop.wake();
+      }
     };
   }, []);
   useEffect(() => {
