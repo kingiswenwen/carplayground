@@ -129,7 +129,7 @@ export function Activity({ id, settings }: { id: CoreActivityId; settings: Setti
     <section className={`play-surface ${id.toLowerCase()} ${hinted ? 'hinted' : ''} immersive-play`} data-activity={id}>
       <SceneArt scene={activity.scene} priority/>
       {id === 'E02' && <><CarImage hotspots active={part || (hinted ? targetPart : undefined)} onPart={choosePart} />
-        <div className="word-card"><span className="word-zh">{part ? content.car.hotspots.find(p => p.id === part)?.zh : '点一点小圆点'}</span><strong>{part || 'Look & listen'}</strong>{part && <button className="round-button" aria-label={`重听 ${part}`} onClick={() => choosePart(part)}><Volume2 size={22} /></button>}</div></>}
+        <div className="word-card"><span className="word-zh">{part ? content.car.hotspots.find(p => p.id === part)?.zh : '点一个部件按钮'}</span><strong>{part || 'Look & listen'}</strong>{part && <button className="round-button" aria-label={`重听 ${part}`} onClick={() => choosePart(part)}><Volume2 size={22} /></button>}</div></>}
       {id === 'E01' && <div className={`color-options count-${settings.difficulty === 'gentle' ? 2 : 3}`}>{options.map(color =>
         <div key={color} className={`color-option ${hinted && color === target ? 'suggested' : ''} ${completed && color === target ? 'correct' : ''}`}>
           <CarImage color={color} onReadyChange={ready => setReadyImages(current => ({ ...current, [color]: ready }))} /><span className={`color-dot ${color}`} /><span>{colorNames[color]}</span>{completed && color === target && <Check size={22} />}

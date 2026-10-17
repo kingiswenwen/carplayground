@@ -113,7 +113,7 @@ test('无 WebGL 自动降级并能完成停车', async ({ page }) => {
 });
 
 test('Phaser 资源模块加载失败会退回点选', async ({ page }) => {
-  await page.route('**/node_modules/.vite/deps/phaser*', route => route.abort());
+  await page.route(url => /\/phaser[^/]*\.js$/.test(url.pathname), route => route.abort());
   await page.goto('/#/play/M01');
   await expect(page.getByRole('button', { name: '选择白色小车' })).toBeVisible({ timeout: 20000 });
   await expect(page.getByText('已为你换成轻松点选，玩法一样。')).toBeVisible();
@@ -148,12 +148,13 @@ test('图片失败时颜色与停车不接受空图答案，重试后恢复', as
   await page.goto('/#/play/E01');
   const target = (await page.getByRole('heading', { level: 1 }).innerText()).match(/(红色|蓝色|白色)/)![0];
   await expect(page.getByRole('button', { name: `${target}的车` })).toBeDisabled();
-  await expect(page.getByRole('button', { name: '重新加载' })).toHaveCount(2);
+  const retries = page.locator('.color-option').getByRole('button', { name: '重新加载' });
+  await expect(retries).toHaveCount(2);
   fail = false;
-  await page.getByRole('button', { name: '重新加载' }).first().click();
+  await retries.first().click();
   await expect(page.locator('.color-option .car-image.ready')).toHaveCount(1);
   await expect(page.getByRole('button', { name: `${target}的车` })).toBeDisabled();
-  await page.getByRole('button', { name: '重新加载' }).click();
+  await retries.click();
   await page.getByRole('button', { name: `${target}的车` }).click();
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('找到啦，真是个小发现！');
   await page.goto('/#/parent');

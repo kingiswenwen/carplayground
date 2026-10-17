@@ -29,6 +29,8 @@ region = os.environ.get('AZURE_SPEECH_REGION', '')
 key = os.environ.get('AZURE_SPEECH_KEY', '')
 if not key or not re.fullmatch(r'[a-z][a-z0-9-]{1,40}', region):
     raise SystemExit('Set AZURE_SPEECH_REGION and AZURE_SPEECH_KEY in the local process environment. Never paste keys into chat or source files.')
+if not args.replace_existing and any((ROOT / 'public/media' / f'{clip_id}.mp3').exists() for clip_id in ids):
+    raise SystemExit('One or more selected clips already exist; choose --replace-existing before any synthesis request.')
 provenance_path = ROOT / 'content/audio-production.json'
 provenance = json.loads(provenance_path.read_text()) if provenance_path.exists() else {'formatVersion': 1, 'clips': {}}
 for clip_id in ids:

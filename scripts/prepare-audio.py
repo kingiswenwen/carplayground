@@ -11,6 +11,7 @@ import tempfile
 ROOT = Path(__file__).resolve().parents[1]
 parser = argparse.ArgumentParser()
 parser.add_argument('--apply', action='store_true', help='Write reviewed technical transformations; originals remain in baseline Git commit')
+parser.add_argument('--only', nargs='+', help='Process only these clip IDs; retain previous processing records')
 args = parser.parse_args()
 content = json.loads((ROOT / 'content/r3.json').read_text())
 audit = json.loads((ROOT / 'docs/development/audio-technical-audit.json').read_text())
@@ -18,7 +19,12 @@ if audit['contentReleaseId'] != content['id']:
     raise SystemExit('Run the audio audit for the current content first.')
 previous = {c['id']: c for c in audit['clips']}
 records = []
-for clip_id in content['speech']:
+ids = args.only or list(content['speech'])
+if any(clip_id not in content['speech'] for clip_id in ids):
+    raise SystemExit('Unknown clip ID')
+production_path = ROOT / 'content/audio-production.json'
+production = json.loads(production_path.read_text()) if production_path.exists() else {'formatVersion': 1, 'clips': {}}
+for clip_id in ids:
     asset = next(a for a in content['assets'] if a['id'] == clip_id)
     source = ROOT / 'public' / asset['path']
     original = source.read_bytes()
@@ -37,7 +43,10 @@ for clip_id in content['speech']:
         raise RuntimeError(f'Unexpected speech region for {clip_id}; not trimming')
     gain = min(-20 - metrics['integratedLufs'], -3 - metrics['truePeakDbtp'])
     gain = round(max(-6, min(6, gain)), 2)
-    record = {'id': clip_id, 'inputSha256': input_hash, 'trimStartSeconds': round(begin, 4), 'trimEndSeconds': round(end, 4), 'gainDb': gain, 'targetIntegratedLufs': -20, 'peakCeilingDbtp': -3, 'listeningStatus': 'not-reviewed'}
+    producer = production['clips'].get(clip_id)
+    if producer and producer.get('currentAudioSha256', producer['audioSha256']) != input_hash:
+        raise RuntimeError('Production provenance differs from input audio: ' + clip_id)
+    record = {'id': clip_id, 'sourceCommit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip(), 'sourceContentReleaseId': content['id'], 'inputSha256': input_hash, 'trimStartSeconds': round(begin, 4), 'trimEndSeconds': round(end, 4), 'gainDb': gain, 'targetIntegratedLufs': -20, 'peakCeilingDbtp': -3, 'listeningStatus': 'not-reviewed'}
     if args.apply:
         with tempfile.NamedTemporaryFile(dir=source.parent, suffix='.mp3', delete=False) as temporary:
             output = Path(temporary.name)
@@ -46,10 +55,24 @@ for clip_id in content['speech']:
             subprocess.run(['ffmpeg', '-v', 'error', '-i', str(output), '-f', 'null', '-'], check=True, capture_output=True)
             record['outputSha256'] = hashlib.sha256(output.read_bytes()).hexdigest()
             output.replace(source)
+            if producer:
+                producer['currentAudioSha256'] = record['outputSha256']
+                producer.setdefault('processing', []).append(dict(record))
         finally:
             output.unlink(missing_ok=True)
     records.append(record)
 if args.apply:
-    report = {'generatedAt': datetime.datetime.now(datetime.timezone.utc).isoformat(), 'sourceContentReleaseId': content['id'], 'sourceBaselineCommit': '0bd0d39', 'tool': subprocess.run(['ffmpeg', '-version'], capture_output=True, text=True).stdout.splitlines()[0], 'policy': 'Only leading/trailing measured silence; retain 120 ms lead and 280 ms tail where trimmed. Internal pauses and words unchanged. Gain targets -20 LUFS while reserving 3 dB peak headroom. Technical transformation is not a listening or rights approval.', 'clips': records}
-    (ROOT / 'content/audio-processing.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
+    processing_path = ROOT / 'content/audio-processing.json'
+    existing = json.loads(processing_path.read_text()) if processing_path.exists() else {}
+    merged = {clip['id']: clip for clip in existing.get('clips', [])}
+    for clip in merged.values():
+        clip.setdefault('sourceCommit', existing.get('sourceBaselineCommit'))
+        clip.setdefault('sourceContentReleaseId', existing.get('sourceContentReleaseId'))
+    for clip in records:
+        if clip['id'] in merged:
+            clip['previousTransform'] = merged[clip['id']]
+        merged[clip['id']] = clip
+    report = {**existing, 'latestProcessingAt': datetime.datetime.now(datetime.timezone.utc).isoformat(), 'tool': subprocess.run(['ffmpeg', '-version'], capture_output=True, text=True).stdout.splitlines()[0], 'policy': 'Only leading/trailing measured silence; retain 120 ms lead and 280 ms tail where trimmed. Internal pauses and words unchanged. Gain targets -20 LUFS while reserving 3 dB peak headroom. Technical transformation is not a listening or rights approval.', 'clips': list(merged.values())}
+    processing_path.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
+    production_path.write_text(json.dumps(production, ensure_ascii=False, indent=2) + '\n')
 print(json.dumps({'clips': len(records), 'endpointTrimmed': sum(c['trimStartSeconds'] > .01 or c['trimEndSeconds'] < previous[c['id']]['durationSeconds'] - .01 for c in records), 'applied': args.apply}))

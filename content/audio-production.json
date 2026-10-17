@@ -1,0 +1,63 @@
+{
+  "formatVersion": 1,
+  "clips": {
+    "zh-seat": {
+      "provider": "edge-preview",
+      "voice": "zh-CN-XiaoxiaoNeural",
+      "rate": "-12%",
+      "text": "座椅",
+      "locale": "zh-CN",
+      "textSha256": "5a9fd33c7fa8589aaec3b8eb943e7adf359b5dfe609ee1a9f69e455c85cea129",
+      "audioSha256": "4500486c8779469dc21ea10ed75b4960a44721727f9a0fb1ff16291e3daaaa3b",
+      "generatedAt": "2026-10-17T16:43:27.612806+00:00",
+      "listeningStatus": "not-reviewed",
+      "distributionReview": "unverified-local-preview-only",
+      "currentAudioSha256": "dc4ab76eb500e430c16ed17f110fc389510fb752302aa7c5100636656c06f177",
+      "processing": [
+        {
+          "id": "zh-seat",
+          "sourceCommit": "dc53d5e4ec071d86ad9b774043014c0aee036fe8",
+          "sourceContentReleaseId": "r4-multiview-20261018.1",
+          "inputSha256": "4500486c8779469dc21ea10ed75b4960a44721727f9a0fb1ff16291e3daaaa3b",
+          "trimStartSeconds": 0.0711,
+          "trimEndSeconds": 1.0592,
+          "gainDb": -0.44,
+          "targetIntegratedLufs": -20,
+          "peakCeilingDbtp": -3,
+          "listeningStatus": "not-reviewed",
+          "outputSha256": "dc4ab76eb500e430c16ed17f110fc389510fb752302aa7c5100636656c06f177"
+        }
+      ],
+      "generatorVersion": "edge-tts 7.3.1"
+    },
+    "seat": {
+      "provider": "edge-preview",
+      "voice": "en-US-JennyNeural",
+      "rate": "-12%",
+      "text": "Seat",
+      "locale": "en-US",
+      "textSha256": "ae4e74c66116dc8cb41c687224b047677715a0f1186274ef253d287cb326e161",
+      "audioSha256": "ca6a1367b33f4936221bba38c1911446e70fccec11012dd7e86d35d7344e7bda",
+      "generatedAt": "2026-10-17T16:43:28.212184+00:00",
+      "listeningStatus": "not-reviewed",
+      "distributionReview": "unverified-local-preview-only",
+      "currentAudioSha256": "57634a933bb92cf3e132327b33fc1a5d92ae4a1d40beb0ad1c30396e9f340f73",
+      "processing": [
+        {
+          "id": "seat",
+          "sourceCommit": "dc53d5e4ec071d86ad9b774043014c0aee036fe8",
+          "sourceContentReleaseId": "r4-multiview-20261018.1",
+          "inputSha256": "ca6a1367b33f4936221bba38c1911446e70fccec11012dd7e86d35d7344e7bda",
+          "trimStartSeconds": 0.0936,
+          "trimEndSeconds": 1.0281,
+          "gainDb": 1.8,
+          "targetIntegratedLufs": -20,
+          "peakCeilingDbtp": -3,
+          "listeningStatus": "not-reviewed",
+          "outputSha256": "57634a933bb92cf3e132327b33fc1a5d92ae4a1d40beb0ad1c30396e9f340f73"
+        }
+      ],
+      "generatorVersion": "edge-tts 7.3.1"
+    }
+  }
+}

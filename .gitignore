@@ -10,3 +10,5 @@ test-results/
 .DS_Store
 Thumbs.db
 .release-artifacts/
+__pycache__/
+*.pyc

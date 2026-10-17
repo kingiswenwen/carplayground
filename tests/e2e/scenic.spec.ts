@@ -13,5 +13,17 @@ test('新场景与两个玩法在320至1440宽度无横向溢出，入口未被�
 
 test('手机触摸拼装：四块大零件逐一安装，完成后可重新拆装',async({browser})=>{const context=await browser.newContext({viewport:{width:390,height:844},hasTouch:true});const page=await context.newPage();await page.goto(`${test.info().project.use.baseURL}/#/play/T04`);await ready(page);for(const name of ['车身','车门','前轮','后轮']){await page.getByRole('button',{name:`选择${name}零件`,exact:true}).tap();await page.getByRole('button',{name:`安装${name}的位置`,exact:true}).tap();}await expect(page.locator('.assembled-part')).toHaveCount(4);await page.getByRole('button',{name:'拆开再装',exact:true}).tap();await expect(page.locator('.assembled-part')).toHaveCount(0);await context.close();});
 
-test('逐个实际点击全部26个活动入口，均打开对应玩法',async({page})=>{test.setTimeout(90000);const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));await page.goto('/#/explore');const routes=await page.locator('.all-discoveries .activity-link').evaluateAll(ns=>ns.map(n=>n.getAttribute('href')!));expect(routes).toHaveLength(26);for(const href of routes){await page.goto('/#/explore');const exact=page.locator(`.all-discoveries a[href="${href}"]`);await exact.click();await expect(page.locator('.play-surface,.discovery-surface')).toBeVisible();await expect(page.getByRole('heading',{level:1})).not.toContainText('小路还没开放');}expect(errors).toEqual([]);});
+test('逐个实际点击全部26个活动入口，均打开对应玩法',async({page})=>{test.setTimeout(90000);const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));await page.goto('/#/explore');await expect(page.locator('.all-discoveries .activity-link')).toHaveCount(26);const routes=await page.locator('.all-discoveries .activity-link').evaluateAll(ns=>ns.map(n=>n.getAttribute('href')!));expect(routes).toHaveLength(26);for(const href of routes){await page.goto('/#/explore');const exact=page.locator(`.all-discoveries a[href="${href}"]`);await exact.click();await expect(page.locator('.play-surface,.discovery-surface')).toBeVisible();await expect(page.getByRole('heading',{level:1})).not.toContainText('小路还没开放');}expect(errors).toEqual([]);});
 test('场景中的每个位置标记均可点入玩法，平板入口不被遮挡',async({page})=>{test.setTimeout(90000);await page.setViewportSize({width:768,height:1024});for(const[id]of scenes){await page.goto(`/#/explore/${id}`);const count=await page.locator('.destination-spot').count();for(let i=0;i<count;i++){await page.goto(`/#/explore/${id}`);const spot=page.locator('.destination-spot').nth(i);await spot.scrollIntoViewIfNeeded();expect(await spot.evaluate(el=>{const r=el.getBoundingClientRect();const hit=document.elementFromPoint(r.x+r.width/2,r.y+r.height/2);return el===hit||el.contains(hit);})).toBe(true);await spot.click();await expect(page.locator('.play-surface,.discovery-surface')).toBeVisible();}}});
+
+test('页面分包加载失败可刷新恢复，不留下无法退出的空白页',async({page})=>{
+ let fail=true;
+ await page.route(url=>/\/Browse(?:-[\w-]+\.js|\.tsx)$/.test(url.pathname),route=>fail?route.abort():route.continue());
+ await page.goto('/#/cars');
+ await expect(page.getByRole('heading',{name:'小车休息一下',exact:true})).toBeVisible();
+ fail=false;
+ await page.getByRole('button',{name:'重新打开展厅',exact:true}).click();
+ await expect(page).toHaveURL(/carplayground-retry=\d+/);
+ await expect(page.locator('.showroom-display-car .car-image.ready')).toBeVisible();
+ await expect(page.getByRole('heading',{name:'今天，认识哪位汽车朋友？',exact:true})).toBeVisible();
+});

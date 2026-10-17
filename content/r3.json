@@ -1,7 +1,7 @@
 {
-  "id": "r3-reviewed-20261018.1",
+  "id": "r4-multiview-20261018.1",
   "schemaVersion": 2,
-  "appVersion": "0.3.1",
+  "appVersion": "0.4.0",
   "car": {
     "id": "CAR01",
     "brand": "Lamborghini",
@@ -65,7 +65,7 @@
       "subtitle": "英语 · 把真实部件和英语声音对应",
       "instruction": "找找车轮在哪里。",
       "hint": "看看圆圆的、能滚动的地方。",
-      "goal": "把真实部件和英语声音对应",
+      "goal": "点一点部件按钮，也可以自由听听每个部件。",
       "extension": "给玩具车的车轮、车门和车灯取名字。",
       "instructionAudio": "parts-task",
       "hintAudio": "parts-hint",
@@ -1206,6 +1206,14 @@
     "assembly-done": {
       "text": "车身、车门和两个车轮都装好了。你拼出了一辆真实照片里的跑车！",
       "locale": "zh-CN"
+    },
+    "seat": {
+      "text": "Seat",
+      "locale": "en-US"
+    },
+    "zh-seat": {
+      "text": "座椅",
+      "locale": "zh-CN"
     }
   },
   "assets": [
@@ -1438,6 +1446,256 @@
       "width": 1536,
       "height": 1024,
       "sha256": "fab647f59e330cd657cf6347d0155191dbd85ba0e3129f6c182657d2794bfdc7"
+    },
+    {
+      "id": "view-CAR01-front",
+      "path": "media/views/car01-front.webp",
+      "source": "Calreyn88; https://commons.wikimedia.org/wiki/File:2023_Lamborghini_Revuelto_4.jpg; CC0; http://creativecommons.org/publicdomain/zero/1.0/deed.en; resized/WebP, whole photo retained.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1200,
+      "height": 660,
+      "sha256": "a15ced11efa7c86ecd9991231f8c57d9ca26559371e69636641a18eab661e979"
+    },
+    {
+      "id": "view-CAR01-other-side",
+      "path": "media/views/car01-other-side.webp",
+      "source": "Calreyn88; https://commons.wikimedia.org/wiki/File:2024_Lamborghini_Revuelto_15.jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP, whole photo retained.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1200,
+      "height": 717,
+      "sha256": "c2b977e5494018091e43814978908b4600033ead5c51625700ce3fbab39ccf6a"
+    },
+    {
+      "id": "view-CAR01-rear",
+      "path": "media/views/car01-rear.webp",
+      "source": "Calreyn88; https://commons.wikimedia.org/wiki/File:2023_Lamborghini_Revuelto_6.jpg; CC0; http://creativecommons.org/publicdomain/zero/1.0/deed.en; resized/WebP, whole photo retained.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1200,
+      "height": 786,
+      "sha256": "f1fac157c500901e003f80795625b394115698078299cbc5df9d98d9c1e200d0"
+    },
+    {
+      "id": "view-CAR01-interior",
+      "path": "media/views/car01-interior.webp",
+      "source": "Y.Leclercq; https://commons.wikimedia.org/wiki/File:Lamborghini_Revuelto_int%C3%A9rieur_03.jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP, whole photo retained.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1200,
+      "height": 675,
+      "sha256": "40750c8e42e14552ebc8ce05543a658d1e66e318a48196fd0a1861678302ea09"
+    },
+    {
+      "id": "view-CAR02-front",
+      "path": "media/views/car02-front.webp",
+      "source": "Calreyn88; https://commons.wikimedia.org/wiki/File:2022_Ferrari_296_GTB_1.jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP, whole photo retained.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1200,
+      "height": 668,
+      "sha256": "8b6aae0201d1cdc2da0ac5137431bc7abdc8671cc221822840c52d669c536603"
+    },
+    {
+      "id": "view-CAR02-other-side",
+      "path": "media/views/car02-other-side.webp",
+      "source": "Calreyn88; https://commons.wikimedia.org/wiki/File:2022_Ferrari_296_GTB_2.jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP, whole photo retained.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1200,
+      "height": 542,
+      "sha256": "72228765d44e2876f889a08793987508f2cdbc3df16d0a9e170e6849c5207a78"
+    },
+    {
+      "id": "view-CAR02-rear",
+      "path": "media/views/car02-rear.webp",
+      "source": "Calreyn88; https://commons.wikimedia.org/wiki/File:2022_Ferrari_296_GTB_5.jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP, whole photo retained.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1200,
+      "height": 697,
+      "sha256": "f5b832335340a85f0dd559b030ebac5e42bb767ed252d9e819570521545ead80"
+    },
+    {
+      "id": "view-CAR03-front",
+      "path": "media/views/car03-front.webp",
+      "source": "Calreyn88; https://commons.wikimedia.org/wiki/File:2023_Porsche_911_GT3_RS_3.jpg; CC BY 4.0; https://creativecommons.org/licenses/by/4.0; resized/WebP, whole photo retained.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1200,
+      "height": 678,
+      "sha256": "096de0656272ef9088f84ea38e97e45eafe5fd642c72f9a634412a6e513776f7"
+    },
+    {
+      "id": "view-CAR03-other-side",
+      "path": "media/views/car03-other-side.webp",
+      "source": "Calreyn88; https://commons.wikimedia.org/wiki/File:2023_Porsche_911_GT3_RS_6.jpg; CC BY 4.0; https://creativecommons.org/licenses/by/4.0; resized/WebP, whole photo retained.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1200,
+      "height": 778,
+      "sha256": "8a27cab30735015858199aca7d4378eba451f0f1fce740e41a18c8a2047515d0"
+    },
+    {
+      "id": "view-CAR03-rear",
+      "path": "media/views/car03-rear.webp",
+      "source": "Calreyn88; https://commons.wikimedia.org/wiki/File:2023_Porsche_911_GT3_RS_4.jpg; CC BY 4.0; https://creativecommons.org/licenses/by/4.0; resized/WebP, whole photo retained.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1200,
+      "height": 612,
+      "sha256": "c25f60877f6c724357cbb9c56b3afdbe3c3202efd31e309acceaae4bb1b66f9c"
+    },
+    {
+      "id": "view-CAR04-front",
+      "path": "media/views/car04-front.webp",
+      "source": "Calreyn88; https://commons.wikimedia.org/wiki/File:2024_McLaren_750S_2.jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP, whole photo retained.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1200,
+      "height": 615,
+      "sha256": "d3b22ab056ac061397276f5d8db7221cbf0560c37b22590fa53724d5957d4548"
+    },
+    {
+      "id": "view-CAR04-other-side",
+      "path": "media/views/car04-other-side.webp",
+      "source": "Calreyn88; https://commons.wikimedia.org/wiki/File:2024_McLaren_750S_3.jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP, whole photo retained.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1200,
+      "height": 878,
+      "sha256": "377654f29cc2b9f6f7e5cd6b237a42492b232efbdbb440425d3506b11df0d848"
+    },
+    {
+      "id": "view-CAR04-rear",
+      "path": "media/views/car04-rear.webp",
+      "source": "Aos.1905; https://commons.wikimedia.org/wiki/File:McLaren_750S_(Rear).jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP, whole photo retained.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1200,
+      "height": 900,
+      "sha256": "4dc42995341428731d0c4511cb6949be2432a756b274a46b257477c070662ee2"
+    },
+    {
+      "id": "view-CAR05-front",
+      "path": "media/views/car05-front.webp",
+      "source": "Ank Kumar; https://commons.wikimedia.org/wiki/File:2018_Blue_Bugatti_Chiron_at_Grand_Basel_(Ank_Kumar)_04.jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP, whole photo retained.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1200,
+      "height": 900,
+      "sha256": "749e785ec73723b7551e96718a9e2afcb1b0b130288123fced0dfa5dc2ac1e07"
+    },
+    {
+      "id": "view-CAR05-side",
+      "path": "media/views/car05-side.webp",
+      "source": "Ank Kumar; https://commons.wikimedia.org/wiki/File:2018_Blue_Bugatti_Chiron_at_Grand_Basel_(Ank_Kumar)_02.jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP, whole photo retained.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1200,
+      "height": 900,
+      "sha256": "fb6a401c8f5e0b1f4b1e9883c13b5e9a0196ba7eecc1576f7122c584ad630a84"
+    },
+    {
+      "id": "view-CAR05-rear",
+      "path": "media/views/car05-rear.webp",
+      "source": "MrWalkr; https://commons.wikimedia.org/wiki/File:Chiron_Rear.jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP, whole photo retained.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1200,
+      "height": 826,
+      "sha256": "07df2e7d142919c653e46a7d46380137dcfcec9f06428bca9e10aa2104d8da19"
+    },
+    {
+      "id": "view-CAR06-front",
+      "path": "media/views/car06-front.webp",
+      "source": "Norbert Aepli, Switzerland (User:Noebu); https://commons.wikimedia.org/wiki/File:2015-03-03_Geneva_Motor_Show_3250.JPG; CC BY 4.0; https://creativecommons.org/licenses/by/4.0; resized/WebP, whole photo retained.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1200,
+      "height": 900,
+      "sha256": "9b036addc1356e0cdb1c2f94031714be7b1993b8677a32ae0558aeb6c3da6d05"
+    },
+    {
+      "id": "view-CAR06-side",
+      "path": "media/views/car06-side.webp",
+      "source": "Norbert Aepli, Switzerland (User:Noebu); https://commons.wikimedia.org/wiki/File:2015-03-03_Geneva_Motor_Show_3253.JPG; CC BY 4.0; https://creativecommons.org/licenses/by/4.0; resized/WebP, whole photo retained.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1200,
+      "height": 900,
+      "sha256": "e4d2e28661cdc85cff76c1a5bc6d810c443f1ea743212762f7d0c3cceff01bc0"
+    },
+    {
+      "id": "view-CAR06-rear",
+      "path": "media/views/car06-rear.webp",
+      "source": "Norbert Aepli, Switzerland (User:Noebu); https://commons.wikimedia.org/wiki/File:2015-03-03_Geneva_Motor_Show_3255.JPG; CC BY 4.0; https://creativecommons.org/licenses/by/4.0; resized/WebP, whole photo retained.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1200,
+      "height": 900,
+      "sha256": "727d0b396c9e648b541e8e7b3fe203238fbb993dc41b9127101cd193d53ba9ad"
+    },
+    {
+      "id": "view-CAR07-front",
+      "path": "media/views/car07-front.webp",
+      "source": "Calreyn88; https://commons.wikimedia.org/wiki/File:Koenigsegg_Jesko_Attack_3.jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP, whole photo retained.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1200,
+      "height": 827,
+      "sha256": "14d7cb406c19e8bd245550dda695635b1f8884a621d0da1d02619fa2a0931aee"
+    },
+    {
+      "id": "view-CAR07-other-side",
+      "path": "media/views/car07-other-side.webp",
+      "source": "MrWalkr; https://commons.wikimedia.org/wiki/File:2023_Koenigsegg_Jesko_Left_LC24.jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP, whole photo retained.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1200,
+      "height": 693,
+      "sha256": "04c2f698e784969a393f1a09c5f944d756789c23f6ae68c4035f194f8d04d7cd"
+    },
+    {
+      "id": "view-CAR07-rear",
+      "path": "media/views/car07-rear.webp",
+      "source": "MrWalkr; https://commons.wikimedia.org/wiki/File:2023_Koenigsegg_Jesko_Rear_LC24.jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP, whole photo retained.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1200,
+      "height": 670,
+      "sha256": "42ae13b514a3dbef1a7a8ac866ce453fc660175a8002e380eed58803be08f14c"
+    },
+    {
+      "id": "view-CAR08-front",
+      "path": "media/views/car08-front.webp",
+      "source": "Alexander-93; https://commons.wikimedia.org/wiki/File:Aston_Martin_Vantage_(2024)_IMG_0002.jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP, whole photo retained.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1200,
+      "height": 649,
+      "sha256": "decf3a53c568796c150d7ff12a50d38634db6df233f687c1c63fe72b9f147dfe"
+    },
+    {
+      "id": "view-CAR08-other-side",
+      "path": "media/views/car08-other-side.webp",
+      "source": "Alexander-93; https://commons.wikimedia.org/wiki/File:Aston_Martin_Vantage_(2024)_IMG_0003.jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP, whole photo retained.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1200,
+      "height": 799,
+      "sha256": "b8f7dacabc926b91e06fba009df159f5f7c2e29cd2940daef28f7d13cd855631"
+    },
+    {
+      "id": "view-CAR08-rear",
+      "path": "media/views/car08-rear.webp",
+      "source": "Alexander-93; https://commons.wikimedia.org/wiki/File:Aston_Martin_Vantage_(2024)_IMG_0015.jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP, whole photo retained.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1200,
+      "height": 627,
+      "sha256": "8dfd1d5669673903c2926087bbb570e9202db97a3ca4a9b4d5762b454fc5d613"
     },
     {
       "id": "welcome",
@@ -2878,6 +3136,24 @@
       "sha256": "fef5f8e31ac701102a51a01f6f285da41339e7435d0f228bfe8e76f82e6c6fad",
       "duration": 7.486875,
       "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
+    },
+    {
+      "id": "seat",
+      "path": "media/seat.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "57634a933bb92cf3e132327b33fc1a5d92ae4a1d40beb0ad1c30396e9f340f73",
+      "duration": 0.934542,
+      "source": "Edge local preview en-US-JennyNeural -12%; production provenance in content/audio-production.json; listening and applicable rights review separate."
+    },
+    {
+      "id": "zh-seat",
+      "path": "media/zh-seat.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "dc4ab76eb500e430c16ed17f110fc389510fb752302aa7c5100636656c06f177",
+      "duration": 0.988042,
+      "source": "Edge local preview zh-CN-XiaoxiaoNeural -12%; production provenance in content/audio-production.json; listening and applicable rights review separate."
     }
   ],
   "scenes": [
@@ -2923,7 +3199,84 @@
       "status": "reviewed",
       "image": "img-white",
       "audio": "name-CAR01",
-      "observation": "仔细看看车灯和进气口的线条。"
+      "observation": "仔细看看车灯和进气口的线条。",
+      "views": [
+        {
+          "id": "front",
+          "image": "view-CAR01-front",
+          "label": "车头",
+          "caption": "白色，前侧方实拍",
+          "credit": {
+            "author": "Calreyn88",
+            "license": "CC0",
+            "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2023_Lamborghini_Revuelto_4.jpg"
+          }
+        },
+        {
+          "id": "other-side",
+          "image": "view-CAR01-other-side",
+          "label": "另一侧",
+          "caption": "白色，从另一侧看车头与侧面",
+          "credit": {
+            "author": "Calreyn88",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2024_Lamborghini_Revuelto_15.jpg"
+          }
+        },
+        {
+          "id": "rear",
+          "image": "view-CAR01-rear",
+          "label": "车尾",
+          "caption": "橙色，后侧方实拍",
+          "credit": {
+            "author": "Calreyn88",
+            "license": "CC0",
+            "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2023_Lamborghini_Revuelto_6.jpg"
+          }
+        },
+        {
+          "id": "interior",
+          "image": "view-CAR01-interior",
+          "label": "座舱",
+          "caption": "橙黑内饰，可见真实座椅与方向盘",
+          "credit": {
+            "author": "Y.Leclercq",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lamborghini_Revuelto_int%C3%A9rieur_03.jpg"
+          },
+          "hotspots": [
+            {
+              "word": "seat",
+              "x": 0.79,
+              "y": 0.56
+            }
+          ]
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.647,
+          "y": 0.697
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.763,
+          "y": 0.48
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.442,
+          "y": 0.609
+        }
+      ]
     },
     {
       "id": "CAR02",
@@ -2948,7 +3301,65 @@
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
       },
-      "displayImage": "cutout-CAR02"
+      "displayImage": "cutout-CAR02",
+      "views": [
+        {
+          "id": "front",
+          "image": "view-CAR02-front",
+          "label": "车头",
+          "caption": "红色，前侧方实拍",
+          "credit": {
+            "author": "Calreyn88",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2022_Ferrari_296_GTB_1.jpg"
+          }
+        },
+        {
+          "id": "other-side",
+          "image": "view-CAR02-other-side",
+          "label": "另一侧",
+          "caption": "红色，从另一侧看车头与侧面",
+          "credit": {
+            "author": "Calreyn88",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2022_Ferrari_296_GTB_2.jpg"
+          }
+        },
+        {
+          "id": "rear",
+          "image": "view-CAR02-rear",
+          "label": "车尾",
+          "caption": "红色，后侧方实拍",
+          "credit": {
+            "author": "Calreyn88",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2022_Ferrari_296_GTB_5.jpg"
+          }
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.3,
+          "y": 0.65
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.2,
+          "y": 0.4
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.48,
+          "y": 0.55
+        }
+      ]
     },
     {
       "id": "CAR03",
@@ -2973,7 +3384,65 @@
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
       },
-      "displayImage": "cutout-CAR03"
+      "displayImage": "cutout-CAR03",
+      "views": [
+        {
+          "id": "front",
+          "image": "view-CAR03-front",
+          "label": "车头",
+          "caption": "白色，992 I 代 GT3 RS 前侧方",
+          "credit": {
+            "author": "Calreyn88",
+            "license": "CC BY 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2023_Porsche_911_GT3_RS_3.jpg"
+          }
+        },
+        {
+          "id": "other-side",
+          "image": "view-CAR03-other-side",
+          "label": "另一侧",
+          "caption": "白色，从另一侧看车头与侧面",
+          "credit": {
+            "author": "Calreyn88",
+            "license": "CC BY 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2023_Porsche_911_GT3_RS_6.jpg"
+          }
+        },
+        {
+          "id": "rear",
+          "image": "view-CAR03-rear",
+          "label": "车尾",
+          "caption": "白色，可见 GT3 RS 固定尾翼",
+          "credit": {
+            "author": "Calreyn88",
+            "license": "CC BY 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2023_Porsche_911_GT3_RS_4.jpg"
+          }
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.67,
+          "y": 0.7
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.79,
+          "y": 0.46
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.52,
+          "y": 0.51
+        }
+      ]
     },
     {
       "id": "CAR04",
@@ -2998,7 +3467,65 @@
         "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
         "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
       },
-      "displayImage": "cutout-CAR04"
+      "displayImage": "cutout-CAR04",
+      "views": [
+        {
+          "id": "front",
+          "image": "view-CAR04-front",
+          "label": "车头",
+          "caption": "橙色，750S Coupé 前侧方",
+          "credit": {
+            "author": "Calreyn88",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2024_McLaren_750S_2.jpg"
+          }
+        },
+        {
+          "id": "other-side",
+          "image": "view-CAR04-other-side",
+          "label": "近看车头",
+          "caption": "橙色，接近正前方的视角",
+          "credit": {
+            "author": "Calreyn88",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2024_McLaren_750S_3.jpg"
+          }
+        },
+        {
+          "id": "rear",
+          "image": "view-CAR04-rear",
+          "label": "车尾",
+          "caption": "黄色，车门开启时的后侧方",
+          "credit": {
+            "author": "Aos.1905",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:McLaren_750S_(Rear).jpg"
+          }
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.68,
+          "y": 0.66
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.82,
+          "y": 0.44
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.46,
+          "y": 0.58
+        }
+      ]
     },
     {
       "id": "CAR05",
@@ -3023,7 +3550,65 @@
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
       },
-      "displayImage": "cutout-CAR05"
+      "displayImage": "cutout-CAR05",
+      "views": [
+        {
+          "id": "front",
+          "image": "view-CAR05-front",
+          "label": "车头",
+          "caption": "蓝色，标准 Chiron 前方",
+          "credit": {
+            "author": "Ank Kumar",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2018_Blue_Bugatti_Chiron_at_Grand_Basel_(Ank_Kumar)_04.jpg"
+          }
+        },
+        {
+          "id": "side",
+          "image": "view-CAR05-side",
+          "label": "侧面",
+          "caption": "蓝色，标准 Chiron 侧面",
+          "credit": {
+            "author": "Ank Kumar",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2018_Blue_Bugatti_Chiron_at_Grand_Basel_(Ank_Kumar)_02.jpg"
+          }
+        },
+        {
+          "id": "rear",
+          "image": "view-CAR05-rear",
+          "label": "车尾",
+          "caption": "黑色，标准 Chiron 后方",
+          "credit": {
+            "author": "MrWalkr",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chiron_Rear.jpg"
+          }
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.35,
+          "y": 0.69
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.22,
+          "y": 0.44
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.56,
+          "y": 0.54
+        }
+      ]
     },
     {
       "id": "CAR06",
@@ -3048,7 +3633,59 @@
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
         "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
       },
-      "displayImage": "cutout-CAR06"
+      "displayImage": "cutout-CAR06",
+      "views": [
+        {
+          "id": "front",
+          "image": "view-CAR06-front",
+          "label": "车头",
+          "caption": "红色，车门与前后机盖开启的展车",
+          "credit": {
+            "author": "Norbert Aepli, Switzerland (User:Noebu)",
+            "license": "CC BY 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2015-03-03_Geneva_Motor_Show_3250.JPG"
+          }
+        },
+        {
+          "id": "side",
+          "image": "view-CAR06-side",
+          "label": "侧面",
+          "caption": "红色，车门与机盖开启的侧面",
+          "credit": {
+            "author": "Norbert Aepli, Switzerland (User:Noebu)",
+            "license": "CC BY 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2015-03-03_Geneva_Motor_Show_3253.JPG"
+          }
+        },
+        {
+          "id": "rear",
+          "image": "view-CAR06-rear",
+          "label": "车尾",
+          "caption": "红色，机盖开启的后侧方",
+          "credit": {
+            "author": "Norbert Aepli, Switzerland (User:Noebu)",
+            "license": "CC BY 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2015-03-03_Geneva_Motor_Show_3255.JPG"
+          }
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.45,
+          "y": 0.8
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.28,
+          "y": 0.61
+        }
+      ]
     },
     {
       "id": "CAR07",
@@ -3073,7 +3710,65 @@
         "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
         "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
       },
-      "displayImage": "cutout-CAR07"
+      "displayImage": "cutout-CAR07",
+      "views": [
+        {
+          "id": "front",
+          "image": "view-CAR07-front",
+          "label": "车头",
+          "caption": "蓝色，Jesko Attack 前侧方",
+          "credit": {
+            "author": "Calreyn88",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Koenigsegg_Jesko_Attack_3.jpg"
+          }
+        },
+        {
+          "id": "other-side",
+          "image": "view-CAR07-other-side",
+          "label": "另一侧",
+          "caption": "红色，从另一侧看车头与侧面",
+          "credit": {
+            "author": "MrWalkr",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2023_Koenigsegg_Jesko_Left_LC24.jpg"
+          }
+        },
+        {
+          "id": "rear",
+          "image": "view-CAR07-rear",
+          "label": "车尾",
+          "caption": "红色，可见 Attack 的大型尾翼",
+          "credit": {
+            "author": "MrWalkr",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2023_Koenigsegg_Jesko_Rear_LC24.jpg"
+          }
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.755,
+          "y": 0.654
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.81,
+          "y": 0.41
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.63,
+          "y": 0.53
+        }
+      ]
     },
     {
       "id": "CAR08",
@@ -3098,7 +3793,65 @@
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
       },
-      "displayImage": "cutout-CAR08"
+      "displayImage": "cutout-CAR08",
+      "views": [
+        {
+          "id": "front",
+          "image": "view-CAR08-front",
+          "label": "车头",
+          "caption": "绿色，2024 更新款 Vantage Coupé",
+          "credit": {
+            "author": "Alexander-93",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aston_Martin_Vantage_(2024)_IMG_0002.jpg"
+          }
+        },
+        {
+          "id": "other-side",
+          "image": "view-CAR08-other-side",
+          "label": "另一侧",
+          "caption": "绿色，从另一侧看车头与侧面",
+          "credit": {
+            "author": "Alexander-93",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aston_Martin_Vantage_(2024)_IMG_0003.jpg"
+          }
+        },
+        {
+          "id": "rear",
+          "image": "view-CAR08-rear",
+          "label": "车尾",
+          "caption": "绿色，2024 更新款后侧方",
+          "credit": {
+            "author": "Alexander-93",
+            "license": "CC BY-SA 4.0",
+            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aston_Martin_Vantage_(2024)_IMG_0015.jpg"
+          }
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.42,
+          "y": 0.69
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.24,
+          "y": 0.46
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.57,
+          "y": 0.55
+        }
+      ]
     }
   ],
   "stories": [
@@ -3360,13 +4113,13 @@
       "id": "sun",
       "zh": "太阳",
       "audio": "sun",
-      "activityId": "S03"
+      "activityId": "L01"
     },
     {
       "id": "rain",
       "zh": "雨",
       "audio": "rain",
-      "activityId": "S03"
+      "activityId": "L01"
     },
     {
       "id": "tree",
@@ -3385,6 +4138,12 @@
       "zh": "树叶",
       "audio": "leaf",
       "activityId": "H01"
+    },
+    {
+      "id": "seat",
+      "zh": "座椅",
+      "audio": "seat",
+      "activityId": "T01"
     }
   ],
   "phrases": [
