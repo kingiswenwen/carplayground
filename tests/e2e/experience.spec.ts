@@ -220,7 +220,21 @@ test('停车暂停后退出20次，实际销毁每个引擎并记录内存趋势
   test.skip(browserName !== 'chromium', 'CDP measurements use Chromium');
   test.setTimeout(90000);
   const errors: string[] = []; page.on('pageerror', error => errors.push(error.message));
-  await page.goto('/#/play/M01');
+  const cdp = await page.context().newCDPSession(page);
+  await cdp.send('Performance.enable');
+  const countVisibilityListeners = async () => {
+    const { result } = await cdp.send('Runtime.evaluate', { expression: 'document', objectGroup: 'parking-listeners' });
+    const { listeners } = await cdp.send('DOMDebugger.getEventListeners', { objectId: result.objectId! });
+    const count = listeners.filter(listener => listener.type === 'visibilitychange').length;
+    // Inspector handles must not retain callbacks and distort the GC samples.
+    for (const id of new Set(listeners.flatMap(listener => [listener.handler?.objectId, listener.originalHandler?.objectId]).filter((id): id is string => !!id))) await cdp.send('Runtime.releaseObject', { objectId: id });
+    await cdp.send('Runtime.releaseObjectGroup', { objectGroup: 'parking-listeners' });
+    return count;
+  };
+  await page.goto('/#/cars/CAR01');
+  await expect(page.locator('.detail-stage .car-image.ready')).toBeVisible();
+  const baselineVisibilityListeners = await countVisibilityListeners();
+  await page.getByRole('link', { name: /小车回家/ }).click();
   await expect(page.locator('canvas')).toHaveCount(1);
   await expect(page.getByText('停车场正在准备…')).not.toBeVisible();
   // Observe Phaser's real destroy event without retaining games or replacing
@@ -239,8 +253,6 @@ test('停车暂停后退出20次，实际销毁每个引擎并记录内存趋势
       return original.apply(this, args);
     };
   });
-  const cdp = await page.context().newCDPSession(page);
-  await cdp.send('Performance.enable');
   const measurements: Record<string, number>[] = [];
   for (let i = 0; i < 20; i++) {
     if (i) {
@@ -256,9 +268,11 @@ test('停车暂停后退出20次，实际销毁每个引擎并记录内存趋势
     await page.getByRole('link', { name: '回去看车', exact: true }).click();
     await expect(page.locator('canvas')).toHaveCount(0);
     await expect.poll(() => page.evaluate(() => Reflect.get(window, '__parkingCleanupAudit').finished), { timeout: 1500 }).toBe(i + 1);
+    const visibilityListeners = await countVisibilityListeners();
+    expect(visibilityListeners).toBe(baselineVisibilityListeners);
     await cdp.send('HeapProfiler.collectGarbage');
     const { metrics } = await cdp.send('Performance.getMetrics');
-    measurements.push({ cycle: i + 1, ...Object.fromEntries(metrics.filter(metric => ['JSHeapUsedSize', 'Nodes', 'Documents', 'JSEventListeners'].includes(metric.name)).map(metric => [metric.name, metric.value])) });
+    measurements.push({ cycle: i + 1, visibilityListeners, ...Object.fromEntries(metrics.filter(metric => ['JSHeapUsedSize', 'Nodes', 'Documents', 'JSEventListeners'].includes(metric.name)).map(metric => [metric.name, metric.value])) });
   }
   const cleanup = await page.evaluate(() => Reflect.get(window, '__parkingCleanupAudit'));
   expect(cleanup).toEqual({ requested: 20, finished: 20, sleeping: 20 });
