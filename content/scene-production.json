@@ -1,0 +1,120 @@
+[
+  {
+    "id": "world",
+    "kind": "scene",
+    "file": "scenes/world-v3.webp",
+    "generatedFile": "exec-c8a5238c-aded-4ad8-a097-a476b1b5e210.png",
+    "prompt": "Use case: stylized-concept. Asset type: production background for an immersive children's car exploration browser game, landscape 1536x1024. Premium crafted 3D miniature architectural environment, realistic materials, gentle global illumination, sophisticated warm ivory, sage green, dusty blue and terracotta palette; crisp physically plausible details, soft shadows, inviting sunlight. No text, logos, letters, numbers, watermarks, people or vehicles. Gameplay cars and exact targets will be HTML overlays. Full bleed, detailed but uncluttered. Elevated 3/4 aerial orthographic view of a beautifully designed tiny automotive discovery campus, circular landscaped island with connected curving asphalt roads: cream modern glass car showroom upper LEFT (23% across,37% down), paved parking courtyard lower LEFT (29%,72%), terracotta roofed workshop upper RIGHT (72%,36%), park picnic/travel destination with winding blue stream and trees lower RIGHT (76%,74%). All four places clearly recognizable around a central roundabout with greenery; clear roads connect all. The whole campus fits. No parking slots, no UI, no cartoon faces. Polished architectural game world.",
+    "source": "Built-in GPT Image; production environment; gameplay objects and counts are rendered separately; reviewed 2026-10-17.",
+    "savedPath": "public/media/scenes/world-v3.webp"
+  },
+  {
+    "id": "showroom",
+    "kind": "scene",
+    "file": "scenes/showroom-v3.webp",
+    "generatedFile": "exec-681ee491-7198-417a-8efb-b2a85d2a8254.png",
+    "prompt": "Use case: stylized-concept. Asset type: production background for an immersive children's car exploration browser game, landscape 1536x1024. Premium crafted 3D miniature architectural environment, realistic materials, gentle global illumination, sophisticated warm ivory, sage green, dusty blue and terracotta palette; crisp physically plausible details, soft shadows, inviting sunlight. No text, logos, letters, numbers, watermarks, people or vehicles. Gameplay cars and exact targets will be HTML overlays. Full bleed, detailed but uncluttered. Eye-height 3/4 view inside a bright modern car museum/showroom: enormous arched side windows, limestone columns, sage trim, terrazzo floor, wood reception and plants at the back/sides. Grand EMPTY circular pale exhibition plinth centered 55% across,65% down, with clear surrounding floor for a full real supercar overlay. Empty warm lit alcoves on back wall; no pictures of cars. Beautiful welcoming architectural render. Central lower 60% uncluttered. Nothing on plinth or foreground.",
+    "source": "Built-in GPT Image; production environment; gameplay objects and counts are rendered separately; reviewed 2026-10-17.",
+    "savedPath": "public/media/scenes/showroom-v3.webp"
+  },
+  {
+    "id": "parking",
+    "kind": "scene",
+    "file": "scenes/parking-v3.webp",
+    "generatedFile": "exec-d0c8f7be-2c6f-4504-96f7-f757ba0378aa.png",
+    "prompt": "Use case: stylized-concept. Asset type: production background for an immersive children's car exploration browser game, landscape 1536x1024. Premium crafted 3D miniature architectural environment, realistic materials, gentle global illumination, sophisticated warm ivory, sage green, dusty blue and terracotta palette; crisp physically plausible details, soft shadows, inviting sunlight. No text, logos, letters, numbers, watermarks, people or vehicles. Gameplay cars and exact targets will be HTML overlays. Full bleed, detailed but uncluttered. Bird's-eye near-orthographic view down about 65 degrees at a beautiful parking courtyard. Huge EMPTY warm grey rectangular asphalt surface occupies center and lower 65%; NO parking bays, NO painted lines, NO objects in that area because exact targets will be coded. Rear upper25%: charming sage gatehouse on left, entrance lane with raised blank barrier upper-center, planters and cream low walls at edges, trees beyond. Right edge: terracotta/ivory wash canopy. Grass borders. Natural afternoon sunlight. No cars or random slots. Screen-aligned horizontal gameplay overlays need clear central ground.",
+    "source": "Built-in GPT Image; production environment; gameplay objects and counts are rendered separately; reviewed 2026-10-17.",
+    "savedPath": "public/media/scenes/parking-v3.webp"
+  },
+  {
+    "id": "workshop",
+    "kind": "scene",
+    "file": "scenes/workshop-v3.webp",
+    "generatedFile": "exec-2b324229-debe-437f-8366-db90fd5b8132.png",
+    "prompt": "Use case: stylized-concept. Asset type: production background for an immersive children's car exploration browser game, landscape 1536x1024. Premium crafted 3D miniature architectural environment, realistic materials, gentle global illumination, sophisticated warm ivory, sage green, dusty blue and terracotta palette; crisp physically plausible details, soft shadows, inviting sunlight. No text, logos, letters, numbers, watermarks, people or vehicles. Gameplay cars and exact targets will be HTML overlays. Full bleed, detailed but uncluttered. Eye-level 3/4 view inside a spacious maker garage/science workshop. Wood, cream brick, sage cabinets at back wall, arch windows with trees, generic tools on pegboard and amber pendant lights. A broad EMPTY honey wood worktable fills lower55%, huge clear horizontal surface for interactive objects. Behind: small open car service bay at left, lit bench at center, craft storage at right. Beautiful grounded materials. No toy cars, loose counting items, ramps or bridges on central worktable. No UI.",
+    "source": "Built-in GPT Image; production environment; gameplay objects and counts are rendered separately; reviewed 2026-10-17.",
+    "savedPath": "public/media/scenes/workshop-v3.webp"
+  },
+  {
+    "id": "travel",
+    "kind": "scene",
+    "file": "scenes/travel-v3.webp",
+    "generatedFile": "exec-98723939-ca09-4214-ae80-cb9355b20594.png",
+    "prompt": "Use case: stylized-concept. Asset type: production background for an immersive children's car exploration browser game, landscape 1536x1024. Premium crafted 3D miniature architectural environment, realistic materials, gentle global illumination, sophisticated warm ivory, sage green, dusty blue and terracotta palette; crisp physically plausible details, soft shadows, inviting sunlight. No text, logos, letters, numbers, watermarks, people or vehicles. Gameplay cars and exact targets will be HTML overlays. Full bleed, detailed but uncluttered. A shaded roadside rest area looking into a beautiful miniature park. Winding asphalt road crosses lower third and leads to a small bridge over stream in middle distance. Left background: cream modern library with broad windows and blank entrance canopy. Right background: natural history museum with columns. Middle distance: sunny oak park, picnic meadow and footpath. Foreground lower center: broad empty paved pull-in picnic area for car/object overlays. Sunlight through trees, blue sky and soft clouds. Beautiful inviting believable environment. No signs or pictograms.",
+    "source": "Built-in GPT Image; production environment; gameplay objects and counts are rendered separately; reviewed 2026-10-17.",
+    "savedPath": "public/media/scenes/travel-v3.webp"
+  },
+  {
+    "id": "CAR02",
+    "kind": "cutout",
+    "file": "cutouts/car02-v3.webp",
+    "generatedFile": "exec-d45a9da1-97e2-49d1-9c8c-3d4d5ac6fe62.png",
+    "prompt": "Use case: background-extraction. Production transparent isolated car asset for educational interactive automotive museum. Edit target: attached source photograph of red Ferrari 296 GTB standard hardtop coupe. Remove everything except this ONE complete car. Preserve exact photographed car identity, generation, paint color, proportions, lamp shapes, wheels, mirrors, vents, wing, body panels and perspective. Keep all visible tires complete. Remove people, adjacent cars, foreground placards and stands, reflections of people as much as practical without changing car design, ground and background. Keep full car with modest transparent margin; no floor, no opaque backdrop, no extra objects. Genuine alpha transparency. Retain original orientation, do not flip or rotate to top view. Restore small occluded body areas conservatively from immediately adjacent visible material, without inventing a different configuration. Clean photographic edges, neutral soft studio illumination, no cartoon styling, no decorative text, no license plate lettering. This is a cutout of the reference, not a redesign.",
+    "source": "Reference-derived cutout; original photographer and license in photo-sources.json; built-in GPT Image background removal and local WebP conversion; reviewed 2026-10-17. Retains original source license.",
+    "savedPath": "public/media/cutouts/car02-v3.webp"
+  },
+  {
+    "id": "CAR03",
+    "kind": "cutout",
+    "file": "cutouts/car03-v3.webp",
+    "generatedFile": "exec-a1313cac-6253-43cb-bb19-5eeeb9d64764.png",
+    "prompt": "Use case: background-extraction. Production transparent isolated car asset for educational interactive automotive museum. Edit target: attached source photograph of white Porsche 911 992.1 GT3 RS with red wheels and original large rear wing. Remove everything except this ONE complete car. Preserve exact photographed car identity, generation, paint color, proportions, lamp shapes, wheels, mirrors, vents, wing, body panels and perspective. Keep all visible tires complete. Remove people, adjacent cars, foreground placards and stands, reflections of people as much as practical without changing car design, ground and background. Keep full car with modest transparent margin; no floor, no opaque backdrop, no extra objects. Genuine alpha transparency. Retain original orientation, do not flip or rotate to top view. Restore small occluded body areas conservatively from immediately adjacent visible material, without inventing a different configuration. Clean photographic edges, neutral soft studio illumination, no cartoon styling, no decorative text, no license plate lettering. This is a cutout of the reference, not a redesign.",
+    "source": "Reference-derived cutout; original photographer and license in photo-sources.json; built-in GPT Image background removal and local WebP conversion; reviewed 2026-10-17. Retains original source license.",
+    "savedPath": "public/media/cutouts/car03-v3.webp"
+  },
+  {
+    "id": "CAR04",
+    "kind": "cutout",
+    "file": "cutouts/car04-v3.webp",
+    "generatedFile": "exec-f33b8d20-6e80-465e-ad39-9c11bf71ee5c.png",
+    "prompt": "Use case: background-extraction. Production transparent isolated car asset for educational interactive automotive museum. Edit target: attached source photograph of orange McLaren 750S coupe, retain hard roof. Remove everything except this ONE complete car. Preserve exact photographed car identity, generation, paint color, proportions, lamp shapes, wheels, mirrors, vents, wing, body panels and perspective. Keep all visible tires complete. Remove people, adjacent cars, foreground placards and stands, reflections of people as much as practical without changing car design, ground and background. Keep full car with modest transparent margin; no floor, no opaque backdrop, no extra objects. Genuine alpha transparency. Retain original orientation, do not flip or rotate to top view. Restore small occluded body areas conservatively from immediately adjacent visible material, without inventing a different configuration. Clean photographic edges, neutral soft studio illumination, no cartoon styling, no decorative text, no license plate lettering. This is a cutout of the reference, not a redesign.",
+    "source": "Reference-derived cutout; original photographer and license in photo-sources.json; built-in GPT Image background removal and local WebP conversion; reviewed 2026-10-17. Retains original source license.",
+    "savedPath": "public/media/cutouts/car04-v3.webp"
+  },
+  {
+    "id": "CAR05",
+    "kind": "cutout",
+    "file": "cutouts/car05-v3.webp",
+    "generatedFile": "exec-24b84219-db7e-4d68-b73a-358387138b11.png",
+    "prompt": "Use case: background-extraction. Production transparent isolated car asset for educational interactive automotive museum. Edit target: attached source photograph of black and blue Bugatti Chiron standard. Remove everything except this ONE complete car. Preserve exact photographed car identity, generation, paint color, proportions, lamp shapes, wheels, mirrors, vents, wing, body panels and perspective. Keep all visible tires complete. Remove people, adjacent cars, foreground placards and stands, reflections of people as much as practical without changing car design, ground and background. Keep full car with modest transparent margin; no floor, no opaque backdrop, no extra objects. Genuine alpha transparency. Retain original orientation, do not flip or rotate to top view. Restore small occluded body areas conservatively from immediately adjacent visible material, without inventing a different configuration. Clean photographic edges, neutral soft studio illumination, no cartoon styling, no decorative text, no license plate lettering. This is a cutout of the reference, not a redesign.",
+    "source": "Reference-derived cutout; original photographer and license in photo-sources.json; built-in GPT Image background removal and local WebP conversion; reviewed 2026-10-17. Retains original source license.",
+    "savedPath": "public/media/cutouts/car05-v3.webp"
+  },
+  {
+    "id": "CAR06",
+    "kind": "cutout",
+    "file": "cutouts/car06-v3.webp",
+    "generatedFile": "exec-a62764a7-1d8d-4480-8592-97b88615c798.png",
+    "prompt": "Use case: background-extraction. Production transparent isolated car asset for educational interactive automotive museum. Edit target: attached source photograph of yellow Pagani Huayra standard coupe with its doors and rear cover OPEN exactly as photographed, preserve this open configuration. Remove everything except this ONE complete car. Preserve exact photographed car identity, generation, paint color, proportions, lamp shapes, wheels, mirrors, vents, wing, body panels and perspective. Keep all visible tires complete. Remove people, adjacent cars, foreground placards and stands, reflections of people as much as practical without changing car design, ground and background. Keep full car with modest transparent margin; no floor, no opaque backdrop, no extra objects. Genuine alpha transparency. Retain original orientation, do not flip or rotate to top view. Restore small occluded body areas conservatively from immediately adjacent visible material, without inventing a different configuration. Clean photographic edges, neutral soft studio illumination, no cartoon styling, no decorative text, no license plate lettering. This is a cutout of the reference, not a redesign.",
+    "source": "Reference-derived cutout; original photographer and license in photo-sources.json; built-in GPT Image background removal and local WebP conversion; reviewed 2026-10-17. Retains original source license.",
+    "savedPath": "public/media/cutouts/car06-v3.webp"
+  },
+  {
+    "id": "CAR07",
+    "kind": "cutout",
+    "file": "cutouts/car07-v3.webp",
+    "generatedFile": "exec-403f1ef2-db11-42a0-ab00-ccd0b4f69daf.png",
+    "prompt": "Use case: background-extraction. Production transparent isolated car asset for educational interactive automotive museum. Edit target: attached source photograph of blue Koenigsegg Jesko Attack with its very large Attack rear wing, not Absolut. Remove everything except this ONE complete car. Preserve exact photographed car identity, generation, paint color, proportions, lamp shapes, wheels, mirrors, vents, wing, body panels and perspective. Keep all visible tires complete. Remove people, adjacent cars, foreground placards and stands, reflections of people as much as practical without changing car design, ground and background. Keep full car with modest transparent margin; no floor, no opaque backdrop, no extra objects. Genuine alpha transparency. Retain original orientation, do not flip or rotate to top view. Restore small occluded body areas conservatively from immediately adjacent visible material, without inventing a different configuration. Clean photographic edges, neutral soft studio illumination, no cartoon styling, no decorative text, no license plate lettering. This is a cutout of the reference, not a redesign.",
+    "source": "Reference-derived cutout; original photographer and license in photo-sources.json; built-in GPT Image background removal and local WebP conversion; reviewed 2026-10-17. Retains original source license.",
+    "savedPath": "public/media/cutouts/car07-v3.webp"
+  },
+  {
+    "id": "CAR08",
+    "kind": "cutout",
+    "file": "cutouts/car08-v3.webp",
+    "generatedFile": "exec-4f114336-a53b-42cd-9417-241b78640258.png",
+    "prompt": "Use case: background-extraction. Production transparent isolated car asset for educational interactive automotive museum. Edit target: attached source photograph of green 2024 updated Aston Martin Vantage hardtop coupe. Remove everything except this ONE complete car. Preserve exact photographed car identity, generation, paint color, proportions, lamp shapes, wheels, mirrors, vents, wing, body panels and perspective. Keep all visible tires complete. Remove people, adjacent cars, foreground placards and stands, reflections of people as much as practical without changing car design, ground and background. Keep full car with modest transparent margin; no floor, no opaque backdrop, no extra objects. Genuine alpha transparency. Retain original orientation, do not flip or rotate to top view. Restore small occluded body areas conservatively from immediately adjacent visible material, without inventing a different configuration. Clean photographic edges, neutral soft studio illumination, no cartoon styling, no decorative text, no license plate lettering. This is a cutout of the reference, not a redesign.",
+    "repairPrompt": "Use case: background-extraction. Edit target: supplied green 2024 updated Aston Martin Vantage coupe image. The previous result has an opaque black studio background, which is wrong. Remove ALL of the black/grey/green studio backdrop and ground glow, replace every non-car pixel with actual alpha transparency, NOT black. Preserve exactly the same whole car, all its edges and all its pixels, camera angle, headlights, grille, black wheels, mirrors, green paint and lime splitter. Keep generous transparent margins and all wheels complete. Do not add floor, shadow, vignette or glow. A clean photographic isolated PNG cutout on a genuine transparent background is mandatory. This will be displayed on a bright cream game showroom so an opaque dark rectangle is unacceptable.",
+    "source": "Reference-derived cutout; original photographer and license in photo-sources.json; built-in GPT Image background removal and local WebP conversion; reviewed 2026-10-17. Retains original source license.",
+    "savedPath": "public/media/cutouts/car08-v3.webp"
+  },
+  {
+    "id": "driving",
+    "kind": "scene",
+    "file": "scenes/driving-v3.webp",
+    "generatedFile": "exec-e147e6af-f057-424a-80f4-4835c8f14a72.png",
+    "prompt": "Use case: stylized-concept. Asset type: background for a children's introductory car motion physics game, landscape 1536x1024. Match a premium realistic miniature Mediterranean automotive discovery park: warm ivory stone buildings, sage accents, terracotta roofs, oak trees, natural detailed materials, golden soft sunlight. Eye-level elevated 3/4 view of a quiet closed practice ground, NOT a public road. Upper third shows an attractive little garage on left, tree-lined curving test road in background and distant hills. Lower TWO THIRDS are a very broad EMPTY level horizontal grey asphalt apron with fine texture, no lane lines, no objects, no cars, no people; two exact experimental lanes and real car cutout sprites will be rendered on top by code, traveling right to left. No hills or ramps on the foreground playing surface. Welcoming, realistic and immersive environment. No text, logos, letters, numbers, watermark or cartoon faces. Keep central lower region uncluttered.",
+    "source": "Built-in GPT Image; closed level practice ground for introductory model motion; no generated cars/counts. Reviewed 2026-10-17.",
+    "savedPath": "public/media/scenes/driving-v3.webp"
+  }
+]

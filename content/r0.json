@@ -1,0 +1,536 @@
+{
+  "id": "r0-20261017.1",
+  "schemaVersion": 1,
+  "appVersion": "0.1.0",
+  "car": {
+    "id": "CAR01",
+    "brand": "Lamborghini",
+    "model": "Revuelto",
+    "name": "兰博基尼 Revuelto",
+    "status": "reviewed",
+    "reference": "https://www.lamborghini.com/en-en/models/revuelto-models/revuelto",
+    "images": {
+      "white": "img-white",
+      "red": "img-red",
+      "blue": "img-blue"
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.647,
+        "y": 0.697
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.763,
+        "y": 0.48
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.442,
+        "y": 0.609
+      }
+    ]
+  },
+  "activities": [
+    {
+      "id": "E02",
+      "version": 1,
+      "title": "汽车的身体",
+      "subtitle": "点一点 · 听听英语",
+      "instruction": "找找车轮在哪里。",
+      "hint": "看看圆圆的、能滚动的地方。",
+      "instructionAudio": "parts-task",
+      "hintAudio": "parts-hint",
+      "completeAudio": "parts-success"
+    },
+    {
+      "id": "E01",
+      "version": 1,
+      "title": "发现颜色",
+      "subtitle": "看一看 · 找找颜色",
+      "instruction": "找找红色的车。",
+      "hint": "看看车身的颜色，也可以再听一遍。",
+      "instructionAudio": "color-red",
+      "hintAudio": "color-hint",
+      "completeAudio": "color-success"
+    },
+    {
+      "id": "M01",
+      "version": 1,
+      "title": "小车回家",
+      "subtitle": "停一停 · 数数小车",
+      "instruction": "给它们各找一个停车位吧。",
+      "hint": "先点一辆车，再点一个空车位。",
+      "instructionAudio": "parking-task",
+      "hintAudio": "parking-hint",
+      "completeAudio": "parking-success"
+    }
+  ],
+  "speech": {
+    "welcome": {
+      "text": "欢迎来到汽车游乐园。一起看看这辆车吧！",
+      "locale": "zh-CN"
+    },
+    "car-name": {
+      "text": "兰博基尼",
+      "locale": "zh-CN"
+    },
+    "car-model": {
+      "text": "Lamborghini Revuelto",
+      "locale": "en-US"
+    },
+    "parts-intro": {
+      "text": "点一点，看看汽车有哪些部分。",
+      "locale": "zh-CN"
+    },
+    "parts-task": {
+      "text": "找找车轮在哪里。",
+      "locale": "zh-CN"
+    },
+    "parts-hint": {
+      "text": "看看圆圆的、能滚动的地方。",
+      "locale": "zh-CN"
+    },
+    "parts-success": {
+      "text": "找到了，这是车轮。",
+      "locale": "zh-CN"
+    },
+    "zh-wheel": {
+      "text": "车轮",
+      "locale": "zh-CN"
+    },
+    "zh-door": {
+      "text": "车门",
+      "locale": "zh-CN"
+    },
+    "zh-light": {
+      "text": "车灯",
+      "locale": "zh-CN"
+    },
+    "wheel": {
+      "text": "Wheel",
+      "locale": "en-US"
+    },
+    "door": {
+      "text": "Door",
+      "locale": "en-US"
+    },
+    "light": {
+      "text": "Light",
+      "locale": "en-US"
+    },
+    "red": {
+      "text": "Red",
+      "locale": "en-US"
+    },
+    "blue": {
+      "text": "Blue",
+      "locale": "en-US"
+    },
+    "white": {
+      "text": "White",
+      "locale": "en-US"
+    },
+    "one": {
+      "text": "One",
+      "locale": "en-US"
+    },
+    "two": {
+      "text": "Two",
+      "locale": "en-US"
+    },
+    "three": {
+      "text": "Three",
+      "locale": "en-US"
+    },
+    "color-red": {
+      "text": "找找红色的车。",
+      "locale": "zh-CN"
+    },
+    "color-blue": {
+      "text": "找找蓝色的车。",
+      "locale": "zh-CN"
+    },
+    "color-white": {
+      "text": "找找白色的车。",
+      "locale": "zh-CN"
+    },
+    "color-hint": {
+      "text": "看看车身的颜色，也可以再听一遍。",
+      "locale": "zh-CN"
+    },
+    "color-retry": {
+      "text": "再看看，也可以听一遍。",
+      "locale": "zh-CN"
+    },
+    "color-success": {
+      "text": "找到了，就是这个颜色！",
+      "locale": "zh-CN"
+    },
+    "parking-task": {
+      "text": "给它们各找一个停车位吧。",
+      "locale": "zh-CN"
+    },
+    "parking-hint": {
+      "text": "先点一辆车，再点一个空车位。",
+      "locale": "zh-CN"
+    },
+    "parking-occupied": {
+      "text": "这里已经有车了。",
+      "locale": "zh-CN"
+    },
+    "parking-success": {
+      "text": "每辆车都有自己的位置了。",
+      "locale": "zh-CN"
+    },
+    "parts-task-door": {
+      "text": "找找车门在哪里。",
+      "locale": "zh-CN"
+    },
+    "parts-task-light": {
+      "text": "找找车灯在哪里。",
+      "locale": "zh-CN"
+    },
+    "parts-hint-door": {
+      "text": "看看坐进汽车前会打开的地方。",
+      "locale": "zh-CN"
+    },
+    "parts-hint-light": {
+      "text": "看看车头能发光的地方。",
+      "locale": "zh-CN"
+    }
+  },
+  "assets": [
+    {
+      "id": "img-white",
+      "kind": "image",
+      "path": "media/revuelto-white.webp",
+      "sha256": "8ebe65fdf553b87f81e06b8be67e07eee3a34aa81b5d55d5616adc51e1a6e59d",
+      "status": "approved",
+      "width": 1200,
+      "height": 641,
+      "source": "GPT Image production edit; see docs/development/assets.md; visual review 2026-10-17"
+    },
+    {
+      "id": "img-red",
+      "kind": "image",
+      "path": "media/revuelto-red.webp",
+      "sha256": "85edf877f5d2492bf35a9aecaea012fc1fc9bd96999ee19351e875f03e63ac0c",
+      "status": "approved",
+      "width": 1200,
+      "height": 643,
+      "source": "GPT Image production edit; see docs/development/assets.md; visual review 2026-10-17"
+    },
+    {
+      "id": "img-blue",
+      "kind": "image",
+      "path": "media/revuelto-blue.webp",
+      "sha256": "791499793fc70bb3430cb34af99ca01be8ddfc78206555404f2740011fe8ed03",
+      "status": "approved",
+      "width": 1200,
+      "height": 641,
+      "source": "GPT Image production edit; see docs/development/assets.md; visual review 2026-10-17"
+    },
+    {
+      "id": "welcome",
+      "kind": "audio",
+      "path": "media/welcome.mp3",
+      "sha256": "7dad127656320cf603576b8d0a0fa768d8ec9de802446e2f54923efbf5b18173",
+      "status": "approved",
+      "duration": 5.208,
+      "source": "Microsoft Edge TTS; Xiaoxiao/Jenny -12%; text and duration checked; see assets.md"
+    },
+    {
+      "id": "car-name",
+      "kind": "audio",
+      "path": "media/car-name.mp3",
+      "sha256": "eb8d695b8065c9b4f61fb9e973eccb4f7ecd58bb22e152f990ab30952f85621a",
+      "status": "approved",
+      "duration": 1.872,
+      "source": "Microsoft Edge TTS; Xiaoxiao/Jenny -12%; text and duration checked; see assets.md"
+    },
+    {
+      "id": "car-model",
+      "kind": "audio",
+      "path": "media/car-model.mp3",
+      "sha256": "7495e3882129a5ad820c671d275bfaddb451e8ec3e3a5671aa41ad088443c652",
+      "status": "approved",
+      "duration": 2.616,
+      "source": "Microsoft Edge TTS; Xiaoxiao/Jenny -12%; text and duration checked; see assets.md"
+    },
+    {
+      "id": "parts-intro",
+      "kind": "audio",
+      "path": "media/parts-intro.mp3",
+      "sha256": "b0764f7a788dc7de22ca72e9e22d3e83d174e5139b6a303de92359176c84bc67",
+      "status": "approved",
+      "duration": 3.744,
+      "source": "Microsoft Edge TTS; Xiaoxiao/Jenny -12%; text and duration checked; see assets.md"
+    },
+    {
+      "id": "parts-task",
+      "kind": "audio",
+      "path": "media/parts-task.mp3",
+      "sha256": "ac22ba7214218438df2722a1f581c4b7eef43deb983fae8746e00c96ae1a30f1",
+      "status": "approved",
+      "duration": 2.424,
+      "source": "Microsoft Edge TTS; Xiaoxiao/Jenny -12%; text and duration checked; see assets.md"
+    },
+    {
+      "id": "parts-hint",
+      "kind": "audio",
+      "path": "media/parts-hint.mp3",
+      "sha256": "ca1caab8e2c693cae1378aad2facafaf2db9fcd18e907aba0040dc78289e04d0",
+      "status": "approved",
+      "duration": 3.48,
+      "source": "Microsoft Edge TTS; Xiaoxiao/Jenny -12%; text and duration checked; see assets.md"
+    },
+    {
+      "id": "parts-success",
+      "kind": "audio",
+      "path": "media/parts-success.mp3",
+      "sha256": "cf526b41d7ceacb3d4012381d8a75c0ac157e68bf790a0c3754c905b50187273",
+      "status": "approved",
+      "duration": 2.736,
+      "source": "Microsoft Edge TTS; Xiaoxiao/Jenny -12%; text and duration checked; see assets.md"
+    },
+    {
+      "id": "zh-wheel",
+      "kind": "audio",
+      "path": "media/zh-wheel.mp3",
+      "sha256": "0d1b3e3fd2001fc13a770397b623cff54b8343f9d6bb189f8316ae643a259c32",
+      "status": "approved",
+      "duration": 1.872,
+      "source": "Microsoft Edge TTS; Xiaoxiao/Jenny -12%; text and duration checked; see assets.md"
+    },
+    {
+      "id": "zh-door",
+      "kind": "audio",
+      "path": "media/zh-door.mp3",
+      "sha256": "6d6411173c7205a9751f4bc8b8b3841dfb2b692af481b9573fffa5062441ddc3",
+      "status": "approved",
+      "duration": 1.872,
+      "source": "Microsoft Edge TTS; Xiaoxiao/Jenny -12%; text and duration checked; see assets.md"
+    },
+    {
+      "id": "zh-light",
+      "kind": "audio",
+      "path": "media/zh-light.mp3",
+      "sha256": "ddcfcc954f15fd3a44b538a87da318d4d18543c8fe864d45ad28a21afef58e36",
+      "status": "approved",
+      "duration": 1.872,
+      "source": "Microsoft Edge TTS; Xiaoxiao/Jenny -12%; text and duration checked; see assets.md"
+    },
+    {
+      "id": "wheel",
+      "kind": "audio",
+      "path": "media/wheel.mp3",
+      "sha256": "a73c435310489c0c4f19ee6e507d95b8cd6eb9f6a4334175bdbe3ba249e1a705",
+      "status": "approved",
+      "duration": 1.872,
+      "source": "Microsoft Edge TTS; Xiaoxiao/Jenny -12%; text and duration checked; see assets.md"
+    },
+    {
+      "id": "door",
+      "kind": "audio",
+      "path": "media/door.mp3",
+      "sha256": "92b63dc45fb3a92c578583ece1cdf2dff24726ffc76be1dcdd82360c7b1b1695",
+      "status": "approved",
+      "duration": 1.872,
+      "source": "Microsoft Edge TTS; Xiaoxiao/Jenny -12%; text and duration checked; see assets.md"
+    },
+    {
+      "id": "light",
+      "kind": "audio",
+      "path": "media/light.mp3",
+      "sha256": "d3d4337653871a7c84c699080cb26229c8c03f2115eaa9b53a0595cb21379d43",
+      "status": "approved",
+      "duration": 1.728,
+      "source": "Microsoft Edge TTS; Xiaoxiao/Jenny -12%; text and duration checked; see assets.md"
+    },
+    {
+      "id": "red",
+      "kind": "audio",
+      "path": "media/red.mp3",
+      "sha256": "ac81cdd4a66acf5f8f3669205673e8ab19b8f4379a99f4101370dd9e0682a21b",
+      "status": "approved",
+      "duration": 1.872,
+      "source": "Microsoft Edge TTS; Xiaoxiao/Jenny -12%; text and duration checked; see assets.md"
+    },
+    {
+      "id": "blue",
+      "kind": "audio",
+      "path": "media/blue.mp3",
+      "sha256": "f16b27e2609fa91a81c350fb2a04743284281e5af715b4a410bbb6b44fd35b98",
+      "status": "approved",
+      "duration": 1.872,
+      "source": "Microsoft Edge TTS; Xiaoxiao/Jenny -12%; text and duration checked; see assets.md"
+    },
+    {
+      "id": "white",
+      "kind": "audio",
+      "path": "media/white.mp3",
+      "sha256": "abb024e2a29b93c6ac4f73212a4196a98a4191785e73fd16cde71d15caf6d107",
+      "status": "approved",
+      "duration": 1.872,
+      "source": "Microsoft Edge TTS; Xiaoxiao/Jenny -12%; text and duration checked; see assets.md"
+    },
+    {
+      "id": "one",
+      "kind": "audio",
+      "path": "media/one.mp3",
+      "sha256": "2ead9a73c3fa03ea128798bd8f4c93d4a2c14d6be3a87e0ec7d8b86b6a74406f",
+      "status": "approved",
+      "duration": 1.872,
+      "source": "Microsoft Edge TTS; Xiaoxiao/Jenny -12%; text and duration checked; see assets.md"
+    },
+    {
+      "id": "two",
+      "kind": "audio",
+      "path": "media/two.mp3",
+      "sha256": "8e7d016db88ea38f12a5f2cf9b1d58a1aeb278b31c44e79a716f326c9469347a",
+      "status": "approved",
+      "duration": 1.872,
+      "source": "Microsoft Edge TTS; Xiaoxiao/Jenny -12%; text and duration checked; see assets.md"
+    },
+    {
+      "id": "three",
+      "kind": "audio",
+      "path": "media/three.mp3",
+      "sha256": "14e9791e631af5c6c1e513ee3f763375738e2a884045a7efe2b8c2920cfe2496",
+      "status": "approved",
+      "duration": 1.872,
+      "source": "Microsoft Edge TTS; Xiaoxiao/Jenny -12%; text and duration checked; see assets.md"
+    },
+    {
+      "id": "color-red",
+      "kind": "audio",
+      "path": "media/color-red.mp3",
+      "sha256": "882eb518a3865bbb6427ae0d6ecc6785b2869e3442b5c5467b3580b42bb3ce45",
+      "status": "approved",
+      "duration": 2.232,
+      "source": "Microsoft Edge TTS; Xiaoxiao/Jenny -12%; text and duration checked; see assets.md"
+    },
+    {
+      "id": "color-blue",
+      "kind": "audio",
+      "path": "media/color-blue.mp3",
+      "sha256": "67db1a27363ea67db5428231f07a9b636f5376c1af22f74cbc7861c1b1de090a",
+      "status": "approved",
+      "duration": 2.256,
+      "source": "Microsoft Edge TTS; Xiaoxiao/Jenny -12%; text and duration checked; see assets.md"
+    },
+    {
+      "id": "color-white",
+      "kind": "audio",
+      "path": "media/color-white.mp3",
+      "sha256": "830a3e98aa4cdfff14361d7419aced629eb244dc9bc90e5176807b44e5d3fa1f",
+      "status": "approved",
+      "duration": 2.256,
+      "source": "Microsoft Edge TTS; Xiaoxiao/Jenny -12%; text and duration checked; see assets.md"
+    },
+    {
+      "id": "color-hint",
+      "kind": "audio",
+      "path": "media/color-hint.mp3",
+      "sha256": "8a11dcc562f66f1c39766041b801525d1048181cd4ef7d3fcec7bcf04674f75e",
+      "status": "approved",
+      "duration": 3.936,
+      "source": "Microsoft Edge TTS; Xiaoxiao/Jenny -12%; text and duration checked; see assets.md"
+    },
+    {
+      "id": "color-retry",
+      "kind": "audio",
+      "path": "media/color-retry.mp3",
+      "sha256": "999e9a12972ec2ffba2a29549459439cc6dc005674bfb04e7f7d90ffbaa179b8",
+      "status": "approved",
+      "duration": 2.904,
+      "source": "Microsoft Edge TTS; Xiaoxiao/Jenny -12%; text and duration checked; see assets.md"
+    },
+    {
+      "id": "color-success",
+      "kind": "audio",
+      "path": "media/color-success.mp3",
+      "sha256": "e2f8ea994f868788a97d11d0890a1f5c7a4af3b3e3dae6f5d466d07053d1ff8a",
+      "status": "approved",
+      "duration": 2.976,
+      "source": "Microsoft Edge TTS; Xiaoxiao/Jenny -12%; text and duration checked; see assets.md"
+    },
+    {
+      "id": "parking-task",
+      "kind": "audio",
+      "path": "media/parking-task.mp3",
+      "sha256": "cc52d4b19ec96d3090ed376ba7c356a29364724b31d051b656b06271b9ee5ab7",
+      "status": "approved",
+      "duration": 2.928,
+      "source": "Microsoft Edge TTS; Xiaoxiao/Jenny -12%; text and duration checked; see assets.md"
+    },
+    {
+      "id": "parking-hint",
+      "kind": "audio",
+      "path": "media/parking-hint.mp3",
+      "sha256": "1a96fa4f9f73accdd2af2182e1dbab8694fef008aef03c055fe6ab4f2e8cc526",
+      "status": "approved",
+      "duration": 3.744,
+      "source": "Microsoft Edge TTS; Xiaoxiao/Jenny -12%; text and duration checked; see assets.md"
+    },
+    {
+      "id": "parking-occupied",
+      "kind": "audio",
+      "path": "media/parking-occupied.mp3",
+      "sha256": "a8e3e468da06ca7c0babe53d2cd3542c47c01e82100189b9a9679593113fd920",
+      "status": "approved",
+      "duration": 2.544,
+      "source": "Microsoft Edge TTS; Xiaoxiao/Jenny -12%; text and duration checked; see assets.md"
+    },
+    {
+      "id": "parking-success",
+      "kind": "audio",
+      "path": "media/parking-success.mp3",
+      "sha256": "17adc0068dd034705d81546a3629991a17b9eef419f2b33d477ae8be77c2b961",
+      "status": "approved",
+      "duration": 3.096,
+      "source": "Microsoft Edge TTS; Xiaoxiao/Jenny -12%; text and duration checked; see assets.md"
+    },
+    {
+      "id": "parts-task-door",
+      "kind": "audio",
+      "path": "media/parts-task-door.mp3",
+      "sha256": "4cdc91b1ba6511a6a3cac290ce675117909a6142e437f88362b513c83b751d5f",
+      "status": "approved",
+      "duration": 2.424,
+      "source": "Microsoft Edge TTS; Xiaoxiao -12%; text and duration checked; see assets.md"
+    },
+    {
+      "id": "parts-task-light",
+      "kind": "audio",
+      "path": "media/parts-task-light.mp3",
+      "sha256": "c0a4f88afc2a0e567fbe25af43f2c7c994a5ec00ec30d6e7f57a4ae4cc587606",
+      "status": "approved",
+      "duration": 2.472,
+      "source": "Microsoft Edge TTS; Xiaoxiao -12%; text and duration checked; see assets.md"
+    },
+    {
+      "id": "parts-hint-door",
+      "kind": "audio",
+      "path": "media/parts-hint-door.mp3",
+      "sha256": "f5ea94a7b0871fbd0098368892a2122db67d436703d43dbb3f66cd691d10a19d",
+      "status": "approved",
+      "duration": 3.816,
+      "source": "Microsoft Edge TTS; Xiaoxiao -12%; text and duration checked; see assets.md"
+    },
+    {
+      "id": "parts-hint-light",
+      "kind": "audio",
+      "path": "media/parts-hint-light.mp3",
+      "sha256": "4c3c558acd7c55b550d9bf1641a76be5831571c09725592269001578af442a17",
+      "status": "approved",
+      "duration": 3.048,
+      "source": "Microsoft Edge TTS; Xiaoxiao -12%; text and duration checked; see assets.md"
+    }
+  ]
+}
