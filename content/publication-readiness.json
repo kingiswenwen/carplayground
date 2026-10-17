@@ -1,0 +1,45 @@
+{
+  "updatedAt": "2026-10-22",
+  "requirements": {
+    "real-ipad": {
+      "status": "waived",
+      "waivedBy": "user",
+      "waivedAt": "2026-10-21",
+      "note": "Device testing waived; browser checks do not constitute device testing.",
+      "evidence": "private:device-scope-record"
+    },
+    "real-phone": {
+      "status": "waived",
+      "waivedBy": "user",
+      "waivedAt": "2026-10-21",
+      "note": "Device testing waived; browser checks do not constitute device testing.",
+      "evidence": "private:device-scope-record"
+    },
+    "audio-listening": {
+      "status": "unverified",
+      "note": "Human listening review remains unverified."
+    },
+    "audio-distribution": {
+      "status": "unverified",
+      "note": "Audio distribution terms remain unverified."
+    },
+    "content-review": {
+      "status": "passed",
+      "note": "Content checks completed; audio and device verification tracked separately.",
+      "evidence": "private:content-review-record"
+    },
+    "family-observation": {
+      "status": "unverified",
+      "note": "Family observation remains unverified."
+    },
+    "cloud-configuration": {
+      "status": "unverified",
+      "note": "Browser review deployment verified; full release and rollback acceptance remain incomplete.",
+      "evidence": "private:deployment-verification"
+    },
+    "nas-backup": {
+      "status": "unverified",
+      "note": "External backup acceptance remains unverified."
+    }
+  }
+}

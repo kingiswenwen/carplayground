@@ -133,7 +133,7 @@ test('隐藏后暂停，回来需主动继续', async ({ page }) => {
 
 test('图片失败可重试，加载失败时不显示虚假热点', async ({ page }) => {
   let fail = true;
-  await page.route('**/media/revuelto-white.webp*', route => fail ? route.abort() : route.continue());
+  await page.route('**/media/**/revuelto-white.webp*', route => fail ? route.abort() : route.continue());
   await page.goto('/#/cars/CAR01');
   await expect(page.getByText('这张图片还没到，再试一次')).toBeVisible();
   await expect(page.locator('.hotspot')).toHaveCount(0);
@@ -144,7 +144,7 @@ test('图片失败可重试，加载失败时不显示虚假热点', async ({ pa
 
 test('图片失败时颜色与停车不接受空图答案，重试后恢复', async ({ page }) => {
   let fail = true;
-  await page.route('**/media/*.webp*', route => fail ? route.abort() : route.continue());
+  await page.route('**/media/**/*.webp*', route => fail ? route.abort() : route.continue());
   await page.goto('/#/play/E01');
   const target = (await page.getByRole('heading', { level: 1 }).innerText()).match(/(红色|蓝色|白色)/)![0];
   await expect(page.getByRole('button', { name: `${target}的车` })).toBeDisabled();
@@ -174,7 +174,7 @@ test('存储不可用时继续玩，家长区明确提示', async ({ page }) => 
 });
 
 test('音频失败不阻塞玩法，可重听重试', async ({ page }) => {
-  await page.route('**/media/*.mp3', route => route.abort());
+  await page.route('**/media/**/*.mp3', route => route.abort());
   await page.goto('/#/play/E02');
   await page.getByRole('button', { name: '开启声音' }).click();
   await expect(page.locator('.audio-notice')).toBeVisible();

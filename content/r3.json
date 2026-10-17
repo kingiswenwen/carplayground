@@ -1,7 +1,7 @@
 {
-  "id": "r3-scenic-20261017.1",
+  "id": "r3-reviewed-20261018.1",
   "schemaVersion": 2,
-  "appVersion": "0.3.0",
+  "appVersion": "0.3.1",
   "car": {
     "id": "CAR01",
     "brand": "Lamborghini",
@@ -1444,1440 +1444,1440 @@
       "path": "media/welcome.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "7dad127656320cf603576b8d0a0fa768d8ec9de802446e2f54923efbf5b18173",
-      "duration": 5.208,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "ba1a6449cb930079b512c93c2a0df520858623a4b8418ca6d3d8479ed74fe95b",
+      "duration": 4.757875,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "car-name",
       "path": "media/car-name.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "eb8d695b8065c9b4f61fb9e973eccb4f7ecd58bb22e152f990ab30952f85621a",
-      "duration": 1.872,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "393b4b22db379195a9f9fb4a8003e660c72877523298dfac196bf4f6776144ce",
+      "duration": 1.424042,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "car-model",
       "path": "media/car-model.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "7495e3882129a5ad820c671d275bfaddb451e8ec3e3a5671aa41ad088443c652",
-      "duration": 2.616,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "bd6a22dfe2e4dac4d2ef5c608fef73394a77cdc789869388598c627e2953f4aa",
+      "duration": 1.791458,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "parts-intro",
       "path": "media/parts-intro.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "b0764f7a788dc7de22ca72e9e22d3e83d174e5139b6a303de92359176c84bc67",
-      "duration": 3.744,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "497c1a84f4ba80b0e2f8c0f3222663581c2ab312aa3422991e4f2e2a6037656d",
+      "duration": 3.314083,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "parts-task",
       "path": "media/parts-task.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "ac22ba7214218438df2722a1f581c4b7eef43deb983fae8746e00c96ae1a30f1",
-      "duration": 2.424,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "07c04e4b4b46bd3f0f0c4613fd215c6efb3475d1763823322ea570e97f8f980d",
+      "duration": 1.998125,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "parts-hint",
       "path": "media/parts-hint.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "ca1caab8e2c693cae1378aad2facafaf2db9fcd18e907aba0040dc78289e04d0",
-      "duration": 3.48,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "6c983b83c38525fa337794ea3d1d724d23798084f1794cbe4d16470aa1eb44e3",
+      "duration": 3.030083,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "parts-success",
       "path": "media/parts-success.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "cf526b41d7ceacb3d4012381d8a75c0ac157e68bf790a0c3754c905b50187273",
-      "duration": 2.736,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "d01a340ee2a04a5824ba786d5958b23b46d5a200ca03e0a03b0169c3666869e7",
+      "duration": 2.321417,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "zh-wheel",
       "path": "media/zh-wheel.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "0d1b3e3fd2001fc13a770397b623cff54b8343f9d6bb189f8316ae643a259c32",
-      "duration": 1.872,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "3219b4cc568322b73653a2241e1c8519eff3a160df9a759a1c9850c4a131b17f",
+      "duration": 1.026417,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "zh-door",
       "path": "media/zh-door.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "6d6411173c7205a9751f4bc8b8b3841dfb2b692af481b9573fffa5062441ddc3",
-      "duration": 1.872,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "b94ec8c59a63b09140ee896675943d55af7a5a066fd1420f4c89d9fa2d9e74ed",
+      "duration": 1.013125,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "zh-light",
       "path": "media/zh-light.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "ddcfcc954f15fd3a44b538a87da318d4d18543c8fe864d45ad28a21afef58e36",
-      "duration": 1.872,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "74ecc2bcf0f1d3eea73051d233b122e0878a3ee0941b06ba3bec2aeb7c37c76b",
+      "duration": 0.969458,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "wheel",
       "path": "media/wheel.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "a73c435310489c0c4f19ee6e507d95b8cd6eb9f6a4334175bdbe3ba249e1a705",
-      "duration": 1.872,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "04c4c6497a2f7d05cecbfc8f3301fdd5189696c3c7218f647f11bf4f3d4c9a44",
+      "duration": 0.790208,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "door",
       "path": "media/door.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "92b63dc45fb3a92c578583ece1cdf2dff24726ffc76be1dcdd82360c7b1b1695",
-      "duration": 1.872,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "f3ce1b80561af6b50d56c4a7e8712ae1b33a1eb29f3741c6c3b46a0fdf3142dd",
+      "duration": 0.849625,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "light",
       "path": "media/light.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "d3d4337653871a7c84c699080cb26229c8c03f2115eaa9b53a0595cb21379d43",
-      "duration": 1.728,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "1da75e36820cf2d7e956e566a7e89adcbda20215ec6d55d65470c31eb4348e95",
+      "duration": 0.943,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "red",
       "path": "media/red.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "ac81cdd4a66acf5f8f3669205673e8ab19b8f4379a99f4101370dd9e0682a21b",
-      "duration": 1.872,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "c6058794245afd8b1a7d63fdc6a72ec26f0237c86400742fee1840103a837673",
+      "duration": 0.853958,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "blue",
       "path": "media/blue.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "f16b27e2609fa91a81c350fb2a04743284281e5af715b4a410bbb6b44fd35b98",
-      "duration": 1.872,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "f59d7cb2f7f8af33ca09c4a7e43f7293d08b595a2e0ee846364681a5cc39cca1",
+      "duration": 0.858917,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "white",
       "path": "media/white.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "abb024e2a29b93c6ac4f73212a4196a98a4191785e73fd16cde71d15caf6d107",
-      "duration": 1.872,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "715ac6e9096cd7c1a377f9b6abc9e91d7ca7054d027b796bbfaba3a80a67b79e",
+      "duration": 0.901,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "one",
       "path": "media/one.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "2ead9a73c3fa03ea128798bd8f4c93d4a2c14d6be3a87e0ec7d8b86b6a74406f",
-      "duration": 1.872,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "95e613939d9ebb931f4a9183d3c67a0474f44cd2e8884be80a5a898cb2d2d4a9",
+      "duration": 0.827833,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "two",
       "path": "media/two.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "8e7d016db88ea38f12a5f2cf9b1d58a1aeb278b31c44e79a716f326c9469347a",
-      "duration": 1.872,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "4cfd13752268ff01754bf3deaa5efda3c16ddf20ed89433a94a4b16293031849",
+      "duration": 0.829167,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "three",
       "path": "media/three.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "14e9791e631af5c6c1e513ee3f763375738e2a884045a7efe2b8c2920cfe2496",
-      "duration": 1.872,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "ebdd8e887cd3fb2cfdfe9ce6ade9364a4ef4049f879f6c3dca32bb9726b78c8d",
+      "duration": 0.805667,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "color-red",
       "path": "media/color-red.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "882eb518a3865bbb6427ae0d6ecc6785b2869e3442b5c5467b3580b42bb3ce45",
-      "duration": 2.232,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "f7f9428603f1c4c2bed42cfc212435426ee3fa335761ea554a759ccd8836b55b",
+      "duration": 1.803,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "color-blue",
       "path": "media/color-blue.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "67db1a27363ea67db5428231f07a9b636f5376c1af22f74cbc7861c1b1de090a",
-      "duration": 2.256,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "c6174c77b363a0f407a9fbef05dc49013ee4d3ebbefeac0933f2ebd7dd7a4ecd",
+      "duration": 1.817125,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "color-white",
       "path": "media/color-white.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "830a3e98aa4cdfff14361d7419aced629eb244dc9bc90e5176807b44e5d3fa1f",
-      "duration": 2.256,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "bd8faf0d3099631e02e2d63a2050bf7c8f299770318e5d7acccfac7ea3ee5fa1",
+      "duration": 1.83175,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "color-hint",
       "path": "media/color-hint.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "8a11dcc562f66f1c39766041b801525d1048181cd4ef7d3fcec7bcf04674f75e",
-      "duration": 3.936,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "8d9cf60d1710483900d90a1baf83b9c5ee268a63c604ef65e7e706b6a777482f",
+      "duration": 3.48225,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "color-retry",
       "path": "media/color-retry.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "999e9a12972ec2ffba2a29549459439cc6dc005674bfb04e7f7d90ffbaa179b8",
-      "duration": 2.904,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "a2ddaab9a61044854d195d0d2daaa8b03f2a8e3444f2afed8ce4670608ac8e99",
+      "duration": 2.477292,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "color-success",
       "path": "media/color-success.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "e2f8ea994f868788a97d11d0890a1f5c7a4af3b3e3dae6f5d466d07053d1ff8a",
-      "duration": 2.976,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "803885ee7cbe0b4480611befa88f2addd30aee9328d38f8dc264d579b38e46ea",
+      "duration": 2.549,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "parking-task",
       "path": "media/parking-task.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "cc52d4b19ec96d3090ed376ba7c356a29364724b31d051b656b06271b9ee5ab7",
-      "duration": 2.928,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "12d279f48907734393b4a7821f3173e42c5df5647670e3b54b39f3134cdc3d70",
+      "duration": 2.4865,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "parking-hint",
       "path": "media/parking-hint.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "1a96fa4f9f73accdd2af2182e1dbab8694fef008aef03c055fe6ab4f2e8cc526",
-      "duration": 3.744,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "efe93022af8868367c09ada51d02fbe49c1556b39bf00566e01a2de16bfee06d",
+      "duration": 3.341125,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "parking-occupied",
       "path": "media/parking-occupied.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "a8e3e468da06ca7c0babe53d2cd3542c47c01e82100189b9a9679593113fd920",
-      "duration": 2.544,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "8f9b4b482637d0e4edc9438086e6aba2621ad4539354bb8891297530ba9cbc54",
+      "duration": 2.0995,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "parking-success",
       "path": "media/parking-success.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "17adc0068dd034705d81546a3629991a17b9eef419f2b33d477ae8be77c2b961",
-      "duration": 3.096,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "310837411aaca8af6a740442baf55ef71ccb43b00ee885d1f003898aa25f693b",
+      "duration": 2.672167,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "parts-task-door",
       "path": "media/parts-task-door.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "4cdc91b1ba6511a6a3cac290ce675117909a6142e437f88362b513c83b751d5f",
-      "duration": 2.424,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "8d3b5f19bc60624942825a75cfd4c2896102d39e25dba7f1ba2e23816dd38dae",
+      "duration": 1.99825,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "parts-task-light",
       "path": "media/parts-task-light.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "c0a4f88afc2a0e567fbe25af43f2c7c994a5ec00ec30d6e7f57a4ae4cc587606",
-      "duration": 2.472,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "656b56f6d8f9206f0cb31ccb419691e47abad3c61ddc7b52cc7d7ed7f94aa6bc",
+      "duration": 2.017958,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "parts-hint-door",
       "path": "media/parts-hint-door.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "f5ea94a7b0871fbd0098368892a2122db67d436703d43dbb3f66cd691d10a19d",
-      "duration": 3.816,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "54b8733701119c6c45be7215eebf61d46b38bf6f68ebf94a01541258d1e98128",
+      "duration": 3.35975,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "parts-hint-light",
       "path": "media/parts-hint-light.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "4c3c558acd7c55b550d9bf1641a76be5831571c09725592269001578af442a17",
-      "duration": 3.048,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "f1f270c4563587b96a7d1aecd5497d3beed74a2cd1f50f2943be36977cd04735",
+      "duration": 2.607208,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "discovery-done",
       "path": "media/discovery-done.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "36a4b0fab370d2bd20b8a4ee0c185d51c1e63bb8cb96a9259cebfde0dfc29d8f",
-      "duration": 5.712,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "7ab8c476311b622784d59367047e574108e1b0a3ec41ebb67ad03f58f06387e0",
+      "duration": 5.278292,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "expression-done",
       "path": "media/expression-done.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "64257bb3788ee7eb9c3cee51ca63c732ffb9d87ce05af838a3c11198f3dd2c41",
-      "duration": 5.064,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "4dde9c794e377edb04427e6b7485de01181e43e53f37baedaa67412aa8181353",
+      "duration": 4.633958,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "try-again",
       "path": "media/try-again.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "26747051822c2bbd25ae3cbb1897921d3dfe705c79e8b23d7ec60e9f5a946206",
-      "duration": 3.672,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "1b1813af796b89813e8f858a69012477ce8cbd1a0005c6fd2c24e0bf8e223448",
+      "duration": 3.26725,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "activity-E03",
       "path": "media/activity-E03.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "536b1b1d0ced50fb80903acc77871550fae3eff8d5ed2f705691b543f8a1c652",
-      "duration": 3.168,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "a94211b4204239408e3e036cc0f7e06483b0edf22c16ba7da8c4d49735260a3c",
+      "duration": 2.753292,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "hint-E03",
       "path": "media/hint-E03.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "27e363bc229fff971b00ff675c2d8bf25e1dc71b36c57be693384b3682de9087",
-      "duration": 4.344,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "4c9433280c3b9c8dee6a96a8acb4e947c05b6d211579693c7a46a1573d8e678b",
+      "duration": 3.920125,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "activity-M02",
       "path": "media/activity-M02.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "01e61ba9e74e9fcb4dbdec4d9ac10500f482b1973b5f6ffe4424b36ed72b8d0f",
-      "duration": 4.128,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "3ab00e7b9de63ea240db9f5e674068c72a157e76a2ac8684a708d47cf9f71295",
+      "duration": 3.703958,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "hint-M02",
       "path": "media/hint-M02.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "f4e9082195f7cee78b04473c4b3ab72141a1ea649ebc8b57d3a3d6e8e729e619",
-      "duration": 4.56,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "0c0a2bdb719ae18d7f2061e6005d58676f82bc5f521d8c2f8fd1907169748e9b",
+      "duration": 4.140292,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "activity-M03",
       "path": "media/activity-M03.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "14e997d664ae2fd12303119bbd73adcfbda083eb96567669d94671602c96c196",
-      "duration": 5.208,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "23e3a251e2a9cd5cfe3c1bf9c6d7b35b251929f0d51cc15cbcef1ded4e14b7e2",
+      "duration": 4.780042,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "hint-M03",
       "path": "media/hint-M03.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "d764466d8cd1b609e96be71bda418e7a82c082f9e205236ab7e803224231b679",
-      "duration": 3.816,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "78bbb56dcecf94e8ceee2cf475eca16b6e36a7b4904a7213f48e03759684167d",
+      "duration": 3.397042,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "activity-M04",
       "path": "media/activity-M04.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "8147a27da2ff07e69067b6dafc9b43826fb17e2d6446bea5773837d296a61ecd",
-      "duration": 4.368,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "9a5f829ccaca645ef7801891a3853009d6ce0e7fdb1263555810f0291304386a",
+      "duration": 3.926417,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "hint-M04",
       "path": "media/hint-M04.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "19ea84e54d9c4bc94ab25f5b0db87befe90c81d917b9a14291d71bc27e1802ba",
-      "duration": 3.936,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "81929ed6225bbbbb871adfcf68972bf9f7d3acad37ee37e439fa50369ff5b9d3",
+      "duration": 3.487875,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "activity-C01",
       "path": "media/activity-C01.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "5bc3183e93dc25952a4e6ef791819201919ffe8b3c0166fb9a181d4d3c4b67de",
-      "duration": 4.8,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "5c127f8203de28d77ee3cd88c681faf28e1d3327113c70470034ad9b619f03be",
+      "duration": 4.36375,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "hint-C01",
       "path": "media/hint-C01.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "b75a81042d1c3676b9493a2e76d4cf2923c72b82f68fae6e6bf2243f6877bf2f",
-      "duration": 5.352,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "916fd5db5f9522ac674dcd4dd243448b1177c9115b038687c794ecbc9e31d4c0",
+      "duration": 4.913625,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "activity-C02",
       "path": "media/activity-C02.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "ae66af302beaf0bcb0c0283644910e71b9d4534bb075b192037ac64c29457fc8",
-      "duration": 4.032,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "6550d4cff9b781e680d6e6f60464cba9836a2b802a814934e89443b841e2ac47",
+      "duration": 3.631958,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "hint-C02",
       "path": "media/hint-C02.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "924cbd87d980f22393804e27024bbe5e531a2b40d7f3fb40ce6566a4b364b1f5",
-      "duration": 5.664,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "6b487bafeda293f65099010b4705a161af78ea89b64e6bff6ec90b1af6852d2d",
+      "duration": 5.24325,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "activity-C03",
       "path": "media/activity-C03.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "c0e90bfb4541e1625a6c1d2003c98fd25c74f0cbbaff30896cce294c73166317",
-      "duration": 4.872,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "f2f37cb53cefe9c257d326e8af3e250fcf8e5435a1dc290ca9546fdb5a6fd676",
+      "duration": 4.445958,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "hint-C03",
       "path": "media/hint-C03.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "4eca4a11b2fc211bab8a6935874e41eefd10cb21d436dfcec45ee6bb61165213",
-      "duration": 5.256,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "e707ab5c0f2f3d68b38b1815996a3d6313bc60a1916bc32e2b2172948c124ba7",
+      "duration": 4.812042,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "activity-S01",
       "path": "media/activity-S01.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "5ebc7168f264f909f65793ffd574af023a5d223cde5e2b4c809d567823c483e7",
-      "duration": 4.896,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "b8aa53777963d0f86dfb061a7da52ae044f7a4e49154c83212c6546324a9a0a9",
+      "duration": 4.463083,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "hint-S01",
       "path": "media/hint-S01.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "89eca7cfe5f7a5b0815ced0fef98744a74fb278112a8ec0f9438ff96d0eb3030",
-      "duration": 4.248,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "3507d9a03eac792a6a9c85ff5a1983c1f9ba5fe7e641dcfa55b9142bd1b1fcbe",
+      "duration": 3.782083,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "activity-S02",
       "path": "media/activity-S02.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "cef764c8fa90e87c49d6d6a06c4a417bda767973c862f96e363a0ca378f193bc",
-      "duration": 3.72,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "e169546930020f1ea6afcc54d7de6a4265a4943eaa6d4109149769afebe0d267",
+      "duration": 3.275875,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "hint-S02",
       "path": "media/hint-S02.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "757519ce651c826d80ee06dbc2c883e86be1213873a5b200c59fc5bede5d4a0b",
-      "duration": 4.632,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "5c9772efdbe9ecade513dae9065bed2911b3aa1fab29b9a1dd363b63dcc28794",
+      "duration": 4.202167,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "activity-S03",
       "path": "media/activity-S03.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "47aca7539e6a459b71403642c1ff14d333a4f8a288cd487d4b22391780837282",
-      "duration": 4.032,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "a43813171bb8c84166508cb34e395790a6d3131196bc7fcfb3983f3acd639767",
+      "duration": 3.582917,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "hint-S03",
       "path": "media/hint-S03.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "c1af35857a1971c8058ca4fc70a4924edfdde390b1b7704437c54033680fa4ec",
-      "duration": 4.008,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "b95a3bd2ff6b60be1cff6ffbceb161d9e9c649dab1ce9f1afaf862ece1a5f18d",
+      "duration": 3.563125,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "activity-T01",
       "path": "media/activity-T01.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "b9742d40c50a5ab8ee3f015f0e03c2e494249d988954edccf3e7f98eae9ae5e0",
-      "duration": 3.216,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "d6459011ce3324a5f391d7fb8b59660360dcfc427fa4eea2a27905cf4975f2f3",
+      "duration": 2.77975,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "hint-T01",
       "path": "media/hint-T01.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "f03f99b48b92774a47fb75dd90e33c794381b9a6627603ee20c9d2591367c4e6",
-      "duration": 4.392,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "a50369c6bc2b966e7958419e3feaaaf067fc624a990b9c2bfacd90cde500306f",
+      "duration": 3.962583,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "activity-T02",
       "path": "media/activity-T02.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "418fdeead83ee11edf36a70b746d284b5e51da5c5029f97a1c5411ff26f1abce",
-      "duration": 4.08,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "07b8768504b20fd5385a3b48b15ee356c651db05adc0ac8e377b1c3b22876e54",
+      "duration": 3.65875,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "hint-T02",
       "path": "media/hint-T02.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "9f7fcf6149d1f8254984fc17f984843a48af18705249f749e3707bf6a2c48ea0",
-      "duration": 4.8,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "95fda7dc9fb5def0a3447e09c9f6545583ecb2eddfabb033568f18ece7c448b3",
+      "duration": 4.379292,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "activity-T03",
       "path": "media/activity-T03.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "cea11a04d88f223119288917e460cd75168aee797a2e4aca28c83422cb54bbac",
-      "duration": 4.416,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "325f8af24eb5347cef17afb6e5419e61f936128fc411c153fcfb74180d1936ea",
+      "duration": 3.975833,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "hint-T03",
       "path": "media/hint-T03.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "96e568fea2e681f3cabaf89d12cccfb29467f1c040c83dcef877e3d5211b22b5",
-      "duration": 4.416,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "ba85f740669e90257334951720f93454854508d42109da23fffca690ceb5e795",
+      "duration": 4.004083,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "activity-H01",
       "path": "media/activity-H01.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "4f3d10775c4dcf06e41b7ef297d2fabd0680340f79499525328d048ceef6cc95",
-      "duration": 3.504,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "5b49c09dd4864e1b13208061c1c60f9f3f7c684095c1ccd68b84e7dd6eebac99",
+      "duration": 3.08175,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "hint-H01",
       "path": "media/hint-H01.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "691c8454991e0939e3d202b6ca5e402768a80abb6027d0c46584483ef3c05069",
-      "duration": 4.752,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "7db1be660c064bba657e96445ca2c1794fe730e40dfd2a0e184fc17f7c5fd038",
+      "duration": 4.312875,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "activity-H02",
       "path": "media/activity-H02.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "ddd78e77e948a2a4940776ceaea355451513383635858bb4397098cc55a85e9f",
-      "duration": 4.2,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "ead263185b1acea8c95f897b54fe3f73b7cc300747055f28958cf3784a9379ec",
+      "duration": 3.791708,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "hint-H02",
       "path": "media/hint-H02.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "c8d72b57ae09d6876f91d7a0ef3fe7b0a2c5ddccd8f01e5109efa4005a0bb9fd",
-      "duration": 3,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "0589f760058005ef6f172085f4283efb7961c4240e7d8ad9b108de77013e8ed5",
+      "duration": 2.533375,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "activity-H03",
       "path": "media/activity-H03.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "30ba805ab92153173f1aa212556ba91018acb360eb4a3c1d83061a56ef1e6337",
-      "duration": 4.104,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "7f4ed5e7f6325bcdba0188be393500451dbd0e18d43fb25cc7d8ddf25796c5f6",
+      "duration": 3.689167,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "hint-H03",
       "path": "media/hint-H03.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "0b15ae5b016ce1a0d40fd7a9383665c009533df0450165c3f22ef8cf3787fb3b",
-      "duration": 5.04,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "d676c32630fc6ff338dae31704feb26832102ef9e32f6434478e50fb56ea5d0b",
+      "duration": 4.617708,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "activity-A01",
       "path": "media/activity-A01.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "55910e3e191379ee0659f46abfedff7e7003dd5954df1639d331f772b758792f",
-      "duration": 3.432,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "b8f5ec3a6132eff20ac6d706940d3505fe3e980a8503a66e72a7b3a7bab29435",
+      "duration": 2.989708,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "hint-A01",
       "path": "media/hint-A01.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "b650dc3b3dcbe2bcc8145e0c0bfaf5b3458863d28210ce34673c5ae19d852f34",
-      "duration": 4.896,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "12490739d773c11b9c987f1b29db08b7df101ee2253d1faaf12036b7ec1474b3",
+      "duration": 4.455625,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "activity-A02",
       "path": "media/activity-A02.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "3a9faa363c80d7d378ea0beb681493438c5cb67b03905973c075b2ad58027cc1",
-      "duration": 4.584,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "64c2bb975c1a578e43b3872ea115fd30448d3ef213cffbfad9a5d7e982899883",
+      "duration": 4.172333,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "hint-A02",
       "path": "media/hint-A02.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "296c5ad778d839c8f7194ce94973ac6063222ecc223bca1619d91d87bfe68656",
-      "duration": 4.584,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "b74a22a504d17aaa99921ba9ad567cf47d2050e380fcc06d2abc38ca8c9f5822",
+      "duration": 4.11725,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "activity-L01",
       "path": "media/activity-L01.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "541066e989ae10501b24ea271242bfb7ef67fe8e6e9589cd9b1d7bb1071bc464",
-      "duration": 3.6,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "604ca9743a3b140e7a4736cd91b22af16fcf72595dc99a1dee1f34cb9527578d",
+      "duration": 3.187,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "hint-L01",
       "path": "media/hint-L01.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "8e272b2582272ca0da8531534c69c574b2dfbfc106fb7c202bc79bc007480c79",
-      "duration": 5.208,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "b784088a7fad9d6a008974a2ce8e48eb4fa841def1ebaba723a1ffa4722b5241",
+      "duration": 4.779292,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "activity-L02",
       "path": "media/activity-L02.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "dd0edc2a77adb467e3f68fa0091390f28a4da8fd373b58a2c64c22f82af928f7",
-      "duration": 3.96,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "85e830bde4c414d447ea4f2357766ac7279f1d66a5a7c79779f3893bd93f2870",
+      "duration": 3.535958,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "hint-L02",
       "path": "media/hint-L02.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "7768893d9b97b28dd3ca4d4f15bd8fe89401209eab5cac85b78e90d32f8e59bc",
-      "duration": 4.872,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "09e882082063a0285b44c37220ce4d8c12e9499c0adb2aa5a5dd3a0849e364ca",
+      "duration": 4.433375,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "activity-L03",
       "path": "media/activity-L03.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "710003a98f7036266a1e90086a61993691ee984f3ba2bff13214e694fdfc7fa4",
-      "duration": 6.024,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "8a317d5622664b094f4ce3831c0197753978548296ad16c5c95d7e56582f08d0",
+      "duration": 5.547583,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "hint-L03",
       "path": "media/hint-L03.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "0715e4250d1245d290cab0dd39871cd01350de6d3140bd9dc830319a09c33f22",
-      "duration": 4.416,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "6de7ed39bcd2402c4abef6d88772442692950c7b25631c18be5e79ebd7873eb6",
+      "duration": 3.99575,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "name-CAR01",
       "path": "media/name-CAR01.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "a4d08b9ed3ac72902204e862292c0d0578aa7609f8789fb99a22ee012d022ba7",
-      "duration": 2.616,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "10d76f215400f93e8159df48973071110ebd817a731e16c8a8273d33f31a8850",
+      "duration": 2.166917,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "name-CAR02",
       "path": "media/name-CAR02.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "7e4e2dfb32cb9e8510f04544e7fe5509a22de482d61640afd9bd3872e89a775e",
-      "duration": 3.216,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "c1593287b9a054ffd4eaf2fd3685532d67fd8b35afdd93db8a4fba071c0cda4d",
+      "duration": 2.788333,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "name-CAR03",
       "path": "media/name-CAR03.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "0a64a0dae68543fcd0cbc6dcec80811ee31e2a52cbbe0c5f6b113ebfbe5cfbf2",
-      "duration": 3.672,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "840e6a0b73f2fc6c3e1117ce2bbba4f4e2bd85a1fa0dc9a72ca865fe5759b9b4",
+      "duration": 3.220958,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "name-CAR04",
       "path": "media/name-CAR04.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "2cf4518ec8193b7f27dd5a54ac9e0fd89c920a270877a68e50651f0c957309e8",
-      "duration": 2.64,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "5f58a27815f93dfaeed544e2ff981e71c9a50956ae0669d13b2abc11477afb97",
+      "duration": 2.185958,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "name-CAR05",
       "path": "media/name-CAR05.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "87dcb2a1d2ad711e6b12ec05afd098743f8b8abb61fe5ee27306ac38529dce22",
-      "duration": 2.256,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "25c3a5f688d62ab037ed3702664821bc9e3ab40a5610ff95caa0054372cbf8be",
+      "duration": 1.821625,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "name-CAR06",
       "path": "media/name-CAR06.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "98f2af1b90633ed7bae6b2769da4910641c7d1e7332a4dde88b2a48253f44b9a",
-      "duration": 2.256,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "ccde8bfbeb58e3e3f8d127503a3d4417d473b6b0926f23951ff99947ae35998d",
+      "duration": 1.831,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "name-CAR07",
       "path": "media/name-CAR07.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "57fe956620b365f7c9e049c5d5e4e8ead9923e440a2555fb0c4791dbd05f743b",
-      "duration": 2.976,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "d79a0a39632e2bafbd748589dc5acf2c108a5bb22178de0a36b2a42a7d120505",
+      "duration": 2.522375,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "name-CAR08",
       "path": "media/name-CAR08.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "6e55015b0383a97fae66d94250ea7d23c4e7dfee8b68af367acf287eb2d26a6b",
-      "duration": 3.096,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "f489e088bbb502439da3e42a35da163edb59afd31523b7f37c18f62b0c8416bd",
+      "duration": 2.641958,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "story-ST01-0",
       "path": "media/story-ST01-0.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "b881af742890401cfcd3e46a1fbc2010da8516ccd2aed1e0f37bfbcef7d17b4b",
-      "duration": 7.224,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "daf8f9c5a0962cc61ff8f78a1552b63c37fea2f5e6c93fcd321e0c8483479437",
+      "duration": 6.786542,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "story-ST01-1",
       "path": "media/story-ST01-1.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "2622819f787a06df26880abf8f125ea00fb25e93d083c226f33242da82093a03",
-      "duration": 7.296,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "353ee1042061f32d9e9a5c6baa99f6bfc4262026af1034c73acde453eecd76b0",
+      "duration": 6.869917,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "story-ST01-2",
       "path": "media/story-ST01-2.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "c4c92ef9f01cb12af222d5642747b0d81171f400dc6fc2ec70d3b27cc77ee407",
-      "duration": 6.072,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "1555981e8b06247e025587d6f42eeb6e353e52fa2aeed12b85ec818b62afd8f3",
+      "duration": 5.669958,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "story-ST01-3",
       "path": "media/story-ST01-3.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "5d77a30abb36e6b716bf96970109b8da425a3d484306e5a8d38e37ddbd32a453",
-      "duration": 5.784,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "f85dcb0bf5b2fd8fbf62b012b4d82dd955e0fbba176df923abee6b75be3a4078",
+      "duration": 5.357833,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "story-ST02-0",
       "path": "media/story-ST02-0.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "ea9b0e721682f1d794548d1e7c084c87fb3174f872867bfacad8dfed4f90831e",
-      "duration": 7.68,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "d71160f8dd848db306aa0611b9bc3c26f2e093c255629535b0cf1adda5e190f0",
+      "duration": 7.251708,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "story-ST02-1",
       "path": "media/story-ST02-1.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "416195bde37ad995c80c5ff5e92600357c8b8c398c431dcccf1c27cea985b691",
-      "duration": 8.52,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "7297602e7e67020c5451b0c2915b01139f7f5379ca3af9f1e48b06c3e08014bd",
+      "duration": 8.119792,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "story-ST02-2",
       "path": "media/story-ST02-2.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "c99abac78a72b21bfe44bd91837e33884461f504fdcf178d5f12a32fcb9669ca",
-      "duration": 7.152,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "622532c2468acdfb1ba8bae3d0eee785b8718b8a9e2f730bd461761f01c21b34",
+      "duration": 6.723,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "story-ST02-3",
       "path": "media/story-ST02-3.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "3e61dcf08374244012d26aef9f3003caff4d43e0e2a322a8759d91844f492061",
-      "duration": 8.808,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "a4199e137f0185dcef4314aa124d7c859f6a4f18c7dd8702cea996e8fb0d8c41",
+      "duration": 8.365083,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "story-ST03-0",
       "path": "media/story-ST03-0.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "19f1f3069c443e11aa3d508e400eb66a782dd15d1dc36669a6de9ea39462e0f5",
-      "duration": 8.208,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "71f42a9a42e9a0f4e125d525df7d3b6f76ef6db3a830336169eeb986a0fd940f",
+      "duration": 7.791458,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "story-ST03-1",
       "path": "media/story-ST03-1.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "437a7427452d3e14575f37d1b29f359f3cdf454ab5d59653718b4e070421904d",
-      "duration": 7.368,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "93208b2947f3f06ad26a353183db0501f8097b35030c025af7d1cdf4694eccdf",
+      "duration": 6.950208,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "story-ST03-2",
       "path": "media/story-ST03-2.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "e6d349ebcb2eb332ed7494c13e9a4f1837152e760f7201b05751283515d284f2",
-      "duration": 7.032,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "55734fcc52748f8631a7c2435bbbaa3992a26248d69d1254cc364a75f58e74b6",
+      "duration": 6.603958,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "story-ST03-3",
       "path": "media/story-ST03-3.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "66397badc8d21f6d7c2328a93c9b231e592b35c4df36ab1aa429e64214723171",
-      "duration": 8.16,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "899d3660c47fecad26b61f988fe621f46e139e60387a5cd8a9d2446c5045041b",
+      "duration": 7.758875,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "car",
       "path": "media/car.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "c782b9d430dc2b403a94170b45de9673f0c1f156cf171d1f1222b86d37c12aea",
-      "duration": 1.872,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "05068b690f2d1b5a6e856d6364f7d0ef4c2b16e7f83d3c31013961b48db7181d",
+      "duration": 0.849667,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "window",
       "path": "media/window.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "c92f55e94df20ad2c2584b02d7ac2a52247421b8ebc8b11dbec928a0e760f7b6",
-      "duration": 1.872,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "9a273dd403e107986dfa8b0447a89f90457c31abd9eb64de08198e79ecc9f304",
+      "duration": 0.951417,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "mirror",
       "path": "media/mirror.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "4b02e607506026f1e82d37a0f69459e660c7b4f1fe3991d10e3e281ed5d2ab42",
-      "duration": 1.872,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "572d2b705d81e845fd6dde64ea827227b64ab8b6f0e7b9b737a53399b08bf7f9",
+      "duration": 0.901417,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "roof",
       "path": "media/roof.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "603f3d9387e85ea26432fbff8da7a0247ec4b151b406554bbb61136a13d75d6a",
-      "duration": 1.872,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "1872fa8eabf78dd9ecb1837a661137798b4f778aee6c664c33023d95bde5386e",
+      "duration": 0.924958,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "yellow",
       "path": "media/yellow.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "5c313592f212ba1fa8611dbaa318e77adb7fc6a63f8bcfff23ee2c849a90c4f0",
-      "duration": 1.872,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "9c1ccabfffc09597b3be4ec04e2fded540718d9ceaba75ae6fdc109bda16d303",
+      "duration": 0.9415,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "green",
       "path": "media/green.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "883870a05215dcccb5a0b8d47b21ac4ff7453943c6869f117fd8903f2cc886b7",
-      "duration": 1.872,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "032cfd0aa1aa66f61cfce3fd284b8632a84779ed322814458b98fc83606a1699",
+      "duration": 0.900292,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "black",
       "path": "media/black.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "88921dda03c27c9e26d0d34dad199d4f33af7e3494e276bff43a4860cd40b997",
-      "duration": 1.872,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "50b62bdc848ed3f2d1764088372864df3e91b330d56eb713283cb26a90f77673",
+      "duration": 0.903458,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "four",
       "path": "media/four.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "e6507fc312c5c9ec24c5bc8180a8853d665d13082a3761c71876fb3d9ba47925",
-      "duration": 1.872,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "f477a7dda4b67c7fbbb6dfcbde96f8032a4f12c4b5d7b97ed7a19d4b51d6dc2b",
+      "duration": 0.971083,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "five",
       "path": "media/five.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "0bf5bdf38fcc406431c1438f6402788cab7cdae5bc81723f04d54a6468fdc565",
-      "duration": 1.872,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "f82aa9a43906f23fbfab67cc1b153f46f6696f1f346e1508d891ae4275327919",
+      "duration": 0.988417,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "stop",
       "path": "media/stop.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "e1f086e3cdbeb78af010ab923ab735aa17deb3848ff06a6eeddb13e0b0d22724",
-      "duration": 1.872,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "8fc04888e87d50caa7f458c1813f466ad5d31ebf8be42beadebfca071aa24909",
+      "duration": 0.945958,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "go",
       "path": "media/go.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "7ba9e49402b98b3228dc53a628ed184de3d431a2a0df3d4770b4542115956906",
-      "duration": 1.872,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "4c4c3c2322b9b90974f19c46848de8eacfb403ffe2c14296cf002caf8a3fce51",
+      "duration": 0.811708,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "open",
       "path": "media/open.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "8992382d9247395a21131b3f35c29ea8b0ed9b7201fd4c1b76ea3e49498f8ca8",
-      "duration": 1.872,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "541cea04078e0946228d6025919de0262711b8bbf935bf465c3e0b50937fe10b",
+      "duration": 0.89025,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "close",
       "path": "media/close.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "db7be02280cb7af29a9bae30f481963899fb151c1ef1cf82d62fe7fa40d14c08",
-      "duration": 1.872,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "f1246b9afb6dfa101996036c9a27188047683446cea69e6d3fed0efe91026603",
+      "duration": 0.941458,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "big",
       "path": "media/big.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "a0ccb03e2b7538a5afb99b7ff737a64a9e2af0c5a09d1f5f17da71e3914f74c5",
-      "duration": 1.872,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "c6b2b4ca820e2c2e01f2e20860e8920b0c2a496d610ae99b16f4d587b00de293",
+      "duration": 0.817958,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "small",
       "path": "media/small.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "cb1af344e81590f339b085a4c0a56812514449f2bf46857b970d95aa0762eb24",
-      "duration": 1.872,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "e4bdd9cd8dfdb1cf4843b9771a284689e950de4cda7fbd78601638ad9a113104",
+      "duration": 0.965125,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "fast",
       "path": "media/fast.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "b2a5ebce8a25b4136cfb649235087a2c788c592c7773d683ef47db2dec9985a4",
-      "duration": 1.872,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "632f8b7f3b844ac508c85d9dff31f248e40df22b0205cbaffe02889190a36dcd",
+      "duration": 0.978042,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "slow",
       "path": "media/slow.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "a039383bf6d53e9ab76c1194fbfbb1992382277d46ddf105953d33668d0cbebe",
-      "duration": 1.872,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "307dcdf688092b3d9a5c52ddc600b9d18f8f67e4f2261bafb64907fb6d6090e8",
+      "duration": 0.986125,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "sun",
       "path": "media/sun.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "9bb098efdfe3d0ebfe1ad2433b03cb64d63dbd44a979abec902feff49e791a28",
-      "duration": 1.872,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "e8da6dcfd4320458a74af78ba3fb2f131b9a59c595fe17b140a3c24a2d9f41f4",
+      "duration": 0.922333,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "rain",
       "path": "media/rain.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "6090c7a2ad8833ea3e0c4a76d3e53479ef2c8907cd9adf1c02e5d8c9562b8dbf",
-      "duration": 1.872,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "465ce9464f28c3b9d44538fed1a32721065d16510b71c47c700d18177aec2063",
+      "duration": 0.863042,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "tree",
       "path": "media/tree.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "455853fc05853cc724041c3c9fb3dc484e15998cfbdce0c9624754e3d88e4e41",
-      "duration": 1.872,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "635f7d740d105fb627d98effab84707a21356f7b77a868128a0714a83e0679e7",
+      "duration": 0.871167,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "water",
       "path": "media/water.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "e5161ed1563f10ad214d91144ed7689942c07efac90675e80106b23df9bc0d35",
-      "duration": 1.872,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "e384426eb11770e65d1c09507be8e971f2d474bc566b99808a4438be515455d5",
+      "duration": 0.884625,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "leaf",
       "path": "media/leaf.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "5e3facad40a597f5a6374edd60993556e2bd01041e1c8862d9cc6481350eb6ad",
-      "duration": 1.872,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "140d9620b731b3469fa07d071ad6e31b5783ed6fc21a905a63e108e2df82224e",
+      "duration": 0.883167,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "help-please",
       "path": "media/help-please.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "593f3e368268ef75929ce164cc7eac7014573f00693caec584192a689a6ce47f",
-      "duration": 1.92,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "9752c24d0b467d4247a1f317d81a62f97915d5313a5ad0e318ca7365a5ffcdeb",
+      "duration": 1.498542,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "help-look",
       "path": "media/help-look.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "0009ed0258415884873e886d33d7b499016d7bc1ebcda4066275d72a200b0618",
-      "duration": 2.88,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "f757dd3e1a18fc3505d9a208128904c433a3b905d95a4374eb9a1b38d43b6efa",
+      "duration": 2.433042,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "help-rest",
       "path": "media/help-rest.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "e6cfaddd71688c026b74a1b134523a6fbce635a1a522d3b9dd8f6c7da377edbb",
-      "duration": 2.016,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "f0b45c0964d55060962ff613d638a630d5afe61dc3213e5e9cddce1c035d6b86",
+      "duration": 1.571833,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "parts-function-light",
       "path": "media/parts-function-light.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "5b94dba3bf6c01898a3dbfee79fbe52cc54dfb64ecded7ceb7f1b188892e3444",
-      "duration": 2.856,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "a6b9a735c47895a3c80f1b62832bd0dd605551128aa7d2faa120d14999bf2c6b",
+      "duration": 2.4295,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "parts-function-door",
       "path": "media/parts-function-door.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "5ce46af10d3dcebc30dae0a40b29e46d75e6b42be7005ba9d2ca3677e1d567bc",
-      "duration": 3.792,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "26bfff9970a7b778d175fc494d6d31d72504b7889a0b9b14169652973c5868ca",
+      "duration": 3.352875,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "phrase-look",
       "path": "media/phrase-look.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "f0289f667b20a91ad4297bf30545d5576929b12ed91e8ec9f11a6cab6c7314ca",
-      "duration": 2.16,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "cd45ea12ceedcac4d8fe771980b7fb905386321d4461c091492960322f4f3667",
+      "duration": 1.349,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "phrase-red",
       "path": "media/phrase-red.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "39a2e36f466b966d1fd9f59a86261444a994efaf435110ce7e621175a51540b9",
-      "duration": 2.4,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "5d663451422d3af034264644df7bcaeeb86abee581499106802fa671b977e552",
+      "duration": 1.581458,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "phrase-wheel",
       "path": "media/phrase-wheel.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "d560d1ae3fa27e1f339c42793027a19912a48587ee76a77e8d0600bfd71d56be",
-      "duration": 2.112,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "cc57ef8c5d2285ae31ff1018f3545bef34b1816462d43cb9f62fcc9cc5910f60",
+      "duration": 1.268042,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "phrase-park",
       "path": "media/phrase-park.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "93ab3de04690171de17873ce4d60c3b45b475c22ce77c68938a62459e94b1c42",
-      "duration": 1.92,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "66faac9e0ed84d302fa6243249f4714613261ec6793a01a603e607c7e1f6247e",
+      "duration": 1.092333,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "phrase-go",
       "path": "media/phrase-go.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "9c7ac7bbfbbc7944a0cf35754440633285fe50259ddd72c08e8d3736b86ab4b2",
-      "duration": 1.92,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "ad5c6a2b60d645680df2c6a322dd597349cb26ad258115284b501e9b63f5cb6c",
+      "duration": 1.123042,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "phrase-stop",
       "path": "media/phrase-stop.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "3f17ada798dbafea5f788da6fbeb64dc0b3b29c0f48aec3317d555ac471390cd",
-      "duration": 2.016,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "26896f89e48b3abbbfb6e9e415f51af92343f1f8334c73ef49e56d61c259eeb2",
+      "duration": 1.191,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "phrase-open",
       "path": "media/phrase-open.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "9d1ecdb8ec852c6437a6767a7c8c5701426255e5d009b6ddbb069a3fadcffa7c",
-      "duration": 2.088,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "6b4c954bdd4327da4e6e567c85136349bd021f92081f927ca1570f3357efb5a6",
+      "duration": 1.29275,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "phrase-close",
       "path": "media/phrase-close.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "7021ce2b0a237558bc13419bc18e4ec82d2e686c19d0985ce1a74f0c0428f444",
-      "duration": 2.088,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "0945adc6a94b37215fe875cee1f82685a2c96813712c9aac36c042a668646d1d",
+      "duration": 1.2865,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "helper-library",
       "path": "media/helper-library.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "bbb72cd73869bf4cf17d06c47029e542d4010a9db45821711db2ffda0799b301",
-      "duration": 4.248,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "cc330a337f33d9d9f0d7397cd374ad25943bf408aca6e3dfc5ef4b71a1bb80a5",
+      "duration": 3.833167,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "helper-guardian",
       "path": "media/helper-guardian.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "dcc02a55acb1c4c893421c50b3e8081196052077ad3919e5235f192b93032327",
-      "duration": 4.272,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "ccf1b88f466212798ab4fdcb3fe61254de6091cf3448bb24a981721a8e658e93",
+      "duration": 3.841958,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "next-friend",
       "path": "media/next-friend.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "ae55f01c1d5880c383479aced62bf1ce2549fefa34fe31f4dd87349eb5846fca",
-      "duration": 4.008,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "0f2a001785230515554548c44d91ea2b775966879b616615e1db5ce544ce16db",
+      "duration": 3.575125,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "sequence-pack",
       "path": "media/sequence-pack.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "4d766b242e0d78c75caf28665e48068f7453460707a3ef59c5e2de375188c3b7",
-      "duration": 2.208,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "6b38af73cb01efa5319ce2425ae0555adafe78fc1e8d0f5a12c362fea525080d",
+      "duration": 1.782375,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "sequence-belt",
       "path": "media/sequence-belt.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "26e024ddd8dcf715cbf667ba5159fd2129fa6cbdc4545f3008f4fe81b155466e",
-      "duration": 2.808,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "53bb6dda5c527dd4c77509dbb96b59e657a3469609a6ebd48fdfe2cff4777477",
+      "duration": 2.391833,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "sequence-go",
       "path": "media/sequence-go.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "08c276998beba17366b3e26c5f8d40f40e5800bb2848b871aeacc20f373566d2",
-      "duration": 2.16,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "0bbab4a18a3aab36953d7380482ea84a43b869bd690da58c641d6e6b12b4104d",
+      "duration": 1.7465,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "place-park",
       "path": "media/place-park.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "173e1b268e50fa99207df9ed3cd620601e7db2afecf1e59d0893abc96ab642f6",
-      "duration": 5.76,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "e7f505f4bbaec66f7e82e5d244e0937b10477ac70e0d1abb9ad35902ab846313",
+      "duration": 5.325667,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "place-library",
       "path": "media/place-library.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "4b54de91c0996f1da8132e3d868a10f706799fadc1c86554a7f145f65bbe7c20",
-      "duration": 7.608,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "895956e0f2271cb47075f00e7ae08ab74d603d4ec4179e464e17a9a5aad546b7",
+      "duration": 7.167958,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "place-museum",
       "path": "media/place-museum.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "5360ad9f9e99dab427b3883ee4c42d63daa9f8bc8586630e086b4f91733f701b",
-      "duration": 7.752,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "37a394896fcb0e3d108c9c05bcc11b2fcf13dff405bee292dfdde24c37d724c1",
+      "duration": 7.317375,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "activity-P01",
       "path": "media/activity-P01.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "497cd40786eda5d00a37a8c0311e738ebeaad27a9e3f21cd90a3ff9e54432e55",
-      "duration": 4.248,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "6b2475cbf6bb4c48a3563101e179c59237988b0a2dd93be6c525648836409c8a",
+      "duration": 3.823083,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "hint-P01",
       "path": "media/hint-P01.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "38dd3a3bbe7337f59139863af3cbb2d71f37ae40ffa64dd5a1130628d686eec4",
-      "duration": 8.496,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "4681b1ef6232e52e8e785877720a916efd9c8f18d81028a0e3c4e1a91fb1b998",
+      "duration": 8.089958,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "activity-T04",
       "path": "media/activity-T04.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "9ab949d9dab7ec1ba37bd2e20911e699f887d59e9b1a4549ab1858bf1c9eb5de",
-      "duration": 4.632,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "cd51296634e1bca055fbfa3aa0e0721ac69e233ee7f22c80b99da1d3f89f8776",
+      "duration": 4.198625,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "hint-T04",
       "path": "media/hint-T04.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "1c19ff842a7f641e2a97bb2c0aeeaaeffb5dc727e2a4b24ae2bdf70d52e8d9b4",
-      "duration": 8.928,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "6fb6b70948d38882142855eb70e87eddb11b31332bf6f4d7a0a2aa2f23121f72",
+      "duration": 8.499875,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "physics-invite-push",
       "path": "media/physics-invite-push.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "d82a53a4ea510a657effc1e6e6dd02ad3b1c09df359657e7d745b0d5db4fa7e9",
-      "duration": 7.32,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "70ab9c4d8a947270c17d63fb984b890ecb2d960fb75c9e5f35306bd78a5cd88c",
+      "duration": 6.885292,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "physics-invite-surface",
       "path": "media/physics-invite-surface.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "06f938d82a3334f26702e63ee0cb0a1e1f05099869bdd16f86f3b58c68817293",
-      "duration": 7.608,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "a763191e501dafda2d3b29318edf4ae8b978124ab2f20720f331429ab39cb0df",
+      "duration": 7.184792,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "physics-invite-brake",
       "path": "media/physics-invite-brake.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "e01afc57a59a7eccce2a0e871d730c4e295244cca8052e49bdf57c1a14520999",
-      "duration": 6.576,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "077ad6c6359f0bc036bbd6bdb3a7bb2ff87d98d61244f18bfdfe8f785c6093a8",
+      "duration": 6.121958,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "physics-go",
       "path": "media/physics-go.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "edce99af93c64dc4d23819ef8dd12ff8be6ef78eca1bfe226a09fe8a177af8b8",
-      "duration": 4.368,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "80ed18e1b222050a18ff8b237baae3623279c49fa1305a6df09903fb1f46260a",
+      "duration": 3.941,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "physics-braking",
       "path": "media/physics-braking.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "b9fba3df09c7b5b4ca3be83e4ebeb8ce8cfba2d6949d8f8376623bb05abf911e",
-      "duration": 4.992,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "833eae2b3fee856ff38b005b63bbaf146a609bcadd8d92740f97a7588b80ae97",
+      "duration": 4.570417,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "physics-why-push",
       "path": "media/physics-why-push.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "27330a01c01192fb4b58082ac82dea906efa47f1d6ab7a81e1ce3ea5641b636d",
-      "duration": 9.528,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "69af797802d0bfff3b32c64160db89e72f9db55aa3b65690f720abc635e6995f",
+      "duration": 9.065917,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "physics-why-surface",
       "path": "media/physics-why-surface.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "06e188d0fd12c8efeede1d427fe93d53993e751dce7b4cba27b8815e5da00b6b",
-      "duration": 9.744,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "fd83a23c1c8af79581ed2dda80e4cd2d5a0e351b1a9a66d306cb827ebd46105b",
+      "duration": 9.303208,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "physics-why-brake",
       "path": "media/physics-why-brake.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "f15d4ff629d689613f58f9b8b5ebc5daf4cb0a527b084213114f9dd5cb50bc12",
-      "duration": 9.36,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "ba23f878b5ea0054ec81abbfa43d33b0a8f913ece3ae22a856e9272131cb10bd",
+      "duration": 8.927708,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "assembly-body",
       "path": "media/assembly-body.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "a22cc0cfb835b11217288e909f3e20affcccb53869367b1a16e8ebc3f1bec467",
-      "duration": 3.888,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "60d6ff5d1c681c6c87fffde5e6e745a77661fdfa438508079fc79821fae92f69",
+      "duration": 3.439333,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "assembly-door",
       "path": "media/assembly-door.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "d8d4deeae5bd45acb0d48261ec77baf873f0877d2d3e4147255a39159849e3ee",
-      "duration": 3.912,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "83c756af71944238be76c8c2b3358d779f9a505907504a8bdd6186ec3c4f6f6f",
+      "duration": 3.475458,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "assembly-front-wheel",
       "path": "media/assembly-front-wheel.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "d77c197091fcb3e18e246bee7c697524eeff7f249ad6e28875bf0342c27fcdcf",
-      "duration": 4.344,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "1ba59c18d15feba7b030d1a4ba912e853f8f2021aa00bad4a3473e0d3c274275",
+      "duration": 3.884583,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "assembly-rear-wheel",
       "path": "media/assembly-rear-wheel.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "d1eb9d03805f9f8572bb2a8e8fe4b8d41e06919463794fe5f9019b184102c308",
-      "duration": 4.224,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "e77182172420651ff4e2fa5a4f0eb69671bd427b2b3170b0ab7fcbeb3e73718d",
+      "duration": 3.769958,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "assembly-retry",
       "path": "media/assembly-retry.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "3fa7efab3b1c16398b48cdd3a3ad548020921bb553f6d68e57f97882f495f680",
-      "duration": 4.392,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "f0c95a7ece85cb0d8d473afa0f6dd08308373fcc431b36b15a51190883431437",
+      "duration": 3.94825,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
       "id": "assembly-done",
       "path": "media/assembly-done.mp3",
       "kind": "audio",
       "status": "approved",
-      "sha256": "1d8ca5a7806cca0384be0aeb9f7a43f3e65783e76a1b8f1408c14e2dfd2e1cf7",
-      "duration": 7.896,
-      "source": "Production Edge TTS Xiaoxiao/Jenny -12%; text, file and duration checked; local review only."
+      "sha256": "fef5f8e31ac701102a51a01f6f285da41339e7435d0f228bfe8e76f82e6c6fad",
+      "duration": 7.486875,
+      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     }
   ],
   "scenes": [

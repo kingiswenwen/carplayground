@@ -1,7 +1,7 @@
 {
   "name": "carplayground",
   "private": true,
-  "version": "0.3.0",
+  "version": "0.3.1",
   "type": "module",
   "engines": {
     "node": ">=22.12"
@@ -15,7 +15,15 @@
     "test:e2e": "playwright test",
     "build": "npm run validate && npm run typecheck && vite build",
     "build-nolog": "npm run build",
-    "preview": "vite preview --host 0.0.0.0 --port 5173"
+    "preview": "vite preview --host 0.0.0.0 --port 5173",
+    "release:prepare": "node scripts/prepare-release.mjs",
+    "release:verify": "node scripts/verify-release.mjs",
+    "release:preview": "node scripts/preview-release.mjs",
+    "release:backup": "node scripts/backup-release.mjs",
+    "release:compose": "node scripts/compose-release.mjs",
+    "test:release": "node --test tests/release.integration.mjs",
+    "audit:audio": "python scripts/audit-audio.py",
+    "audio:plan": "python scripts/generate-licensed-audio.py --plan"
   },
   "dependencies": {
     "dexie": "4.4.6",
