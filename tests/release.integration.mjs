@@ -5,7 +5,7 @@ import path from 'node:path';
 import os from 'node:os';
 import { execFileSync, spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { verifyPackage } from '../scripts/release-lib.mjs';
+import { verifyPackage, verifySourceTree } from '../scripts/release-lib.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const sandbox=await fs.mkdtemp(path.join(os.tmpdir(),'carplayground-release-check-'));
 const run=(script,args=[])=>execFileSync(process.execPath,[path.join(root,'scripts',script),...args],{cwd:root,encoding:'utf8',stdio:['ignore','pipe','pipe']});
@@ -55,4 +55,16 @@ test('篡改、缺失文件、额外文件和越界路径均不能通过完整�
   await fs.writeFile(path.join(broken,'site/private-data.json'),'{}');await assert.rejects(verifyPackage(broken),/清单不一致/);
   await fs.rm(path.join(broken,'site/private-data.json'));
   const manifest=JSON.parse(await fs.readFile(path.join(broken,'manifest.json'),'utf8'));manifest.files[0].path='../outside';await fs.writeFile(path.join(broken,'manifest.json'),JSON.stringify(manifest));await assert.rejects(verifyPackage(broken),/非法发布路径/);
+});
+test('源码归档恢复逐文件对照Git对象，不能把仅创建归档当成读回通过',async()=>{
+  const commit=execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim();
+  const archive=path.join(sandbox,'source.tar'),restored=path.join(sandbox,'restored-source');
+  execFileSync('git',['archive','--format=tar',`--output=${archive}`,commit],{cwd:root});
+  await fs.mkdir(restored);
+  execFileSync('tar',['-xf',archive,'-C',restored]);
+  assert.ok(await verifySourceTree(restored,commit,root)>0);
+  await fs.appendFile(path.join(restored,'START_HERE.md'),'corrupted recovery');
+  await assert.rejects(verifySourceTree(restored,commit,root),/源码校验失败/);
+  await fs.rm(path.join(restored,'START_HERE.md'));
+  await assert.rejects(verifySourceTree(restored,commit,root),/源码文件清单不一致/);
 });

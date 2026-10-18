@@ -2,6 +2,7 @@ import { Howl, Howler } from 'howler';
 import { assetUrl } from '../domain/content';
 let enabled = false;
 let current: Howl | undefined;
+let settleCurrent: ((success: boolean) => void) | undefined;
 let generation = 0;
 let error = '';
 const listeners = new Set<() => void>();
@@ -16,9 +17,19 @@ export const audio = {
     // Initialize/resume in the original click handler, before hash navigation
     // or async loading can leave Safari's user-gesture task.
     Howler.volume(1);
-    void Howler.ctx?.resume().catch(() => report('点“重听”再开启声音。'));
+    const token = generation;
+    void Howler.ctx?.resume().catch(() => { if (enabled && token === generation) report('点“重听”再开启声音。'); });
   },
-  stop() { generation++; current?.stop(); current?.unload(); current = undefined; report(''); },
+  stop() {
+    generation++;
+    // Howler queues stop during loading; unloading need not emit onstop.
+    // Settle our queue explicitly before destroying the pending clip.
+    settleCurrent?.(false);
+    settleCurrent = undefined;
+    const clip = current;
+    current = undefined;
+    clip?.stop(); clip?.unload(); report('');
+  },
   async play(...ids: string[]) {
     this.stop();
     if (!enabled || document.hidden) return;
@@ -27,17 +38,28 @@ export const audio = {
     for (const id of ids) {
       if (token !== generation || !enabled) return;
       const success = await new Promise<boolean>(resolve => {
+        const settle = (success: boolean) => {
+          if (settleCurrent === settle) settleCurrent = undefined;
+          resolve(success);
+        };
+        settleCurrent = settle;
         const clip = new Howl({ src: [assetUrl(id)], volume: 0.85, preload: true,
-          onend: () => resolve(true), onstop: () => resolve(false),
-          onloaderror: () => { if (token === generation) report('声音还没到，点“重听”再试一次。'); resolve(false); },
-          onplayerror: () => { if (token === generation) report('声音暂时没播放，点“重听”再试一次。'); resolve(false); },
+          onend: () => settle(true), onstop: () => settle(false),
+          onloaderror: () => { if (token === generation) report('声音还没到，点“重听”再试一次。'); settle(false); },
+          onplayerror: () => { if (token === generation) report('声音暂时没播放，点“重听”再试一次。'); settle(false); },
         });
         current = clip;
-        void Howler.ctx?.resume();
+        void Howler.ctx?.resume().catch(() => {
+          if (token !== generation) return;
+          report('声音暂时没播放，点“重听”再试一次。');
+          settle(false);
+        });
         clip.play();
       });
       if (token !== generation) return;
-      current?.unload();
+      const clip = current;
+      current = undefined;
+      clip?.unload();
       if (!success) break;
     }
   },

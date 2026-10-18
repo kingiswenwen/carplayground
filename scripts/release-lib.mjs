@@ -1,6 +1,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
+import { execFileSync } from 'node:child_process';
 
 export const sha256 = bytes => createHash('sha256').update(bytes).digest('hex');
 export const mimeType = filename => ({'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json; charset=utf-8','.webp':'image/webp','.mp3':'audio/mpeg','.png':'image/png','.svg':'image/svg+xml'}[path.extname(filename)] || 'application/octet-stream');
@@ -19,6 +20,25 @@ export async function listFiles(folder, prefix='') {
     if(entry.isDirectory()) files.push(...await listFiles(folder,name)); else if(entry.isFile()) files.push(safeRelative(name));
   }
   return files.sort();
+}
+export async function verifySourceTree(directory, commit, repository) {
+  if (!/^(?:[a-f0-9]{40}|[a-f0-9]{64})$/.test(commit)) throw Error('源码提交编号无效');
+  const git = args => execFileSync('git', args, {cwd:repository, encoding:'utf8', maxBuffer:16*1024*1024}).trimEnd();
+  const objectFormat = git(['rev-parse', '--show-object-format']);
+  if (!['sha1','sha256'].includes(objectFormat)) throw Error('不支持的 Git 对象格式');
+  const entries = git(['ls-tree', '-rz', '--full-tree', commit]).split('\0').filter(Boolean).map(row => {
+    const match = /^(100644|100755) blob ([a-f0-9]+)\t(.+)$/s.exec(row);
+    if (!match) throw Error('源码备份包含不支持的文件类型');
+    return {path:safeRelative(match[3]), hash:match[2]};
+  });
+  const actual = await listFiles(directory);
+  if (JSON.stringify(actual) !== JSON.stringify(entries.map(e=>e.path).sort())) throw Error('恢复后的源码文件清单不一致');
+  for (const entry of entries) {
+    const bytes = await fs.readFile(path.join(directory, entry.path));
+    const hash = createHash(objectFormat).update(`blob ${bytes.length}\0`).update(bytes).digest('hex');
+    if (hash !== entry.hash) throw Error(`恢复后的源码校验失败：${entry.path}`);
+  }
+  return entries.length;
 }
 export async function verifyPackage(packageDirectory) {
   const manifest=JSON.parse(await fs.readFile(path.join(packageDirectory,'manifest.json'),'utf8'));
