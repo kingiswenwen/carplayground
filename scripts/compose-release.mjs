@@ -18,7 +18,7 @@ try {
   }
   const files=[...combined.values()].sort((a,b)=>a.path.localeCompare(b.path));
   const active=manifests[0];
-  const manifest={...active,createdAt:new Date().toISOString(),files,totalBytes:files.reduce((sum,f)=>sum+f.bytes,0),retainedReleases:manifests.slice(1).map(m=>({appReleaseId:m.appReleaseId,contentReleaseId:m.contentReleaseId,sourceCommit:m.sourceCommit}))};
+  const manifest={...active,createdAt:new Date().toISOString(),files,totalBytes:files.reduce((sum,f)=>sum+f.bytes,0),retainedReleases:manifests.slice(1).map(m=>({appReleaseId:m.appReleaseId,contentReleaseId:m.contentReleaseId,sourceCommit:m.sourceCommit,kind:m.kind,sourceDirty:m.sourceDirty,outstanding:m.outstanding}))};
   await fs.writeFile(path.join(destination,'manifest.json'),JSON.stringify(manifest,null,2)+'\n');
   await verifyPackage(destination);
   console.log(`已组成入口 ${active.appReleaseId}，保留 ${manifests.length-1} 个版本，校验 ${files.length} 个文件。`);

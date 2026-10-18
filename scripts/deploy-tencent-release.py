@@ -1,0 +1,233 @@
+"""Upload a verified static package; stage first, explicitly promote index last.
+
+Cloud libraries are imported only for --execute. Credentials never enter site/.
+"""
+import argparse
+import datetime
+import fcntl
+import hashlib
+import json
+import logging
+from pathlib import Path
+import re
+import subprocess
+import sys
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def digest(data):
+    return hashlib.sha256(data).hexdigest()
+
+
+def validate_target(target):
+    if (target.get('project') != 'CarPlayground'
+            or target.get('bucket') != 'example-private-bucket'
+            or target.get('region') != 'ap-beijing'
+            or target.get('domain') != 'example-private-domain'
+            or not target.get('httpsVerified')):
+        raise ValueError('Target must be the verified, dedicated CarPlayground bucket and HTTPS domain')
+
+
+def upload_blockers(manifest):
+    if manifest.get('kind') not in ('review', 'family'):
+        return ['Unknown release kind']
+    outstanding = manifest.get('outstanding')
+    if not isinstance(outstanding, list):
+        return ['Missing release acceptance snapshot']
+    forbidden = {'audio-distribution', 'content-review'}
+    blocked = [item['id'] for item in outstanding
+               if manifest['kind'] == 'family' or item['id'] in forbidden]
+    if manifest.get('sourceDirty'):
+        blocked.append('sourceDirty')
+    for retained in manifest.get('retainedReleases', []):
+        retained_issues = upload_blockers({**retained, 'retainedReleases': []})
+        blocked.extend('retained/' + retained.get('appReleaseId', 'unknown') + '/' + issue
+                       for issue in retained_issues)
+    return blocked
+
+
+def read_local(package, file):
+    data = (package / 'site' / file['path']).read_bytes()
+    if len(data) != file['bytes'] or digest(data) != file['sha256']:
+        raise ValueError('Package changed after verification: ' + file['path'])
+    return data
+
+
+def check_bytes(file, remote):
+    if remote is None or digest(remote['data']) != file['sha256']:
+        raise ValueError('Remote bytes differ: ' + file['path'])
+    headers = {key.lower(): value for key, value in remote['headers'].items()}
+    for header in ('Content-Type', 'Cache-Control'):
+        actual, expected = headers.get(header.lower(), ''), file['headers'][header]
+        if header == 'Cache-Control':
+            # CDN may reorder directives while retaining the exact policy.
+            actual = sorted(part.strip().lower() for part in actual.split(','))
+            expected = sorted(part.strip().lower() for part in expected.split(','))
+        if actual != expected:
+            raise ValueError('Remote header differs: ' + file['path'] + ' ' + header)
+
+
+def deploy(package, manifest, cloud, receipt, save, publish=False, expected=None):
+    """cloud is a COS/CDN adapter. Tests inject transport failures and conflicts."""
+    blockers = upload_blockers(manifest)
+    if blockers:
+        raise ValueError('Upload blocked: ' + ', '.join(blockers))
+    files = [file for file in manifest['files'] if file['path'] != 'index.html']
+    index = next(file for file in manifest['files'] if file['path'] == 'index.html')
+    previous = cloud.origin_get('index.html') if publish else None
+    if publish:
+        previous_hash = digest(previous['data']) if previous else 'absent'
+        receipt['previousIndexSha256'] = previous_hash
+        if expected != previous_hash:
+            raise ValueError('Current index does not match --expect-current-sha256')
+        if previous:
+            save('previous-index.html', previous['data'])
+    # Complete preflight before writing anything. Existing immutable objects must
+    # match both bytes and headers; wrong metadata requires a new version ID.
+    missing = []
+    for file in files:
+        read_local(package, file)
+        existing = cloud.origin_get(file['path'])
+        if existing is None:
+            missing.append(file)
+        else:
+            check_bytes(file, existing)
+    receipt['existingObjectsVerified'] = len(files) - len(missing)
+    for file in missing:
+        # Recheck immediately before write. Local flock serializes this tool;
+        # COS versioning does not provide atomic immutable/entry CAS protection.
+        existing = cloud.origin_get(file['path'])
+        if existing is not None:
+            check_bytes(file, existing)
+            continue
+        cloud.put(file['path'], read_local(package, file), file['headers'])
+        receipt['uploaded'].append(file['path'])
+        check_bytes(file, cloud.origin_get(file['path']))
+    for file in files:
+        check_bytes(file, cloud.cdn_get(file['path']))
+        receipt['cdnVerified'].append(file['path'])
+    receipt['staged'] = True
+    if not publish:
+        return
+    current = cloud.origin_get('index.html')
+    if (digest(current['data']) if current else 'absent') != expected:
+        raise ValueError('Index changed during staging; promotion aborted')
+    data = read_local(package, index)
+    receipt['indexWriteAttempted'] = True
+    cloud.put('index.html', data, index['headers'])
+    receipt['indexWritten'] = True
+    check_bytes(index, cloud.origin_get('index.html'))
+    check_bytes(index, cloud.cdn_get('index.html'))
+    receipt['published'] = True
+
+
+class TencentCloud:
+    def __init__(self, target, key):
+        from qcloud_cos import CosConfig, CosS3Client
+        import requests
+        self.cos = CosS3Client(CosConfig(Region=target['region'],
+                                       SecretId=key['secretId'], SecretKey=key['secretKey'],
+                                       Scheme='https'))
+        self.bucket = target['bucket']
+        self.base = 'https://' + target['domain'] + '/'
+        self.http = requests.Session()
+
+    def origin_get(self, name):
+        from qcloud_cos.cos_exception import CosServiceError
+        try:
+            response = self.cos.get_object(Bucket=self.bucket, Key=name)
+        except CosServiceError as error:
+            if error.get_status_code() == 404:
+                return None
+            raise
+        stream = response['Body'].get_raw_stream()
+        try:
+            return {'data': stream.read(), 'headers': response}
+        finally:
+            stream.close()
+
+    def put(self, name, data, headers):
+        self.cos.put_object(Bucket=self.bucket, Key=name, Body=data, EnableMD5=True,
+                            ContentType=headers['Content-Type'],
+                            CacheControl=headers['Cache-Control'])
+
+    def cdn_get(self, name):
+        # No credentials, cache-busting query, Host override or TLS bypass.
+        response = self.http.get(self.base + name, timeout=(10, 40), allow_redirects=False)
+        if response.status_code != 200:
+            raise ValueError('CDN status ' + str(response.status_code) + ': ' + name)
+        return {'data': response.content, 'headers': dict(response.headers)}
+
+
+def private_credentials(filename):
+    file = Path(filename).resolve()
+    if file == ROOT or ROOT in file.parents or file.stat().st_mode & 0o077:
+        raise ValueError('Credential file must be outside the repository and readable only by its owner')
+    key = json.loads(file.read_text())
+    if not all(isinstance(key.get(name), str) and key[name] for name in ('secretId', 'secretKey')):
+        raise ValueError('Invalid credential file; values are never logged')
+    return key
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('package', type=Path)
+    parser.add_argument('--execute', action='store_true', help='Without this flag only a local plan is printed')
+    parser.add_argument('--publish', action='store_true', help='Promote root index after all immutable objects pass CDN verification')
+    parser.add_argument('--expect-current-sha256', help='Required with --publish: previous index hash, or absent for first publication')
+    parser.add_argument('--credentials-file', help='Owner-only JSON file outside repository; secretId and secretKey')
+    args = parser.parse_args()
+    package = args.package.resolve()
+    verified = subprocess.run(['node', str(ROOT / 'scripts/verify-release.mjs'), str(package), '--json'],
+                              check=True, capture_output=True, text=True)
+    manifest = json.loads(verified.stdout)
+    target = json.loads((ROOT / 'deployment/tencent-cloud.json').read_text())
+    validate_target(target)
+    blockers = upload_blockers(manifest)
+    plan = {'appReleaseId': manifest['appReleaseId'], 'contentReleaseId': manifest['contentReleaseId'],
+            'bucket': target['bucket'], 'domain': target['domain'],
+            'objects': len(manifest['files']) - (0 if args.publish else 1),
+            'bytes': sum(file['bytes'] for file in manifest['files'] if args.publish or file['path'] != 'index.html'), 'publishIndexLast': args.publish,
+            'deleteOldObjects': False, 'blockers': blockers, 'executed': False}
+    print(json.dumps(plan, ensure_ascii=False, indent=2))
+    if not args.execute:
+        return
+    if blockers:
+        raise ValueError('Upload blocked: ' + ', '.join(blockers))
+    if args.publish and not re.fullmatch(r'(?:absent|[a-f0-9]{64})', args.expect_current_sha256 or ''):
+        raise ValueError('--publish requires --expect-current-sha256 HASH|absent')
+    if not args.credentials_file:
+        raise ValueError('--execute requires --credentials-file')
+    logging.disable(logging.CRITICAL)
+    key = private_credentials(args.credentials_file)
+    artifacts = ROOT / '.release-artifacts'
+    artifacts.mkdir(exist_ok=True)
+    with (artifacts / 'tencent-deploy.lock').open('a') as lock:
+        fcntl.flock(lock.fileno(), fcntl.LOCK_EX | fcntl.LOCK_NB)
+        stamp = datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%S.%fZ')
+        folder = artifacts / ('deployment-' + stamp)
+        folder.mkdir(mode=0o700)
+        receipt = {**plan, 'startedAt': stamp, 'executed': True, 'uploaded': [], 'cdnVerified': [],
+                   'staged': False, 'indexWritten': False, 'published': False}
+        try:
+            deploy(package, manifest, TencentCloud(target, key), receipt,
+                   lambda name, data: (folder / name).write_bytes(data),
+                   publish=args.publish, expected=args.expect_current_sha256)
+        except Exception as error:
+            # SDK exception strings can include request/response details.
+            receipt['failureType'] = type(error).__name__
+            if isinstance(error, ValueError):
+                receipt['reason'] = str(error)
+            raise
+        finally:
+            (folder / 'receipt.json').write_text(json.dumps(receipt, ensure_ascii=False, indent=2) + '\n')
+            print('Deployment receipt: ' + str(folder / 'receipt.json'))
+
+
+if __name__ == '__main__':
+    try:
+        main()
+    except Exception as error:
+        print(str(error) if isinstance(error, ValueError) else 'Deployment failed: ' + type(error).__name__, file=sys.stderr)
+        sys.exit(1)
