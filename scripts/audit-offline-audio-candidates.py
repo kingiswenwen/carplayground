@@ -9,6 +9,7 @@ from pathlib import Path
 import re
 import subprocess
 import unicodedata
+import wave
 
 ROOT = Path(__file__).resolve().parents[1]
 parser = argparse.ArgumentParser(description=__doc__)
@@ -21,7 +22,9 @@ if generation.get('status') != 'generated-pending-audit' or len(generation['clip
 content = json.loads((ROOT / 'content/r3.json').read_text())
 baseline = json.loads((ROOT / 'docs/development/audio-transcript-audit.json').read_text())
 baseline_by_id = {clip['id']: clip for clip in baseline['clips']}
-config_path = Path.home() / '.cache/carplayground-kokoro-models/models--hexgrad--Kokoro-82M-v1.1-zh/snapshots' / generation['revision'] / 'config.json'
+if generation['model'] not in ['hexgrad/Kokoro-82M-v1.1-zh', 'hexgrad/Kokoro-82M'] or not re.fullmatch(r'[a-f0-9]{40}', generation['revision']):
+    raise RuntimeError('Unrecognized candidate model or revision')
+config_path = Path.home() / '.cache/carplayground-kokoro-models' / ('models--' + generation['model'].replace('/', '--')) / 'snapshots' / generation['revision'] / 'config.json'
 if hashlib.sha256(config_path.read_bytes()).hexdigest() != generation['modelFiles']['config.json']['sha256']:
     raise RuntimeError('Candidate synthesis vocabulary changed')
 vocabulary = json.loads(config_path.read_text())['vocab']
@@ -42,6 +45,19 @@ for candidate in generation['clips']:
     path = (directory / name).resolve()
     if path.parent != directory or hashlib.sha256(path.read_bytes()).hexdigest() != candidate['sha256']:
         raise RuntimeError('Candidate file differs from generation: ' + name)
+    extraction = candidate.get('contextExtraction')
+    context_verified = None
+    if extraction:
+        if extraction['contextPath'] != 'contexts/' + Path(name).stem + '.wav': raise RuntimeError('Unexpected context path')
+        context_file = directory / extraction['contextPath']
+        raw_file = directory / 'raw' / (Path(name).stem + '.wav')
+        if hashlib.sha256(context_file.read_bytes()).hexdigest() != extraction['contextSha256'] or hashlib.sha256(raw_file.read_bytes()).hexdigest() != candidate['rawSha256']:
+            raise RuntimeError('Context waveform hash differs')
+        with wave.open(str(context_file), 'rb') as context, wave.open(str(raw_file), 'rb') as word:
+            if context.getnchannels() != 1 or context.getsampwidth() != 2 or context.getframerate() != 24000: raise RuntimeError('Unexpected context PCM format')
+            context.setpos(round(extraction['cutStartSeconds'] * 24000))
+            if context.readframes(context.getnframes()) != word.readframes(word.getnframes()): raise RuntimeError('Extracted word is not the exact recorded waveform suffix')
+        context_verified = True
     current = content['speech'][candidate['id']]
     reference = baseline_by_id[candidate['id']]
     current_asset = next(asset for asset in content['assets'] if asset['id'] == candidate['id'] and asset['kind'] == 'audio')
@@ -68,6 +84,7 @@ for candidate in generation['clips']:
     recognized = ''.join(segment.text for segment in segments).strip()
     expected, actual = normalize(candidate['text']), normalize(recognized)
     report['clips'].append({'id': candidate['id'], 'voice': candidate['voice'], 'path': name, 'sha256': candidate['sha256'], 'expected': candidate['text'], 'recognized': recognized, 'normalizedMatch': expected == actual, 'textSimilarity': round(difflib.SequenceMatcher(None, expected, actual).ratio(), 3), 'baselineRecognized': reference['recognized'], 'baselineNormalizedMatch': reference['normalizedMatch'], 'durationSeconds': duration, 'sampleRate': int(stream['sample_rate']), 'channels': stream['channels'], 'integratedLufs': lufs if math.isfinite(lufs) else None, 'truePeakDbtp': peak if math.isfinite(peak) else None, 'silenceDurations': silence, 'unsupportedPhonemes': unsupported, 'technicalIssues': issues, 'listeningStatus': 'not-reviewed', 'segments': [{'text': segment.text, 'avgLogprob': segment.avg_logprob, 'noSpeechProbability': segment.no_speech_prob} for segment in segments]})
+    report['clips'][-1].update(synthesisText=candidate.get('synthesisText', candidate['text']), contextWaveformVerified=context_verified)
     (directory / 'audit.partial.json').write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
     print(candidate['id'] + '/' + candidate['voice'] + ': ' + recognized, flush=True)
 report['summary'] = {'clips': len(report['clips']), 'decoded': len(report['clips']), 'withTechnicalIssues': sum(bool(clip['technicalIssues']) for clip in report['clips']), 'voices': [{'voice': voice, 'clips': sum(clip['voice'] == voice for clip in report['clips']), 'normalizedMatches': sum(clip['voice'] == voice and clip['normalizedMatch'] for clip in report['clips'])} for voice in sorted({clip['voice'] for clip in report['clips']})]}

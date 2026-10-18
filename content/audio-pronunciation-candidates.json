@@ -1,0 +1,11 @@
+{
+  "status": "candidate-not-listened",
+  "overrides": {
+    "name-CAR03": {
+      "expectedText": "保时捷 911 GT3 RS",
+      "spokenText": "保时捷，九一一，GT 三 RS。",
+      "reason": "本项目的车型编号逐位读法候选，避免TTS把911当作九百一十一；车型拼写不变，不冒充厂家指定的唯一读法。",
+      "reference": "https://newsroom.porsche.com/zh/product/911.html"
+    }
+  }
+}
