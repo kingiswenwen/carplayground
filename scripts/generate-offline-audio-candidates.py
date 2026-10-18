@@ -113,7 +113,10 @@ for clip_id in args.only:
     shutil.copyfile(baseline, output / 'baseline' / (clip_id + '.mp3'))
     zh = line['locale'] == 'zh-CN'
     synthesis_text = pronunciations.get(clip_id, {}).get('spokenText', line['text'])
-    if args.short_word_context: synthesis_text = 'Listen carefully to this word. ' + line['text'].lower() + '.'
+    if args.short_word_context:
+        # Pronunciation markup is case-sensitive (e.g. Kokoro O is /oʊ/).
+        target_word = pronunciations[clip_id]['spokenText'] if clip_id in pronunciations else line['text'].lower()
+        synthesis_text = 'Listen carefully to this word. ' + target_word + '.'
     for voice in args.zh_voices if zh else args.en_voices:
         speed = .95 if zh else .9
         pipeline = chinese if zh else english

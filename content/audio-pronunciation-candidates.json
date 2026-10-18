@@ -1,6 +1,17 @@
 {
   "status": "candidate-not-listened",
   "overrides": {
+    "name-CAR08": {
+      "expectedText": "阿斯顿·马丁 Vantage",
+      "spokenText": "阿斯顿，马丁，Vantage。",
+      "reason": "固定中文模型把名称分隔符·转换成词表不支持的❓；仅在候选合成文字中改为逗号，保留原显示名称和Vantage英文读法，仍待实际听审。"
+    },
+    "close": {
+      "expectedText": "Close",
+      "spokenText": "[close](/klˈOz/)",
+      "reason": "关闭车门需要动词末音/z/；本地G2P在独词提示句中误选形容词/s/。保留界面Close文字，使用Kokoro支持的显式音素标记，O为该模型的双元音记号，区分大小写。仍待实际听审。",
+      "reference": "https://dictionary.cambridge.org/dictionary/english/close"
+    },
     "name-CAR03": {
       "expectedText": "保时捷 911 GT3 RS",
       "spokenText": "保时捷，九一一，GT 三 RS。",
