@@ -1,0 +1,10 @@
+{
+  "updatedAt": "2026-10-18",
+  "scope": "speech-production",
+  "speechBudgetCny": "0",
+  "cloudTtsRouteEnabled": false,
+  "paidSynthesisAllowed": false,
+  "keepCurrentApplicationAudio": true,
+  "offlineReviewCopiesAllowed": true,
+  "instruction": "Use existing project voices; do not open paid speech services, buy voices, or resume the cancelled Tencent TTS consultation. Offline review copies do not replace the application audio."
+}

@@ -13,6 +13,20 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 from audio_candidate_processing import finalize, word_boundary
 
 class CandidateProcessingTests(unittest.TestCase):
+    def test_nested_artifact_directory_in_public_is_rejected_by_both_tools(self):
+        root = Path(__file__).resolve().parents[1]
+        output = root / 'public/.release-artifacts/must-not-write'
+        commands = [
+            ['generate-offline-audio-candidates.py', '--only', 'wheel', '--model-variant', 'english', '--en-voices', 'af_heart', '--output', str(output)],
+            ['audio_candidate_processing.py', '/missing-generation', str(output)],
+        ]
+        for script, *arguments in commands:
+            with self.subTest(script=script):
+                result = subprocess.run([sys.executable, str(root / 'scripts' / script), *arguments], capture_output=True, text=True)
+                self.assertNotEqual(result.returncode, 0)
+                self.assertIn('.release-artifacts', result.stderr)
+                self.assertFalse(output.exists())
+
     def write_wave(self, path, segments):
         rate = 24000
         samples = []

@@ -73,7 +73,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
     parent, output = args.parent.resolve(), args.output.resolve()
     root = Path(__file__).resolve().parents[1]
-    if output == root or root in output.parents and '.release-artifacts' not in output.relative_to(root).parts:
+    if output == root or root in output.parents and (root / '.release-artifacts') not in output.parents:
         parser.error('Repository output must be under .release-artifacts')
     report = json.loads((parent / 'generation.json').read_text())
     if report.get('status') != 'generated-pending-audit' or len(report['clips']) != report['candidates']:

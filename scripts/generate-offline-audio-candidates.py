@@ -51,7 +51,7 @@ if args.plan:
     raise SystemExit(0)
 stamp = datetime.datetime.now(datetime.timezone.utc).strftime('%Y%m%dT%H%M%SZ')
 output = (args.output or ROOT / '.release-artifacts/tts-candidates' / ('kokoro-' + stamp)).resolve()
-if output == ROOT or ROOT in output.parents and '.release-artifacts' not in output.relative_to(ROOT).parts:
+if output == ROOT or ROOT in output.parents and (ROOT / '.release-artifacts') not in output.parents:
     parser.error('Candidate output inside the repository must be in .release-artifacts')
 if output.exists():
     parser.error('Refusing to overwrite an existing candidate directory')

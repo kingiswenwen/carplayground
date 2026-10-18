@@ -149,6 +149,7 @@ def main():
     parser.add_argument('--output', type=Path)
     args = parser.parse_args()
     config = json.loads((ROOT / 'content/tencent-tts-production.json').read_text())
+    config['spendingPolicy'] = json.loads((ROOT / 'content/audio-spending-policy.json').read_text())
     content = json.loads((ROOT / 'content/r3.json').read_text())
     plan = make_plan(content, config, args.only or list(content['speech']))
     print(json.dumps({key: value for key, value in plan.items() if key != 'lines'}, ensure_ascii=False, indent=2), flush=True)

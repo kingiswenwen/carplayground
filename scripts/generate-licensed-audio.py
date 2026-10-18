@@ -25,6 +25,9 @@ if any(i not in content['speech'] or not re.fullmatch(r'[A-Za-z0-9_-]+', i) for 
 print(json.dumps({'provider': 'azure-speech', 'clips': len(ids), 'characters': sum(len(content['speech'][i]['text']) for i in ids), 'replacesExisting': args.replace_existing}, ensure_ascii=False))
 if args.plan:
     raise SystemExit(0)
+spending_policy = json.loads((ROOT / 'content/audio-spending-policy.json').read_text())
+if spending_policy.get('cloudTtsRouteEnabled') is not True or spending_policy.get('paidSynthesisAllowed') is not True:
+    raise SystemExit('Cloud speech production is disabled by the user zero-spend policy; keep existing project audio.')
 region = os.environ.get('AZURE_SPEECH_REGION', '')
 key = os.environ.get('AZURE_SPEECH_KEY', '')
 if not key or not re.fullmatch(r'[a-z][a-z0-9-]{1,40}', region):

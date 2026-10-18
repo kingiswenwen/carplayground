@@ -1,6 +1,7 @@
 {
   "formatVersion": 1,
   "provider": "tencent-cloud-tts",
+  "spendingPolicySource": "content/audio-spending-policy.json",
   "selectionStatus": "route-cancelled-use-existing-project-audio",
   "spendingPolicy": {
     "speechBudgetCny": "0",

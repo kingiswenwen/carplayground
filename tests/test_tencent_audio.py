@@ -80,6 +80,12 @@ class AudioProductionTest(unittest.TestCase):
         self.assertEqual(result.returncode, 1)
         self.assertIn('exceeds authorized cost estimate', result.stderr)
 
+    def test_azure_helper_also_obeys_shared_zero_spend_policy(self):
+        result = subprocess.run([sys.executable, str(ROOT / 'scripts/generate-licensed-audio.py'),
+                                 '--only', 'wheel', '--replace-existing'], capture_output=True, text=True)
+        self.assertEqual(result.returncode, 1)
+        self.assertIn('disabled by the user zero-spend policy', result.stderr)
+
     def test_nested_public_artifact_directory_cannot_bypass_staging_boundary(self):
         target = ROOT / 'public/.release-artifacts/must-not-write'
         result = subprocess.run([sys.executable, str(ROOT / 'scripts/generate-tencent-audio.py'),
