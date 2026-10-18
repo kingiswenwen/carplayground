@@ -1,0 +1,25 @@
+{
+  "formatVersion": 1,
+  "provider": "tencent-cloud-tts",
+  "selectionStatus": "documented-not-listened",
+  "voices": {
+    "zh-CN": {"id": 403005, "name": "云雅琴", "description": "沉稳女老师", "primaryLanguage": 1},
+    "en-US": {"id": 403006, "name": "YunMia", "description": "美音女助手", "primaryLanguage": 2}
+  },
+  "voiceCategory": "super-natural-large-model",
+  "serviceInterface": "TextToVoiceNatureLarge",
+  "sampleRate": 24000,
+  "speed": -0.5,
+  "volume": 0,
+  "codec": "wav",
+  "estimatedPayAsYouGoCnyPer10000Characters": "6.5",
+  "priceCheckedAt": "2026-10-18",
+  "voiceSource": "https://cloud.tencent.com/document/product/1073/92668",
+  "apiSource": "https://cloud.tencent.com/document/product/1073/37995",
+  "priceSource": "https://cloud.tencent.com/document/product/1073/34112",
+  "commercialUseSource": "https://cloud.tencent.com/document/faq/1073/34090",
+  "serviceTermsSource": "https://cloud.tencent.com/document/product/301/120489",
+  "pronunciations": {
+    "name-CAR03": {"expectedText": "保时捷 911 GT3 RS", "spokenText": "保时捷，九一一，GT 三 RS。", "review": "not-listened"}
+  }
+}
