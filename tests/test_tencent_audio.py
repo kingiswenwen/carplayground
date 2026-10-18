@@ -89,6 +89,20 @@ class AudioProductionTest(unittest.TestCase):
         self.assertIn('never public/', result.stderr)
         self.assertFalse(target.exists())
 
+    def test_zero_spend_policy_cannot_be_overridden_by_command_line_budget(self):
+        result = subprocess.run([sys.executable, str(ROOT / 'scripts/generate-tencent-audio.py'),
+                                 '--execute', '--max-cost-cny', '2', '--credentials-file', '/does-not-exist'],
+                                capture_output=True, text=True)
+        self.assertEqual(result.returncode, 1)
+        self.assertIn('disabled by the user zero-spend policy', result.stderr)
+
+    def test_distribution_remains_blocked_even_if_route_policy_were_changed(self):
+        config = copy.deepcopy(self.config)
+        config['spendingPolicy']['cloudTtsRouteEnabled'] = True
+        config['spendingPolicy']['paidSynthesisAllowed'] = True
+        with self.assertRaisesRegex(ValueError, 'website distribution is not cleared'):
+            tts.require_generation_policy(config)
+
     def test_real_waveform_processing_is_staged_and_provenance_retained(self):
         waveform = subprocess.check_output(['ffmpeg', '-v', 'error', '-f', 'lavfi', '-i',
                                            'sine=frequency=440:duration=0.6', '-ar', '24000', '-ac', '1', '-f', 'wav', '-'])

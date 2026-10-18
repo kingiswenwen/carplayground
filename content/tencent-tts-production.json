@@ -1,7 +1,14 @@
 {
   "formatVersion": 1,
   "provider": "tencent-cloud-tts",
-  "selectionStatus": "documented-not-listened",
+  "selectionStatus": "route-cancelled-use-existing-project-audio",
+  "spendingPolicy": {
+    "speechBudgetCny": "0",
+    "cloudTtsRouteEnabled": false,
+    "paidSynthesisAllowed": false,
+    "directiveDate": "2026-10-18"
+  },
+  "distributionStatus": "blocked-by-sla-5.3-pending-provider-clarification",
   "voices": {
     "zh-CN": {"id": 403005, "name": "云雅琴", "description": "沉稳女老师", "primaryLanguage": 1},
     "en-US": {"id": 403006, "name": "YunMia", "description": "美音女助手", "primaryLanguage": 2}

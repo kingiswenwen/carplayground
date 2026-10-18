@@ -25,6 +25,14 @@ def sha(data):
     return hashlib.sha256(data).hexdigest()
 
 
+def require_generation_policy(config):
+    if (config.get('spendingPolicy', {}).get('cloudTtsRouteEnabled') is not True
+            or config.get('spendingPolicy', {}).get('paidSynthesisAllowed') is not True):
+        raise ValueError('Cloud TTS is disabled by the user zero-spend policy; keep existing project audio')
+    if config.get('distributionStatus') != 'cleared-for-intended-use':
+        raise ValueError('Intended website distribution is not cleared: SLA 5.3 conflicts with commercial-use FAQ; no synthesis requested')
+
+
 def make_plan(content, config, ids):
     if len(set(ids)) != len(ids) or not ids or any(key not in content['speech'] or not re.fullmatch(r'[A-Za-z0-9_-]+', key) for key in ids):
         raise ValueError('Unknown, duplicated or unsafe clip ID')
@@ -49,6 +57,8 @@ def make_plan(content, config, ids):
     return {'provider': config['provider'], 'sourceContentReleaseId': content['id'],
             'clips': len(lines), 'characters': characters, 'estimatedMaximumBatchCnyBeforeQuota': str(estimate),
             'priceCheckedAt': config['priceCheckedAt'], 'freeQuotaAssumed': False,
+            'spendingPolicy': config.get('spendingPolicy'),
+            'distributionStatus': config.get('distributionStatus'),
             'applicationMediaReplaced': False, 'voices': config['voices'], 'lines': lines}
 
 
@@ -157,6 +167,7 @@ def main():
     for binary in ('ffmpeg', 'ffprobe'):
         if not shutil.which(binary):
             raise ValueError('Missing audio processor: ' + binary)
+    require_generation_policy(config)
     logging.disable(logging.CRITICAL)
     synthesize(create_client(args.credentials_file), plan, config, content, output)
     print(str(output))
