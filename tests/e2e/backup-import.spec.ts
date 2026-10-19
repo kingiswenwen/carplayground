@@ -1,7 +1,7 @@
 import fs from 'node:fs/promises';
 import {test, expect} from '@playwright/test';
 
-test('导入已提交但下载失败时仍刷新记录，并能重试下载原档案 @smoke', async ({page}) => {
+test('替换前备份下载失败不改记录，重试导入保留正确恢复副本 @smoke', async ({page}) => {
   await page.setViewportSize({width: 390, height: 844});
   await page.goto('/#/parent');
   await page.getByRole('textbox', {name: '档案昵称（可留空）'}).fill('替换前测试档案');
@@ -20,16 +20,22 @@ test('导入已提交但下载失败时仍刷新记录，并能重试下载原�
     URL.createObjectURL = () => {throw new DOMException('Simulated download failure', 'NotSupportedError');};
   });
   await page.getByRole('button', {name: '替换并保存当前备份', exact: true}).click();
-  await expect(page.getByRole('status')).toContainText('备份导入完成');
-  await expect(page.getByRole('status')).toContainText('仍保存在本机');
-  await expect(page.getByRole('textbox', {name: '档案昵称（可留空）'})).toHaveValue('导入测试档案');
-  await expect(page.getByRole('heading', {name: '导入前确认'})).toHaveCount(0);
+  await expect(page.getByRole('status')).toContainText('本机记录还没有替换');
+  await expect(page.getByRole('textbox', {name: '档案昵称（可留空）'})).toHaveValue('替换前测试档案');
+  await expect(page.getByRole('heading', {name: '导入前确认'})).toBeVisible();
   await page.evaluate(() => {URL.createObjectURL = Reflect.get(window, '__originalBlobUrl');});
   const downloaded = page.waitForEvent('download');
-  await page.getByRole('button', {name: '下载替换前备份', exact: true}).click();
+  await page.getByRole('button', {name: '替换并保存当前备份', exact: true}).click();
   const download = await downloaded;
+  await expect(page.getByRole('status')).toContainText('备份导入完成');
+  await expect(page.getByRole('textbox', {name: '档案昵称（可留空）'})).toHaveValue('导入测试档案');
+  await expect(page.getByRole('heading', {name: '导入前确认'})).toHaveCount(0);
   const recovery = JSON.parse(await fs.readFile((await download.path())!, 'utf8'));
   expect(recovery.profile.nickname).toBe('替换前测试档案');
+  const localRecovery = page.waitForEvent('download');
+  await page.getByRole('button', {name: '下载替换前备份', exact: true}).click();
+  const localCopy = JSON.parse(await fs.readFile((await (await localRecovery).path())!, 'utf8'));
+  expect(localCopy.profile.nickname).toBe('替换前测试档案');
   await page.reload();
   await expect(page.getByRole('textbox', {name: '档案昵称（可留空）'})).toHaveValue('导入测试档案');
   await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
