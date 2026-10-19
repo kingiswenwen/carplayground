@@ -12,6 +12,24 @@ export async function makeBackup():Promise<Backup>{return db.transaction('r',tab
 export function parseBackup(text:string){if(new TextEncoder().encode(text).length>10*1024*1024)throw Error('文件超过 10 MB，请选择较小的备份。');let raw:unknown;try{raw=JSON.parse(text);}catch{throw Error('这不是有效的 JSON 备份。');}const result=backupSchema.safeParse(raw);if(!result.success)throw Error('备份版本或内容格式不支持，当前记录没有改变。');return result.data;}
 export function download(data:Blob,filename:string){const url=URL.createObjectURL(data);const link=document.createElement('a');link.href=url;link.download=filename;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
 export const downloadBackup=(backup:Backup)=>download(new Blob([JSON.stringify(backup,null,2)],{type:'application/json'}),`carplayground-backup-${backup.exportedAt.slice(0,10)}.json`);
-export async function replaceBackup(input:Backup){const next=backupSchema.parse(input);const current=await makeBackup();await db.transaction('rw',[...tables(),db.recovery],async()=>{await db.recovery.put({id:'before-import',json:JSON.stringify(current),createdAt:new Date().toISOString()});for(const table of tables())await table.clear();await db.profiles.put(next.profile);await db.settings.put(next.settings);await db.favorites.bulkPut(next.favorites);await db.recent.bulkPut(next.recent);await db.sessions.bulkPut(next.sessions);await db.storyProgress.bulkPut(next.storyProgress);await db.creations.bulkPut(next.creations);await db.observations.bulkPut(next.observations);});return current;}
+export async function replaceBackup(input:Backup){
+ const next=backupSchema.parse(input);
+ return db.transaction('rw',[...tables(),db.recovery],async()=>{
+  // Keep the snapshot and replacement under one write transaction. Otherwise
+  // another writer can commit between the snapshot and clearing the tables.
+  const current=await makeBackup();
+  await db.recovery.put({id:'before-import',json:JSON.stringify(current),createdAt:new Date().toISOString()});
+  for(const table of tables())await table.clear();
+  await db.profiles.put(next.profile);
+  await db.settings.put(next.settings);
+  await db.favorites.bulkPut(next.favorites);
+  await db.recent.bulkPut(next.recent);
+  await db.sessions.bulkPut(next.sessions);
+  await db.storyProgress.bulkPut(next.storyProgress);
+  await db.creations.bulkPut(next.creations);
+  await db.observations.bulkPut(next.observations);
+  return current;
+ });
+}
 export async function clearLocalData(){await db.transaction('rw',[...tables(),db.recovery],async()=>{for(const table of [...tables(),db.recovery])await table.clear();});}
 export function domainSummary(sessions:{activityId:string}[]){return content.activities.reduce((map,a)=>{map[a.domain]=(map[a.domain]||0)+sessions.filter(s=>s.activityId===a.id).length;return map;},{}as Record<string,number>);}
