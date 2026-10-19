@@ -5,7 +5,7 @@ import path from 'node:path';
 import os from 'node:os';
 import { execFileSync, spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
-import { verifyPackage, verifySourceTree } from '../scripts/release-lib.mjs';
+import { sha256, verifyPackage, verifySourceTree } from '../scripts/release-lib.mjs';
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const sandbox=await fs.mkdtemp(path.join(os.tmpdir(),'carplayground-release-check-'));
 const run=(script,args=[])=>execFileSync(process.execPath,[path.join(root,'scripts',script),...args],{cwd:root,encoding:'utf8',stdio:['ignore','pipe','pipe']});
@@ -47,6 +47,71 @@ test('前进与回滚改变入口版本，保留旧版本脚本和全部媒体',
     const head=await fetch(url+clip.path,{method:'HEAD'});assert.equal(head.status,200);assert.equal(Number(head.headers.get('content-length')),clip.bytes);
     const unchanged=await fetch(url+clip.path,{headers:{'If-None-Match':head.headers.get('etag')}});assert.equal(unchanged.status,304);
   });
+});
+test('连续组合和从组合包回滚保留全部历史版本，重叠版本只记录一次',async()=>{
+  const cases=[['nested-active',[forward],'review-b','review-a'],['nested-retained',[first,forward],'review-a','review-b'],['overlapping',[rollback,forward,first,second],'review-a','review-b']];
+  for(const [name,sources,active,retained]of cases){
+    const output=path.join(sandbox,name);
+    run('compose-release.mjs',[...sources,'--output',output]);
+    const manifest=await verifyPackage(output);
+    assert.equal(manifest.appReleaseId,active);
+    assert.deepEqual(manifest.retainedReleases.map(r=>r.appReleaseId),[retained]);
+    const original=await verifyPackage(retained==='review-a'?first:second);
+    for(const key of ['appVersion','contentReleaseId','contentFingerprint','sourceCommit','kind','sourceDirty','outstanding'])assert.deepEqual(manifest.retainedReleases[0][key],original[key]);
+    assert.equal(manifest.files.length,(await verifyPackage(forward)).files.length);
+  }
+});
+test('相同版本的验收快照冲突不能由输入顺序覆盖，失败不留下半成品',async()=>{
+  const conflicting=path.join(sandbox,'conflicting');await fs.cp(forward,conflicting,{recursive:true});
+  const manifest=JSON.parse(await fs.readFile(path.join(conflicting,'manifest.json'),'utf8'));
+  manifest.retainedReleases[0].outstanding=[];
+  await fs.writeFile(path.join(conflicting,'manifest.json'),JSON.stringify(manifest));
+  await verifyPackage(conflicting);
+  const output=path.join(sandbox,'conflict-output');
+  assert.throws(()=>run('compose-release.mjs',[first,conflicting,'--output',output]),/版本元数据冲突/);
+  await assert.rejects(fs.access(output),{code:'ENOENT'});
+  const changed=path.join(sandbox,'changed');await fs.cp(first,changed,{recursive:true});
+  const changedManifest=JSON.parse(await fs.readFile(path.join(changed,'manifest.json'),'utf8'));
+  const script=changedManifest.files.find(file=>file.path.endsWith('.js'));
+  const bytes=Buffer.concat([await fs.readFile(path.join(changed,'site',script.path)),Buffer.from('\n// changed immutable file\n')]);
+  await fs.writeFile(path.join(changed,'site',script.path),bytes);
+  script.bytes=bytes.length;script.sha256=sha256(bytes);
+  changedManifest.totalBytes=changedManifest.files.reduce((sum,file)=>sum+file.bytes,0);
+  await fs.writeFile(path.join(changed,'manifest.json'),JSON.stringify(changedManifest));
+  await verifyPackage(changed);
+  assert.throws(()=>run('compose-release.mjs',[first,changed,'--output',output]),/不可变文件冲突/);
+  await assert.rejects(fs.access(output),{code:'ENOENT'});
+});
+test('保留版本也核对入口、应用内容版本及指纹；旧格式可读且能补全元数据',async()=>{
+  for(const scenario of ['missing-entry','wrong-entry','wrong-version','missing-active-version','wrong-fingerprint','duplicate-id','wrong-total']){
+    const folder=path.join(sandbox,scenario);await fs.cp(forward,folder,{recursive:true});
+    const manifest=JSON.parse(await fs.readFile(path.join(folder,'manifest.json'),'utf8'));
+    const retained=manifest.retainedReleases[0];
+    const entry=`releases/${retained.appReleaseId}/index.html`;
+    if(scenario==='missing-entry'){
+      await fs.rm(path.join(folder,'site',entry));manifest.files=manifest.files.filter(file=>file.path!==entry);
+    }else if(scenario==='wrong-entry'){
+      const bytes=await fs.readFile(path.join(folder,'site/index.html'));
+      await fs.writeFile(path.join(folder,'site',entry),bytes);
+      Object.assign(manifest.files.find(file=>file.path===entry),{bytes:bytes.length,sha256:sha256(bytes)});
+    }else if(scenario==='wrong-version')retained.appVersion='0.0.0';
+    else if(scenario==='missing-active-version')delete manifest.appVersion;
+    else if(scenario==='wrong-fingerprint')retained.contentFingerprint='0'.repeat(64);
+    else if(scenario==='duplicate-id')manifest.retainedReleases.push({...retained});
+    manifest.totalBytes=manifest.files.reduce((sum,file)=>sum+file.bytes,0)+(scenario==='wrong-total'?1:0);
+    await fs.writeFile(path.join(folder,'manifest.json'),JSON.stringify(manifest));
+    await assert.rejects(verifyPackage(folder),/缺少入口|入口与版本|应用与内容|内容版本指纹|版本编号重复|总字节数/);
+  }
+  const legacy=path.join(sandbox,'legacy');await fs.cp(forward,legacy,{recursive:true});
+  const manifest=JSON.parse(await fs.readFile(path.join(legacy,'manifest.json'),'utf8'));
+  delete manifest.retainedReleases[0].appVersion;delete manifest.retainedReleases[0].contentFingerprint;
+  await fs.writeFile(path.join(legacy,'manifest.json'),JSON.stringify(manifest));
+  await verifyPackage(legacy);
+  const output=path.join(sandbox,'legacy-enriched');
+  run('compose-release.mjs',[legacy,first,'--output',output]);
+  const enriched=(await verifyPackage(output)).retainedReleases[0];
+  assert.equal(enriched.appVersion,(await verifyPackage(first)).appVersion);
+  assert.equal(enriched.contentFingerprint,(await verifyPackage(first)).contentFingerprint);
 });
 test('篡改、缺失文件、额外文件和越界路径均不能通过完整包校验',async()=>{
   const broken=path.join(sandbox,'broken');await fs.cp(first,broken,{recursive:true});
