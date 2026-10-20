@@ -18,3 +18,14 @@ let failed=false;const listeners=new Set<()=>void>();
 export const storageStatus={subscribe(fn:()=>void){listeners.add(fn);return()=>{listeners.delete(fn);};},get:()=>failed};
 export async function safely<T>(work:()=>Promise<T>,fallback:T):Promise<T>{try{return await work();}catch{failed=true;listeners.forEach(fn=>fn());return fallback;}}
 export async function finishSession(id:string,state:'completed'|'participated'|'exited',hints:number,durationMs:number,summary?:string){return db.transaction('rw',db.sessions,async()=>{const current=await db.sessions.get(id);if(!current||current.state!=='playing')return false;await db.sessions.update(id,{state,hints,durationMs,summary,endedAt:new Date().toISOString()});return true;});}
+export type SessionResult=SessionRecord&{state:'completed'|'participated';endedAt:string};
+export async function saveSessionResult(result:SessionResult,restoreFailedStart=false){
+ return db.transaction('rw',db.sessions,async()=>{
+  const current=await db.sessions.get(result.id);
+  if(!current&&!restoreFailedStart)return false;
+  if(current&&current.state!=='playing')return current.state===result.state&&current.endedAt===result.endedAt;
+  // Retry with the original entry metadata even if the initial write failed.
+  await db.sessions.put(result);
+  return true;
+ });
+}
