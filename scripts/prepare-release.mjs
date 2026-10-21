@@ -2,7 +2,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
-import { headersFor, listFiles, sha256, verifyPackage } from './release-lib.mjs';
+import { headersFor, listFiles, sha256, verifyPackage, readinessSnapshot } from './release-lib.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const args=process.argv.slice(2);
@@ -22,7 +22,7 @@ const destination=path.join(outputRoot,id);
 try{await fs.access(destination);throw Error(`拒绝覆盖已有发布包：${id}`);}catch(e){if(e.code!=='ENOENT')throw e;}
 const readinessPath=path.join(root,'content/publication-readiness.json');
 const readiness=JSON.parse(await fs.readFile(readinessPath,'utf8'));
-const outstanding=Object.entries(readiness.requirements).filter(([,v])=>v.status!=='passed').map(([key,v])=>({id:key,status:v.status,reason:v.note}));
+const {outstanding,waived}=readinessSnapshot(readiness);
 if(kind==='family'&&(dirty||outstanding.length))throw Error(`正式家庭发布条件未完成：${JSON.stringify({dirty,outstanding},null,2)}`);
 const contentFingerprint=sha256(JSON.stringify({manifest:content,media:content.assets.map(a=>[a.path,a.sha256])}));
 await fs.mkdir(outputRoot,{recursive:true});
@@ -51,9 +51,9 @@ try {
   }
   const files=[];
   for(const filename of await listFiles(site)) {const bytes=await fs.readFile(path.join(site,filename));files.push({path:filename,bytes:bytes.length,sha256:sha256(bytes),headers:headersFor(filename)});}
-  const manifest={formatVersion:1,kind,appReleaseId:id,appVersion:pkg.version,contentReleaseId:content.id,contentFingerprint,sourceCommit:commit,sourceDirty:dirty,createdAt:new Date().toISOString(),outstanding,files,totalBytes:files.reduce((sum,f)=>sum+f.bytes,0),promotion:{lastObject:'index.html',keepPreviousVersions:2,deleteOldObjects:false}};
+  const manifest={formatVersion:1,kind,appReleaseId:id,appVersion:pkg.version,contentReleaseId:content.id,contentFingerprint,sourceCommit:commit,sourceDirty:dirty,createdAt:new Date().toISOString(),outstanding,waived,files,totalBytes:files.reduce((sum,f)=>sum+f.bytes,0),promotion:{lastObject:'index.html',keepPreviousVersions:2,deleteOldObjects:false}};
   await fs.writeFile(path.join(temporary,'manifest.json'),JSON.stringify(manifest,null,2)+'\n');
   await verifyPackage(temporary);
   await fs.rename(temporary,destination);
-  console.log(JSON.stringify({packageDirectory:destination,appReleaseId:id,contentReleaseId:content.id,kind,files:files.length,bytes:manifest.totalBytes,outstanding:outstanding.map(x=>x.id)},null,2));
+  console.log(JSON.stringify({packageDirectory:destination,appReleaseId:id,contentReleaseId:content.id,kind,files:files.length,bytes:manifest.totalBytes,outstanding:outstanding.map(x=>x.id),waived:waived.map(x=>x.id)},null,2));
 }catch(e){await fs.rm(temporary,{recursive:true,force:true});throw e;}

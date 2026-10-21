@@ -5,6 +5,17 @@ import { execFileSync } from 'node:child_process';
 
 export const sha256 = bytes => createHash('sha256').update(bytes).digest('hex');
 export const mimeType = filename => ({'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json; charset=utf-8','.webp':'image/webp','.mp3':'audio/mpeg','.png':'image/png','.svg':'image/svg+xml'}[path.extname(filename)] || 'application/octet-stream');
+const deviceRequirements = new Set(['real-ipad', 'real-phone']);
+export function readinessSnapshot(readiness) {
+  const outstanding = [], waived = [];
+  for (const [id, item] of Object.entries(readiness.requirements)) {
+    if (item.status === 'waived') {
+      if (!deviceRequirements.has(id) || item.waivedBy !== 'user' || !/^\d{4}-\d{2}-\d{2}$/.test(item.waivedAt || '') || !item.note || !item.evidence) throw Error(`缺少用户豁免依据或不在设备豁免范围：${id}`);
+      waived.push({id, status: item.status, reason: item.note, waivedBy: item.waivedBy, waivedAt: item.waivedAt, evidence: item.evidence});
+    } else if (item.status !== 'passed') outstanding.push({id, status: item.status, reason: item.note});
+  }
+  return {outstanding, waived};
+}
 export function safeRelative(filename) {
   if (!filename || filename.includes('\\') || filename.includes('\0') || path.posix.isAbsolute(filename) || filename.split('/').some(p => !p || p === '.' || p === '..')) throw Error(`非法发布路径：${filename}`);
   return filename;
@@ -68,6 +79,10 @@ export async function verifyPackage(packageDirectory) {
   const index=await fs.readFile(path.join(site,'index.html'),'utf8');
   const byPath=new Map(manifest.files.map(file=>[file.path,file]));
   for(const release of releases){
+    if (release.waived !== undefined) {
+      if (!Array.isArray(release.waived) || new Set(release.waived.map(item => item.id)).size !== release.waived.length || release.waived.some(item => item.status !== 'waived' || (release.outstanding || []).some(pending => pending.id === item.id))) throw Error('设备豁免快照无效或与未完成条件冲突');
+      readinessSnapshot({requirements: Object.fromEntries(release.waived.map(item => [item.id, {...item, note: item.reason}]))});
+    }
     const releasePrefix=`releases/${release.appReleaseId}/`;
     const contentPath=`content/${release.contentReleaseId}/manifest.json`;
     if(!byPath.has(`${releasePrefix}index.html`)||!byPath.has(contentPath))throw Error('缺少入口或内容清单');

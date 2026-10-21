@@ -25,9 +25,16 @@ async function withServer(folder,callback){
     await callback(url);
   }finally{if(child.exitCode===null){const ended=new Promise(resolve=>child.once('exit',resolve));child.kill('SIGTERM');await ended;}}
 }
-test('正式家庭包拒绝未完成的真实验收；已存在的版本拒绝覆盖',()=>{
+test('正式家庭包拒绝其余未完成条件；已存在的版本拒绝覆盖',()=>{
   assert.throws(()=>run('prepare-release.mjs',['--kind','family','--id','must-not-publish','--output',sandbox]),/Command failed/);
   assert.throws(()=>run('prepare-release.mjs',['--id','review-a','--output',sandbox]),/Command failed/);
+});
+test('当前审阅包记录用户设备豁免，仍保留其他发布条件',async()=>{
+  const manifest=await verifyPackage(first);
+  assert.deepEqual(manifest.waived.map(item=>item.id),['real-ipad','real-phone']);
+  assert.ok(manifest.waived.every(item=>item.waivedBy==='user'&&item.waivedAt==='2026-10-21'));
+  assert.ok(manifest.outstanding.some(item=>item.id==='audio-distribution'));
+  assert.ok(!manifest.outstanding.some(item=>['real-ipad','real-phone'].includes(item.id)));
 });
 test('前进与回滚改变入口版本，保留旧版本脚本和全部媒体',async()=>{
   for(const [folder,active]of [[forward,'review-b'],[rollback,'review-a']])await withServer(folder,async url=>{
@@ -57,7 +64,7 @@ test('连续组合和从组合包回滚保留全部历史版本，重叠版本�
     assert.equal(manifest.appReleaseId,active);
     assert.deepEqual(manifest.retainedReleases.map(r=>r.appReleaseId),[retained]);
     const original=await verifyPackage(retained==='review-a'?first:second);
-    for(const key of ['appVersion','contentReleaseId','contentFingerprint','sourceCommit','kind','sourceDirty','outstanding'])assert.deepEqual(manifest.retainedReleases[0][key],original[key]);
+    for(const key of ['appVersion','contentReleaseId','contentFingerprint','sourceCommit','kind','sourceDirty','outstanding','waived'])assert.deepEqual(manifest.retainedReleases[0][key],original[key]);
     assert.equal(manifest.files.length,(await verifyPackage(forward)).files.length);
   }
 });
@@ -83,7 +90,7 @@ test('相同版本的验收快照冲突不能由输入顺序覆盖，失败不�
   await assert.rejects(fs.access(output),{code:'ENOENT'});
 });
 test('保留版本也核对入口、应用内容版本及指纹；旧格式可读且能补全元数据',async()=>{
-  for(const scenario of ['missing-entry','wrong-entry','wrong-version','missing-active-version','wrong-fingerprint','duplicate-id','wrong-total']){
+  for(const scenario of ['missing-entry','wrong-entry','wrong-version','missing-active-version','wrong-fingerprint','duplicate-id','wrong-total','waiver-conflict','waiver-invalid']){
     const folder=path.join(sandbox,scenario);await fs.cp(forward,folder,{recursive:true});
     const manifest=JSON.parse(await fs.readFile(path.join(folder,'manifest.json'),'utf8'));
     const retained=manifest.retainedReleases[0];
@@ -98,9 +105,11 @@ test('保留版本也核对入口、应用内容版本及指纹；旧格式可�
     else if(scenario==='missing-active-version')delete manifest.appVersion;
     else if(scenario==='wrong-fingerprint')retained.contentFingerprint='0'.repeat(64);
     else if(scenario==='duplicate-id')manifest.retainedReleases.push({...retained});
+    else if(scenario==='waiver-conflict')retained.outstanding.push({id:'real-ipad',status:'unverified'});
+    else if(scenario==='waiver-invalid')retained.waived[0].waivedBy='automatic';
     manifest.totalBytes=manifest.files.reduce((sum,file)=>sum+file.bytes,0)+(scenario==='wrong-total'?1:0);
     await fs.writeFile(path.join(folder,'manifest.json'),JSON.stringify(manifest));
-    await assert.rejects(verifyPackage(folder),/缺少入口|入口与版本|应用与内容|内容版本指纹|版本编号重复|总字节数/);
+    await assert.rejects(verifyPackage(folder),/缺少入口|入口与版本|应用与内容|内容版本指纹|版本编号重复|总字节数|豁免/);
   }
   const legacy=path.join(sandbox,'legacy');await fs.cp(forward,legacy,{recursive:true});
   const manifest=JSON.parse(await fs.readFile(path.join(legacy,'manifest.json'),'utf8'));

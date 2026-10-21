@@ -7,7 +7,7 @@ const sources=args.slice(0,outputIndex).map(p=>path.resolve(p)),destination=path
 const manifests=[];for(const source of sources)manifests.push(await verifyPackage(source));
 // A source may already retain older releases. Preserve every release's acceptance
 // snapshot, including duplicates, so ordering cannot hide a conflicting record.
-const releaseFields=['appReleaseId','appVersion','contentReleaseId','contentFingerprint','sourceCommit','kind','sourceDirty','outstanding'];
+const releaseFields=['appReleaseId','appVersion','contentReleaseId','contentFingerprint','sourceCommit','kind','sourceDirty','outstanding','waived'];
 const releases=new Map();
 for(const manifest of manifests)for(const release of [manifest,...(manifest.retainedReleases||[])]){
   const record=Object.fromEntries(releaseFields.filter(key=>release[key]!==undefined).map(key=>[key,release[key]]));
