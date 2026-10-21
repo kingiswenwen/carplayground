@@ -3,7 +3,8 @@ import assert from 'node:assert/strict';
 import { chromium } from '@playwright/test';
 import { verifyPackage } from './release-lib.mjs';
 
-if (!process.argv[2] || !process.argv[3]) throw Error('Usage: node scripts/audit-runtime.mjs <release-directory> <preview-origin>');
+if (!process.argv[2] || !process.argv[3] || !process.argv[4]) throw Error('Usage: node scripts/audit-runtime.mjs <release-directory> <preview-origin> <new-report.json>');
+try {await fs.access(process.argv[4]); throw Error('Refusing to overwrite a runtime audit');} catch (error) {if (error.code !== 'ENOENT') throw error;}
 const manifest = await verifyPackage(process.argv[2]);
 const origin = new URL(process.argv[3]).origin;
 const browser = await chromium.launch({ headless: true });
@@ -77,7 +78,7 @@ try {
     renderer, running, hidden, foregroundStillPaused, resumed, feedback, maxFeedbackMs: Math.max(...feedback.map(sample => sample.elapsedMs)), activeEnginesAfterExit: await page.evaluate(() => window.__runtimeAudit.active), pageErrors,
   };
   report.pauseAndFeedbackChecksPassed = running.frames > 0 && hidden.frames === 0 && foregroundStillPaused.frames === 0 && resumed.frames > 0 && report.activeEnginesAfterExit === 0 && report.maxFeedbackMs <= 150 && feedback.every(sample => sample.actual === sample.expected) && pageErrors.length === 0;
-  await fs.writeFile(new URL('../docs/development/r4-runtime-check.json', import.meta.url), JSON.stringify(report, null, 2) + '\n');
+  await fs.writeFile(process.argv[4], JSON.stringify(report, null, 2) + '\n', {flag: 'wx'});
   console.log(JSON.stringify(report, null, 2));
   assert(report.pauseAndFeedbackChecksPassed, 'Pause/feedback target failed; inspect the recorded measurements');
 } finally { await browser.close(); }
