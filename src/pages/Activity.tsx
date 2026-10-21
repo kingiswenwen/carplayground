@@ -6,7 +6,7 @@ import { colors, colorNames, content, getActivity, type CoreActivityId, type Col
 import { colorOptions, createParking, parkedCount, parkingComplete, placeCar } from '../domain/parking';
 import { audio } from '../services/audio';
 import { newSessionId } from '../domain/session-id';
-import { db, finishSession, safely, type Settings } from '../services/storage';
+import { db, finishSession, safely, saveSessionResult, type SessionRecord, type SessionResult, type Settings } from '../services/storage';
 const ParkingCanvas = lazy(() => import('../game/ParkingCanvas'));
 
 function supportsWebGL() {
@@ -17,7 +17,10 @@ function supportsWebGL() {
 
 export function Activity({ id, settings }: { id: CoreActivityId; settings: Settings }) {
   const activity = getActivity(id)!;
-  const [sessionId] = useState(newSessionId);
+  const [initial] = useState<SessionRecord>(() => ({id: newSessionId(), activityId: id, activityVersion: activity.version, contentReleaseId: content.id,
+    carIds: ['CAR01'], difficulty: settings.difficulty, locale: 'zh-CN', audioEnabled: settings.sound,
+    startedAt: new Date().toISOString(), state: 'playing', hints: 0, durationMs: 0}));
+  const sessionId = initial.id;
   const [completed, setCompleted] = useState(false);
   const completedRef = useRef(false);
   const [paused, setPaused] = useState(document.hidden);
@@ -31,7 +34,9 @@ export function Activity({ id, settings }: { id: CoreActivityId; settings: Setti
   const elapsed = useRef(0);
   const lastActive = useRef(performance.now());
   const active = useRef(true);
-  const startPromise = useRef<Promise<unknown>>(Promise.resolve());
+  const startPromise = useRef<Promise<boolean>>(Promise.resolve(false));
+  const result = useRef<SessionResult>(undefined), saving = useRef(false);
+  const [recordStatus, setRecordStatus] = useState<'idle'|'saving'|'saved'|'error'>('idle');
   const [parking, setParking] = useState(() => createParking(settings.difficulty === 'explore' ? 3 : 2, settings.difficulty === 'explore' ? 4 : 2));
   const parkingRef = useRef(parking); parkingRef.current = parking;
   const [selected, setSelected] = useState<string | null>(null);
@@ -63,9 +68,7 @@ export function Activity({ id, settings }: { id: CoreActivityId; settings: Setti
     queueMicrotask(() => {
       if (disposed) return;
       started = true;
-      startPromise.current = safely(() => db.sessions.put({ id: sessionId, activityId: id, activityVersion: activity.version, contentReleaseId: content.id,
-        carIds: ['CAR01'], difficulty: settings.difficulty, locale: 'zh-CN', audioEnabled: settings.sound,
-        startedAt: new Date().toISOString(), state: 'playing', hints: 0, durationMs: 0 }), undefined);
+      startPromise.current = safely(async () => {await db.sessions.put(initial); return true;}, false);
     });
     const visibility = () => {
       audio.stop();
@@ -79,18 +82,26 @@ export function Activity({ id, settings }: { id: CoreActivityId; settings: Setti
     return () => {
       disposed = true; active.current = false; document.removeEventListener('visibilitychange', visibility); audio.stop();
       const duration = elapsed.current + (pausedRef.current ? 0 : performance.now() - lastActive.current);
-      if (started) void startPromise.current.then(() => safely(() => finishSession(sessionId, 'exited', hints.current, duration), false));
+      if (started && !completedRef.current) void startPromise.current.then(() => safely(() => finishSession(sessionId, 'exited', hints.current, duration), false));
     };
     // A new route/restart owns a new session; settings are frozen at entry.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [sessionId]);
+  const retrySave = async () => {
+    if (!active.current || pausedRef.current || !result.current || saving.current) return;
+    saving.current = true; setRecordStatus('saving');
+    const snapshot = result.current, started = await startPromise.current;
+    const saved = await safely(() => saveSessionResult(snapshot, !started), false);
+    saving.current = false;
+    if (active.current) setRecordStatus(saved ? 'saved' : 'error');
+  };
   const complete = (summary: string) => {
     if (!active.current || pausedRef.current || completedRef.current) return;
     completedRef.current = true; setCompleted(true);
     elapsed.current += performance.now() - lastActive.current;
     lastActive.current = performance.now();
-    const duration = elapsed.current;
-    void startPromise.current.then(() => safely(() => finishSession(sessionId, 'completed', hints.current, duration, summary), false));
+    result.current = {...initial, state: 'completed', hints: hints.current, durationMs: elapsed.current, summary, endedAt: new Date().toISOString()};
+    void retrySave();
   };
   const choosePart = (next: Part) => {
     if (pausedRef.current) return;
@@ -151,7 +162,8 @@ export function Activity({ id, settings }: { id: CoreActivityId; settings: Setti
       </>}
       {paused && <div className="pause-overlay"><Play size={36} /><h2>休息一下，再出发</h2><button className="button primary" onClick={() => { pausedRef.current = false; lastActive.current = performance.now(); setPaused(false); }}>继续探索 <Play size={18} /></button></div>}
     </section>
-    <div className="activity-feedback" role="status" aria-live="polite">{message || (completed ? '还想看看别的部分？可以继续点一点。' : '慢慢来，也可以随时回去看车。')}</div>
+    <div className="activity-feedback" role="status" aria-live="polite">{message || (completed ? '还想看看别的部分？可以继续点一点。' : '慢慢来，也可以随时回去看车。')}{' '}{recordStatus === 'saving' ? '正在保存本次探索记录…' : recordStatus === 'saved' ? '本次探索记录已保存在这台设备。' : recordStatus === 'error' ? '本次探索记录暂时没能保存，可以重试，也可以继续探索。' : ''}</div>
+    {recordStatus === 'error' && <button className="button" disabled={paused} onClick={() => void retrySave()}>重试保存本次探索</button>}
     <div className="activity-controls">{completed ? <><button className="button primary" onClick={() => { window.dispatchEvent(new Event('restart-activity')); }}><RotateCcw size={20} />再玩一次</button><a className="button" href="#/cars/CAR01">回去看车 <ArrowRight size={20} /></a></> :
       <><button className="button" onClick={showHint} disabled={paused}><CircleHelp size={20} />需要帮忙</button>{id === 'M01' && <button className="text-button" onClick={() => window.dispatchEvent(new Event('restart-activity'))}><RotateCcw size={18} />重新摆放</button>}</>}</div>
     {id === 'M01' && completed && <p className="parent-extension">一起试试：拿两辆玩具车和两张纸，给它们也找个位置。</p>}
