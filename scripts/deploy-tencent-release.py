@@ -23,9 +23,9 @@ def digest(data):
 
 def validate_target(target):
     if (target.get('project') != 'CarPlayground'
-            or target.get('bucket') != 'example-private-bucket'
-            or target.get('region') != 'ap-beijing'
-            or target.get('domain') != 'example-private-domain'
+            or not re.fullmatch(r'[a-z0-9][a-z0-9-]+-\d+', target.get('bucket', ''))
+            or not re.fullmatch(r'[a-z]+-[a-z]+-?\d*', target.get('region', ''))
+            or not re.fullmatch(r'(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}', target.get('domain', ''))
             or not target.get('httpsVerified')):
         raise ValueError('Target must be the verified, dedicated CarPlayground bucket and HTTPS domain')
 
@@ -191,18 +191,18 @@ def main():
     verified = subprocess.run(['node', str(ROOT / 'scripts/verify-release.mjs'), str(package), '--json'],
                               check=True, capture_output=True, text=True)
     manifest = json.loads(verified.stdout)
-    target = json.loads((ROOT / 'deployment/tencent-cloud.json').read_text())
+    config_dir = Path(os.environ.get('CARPLAYGROUND_DEPLOYMENT_DIR', ROOT / 'deployment'))
+    target = json.loads((config_dir / 'tencent-cloud.json').read_text())
     validate_target(target)
     if args.authorized_review:
-        authorization = json.loads((ROOT / 'deployment/automation.json').read_text())
-        if (authorization.get('authorizedBy') != 'user' or authorization.get('authorizedAt') != '2026-10-22'
-                or authorization.get('repository') != 'kingiswenwen/carplayground'
+        authorization = json.loads((config_dir / 'automation.json').read_text())
+        if (authorization.get('authorizedBy') != 'user' or not authorization.get('authorizedAt')
+                or authorization.get('repository') != os.environ.get('GITHUB_REPOSITORY', authorization.get('repository'))
                 or authorization.get('domain') != target['domain']
                 or authorization.get('reviewDeploymentAuthorized') is not True):
             raise ValueError('Missing explicit review deployment authorization')
     blockers = upload_blockers(manifest, args.authorized_review)
     plan = {'appReleaseId': manifest['appReleaseId'], 'contentReleaseId': manifest['contentReleaseId'],
-            'bucket': target['bucket'], 'domain': target['domain'],
             'objects': len(manifest['files']) - (0 if args.publish else 1),
             'bytes': sum(file['bytes'] for file in manifest['files'] if args.publish or file['path'] != 'index.html'), 'publishIndexLast': args.publish,
             'deleteOldObjects': False, 'blockers': blockers, 'executed': False,

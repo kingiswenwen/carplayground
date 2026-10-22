@@ -1,6 +1,7 @@
 """Verify the public HTTPS entry, media Range and missing-file behavior."""
 import hashlib
 import json
+import os
 from pathlib import Path
 import sys
 import urllib.error
@@ -9,7 +10,8 @@ import urllib.request
 
 def check(package):
     manifest = json.loads((package / 'manifest.json').read_text())
-    target = json.loads((Path(__file__).resolve().parents[1] / 'deployment/tencent-cloud.json').read_text())
+    config_dir = Path(os.environ.get('CARPLAYGROUND_DEPLOYMENT_DIR', Path(__file__).resolve().parents[1] / 'deployment'))
+    target = json.loads((config_dir / 'tencent-cloud.json').read_text())
     base = 'https://' + target['domain'] + '/'
     index = next(f for f in manifest['files'] if f['path'] == 'index.html')
     with urllib.request.urlopen(base, timeout=40) as response:
@@ -35,7 +37,7 @@ def check(package):
     else:
         raise ValueError('Missing object unexpectedly returns success')
     return {'appReleaseId': manifest['appReleaseId'], 'sourceCommit': manifest['sourceCommit'],
-            'url': base, 'entryVerified': True, 'audioRangeVerified': True, 'missingFile404': True}
+            'entryVerified': True, 'audioRangeVerified': True, 'missingFile404': True}
 
 
 if __name__ == '__main__':

@@ -10,6 +10,7 @@
     "dev": "vite --host 0.0.0.0 --port 5173",
     "dev-nolog": "npm run dev",
     "typecheck": "tsc --noEmit",
+    "check:public": "python3 scripts/check-public-source.py",
     "validate": "tsx scripts/validate-content.ts",
     "test": "vitest run",
     "test:e2e": "playwright test",

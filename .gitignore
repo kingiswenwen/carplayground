@@ -12,3 +12,21 @@ Thumbs.db
 .release-artifacts/
 __pycache__/
 *.pyc
+
+# Private operations and handoff records stay on the owner's machine.
+AGENTS.md
+START_HERE.md
+docs/development/
+docs/planning/
+deployment/*.json
+!deployment/*.example.json
+*.local
+*.local.*
+*.pem
+*.key
+*.p12
+*.pfx
+*.bundle
+credentials*.json
+*credentials*.json
+.private/

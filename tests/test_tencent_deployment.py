@@ -32,6 +32,17 @@ class Cloud:
 
 
 class DeploymentTest(unittest.TestCase):
+    def test_private_configuration_must_describe_a_verified_project_target(self):
+        target = {'project': 'CarPlayground', 'bucket': 'example-project-1000000000',
+                  'region': 'ap-beijing', 'domain': 'example.invalid', 'httpsVerified': True}
+        deployment.validate_target(target)
+        for field, invalid in [('project', 'another-project'), ('bucket', ''),
+                               ('region', ''), ('domain', 'https://example.invalid/path'),
+                               ('httpsVerified', False)]:
+            with self.subTest(field=field):
+                with self.assertRaises(ValueError):
+                    deployment.validate_target({**target, field: invalid})
+
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.addCleanup(self.temp.cleanup)

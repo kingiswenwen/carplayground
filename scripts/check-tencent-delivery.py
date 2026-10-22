@@ -8,6 +8,7 @@ import datetime
 import importlib.util
 import json
 import logging
+import os
 from pathlib import Path
 import tempfile
 
@@ -22,7 +23,7 @@ def main():
     parser.add_argument('--execute', action='store_true', required=True)
     args = parser.parse_args()
     logging.disable(logging.CRITICAL)
-    target = json.loads((deployment.ROOT / 'deployment/tencent-cloud.json').read_text())
+    target = json.loads((Path(os.environ.get('CARPLAYGROUND_DEPLOYMENT_DIR', deployment.ROOT / 'deployment')) / 'tencent-cloud.json').read_text())
     deployment.validate_target(target)
     key = deployment.private_credentials(args.credentials_file)
     actual = deployment.TencentCloud(target, key)

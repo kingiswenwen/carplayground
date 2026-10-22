@@ -33,6 +33,8 @@ jobs:
       - name: Install locked dependencies
         timeout-minutes: 5
         run: npm ci --registry=https://registry.npmjs.org --no-audit --fund=false --loglevel=info --fetch-timeout=30000 --fetch-retries=2
+      - name: Check public source boundary
+        run: python scripts/check-public-source.py
       - run: npm test && npm run test:release
       - name: Install audio test processor
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends ffmpeg
@@ -80,7 +82,6 @@ jobs:
     timeout-minutes: 20
     environment:
       name: production
-      url: https://example-private-domain/
     concurrency:
       group: carplayground-production
       cancel-in-progress: false
@@ -105,6 +106,30 @@ jobs:
           name: release-${{ github.run_id }}-${{ github.run_attempt }}
           path: .release-artifacts/${{ needs.check.outputs.release_id }}
       - run: python -m pip install -r deployment/requirements.txt
+      - name: Load private deployment configuration
+        shell: bash
+        env:
+          CLOUD_CONFIG: ${{ secrets.CARPLAYGROUND_CLOUD_CONFIG }}
+          OIDC_CONFIG: ${{ secrets.CARPLAYGROUND_OIDC_CONFIG }}
+          AUTOMATION_CONFIG: ${{ secrets.CARPLAYGROUND_AUTOMATION_CONFIG }}
+        run: |
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          folder = Path(os.environ['RUNNER_TEMP']) / 'carplayground-deployment'
+          folder.mkdir(mode=0o700)
+          for name, variable in [('tencent-cloud', 'CLOUD_CONFIG'), ('tencent-oidc', 'OIDC_CONFIG'), ('automation', 'AUTOMATION_CONFIG')]:
+              config = json.loads(os.environ[variable])
+              for value in config.values():
+                  if isinstance(value, str) and value:
+                      escaped = value.replace('%', '%25').replace('\r', '%0D').replace('\n', '%0A')
+                      print('::add-mask::' + escaped)
+              file = folder / (name + '.json')
+              with os.fdopen(os.open(file, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600), 'w') as output:
+                  json.dump(config, output)
+          with open(os.environ['GITHUB_ENV'], 'a') as output:
+              output.write('CARPLAYGROUND_DEPLOYMENT_DIR=' + str(folder) + '\n')
+          PY
       - name: Deploy using short-lived project identity
         shell: bash
         env:
@@ -117,6 +142,10 @@ jobs:
             --execute --publish --auto-current-index --authorized-review \
             --credentials-file "$credentials"
           python scripts/check-deployed-release.py ".release-artifacts/$RELEASE_ID"
+      - name: Remove private deployment configuration
+        if: always()
+        shell: bash
+        run: rm -rf "$RUNNER_TEMP/carplayground-deployment"
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:

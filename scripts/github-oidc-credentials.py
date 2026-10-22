@@ -17,12 +17,13 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def validate_claims(claims, config, environment):
+    repository = environment.get('GITHUB_REPOSITORY')
     expected = {'iss': config['issuer'], 'aud': config['audience'],
-                'sub': config['subject'], 'repository': 'kingiswenwen/carplayground',
-                'repository_id': '1000000000', 'repository_owner_id': '1000000001',
+                'sub': config['subject'], 'repository': repository,
+                'repository_id': config['repositoryId'], 'repository_owner_id': config['repositoryOwnerId'],
                 'ref': 'refs/heads/main', 'workflow_sha': environment.get('GITHUB_SHA'),
-                'workflow_ref': 'kingiswenwen/carplayground/.github/workflows/deploy.yml@refs/heads/main'}
-    if (not expected['workflow_sha'] or any(claims.get(k) != v for k, v in expected.items())
+                'workflow_ref': repository + '/.github/workflows/deploy.yml@refs/heads/main' if repository else None}
+    if (not repository or not expected['workflow_sha'] or any(claims.get(k) != v for k, v in expected.items())
             or claims.get('event_name') not in ('push', 'workflow_dispatch')
             or claims.get('exp', 0) <= time.time()):
         mismatches = [key for key, value in expected.items() if claims.get(key) != value]
@@ -44,7 +45,7 @@ def request_json(url, headers=None, data=None):
 
 
 def main():
-    config = json.loads((ROOT / 'deployment/tencent-oidc.json').read_text())
+    config = json.loads((Path(os.environ.get('CARPLAYGROUND_DEPLOYMENT_DIR', ROOT / 'deployment')) / 'tencent-oidc.json').read_text())
     destination = Path(sys.argv[1]).resolve()
     if ROOT == destination or ROOT in destination.parents:
         raise ValueError('Credentials must be outside the checkout')
