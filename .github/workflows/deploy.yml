@@ -2,9 +2,9 @@ name: Check and deploy CarPlayground
 
 on:
   push:
-    branches: [main]
+    branches: [main, dev]
   pull_request:
-    branches: [main]
+    branches: [main, dev]
   workflow_dispatch:
 
 permissions:
@@ -34,7 +34,7 @@ jobs:
         timeout-minutes: 5
         run: npm ci --registry=https://registry.npmjs.org --no-audit --fund=false --loglevel=info --fetch-timeout=30000 --fetch-retries=2
       - name: Check public source boundary
-        run: python scripts/check-public-source.py
+        run: python scripts/check-public-source.py --history HEAD
       - run: npm test && npm run test:release
       - name: Install audio test processor
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends ffmpeg
