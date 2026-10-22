@@ -1,7 +1,7 @@
 {
-  "id": "r5-showcase-20261022.1",
+  "id": "r5-showcase-20261022.2",
   "schemaVersion": 2,
-  "appVersion": "0.5.0",
+  "appVersion": "0.5.1",
   "car": {
     "id": "CAR01",
     "brand": "Lamborghini",
@@ -3397,7 +3397,21 @@
           "x": 0.47,
           "y": 0.52
         }
-      ]
+      ],
+      "showcaseObservationPoints": {
+        "window": {
+          "x": 0.61,
+          "y": 0.39
+        },
+        "mirror": {
+          "x": 0.635,
+          "y": 0.414
+        },
+        "roof": {
+          "x": 0.58,
+          "y": 0.347
+        }
+      }
     },
     {
       "id": "CAR02",

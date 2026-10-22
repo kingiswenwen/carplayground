@@ -138,8 +138,8 @@ export function Activity({ id, settings }: { id: CoreActivityId; settings: Setti
     <div className="activity-heading"><span className="capsule">{activity.title}</span><h1>{completed ? id === 'M01' ? '每辆车都有自己的位置了！' : '找到啦，真是个小发现！' : instruction}</h1>
       <p>{id === 'M01' ? '一辆小车，一个家。可以拖动，也可以点选。' : id === 'E01' ? '看一看，点一点你找到的颜色。' : '点点车上的圆点，也可以自由听听每个部件。'}</p></div>
     <section className={`play-surface ${id.toLowerCase()} ${hinted ? 'hinted' : ''} immersive-play`} data-activity={id}>
-      <SceneArt scene={activity.scene} priority/>
-      {id === 'E02' && <><CarImage hotspots active={part || (hinted ? targetPart : undefined)} onPart={choosePart} />
+      {id !== 'E02' && <SceneArt scene={activity.scene} priority/>}
+      {id === 'E02' && <><CarImage presentation="showcase" hotspots active={part || (hinted ? targetPart : undefined)} onPart={choosePart} />
         <div className="word-card"><span className="word-zh">{part ? content.car.hotspots.find(p => p.id === part)?.zh : '点一个部件按钮'}</span><strong>{part || 'Look & listen'}</strong>{part && <button className="round-button" aria-label={`重听 ${part}`} onClick={() => choosePart(part)}><Volume2 size={22} /></button>}</div></>}
       {id === 'E01' && <div className={`color-options count-${settings.difficulty === 'gentle' ? 2 : 3}`}>{options.map(color =>
         <div key={color} className={`color-option ${hinted && color === target ? 'suggested' : ''} ${completed && color === target ? 'correct' : ''}`}>
