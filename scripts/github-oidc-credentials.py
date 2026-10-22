@@ -19,11 +19,14 @@ ROOT = Path(__file__).resolve().parents[1]
 def validate_claims(claims, config, environment):
     expected = {'iss': config['issuer'], 'aud': config['audience'],
                 'sub': config['subject'], 'repository': 'kingiswenwen/carplayground',
-                'ref': 'refs/heads/main', 'sha': environment.get('GITHUB_SHA')}
-    if (not expected['sha'] or any(claims.get(k) != v for k, v in expected.items())
+                'repository_id': '1000000000', 'repository_owner_id': '1000000001',
+                'ref': 'refs/heads/main', 'workflow_sha': environment.get('GITHUB_SHA'),
+                'workflow_ref': 'kingiswenwen/carplayground/.github/workflows/deploy.yml@refs/heads/main'}
+    if (not expected['workflow_sha'] or any(claims.get(k) != v for k, v in expected.items())
             or claims.get('event_name') not in ('push', 'workflow_dispatch')
             or claims.get('exp', 0) <= time.time()):
-        raise ValueError('Unexpected GitHub deployment identity')
+        mismatches = [key for key, value in expected.items() if claims.get(key) != value]
+        raise ValueError('Unexpected GitHub deployment identity (fields: ' + ', '.join(mismatches or ['event/expiry']) + ')')
     # Tencent STS independently verifies signature, issuer, audience and subject.
 
 

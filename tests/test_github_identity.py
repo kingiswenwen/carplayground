@@ -17,12 +17,17 @@ class IdentityTest(unittest.TestCase):
         config = json.loads((ROOT / 'deployment/tencent-oidc.json').read_text())
         claims = {'iss': config['issuer'], 'aud': config['audience'], 'sub': config['subject'],
                   'repository': 'kingiswenwen/carplayground', 'ref': 'refs/heads/main',
-                  'event_name': 'push', 'sha': 'a' * 40, 'exp': time.time() + 60}
+                  'repository_id': '1000000000', 'repository_owner_id': '1000000001',
+                  'workflow_ref': 'kingiswenwen/carplayground/.github/workflows/deploy.yml@refs/heads/main',
+                  'event_name': 'push', 'workflow_sha': 'a' * 40, 'exp': time.time() + 60}
         identity.validate_claims(claims, config, {'GITHUB_SHA': 'a' * 40})
         for name, value in [('iss', 'https://untrusted.example'), ('aud', 'other'),
                             ('sub', 'repo:kingiswenwen/carplayground:pull_request'),
                             ('repository', 'someone/fork'), ('ref', 'refs/heads/other'),
-                            ('event_name', 'pull_request'), ('sha', 'b' * 40), ('exp', 0)]:
+                            ('repository_id', 'other'), ('repository_owner_id', 'other'),
+                            ('workflow_ref', 'kingiswenwen/carplayground/.github/workflows/other.yml@refs/heads/main'),
+                            ('sub', 'repo:kingiswenwen/carplayground:environment:production'),
+                            ('event_name', 'pull_request'), ('workflow_sha', 'b' * 40), ('exp', 0)]:
             with self.subTest(claim=name):
                 wrong = copy.deepcopy(claims); wrong[name] = value
                 with self.assertRaises(ValueError):
