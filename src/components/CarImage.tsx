@@ -6,6 +6,17 @@ type Props = { presentation?: 'object' | 'showcase'; lazy?: boolean; carId?: str
 export function CarImage({ presentation = 'object', lazy = false, carId = 'CAR01', color = 'white', hotspots = false, active, onPart, marker, priority, onReadyChange }: Props) {
   const [status, setStatus] = useState<'loading' | 'ready' | 'error'>('loading');
   const [retry, setRetry] = useState(0);
+  const holder = useRef<HTMLDivElement>(null);
+  const [visible, setVisible] = useState(!lazy || !!priority);
+  useEffect(() => {
+    if (visible) return;
+    if (!lazy || priority || !('IntersectionObserver' in window)) { setVisible(true); return; }
+    const observer = new IntersectionObserver(entries => {
+      if (entries.some(entry => entry.isIntersecting)) { setVisible(true); observer.disconnect(); }
+    }, { rootMargin: '160px' });
+    if (holder.current) observer.observe(holder.current);
+    return () => observer.disconnect();
+  }, [lazy, priority, visible]);
   const imageElement = useRef<HTMLImageElement>(null);
   const readyCallback = useRef(onReadyChange); readyCallback.current = onReadyChange;
   useEffect(() => { readyCallback.current?.(status === 'ready'); }, [status, retry]);
@@ -16,11 +27,11 @@ export function CarImage({ presentation = 'object', lazy = false, carId = 'CAR01
   const image = content.assets.find(a => a.id === imageId)!;
   const points = showcase ? car.showcaseHotspots : car.hotspots;
   const showPoints = hotspots && status === 'ready';
-  return <div className={`car-image ${status} ${showcase ? 'car-showcase' : car.id === 'CAR01' || car.displayImage ? '' : 'real-photo'} ${showPoints ? 'has-part-hotspots' : ''}`} style={{ aspectRatio: `${image.width}/${image.height}`, '--part-count': points.length } as CSSProperties}>
-    <img ref={imageElement} key={retry} src={assetUrl(imageId) + (retry ? `?retry=${retry}` : '')}
+  return <div ref={holder} className={`car-image ${status} ${showcase ? 'car-showcase' : car.id === 'CAR01' || car.displayImage ? '' : 'real-photo'} ${showPoints ? 'has-part-hotspots' : ''}`} style={{ aspectRatio: `${image.width}/${image.height}`, '--part-count': points.length } as CSSProperties}>
+    {visible && <img ref={imageElement} key={retry} src={assetUrl(imageId) + (retry ? `?retry=${retry}` : '')}
       alt={showcase ? `${car.name}，${car.color}，GPT 生成的展厅情境图` : car.id !== 'CAR01' ? `${car.name}，${car.color}，${car.displayImage ? '依据实拍制作的展示图' : '实拍照片'}` : `${color === 'white' ? '白色' : color === 'red' ? '红色教学配色' : '蓝色教学配色'}兰博基尼 Revuelto，左前方视角`}
       width={image.width} height={image.height} draggable={false} loading={lazy ? 'lazy' : 'eager'} fetchPriority={priority ? 'high' : 'auto'}
-      onLoad={() => setStatus('ready')} onError={() => setStatus('error')} />
+      onLoad={() => setStatus('ready')} onError={() => setStatus('error')} />}
     {status === 'loading' && <span className="image-loading">小车正在驶来…</span>}
     {status === 'error' && <div className="image-error" role="alert"><p>这张图片还没到，再试一次</p>
       <button onClick={event => { event.preventDefault(); event.stopPropagation(); setStatus('loading'); setRetry(r => r + 1); }}><RefreshCw size={20} />重新加载</button></div>}
