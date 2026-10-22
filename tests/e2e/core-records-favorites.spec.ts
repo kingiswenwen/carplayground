@@ -22,8 +22,12 @@ test('三项核心玩法初次存储失败仍可完成，原会话重试后只�
   });
   await page.goto('/#/cars');
   for (const id of ['E01', 'E02', 'M01']) {
-    await page.evaluate(() => Reflect.set(window, '__failCoreSave', true));
-    await page.goto(`/#/play/${id}`);
+    // Use the app's hash navigation: a CDN may redirect / to /index.html.
+    // Visiting / again would reload the document and clear the injected flag.
+    await page.evaluate(activityId => {
+      Reflect.set(window, '__failCoreSave', true);
+      location.hash = `/play/${activityId}`;
+    }, id);
     if (id === 'E01') {
       const color = (await page.getByRole('heading', {level: 1}).innerText()).match(/红色|蓝色|白色/)![0];
       await page.getByRole('button', {name: `${color}的车`, exact: true}).click();
@@ -35,10 +39,10 @@ test('三项核心玩法初次存储失败仍可完成，原会话重试后只�
       await page.getByRole('button', {name: '车位 2，空位', exact: true}).click();
     }
     await expect(page.getByRole('heading', {level: 1})).toHaveText(id === 'M01' ? '每辆车都有自己的位置了！' : '找到啦，真是个小发现！');
-    await expect(page.getByRole('status')).toContainText('本次探索记录暂时没能保存');
+    await expect(page.locator('.activity-feedback')).toContainText('本次探索记录暂时没能保存');
     await page.evaluate(() => Reflect.set(window, '__failCoreSave', false));
     await page.getByRole('button', {name: '重试保存本次探索', exact: true}).click();
-    await expect(page.getByRole('status')).toContainText('本次探索记录已保存在这台设备');
+    await expect(page.locator('.activity-feedback')).toContainText('本次探索记录已保存在这台设备');
     const records = (await rows(page, 'sessions')).filter(record => record.activityId === id);
     expect(records).toHaveLength(1);
     expect(records[0].state).toBe('completed');
@@ -64,7 +68,7 @@ test('收藏写入和取消失败保留已确认状态，重试刷新与车库�
   });
   await page.goto('/#/cars/CAR02');
   await page.getByRole('button', {name: '我喜欢这辆车', exact: true}).click();
-  await expect(page.getByRole('status')).toContainText('这次收藏没有保存');
+  await expect(page.locator('.activity-feedback')).toContainText('这次收藏没有保存');
   await expect(page.getByRole('button', {name: '我喜欢这辆车', exact: true})).toHaveAttribute('aria-pressed', 'false');
   expect(await rows(page, 'favorites')).toHaveLength(0);
   await page.evaluate(() => Reflect.set(window, '__failFavorite', false));
@@ -74,7 +78,7 @@ test('收藏写入和取消失败保留已确认状态，重试刷新与车库�
   await expect(page.getByRole('button', {name: '已放进车库', exact: true})).toBeVisible();
   // Init script turns the simulated failure back on after reload.
   await page.getByRole('button', {name: '已放进车库', exact: true}).click();
-  await expect(page.getByRole('status')).toContainText('这次取消收藏没有保存');
+  await expect(page.locator('.activity-feedback')).toContainText('这次取消收藏没有保存');
   await expect(page.getByRole('button', {name: '已放进车库', exact: true})).toHaveAttribute('aria-pressed', 'true');
   expect(await rows(page, 'favorites')).toHaveLength(1);
   await page.getByRole('link', {name: '我的车库', exact: true}).click();
