@@ -1,0 +1,124 @@
+name: Check and deploy CarPlayground
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Test and build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    outputs:
+      release_id: ${{ steps.package.outputs.release_id }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          registry-url: https://registry.npmjs.org
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - run: npm ci --registry=https://registry.npmjs.org
+      - run: npm test && npm run test:release
+      - run: python -m unittest discover -s tests -p 'test_*.py'
+      - name: Prepare immutable release
+        id: package
+        shell: bash
+        run: |
+          release_id="app-$(node -p "require('./package.json').version")-${GITHUB_SHA:0:12}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          npm run release:prepare -- --id "$release_id" --kind review
+          echo "release_id=$release_id" >> "$GITHUB_OUTPUT"
+      - run: npx playwright install --with-deps chromium
+      - name: Test built website core flows
+        shell: bash
+        env:
+          PLAYWRIGHT_BASE_URL: http://127.0.0.1:5194
+          RELEASE_ID: ${{ steps.package.outputs.release_id }}
+        run: |
+          node scripts/preview-release.mjs ".release-artifacts/$RELEASE_ID" 5194 &
+          preview_pid=$!
+          trap 'kill "$preview_pid"' EXIT
+          for attempt in {1..30}; do
+            if curl --fail --silent "$PLAYWRIGHT_BASE_URL/" > /dev/null; then break; fi
+            sleep 1
+          done
+          npx playwright test tests/e2e/core-records-favorites.spec.ts --project=chromium
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: release-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .release-artifacts/${{ steps.package.outputs.release_id }}/
+          if-no-files-found: error
+          retention-days: 30
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: failure()
+        with:
+          name: browser-failure-${{ github.run_id }}-${{ github.run_attempt }}
+          path: test-results/
+          retention-days: 7
+
+  deploy:
+    name: Deploy COS and verify CDN
+    needs: check
+    if: github.repository == 'kingiswenwen/carplayground' && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    environment:
+      name: production
+      url: https://example-private-domain/
+    concurrency:
+      group: carplayground-production
+      cancel-in-progress: false
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - name: Reject superseded runs before cloud access
+        shell: bash
+        run: test "$(git ls-remote origin refs/heads/main | cut -f1)" = "$GITHUB_SHA"
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version-file: .nvmrc
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: release-${{ github.run_id }}-${{ github.run_attempt }}
+          path: .release-artifacts/${{ needs.check.outputs.release_id }}
+      - run: python -m pip install -r deployment/requirements.txt
+      - name: Deploy using short-lived project identity
+        shell: bash
+        env:
+          RELEASE_ID: ${{ needs.check.outputs.release_id }}
+        run: |
+          credentials="$RUNNER_TEMP/carplayground-credentials.json"
+          trap 'rm -f "$credentials"' EXIT
+          python scripts/github-oidc-credentials.py "$credentials"
+          python scripts/deploy-tencent-release.py ".release-artifacts/$RELEASE_ID" \
+            --execute --publish --auto-current-index --authorized-review \
+            --credentials-file "$credentials"
+          python scripts/check-deployed-release.py ".release-artifacts/$RELEASE_ID"
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: deployment-receipt-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            .release-artifacts/deployment-*/receipt.json
+            .release-artifacts/public-delivery-check.json
+          if-no-files-found: warn
+          retention-days: 90

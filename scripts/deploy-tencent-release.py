@@ -8,6 +8,7 @@ import fcntl
 import hashlib
 import json
 import logging
+import os
 from pathlib import Path
 import re
 import subprocess
@@ -29,19 +30,19 @@ def validate_target(target):
         raise ValueError('Target must be the verified, dedicated CarPlayground bucket and HTTPS domain')
 
 
-def upload_blockers(manifest):
+def upload_blockers(manifest, authorized_review=False):
     if manifest.get('kind') not in ('review', 'family'):
         return ['Unknown release kind']
     outstanding = manifest.get('outstanding')
     if not isinstance(outstanding, list):
         return ['Missing release acceptance snapshot']
-    forbidden = {'audio-distribution', 'content-review'}
+    forbidden = {'content-review'} if authorized_review else {'audio-distribution', 'content-review'}
     blocked = [item['id'] for item in outstanding
                if manifest['kind'] == 'family' or item['id'] in forbidden]
     if manifest.get('sourceDirty'):
         blocked.append('sourceDirty')
     for retained in manifest.get('retainedReleases', []):
-        retained_issues = upload_blockers({**retained, 'retainedReleases': []})
+        retained_issues = upload_blockers({**retained, 'retainedReleases': []}, authorized_review)
         blocked.extend('retained/' + retained.get('appReleaseId', 'unknown') + '/' + issue
                        for issue in retained_issues)
     return blocked
@@ -68,9 +69,10 @@ def check_bytes(file, remote):
             raise ValueError('Remote header differs: ' + file['path'] + ' ' + header)
 
 
-def deploy(package, manifest, cloud, receipt, save, publish=False, expected=None):
+def deploy(package, manifest, cloud, receipt, save, publish=False, expected=None,
+           authorized_review=False, before_promote=None):
     """cloud is a COS/CDN adapter. Tests inject transport failures and conflicts."""
-    blockers = upload_blockers(manifest)
+    blockers = upload_blockers(manifest, authorized_review)
     if blockers:
         raise ValueError('Upload blocked: ' + ', '.join(blockers))
     files = [file for file in manifest['files'] if file['path'] != 'index.html']
@@ -110,6 +112,8 @@ def deploy(package, manifest, cloud, receipt, save, publish=False, expected=None
     receipt['staged'] = True
     if not publish:
         return
+    if before_promote:
+        before_promote()
     current = cloud.origin_get('index.html')
     if (digest(current['data']) if current else 'absent') != expected:
         raise ValueError('Index changed during staging; promotion aborted')
@@ -128,6 +132,7 @@ class TencentCloud:
         import requests
         self.cos = CosS3Client(CosConfig(Region=target['region'],
                                        SecretId=key['secretId'], SecretKey=key['secretKey'],
+                                       Token=key.get('token'),
                                        Scheme='https'))
         self.bucket = target['bucket']
         self.base = 'https://' + target['domain'] + '/'
@@ -177,6 +182,10 @@ def main():
     parser.add_argument('--publish', action='store_true', help='Promote root index after all immutable objects pass CDN verification')
     parser.add_argument('--expect-current-sha256', help='Required with --publish: previous index hash, or absent for first publication')
     parser.add_argument('--credentials-file', help='Owner-only JSON file outside repository; secretId and secretKey')
+    parser.add_argument('--authorized-review', action='store_true',
+                        help='Use the explicit user authorization in deployment/automation.json; does not approve outstanding acceptance')
+    parser.add_argument('--auto-current-index', action='store_true',
+                        help='Read the current index under the deployment lock before staging')
     args = parser.parse_args()
     package = args.package.resolve()
     verified = subprocess.run(['node', str(ROOT / 'scripts/verify-release.mjs'), str(package), '--json'],
@@ -184,18 +193,30 @@ def main():
     manifest = json.loads(verified.stdout)
     target = json.loads((ROOT / 'deployment/tencent-cloud.json').read_text())
     validate_target(target)
-    blockers = upload_blockers(manifest)
+    if args.authorized_review:
+        authorization = json.loads((ROOT / 'deployment/automation.json').read_text())
+        if (authorization.get('authorizedBy') != 'user' or authorization.get('authorizedAt') != '2026-10-22'
+                or authorization.get('repository') != 'kingiswenwen/carplayground'
+                or authorization.get('domain') != target['domain']
+                or authorization.get('reviewDeploymentAuthorized') is not True):
+            raise ValueError('Missing explicit review deployment authorization')
+    blockers = upload_blockers(manifest, args.authorized_review)
     plan = {'appReleaseId': manifest['appReleaseId'], 'contentReleaseId': manifest['contentReleaseId'],
             'bucket': target['bucket'], 'domain': target['domain'],
             'objects': len(manifest['files']) - (0 if args.publish else 1),
             'bytes': sum(file['bytes'] for file in manifest['files'] if args.publish or file['path'] != 'index.html'), 'publishIndexLast': args.publish,
-            'deleteOldObjects': False, 'blockers': blockers, 'executed': False}
+            'deleteOldObjects': False, 'blockers': blockers, 'executed': False,
+            'authorizedReview': args.authorized_review,
+            'outstanding': manifest['outstanding'], 'waived': manifest.get('waived', []),
+            'sourceCommit': manifest['sourceCommit']}
     print(json.dumps(plan, ensure_ascii=False, indent=2))
     if not args.execute:
         return
     if blockers:
         raise ValueError('Upload blocked: ' + ', '.join(blockers))
-    if args.publish and not re.fullmatch(r'(?:absent|[a-f0-9]{64})', args.expect_current_sha256 or ''):
+    if args.auto_current_index and args.expect_current_sha256:
+        raise ValueError('Choose automatic or explicit current index, not both')
+    if args.publish and not args.auto_current_index and not re.fullmatch(r'(?:absent|[a-f0-9]{64})', args.expect_current_sha256 or ''):
         raise ValueError('--publish requires --expect-current-sha256 HASH|absent')
     if not args.credentials_file:
         raise ValueError('--execute requires --credentials-file')
@@ -211,9 +232,23 @@ def main():
         receipt = {**plan, 'startedAt': stamp, 'executed': True, 'uploaded': [], 'cdnVerified': [],
                    'staged': False, 'indexWritten': False, 'published': False}
         try:
-            deploy(package, manifest, TencentCloud(target, key), receipt,
+            cloud = TencentCloud(target, key)
+            expected = args.expect_current_sha256
+            if args.auto_current_index:
+                current = cloud.origin_get('index.html')
+                expected = digest(current['data']) if current else 'absent'
+            def check_source():
+                # Serialized Actions deployments also reject a superseded commit.
+                if not os.environ.get('GITHUB_ACTIONS'):
+                    return
+                remote = subprocess.run(['git', 'ls-remote', 'origin', 'refs/heads/main'],
+                                        check=True, capture_output=True, text=True).stdout.split()
+                if not remote or remote[0] != manifest['sourceCommit']:
+                    raise ValueError('A newer main commit exists; old run cannot promote')
+            deploy(package, manifest, cloud, receipt,
                    lambda name, data: (folder / name).write_bytes(data),
-                   publish=args.publish, expected=args.expect_current_sha256)
+                   publish=args.publish, expected=expected, authorized_review=args.authorized_review,
+                   before_promote=check_source)
         except Exception as error:
             # SDK exception strings can include request/response details.
             receipt['failureType'] = type(error).__name__

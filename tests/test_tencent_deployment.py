@@ -66,6 +66,25 @@ class DeploymentTest(unittest.TestCase):
             self.run_deploy()
         self.assertFalse(any(event == 'put' for event, _ in self.cloud.events))
 
+    def test_explicit_review_deployment_keeps_outstanding_but_family_still_blocks(self):
+        pending = [{'id': 'audio-distribution'}, {'id': 'audio-listening'}]
+        self.manifest['outstanding'] = pending
+        self.run_deploy(publish=True, expected='absent', authorized_review=True)
+        self.assertTrue(self.receipt['published'])
+        self.assertEqual(self.manifest['outstanding'], pending)
+        self.manifest['kind'] = 'family'
+        self.assertEqual(deployment.upload_blockers(self.manifest, True), ['audio-distribution', 'audio-listening'])
+        self.manifest.update(kind='review', outstanding=[{'id': 'content-review'}], sourceDirty=True)
+        self.assertEqual(deployment.upload_blockers(self.manifest, True), ['content-review', 'sourceDirty'])
+
+    def test_superseded_run_cannot_promote_even_after_staging(self):
+        def reject():
+            raise ValueError('superseded main')
+        with self.assertRaisesRegex(ValueError, 'superseded main'):
+            self.run_deploy(publish=True, expected='absent', before_promote=reject)
+        self.assertNotIn('index.html', self.cloud.objects)
+        self.assertTrue(self.receipt['staged'])
+
     def test_retained_unlicensed_or_unreviewed_version_also_blocks_upload(self):
         for previous in [{'appReleaseId': 'old', 'kind': 'review', 'sourceDirty': False,
                           'outstanding': [{'id': 'audio-distribution'}]},
