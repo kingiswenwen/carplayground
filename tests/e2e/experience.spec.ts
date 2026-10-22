@@ -134,7 +134,7 @@ test('隐藏后暂停，回来需主动继续', async ({ page }) => {
 
 test('图片失败可重试，加载失败时不显示虚假热点', async ({ page }) => {
   let fail = true;
-  await page.route('**/media/**/revuelto-white.webp*', route => fail ? route.abort() : route.continue());
+  await page.route(url=>/\/showcase\/car01-v5\.webp$/.test(url.pathname), route => fail ? route.abort() : route.continue());
   await page.goto('/#/cars/CAR01');
   await expect(page.getByText('这张图片还没到，再试一次')).toBeVisible();
   await expect(page.locator('.hotspot')).toHaveCount(0);

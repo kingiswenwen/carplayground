@@ -1,48 +1,59 @@
-import {useEffect, useState} from 'react';
+import {useEffect, useRef, useState} from 'react';
 import {ArrowLeft, ArrowRight, BookOpen, Volume2, RotateCcw} from 'lucide-react';
 import {SceneArt} from '../components/SceneArt';
-import {CarImage} from '../components/CarImage';
 import {content} from '../domain/content';
 import {audio} from '../services/audio';
 import {db, safely} from '../services/storage';
-
-type SaveResult = {frame: number; finished: boolean; attempt: number; status: 'saved' | 'failed'};
 
 export function Story({storyId, initialFrame}: {storyId: string; initialFrame?: number}) {
   const story = content.stories.find(s => s.id === storyId)!;
   const [frame, setFrame] = useState(0);
   const [loaded, setLoaded] = useState(false);
   const [finished, setFinished] = useState(false);
-  const [saveAttempt, setSaveAttempt] = useState(0);
-  const [saveResult, setSaveResult] = useState<SaveResult>();
-  const saveState = saveResult?.frame === frame && saveResult.finished === finished && saveResult.attempt === saveAttempt
-    ? saveResult.status : 'saving';
+  const [saveState, setSaveState] = useState<'saving' | 'saved' | 'failed'>('saving');
+  const saving = useRef(false);
+  const epoch = useRef(0);
+
+  const writeProgress = async (nextFrame: number, nextFinished: boolean) => safely(async () => {
+    await db.storyProgress.put({storyId, version: story.version, frame: nextFrame, finished: nextFinished, updatedAt: new Date().toISOString()});
+    return true;
+  }, false);
 
   useEffect(() => {
-    let cancelled = false;
+    const currentEpoch = ++epoch.current;
     setLoaded(false);
-    setSaveResult(undefined);
-    void safely(() => db.storyProgress.get(storyId), undefined).then(saved => {
-      if (cancelled) return;
-      setFrame(initialFrame ?? saved?.frame ?? 0);
-      setFinished(initialFrame !== undefined ? false : saved?.finished ?? false);
+    saving.current = true;
+    void (async () => {
+      const saved = await safely(() => db.storyProgress.get(storyId), undefined);
+      if (currentEpoch !== epoch.current) return;
+      const nextFrame = initialFrame ?? saved?.frame ?? 0;
+      const nextFinished = initialFrame !== undefined ? false : saved?.finished ?? false;
+      const persisted = initialFrame === undefined && saved ? true : await writeProgress(nextFrame, nextFinished);
+      if (currentEpoch !== epoch.current) return;
+      setFrame(nextFrame);
+      setFinished(nextFinished);
+      setSaveState(persisted ? 'saved' : 'failed');
+      saving.current = false;
       setLoaded(true);
-    });
-    return () => {cancelled = true; audio.stop();};
+    })();
+    return () => {epoch.current++; audio.stop();};
   }, [storyId, initialFrame]);
 
-  useEffect(() => {
-    if (!loaded) return;
-    let cancelled = false;
-    void safely(async () => {
-      await db.storyProgress.put({storyId, version: story.version, frame, finished, updatedAt: new Date().toISOString()});
-      return true;
-    }, false).then(saved => {
-      // A completed write for an earlier frame must not approve the current one.
-      if (!cancelled) setSaveResult({frame, finished, attempt: saveAttempt, status: saved ? 'saved' : 'failed'});
-    });
-    return () => {cancelled = true; audio.stop();};
-  }, [frame, loaded, finished, storyId, story.version, saveAttempt]);
+  // Commit first: once a new chapter is visible, an immediate refresh can
+  // restore it. Failed writes still allow reading, with an explicit retry.
+  const changeFrame = async (nextFrame: number, nextFinished = false) => {
+    if (saving.current) return;
+    saving.current = true;
+    const currentEpoch = epoch.current;
+    audio.stop();
+    setSaveState('saving');
+    const persisted = await writeProgress(nextFrame, nextFinished);
+    if (currentEpoch !== epoch.current) return;
+    setFrame(nextFrame);
+    setFinished(nextFinished);
+    setSaveState(persisted ? 'saved' : 'failed');
+    saving.current = false;
+  };
 
   if (!loaded) return <p>故事正在打开…</p>;
   const current = story.frames[frame];
@@ -54,7 +65,7 @@ export function Story({storyId, initialFrame}: {storyId: string; initialFrame?: 
     </div>
     <div className="story-reader">
       <div className={`story-picture scene-${story.scene} frame-${frame}`}>
-        <SceneArt scene={story.scene}/><CarImage/>
+        <SceneArt scene={story.scene} imageId={story.scene==='showroom'?'showcase-CAR01':`story-${story.scene}`} priority/>
         <span className="story-chapter">{String(frame + 1).padStart(2, '0')}</span>
       </div>
       <div className="story-copy">
@@ -67,19 +78,20 @@ export function Story({storyId, initialFrame}: {storyId: string; initialFrame?: 
       </div>
     </div>
     <div className="story-progress" aria-label="故事进度">
-      {story.frames.map((item, i) => <button key={i} aria-label={`第 ${i + 1} 幕：${item.title}`} aria-current={frame === i ? 'step' : undefined} onClick={() => setFrame(i)}>{i + 1}</button>)}
+      {story.frames.map((item, i) => <button key={i} aria-label={`第 ${i + 1} 幕：${item.title}`} aria-current={frame === i ? 'step' : undefined} disabled={saveState === 'saving'} onClick={() => void changeFrame(i)}>{i + 1}</button>)}
     </div>
     <div className="activity-controls">
-      <button className="button" disabled={frame === 0} onClick={() => setFrame(frame - 1)}><ArrowLeft size={18}/>上一幕</button>
-      {frame < 3 ? <button className="button primary" onClick={() => setFrame(frame + 1)}>跳过玩法，继续故事 <ArrowRight size={18}/></button>
-        : <button className="button primary" disabled={finished} onClick={() => setFinished(true)}>
+      <button className="button" disabled={frame === 0 || saveState === 'saving'} onClick={() => void changeFrame(frame - 1)}><ArrowLeft size={18}/>上一幕</button>
+      {frame < 3 ? <button className="button primary" disabled={saveState === 'saving'} onClick={() => void changeFrame(frame + 1)}>跳过玩法，继续故事 <ArrowRight size={18}/></button>
+        : <button className="button primary" disabled={finished || saveState === 'saving'} onClick={() => void changeFrame(frame, true)}>
           {finished && saveState === 'saved' ? '故事的小脚印已记下' : finished && saveState === 'saving' ? '正在记下小脚印…' : '故事看完啦'}
         </button>}
-      <button className="text-button" onClick={() => {setFrame(0); setFinished(false);}}><RotateCcw size={18}/>从头听</button>
+      <button className="text-button" disabled={saveState === 'saving'} onClick={() => void changeFrame(0)}><RotateCcw size={18}/>从头听</button>
     </div>
+    {saveState === 'saving' && !finished && <p className="activity-feedback" role="status">正在记下这一幕…</p>}
     {saveState === 'failed' ? <div className="activity-feedback">
       <p role="status">故事进度暂时没能保存，仍可以继续看。可以再试一次记下小脚印。</p>
-      <button className="button" onClick={() => setSaveAttempt(attempt => attempt + 1)}>重试保存进度</button>
+      <button className="button" onClick={() => void changeFrame(frame, finished)}>重试保存进度</button>
     </div> : finished && <p className="activity-feedback" role="status">
       {saveState === 'saved' ? '这段故事已经记在这台设备。还可以和家人讲讲你最喜欢的一幕。' : '故事看完啦，正在记下这次小脚印。'}
     </p>}

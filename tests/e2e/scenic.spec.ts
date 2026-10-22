@@ -27,3 +27,17 @@ test('页面分包加载失败可刷新恢复，不留下无法退出的空白�
  await expect(page.locator('.showroom-display-car .car-image.ready')).toBeVisible();
  await expect(page.getByRole('heading',{name:'今天，认识哪位汽车朋友？',exact:true})).toBeVisible();
 });
+
+test('@smoke 低帧率运动仍按真实经过的时间减速，不把五秒实验拖成二十多秒',async({page})=>{
+ await page.addInitScript(()=>{
+  window.requestAnimationFrame=callback=>window.setTimeout(()=>callback(performance.now()),250);
+  window.cancelAnimationFrame=id=>window.clearTimeout(id);
+ });
+ await page.goto('/#/play/P01');await ready(page);
+ await page.getByRole('button',{name:'大一点的推力',exact:true}).click();
+ await page.getByRole('button',{name:'推一下，让车跑起来',exact:true}).click();
+ await expect(page.getByText('停下来啦',{exact:true})).toBeVisible({timeout:8000});
+ const lane=page.locator('.motion-lane');
+ expect(Number(await lane.getAttribute('data-distance'))).toBeCloseTo(28*28/11,1);
+ expect(Number(await lane.getAttribute('data-speed'))).toBe(0);
+});

@@ -1,0 +1,50 @@
+/* Vehicle and architecture share one image. Detail views keep the natural
+   aspect ratio for hotspots; the wide hero crops only empty architecture. */
+.integrated-showroom{aspect-ratio:1.8;min-height:0;max-height:none;background:#e7e1d1}
+.integrated-showroom .showroom-display-car{inset:0;width:100%;height:100%;filter:none;transform:none}
+.integrated-showroom .showroom-display-car .car-image{height:100%;aspect-ratio:1.8!important;filter:none}
+.integrated-showroom .showroom-display-car .car-image>img{width:100%;height:100%;object-fit:cover}
+.integrated-showroom .showroom-welcome{max-width:540px;pointer-events:none}
+.integrated-showroom .showroom-stage-controls{z-index:3;pointer-events:none}
+.integrated-showroom .showroom-stage-controls button{pointer-events:auto}
+.integrated-showroom .showroom-car-plaque,.integrated-showroom .showroom-start{z-index:3}
+.integrated-showroom .image-error{inset:30% 14% 25%}
+.car-gallery-card .car-preview-button{padding:0;min-height:0;display:block}
+.car-gallery-card .car-preview-button .car-showcase{height:auto;aspect-ratio:3/2!important;filter:none}
+.car-gallery-card .car-preview-button .car-showcase>img{height:auto;object-fit:contain}
+.car-gallery-card>div:last-child{padding-top:16px}
+.detail-stage.immersive-detail.integrated-detail{padding:0 0 18px;min-height:0;background:#f0ecdf}
+.detail-stage.immersive-detail.integrated-detail>.car-image{max-width:none;margin:0;aspect-ratio:3/2!important;filter:none}
+.detail-stage.immersive-detail.integrated-detail>.car-image>img{max-height:none;width:100%;height:auto;object-fit:contain}
+.integrated-detail>.stage-caption{position:absolute;top:18px;left:20px;right:20px;z-index:3;pointer-events:none;justify-content:space-between}
+.integrated-detail .word-card{margin-top:16px;background:#fffdf5}
+.integrated-detail .listen-car{position:relative;bottom:auto;right:auto;display:flex;margin:12px auto 0}
+.garage-car .car-showcase{filter:none;border-radius:18px;overflow:hidden}
+@media(max-width:800px){
+ .integrated-showroom{display:grid;grid-template-columns:1fr auto;aspect-ratio:auto;min-height:0;background:#ece8d8;gap:0}
+ .integrated-showroom .showroom-welcome{position:relative;inset:auto;max-width:none;grid-column:1/-1;margin:0;padding:22px;border:0;border-radius:0;backdrop-filter:none;background:#fbf8ee}
+ .integrated-showroom .showroom-display-car .car-image{aspect-ratio:3/2!important}
+ .integrated-showroom .showroom-display-car .car-image>img{height:auto;object-fit:contain}
+ .integrated-showroom .showroom-display-car{position:relative;inset:auto;grid-column:1/-1;height:auto;aspect-ratio:3/2}
+ .integrated-showroom .showroom-stage-controls{position:absolute;inset:auto 3% auto;top:45%;width:94%;transform:none}
+ .integrated-showroom .showroom-stage-controls>span{top:auto;bottom:calc(100% + 10px);right:0}
+ .integrated-showroom .showroom-car-plaque{position:relative;inset:auto;grid-column:1/-1;box-shadow:none;border-radius:0;padding:16px 22px;background:#fbf8ee;justify-content:space-between}
+ .integrated-showroom .showroom-start{position:relative;inset:auto;grid-column:1/-1;padding:0 22px 22px;display:flex;flex-wrap:wrap;gap:10px;background:#fbf8ee}
+ .integrated-showroom .showroom-start .button{flex:1;white-space:nowrap}
+ .integrated-showroom .image-error{inset:0}
+ .car-gallery-card .car-preview-button{padding:0;min-height:0}
+ .car-gallery-card .car-preview-button .car-showcase{height:auto}
+}
+@media(max-width:520px){
+ .integrated-showroom .showroom-welcome{padding:19px 17px}
+ .integrated-showroom .showroom-welcome h1{font-size:23px}
+ .integrated-showroom .showroom-stage-controls{top:42%}
+ .integrated-showroom .showroom-car-plaque{padding:14px 17px}
+ .integrated-showroom .showroom-start{padding:0 17px 18px}
+ .integrated-showroom .showroom-stage-controls>span{font-size:9px;padding:5px 9px}
+ .detail-stage.immersive-detail.integrated-detail>.car-image.has-part-hotspots{aspect-ratio:auto!important;gap:12px 8px;padding-bottom:2px}
+ .integrated-detail .hotspot{max-width:110px;justify-self:center}
+ .integrated-detail .word-card{margin-top:14px;margin-bottom:0}
+ .integrated-detail>.stage-caption{top:10px;left:10px;right:10px;font-size:8px;gap:10px}
+ .car-gallery-card>div:last-child{padding-top:12px}
+}

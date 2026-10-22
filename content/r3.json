@@ -1,7 +1,7 @@
 {
-  "id": "r4-multiview-20261021.2",
+  "id": "r5-showcase-20261022.1",
   "schemaVersion": 2,
-  "appVersion": "0.4.6",
+  "appVersion": "0.5.0",
   "car": {
     "id": "CAR01",
     "brand": "Lamborghini",
@@ -3154,6 +3154,106 @@
       "sha256": "dc4ab76eb500e430c16ed17f110fc389510fb752302aa7c5100636656c06f177",
       "duration": 0.988042,
       "source": "Edge local preview zh-CN-XiaoxiaoNeural -12%; production provenance in content/audio-production.json; listening and applicable rights review separate."
+    },
+    {
+      "id": "showcase-CAR01",
+      "path": "media/showcase/car01-v5.webp",
+      "source": "Built-in GPT Image integrated car and museum scene; reference credits and production prompt in showcase-production.json. Visually reviewed 2026-10-22; generated illustration, not a photograph.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "d2873767768b73a1e41ba615487cc4fb6a9450d8c6b409bce4bcc4ab5560fa10"
+    },
+    {
+      "id": "showcase-CAR02",
+      "path": "media/showcase/car02-v5.webp",
+      "source": "Built-in GPT Image integrated car and museum scene; reference credits and production prompt in showcase-production.json. Visually reviewed 2026-10-22; generated illustration, not a photograph.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "9d8a885a72d2f5080352604d3054b998263ff0989dbd1fb6336332dbba769bf2"
+    },
+    {
+      "id": "showcase-CAR03",
+      "path": "media/showcase/car03-v5.webp",
+      "source": "Built-in GPT Image integrated car and museum scene; reference credits and production prompt in showcase-production.json. Visually reviewed 2026-10-22; generated illustration, not a photograph.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "6e2543d8ece612bdabbb04a717ef858078d64614ffe3e2d692d6549e89deb3ae"
+    },
+    {
+      "id": "showcase-CAR04",
+      "path": "media/showcase/car04-v5.webp",
+      "source": "Built-in GPT Image integrated car and museum scene; reference credits and production prompt in showcase-production.json. Visually reviewed 2026-10-22; generated illustration, not a photograph.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "2e75a618a5b050aed4e8b3021c64b751f8280790a8410a77b9654249f0439300"
+    },
+    {
+      "id": "showcase-CAR05",
+      "path": "media/showcase/car05-v5.webp",
+      "source": "Built-in GPT Image integrated car and museum scene; reference credits and production prompt in showcase-production.json. Visually reviewed 2026-10-22; generated illustration, not a photograph.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "d84e7ee01c8f60acaea90e5e502b8ff0eae3ea36a216dc2a156907dc520e6cb9"
+    },
+    {
+      "id": "showcase-CAR06",
+      "path": "media/showcase/car06-v5.webp",
+      "source": "Built-in GPT Image integrated car and museum scene; reference credits and production prompt in showcase-production.json. Visually reviewed 2026-10-22; generated illustration, not a photograph.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "f197d1d32476cad72af8b61caa1e1c5a3889ecce33b06b1e6b08bba7a9ae3c1d"
+    },
+    {
+      "id": "showcase-CAR07",
+      "path": "media/showcase/car07-v5.webp",
+      "source": "Built-in GPT Image integrated car and museum scene; reference credits and production prompt in showcase-production.json. Visually reviewed 2026-10-22; generated illustration, not a photograph.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "2c38c07413bab8a8a379b7c82457b6e5e87baa4ff9fea880f9be97c15e725cbc"
+    },
+    {
+      "id": "showcase-CAR08",
+      "path": "media/showcase/car08-v5.webp",
+      "source": "Built-in GPT Image integrated car and museum scene; reference credits and production prompt in showcase-production.json. Visually reviewed 2026-10-22; generated illustration, not a photograph.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "80386f8298ad8171168416768af4fdcc139c7e2a91910be25b893cee4c4a47ab"
+    },
+    {
+      "id": "story-parking",
+      "kind": "image",
+      "path": "media/showcase/story-parking-v5.webp",
+      "sha256": "214044c6d8954e1ef85331362e3ee9f9414ec3019421b703b7e894af8b42a2a4",
+      "status": "approved",
+      "width": 1536,
+      "height": 1024,
+      "source": "Built-in GPT Image integrated story scene; reference credits and prompt in showcase-production.json. Visually reviewed 2026-10-22. Narrative image only, never a counting or parking answer."
+    },
+    {
+      "id": "story-travel",
+      "kind": "image",
+      "path": "media/showcase/story-travel-v5.webp",
+      "sha256": "0a83222a80cf24cb69806a9f69dc55c640394ec8c1e06d8ddb8ca7aa0053c2de",
+      "status": "approved",
+      "width": 1536,
+      "height": 1024,
+      "source": "Built-in GPT Image integrated story scene; reference credits and prompt in showcase-production.json. Visually reviewed 2026-10-22. Narrative image only, never a counting or parking answer."
     }
   ],
   "scenes": [
@@ -3276,6 +3376,27 @@
           "x": 0.442,
           "y": 0.609
         }
+      ],
+      "showcaseImage": "showcase-CAR01",
+      "showcaseHotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.57,
+          "y": 0.58
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.65,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.47,
+          "y": 0.52
+        }
       ]
     },
     {
@@ -3358,6 +3479,27 @@
           "zh": "车灯",
           "x": 0.48,
           "y": 0.55
+        }
+      ],
+      "showcaseImage": "showcase-CAR02",
+      "showcaseHotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.445,
+          "y": 0.595
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.35,
+          "y": 0.5
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.55,
+          "y": 0.53
         }
       ]
     },
@@ -3442,6 +3584,27 @@
           "x": 0.52,
           "y": 0.51
         }
+      ],
+      "showcaseImage": "showcase-CAR03",
+      "showcaseHotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.565,
+          "y": 0.6
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.68,
+          "y": 0.49
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.474,
+          "y": 0.485
+        }
       ]
     },
     {
@@ -3524,6 +3687,27 @@
           "zh": "车灯",
           "x": 0.46,
           "y": 0.58
+        }
+      ],
+      "showcaseImage": "showcase-CAR04",
+      "showcaseHotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.55,
+          "y": 0.62
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.66,
+          "y": 0.53
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.435,
+          "y": 0.558
         }
       ]
     },
@@ -3608,6 +3792,27 @@
           "x": 0.56,
           "y": 0.54
         }
+      ],
+      "showcaseImage": "showcase-CAR05",
+      "showcaseHotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.45,
+          "y": 0.6
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.36,
+          "y": 0.5
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.56,
+          "y": 0.54
+        }
       ]
     },
     {
@@ -3684,6 +3889,21 @@
           "zh": "车灯",
           "x": 0.28,
           "y": 0.61
+        }
+      ],
+      "showcaseImage": "showcase-CAR06",
+      "showcaseHotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.48,
+          "y": 0.62
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.385,
+          "y": 0.52
         }
       ]
     },
@@ -3768,6 +3988,27 @@
           "x": 0.63,
           "y": 0.53
         }
+      ],
+      "showcaseImage": "showcase-CAR07",
+      "showcaseHotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.57,
+          "y": 0.6
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.67,
+          "y": 0.5
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.493,
+          "y": 0.516
+        }
       ]
     },
     {
@@ -3850,6 +4091,27 @@
           "zh": "车灯",
           "x": 0.57,
           "y": 0.55
+        }
+      ],
+      "showcaseImage": "showcase-CAR08",
+      "showcaseHotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.48,
+          "y": 0.595
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.36,
+          "y": 0.5
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.57,
+          "y": 0.52
         }
       ]
     }

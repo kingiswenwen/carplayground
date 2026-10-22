@@ -1,6 +1,6 @@
 # 汽车游乐园 · CarPlayground
 
-以真实车型为入口的互动探索网页，使用 React、TypeScript、Vite 和 Phaser 构建。当前版本为 0.4.6 浏览器审阅版。
+以真实车型为入口的互动探索网页，使用 React、TypeScript、Vite 和 Phaser 构建。当前版本为 0.5.0 浏览器审阅版。
 
 支持 8 款车型、4 个场景、26 个活动和 3 段故事，包含部件观察、颜色与数量、停车、运动实验、照片拼装和创作。收藏、作品与活动记录保存在浏览器本地，支持备份导入导出。
 
@@ -51,6 +51,8 @@ Python 音频处理测试需要 FFmpeg。浏览器模拟结果不代表真机实
 - `public/media/`：图片与音频资源。
 - `scripts/`：校验、素材处理和通用发布工具。
 - `tests/`：单元、发布工具和浏览器测试。
+
+展厅和故事采用 GPT 生成的完整车景图，生成提示词、参考许可和审核记录见 `content/showcase-production.json`；多角度观察与照片拼装保留实拍。
 
 素材来源与署名保留在 `content/photo-sources.json`、`content/photo-view-sources.json` 等清单中。素材的许可范围需分别核对；声音听审与分发依据仍待确认。
 

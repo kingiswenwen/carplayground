@@ -1,0 +1,406 @@
+[
+  {
+    "id": "CAR01",
+    "assetId": "showcase-CAR01",
+    "file": "media/showcase/car01-v5.webp",
+    "tool": "Built-in GPT Image",
+    "prompt": "Use case: compositing. Asset type: integrated production hero image for CarPlayground, landscape 1536x1024. Input 1 is the existing warm ivory/sage arched-window museum environment style reference. Input 2 is an identity reference of the actual white Lamborghini Revuelto. Generate ONE coherent beautifully art-directed automotive museum photograph/render: this exact white Revuelto, closed doors, black multi-spoke wheels, unmistakable Y-shaped front DRLs and angular side intakes, front three-quarter view facing LEFT, parked naturally on a low broad pale limestone circular podium inside this same bright museum. Re-render together with physically consistent perspective and daylight, warm bounced light, subtle believable paint reflections of the surrounding windows, strong soft tire contact shadows and gentle floor reflection. It must look like one photo rather than a pasted cutout. Car completely visible including all tires, centered horizontally occupying x=18%..84%, y=35%..77%; generous clear floor below and quiet architecture above for HTML UI. Camera slightly above hood at natural full-size automobile eye level; not miniature/toy, not cartoon. Maintain model identity and white paint, black glass, original proportions. No people, other vehicles, text, signage, watermarks, UI, fake letters or floating car. Calm inviting premium automotive discovery world. Keep whole image sharp, natural exposure.",
+    "reference": {
+      "file": "media/views/car01-front.webp",
+      "page": "https://commons.wikimedia.org/wiki/File:2023_Lamborghini_Revuelto_4.jpg",
+      "author": "Calreyn88",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    "modification": "Vehicle and museum re-rendered together with matched light, perspective, reflections and contact shadows.",
+    "review": {
+      "date": "2026-10-22",
+      "status": "reviewed",
+      "checks": [
+        "model silhouette and defining lamp, intake, wheel and wing features compared against project reference",
+        "all tires and body visible; grounded shadow and common museum lighting",
+        "new image-specific normalized part targets checked"
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.57,
+          "y": 0.58
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.65,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.47,
+          "y": 0.52
+        }
+      ]
+    },
+    "webSha256": "d2873767768b73a1e41ba615487cc4fb6a9450d8c6b409bce4bcc4ab5560fa10"
+  },
+  {
+    "id": "CAR02",
+    "assetId": "showcase-CAR02",
+    "file": "media/showcase/car02-v5.webp",
+    "tool": "Built-in GPT Image",
+    "prompt": "Use case: compositing. Asset type: integrated production hero image for CarPlayground, landscape 1536x1024. Input 1 is the existing warm ivory/sage arched-window museum style reference; input 2 is the actual car identity reference. Generate ONE coherent premium automotive museum photograph/render: red Ferrari 296 GTB hardtop coupe, standard car (not GTS or race version), slim swept headlights, sculpted side air intake, dark multi-spoke wheels, parked naturally on a low broad pale limestone circular podium inside the same inviting museum. Entire vehicle front three-quarter view facing RIGHT, all wheels on the plinth. Re-render vehicle AND environment together with matching perspective and daylight, warm bounced light, believable paint reflections of surrounding windows, soft strong tire contact shadows and gentle floor reflection. Natural full-size car camera slightly above hood. Car completely visible, centered occupying x=18%..84%, y=35%..77%, quiet architecture above and clear floor below for HTML UI. Preserve exact car generation, body proportions, paint and distinguishing details. No people, other vehicles, text, signs, watermarks, UI, pasted cutout edges, cartoon faces or floating cars. Bright soft exposure, calm premium photographic realism.",
+    "reference": {
+      "file": "media/car02.webp",
+      "page": "https://commons.wikimedia.org/wiki/File:2023_Ferrari_296_GTB.jpg",
+      "author": "Calreyn88",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    "modification": "Vehicle and museum re-rendered together with matched light, perspective, reflections and contact shadows.",
+    "review": {
+      "date": "2026-10-22",
+      "status": "reviewed",
+      "checks": [
+        "model silhouette and defining lamp, intake, wheel and wing features compared against project reference",
+        "all tires and body visible; grounded shadow and common museum lighting",
+        "new image-specific normalized part targets checked"
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.445,
+          "y": 0.595
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.35,
+          "y": 0.5
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.55,
+          "y": 0.53
+        }
+      ]
+    },
+    "webSha256": "9d8a885a72d2f5080352604d3054b998263ff0989dbd1fb6336332dbba769bf2"
+  },
+  {
+    "id": "CAR03",
+    "assetId": "showcase-CAR03",
+    "file": "media/showcase/car03-v5.webp",
+    "tool": "Built-in GPT Image",
+    "prompt": "Use case: compositing. Asset type: integrated production hero image for CarPlayground, landscape 1536x1024. Input 1 is the existing warm ivory/sage arched-window museum style reference; input 2 is the actual car identity reference. Generate ONE coherent premium automotive museum photograph/render: white Porsche 992.1 911 GT3 RS, red wheels, black hood vents, large original rear wing and red lower side stripe, parked naturally on a low broad pale limestone circular podium inside the same inviting museum. Entire vehicle front three-quarter view facing LEFT, all wheels on the plinth. Re-render vehicle AND environment together with matching perspective and daylight, warm bounced light, believable paint reflections of surrounding windows, soft strong tire contact shadows and gentle floor reflection. Natural full-size car camera slightly above hood. Car completely visible, centered occupying x=18%..84%, y=35%..77%, quiet architecture above and clear floor below for HTML UI. Preserve exact car generation, body proportions, paint and distinguishing details. No people, other vehicles, text, signs, watermarks, UI, pasted cutout edges, cartoon faces or floating cars. Bright soft exposure, calm premium photographic realism.",
+    "reference": {
+      "file": "media/car03.webp",
+      "page": "https://commons.wikimedia.org/wiki/File:2023_Porsche_911_GT3_RS.jpg",
+      "author": "Calreyn88",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    "modification": "Vehicle and museum re-rendered together with matched light, perspective, reflections and contact shadows.",
+    "review": {
+      "date": "2026-10-22",
+      "status": "reviewed",
+      "checks": [
+        "model silhouette and defining lamp, intake, wheel and wing features compared against project reference",
+        "all tires and body visible; grounded shadow and common museum lighting",
+        "new image-specific normalized part targets checked"
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.565,
+          "y": 0.6
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.68,
+          "y": 0.49
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.474,
+          "y": 0.485
+        }
+      ]
+    },
+    "webSha256": "6e2543d8ece612bdabbb04a717ef858078d64614ffe3e2d692d6549e89deb3ae"
+  },
+  {
+    "id": "CAR04",
+    "assetId": "showcase-CAR04",
+    "file": "media/showcase/car04-v5.webp",
+    "tool": "Built-in GPT Image",
+    "prompt": "Use case: compositing. Asset type: integrated production hero image for CarPlayground, landscape 1536x1024. Input 1 is the existing warm ivory/sage arched-window museum style reference; input 2 is the actual car identity reference. Generate ONE coherent premium automotive museum photograph/render: orange McLaren 750S hardtop coupe, black teardrop headlamp recesses, original silver multi-spoke wheels and black roof, parked naturally on a low broad pale limestone circular podium inside the same inviting museum. Entire vehicle front three-quarter view facing LEFT, all wheels on the plinth. Re-render vehicle AND environment together with matching perspective and daylight, warm bounced light, believable paint reflections of surrounding windows, soft strong tire contact shadows and gentle floor reflection. Natural full-size car camera slightly above hood. Car completely visible, centered occupying x=18%..84%, y=35%..77%, quiet architecture above and clear floor below for HTML UI. Preserve exact car generation, body proportions, paint and distinguishing details. No people, other vehicles, text, signs, watermarks, UI, pasted cutout edges, cartoon faces or floating cars. Bright soft exposure, calm premium photographic realism.",
+    "reference": {
+      "file": "media/car04.webp",
+      "page": "https://commons.wikimedia.org/wiki/File:2023_McLaren_750S_1.jpg",
+      "author": "Calreyn88",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    "modification": "Vehicle and museum re-rendered together with matched light, perspective, reflections and contact shadows.",
+    "review": {
+      "date": "2026-10-22",
+      "status": "reviewed",
+      "checks": [
+        "model silhouette and defining lamp, intake, wheel and wing features compared against project reference",
+        "all tires and body visible; grounded shadow and common museum lighting",
+        "new image-specific normalized part targets checked"
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.55,
+          "y": 0.62
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.66,
+          "y": 0.53
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.435,
+          "y": 0.558
+        }
+      ]
+    },
+    "webSha256": "2e75a618a5b050aed4e8b3021c64b751f8280790a8410a77b9654249f0439300"
+  },
+  {
+    "id": "CAR05",
+    "assetId": "showcase-CAR05",
+    "file": "media/showcase/car05-v5.webp",
+    "tool": "Built-in GPT Image",
+    "prompt": "Use case: compositing. Asset type: integrated production hero image for CarPlayground, landscape 1536x1024. Input 1 is the existing warm ivory/sage arched-window museum style reference; input 2 is the actual car identity reference. Generate ONE coherent premium automotive museum photograph/render: black and blue Bugatti Chiron standard coupe, horseshoe front grille and blue C-shaped side trim, original silver wheels, parked naturally on a low broad pale limestone circular podium inside the same inviting museum. Entire vehicle front three-quarter view facing RIGHT, all wheels on the plinth. Re-render vehicle AND environment together with matching perspective and daylight, warm bounced light, believable paint reflections of surrounding windows, soft strong tire contact shadows and gentle floor reflection. Natural full-size car camera slightly above hood. Car completely visible, centered occupying x=18%..84%, y=35%..77%, quiet architecture above and clear floor below for HTML UI. Preserve exact car generation, body proportions, paint and distinguishing details. No people, other vehicles, text, signs, watermarks, UI, pasted cutout edges, cartoon faces or floating cars. Bright soft exposure, calm premium photographic realism.",
+    "reference": {
+      "file": "media/car05.webp",
+      "page": "https://commons.wikimedia.org/wiki/File:2017_Bugatti_Chiron.jpg",
+      "author": "Calreyn88",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    "modification": "Vehicle and museum re-rendered together with matched light, perspective, reflections and contact shadows.",
+    "review": {
+      "date": "2026-10-22",
+      "status": "reviewed",
+      "checks": [
+        "model silhouette and defining lamp, intake, wheel and wing features compared against project reference",
+        "all tires and body visible; grounded shadow and common museum lighting",
+        "new image-specific normalized part targets checked"
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.45,
+          "y": 0.6
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.36,
+          "y": 0.5
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.56,
+          "y": 0.54
+        }
+      ]
+    },
+    "webSha256": "d84e7ee01c8f60acaea90e5e502b8ff0eae3ea36a216dc2a156907dc520e6cb9"
+  },
+  {
+    "id": "CAR06",
+    "assetId": "showcase-CAR06",
+    "file": "media/showcase/car06-v5.webp",
+    "tool": "Built-in GPT Image",
+    "prompt": "Use case: compositing. Asset type: integrated production hero image for CarPlayground, landscape 1536x1024. Input 1 is the existing warm ivory/sage arched-window museum style reference; input 2 is the actual car identity reference. Generate ONE coherent premium automotive museum photograph/render: yellow Pagani Huayra standard coupe with black carbon lower body, four small oval front headlamps, stalk mirrors and original silver wheels. Close the gullwing doors and rear engine cover into the correct original closed body shape (reference shows open panels), parked naturally on a low broad pale limestone circular podium inside the same inviting museum. Entire vehicle front three-quarter view facing LEFT, all wheels on the plinth. Re-render vehicle AND environment together with matching perspective and daylight, warm bounced light, believable paint reflections of surrounding windows, soft strong tire contact shadows and gentle floor reflection. Natural full-size car camera slightly above hood. Car completely visible, centered occupying x=18%..84%, y=35%..77%, quiet architecture above and clear floor below for HTML UI. Preserve exact car generation, body proportions, paint and distinguishing details. No people, other vehicles, text, signs, watermarks, UI, pasted cutout edges, cartoon faces or floating cars. Bright soft exposure, calm premium photographic realism.",
+    "reference": {
+      "file": "media/car06.webp",
+      "page": "https://commons.wikimedia.org/wiki/File:Pagani_Huayra_--_Geneva_Motor_Show_--_2014-03-09.jpg",
+      "author": "Navigator84",
+      "license": "CC BY-SA 3.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0"
+    },
+    "modification": "Vehicle and museum re-rendered together with matched light, perspective, reflections and contact shadows. Huayra doors and engine cover shown closed.",
+    "review": {
+      "date": "2026-10-22",
+      "status": "reviewed",
+      "checks": [
+        "model silhouette and defining lamp, intake, wheel and wing features compared against project reference",
+        "all tires and body visible; grounded shadow and common museum lighting",
+        "new image-specific normalized part targets checked"
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.48,
+          "y": 0.62
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.385,
+          "y": 0.52
+        }
+      ]
+    },
+    "webSha256": "f197d1d32476cad72af8b61caa1e1c5a3889ecce33b06b1e6b08bba7a9ae3c1d"
+  },
+  {
+    "id": "CAR07",
+    "assetId": "showcase-CAR07",
+    "file": "media/showcase/car07-v5.webp",
+    "tool": "Built-in GPT Image",
+    "prompt": "Use case: compositing. Asset type: integrated production hero image for CarPlayground, landscape 1536x1024. Input 1 is the existing warm ivory/sage arched-window museum style reference; input 2 is the actual car identity reference. Generate ONE coherent premium automotive museum photograph/render: blue Koenigsegg Jesko Attack, very large Attack rear wing (not Absolut), original silver wheels and black carbon splitter, parked naturally on a low broad pale limestone circular podium inside the same inviting museum. Entire vehicle front three-quarter view facing LEFT, all wheels on the plinth. Re-render vehicle AND environment together with matching perspective and daylight, warm bounced light, believable paint reflections of surrounding windows, soft strong tire contact shadows and gentle floor reflection. Natural full-size car camera slightly above hood. Car completely visible, centered occupying x=18%..84%, y=35%..77%, quiet architecture above and clear floor below for HTML UI. Preserve exact car generation, body proportions, paint and distinguishing details. No people, other vehicles, text, signs, watermarks, UI, pasted cutout edges, cartoon faces or floating cars. Bright soft exposure, calm premium photographic realism.",
+    "reference": {
+      "file": "media/car07.webp",
+      "page": "https://commons.wikimedia.org/wiki/File:2023_Koenigsegg_Jesko_Attack.jpg",
+      "author": "Calreyn88",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    "modification": "Vehicle and museum re-rendered together with matched light, perspective, reflections and contact shadows.",
+    "review": {
+      "date": "2026-10-22",
+      "status": "reviewed",
+      "checks": [
+        "model silhouette and defining lamp, intake, wheel and wing features compared against project reference",
+        "all tires and body visible; grounded shadow and common museum lighting",
+        "new image-specific normalized part targets checked"
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.57,
+          "y": 0.6
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.67,
+          "y": 0.5
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.493,
+          "y": 0.516
+        }
+      ]
+    },
+    "webSha256": "2c38c07413bab8a8a379b7c82457b6e5e87baa4ff9fea880f9be97c15e725cbc"
+  },
+  {
+    "id": "CAR08",
+    "assetId": "showcase-CAR08",
+    "file": "media/showcase/car08-v5.webp",
+    "tool": "Built-in GPT Image",
+    "prompt": "Use case: compositing. Asset type: integrated production hero image for CarPlayground, landscape 1536x1024. Input 1 is the existing warm ivory/sage arched-window museum style reference; input 2 is the actual car identity reference. Generate ONE coherent premium automotive museum photograph/render: green 2024 updated Aston Martin Vantage hardtop coupe, wide black front grille, updated teardrop headlamps, dark wheels, lime lower trim, parked naturally on a low broad pale limestone circular podium inside the same inviting museum. Entire vehicle front three-quarter view facing RIGHT, all wheels on the plinth. Re-render vehicle AND environment together with matching perspective and daylight, warm bounced light, believable paint reflections of surrounding windows, soft strong tire contact shadows and gentle floor reflection. Natural full-size car camera slightly above hood. Car completely visible, centered occupying x=18%..84%, y=35%..77%, quiet architecture above and clear floor below for HTML UI. Preserve exact car generation, body proportions, paint and distinguishing details. No people, other vehicles, text, signs, watermarks, UI, pasted cutout edges, cartoon faces or floating cars. Bright soft exposure, calm premium photographic realism.",
+    "reference": {
+      "file": "media/car08.webp",
+      "page": "https://commons.wikimedia.org/wiki/File:Aston_Martin_Vantage_(2024)_IMG_9999.jpg",
+      "author": "Alexander-93",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+    },
+    "modification": "Vehicle and museum re-rendered together with matched light, perspective, reflections and contact shadows.",
+    "review": {
+      "date": "2026-10-22",
+      "status": "reviewed",
+      "checks": [
+        "model silhouette and defining lamp, intake, wheel and wing features compared against project reference",
+        "all tires and body visible; grounded shadow and common museum lighting",
+        "new image-specific normalized part targets checked"
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.48,
+          "y": 0.595
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.36,
+          "y": 0.5
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.57,
+          "y": 0.52
+        }
+      ]
+    },
+    "webSha256": "80386f8298ad8171168416768af4fdcc139c7e2a91910be25b893cee4c4a47ab"
+  },
+  {
+    "id": "story-parking",
+    "assetId": "story-parking",
+    "file": "media/showcase/story-parking-v5.webp",
+    "tool": "Built-in GPT Image",
+    "prompt": "Use case: compositing. Asset type: integrated story illustration for CarPlayground, landscape 1536x1024. Input 1 is the warm landscaped parking courtyard environment reference. Input 2 is the identity reference for a white Lamborghini Revuelto. Create one naturally integrated photographic/rendered scene of this exact white Revuelto, closed doors, Y-shaped front lamps and black wheels, parked safely on the courtyard ground beside the sage gatehouse and terracotta wash canopy. Front three-quarter view facing left, entire car including tires visible occupying x=22%..78%,y=40%..78%. Keep the same original environment character, natural believable proportions, correct matching camera perspective and warm daylight, soft tire contact shadows and subtle environment reflections on paint. Change camera as needed for coherent full-size scene. No floating pasted cutout, no podium, no people, other vehicles, text, watermarks, signs or UI. Calm warm image suitable for an automotive discovery story. Use rich realistic materials and unified soft lighting, not a toy or cartoon. This is a narrative picture, not a diagram or counting answer.",
+    "reference": {
+      "file": "media/views/car01-front.webp",
+      "page": "https://commons.wikimedia.org/wiki/File:2023_Lamborghini_Revuelto_4.jpg",
+      "author": "Calreyn88",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    "modification": "Vehicle and landscape re-rendered together with matched perspective, lighting and shadows. Narrative use only.",
+    "review": {
+      "date": "2026-10-22",
+      "status": "reviewed",
+      "checks": [
+        "white Revuelto identity and complete vehicle",
+        "coherent tire contact shadows and environment reflections",
+        "no extra counting objects; not used for gameplay targets"
+      ]
+    },
+    "webSha256": "214044c6d8954e1ef85331362e3ee9f9414ec3019421b703b7e894af8b42a2a4"
+  },
+  {
+    "id": "story-travel",
+    "assetId": "story-travel",
+    "file": "media/showcase/story-travel-v5.webp",
+    "tool": "Built-in GPT Image",
+    "prompt": "Use case: compositing. Asset type: integrated story illustration for CarPlayground, landscape 1536x1024. Input 1 is the sunny park with library, museum and stone bridge environment reference. Input 2 is the identity reference for a white Lamborghini Revuelto. Create one naturally integrated photographic/rendered scene of this exact white Revuelto, closed doors, Y-shaped front lamps and black wheels, parked safely on the paved pull-in area in the park foreground, away from paths and grass. Front three-quarter view facing left, entire car including tires visible occupying x=22%..78%,y=40%..78%. Keep the same original environment character, natural believable proportions, correct matching camera perspective and warm daylight, soft tire contact shadows and subtle environment reflections on paint. Change camera as needed for coherent full-size scene. No floating pasted cutout, no podium, no people, other vehicles, text, watermarks, signs or UI. Calm warm image suitable for an automotive discovery story. Use rich realistic materials and unified soft lighting, not a toy or cartoon. This is a narrative picture, not a diagram or counting answer.",
+    "reference": {
+      "file": "media/views/car01-front.webp",
+      "page": "https://commons.wikimedia.org/wiki/File:2023_Lamborghini_Revuelto_4.jpg",
+      "author": "Calreyn88",
+      "license": "CC0",
+      "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+    },
+    "modification": "Vehicle and landscape re-rendered together with matched perspective, lighting and shadows. Narrative use only.",
+    "review": {
+      "date": "2026-10-22",
+      "status": "reviewed",
+      "checks": [
+        "white Revuelto identity and complete vehicle",
+        "coherent tire contact shadows and environment reflections",
+        "no extra counting objects; not used for gameplay targets"
+      ]
+    },
+    "webSha256": "0a83222a80cf24cb69806a9f69dc55c640394ec8c1e06d8ddb8ca7aa0053c2de"
+  }
+]
