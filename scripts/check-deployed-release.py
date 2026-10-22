@@ -27,7 +27,8 @@ def check(package):
                 or response.read() != (package / 'site' / sound['path']).read_bytes()[:16]):
             raise ValueError('Public audio Range request does not match')
     try:
-        urllib.request.urlopen(base + 'missing-' + manifest['appReleaseId'], timeout=40)
+        # Keep the probe within the CDN origin's authorized object prefixes.
+        urllib.request.urlopen(base + 'releases/' + manifest['appReleaseId'] + '/missing-file.js', timeout=40)
     except urllib.error.HTTPError as error:
         if error.code != 404:
             raise ValueError('Missing object does not return 404') from None
