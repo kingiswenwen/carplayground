@@ -28,7 +28,7 @@ test('@smoke 展厅八车切换使用完整车景，详情热点与新图对应'
 
 test('@smoke 车景加载失败可原地重试，手机与平板完整显示车辆且入口可用',async({page})=>{
  let fail=true;
- await page.route('**/media/showcase/car01-v5.webp*',route=>fail?route.abort():route.continue());
+ await page.route(url=>/\/showcase\/car01-v5\.webp$/.test(url.pathname),route=>fail?route.abort():route.continue());
  await page.goto('/#/cars');
  const hero=page.locator('.showroom-display-car');
  await expect(hero.getByRole('button',{name:'重新加载',exact:true})).toBeVisible();
