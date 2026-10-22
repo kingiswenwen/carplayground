@@ -60,7 +60,8 @@ def main():
             'WebIdentityToken': token, 'DurationSeconds': config['durationSeconds'],
             'RoleSessionName': 'github-' + os.environ['GITHUB_RUN_ID'] + '-' + os.environ['GITHUB_RUN_ATTEMPT']}
     result = request_json('https://sts.tencentcloudapi.com',
-                          {'Content-Type': 'application/json', 'X-TC-Action': 'AssumeRoleWithWebIdentity',
+                          {'Content-Type': 'application/json', 'Authorization': 'SKIP',
+                           'X-TC-Action': 'AssumeRoleWithWebIdentity',
                            'X-TC-Version': '2018-08-13', 'X-TC-Region': 'ap-beijing',
                            'X-TC-Timestamp': str(int(time.time()))},
                           json.dumps(body).encode())['Response']
