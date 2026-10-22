@@ -3,6 +3,7 @@
 Cloud libraries are imported only for --execute. Credentials never enter site/.
 """
 import argparse
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import datetime
 import fcntl
 import hashlib
@@ -13,6 +14,7 @@ from pathlib import Path
 import re
 import subprocess
 import sys
+import threading
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -69,8 +71,25 @@ def check_bytes(file, remote):
             raise ValueError('Remote header differs: ' + file['path'] + ' ' + header)
 
 
+def verify_phase(items, work, phase, progress):
+    """Bound object requests; a phase must finish before the next may start."""
+    results = [None] * len(items)
+    with ThreadPoolExecutor(max_workers=4) as pool:
+        pending = {pool.submit(work, item): index for index, item in enumerate(items)}
+        try:
+            for done, future in enumerate(as_completed(pending), 1):
+                results[pending[future]] = future.result()
+                if progress:
+                    progress(phase, done, len(items))
+        except Exception:
+            for future in pending:
+                future.cancel()
+            raise
+    return results
+
+
 def deploy(package, manifest, cloud, receipt, save, publish=False, expected=None,
-           authorized_review=False, before_promote=None):
+           authorized_review=False, before_promote=None, progress=None):
     """cloud is a COS/CDN adapter. Tests inject transport failures and conflicts."""
     blockers = upload_blockers(manifest, authorized_review)
     if blockers:
@@ -87,28 +106,39 @@ def deploy(package, manifest, cloud, receipt, save, publish=False, expected=None
             save('previous-index.html', previous['data'])
     # Complete preflight before writing anything. Existing immutable objects must
     # match both bytes and headers; wrong metadata requires a new version ID.
-    missing = []
-    for file in files:
+    def preflight(file):
         read_local(package, file)
         existing = cloud.origin_get(file['path'])
         if existing is None:
-            missing.append(file)
-        else:
-            check_bytes(file, existing)
+            return True
+        check_bytes(file, existing)
+        return False
+
+    absent = verify_phase(files, preflight, 'preflight', progress)
+    missing = [file for file, is_absent in zip(files, absent) if is_absent]
     receipt['existingObjectsVerified'] = len(files) - len(missing)
-    for file in missing:
+    receipt_lock = threading.Lock()
+
+    def upload(file):
         # Recheck immediately before write. Local flock serializes this tool;
         # COS versioning does not provide atomic immutable/entry CAS protection.
         existing = cloud.origin_get(file['path'])
         if existing is not None:
             check_bytes(file, existing)
-            continue
+            return
         cloud.put(file['path'], read_local(package, file), file['headers'])
-        receipt['uploaded'].append(file['path'])
+        with receipt_lock:
+            receipt['uploaded'].append(file['path'])
         check_bytes(file, cloud.origin_get(file['path']))
-    for file in files:
+
+    verify_phase(missing, upload, 'upload-and-origin-readback', progress)
+
+    def cdn_verify(file):
         check_bytes(file, cloud.cdn_get(file['path']))
-        receipt['cdnVerified'].append(file['path'])
+        with receipt_lock:
+            receipt['cdnVerified'].append(file['path'])
+
+    verify_phase(files, cdn_verify, 'cdn-readback', progress)
     receipt['staged'] = True
     if not publish:
         return
@@ -128,15 +158,27 @@ def deploy(package, manifest, cloud, receipt, save, publish=False, expected=None
 
 class TencentCloud:
     def __init__(self, target, key):
-        from qcloud_cos import CosConfig, CosS3Client
-        import requests
-        self.cos = CosS3Client(CosConfig(Region=target['region'],
-                                       SecretId=key['secretId'], SecretKey=key['secretKey'],
-                                       Token=key.get('token'),
-                                       Scheme='https'))
+        self.target = dict(target)
+        self.key = dict(key)
+        self.local = threading.local()
         self.bucket = target['bucket']
         self.base = 'https://' + target['domain'] + '/'
-        self.http = requests.Session()
+
+    @property
+    def cos(self):
+        from qcloud_cos import CosConfig, CosS3Client
+        if not hasattr(self.local, 'cos'):
+            self.local.cos = CosS3Client(CosConfig(Region=self.target['region'],
+                                       SecretId=self.key['secretId'], SecretKey=self.key['secretKey'],
+                                       Token=self.key.get('token'), Scheme='https'))
+        return self.local.cos
+
+    @property
+    def http(self):
+        import requests
+        if not hasattr(self.local, 'http'):
+            self.local.http = requests.Session()
+        return self.local.http
 
     def origin_get(self, name):
         from qcloud_cos.cos_exception import CosServiceError
@@ -245,10 +287,13 @@ def main():
                                         check=True, capture_output=True, text=True).stdout.split()
                 if not remote or remote[0] != manifest['sourceCommit']:
                     raise ValueError('A newer main commit exists; old run cannot promote')
+            def progress(phase, done, total):
+                if done % 25 == 0 or done == total:
+                    print(f'Deployment {phase}: {done}/{total} objects verified', flush=True)
             deploy(package, manifest, cloud, receipt,
                    lambda name, data: (folder / name).write_bytes(data),
                    publish=args.publish, expected=expected, authorized_review=args.authorized_review,
-                   before_promote=check_source)
+                   before_promote=check_source, progress=progress)
         except Exception as error:
             # SDK exception strings can include request/response details.
             receipt['failureType'] = type(error).__name__
