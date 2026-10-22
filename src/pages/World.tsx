@@ -1,14 +1,13 @@
 import { useState } from 'react';
 import { ArrowLeft, ArrowRight, BookOpen, CarFront, Compass, Flag, Map, Play, Sparkles, Volume2, Wrench } from 'lucide-react';
 import { SceneArt } from '../components/SceneArt';
-import { CarImage } from '../components/CarImage';
 import { content, domains, getActivity, type SceneId } from '../domain/content';
 import { sceneAtmosphere } from '../domain/scenes';
 import { audio } from '../services/audio';
 import { ActivityLinks } from './Browse';
 const positions = { showroom: {x:24,y:36}, parking:{x:27,y:70}, workshop:{x:74,y:35}, travel:{x:77,y:71} };
 const sceneIcons = { showroom: CarFront, parking: Flag, workshop: Wrench, travel: Compass };
-export function StoryShelf(){return <section className="story-shelf"><div className="section-heading"><div><span className="eyebrow">坐下来，听小车讲一个故事</span><h2>小车的故事时间</h2></div><BookOpen size={28}/></div><div className="story-cards">{content.stories.map((s,i)=><a className={`story-card story-${i}`} href={`#/stories/${s.id}`} key={s.id}><div className="story-cover"><SceneArt scene={s.scene}/><span><BookOpen size={24}/></span></div><div className="story-card-copy"><h3>{s.title}</h3><p>四幕故事 · 边听边玩</p><span>打开故事 <ArrowRight size={18}/></span></div></a>)}</div></section>;}
+export function StoryShelf(){return <section className="story-shelf"><div className="section-heading"><div><span className="eyebrow">坐下来，听小车讲一个故事</span><h2>小车的故事时间</h2></div><BookOpen size={28}/></div><div className="story-cards">{content.stories.map((s,i)=><a className={`story-card story-${i}`} href={`#/stories/${s.id}`} key={s.id}><div className="story-cover"><SceneArt scene={s.scene} imageId={s.scene==='showroom'?'showcase-CAR01':`story-${s.scene}`}/><span><BookOpen size={24}/></span></div><div className="story-card-copy"><h3>{s.title}</h3><p>四幕故事 · 边听边玩</p><span>打开故事 <ArrowRight size={18}/></span></div></a>)}</div></section>;}
 export function World({sceneId}:{sceneId?:SceneId}){
  const [domain,setDomain] = useState('');
  if(sceneId)return <SceneDestination sceneId={sceneId}/>;
@@ -18,7 +17,7 @@ export function World({sceneId}:{sceneId?:SceneId}){
 }
 function SceneDestination({sceneId}:{sceneId:SceneId}){
  const scene=content.scenes.find(s=>s.id===sceneId)!;const meta=sceneAtmosphere[sceneId];const primary=getActivity(meta.primary)!;
- return <div className={`scene-page destination-page-${sceneId}`}><div className="scene-breadcrumb"><a className="text-button" href="#/explore"><ArrowLeft size={18}/>回到乐园地图</a><span><Map size={16}/> {scene.name}</span></div><section className={`destination-world world-${sceneId}`} aria-label={`${scene.name}互动场景`}><SceneArt scene={sceneId} priority/><div className="destination-copy"><span className="scene-kicker">{meta.invitation}</span><h1>{scene.name}</h1><p>{meta.intro}</p></div>{sceneId==='showroom'&&<div className="destination-car"><CarImage priority/></div>}{meta.spots.map((s,i)=><a key={s.id} href={`#/play/${s.id}?from=${sceneId}`} style={{left:`${s.x}%`,top:`${s.y}%`}} className={`destination-spot spot-${i}`}><span className="spot-beacon"><Play size={16} fill="currentColor"/></span><strong>{s.label}</strong><ArrowRight size={16}/></a>)}<div className="scene-enter-note"><Sparkles size={16}/>点场景里的小标记，进去玩一玩</div></section>
+ return <div className={`scene-page destination-page-${sceneId}`}><div className="scene-breadcrumb"><a className="text-button" href="#/explore"><ArrowLeft size={18}/>回到乐园地图</a><span><Map size={16}/> {scene.name}</span></div><section className={`destination-world world-${sceneId}`} aria-label={`${scene.name}互动场景`}><SceneArt scene={sceneId} imageId={sceneId==='showroom'?'showcase-CAR01':undefined} priority/><div className="destination-copy"><span className="scene-kicker">{meta.invitation}</span><h1>{scene.name}</h1><p>{meta.intro}</p></div>{meta.spots.map((s,i)=><a key={s.id} href={`#/play/${s.id}?from=${sceneId}`} style={{left:`${s.x}%`,top:`${s.y}%`}} className={`destination-spot spot-${i}`}><span className="spot-beacon"><Play size={16} fill="currentColor"/></span><strong>{s.label}</strong><ArrowRight size={16}/></a>)}<div className="scene-enter-note"><Sparkles size={16}/>点场景里的小标记，进去玩一玩</div></section>
  <div className="scene-invitation"><div><span>不知道先玩什么？</span><h2>{primary.title}</h2><p>{primary.goal}</p></div><a className="button primary" href={`#/play/${primary.id}?from=${sceneId}`}>现在就去 <ArrowRight size={20}/></a><button className="round-button" aria-label={`听听${primary.title}怎么玩`} onClick={()=>void audio.play(primary.instructionAudio)}><Volume2 size={20}/></button></div>
  <section className="scene-more"><div className="section-heading"><h2>在{scene.name}，还可以……</h2><a className="text-button" href="#/explore">换个地方 <ArrowRight size={18}/></a></div><ActivityLinks scene={sceneId}/></section></div>;
 }

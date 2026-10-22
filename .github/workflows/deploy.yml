@@ -47,7 +47,7 @@ jobs:
           npm run release:prepare -- --id "$release_id" --kind review
           echo "release_id=$release_id" >> "$GITHUB_OUTPUT"
       - run: npx playwright install --with-deps chromium
-      - name: Test built website core flows
+      - name: Test built website browser flows
         shell: bash
         env:
           PLAYWRIGHT_BASE_URL: http://127.0.0.1:5194
@@ -60,7 +60,7 @@ jobs:
             if curl --fail --silent "$PLAYWRIGHT_BASE_URL/" > /dev/null; then break; fi
             sleep 1
           done
-          npx playwright test tests/e2e/core-records-favorites.spec.ts --project=chromium
+          npx playwright test --project=chromium --workers=2
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: release-${{ github.run_id }}-${{ github.run_attempt }}

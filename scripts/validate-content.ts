@@ -19,6 +19,18 @@ for (const asset of content.assets) {
 const published = new Set(content.assets.map(a => a.path));
 async function verifyDirectory(folder:string):Promise<void>{for(const entry of await fs.readdir(path.join('public',folder),{withFileTypes:true})){const local=folder+'/'+entry.name;if(entry.isDirectory())await verifyDirectory(local);else if(!published.has(local))throw new Error(`未登记素材 ${local}`);}}
 await verifyDirectory('media');
+const showcases=JSON.parse(await fs.readFile('content/showcase-production.json','utf8')) as {assetId:string;file:string;webSha256:string;review:{status:string;hotspots?:{id:string;x:number;y:number}[]};reference:{file:string;page:string;author:string;license:string;licenseUrl:string}}[];
+const showcaseAssets=content.assets.filter(asset=>asset.path.startsWith('media/showcase/'));
+if(showcases.length!==showcaseAssets.length||new Set(showcases.map(item=>item.assetId)).size!==showcases.length)throw Error('情境图生产清单与素材数量不一致');
+for(const item of showcases){
+  const asset=showcaseAssets.find(asset=>asset.id===item.assetId);
+  if(!asset||asset.path!==item.file||asset.sha256!==item.webSha256||item.review.status!=='reviewed')throw Error(`情境图文件与审核不一致 ${item.assetId}`);
+  if(!content.assets.some(asset=>asset.path===item.reference.file)||!item.reference.author||!item.reference.license||!URL.canParse(item.reference.page)||!URL.canParse(item.reference.licenseUrl))throw Error(`情境图参考缺失 ${item.assetId}`);
+}
+for(const car of content.cars){
+  const source=showcases.find(item=>item.assetId===car.showcaseImage);
+  if(!source||JSON.stringify(source.review.hotspots)!==JSON.stringify(car.showcaseHotspots))throw Error(`车型情境图热点未核对 ${car.id}`);
+}
 const photoSources=JSON.parse(await fs.readFile('content/photo-view-sources.json','utf8')) as {assetId:string;carId:string;view:string;file:string;status:string;webSha256:string;author:string;page:string;license:string;licenseUrl:string}[];
 const views=content.cars.flatMap(car=>car.views.map(view=>({car,view})));
 if(photoSources.length!==views.length||new Set(photoSources.map(source=>source.assetId)).size!==photoSources.length)throw Error('实拍视角来源数量或编号不一致');
