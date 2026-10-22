@@ -45,6 +45,7 @@ with concurrent.futures.ThreadPoolExecutor(max_workers=4) as pool:
     clips = list(pool.map(inspect, CONTENT['speech'].items()))
 report = {'generatedAt': datetime.datetime.now(datetime.timezone.utc).isoformat(), 'contentReleaseId': CONTENT['id'], 'scope': 'all current speech assets; local ffprobe/ffmpeg decoding and measurements', 'humanListeningCompleted': False, 'distributionRightsVerified': False, 'clips': clips, 'summary': {'clips': len(clips), 'decoded': len(clips), 'withIssues': sum(bool(c['issues']) for c in clips), 'loudnessRange': [min(c['integratedLufs'] for c in clips if c['integratedLufs'] is not None), max(c['integratedLufs'] for c in clips if c['integratedLufs'] is not None)]}}
 output = ROOT / 'docs/development/audio-technical-audit.json'
+output.parent.mkdir(parents=True, exist_ok=True)
 output.write_text(json.dumps(report, ensure_ascii=False, indent=2) + '\n')
 print(json.dumps(report['summary'], ensure_ascii=False))
 for clip in clips:

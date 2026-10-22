@@ -24,6 +24,7 @@ parser.add_argument('--model', default='Systran/faster-whisper-base')
 args = parser.parse_args()
 content = json.loads((ROOT / 'content/r3.json').read_text())
 output = ROOT / 'docs/development/audio-transcript-audit.json'
+output.parent.mkdir(parents=True, exist_ok=True)
 partial = ROOT / '.release-artifacts/audit/audio-transcript-audit.partial.json'
 partial.parent.mkdir(parents=True, exist_ok=True)
 previous_file = partial if partial.exists() else output

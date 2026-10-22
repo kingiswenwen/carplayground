@@ -2,7 +2,7 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {readinessSnapshot} from '../scripts/release-lib.mjs';
 
-const waiver = {status: 'waived', waivedBy: 'user', waivedAt: '2026-10-21', note: '用户要求略过真机，按浏览器验证', evidence: 'docs/development/browser-acceptance-scope.md'};
+const waiver = {status: 'waived', waivedBy: 'user', waivedAt: '2026-10-21', note: '用户要求略过真机，按浏览器验证', evidence: 'private:device-scope-record'};
 test('用户设备豁免单独留证，不再阻塞；其他未完成条件仍保留', () => {
   const snapshot = readinessSnapshot({requirements: {'real-ipad': waiver, 'real-phone': waiver, 'content-review': {status: 'passed'}, 'audio-distribution': {status: 'unverified', note: '仍待核实'}}});
   assert.deepEqual(snapshot.waived.map(item => item.id), ['real-ipad', 'real-phone']);

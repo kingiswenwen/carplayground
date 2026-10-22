@@ -137,8 +137,8 @@ test('源码归档恢复逐文件对照Git对象，不能把仅创建归档当�
   await fs.mkdir(restored);
   execFileSync('tar',['-xf',archive,'-C',restored]);
   assert.ok(await verifySourceTree(restored,commit,root)>0);
-  await fs.appendFile(path.join(restored,'START_HERE.md'),'corrupted recovery');
+  await fs.appendFile(path.join(restored,'README.md'),'corrupted recovery');
   await assert.rejects(verifySourceTree(restored,commit,root),/源码校验失败/);
-  await fs.rm(path.join(restored,'START_HERE.md'));
+  await fs.rm(path.join(restored,'README.md'));
   await assert.rejects(verifySourceTree(restored,commit,root),/源码文件清单不一致/);
 });
