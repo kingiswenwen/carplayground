@@ -29,6 +29,7 @@ test('@smoke 安静进入、准确部件、收藏刷新与车库', async ({ page
   await page.getByRole('button', { name: '车门 door', exact: true }).click();
   await expect(page.locator('.word-card strong')).toHaveText('door');
   await page.getByRole('button', { name: '我喜欢这辆车' }).click();
+  await expect(page.getByRole('button', { name: '已放进车库' })).toBeVisible();
   await page.reload();
   await expect(page.getByRole('button', { name: '已放进车库' })).toBeVisible();
   await page.getByRole('link', { name: '我的车库', exact: true }).click();

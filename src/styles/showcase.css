@@ -48,3 +48,20 @@
  .integrated-detail>.stage-caption{top:10px;left:10px;right:10px;font-size:8px;gap:10px}
  .car-gallery-card>div:last-child{padding-top:12px}
 }
+/* Observation activities use the same grounded image as the car detail. */
+.play-surface.e02.immersive-play{padding:0 0 20px;min-height:0;background:#f0ecdf}
+.play-surface.e02.immersive-play>.car-image{max-width:none;margin:0;filter:none}
+.play-surface.e02.immersive-play .word-card{margin-top:16px}
+.discovery-surface.integrated-observation-play{padding:20px;min-height:0;background:#ece9dd}
+.discovery-surface.integrated-observation-play>fieldset{padding:0;background:transparent;border:0;box-shadow:none;backdrop-filter:none}
+.discovery-surface.integrated-observation-play .integrated-observation{max-width:900px;margin:0 auto;padding:0;filter:none;border-radius:20px;overflow:hidden}
+.integrated-observation>.car-image{width:100%;max-height:none;filter:none;margin:0}
+.integrated-observation>.car-image>img{max-height:none;width:100%;height:auto;object-fit:contain}
+.integrated-weather{aspect-ratio:3/2;min-height:0;max-width:900px;margin:0 auto}
+@media(max-width:520px){
+ .discovery-surface.integrated-observation-play{padding:12px;min-height:0}
+ .discovery-surface.integrated-observation-play .integrated-observation{border-radius:15px}
+ .play-surface.e02.immersive-play{padding:0 0 18px;min-height:0}
+ .play-surface.e02.immersive-play .word-card{margin-top:14px}
+ .integrated-weather{min-height:0}
+}

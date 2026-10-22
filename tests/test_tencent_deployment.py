@@ -3,6 +3,8 @@ import copy
 import importlib.util
 from pathlib import Path
 import tempfile
+import threading
+import time
 import unittest
 
 spec = importlib.util.spec_from_file_location('deployment', Path(__file__).resolve().parents[1] / 'scripts/deploy-tencent-release.py')
@@ -171,6 +173,62 @@ class DeploymentTest(unittest.TestCase):
         self.assertEqual(self.cloud.objects['index.html']['data'], b'new index')
         self.assertTrue(self.receipt['indexWritten'])
         self.assertFalse(self.receipt['published'])
+
+    def test_object_requests_are_bounded_and_all_preflight_precedes_upload(self):
+        for index in range(8):
+            name = f'media/new/picture-{index}.webp'
+            data = str(index).encode()
+            (self.package / 'site' / name).write_bytes(data)
+            self.files.insert(-1, {'path': name, 'bytes': len(data), 'sha256': deployment.digest(data),
+                                  'headers': self.files[0]['headers']})
+        expected = {file['path'] for file in self.files if file['path'] != 'index.html'}
+        original_get, original_put = self.cloud.origin_get, self.cloud.put
+        lock = threading.Lock()
+        active, peak, preflight_seen = 0, 0, set()
+
+        def get(name):
+            nonlocal active, peak
+            if name == 'index.html':
+                return original_get(name)
+            with lock:
+                active += 1
+                peak = max(peak, active)
+                preflight_seen.add(name)
+            try:
+                time.sleep(.01)
+                return original_get(name)
+            finally:
+                with lock:
+                    active -= 1
+
+        def put(name, data, headers):
+            self.assertEqual(preflight_seen, expected)
+            return original_put(name, data, headers)
+
+        self.cloud.origin_get, self.cloud.put = get, put
+        self.run_deploy(publish=True, expected='absent')
+        self.assertGreater(peak, 1)
+        self.assertLessEqual(peak, 4)
+        self.assertEqual(set(self.receipt['cdnVerified']), expected)
+        self.assertEqual([event for event in self.cloud.events if event[0] == 'put'][-1], ('put', 'index.html'))
+
+    def test_parallel_upload_failure_never_promotes_and_can_resume(self):
+        original_put = self.cloud.put
+
+        def fail(name, data, headers):
+            if name == self.files[0]['path']:
+                raise ValueError('simulated interrupted upload')
+            return original_put(name, data, headers)
+
+        self.cloud.put = fail
+        with self.assertRaisesRegex(ValueError, 'interrupted upload'):
+            self.run_deploy(publish=True, expected='absent')
+        self.assertNotIn('index.html', self.cloud.objects)
+        self.assertFalse(self.receipt.get('staged', False))
+        self.assertFalse(self.receipt['published'])
+        self.cloud.put = original_put
+        self.run_deploy(publish=True, expected='absent')
+        self.assertTrue(self.receipt['published'])
 
 
 if __name__ == '__main__':

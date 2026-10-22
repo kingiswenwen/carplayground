@@ -71,3 +71,31 @@ test('@smoke 三个故事的车景可加载，四幕切换和重听不失去返�
   }
  }
 });
+
+test('@smoke 观察玩法的新车景失败时不接受空图操作，恢复后可完成部件任务',async({page})=>{
+ let fail=true;
+ await page.route(url=>url.pathname.includes('/showcase/'),route=>fail?route.abort():route.continue());
+ await page.goto('/#/play/E02');
+ await expect(page.getByText('这张图片还没到，再试一次')).toBeVisible();
+ await expect(page.locator('.hotspot')).toHaveCount(0);
+ fail=false;
+ await page.getByRole('button',{name:'重新加载',exact:true}).click();
+ await page.getByRole('button',{name:'车轮 wheel',exact:true}).click();
+ await expect(page.getByRole('heading',{level:1})).toHaveText('找到啦，真是个小发现！');
+ for(const id of ['C01','T01','S03']){
+  fail=true;
+  await page.goto(`/#/play/${id}?car=CAR02`);
+  await expect(page.getByText('小车图片还没到，请再试一次。')).toBeVisible();
+  await expect(page.locator('.learning-choice,.hotspot')).toHaveCount(0);
+  fail=false;
+  await page.getByRole('button',{name:'重试图片',exact:true}).click();
+  await expect(page.locator('.learning-load')).toHaveCount(0);
+  if(id==='C01'){
+   await expect(page.locator('.car-showcase.ready img')).toHaveAttribute('src',/showcase\/car02-v5.webp$/);
+   await expect(page.locator('.expression-car-name')).toHaveText('法拉利 296 GTB');
+  }else if(id==='T01'){
+   for(const name of ['车轮 wheel','车灯 light','车门 door'])await page.getByRole('button',{name,exact:true}).click();
+   await expect(page.getByRole('heading',{level:1})).toHaveText('又完成一次小探索！');
+  }else await expect(page.locator('.weather-scene .art-ready img')).toHaveAttribute('src',/showcase\/story-travel-v5.webp$/);
+ }
+});
