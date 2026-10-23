@@ -6,6 +6,7 @@ import './styles.css';
 import './styles/immersive.css';
 import './styles/motion-assembly.css';
 import './styles/showcase.css';
+import './styles/touch-play.css';
 class Recovery extends Component<{ children: ReactNode }, { failed: boolean }> {
   state = { failed: false };
   static getDerivedStateFromError() { return { failed: true }; }

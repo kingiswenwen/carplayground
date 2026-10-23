@@ -1,7 +1,7 @@
 {
-  "id": "r5-showcase-20261022.2",
+  "id": "r6-direct-touch-20261023",
   "schemaVersion": 2,
-  "appVersion": "0.5.1",
+  "appVersion": "0.6.0",
   "car": {
     "id": "CAR01",
     "brand": "Lamborghini",
@@ -10,9 +10,9 @@
     "status": "reviewed",
     "reference": "https://www.lamborghini.com/en-en/models/revuelto-models/revuelto",
     "images": {
-      "white": "img-white",
-      "red": "img-red",
-      "blue": "img-blue"
+      "white": "play-CAR15-side",
+      "red": "play-CAR02-side",
+      "blue": "play-CAR11-side"
     },
     "hotspots": [
       {
@@ -39,7 +39,7 @@
     {
       "id": "E01",
       "title": "发现颜色",
-      "version": 2,
+      "version": 4,
       "domain": "英语",
       "scene": "showroom",
       "mode": "closed",
@@ -52,13 +52,42 @@
       "hintAudio": "color-hint",
       "completeAudio": "color-success",
       "carIds": [
-        "CAR01"
+        "CAR01",
+        "CAR02",
+        "CAR03",
+        "CAR04",
+        "CAR05",
+        "CAR06",
+        "CAR07",
+        "CAR08",
+        "CAR09",
+        "CAR10",
+        "CAR11",
+        "CAR12",
+        "CAR13",
+        "CAR14",
+        "CAR15",
+        "CAR16",
+        "CAR17",
+        "CAR18",
+        "CAR19",
+        "CAR20",
+        "CAR21",
+        "CAR22",
+        "CAR23",
+        "CAR24",
+        "CAR25",
+        "CAR26",
+        "CAR27",
+        "CAR28",
+        "CAR29",
+        "CAR30"
       ]
     },
     {
       "id": "E02",
       "title": "汽车的身体",
-      "version": 2,
+      "version": 4,
       "domain": "英语",
       "scene": "showroom",
       "mode": "closed",
@@ -71,13 +100,42 @@
       "hintAudio": "parts-hint",
       "completeAudio": "parts-success",
       "carIds": [
-        "CAR01"
+        "CAR01",
+        "CAR02",
+        "CAR03",
+        "CAR04",
+        "CAR05",
+        "CAR06",
+        "CAR07",
+        "CAR08",
+        "CAR09",
+        "CAR10",
+        "CAR11",
+        "CAR12",
+        "CAR13",
+        "CAR14",
+        "CAR15",
+        "CAR16",
+        "CAR17",
+        "CAR18",
+        "CAR19",
+        "CAR20",
+        "CAR21",
+        "CAR22",
+        "CAR23",
+        "CAR24",
+        "CAR25",
+        "CAR26",
+        "CAR27",
+        "CAR28",
+        "CAR29",
+        "CAR30"
       ]
     },
     {
       "id": "E03",
       "title": "出发和停止",
-      "version": 2,
+      "version": 4,
       "domain": "英语",
       "scene": "parking",
       "mode": "closed",
@@ -90,18 +148,47 @@
       "hintAudio": "hint-E03",
       "completeAudio": "discovery-done",
       "carIds": [
-        "CAR01"
+        "CAR01",
+        "CAR02",
+        "CAR03",
+        "CAR04",
+        "CAR05",
+        "CAR06",
+        "CAR07",
+        "CAR08",
+        "CAR09",
+        "CAR10",
+        "CAR11",
+        "CAR12",
+        "CAR13",
+        "CAR14",
+        "CAR15",
+        "CAR16",
+        "CAR17",
+        "CAR18",
+        "CAR19",
+        "CAR20",
+        "CAR21",
+        "CAR22",
+        "CAR23",
+        "CAR24",
+        "CAR25",
+        "CAR26",
+        "CAR27",
+        "CAR28",
+        "CAR29",
+        "CAR30"
       ]
     },
     {
       "id": "M01",
       "title": "小车回家",
-      "version": 2,
+      "version": 4,
       "domain": "数学",
       "scene": "parking",
       "mode": "closed",
       "subtitle": "数学 · 一辆车对应一个位置",
-      "instruction": "给它们各找一个停车位吧。",
+      "instruction": "直接拖着小车停进车位。",
       "hint": "先点一辆车，再点一个空车位。",
       "goal": "一辆车对应一个位置",
       "extension": "用两辆玩具车和两张纸再玩一次。",
@@ -109,13 +196,42 @@
       "hintAudio": "parking-hint",
       "completeAudio": "parking-success",
       "carIds": [
-        "CAR01"
+        "CAR01",
+        "CAR02",
+        "CAR03",
+        "CAR04",
+        "CAR05",
+        "CAR06",
+        "CAR07",
+        "CAR08",
+        "CAR09",
+        "CAR10",
+        "CAR11",
+        "CAR12",
+        "CAR13",
+        "CAR14",
+        "CAR15",
+        "CAR16",
+        "CAR17",
+        "CAR18",
+        "CAR19",
+        "CAR20",
+        "CAR21",
+        "CAR22",
+        "CAR23",
+        "CAR24",
+        "CAR25",
+        "CAR26",
+        "CAR27",
+        "CAR28",
+        "CAR29",
+        "CAR30"
       ]
     },
     {
       "id": "M02",
       "title": "还缺几个车位",
-      "version": 2,
+      "version": 4,
       "domain": "数学",
       "scene": "parking",
       "mode": "closed",
@@ -128,13 +244,42 @@
       "hintAudio": "hint-M02",
       "completeAudio": "discovery-done",
       "carIds": [
-        "CAR01"
+        "CAR01",
+        "CAR02",
+        "CAR03",
+        "CAR04",
+        "CAR05",
+        "CAR06",
+        "CAR07",
+        "CAR08",
+        "CAR09",
+        "CAR10",
+        "CAR11",
+        "CAR12",
+        "CAR13",
+        "CAR14",
+        "CAR15",
+        "CAR16",
+        "CAR17",
+        "CAR18",
+        "CAR19",
+        "CAR20",
+        "CAR21",
+        "CAR22",
+        "CAR23",
+        "CAR24",
+        "CAR25",
+        "CAR26",
+        "CAR27",
+        "CAR28",
+        "CAR29",
+        "CAR30"
       ]
     },
     {
       "id": "M03",
       "title": "车位够不够",
-      "version": 2,
+      "version": 4,
       "domain": "数学",
       "scene": "parking",
       "mode": "closed",
@@ -147,13 +292,42 @@
       "hintAudio": "hint-M03",
       "completeAudio": "discovery-done",
       "carIds": [
-        "CAR01"
+        "CAR01",
+        "CAR02",
+        "CAR03",
+        "CAR04",
+        "CAR05",
+        "CAR06",
+        "CAR07",
+        "CAR08",
+        "CAR09",
+        "CAR10",
+        "CAR11",
+        "CAR12",
+        "CAR13",
+        "CAR14",
+        "CAR15",
+        "CAR16",
+        "CAR17",
+        "CAR18",
+        "CAR19",
+        "CAR20",
+        "CAR21",
+        "CAR22",
+        "CAR23",
+        "CAR24",
+        "CAR25",
+        "CAR26",
+        "CAR27",
+        "CAR28",
+        "CAR29",
+        "CAR30"
       ]
     },
     {
       "id": "M04",
       "title": "红蓝车队",
-      "version": 2,
+      "version": 4,
       "domain": "数学",
       "scene": "parking",
       "mode": "closed",
@@ -166,13 +340,42 @@
       "hintAudio": "hint-M04",
       "completeAudio": "discovery-done",
       "carIds": [
-        "CAR01"
+        "CAR01",
+        "CAR02",
+        "CAR03",
+        "CAR04",
+        "CAR05",
+        "CAR06",
+        "CAR07",
+        "CAR08",
+        "CAR09",
+        "CAR10",
+        "CAR11",
+        "CAR12",
+        "CAR13",
+        "CAR14",
+        "CAR15",
+        "CAR16",
+        "CAR17",
+        "CAR18",
+        "CAR19",
+        "CAR20",
+        "CAR21",
+        "CAR22",
+        "CAR23",
+        "CAR24",
+        "CAR25",
+        "CAR26",
+        "CAR27",
+        "CAR28",
+        "CAR29",
+        "CAR30"
       ]
     },
     {
       "id": "C01",
       "title": "我喜欢这辆车",
-      "version": 2,
+      "version": 4,
       "domain": "中文表达",
       "scene": "showroom",
       "mode": "open",
@@ -192,13 +395,35 @@
         "CAR05",
         "CAR06",
         "CAR07",
-        "CAR08"
+        "CAR08",
+        "CAR09",
+        "CAR10",
+        "CAR11",
+        "CAR12",
+        "CAR13",
+        "CAR14",
+        "CAR15",
+        "CAR16",
+        "CAR17",
+        "CAR18",
+        "CAR19",
+        "CAR20",
+        "CAR21",
+        "CAR22",
+        "CAR23",
+        "CAR24",
+        "CAR25",
+        "CAR26",
+        "CAR27",
+        "CAR28",
+        "CAR29",
+        "CAR30"
       ]
     },
     {
       "id": "C02",
       "title": "先做什么",
-      "version": 2,
+      "version": 4,
       "domain": "中文表达",
       "scene": "travel",
       "mode": "closed",
@@ -211,13 +436,42 @@
       "hintAudio": "hint-C02",
       "completeAudio": "discovery-done",
       "carIds": [
-        "CAR01"
+        "CAR01",
+        "CAR02",
+        "CAR03",
+        "CAR04",
+        "CAR05",
+        "CAR06",
+        "CAR07",
+        "CAR08",
+        "CAR09",
+        "CAR10",
+        "CAR11",
+        "CAR12",
+        "CAR13",
+        "CAR14",
+        "CAR15",
+        "CAR16",
+        "CAR17",
+        "CAR18",
+        "CAR19",
+        "CAR20",
+        "CAR21",
+        "CAR22",
+        "CAR23",
+        "CAR24",
+        "CAR25",
+        "CAR26",
+        "CAR27",
+        "CAR28",
+        "CAR29",
+        "CAR30"
       ]
     },
     {
       "id": "C03",
       "title": "接着讲下去",
-      "version": 2,
+      "version": 4,
       "domain": "中文表达",
       "scene": "travel",
       "mode": "open",
@@ -237,13 +491,35 @@
         "CAR05",
         "CAR06",
         "CAR07",
-        "CAR08"
+        "CAR08",
+        "CAR09",
+        "CAR10",
+        "CAR11",
+        "CAR12",
+        "CAR13",
+        "CAR14",
+        "CAR15",
+        "CAR16",
+        "CAR17",
+        "CAR18",
+        "CAR19",
+        "CAR20",
+        "CAR21",
+        "CAR22",
+        "CAR23",
+        "CAR24",
+        "CAR25",
+        "CAR26",
+        "CAR27",
+        "CAR28",
+        "CAR29",
+        "CAR30"
       ]
     },
     {
       "id": "S01",
       "title": "什么会滚",
-      "version": 2,
+      "version": 4,
       "domain": "科学",
       "scene": "workshop",
       "mode": "open",
@@ -256,13 +532,42 @@
       "hintAudio": "hint-S01",
       "completeAudio": "discovery-done",
       "carIds": [
-        "CAR01"
+        "CAR01",
+        "CAR02",
+        "CAR03",
+        "CAR04",
+        "CAR05",
+        "CAR06",
+        "CAR07",
+        "CAR08",
+        "CAR09",
+        "CAR10",
+        "CAR11",
+        "CAR12",
+        "CAR13",
+        "CAR14",
+        "CAR15",
+        "CAR16",
+        "CAR17",
+        "CAR18",
+        "CAR19",
+        "CAR20",
+        "CAR21",
+        "CAR22",
+        "CAR23",
+        "CAR24",
+        "CAR25",
+        "CAR26",
+        "CAR27",
+        "CAR28",
+        "CAR29",
+        "CAR30"
       ]
     },
     {
       "id": "S02",
       "title": "车灯和影子",
-      "version": 2,
+      "version": 4,
       "domain": "科学",
       "scene": "workshop",
       "mode": "open",
@@ -275,13 +580,42 @@
       "hintAudio": "hint-S02",
       "completeAudio": "discovery-done",
       "carIds": [
-        "CAR01"
+        "CAR01",
+        "CAR02",
+        "CAR03",
+        "CAR04",
+        "CAR05",
+        "CAR06",
+        "CAR07",
+        "CAR08",
+        "CAR09",
+        "CAR10",
+        "CAR11",
+        "CAR12",
+        "CAR13",
+        "CAR14",
+        "CAR15",
+        "CAR16",
+        "CAR17",
+        "CAR18",
+        "CAR19",
+        "CAR20",
+        "CAR21",
+        "CAR22",
+        "CAR23",
+        "CAR24",
+        "CAR25",
+        "CAR26",
+        "CAR27",
+        "CAR28",
+        "CAR29",
+        "CAR30"
       ]
     },
     {
       "id": "S03",
       "title": "雨天出发",
-      "version": 2,
+      "version": 4,
       "domain": "科学",
       "scene": "travel",
       "mode": "closed",
@@ -294,13 +628,42 @@
       "hintAudio": "hint-S03",
       "completeAudio": "discovery-done",
       "carIds": [
-        "CAR01"
+        "CAR01",
+        "CAR02",
+        "CAR03",
+        "CAR04",
+        "CAR05",
+        "CAR06",
+        "CAR07",
+        "CAR08",
+        "CAR09",
+        "CAR10",
+        "CAR11",
+        "CAR12",
+        "CAR13",
+        "CAR14",
+        "CAR15",
+        "CAR16",
+        "CAR17",
+        "CAR18",
+        "CAR19",
+        "CAR20",
+        "CAR21",
+        "CAR22",
+        "CAR23",
+        "CAR24",
+        "CAR25",
+        "CAR26",
+        "CAR27",
+        "CAR28",
+        "CAR29",
+        "CAR30"
       ]
     },
     {
       "id": "T01",
       "title": "零件帮什么忙",
-      "version": 2,
+      "version": 4,
       "domain": "动手思考",
       "scene": "workshop",
       "mode": "closed",
@@ -313,13 +676,42 @@
       "hintAudio": "hint-T01",
       "completeAudio": "discovery-done",
       "carIds": [
-        "CAR01"
+        "CAR01",
+        "CAR02",
+        "CAR03",
+        "CAR04",
+        "CAR05",
+        "CAR06",
+        "CAR07",
+        "CAR08",
+        "CAR09",
+        "CAR10",
+        "CAR11",
+        "CAR12",
+        "CAR13",
+        "CAR14",
+        "CAR15",
+        "CAR16",
+        "CAR17",
+        "CAR18",
+        "CAR19",
+        "CAR20",
+        "CAR21",
+        "CAR22",
+        "CAR23",
+        "CAR24",
+        "CAR25",
+        "CAR26",
+        "CAR27",
+        "CAR28",
+        "CAR29",
+        "CAR30"
       ]
     },
     {
       "id": "T02",
       "title": "给小车搭桥",
-      "version": 2,
+      "version": 4,
       "domain": "动手思考",
       "scene": "workshop",
       "mode": "closed",
@@ -332,13 +724,42 @@
       "hintAudio": "hint-T02",
       "completeAudio": "discovery-done",
       "carIds": [
-        "CAR01"
+        "CAR01",
+        "CAR02",
+        "CAR03",
+        "CAR04",
+        "CAR05",
+        "CAR06",
+        "CAR07",
+        "CAR08",
+        "CAR09",
+        "CAR10",
+        "CAR11",
+        "CAR12",
+        "CAR13",
+        "CAR14",
+        "CAR15",
+        "CAR16",
+        "CAR17",
+        "CAR18",
+        "CAR19",
+        "CAR20",
+        "CAR21",
+        "CAR22",
+        "CAR23",
+        "CAR24",
+        "CAR25",
+        "CAR26",
+        "CAR27",
+        "CAR28",
+        "CAR29",
+        "CAR30"
       ]
     },
     {
       "id": "T03",
       "title": "把路连起来",
-      "version": 2,
+      "version": 4,
       "domain": "动手思考",
       "scene": "parking",
       "mode": "closed",
@@ -351,13 +772,42 @@
       "hintAudio": "hint-T03",
       "completeAudio": "discovery-done",
       "carIds": [
-        "CAR01"
+        "CAR01",
+        "CAR02",
+        "CAR03",
+        "CAR04",
+        "CAR05",
+        "CAR06",
+        "CAR07",
+        "CAR08",
+        "CAR09",
+        "CAR10",
+        "CAR11",
+        "CAR12",
+        "CAR13",
+        "CAR14",
+        "CAR15",
+        "CAR16",
+        "CAR17",
+        "CAR18",
+        "CAR19",
+        "CAR20",
+        "CAR21",
+        "CAR22",
+        "CAR23",
+        "CAR24",
+        "CAR25",
+        "CAR26",
+        "CAR27",
+        "CAR28",
+        "CAR29",
+        "CAR30"
       ]
     },
     {
       "id": "H01",
       "title": "去看看",
-      "version": 2,
+      "version": 4,
       "domain": "社会与人文",
       "scene": "travel",
       "mode": "open",
@@ -377,13 +827,35 @@
         "CAR05",
         "CAR06",
         "CAR07",
-        "CAR08"
+        "CAR08",
+        "CAR09",
+        "CAR10",
+        "CAR11",
+        "CAR12",
+        "CAR13",
+        "CAR14",
+        "CAR15",
+        "CAR16",
+        "CAR17",
+        "CAR18",
+        "CAR19",
+        "CAR20",
+        "CAR21",
+        "CAR22",
+        "CAR23",
+        "CAR24",
+        "CAR25",
+        "CAR26",
+        "CAR27",
+        "CAR28",
+        "CAR29",
+        "CAR30"
       ]
     },
     {
       "id": "H02",
       "title": "谁能帮忙",
-      "version": 2,
+      "version": 4,
       "domain": "社会与人文",
       "scene": "workshop",
       "mode": "closed",
@@ -396,18 +868,47 @@
       "hintAudio": "hint-H02",
       "completeAudio": "discovery-done",
       "carIds": [
-        "CAR01"
+        "CAR01",
+        "CAR02",
+        "CAR03",
+        "CAR04",
+        "CAR05",
+        "CAR06",
+        "CAR07",
+        "CAR08",
+        "CAR09",
+        "CAR10",
+        "CAR11",
+        "CAR12",
+        "CAR13",
+        "CAR14",
+        "CAR15",
+        "CAR16",
+        "CAR17",
+        "CAR18",
+        "CAR19",
+        "CAR20",
+        "CAR21",
+        "CAR22",
+        "CAR23",
+        "CAR24",
+        "CAR25",
+        "CAR26",
+        "CAR27",
+        "CAR28",
+        "CAR29",
+        "CAR30"
       ]
     },
     {
       "id": "H03",
-      "title": "大家轮流",
-      "version": 2,
+      "title": "泡泡洗车屋",
+      "version": 4,
       "domain": "社会与人文",
       "scene": "parking",
       "mode": "closed",
       "subtitle": "社会与人文 · 理解轮流、等待和公平使用",
-      "instruction": "洗车的位置只有一个，大家轮流来。",
+      "instruction": "手指擦过车身，泥点会逐块洗掉。",
       "hint": "一辆车进去，另一辆先等一等，洗好再交换。",
       "goal": "理解轮流、等待和公平使用",
       "extension": "和家人轮流用一个玩具，试着说轮到你啦。",
@@ -415,13 +916,42 @@
       "hintAudio": "hint-H03",
       "completeAudio": "discovery-done",
       "carIds": [
-        "CAR01"
+        "CAR01",
+        "CAR02",
+        "CAR03",
+        "CAR04",
+        "CAR05",
+        "CAR06",
+        "CAR07",
+        "CAR08",
+        "CAR09",
+        "CAR10",
+        "CAR11",
+        "CAR12",
+        "CAR13",
+        "CAR14",
+        "CAR15",
+        "CAR16",
+        "CAR17",
+        "CAR18",
+        "CAR19",
+        "CAR20",
+        "CAR21",
+        "CAR22",
+        "CAR23",
+        "CAR24",
+        "CAR25",
+        "CAR26",
+        "CAR27",
+        "CAR28",
+        "CAR29",
+        "CAR30"
       ]
     },
     {
       "id": "A01",
       "title": "车展海报",
-      "version": 2,
+      "version": 4,
       "domain": "艺术创作",
       "scene": "showroom",
       "mode": "open",
@@ -441,13 +971,35 @@
         "CAR05",
         "CAR06",
         "CAR07",
-        "CAR08"
+        "CAR08",
+        "CAR09",
+        "CAR10",
+        "CAR11",
+        "CAR12",
+        "CAR13",
+        "CAR14",
+        "CAR15",
+        "CAR16",
+        "CAR17",
+        "CAR18",
+        "CAR19",
+        "CAR20",
+        "CAR21",
+        "CAR22",
+        "CAR23",
+        "CAR24",
+        "CAR25",
+        "CAR26",
+        "CAR27",
+        "CAR28",
+        "CAR29",
+        "CAR30"
       ]
     },
     {
       "id": "A02",
       "title": "轮印花纹",
-      "version": 2,
+      "version": 4,
       "domain": "艺术创作",
       "scene": "showroom",
       "mode": "open",
@@ -460,13 +1012,42 @@
       "hintAudio": "hint-A02",
       "completeAudio": "discovery-done",
       "carIds": [
-        "CAR01"
+        "CAR01",
+        "CAR02",
+        "CAR03",
+        "CAR04",
+        "CAR05",
+        "CAR06",
+        "CAR07",
+        "CAR08",
+        "CAR09",
+        "CAR10",
+        "CAR11",
+        "CAR12",
+        "CAR13",
+        "CAR14",
+        "CAR15",
+        "CAR16",
+        "CAR17",
+        "CAR18",
+        "CAR19",
+        "CAR20",
+        "CAR21",
+        "CAR22",
+        "CAR23",
+        "CAR24",
+        "CAR25",
+        "CAR26",
+        "CAR27",
+        "CAR28",
+        "CAR29",
+        "CAR30"
       ]
     },
     {
       "id": "L01",
       "title": "出发准备",
-      "version": 2,
+      "version": 4,
       "domain": "生活习惯",
       "scene": "travel",
       "mode": "closed",
@@ -479,13 +1060,42 @@
       "hintAudio": "hint-L01",
       "completeAudio": "discovery-done",
       "carIds": [
-        "CAR01"
+        "CAR01",
+        "CAR02",
+        "CAR03",
+        "CAR04",
+        "CAR05",
+        "CAR06",
+        "CAR07",
+        "CAR08",
+        "CAR09",
+        "CAR10",
+        "CAR11",
+        "CAR12",
+        "CAR13",
+        "CAR14",
+        "CAR15",
+        "CAR16",
+        "CAR17",
+        "CAR18",
+        "CAR19",
+        "CAR20",
+        "CAR21",
+        "CAR22",
+        "CAR23",
+        "CAR24",
+        "CAR25",
+        "CAR26",
+        "CAR27",
+        "CAR28",
+        "CAR29",
+        "CAR30"
       ]
     },
     {
       "id": "L02",
       "title": "请你帮帮我",
-      "version": 2,
+      "version": 4,
       "domain": "生活习惯",
       "scene": "parking",
       "mode": "open",
@@ -498,13 +1108,42 @@
       "hintAudio": "hint-L02",
       "completeAudio": "discovery-done",
       "carIds": [
-        "CAR01"
+        "CAR01",
+        "CAR02",
+        "CAR03",
+        "CAR04",
+        "CAR05",
+        "CAR06",
+        "CAR07",
+        "CAR08",
+        "CAR09",
+        "CAR10",
+        "CAR11",
+        "CAR12",
+        "CAR13",
+        "CAR14",
+        "CAR15",
+        "CAR16",
+        "CAR17",
+        "CAR18",
+        "CAR19",
+        "CAR20",
+        "CAR21",
+        "CAR22",
+        "CAR23",
+        "CAR24",
+        "CAR25",
+        "CAR26",
+        "CAR27",
+        "CAR28",
+        "CAR29",
+        "CAR30"
       ]
     },
     {
       "id": "L03",
       "title": "整理车库",
-      "version": 2,
+      "version": 4,
       "domain": "生活习惯",
       "scene": "parking",
       "mode": "closed",
@@ -517,18 +1156,47 @@
       "hintAudio": "hint-L03",
       "completeAudio": "discovery-done",
       "carIds": [
-        "CAR01"
+        "CAR01",
+        "CAR02",
+        "CAR03",
+        "CAR04",
+        "CAR05",
+        "CAR06",
+        "CAR07",
+        "CAR08",
+        "CAR09",
+        "CAR10",
+        "CAR11",
+        "CAR12",
+        "CAR13",
+        "CAR14",
+        "CAR15",
+        "CAR16",
+        "CAR17",
+        "CAR18",
+        "CAR19",
+        "CAR20",
+        "CAR21",
+        "CAR22",
+        "CAR23",
+        "CAR24",
+        "CAR25",
+        "CAR26",
+        "CAR27",
+        "CAR28",
+        "CAR29",
+        "CAR30"
       ]
     },
     {
       "id": "P01",
-      "version": 1,
-      "title": "让跑车跑起来",
+      "version": 3,
+      "title": "推一推跑车",
       "subtitle": "推力、路面与慢慢停下",
       "domain": "科学",
       "scene": "parking",
       "mode": "open",
-      "instruction": "让小车跑起来，看看它怎样慢慢停下。",
+      "instruction": "直接推车，松手看它滑行，按住车让它停下。",
       "hint": "先轻轻推一次，再试试大一点的推力。也可以换路面，比较两辆同样的小车。",
       "goal": "通过同条件比较，观察推力、阻力和减速",
       "extension": "在平地上轻推玩具车，比较毛巾和光滑地面；别在道路上实验。",
@@ -543,18 +1211,40 @@
         "CAR05",
         "CAR06",
         "CAR07",
-        "CAR08"
+        "CAR08",
+        "CAR09",
+        "CAR10",
+        "CAR11",
+        "CAR12",
+        "CAR13",
+        "CAR14",
+        "CAR15",
+        "CAR16",
+        "CAR17",
+        "CAR18",
+        "CAR19",
+        "CAR20",
+        "CAR21",
+        "CAR22",
+        "CAR23",
+        "CAR24",
+        "CAR25",
+        "CAR26",
+        "CAR27",
+        "CAR28",
+        "CAR29",
+        "CAR30"
       ]
     },
     {
       "id": "T04",
-      "version": 1,
-      "title": "组装一辆跑车",
+      "version": 3,
+      "title": "装好自己的跑车",
       "subtitle": "真实汽车照片拼装",
       "domain": "动手思考",
       "scene": "workshop",
       "mode": "closed",
-      "instruction": "把真实汽车的小零件，送回它们的轮廓吧。",
+      "instruction": "把车身和车轮直接拖进轮廓，观察装好的跑车。",
       "hint": "可以先装最大的车身，再看看两个车轮。点零件，再点相同的轮廓，就能装上。",
       "goal": "用四块真实照片区域观察车身、车门和车轮",
       "extension": "拿一张打印的车图，和家人一起分成几块大拼图，再拼回去。",
@@ -562,7 +1252,36 @@
       "hintAudio": "hint-T04",
       "completeAudio": "assembly-done",
       "carIds": [
-        "CAR02"
+        "CAR01",
+        "CAR02",
+        "CAR03",
+        "CAR04",
+        "CAR05",
+        "CAR06",
+        "CAR07",
+        "CAR08",
+        "CAR09",
+        "CAR10",
+        "CAR11",
+        "CAR12",
+        "CAR13",
+        "CAR14",
+        "CAR15",
+        "CAR16",
+        "CAR17",
+        "CAR18",
+        "CAR19",
+        "CAR20",
+        "CAR21",
+        "CAR22",
+        "CAR23",
+        "CAR24",
+        "CAR25",
+        "CAR26",
+        "CAR27",
+        "CAR28",
+        "CAR29",
+        "CAR30"
       ]
     }
   ],
@@ -1218,106 +1937,6 @@
   },
   "assets": [
     {
-      "id": "img-white",
-      "path": "media/revuelto-white.webp",
-      "source": "GPT Image production edit; see docs/development/assets.md; visual review 2026-10-17",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 641,
-      "sha256": "8ebe65fdf553b87f81e06b8be67e07eee3a34aa81b5d55d5616adc51e1a6e59d"
-    },
-    {
-      "id": "img-red",
-      "path": "media/revuelto-red.webp",
-      "source": "GPT Image production edit; see docs/development/assets.md; visual review 2026-10-17",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 643,
-      "sha256": "85edf877f5d2492bf35a9aecaea012fc1fc9bd96999ee19351e875f03e63ac0c"
-    },
-    {
-      "id": "img-blue",
-      "path": "media/revuelto-blue.webp",
-      "source": "GPT Image production edit; see docs/development/assets.md; visual review 2026-10-17",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 641,
-      "sha256": "791499793fc70bb3430cb34af99ca01be8ddfc78206555404f2740011fe8ed03"
-    },
-    {
-      "id": "photo-CAR02",
-      "path": "media/car02.webp",
-      "source": "Calreyn88; https://commons.wikimedia.org/wiki/File:2023_Ferrari_296_GTB.jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP; derivative retains source license.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 682,
-      "sha256": "cf8713d5a4e9c7fcbfb06a2591ee2bfd7b611011f57fbcdaf058346cc9119471"
-    },
-    {
-      "id": "photo-CAR03",
-      "path": "media/car03.webp",
-      "source": "Calreyn88; https://commons.wikimedia.org/wiki/File:2023_Porsche_911_GT3_RS.jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP; derivative retains source license.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 677,
-      "sha256": "7ac5fa035aaba3e8d7b78d26d7244d0cf6bbdadf8ef80eec0786d7b2506280b5"
-    },
-    {
-      "id": "photo-CAR04",
-      "path": "media/car04.webp",
-      "source": "Calreyn88; https://commons.wikimedia.org/wiki/File:2023_McLaren_750S_1.jpg; CC0; http://creativecommons.org/publicdomain/zero/1.0/deed.en; resized/WebP; derivative retains source license.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 632,
-      "sha256": "30087f0135191b8015ddc20a8a5cd833fbfcc085a2f38be3cdca67bd0a96a4d0"
-    },
-    {
-      "id": "photo-CAR05",
-      "path": "media/car05.webp",
-      "source": "Calreyn88; https://commons.wikimedia.org/wiki/File:2017_Bugatti_Chiron.jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP; derivative retains source license.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 614,
-      "sha256": "8adbd7fd9c6a4ae1d19e2541f9138dcfc44c339483fa2d6e5d9613380426f50e"
-    },
-    {
-      "id": "photo-CAR06",
-      "path": "media/car06.webp",
-      "source": "Navigator84; https://commons.wikimedia.org/wiki/File:Pagani_Huayra_--_Geneva_Motor_Show_--_2014-03-09.jpg; CC BY-SA 3.0; https://creativecommons.org/licenses/by-sa/3.0; resized/WebP; derivative retains source license.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 675,
-      "sha256": "e65cf5f7c555c6874bf0db7817fee9b5e663371b892ef0928a0d8e1df9e494d8"
-    },
-    {
-      "id": "photo-CAR07",
-      "path": "media/car07.webp",
-      "source": "Calreyn88; https://commons.wikimedia.org/wiki/File:2023_Koenigsegg_Jesko_Attack.jpg; CC0; http://creativecommons.org/publicdomain/zero/1.0/deed.en; resized/WebP; derivative retains source license.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 785,
-      "sha256": "9a5ef2dbd44b1850fe8d0cee34275f5ae0865829c3ee6827872dda3df29d8cf6"
-    },
-    {
-      "id": "photo-CAR08",
-      "path": "media/car08.webp",
-      "source": "Alexander-93; https://commons.wikimedia.org/wiki/File:Aston_Martin_Vantage_(2024)_IMG_9999.jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP; derivative retains source license.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 799,
-      "sha256": "ee102d4eaed1c57f98f1f63c309b5f44135f38272d04d12ec23aea79a528301d"
-    },
-    {
       "id": "scene-world",
       "path": "media/scenes/world-v3.webp",
       "source": "Built-in GPT Image; production environment; gameplay objects and counts are rendered separately; reviewed 2026-10-17.",
@@ -1368,76 +1987,6 @@
       "sha256": "956363b6965eb4f2741a176e479380afc513c5d425ec44e231b6fed1f0a21bf5"
     },
     {
-      "id": "cutout-CAR02",
-      "path": "media/cutouts/car02-v3.webp",
-      "source": "Reference-derived cutout; original photographer and license in photo-sources.json; built-in GPT Image background removal and local WebP conversion; reviewed 2026-10-17. Retains original source license.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 682,
-      "sha256": "94f2787e22ac30b2340c18b1c347f45469758c0ae4d233ea5f4c44224e177f96"
-    },
-    {
-      "id": "cutout-CAR03",
-      "path": "media/cutouts/car03-v3.webp",
-      "source": "Reference-derived cutout; original photographer and license in photo-sources.json; built-in GPT Image background removal and local WebP conversion; reviewed 2026-10-17. Retains original source license.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 677,
-      "sha256": "11c753f68c438d00d97bf21ce60e15c3e3e49e6a413da5e3a52a853da1f1f4d4"
-    },
-    {
-      "id": "cutout-CAR04",
-      "path": "media/cutouts/car04-v3.webp",
-      "source": "Reference-derived cutout; original photographer and license in photo-sources.json; built-in GPT Image background removal and local WebP conversion; reviewed 2026-10-17. Retains original source license.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 632,
-      "sha256": "c131b00b3af485894fa3d6a03f231cb0d2ea46d97195ca9817a80cae3aeac4d5"
-    },
-    {
-      "id": "cutout-CAR05",
-      "path": "media/cutouts/car05-v3.webp",
-      "source": "Reference-derived cutout; original photographer and license in photo-sources.json; built-in GPT Image background removal and local WebP conversion; reviewed 2026-10-17. Retains original source license.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 614,
-      "sha256": "dca67ec983b6a23927f505b9cd468b0e5acbe9738482f369825c20178df5f1af"
-    },
-    {
-      "id": "cutout-CAR06",
-      "path": "media/cutouts/car06-v3.webp",
-      "source": "Reference-derived cutout; original photographer and license in photo-sources.json; built-in GPT Image background removal and local WebP conversion; reviewed 2026-10-17. Retains original source license.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 675,
-      "sha256": "e175aaed1914acd70919ff02fc47175702860c07e3c3c97cc980e643ce48f740"
-    },
-    {
-      "id": "cutout-CAR07",
-      "path": "media/cutouts/car07-v3.webp",
-      "source": "Reference-derived cutout; original photographer and license in photo-sources.json; built-in GPT Image background removal and local WebP conversion; reviewed 2026-10-17. Retains original source license.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 785,
-      "sha256": "add6722a8e4cef0cd6144d09a4d16ccac6810e6bf4e29ae163b107ac42d7ac82"
-    },
-    {
-      "id": "cutout-CAR08",
-      "path": "media/cutouts/car08-v3.webp",
-      "source": "Reference-derived cutout; original photographer and license in photo-sources.json; built-in GPT Image background removal and local WebP conversion; reviewed 2026-10-17. Retains original source license.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 800,
-      "sha256": "cf3251b11427ce9426dfc4923f8807c3da9cad8c819a956adeaea7a1884bf4fa"
-    },
-    {
       "id": "scene-driving",
       "path": "media/scenes/driving-v3.webp",
       "source": "Built-in GPT Image; closed level practice ground for introductory model motion; no generated cars/counts. Reviewed 2026-10-17.",
@@ -1446,256 +1995,6 @@
       "width": 1536,
       "height": 1024,
       "sha256": "fab647f59e330cd657cf6347d0155191dbd85ba0e3129f6c182657d2794bfdc7"
-    },
-    {
-      "id": "view-CAR01-front",
-      "path": "media/views/car01-front.webp",
-      "source": "Calreyn88; https://commons.wikimedia.org/wiki/File:2023_Lamborghini_Revuelto_4.jpg; CC0; http://creativecommons.org/publicdomain/zero/1.0/deed.en; resized/WebP, whole photo retained.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 660,
-      "sha256": "a15ced11efa7c86ecd9991231f8c57d9ca26559371e69636641a18eab661e979"
-    },
-    {
-      "id": "view-CAR01-other-side",
-      "path": "media/views/car01-other-side.webp",
-      "source": "Calreyn88; https://commons.wikimedia.org/wiki/File:2024_Lamborghini_Revuelto_15.jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP, whole photo retained.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 717,
-      "sha256": "c2b977e5494018091e43814978908b4600033ead5c51625700ce3fbab39ccf6a"
-    },
-    {
-      "id": "view-CAR01-rear",
-      "path": "media/views/car01-rear.webp",
-      "source": "Calreyn88; https://commons.wikimedia.org/wiki/File:2023_Lamborghini_Revuelto_6.jpg; CC0; http://creativecommons.org/publicdomain/zero/1.0/deed.en; resized/WebP, whole photo retained.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 786,
-      "sha256": "f1fac157c500901e003f80795625b394115698078299cbc5df9d98d9c1e200d0"
-    },
-    {
-      "id": "view-CAR01-interior",
-      "path": "media/views/car01-interior.webp",
-      "source": "Y.Leclercq; https://commons.wikimedia.org/wiki/File:Lamborghini_Revuelto_int%C3%A9rieur_03.jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP, whole photo retained.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 675,
-      "sha256": "40750c8e42e14552ebc8ce05543a658d1e66e318a48196fd0a1861678302ea09"
-    },
-    {
-      "id": "view-CAR02-front",
-      "path": "media/views/car02-front.webp",
-      "source": "Calreyn88; https://commons.wikimedia.org/wiki/File:2022_Ferrari_296_GTB_1.jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP, whole photo retained.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 668,
-      "sha256": "8b6aae0201d1cdc2da0ac5137431bc7abdc8671cc221822840c52d669c536603"
-    },
-    {
-      "id": "view-CAR02-other-side",
-      "path": "media/views/car02-other-side.webp",
-      "source": "Calreyn88; https://commons.wikimedia.org/wiki/File:2022_Ferrari_296_GTB_2.jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP, whole photo retained.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 542,
-      "sha256": "72228765d44e2876f889a08793987508f2cdbc3df16d0a9e170e6849c5207a78"
-    },
-    {
-      "id": "view-CAR02-rear",
-      "path": "media/views/car02-rear.webp",
-      "source": "Calreyn88; https://commons.wikimedia.org/wiki/File:2022_Ferrari_296_GTB_5.jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP, whole photo retained.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 697,
-      "sha256": "f5b832335340a85f0dd559b030ebac5e42bb767ed252d9e819570521545ead80"
-    },
-    {
-      "id": "view-CAR03-front",
-      "path": "media/views/car03-front.webp",
-      "source": "Calreyn88; https://commons.wikimedia.org/wiki/File:2023_Porsche_911_GT3_RS_3.jpg; CC BY 4.0; https://creativecommons.org/licenses/by/4.0; resized/WebP, whole photo retained.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 678,
-      "sha256": "096de0656272ef9088f84ea38e97e45eafe5fd642c72f9a634412a6e513776f7"
-    },
-    {
-      "id": "view-CAR03-other-side",
-      "path": "media/views/car03-other-side.webp",
-      "source": "Calreyn88; https://commons.wikimedia.org/wiki/File:2023_Porsche_911_GT3_RS_6.jpg; CC BY 4.0; https://creativecommons.org/licenses/by/4.0; resized/WebP, whole photo retained.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 778,
-      "sha256": "8a27cab30735015858199aca7d4378eba451f0f1fce740e41a18c8a2047515d0"
-    },
-    {
-      "id": "view-CAR03-rear",
-      "path": "media/views/car03-rear.webp",
-      "source": "Calreyn88; https://commons.wikimedia.org/wiki/File:2023_Porsche_911_GT3_RS_4.jpg; CC BY 4.0; https://creativecommons.org/licenses/by/4.0; resized/WebP, whole photo retained.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 612,
-      "sha256": "c25f60877f6c724357cbb9c56b3afdbe3c3202efd31e309acceaae4bb1b66f9c"
-    },
-    {
-      "id": "view-CAR04-front",
-      "path": "media/views/car04-front.webp",
-      "source": "Calreyn88; https://commons.wikimedia.org/wiki/File:2024_McLaren_750S_2.jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP, whole photo retained.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 615,
-      "sha256": "d3b22ab056ac061397276f5d8db7221cbf0560c37b22590fa53724d5957d4548"
-    },
-    {
-      "id": "view-CAR04-other-side",
-      "path": "media/views/car04-other-side.webp",
-      "source": "Calreyn88; https://commons.wikimedia.org/wiki/File:2024_McLaren_750S_3.jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP, whole photo retained.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 878,
-      "sha256": "377654f29cc2b9f6f7e5cd6b237a42492b232efbdbb440425d3506b11df0d848"
-    },
-    {
-      "id": "view-CAR04-rear",
-      "path": "media/views/car04-rear.webp",
-      "source": "Aos.1905; https://commons.wikimedia.org/wiki/File:McLaren_750S_(Rear).jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP, whole photo retained.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 900,
-      "sha256": "4dc42995341428731d0c4511cb6949be2432a756b274a46b257477c070662ee2"
-    },
-    {
-      "id": "view-CAR05-front",
-      "path": "media/views/car05-front.webp",
-      "source": "Ank Kumar; https://commons.wikimedia.org/wiki/File:2018_Blue_Bugatti_Chiron_at_Grand_Basel_(Ank_Kumar)_04.jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP, whole photo retained.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 900,
-      "sha256": "749e785ec73723b7551e96718a9e2afcb1b0b130288123fced0dfa5dc2ac1e07"
-    },
-    {
-      "id": "view-CAR05-side",
-      "path": "media/views/car05-side.webp",
-      "source": "Ank Kumar; https://commons.wikimedia.org/wiki/File:2018_Blue_Bugatti_Chiron_at_Grand_Basel_(Ank_Kumar)_02.jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP, whole photo retained.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 900,
-      "sha256": "fb6a401c8f5e0b1f4b1e9883c13b5e9a0196ba7eecc1576f7122c584ad630a84"
-    },
-    {
-      "id": "view-CAR05-rear",
-      "path": "media/views/car05-rear.webp",
-      "source": "MrWalkr; https://commons.wikimedia.org/wiki/File:Chiron_Rear.jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP, whole photo retained.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 826,
-      "sha256": "07df2e7d142919c653e46a7d46380137dcfcec9f06428bca9e10aa2104d8da19"
-    },
-    {
-      "id": "view-CAR06-front",
-      "path": "media/views/car06-front.webp",
-      "source": "Norbert Aepli, Switzerland (User:Noebu); https://commons.wikimedia.org/wiki/File:2015-03-03_Geneva_Motor_Show_3250.JPG; CC BY 4.0; https://creativecommons.org/licenses/by/4.0; resized/WebP, whole photo retained.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 900,
-      "sha256": "9b036addc1356e0cdb1c2f94031714be7b1993b8677a32ae0558aeb6c3da6d05"
-    },
-    {
-      "id": "view-CAR06-side",
-      "path": "media/views/car06-side.webp",
-      "source": "Norbert Aepli, Switzerland (User:Noebu); https://commons.wikimedia.org/wiki/File:2015-03-03_Geneva_Motor_Show_3253.JPG; CC BY 4.0; https://creativecommons.org/licenses/by/4.0; resized/WebP, whole photo retained.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 900,
-      "sha256": "e4d2e28661cdc85cff76c1a5bc6d810c443f1ea743212762f7d0c3cceff01bc0"
-    },
-    {
-      "id": "view-CAR06-rear",
-      "path": "media/views/car06-rear.webp",
-      "source": "Norbert Aepli, Switzerland (User:Noebu); https://commons.wikimedia.org/wiki/File:2015-03-03_Geneva_Motor_Show_3255.JPG; CC BY 4.0; https://creativecommons.org/licenses/by/4.0; resized/WebP, whole photo retained.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 900,
-      "sha256": "727d0b396c9e648b541e8e7b3fe203238fbb993dc41b9127101cd193d53ba9ad"
-    },
-    {
-      "id": "view-CAR07-front",
-      "path": "media/views/car07-front.webp",
-      "source": "Calreyn88; https://commons.wikimedia.org/wiki/File:Koenigsegg_Jesko_Attack_3.jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP, whole photo retained.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 827,
-      "sha256": "14d7cb406c19e8bd245550dda695635b1f8884a621d0da1d02619fa2a0931aee"
-    },
-    {
-      "id": "view-CAR07-other-side",
-      "path": "media/views/car07-other-side.webp",
-      "source": "MrWalkr; https://commons.wikimedia.org/wiki/File:2023_Koenigsegg_Jesko_Left_LC24.jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP, whole photo retained.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 693,
-      "sha256": "04c2f698e784969a393f1a09c5f944d756789c23f6ae68c4035f194f8d04d7cd"
-    },
-    {
-      "id": "view-CAR07-rear",
-      "path": "media/views/car07-rear.webp",
-      "source": "MrWalkr; https://commons.wikimedia.org/wiki/File:2023_Koenigsegg_Jesko_Rear_LC24.jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP, whole photo retained.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 670,
-      "sha256": "42ae13b514a3dbef1a7a8ac866ce453fc660175a8002e380eed58803be08f14c"
-    },
-    {
-      "id": "view-CAR08-front",
-      "path": "media/views/car08-front.webp",
-      "source": "Alexander-93; https://commons.wikimedia.org/wiki/File:Aston_Martin_Vantage_(2024)_IMG_0002.jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP, whole photo retained.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 649,
-      "sha256": "decf3a53c568796c150d7ff12a50d38634db6df233f687c1c63fe72b9f147dfe"
-    },
-    {
-      "id": "view-CAR08-other-side",
-      "path": "media/views/car08-other-side.webp",
-      "source": "Alexander-93; https://commons.wikimedia.org/wiki/File:Aston_Martin_Vantage_(2024)_IMG_0003.jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP, whole photo retained.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 799,
-      "sha256": "b8f7dacabc926b91e06fba009df159f5f7c2e29cd2940daef28f7d13cd855631"
-    },
-    {
-      "id": "view-CAR08-rear",
-      "path": "media/views/car08-rear.webp",
-      "source": "Alexander-93; https://commons.wikimedia.org/wiki/File:Aston_Martin_Vantage_(2024)_IMG_0015.jpg; CC BY-SA 4.0; https://creativecommons.org/licenses/by-sa/4.0; resized/WebP, whole photo retained.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1200,
-      "height": 627,
-      "sha256": "8dfd1d5669673903c2926087bbb570e9202db97a3ca4a9b4d5762b454fc5d613"
     },
     {
       "id": "welcome",
@@ -3156,104 +3455,634 @@
       "source": "Edge local preview zh-CN-XiaoxiaoNeural -12%; production provenance in content/audio-production.json; listening and applicable rights review separate."
     },
     {
+      "id": "play-CAR01-side",
+      "kind": "image",
+      "path": "media/play-cars/car01-side.webp",
+      "sha256": "5a15bf253b19348cbca1801007ee378955d5e0456fb20fb63df10c9c2c500448",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Lamborghini Revuelto game sprite, side view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR01-top",
+      "kind": "image",
+      "path": "media/play-cars/car01-top.webp",
+      "sha256": "f4ba611d4b1ef6096ae71dd5def24fb75d4743b9fabccbc2d4a9d623f9af3fb0",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Lamborghini Revuelto game sprite, top view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR02-side",
+      "kind": "image",
+      "path": "media/play-cars/car02-side.webp",
+      "sha256": "6da0b162c66156301f2dd049ba941a691bbb872e73cb4434176c290e78fc950a",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Ferrari 296 GTB game sprite, side view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR02-top",
+      "kind": "image",
+      "path": "media/play-cars/car02-top.webp",
+      "sha256": "a6056756b85ace71a99583d31df3378a50c8201ad3247336df0040668f83bdc5",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Ferrari 296 GTB game sprite, top view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR03-side",
+      "kind": "image",
+      "path": "media/play-cars/car03-side.webp",
+      "sha256": "7a1dd5551f450cdfb50d18419074afb5d65c9f4a84b78713fefaa1db8804e709",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Porsche 911 GT3 RS game sprite, side view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR03-top",
+      "kind": "image",
+      "path": "media/play-cars/car03-top.webp",
+      "sha256": "c3cd7f2acddc0539015ed7f22a40c6b63813d2b0f4f510d7535b7f6687d662d1",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Porsche 911 GT3 RS game sprite, top view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR04-side",
+      "kind": "image",
+      "path": "media/play-cars/car04-side.webp",
+      "sha256": "cccc4d5ae4e20d772c3c4f9c7a7818d583cdaab6bc47a34f7314efe146df733e",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered McLaren 750S game sprite, side view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR04-top",
+      "kind": "image",
+      "path": "media/play-cars/car04-top.webp",
+      "sha256": "14609afe508fba94b63fdbfb7beef822e620991caf282be1873393e6f18152ab",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered McLaren 750S game sprite, top view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR05-side",
+      "kind": "image",
+      "path": "media/play-cars/car05-side.webp",
+      "sha256": "9597c659a79ec6f7b14bcc57cb4331118e2268ef1c9a1234a6422fc4922b2974",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Bugatti Chiron game sprite, side view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR05-top",
+      "kind": "image",
+      "path": "media/play-cars/car05-top.webp",
+      "sha256": "48baf8f388398d40c6fa5ad228837ede5d7d77941cfa7095f2a01c0740cb1ab1",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Bugatti Chiron game sprite, top view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR06-side",
+      "kind": "image",
+      "path": "media/play-cars/car06-side.webp",
+      "sha256": "96ac1c754f60e704d9c19b0d500de55d560b86cf4ed4ad2a15af3ae163490a3f",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Pagani Huayra game sprite, side view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR06-top",
+      "kind": "image",
+      "path": "media/play-cars/car06-top.webp",
+      "sha256": "b31bc89ee8a0766f35054ba81b5f33ec8bf325867f9e388c945992d0af43a197",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Pagani Huayra game sprite, top view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR07-side",
+      "kind": "image",
+      "path": "media/play-cars/car07-side.webp",
+      "sha256": "cc36cfda955d26bc30fad87cced7170334846edaabccb922251b888893e5d8bd",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Koenigsegg Jesko Attack game sprite, side view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR07-top",
+      "kind": "image",
+      "path": "media/play-cars/car07-top.webp",
+      "sha256": "fbb1e35cc06de2c8f49fcc3e6b815f4009ce7e1f21aee5877daa444b600e7d46",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Koenigsegg Jesko Attack game sprite, top view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR08-side",
+      "kind": "image",
+      "path": "media/play-cars/car08-side.webp",
+      "sha256": "aee645616c2682985d032c7bc7c3130a9608c7d2ea80fea7ad2f151bd1233697",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Aston Martin Vantage game sprite, side view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR08-top",
+      "kind": "image",
+      "path": "media/play-cars/car08-top.webp",
+      "sha256": "74a86d122bc1d9f76b7563819e70a85e77f7814ba8f899623b8ee41aa395f91d",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Aston Martin Vantage game sprite, top view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR09-side",
+      "kind": "image",
+      "path": "media/play-cars/car09-side.webp",
+      "sha256": "0d316e36663f4d20ddceba62412264381d78548e76dccfdc3324f4d40c860835",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Chevrolet Corvette C8 Stingray game sprite, side view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR09-top",
+      "kind": "image",
+      "path": "media/play-cars/car09-top.webp",
+      "sha256": "c782021c1a67c69ffc37e4db462353fcd489df76c8ca6c6734748663fe030fed",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Chevrolet Corvette C8 Stingray game sprite, top view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR10-side",
+      "kind": "image",
+      "path": "media/play-cars/car10-side.webp",
+      "sha256": "a8368d979ba495008fddd1dc11b50666a143da39ceab944f4b23cb7e1a3bf01e",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Mercedes-AMG GT Coupé game sprite, side view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR10-top",
+      "kind": "image",
+      "path": "media/play-cars/car10-top.webp",
+      "sha256": "0b0806e5b27a02f443f87310dc424658871ecb44e1212e5988366303ac5ad021",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Mercedes-AMG GT Coupé game sprite, top view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR11-side",
+      "kind": "image",
+      "path": "media/play-cars/car11-side.webp",
+      "sha256": "d0904060feddf5a5dd68a39bc567f2bca6ac784c349a215cda460358a7f7ff84",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Audi R8 Coupé game sprite, side view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR11-top",
+      "kind": "image",
+      "path": "media/play-cars/car11-top.webp",
+      "sha256": "7619bbf40fc6dd51f325740b52813e750fcb68ca968f280460fda607eeddd90f",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Audi R8 Coupé game sprite, top view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR12-side",
+      "kind": "image",
+      "path": "media/play-cars/car12-side.webp",
+      "sha256": "07a1a6d568381952cea8cd9cde1879f17e5151df30583b6509dd35e53e62b74b",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Lexus LC 500 game sprite, side view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR12-top",
+      "kind": "image",
+      "path": "media/play-cars/car12-top.webp",
+      "sha256": "954436ae8a7bb40b1e730bdd24826999021640c2cd988e1d1befbb315f74ef55",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Lexus LC 500 game sprite, top view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR13-side",
+      "kind": "image",
+      "path": "media/play-cars/car13-side.webp",
+      "sha256": "dc416a56d1a9726a5274909d7cf4ac4fbd43988b022a5eef5c1dad15c139fc04",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Ford Mustang GT game sprite, side view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR13-top",
+      "kind": "image",
+      "path": "media/play-cars/car13-top.webp",
+      "sha256": "6a33f09e67666a8fa5df5e7b42fcdd9627affa09b91d5c92cf1e378653353341",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Ford Mustang GT game sprite, top view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR14-side",
+      "kind": "image",
+      "path": "media/play-cars/car14-side.webp",
+      "sha256": "2eee443895c24504c98e93df0d438f20f8ce0b2a725dcbb7cfe6707e542f9768",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Toyota GR Supra game sprite, side view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR14-top",
+      "kind": "image",
+      "path": "media/play-cars/car14-top.webp",
+      "sha256": "a3e18998766423e27e592e581b47d8f35c685d3a4ee37bae028f807287c2c12a",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Toyota GR Supra game sprite, top view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR15-side",
+      "kind": "image",
+      "path": "media/play-cars/car15-side.webp",
+      "sha256": "7b9b004a55e4aed61fb9d5bbe2ab480f6b40266c891822c571354216736cdaf7",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Toyota GR86 game sprite, side view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR15-top",
+      "kind": "image",
+      "path": "media/play-cars/car15-top.webp",
+      "sha256": "65e0ce60527faa4f5db4bce58c8d10bf2d6620e9a37c2d91c335bb788a0e7f65",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Toyota GR86 game sprite, top view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR16-side",
+      "kind": "image",
+      "path": "media/play-cars/car16-side.webp",
+      "sha256": "8eb6e36a6af2710b36fd01a6f680e8a42f68a741826c248e54fb4f8165372dba",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Nissan Z game sprite, side view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR16-top",
+      "kind": "image",
+      "path": "media/play-cars/car16-top.webp",
+      "sha256": "72bf511ebd5ed63596a345b3fa2b41cdcc3f44270baca757596f4abbab9b990d",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Nissan Z game sprite, top view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR17-side",
+      "kind": "image",
+      "path": "media/play-cars/car17-side.webp",
+      "sha256": "d7fbfb11c9574e0bfa36f8d7915fe65087e53da9ac4a1b3155cc9d96108fbeb1",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Mazda MX-5 RF game sprite, side view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR17-top",
+      "kind": "image",
+      "path": "media/play-cars/car17-top.webp",
+      "sha256": "af529f606901849dedbc6e173973a75c0680ec0a70f96848ab851a2a54ddeab8",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Mazda MX-5 RF game sprite, top view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR18-side",
+      "kind": "image",
+      "path": "media/play-cars/car18-side.webp",
+      "sha256": "b433def6c3e11a273959a521b2127298f8b371d5871c8b7691f37bd1e6e88112",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered BMW M2 game sprite, side view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR18-top",
+      "kind": "image",
+      "path": "media/play-cars/car18-top.webp",
+      "sha256": "e151935c3e0e2b09edda4d9ba52c5579f9c3aaedaf7a16c2340abf33ae1b442a",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered BMW M2 game sprite, top view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR19-side",
+      "kind": "image",
+      "path": "media/play-cars/car19-side.webp",
+      "sha256": "faf5f17ba8b3f8613e3d7908f5b94f640172534b2e1cf9d4c564634f06648b24",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Lamborghini Huracán game sprite, side view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR19-top",
+      "kind": "image",
+      "path": "media/play-cars/car19-top.webp",
+      "sha256": "722f3525707ece894a42c9462ac29194463afcbb5c9650c1360dbe3a55f2ac75",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Lamborghini Huracán game sprite, top view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR20-side",
+      "kind": "image",
+      "path": "media/play-cars/car20-side.webp",
+      "sha256": "44469b2e3a8cdf02333bfb19dca0f64f1d80971a2912b7e7fb9d011b2f31de3b",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Ferrari F8 Tributo game sprite, side view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR20-top",
+      "kind": "image",
+      "path": "media/play-cars/car20-top.webp",
+      "sha256": "2df87209746a70ad8cdd649b1a7918bb75150283609d4f27bd4bf4a17e649eca",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Ferrari F8 Tributo game sprite, top view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR21-side",
+      "kind": "image",
+      "path": "media/play-cars/car21-side.webp",
+      "sha256": "90dd668175b0a3aae6085acdda96bedd1146308f0f29826d5e944156f88341d5",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Porsche 718 Cayman game sprite, side view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR21-top",
+      "kind": "image",
+      "path": "media/play-cars/car21-top.webp",
+      "sha256": "2c1adad5cce075c9e1d56d00bf4d4e3d6b71e793b120b15ffe7fa07925130c7a",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Porsche 718 Cayman game sprite, top view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR22-side",
+      "kind": "image",
+      "path": "media/play-cars/car22-side.webp",
+      "sha256": "3090518c317aec157a2a380ea788ecc1e922422dcd71f6dd27c8dabe63972280",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered McLaren Artura game sprite, side view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR22-top",
+      "kind": "image",
+      "path": "media/play-cars/car22-top.webp",
+      "sha256": "865aec8cdaf1a4f5b6217b0e76c85ad09180f994d57672c608b7598cf6439cca",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered McLaren Artura game sprite, top view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR23-side",
+      "kind": "image",
+      "path": "media/play-cars/car23-side.webp",
+      "sha256": "a0c9d95fa78f34834f1c0aad7e7b1e8d5e960ef82c8219e367e347e44f7a52a1",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Maserati MC20 game sprite, side view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR23-top",
+      "kind": "image",
+      "path": "media/play-cars/car23-top.webp",
+      "sha256": "4d073531908caaddb9327fdd3b297d4f25090a77a604a3c7180f2131f8a400a6",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Maserati MC20 game sprite, top view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR24-side",
+      "kind": "image",
+      "path": "media/play-cars/car24-side.webp",
+      "sha256": "1bcccbcebfac7ea2a1131b9c573c4d59565b8b57ab88738b4ce5ca1afb1f08c1",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Lotus Emira game sprite, side view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR24-top",
+      "kind": "image",
+      "path": "media/play-cars/car24-top.webp",
+      "sha256": "658b99c3b4563ea493c49ff57af42e5e75a1553913163b9f80e3a53d68988c53",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Lotus Emira game sprite, top view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR25-side",
+      "kind": "image",
+      "path": "media/play-cars/car25-side.webp",
+      "sha256": "87836f01c80839bfeef6d62486d6817ffe65b55cd6aa81c438e5760d56a97db3",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Alpine A110 game sprite, side view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR25-top",
+      "kind": "image",
+      "path": "media/play-cars/car25-top.webp",
+      "sha256": "9f58254d6ed64c59b0fac1bad12636443ee5a344cf36e4c7abb7d18e40de295d",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Alpine A110 game sprite, top view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR26-side",
+      "kind": "image",
+      "path": "media/play-cars/car26-side.webp",
+      "sha256": "cf0c5c914eb27279ed1228edbb16e6130aad11579d40546f3ee6622f17e3bdd8",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Jaguar F-Type game sprite, side view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR26-top",
+      "kind": "image",
+      "path": "media/play-cars/car26-top.webp",
+      "sha256": "5742bb8f7611bc6f34d7f85e3cba96cf29e254d6aba14da85b1797bc12a9dd74",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Jaguar F-Type game sprite, top view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR27-side",
+      "kind": "image",
+      "path": "media/play-cars/car27-side.webp",
+      "sha256": "053306b01db0d2f56457a54d68929c9bae6297482da522e05deca13b5f512587",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Honda NSX game sprite, side view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR27-top",
+      "kind": "image",
+      "path": "media/play-cars/car27-top.webp",
+      "sha256": "a76f943b633d49060bab3c44147d8791d31b7f91481fc2522b8fb07c3f4d8866",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Honda NSX game sprite, top view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR28-side",
+      "kind": "image",
+      "path": "media/play-cars/car28-side.webp",
+      "sha256": "9d361e96c7df46036f43d09482b49534e63aaf46e0e2fd22ce7d1eb67914aa3b",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Chevrolet Camaro game sprite, side view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR28-top",
+      "kind": "image",
+      "path": "media/play-cars/car28-top.webp",
+      "sha256": "a8c7a6d584ff630af5bb55adc319cb60e7e7100ce244509f819758e6a77abb76",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Chevrolet Camaro game sprite, top view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR29-side",
+      "kind": "image",
+      "path": "media/play-cars/car29-side.webp",
+      "sha256": "c7b08e92dbbc5bba954747e0b8bea394a27d30a12fa766f62062a4ecf6f08cc7",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Dodge Viper game sprite, side view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR29-top",
+      "kind": "image",
+      "path": "media/play-cars/car29-top.webp",
+      "sha256": "6f81b3becc0b90b144c3857856780481f677e162ad26e54029381d61bc47476e",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Dodge Viper game sprite, top view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR30-side",
+      "kind": "image",
+      "path": "media/play-cars/car30-side.webp",
+      "sha256": "61ca0bd7de33fff5f5227e1b8c1e867e3b1c3f67279771233cbe9a35224442a3",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered BMW i8 game sprite, side view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
+      "id": "play-CAR30-top",
+      "kind": "image",
+      "path": "media/play-cars/car30-top.webp",
+      "sha256": "1352a54badc92b6e97f9757c6f5fb77d011f9957deb203e07452f8e4cc754654",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered BMW i8 game sprite, top view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
+    },
+    {
       "id": "showcase-CAR01",
-      "path": "media/showcase/car01-v5.webp",
-      "source": "Built-in GPT Image integrated car and museum scene; reference credits and production prompt in showcase-production.json. Visually reviewed 2026-10-22; generated illustration, not a photograph.",
       "kind": "image",
+      "path": "media/play-cars/car01-side.webp",
+      "sha256": "5a15bf253b19348cbca1801007ee378955d5e0456fb20fb63df10c9c2c500448",
       "status": "approved",
-      "width": 1536,
-      "height": 1024,
-      "sha256": "d2873767768b73a1e41ba615487cc4fb6a9450d8c6b409bce4bcc4ab5560fa10"
-    },
-    {
-      "id": "showcase-CAR02",
-      "path": "media/showcase/car02-v5.webp",
-      "source": "Built-in GPT Image integrated car and museum scene; reference credits and production prompt in showcase-production.json. Visually reviewed 2026-10-22; generated illustration, not a photograph.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1536,
-      "height": 1024,
-      "sha256": "9d8a885a72d2f5080352604d3054b998263ff0989dbd1fb6336332dbba769bf2"
-    },
-    {
-      "id": "showcase-CAR03",
-      "path": "media/showcase/car03-v5.webp",
-      "source": "Built-in GPT Image integrated car and museum scene; reference credits and production prompt in showcase-production.json. Visually reviewed 2026-10-22; generated illustration, not a photograph.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1536,
-      "height": 1024,
-      "sha256": "6e2543d8ece612bdabbb04a717ef858078d64614ffe3e2d692d6549e89deb3ae"
-    },
-    {
-      "id": "showcase-CAR04",
-      "path": "media/showcase/car04-v5.webp",
-      "source": "Built-in GPT Image integrated car and museum scene; reference credits and production prompt in showcase-production.json. Visually reviewed 2026-10-22; generated illustration, not a photograph.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1536,
-      "height": 1024,
-      "sha256": "2e75a618a5b050aed4e8b3021c64b751f8280790a8410a77b9654249f0439300"
-    },
-    {
-      "id": "showcase-CAR05",
-      "path": "media/showcase/car05-v5.webp",
-      "source": "Built-in GPT Image integrated car and museum scene; reference credits and production prompt in showcase-production.json. Visually reviewed 2026-10-22; generated illustration, not a photograph.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1536,
-      "height": 1024,
-      "sha256": "d84e7ee01c8f60acaea90e5e502b8ff0eae3ea36a216dc2a156907dc520e6cb9"
-    },
-    {
-      "id": "showcase-CAR06",
-      "path": "media/showcase/car06-v5.webp",
-      "source": "Built-in GPT Image integrated car and museum scene; reference credits and production prompt in showcase-production.json. Visually reviewed 2026-10-22; generated illustration, not a photograph.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1536,
-      "height": 1024,
-      "sha256": "f197d1d32476cad72af8b61caa1e1c5a3889ecce33b06b1e6b08bba7a9ae3c1d"
-    },
-    {
-      "id": "showcase-CAR07",
-      "path": "media/showcase/car07-v5.webp",
-      "source": "Built-in GPT Image integrated car and museum scene; reference credits and production prompt in showcase-production.json. Visually reviewed 2026-10-22; generated illustration, not a photograph.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1536,
-      "height": 1024,
-      "sha256": "2c38c07413bab8a8a379b7c82457b6e5e87baa4ff9fea880f9be97c15e725cbc"
-    },
-    {
-      "id": "showcase-CAR08",
-      "path": "media/showcase/car08-v5.webp",
-      "source": "Built-in GPT Image integrated car and museum scene; reference credits and production prompt in showcase-production.json. Visually reviewed 2026-10-22; generated illustration, not a photograph.",
-      "kind": "image",
-      "status": "approved",
-      "width": 1536,
-      "height": 1024,
-      "sha256": "80386f8298ad8171168416768af4fdcc139c7e2a91910be25b893cee4c4a47ab"
+      "width": 1000,
+      "height": 450,
+      "source": "Built-in GPT Image: newly rendered Lamborghini Revuelto game sprite, side view; two-view sheet exported to transparent WebP. Game interpretation, not a photograph or mechanical reference."
     },
     {
       "id": "story-parking",
+      "path": "media/scenes/parking-v3.webp",
+      "source": "Built-in GPT Image; production environment; gameplay objects and counts are rendered separately; reviewed 2026-10-17.",
       "kind": "image",
-      "path": "media/showcase/story-parking-v5.webp",
-      "sha256": "214044c6d8954e1ef85331362e3ee9f9414ec3019421b703b7e894af8b42a2a4",
       "status": "approved",
       "width": 1536,
       "height": 1024,
-      "source": "Built-in GPT Image integrated story scene; reference credits and prompt in showcase-production.json. Visually reviewed 2026-10-22. Narrative image only, never a counting or parking answer."
+      "sha256": "31158ae95ee94ff2ac39b3b2ce82283b5f68e4aa4319acef6a75ae024f347311"
     },
     {
       "id": "story-travel",
+      "path": "media/scenes/travel-v3.webp",
+      "source": "Built-in GPT Image; production environment; gameplay objects and counts are rendered separately; reviewed 2026-10-17.",
       "kind": "image",
-      "path": "media/showcase/story-travel-v5.webp",
-      "sha256": "0a83222a80cf24cb69806a9f69dc55c640394ec8c1e06d8ddb8ca7aa0053c2de",
       "status": "approved",
       "width": 1536,
       "height": 1024,
-      "source": "Built-in GPT Image integrated story scene; reference credits and prompt in showcase-production.json. Visually reviewed 2026-10-22. Narrative image only, never a counting or parking answer."
+      "sha256": "956363b6965eb4f2741a176e479380afc513c5d425ec44e231b6fed1f0a21bf5"
     }
   ],
   "scenes": [
@@ -3293,125 +4122,97 @@
       "zhBrand": "兰博基尼",
       "brand": "Lamborghini",
       "model": "Revuelto",
-      "edition": "标准硬顶版",
-      "color": "白色",
-      "reference": "https://www.lamborghini.com/en-en/models/revuelto-models/revuelto",
+      "edition": "游戏跑车",
+      "color": "sunshine yellow",
+      "reference": "https://openai.com/",
       "status": "reviewed",
-      "image": "img-white",
+      "image": "play-CAR01-side",
       "audio": "name-CAR01",
-      "observation": "仔细看看车灯和进气口的线条。",
+      "observation": "摸摸车轮，看看车灯，带它去乐园动动手。",
       "views": [
         {
-          "id": "front",
-          "image": "view-CAR01-front",
-          "label": "车头",
-          "caption": "白色，前侧方实拍",
+          "id": "side",
+          "image": "play-CAR01-side",
+          "label": "侧面",
+          "caption": "重新生成的游戏跑车侧面",
           "credit": {
-            "author": "Calreyn88",
-            "license": "CC0",
-            "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2023_Lamborghini_Revuelto_4.jpg"
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
           }
         },
         {
-          "id": "other-side",
-          "image": "view-CAR01-other-side",
-          "label": "另一侧",
-          "caption": "白色，从另一侧看车头与侧面",
+          "id": "top",
+          "image": "play-CAR01-top",
+          "label": "俯视",
+          "caption": "重新生成的游戏跑车俯视",
           "credit": {
-            "author": "Calreyn88",
-            "license": "CC BY-SA 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2024_Lamborghini_Revuelto_15.jpg"
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
           }
-        },
-        {
-          "id": "rear",
-          "image": "view-CAR01-rear",
-          "label": "车尾",
-          "caption": "橙色，后侧方实拍",
-          "credit": {
-            "author": "Calreyn88",
-            "license": "CC0",
-            "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2023_Lamborghini_Revuelto_6.jpg"
-          }
-        },
-        {
-          "id": "interior",
-          "image": "view-CAR01-interior",
-          "label": "座舱",
-          "caption": "橙黑内饰，可见真实座椅与方向盘",
-          "credit": {
-            "author": "Y.Leclercq",
-            "license": "CC BY-SA 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Lamborghini_Revuelto_int%C3%A9rieur_03.jpg"
-          },
-          "hotspots": [
-            {
-              "word": "seat",
-              "x": 0.79,
-              "y": 0.56
-            }
-          ]
         }
       ],
       "hotspots": [
         {
           "id": "wheel",
           "zh": "车轮",
-          "x": 0.647,
-          "y": 0.697
+          "x": 0.784,
+          "y": 0.6311111111111111
         },
         {
           "id": "door",
           "zh": "车门",
-          "x": 0.763,
-          "y": 0.48
-        },
-        {
-          "id": "light",
-          "zh": "车灯",
-          "x": 0.442,
-          "y": 0.609
-        }
-      ],
-      "showcaseImage": "showcase-CAR01",
-      "showcaseHotspots": [
-        {
-          "id": "wheel",
-          "zh": "车轮",
-          "x": 0.57,
-          "y": 0.58
-        },
-        {
-          "id": "door",
-          "zh": "车门",
-          "x": 0.65,
+          "x": 0.51,
           "y": 0.51
         },
         {
           "id": "light",
           "zh": "车灯",
-          "x": 0.47,
-          "y": 0.52
+          "x": 0.9,
+          "y": 0.47
         }
       ],
-      "showcaseObservationPoints": {
-        "window": {
-          "x": 0.61,
-          "y": 0.39
+      "showcaseImage": "play-CAR01-side",
+      "showcaseHotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.784,
+          "y": 0.6311111111111111
         },
-        "mirror": {
-          "x": 0.635,
-          "y": 0.414
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
         },
-        "roof": {
-          "x": 0.58,
-          "y": 0.347
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
         }
-      }
+      ],
+      "game": {
+        "side": "play-CAR01-side",
+        "top": "play-CAR01-top",
+        "wheels": [
+          {
+            "x": 0.153,
+            "y": 0.6266666666666667,
+            "r": 0.075
+          },
+          {
+            "x": 0.784,
+            "y": 0.6311111111111111,
+            "r": 0.075
+          }
+        ]
+      },
+      "displayImage": "play-CAR01-side"
     },
     {
       "id": "CAR02",
@@ -3419,13 +4220,13 @@
       "zhBrand": "法拉利",
       "brand": "Ferrari",
       "model": "296 GTB",
-      "edition": "标准 GTB 硬顶版",
-      "color": "红色",
-      "reference": "https://www.ferrari.com/en-EN/auto/296-gtb",
+      "edition": "游戏跑车",
+      "color": "red",
+      "reference": "https://openai.com/",
       "status": "reviewed",
-      "image": "photo-CAR02",
+      "image": "play-CAR02-side",
       "audio": "name-CAR02",
-      "observation": "看看车身的轮廓，说说你最先注意到了哪里。",
+      "observation": "摸摸车轮，看看车灯，带它去乐园动动手。",
       "credit": {
         "id": "CAR02",
         "title": "File:2023 Ferrari 296 GTB.jpg",
@@ -3436,42 +4237,30 @@
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
       },
-      "displayImage": "cutout-CAR02",
+      "displayImage": "play-CAR02-side",
       "views": [
         {
-          "id": "front",
-          "image": "view-CAR02-front",
-          "label": "车头",
-          "caption": "红色，前侧方实拍",
+          "id": "side",
+          "image": "play-CAR02-side",
+          "label": "侧面",
+          "caption": "重新生成的游戏跑车侧面",
           "credit": {
-            "author": "Calreyn88",
-            "license": "CC BY-SA 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2022_Ferrari_296_GTB_1.jpg"
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
           }
         },
         {
-          "id": "other-side",
-          "image": "view-CAR02-other-side",
-          "label": "另一侧",
-          "caption": "红色，从另一侧看车头与侧面",
+          "id": "top",
+          "image": "play-CAR02-top",
+          "label": "俯视",
+          "caption": "重新生成的游戏跑车俯视",
           "credit": {
-            "author": "Calreyn88",
-            "license": "CC BY-SA 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2022_Ferrari_296_GTB_2.jpg"
-          }
-        },
-        {
-          "id": "rear",
-          "image": "view-CAR02-rear",
-          "label": "车尾",
-          "caption": "红色，后侧方实拍",
-          "credit": {
-            "author": "Calreyn88",
-            "license": "CC BY-SA 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2022_Ferrari_296_GTB_5.jpg"
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
           }
         }
       ],
@@ -3479,43 +4268,59 @@
         {
           "id": "wheel",
           "zh": "车轮",
-          "x": 0.3,
-          "y": 0.65
+          "x": 0.793,
+          "y": 0.6422222222222222
         },
         {
           "id": "door",
           "zh": "车门",
-          "x": 0.2,
-          "y": 0.4
+          "x": 0.51,
+          "y": 0.51
         },
         {
           "id": "light",
           "zh": "车灯",
-          "x": 0.48,
-          "y": 0.55
+          "x": 0.9,
+          "y": 0.47
         }
       ],
-      "showcaseImage": "showcase-CAR02",
+      "showcaseImage": "play-CAR02-side",
       "showcaseHotspots": [
         {
           "id": "wheel",
           "zh": "车轮",
-          "x": 0.445,
-          "y": 0.595
+          "x": 0.793,
+          "y": 0.6422222222222222
         },
         {
           "id": "door",
           "zh": "车门",
-          "x": 0.35,
-          "y": 0.5
+          "x": 0.51,
+          "y": 0.51
         },
         {
           "id": "light",
           "zh": "车灯",
-          "x": 0.55,
-          "y": 0.53
+          "x": 0.9,
+          "y": 0.47
         }
-      ]
+      ],
+      "game": {
+        "side": "play-CAR02-side",
+        "top": "play-CAR02-top",
+        "wheels": [
+          {
+            "x": 0.148,
+            "y": 0.6422222222222222,
+            "r": 0.075
+          },
+          {
+            "x": 0.793,
+            "y": 0.6422222222222222,
+            "r": 0.075
+          }
+        ]
+      }
     },
     {
       "id": "CAR03",
@@ -3523,13 +4328,13 @@
       "zhBrand": "保时捷",
       "brand": "Porsche",
       "model": "911 GT3 RS",
-      "edition": "992 I 代 GT3 RS",
-      "color": "白色实拍",
-      "reference": "https://newsroom.porsche.com/en_US/model-range/911/911-GT3-RS.html",
+      "edition": "游戏跑车",
+      "color": "mint green with black aero",
+      "reference": "https://openai.com/",
       "status": "reviewed",
-      "image": "photo-CAR03",
+      "image": "play-CAR03-side",
       "audio": "name-CAR03",
-      "observation": "看看车身的轮廓，说说你最先注意到了哪里。",
+      "observation": "摸摸车轮，看看车灯，带它去乐园动动手。",
       "credit": {
         "id": "CAR03",
         "title": "File:2023 Porsche 911 GT3 RS.jpg",
@@ -3540,42 +4345,30 @@
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
       },
-      "displayImage": "cutout-CAR03",
+      "displayImage": "play-CAR03-side",
       "views": [
         {
-          "id": "front",
-          "image": "view-CAR03-front",
-          "label": "车头",
-          "caption": "白色，992 I 代 GT3 RS 前侧方",
+          "id": "side",
+          "image": "play-CAR03-side",
+          "label": "侧面",
+          "caption": "重新生成的游戏跑车侧面",
           "credit": {
-            "author": "Calreyn88",
-            "license": "CC BY 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2023_Porsche_911_GT3_RS_3.jpg"
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
           }
         },
         {
-          "id": "other-side",
-          "image": "view-CAR03-other-side",
-          "label": "另一侧",
-          "caption": "白色，从另一侧看车头与侧面",
+          "id": "top",
+          "image": "play-CAR03-top",
+          "label": "俯视",
+          "caption": "重新生成的游戏跑车俯视",
           "credit": {
-            "author": "Calreyn88",
-            "license": "CC BY 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2023_Porsche_911_GT3_RS_6.jpg"
-          }
-        },
-        {
-          "id": "rear",
-          "image": "view-CAR03-rear",
-          "label": "车尾",
-          "caption": "白色，可见 GT3 RS 固定尾翼",
-          "credit": {
-            "author": "Calreyn88",
-            "license": "CC BY 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2023_Porsche_911_GT3_RS_4.jpg"
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
           }
         }
       ],
@@ -3583,43 +4376,59 @@
         {
           "id": "wheel",
           "zh": "车轮",
-          "x": 0.67,
-          "y": 0.7
+          "x": 0.794,
+          "y": 0.6422222222222222
         },
         {
           "id": "door",
           "zh": "车门",
-          "x": 0.79,
-          "y": 0.46
+          "x": 0.51,
+          "y": 0.51
         },
         {
           "id": "light",
           "zh": "车灯",
-          "x": 0.52,
-          "y": 0.51
+          "x": 0.9,
+          "y": 0.47
         }
       ],
-      "showcaseImage": "showcase-CAR03",
+      "showcaseImage": "play-CAR03-side",
       "showcaseHotspots": [
         {
           "id": "wheel",
           "zh": "车轮",
-          "x": 0.565,
-          "y": 0.6
+          "x": 0.794,
+          "y": 0.6422222222222222
         },
         {
           "id": "door",
           "zh": "车门",
-          "x": 0.68,
-          "y": 0.49
+          "x": 0.51,
+          "y": 0.51
         },
         {
           "id": "light",
           "zh": "车灯",
-          "x": 0.474,
-          "y": 0.485
+          "x": 0.9,
+          "y": 0.47
         }
-      ]
+      ],
+      "game": {
+        "side": "play-CAR03-side",
+        "top": "play-CAR03-top",
+        "wheels": [
+          {
+            "x": 0.173,
+            "y": 0.6333333333333333,
+            "r": 0.075
+          },
+          {
+            "x": 0.794,
+            "y": 0.6422222222222222,
+            "r": 0.075
+          }
+        ]
+      }
     },
     {
       "id": "CAR04",
@@ -3627,13 +4436,13 @@
       "zhBrand": "迈凯伦",
       "brand": "McLaren",
       "model": "750S",
-      "edition": "标准 Coupé 硬顶版",
-      "color": "橙色实拍",
-      "reference": "https://www.mclaren.com/cars/gl_en/750s-cars",
+      "edition": "游戏跑车",
+      "color": "tangerine orange",
+      "reference": "https://openai.com/",
       "status": "reviewed",
-      "image": "photo-CAR04",
+      "image": "play-CAR04-side",
       "audio": "name-CAR04",
-      "observation": "看看车身的轮廓，说说你最先注意到了哪里。",
+      "observation": "摸摸车轮，看看车灯，带它去乐园动动手。",
       "credit": {
         "id": "CAR04",
         "title": "File:2023 McLaren 750S 1.jpg",
@@ -3644,42 +4453,30 @@
         "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
         "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
       },
-      "displayImage": "cutout-CAR04",
+      "displayImage": "play-CAR04-side",
       "views": [
         {
-          "id": "front",
-          "image": "view-CAR04-front",
-          "label": "车头",
-          "caption": "橙色，750S Coupé 前侧方",
+          "id": "side",
+          "image": "play-CAR04-side",
+          "label": "侧面",
+          "caption": "重新生成的游戏跑车侧面",
           "credit": {
-            "author": "Calreyn88",
-            "license": "CC BY-SA 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2024_McLaren_750S_2.jpg"
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
           }
         },
         {
-          "id": "other-side",
-          "image": "view-CAR04-other-side",
-          "label": "近看车头",
-          "caption": "橙色，接近正前方的视角",
+          "id": "top",
+          "image": "play-CAR04-top",
+          "label": "俯视",
+          "caption": "重新生成的游戏跑车俯视",
           "credit": {
-            "author": "Calreyn88",
-            "license": "CC BY-SA 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2024_McLaren_750S_3.jpg"
-          }
-        },
-        {
-          "id": "rear",
-          "image": "view-CAR04-rear",
-          "label": "车尾",
-          "caption": "黄色，车门开启时的后侧方",
-          "credit": {
-            "author": "Aos.1905",
-            "license": "CC BY-SA 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:McLaren_750S_(Rear).jpg"
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
           }
         }
       ],
@@ -3687,43 +4484,59 @@
         {
           "id": "wheel",
           "zh": "车轮",
-          "x": 0.68,
-          "y": 0.66
+          "x": 0.779,
+          "y": 0.6444444444444445
         },
         {
           "id": "door",
           "zh": "车门",
-          "x": 0.82,
-          "y": 0.44
+          "x": 0.51,
+          "y": 0.51
         },
         {
           "id": "light",
           "zh": "车灯",
-          "x": 0.46,
-          "y": 0.58
+          "x": 0.9,
+          "y": 0.47
         }
       ],
-      "showcaseImage": "showcase-CAR04",
+      "showcaseImage": "play-CAR04-side",
       "showcaseHotspots": [
         {
           "id": "wheel",
           "zh": "车轮",
-          "x": 0.55,
-          "y": 0.62
+          "x": 0.779,
+          "y": 0.6444444444444445
         },
         {
           "id": "door",
           "zh": "车门",
-          "x": 0.66,
-          "y": 0.53
+          "x": 0.51,
+          "y": 0.51
         },
         {
           "id": "light",
           "zh": "车灯",
-          "x": 0.435,
-          "y": 0.558
+          "x": 0.9,
+          "y": 0.47
         }
-      ]
+      ],
+      "game": {
+        "side": "play-CAR04-side",
+        "top": "play-CAR04-top",
+        "wheels": [
+          {
+            "x": 0.155,
+            "y": 0.64,
+            "r": 0.075
+          },
+          {
+            "x": 0.779,
+            "y": 0.6444444444444445,
+            "r": 0.075
+          }
+        ]
+      }
     },
     {
       "id": "CAR05",
@@ -3731,13 +4544,13 @@
       "zhBrand": "布加迪",
       "brand": "Bugatti",
       "model": "Chiron",
-      "edition": "标准 Chiron",
-      "color": "黑蓝双色实拍",
-      "reference": "https://newsroom.bugatti.com/en/models/chiron",
+      "edition": "游戏跑车",
+      "color": "cobalt blue",
+      "reference": "https://openai.com/",
       "status": "reviewed",
-      "image": "photo-CAR05",
+      "image": "play-CAR05-side",
       "audio": "name-CAR05",
-      "observation": "看看车身的轮廓，说说你最先注意到了哪里。",
+      "observation": "摸摸车轮，看看车灯，带它去乐园动动手。",
       "credit": {
         "id": "CAR05",
         "title": "File:2017 Bugatti Chiron.jpg",
@@ -3748,42 +4561,30 @@
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
       },
-      "displayImage": "cutout-CAR05",
+      "displayImage": "play-CAR05-side",
       "views": [
         {
-          "id": "front",
-          "image": "view-CAR05-front",
-          "label": "车头",
-          "caption": "蓝色，标准 Chiron 前方",
-          "credit": {
-            "author": "Ank Kumar",
-            "license": "CC BY-SA 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2018_Blue_Bugatti_Chiron_at_Grand_Basel_(Ank_Kumar)_04.jpg"
-          }
-        },
-        {
           "id": "side",
-          "image": "view-CAR05-side",
+          "image": "play-CAR05-side",
           "label": "侧面",
-          "caption": "蓝色，标准 Chiron 侧面",
+          "caption": "重新生成的游戏跑车侧面",
           "credit": {
-            "author": "Ank Kumar",
-            "license": "CC BY-SA 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2018_Blue_Bugatti_Chiron_at_Grand_Basel_(Ank_Kumar)_02.jpg"
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
           }
         },
         {
-          "id": "rear",
-          "image": "view-CAR05-rear",
-          "label": "车尾",
-          "caption": "黑色，标准 Chiron 后方",
+          "id": "top",
+          "image": "play-CAR05-top",
+          "label": "俯视",
+          "caption": "重新生成的游戏跑车俯视",
           "credit": {
-            "author": "MrWalkr",
-            "license": "CC BY-SA 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Chiron_Rear.jpg"
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
           }
         }
       ],
@@ -3791,43 +4592,59 @@
         {
           "id": "wheel",
           "zh": "车轮",
-          "x": 0.35,
-          "y": 0.69
+          "x": 0.801,
+          "y": 0.6488888888888888
         },
         {
           "id": "door",
           "zh": "车门",
-          "x": 0.22,
-          "y": 0.44
+          "x": 0.51,
+          "y": 0.51
         },
         {
           "id": "light",
           "zh": "车灯",
-          "x": 0.56,
-          "y": 0.54
+          "x": 0.9,
+          "y": 0.47
         }
       ],
-      "showcaseImage": "showcase-CAR05",
+      "showcaseImage": "play-CAR05-side",
       "showcaseHotspots": [
         {
           "id": "wheel",
           "zh": "车轮",
-          "x": 0.45,
-          "y": 0.6
+          "x": 0.801,
+          "y": 0.6488888888888888
         },
         {
           "id": "door",
           "zh": "车门",
-          "x": 0.36,
-          "y": 0.5
+          "x": 0.51,
+          "y": 0.51
         },
         {
           "id": "light",
           "zh": "车灯",
-          "x": 0.56,
-          "y": 0.54
+          "x": 0.9,
+          "y": 0.47
         }
-      ]
+      ],
+      "game": {
+        "side": "play-CAR05-side",
+        "top": "play-CAR05-top",
+        "wheels": [
+          {
+            "x": 0.172,
+            "y": 0.6422222222222222,
+            "r": 0.075
+          },
+          {
+            "x": 0.801,
+            "y": 0.6488888888888888,
+            "r": 0.075
+          }
+        ]
+      }
     },
     {
       "id": "CAR06",
@@ -3835,13 +4652,13 @@
       "zhBrand": "帕加尼",
       "brand": "Pagani",
       "model": "Huayra",
-      "edition": "标准 Coupé 硬顶版",
-      "color": "黄色实拍",
-      "reference": "https://www.pagani.com/huayra/",
+      "edition": "游戏跑车",
+      "color": "pearl silver",
+      "reference": "https://openai.com/",
       "status": "reviewed",
-      "image": "photo-CAR06",
+      "image": "play-CAR06-side",
       "audio": "name-CAR06",
-      "observation": "看看车身的轮廓，说说你最先注意到了哪里。",
+      "observation": "摸摸车轮，看看车灯，带它去乐园动动手。",
       "credit": {
         "id": "CAR06",
         "title": "File:Pagani Huayra -- Geneva Motor Show -- 2014-03-09.jpg",
@@ -3852,42 +4669,30 @@
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
         "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
       },
-      "displayImage": "cutout-CAR06",
+      "displayImage": "play-CAR06-side",
       "views": [
         {
-          "id": "front",
-          "image": "view-CAR06-front",
-          "label": "车头",
-          "caption": "红色，车门与前后机盖开启的展车",
-          "credit": {
-            "author": "Norbert Aepli, Switzerland (User:Noebu)",
-            "license": "CC BY 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2015-03-03_Geneva_Motor_Show_3250.JPG"
-          }
-        },
-        {
           "id": "side",
-          "image": "view-CAR06-side",
+          "image": "play-CAR06-side",
           "label": "侧面",
-          "caption": "红色，车门与机盖开启的侧面",
+          "caption": "重新生成的游戏跑车侧面",
           "credit": {
-            "author": "Norbert Aepli, Switzerland (User:Noebu)",
-            "license": "CC BY 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2015-03-03_Geneva_Motor_Show_3253.JPG"
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
           }
         },
         {
-          "id": "rear",
-          "image": "view-CAR06-rear",
-          "label": "车尾",
-          "caption": "红色，机盖开启的后侧方",
+          "id": "top",
+          "image": "play-CAR06-top",
+          "label": "俯视",
+          "caption": "重新生成的游戏跑车俯视",
           "credit": {
-            "author": "Norbert Aepli, Switzerland (User:Noebu)",
-            "license": "CC BY 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2015-03-03_Geneva_Motor_Show_3255.JPG"
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
           }
         }
       ],
@@ -3895,31 +4700,59 @@
         {
           "id": "wheel",
           "zh": "车轮",
-          "x": 0.45,
-          "y": 0.8
+          "x": 0.791,
+          "y": 0.6444444444444445
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
         },
         {
           "id": "light",
           "zh": "车灯",
-          "x": 0.28,
-          "y": 0.61
+          "x": 0.9,
+          "y": 0.47
         }
       ],
-      "showcaseImage": "showcase-CAR06",
+      "showcaseImage": "play-CAR06-side",
       "showcaseHotspots": [
         {
           "id": "wheel",
           "zh": "车轮",
-          "x": 0.48,
-          "y": 0.62
+          "x": 0.791,
+          "y": 0.6444444444444445
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
         },
         {
           "id": "light",
           "zh": "车灯",
-          "x": 0.385,
-          "y": 0.52
+          "x": 0.9,
+          "y": 0.47
         }
-      ]
+      ],
+      "game": {
+        "side": "play-CAR06-side",
+        "top": "play-CAR06-top",
+        "wheels": [
+          {
+            "x": 0.165,
+            "y": 0.64,
+            "r": 0.075
+          },
+          {
+            "x": 0.791,
+            "y": 0.6444444444444445,
+            "r": 0.075
+          }
+        ]
+      }
     },
     {
       "id": "CAR07",
@@ -3927,13 +4760,13 @@
       "zhBrand": "科尼赛克",
       "brand": "Koenigsegg",
       "model": "Jesko Attack",
-      "edition": "Attack 尾翼版本",
-      "color": "蓝色实拍",
-      "reference": "https://www.koenigsegg.com/model/jesko-attack",
+      "edition": "游戏跑车",
+      "color": "lime green",
+      "reference": "https://openai.com/",
       "status": "reviewed",
-      "image": "photo-CAR07",
+      "image": "play-CAR07-side",
       "audio": "name-CAR07",
-      "observation": "看看车身的轮廓，说说你最先注意到了哪里。",
+      "observation": "摸摸车轮，看看车灯，带它去乐园动动手。",
       "credit": {
         "id": "CAR07",
         "title": "File:2023 Koenigsegg Jesko Attack.jpg",
@@ -3944,42 +4777,30 @@
         "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
         "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
       },
-      "displayImage": "cutout-CAR07",
+      "displayImage": "play-CAR07-side",
       "views": [
         {
-          "id": "front",
-          "image": "view-CAR07-front",
-          "label": "车头",
-          "caption": "蓝色，Jesko Attack 前侧方",
+          "id": "side",
+          "image": "play-CAR07-side",
+          "label": "侧面",
+          "caption": "重新生成的游戏跑车侧面",
           "credit": {
-            "author": "Calreyn88",
-            "license": "CC BY-SA 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Koenigsegg_Jesko_Attack_3.jpg"
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
           }
         },
         {
-          "id": "other-side",
-          "image": "view-CAR07-other-side",
-          "label": "另一侧",
-          "caption": "红色，从另一侧看车头与侧面",
+          "id": "top",
+          "image": "play-CAR07-top",
+          "label": "俯视",
+          "caption": "重新生成的游戏跑车俯视",
           "credit": {
-            "author": "MrWalkr",
-            "license": "CC BY-SA 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2023_Koenigsegg_Jesko_Left_LC24.jpg"
-          }
-        },
-        {
-          "id": "rear",
-          "image": "view-CAR07-rear",
-          "label": "车尾",
-          "caption": "红色，可见 Attack 的大型尾翼",
-          "credit": {
-            "author": "MrWalkr",
-            "license": "CC BY-SA 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:2023_Koenigsegg_Jesko_Rear_LC24.jpg"
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
           }
         }
       ],
@@ -3987,43 +4808,59 @@
         {
           "id": "wheel",
           "zh": "车轮",
-          "x": 0.755,
-          "y": 0.654
+          "x": 0.788,
+          "y": 0.6377777777777778
         },
         {
           "id": "door",
           "zh": "车门",
-          "x": 0.81,
-          "y": 0.41
+          "x": 0.51,
+          "y": 0.51
         },
         {
           "id": "light",
           "zh": "车灯",
-          "x": 0.63,
-          "y": 0.53
+          "x": 0.9,
+          "y": 0.47
         }
       ],
-      "showcaseImage": "showcase-CAR07",
+      "showcaseImage": "play-CAR07-side",
       "showcaseHotspots": [
         {
           "id": "wheel",
           "zh": "车轮",
-          "x": 0.57,
-          "y": 0.6
+          "x": 0.788,
+          "y": 0.6377777777777778
         },
         {
           "id": "door",
           "zh": "车门",
-          "x": 0.67,
-          "y": 0.5
+          "x": 0.51,
+          "y": 0.51
         },
         {
           "id": "light",
           "zh": "车灯",
-          "x": 0.493,
-          "y": 0.516
+          "x": 0.9,
+          "y": 0.47
         }
-      ]
+      ],
+      "game": {
+        "side": "play-CAR07-side",
+        "top": "play-CAR07-top",
+        "wheels": [
+          {
+            "x": 0.169,
+            "y": 0.6266666666666667,
+            "r": 0.075
+          },
+          {
+            "x": 0.788,
+            "y": 0.6377777777777778,
+            "r": 0.075
+          }
+        ]
+      }
     },
     {
       "id": "CAR08",
@@ -4031,13 +4868,13 @@
       "zhBrand": "阿斯顿·马丁",
       "brand": "Aston Martin",
       "model": "Vantage",
-      "edition": "2024 更新款标准硬顶版",
-      "color": "绿色实拍",
-      "reference": "https://www.astonmartin.com/en-gb/our-world/news/2024/2/12/introducing-new-vantage-engineered-for-real-drivers",
+      "edition": "游戏跑车",
+      "color": "British racing green",
+      "reference": "https://openai.com/",
       "status": "reviewed",
-      "image": "photo-CAR08",
+      "image": "play-CAR08-side",
       "audio": "name-CAR08",
-      "observation": "看看车身的轮廓，说说你最先注意到了哪里。",
+      "observation": "摸摸车轮，看看车灯，带它去乐园动动手。",
       "credit": {
         "id": "CAR08",
         "title": "File:Aston Martin Vantage (2024) IMG 9999.jpg",
@@ -4048,42 +4885,30 @@
         "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
         "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
       },
-      "displayImage": "cutout-CAR08",
+      "displayImage": "play-CAR08-side",
       "views": [
         {
-          "id": "front",
-          "image": "view-CAR08-front",
-          "label": "车头",
-          "caption": "绿色，2024 更新款 Vantage Coupé",
+          "id": "side",
+          "image": "play-CAR08-side",
+          "label": "侧面",
+          "caption": "重新生成的游戏跑车侧面",
           "credit": {
-            "author": "Alexander-93",
-            "license": "CC BY-SA 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aston_Martin_Vantage_(2024)_IMG_0002.jpg"
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
           }
         },
         {
-          "id": "other-side",
-          "image": "view-CAR08-other-side",
-          "label": "另一侧",
-          "caption": "绿色，从另一侧看车头与侧面",
+          "id": "top",
+          "image": "play-CAR08-top",
+          "label": "俯视",
+          "caption": "重新生成的游戏跑车俯视",
           "credit": {
-            "author": "Alexander-93",
-            "license": "CC BY-SA 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aston_Martin_Vantage_(2024)_IMG_0003.jpg"
-          }
-        },
-        {
-          "id": "rear",
-          "image": "view-CAR08-rear",
-          "label": "车尾",
-          "caption": "绿色，2024 更新款后侧方",
-          "credit": {
-            "author": "Alexander-93",
-            "license": "CC BY-SA 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-            "sourceUrl": "https://commons.wikimedia.org/wiki/File:Aston_Martin_Vantage_(2024)_IMG_0015.jpg"
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
           }
         }
       ],
@@ -4091,43 +4916,2435 @@
         {
           "id": "wheel",
           "zh": "车轮",
-          "x": 0.42,
-          "y": 0.69
+          "x": 0.804,
+          "y": 0.6511111111111111
         },
         {
           "id": "door",
           "zh": "车门",
-          "x": 0.24,
-          "y": 0.46
+          "x": 0.51,
+          "y": 0.51
         },
         {
           "id": "light",
           "zh": "车灯",
-          "x": 0.57,
-          "y": 0.55
+          "x": 0.9,
+          "y": 0.47
         }
       ],
-      "showcaseImage": "showcase-CAR08",
+      "showcaseImage": "play-CAR08-side",
       "showcaseHotspots": [
         {
           "id": "wheel",
           "zh": "车轮",
-          "x": 0.48,
-          "y": 0.595
+          "x": 0.804,
+          "y": 0.6511111111111111
         },
         {
           "id": "door",
           "zh": "车门",
-          "x": 0.36,
-          "y": 0.5
+          "x": 0.51,
+          "y": 0.51
         },
         {
           "id": "light",
           "zh": "车灯",
-          "x": 0.57,
-          "y": 0.52
+          "x": 0.9,
+          "y": 0.47
         }
-      ]
+      ],
+      "game": {
+        "side": "play-CAR08-side",
+        "top": "play-CAR08-top",
+        "wheels": [
+          {
+            "x": 0.176,
+            "y": 0.6466666666666666,
+            "r": 0.075
+          },
+          {
+            "x": 0.804,
+            "y": 0.6511111111111111,
+            "r": 0.075
+          }
+        ]
+      }
+    },
+    {
+      "id": "CAR09",
+      "name": "雪佛兰 Corvette C8 Stingray",
+      "zhBrand": "雪佛兰",
+      "brand": "Chevrolet",
+      "model": "Corvette C8 Stingray",
+      "edition": "游戏跑车",
+      "color": "lemon yellow",
+      "reference": "https://openai.com/",
+      "status": "reviewed",
+      "image": "play-CAR09-side",
+      "audio": "car",
+      "observation": "摸摸车轮，看看车灯，带它去乐园动动手。",
+      "credit": {
+        "id": "CAR02",
+        "title": "File:2023 Ferrari 296 GTB.jpg",
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/2023_Ferrari_296_GTB.jpg/1280px-2023_Ferrari_296_GTB.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:2023_Ferrari_296_GTB.jpg",
+        "author": "Calreyn88",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
+      },
+      "displayImage": "play-CAR09-side",
+      "views": [
+        {
+          "id": "side",
+          "image": "play-CAR09-side",
+          "label": "侧面",
+          "caption": "重新生成的游戏跑车侧面",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        },
+        {
+          "id": "top",
+          "image": "play-CAR09-top",
+          "label": "俯视",
+          "caption": "重新生成的游戏跑车俯视",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.797,
+          "y": 0.6466666666666666
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "showcaseImage": "play-CAR09-side",
+      "showcaseHotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.797,
+          "y": 0.6466666666666666
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "game": {
+        "side": "play-CAR09-side",
+        "top": "play-CAR09-top",
+        "wheels": [
+          {
+            "x": 0.178,
+            "y": 0.6466666666666666,
+            "r": 0.075
+          },
+          {
+            "x": 0.797,
+            "y": 0.6466666666666666,
+            "r": 0.075
+          }
+        ]
+      }
+    },
+    {
+      "id": "CAR10",
+      "name": "梅赛德斯-AMG GT Coupé",
+      "zhBrand": "梅赛德斯-AMG",
+      "brand": "Mercedes-AMG",
+      "model": "GT Coupé",
+      "edition": "游戏跑车",
+      "color": "cherry red",
+      "reference": "https://openai.com/",
+      "status": "reviewed",
+      "image": "play-CAR10-side",
+      "audio": "car",
+      "observation": "摸摸车轮，看看车灯，带它去乐园动动手。",
+      "credit": {
+        "id": "CAR02",
+        "title": "File:2023 Ferrari 296 GTB.jpg",
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/2023_Ferrari_296_GTB.jpg/1280px-2023_Ferrari_296_GTB.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:2023_Ferrari_296_GTB.jpg",
+        "author": "Calreyn88",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
+      },
+      "displayImage": "play-CAR10-side",
+      "views": [
+        {
+          "id": "side",
+          "image": "play-CAR10-side",
+          "label": "侧面",
+          "caption": "重新生成的游戏跑车侧面",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        },
+        {
+          "id": "top",
+          "image": "play-CAR10-top",
+          "label": "俯视",
+          "caption": "重新生成的游戏跑车俯视",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.807,
+          "y": 0.6644444444444444
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "showcaseImage": "play-CAR10-side",
+      "showcaseHotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.807,
+          "y": 0.6644444444444444
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "game": {
+        "side": "play-CAR10-side",
+        "top": "play-CAR10-top",
+        "wheels": [
+          {
+            "x": 0.194,
+            "y": 0.6555555555555556,
+            "r": 0.075
+          },
+          {
+            "x": 0.807,
+            "y": 0.6644444444444444,
+            "r": 0.075
+          }
+        ]
+      }
+    },
+    {
+      "id": "CAR11",
+      "name": "奥迪 R8 Coupé",
+      "zhBrand": "奥迪",
+      "brand": "Audi",
+      "model": "R8 Coupé",
+      "edition": "游戏跑车",
+      "color": "sky blue",
+      "reference": "https://openai.com/",
+      "status": "reviewed",
+      "image": "play-CAR11-side",
+      "audio": "car",
+      "observation": "摸摸车轮，看看车灯，带它去乐园动动手。",
+      "credit": {
+        "id": "CAR02",
+        "title": "File:2023 Ferrari 296 GTB.jpg",
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/2023_Ferrari_296_GTB.jpg/1280px-2023_Ferrari_296_GTB.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:2023_Ferrari_296_GTB.jpg",
+        "author": "Calreyn88",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
+      },
+      "displayImage": "play-CAR11-side",
+      "views": [
+        {
+          "id": "side",
+          "image": "play-CAR11-side",
+          "label": "侧面",
+          "caption": "重新生成的游戏跑车侧面",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        },
+        {
+          "id": "top",
+          "image": "play-CAR11-top",
+          "label": "俯视",
+          "caption": "重新生成的游戏跑车俯视",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.78,
+          "y": 0.6533333333333333
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "showcaseImage": "play-CAR11-side",
+      "showcaseHotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.78,
+          "y": 0.6533333333333333
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "game": {
+        "side": "play-CAR11-side",
+        "top": "play-CAR11-top",
+        "wheels": [
+          {
+            "x": 0.179,
+            "y": 0.6533333333333333,
+            "r": 0.075
+          },
+          {
+            "x": 0.78,
+            "y": 0.6533333333333333,
+            "r": 0.075
+          }
+        ]
+      }
+    },
+    {
+      "id": "CAR12",
+      "name": "雷克萨斯 LC 500",
+      "zhBrand": "雷克萨斯",
+      "brand": "Lexus",
+      "model": "LC 500",
+      "edition": "游戏跑车",
+      "color": "warm amber",
+      "reference": "https://openai.com/",
+      "status": "reviewed",
+      "image": "play-CAR12-side",
+      "audio": "car",
+      "observation": "摸摸车轮，看看车灯，带它去乐园动动手。",
+      "credit": {
+        "id": "CAR02",
+        "title": "File:2023 Ferrari 296 GTB.jpg",
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/2023_Ferrari_296_GTB.jpg/1280px-2023_Ferrari_296_GTB.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:2023_Ferrari_296_GTB.jpg",
+        "author": "Calreyn88",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
+      },
+      "displayImage": "play-CAR12-side",
+      "views": [
+        {
+          "id": "side",
+          "image": "play-CAR12-side",
+          "label": "侧面",
+          "caption": "重新生成的游戏跑车侧面",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        },
+        {
+          "id": "top",
+          "image": "play-CAR12-top",
+          "label": "俯视",
+          "caption": "重新生成的游戏跑车俯视",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.803,
+          "y": 0.6555555555555556
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "showcaseImage": "play-CAR12-side",
+      "showcaseHotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.803,
+          "y": 0.6555555555555556
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "game": {
+        "side": "play-CAR12-side",
+        "top": "play-CAR12-top",
+        "wheels": [
+          {
+            "x": 0.185,
+            "y": 0.6511111111111111,
+            "r": 0.075
+          },
+          {
+            "x": 0.803,
+            "y": 0.6555555555555556,
+            "r": 0.075
+          }
+        ]
+      }
+    },
+    {
+      "id": "CAR13",
+      "name": "福特 Mustang GT",
+      "zhBrand": "福特",
+      "brand": "Ford",
+      "model": "Mustang GT",
+      "edition": "游戏跑车",
+      "color": "royal blue",
+      "reference": "https://openai.com/",
+      "status": "reviewed",
+      "image": "play-CAR13-side",
+      "audio": "car",
+      "observation": "摸摸车轮，看看车灯，带它去乐园动动手。",
+      "credit": {
+        "id": "CAR02",
+        "title": "File:2023 Ferrari 296 GTB.jpg",
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/2023_Ferrari_296_GTB.jpg/1280px-2023_Ferrari_296_GTB.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:2023_Ferrari_296_GTB.jpg",
+        "author": "Calreyn88",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
+      },
+      "displayImage": "play-CAR13-side",
+      "views": [
+        {
+          "id": "side",
+          "image": "play-CAR13-side",
+          "label": "侧面",
+          "caption": "重新生成的游戏跑车侧面",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        },
+        {
+          "id": "top",
+          "image": "play-CAR13-top",
+          "label": "俯视",
+          "caption": "重新生成的游戏跑车俯视",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.806,
+          "y": 0.6755555555555556
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "showcaseImage": "play-CAR13-side",
+      "showcaseHotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.806,
+          "y": 0.6755555555555556
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "game": {
+        "side": "play-CAR13-side",
+        "top": "play-CAR13-top",
+        "wheels": [
+          {
+            "x": 0.237,
+            "y": 0.6688888888888889,
+            "r": 0.075
+          },
+          {
+            "x": 0.806,
+            "y": 0.6755555555555556,
+            "r": 0.075
+          }
+        ]
+      }
+    },
+    {
+      "id": "CAR14",
+      "name": "丰田 GR Supra",
+      "zhBrand": "丰田",
+      "brand": "Toyota",
+      "model": "GR Supra",
+      "edition": "游戏跑车",
+      "color": "scarlet red",
+      "reference": "https://openai.com/",
+      "status": "reviewed",
+      "image": "play-CAR14-side",
+      "audio": "car",
+      "observation": "摸摸车轮，看看车灯，带它去乐园动动手。",
+      "credit": {
+        "id": "CAR02",
+        "title": "File:2023 Ferrari 296 GTB.jpg",
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/2023_Ferrari_296_GTB.jpg/1280px-2023_Ferrari_296_GTB.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:2023_Ferrari_296_GTB.jpg",
+        "author": "Calreyn88",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
+      },
+      "displayImage": "play-CAR14-side",
+      "views": [
+        {
+          "id": "side",
+          "image": "play-CAR14-side",
+          "label": "侧面",
+          "caption": "重新生成的游戏跑车侧面",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        },
+        {
+          "id": "top",
+          "image": "play-CAR14-top",
+          "label": "俯视",
+          "caption": "重新生成的游戏跑车俯视",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.818,
+          "y": 0.6622222222222223
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "showcaseImage": "play-CAR14-side",
+      "showcaseHotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.818,
+          "y": 0.6622222222222223
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "game": {
+        "side": "play-CAR14-side",
+        "top": "play-CAR14-top",
+        "wheels": [
+          {
+            "x": 0.188,
+            "y": 0.6644444444444444,
+            "r": 0.075
+          },
+          {
+            "x": 0.818,
+            "y": 0.6622222222222223,
+            "r": 0.075
+          }
+        ]
+      }
+    },
+    {
+      "id": "CAR15",
+      "name": "丰田 GR86",
+      "zhBrand": "丰田",
+      "brand": "Toyota",
+      "model": "GR86",
+      "edition": "游戏跑车",
+      "color": "pearl white",
+      "reference": "https://openai.com/",
+      "status": "reviewed",
+      "image": "play-CAR15-side",
+      "audio": "car",
+      "observation": "摸摸车轮，看看车灯，带它去乐园动动手。",
+      "credit": {
+        "id": "CAR02",
+        "title": "File:2023 Ferrari 296 GTB.jpg",
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/2023_Ferrari_296_GTB.jpg/1280px-2023_Ferrari_296_GTB.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:2023_Ferrari_296_GTB.jpg",
+        "author": "Calreyn88",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
+      },
+      "displayImage": "play-CAR15-side",
+      "views": [
+        {
+          "id": "side",
+          "image": "play-CAR15-side",
+          "label": "侧面",
+          "caption": "重新生成的游戏跑车侧面",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        },
+        {
+          "id": "top",
+          "image": "play-CAR15-top",
+          "label": "俯视",
+          "caption": "重新生成的游戏跑车俯视",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.815,
+          "y": 0.6777777777777778
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "showcaseImage": "play-CAR15-side",
+      "showcaseHotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.815,
+          "y": 0.6777777777777778
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "game": {
+        "side": "play-CAR15-side",
+        "top": "play-CAR15-top",
+        "wheels": [
+          {
+            "x": 0.205,
+            "y": 0.68,
+            "r": 0.075
+          },
+          {
+            "x": 0.815,
+            "y": 0.6777777777777778,
+            "r": 0.075
+          }
+        ]
+      }
+    },
+    {
+      "id": "CAR16",
+      "name": "日产 Z",
+      "zhBrand": "日产",
+      "brand": "Nissan",
+      "model": "Z",
+      "edition": "游戏跑车",
+      "color": "golden yellow",
+      "reference": "https://openai.com/",
+      "status": "reviewed",
+      "image": "play-CAR16-side",
+      "audio": "car",
+      "observation": "摸摸车轮，看看车灯，带它去乐园动动手。",
+      "credit": {
+        "id": "CAR02",
+        "title": "File:2023 Ferrari 296 GTB.jpg",
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/2023_Ferrari_296_GTB.jpg/1280px-2023_Ferrari_296_GTB.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:2023_Ferrari_296_GTB.jpg",
+        "author": "Calreyn88",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
+      },
+      "displayImage": "play-CAR16-side",
+      "views": [
+        {
+          "id": "side",
+          "image": "play-CAR16-side",
+          "label": "侧面",
+          "caption": "重新生成的游戏跑车侧面",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        },
+        {
+          "id": "top",
+          "image": "play-CAR16-top",
+          "label": "俯视",
+          "caption": "重新生成的游戏跑车俯视",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.794,
+          "y": 0.6666666666666666
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "showcaseImage": "play-CAR16-side",
+      "showcaseHotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.794,
+          "y": 0.6666666666666666
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "game": {
+        "side": "play-CAR16-side",
+        "top": "play-CAR16-top",
+        "wheels": [
+          {
+            "x": 0.172,
+            "y": 0.6644444444444444,
+            "r": 0.075
+          },
+          {
+            "x": 0.794,
+            "y": 0.6666666666666666,
+            "r": 0.075
+          }
+        ]
+      }
+    },
+    {
+      "id": "CAR17",
+      "name": "马自达 MX-5 RF",
+      "zhBrand": "马自达",
+      "brand": "Mazda",
+      "model": "MX-5 RF",
+      "edition": "游戏跑车",
+      "color": "burnt orange",
+      "reference": "https://openai.com/",
+      "status": "reviewed",
+      "image": "play-CAR17-side",
+      "audio": "car",
+      "observation": "摸摸车轮，看看车灯，带它去乐园动动手。",
+      "credit": {
+        "id": "CAR02",
+        "title": "File:2023 Ferrari 296 GTB.jpg",
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/2023_Ferrari_296_GTB.jpg/1280px-2023_Ferrari_296_GTB.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:2023_Ferrari_296_GTB.jpg",
+        "author": "Calreyn88",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
+      },
+      "displayImage": "play-CAR17-side",
+      "views": [
+        {
+          "id": "side",
+          "image": "play-CAR17-side",
+          "label": "侧面",
+          "caption": "重新生成的游戏跑车侧面",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        },
+        {
+          "id": "top",
+          "image": "play-CAR17-top",
+          "label": "俯视",
+          "caption": "重新生成的游戏跑车俯视",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.808,
+          "y": 0.68
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "showcaseImage": "play-CAR17-side",
+      "showcaseHotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.808,
+          "y": 0.68
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "game": {
+        "side": "play-CAR17-side",
+        "top": "play-CAR17-top",
+        "wheels": [
+          {
+            "x": 0.196,
+            "y": 0.68,
+            "r": 0.075
+          },
+          {
+            "x": 0.808,
+            "y": 0.68,
+            "r": 0.075
+          }
+        ]
+      }
+    },
+    {
+      "id": "CAR18",
+      "name": "宝马 M2",
+      "zhBrand": "宝马",
+      "brand": "BMW",
+      "model": "M2",
+      "edition": "游戏跑车",
+      "color": "bright blue",
+      "reference": "https://openai.com/",
+      "status": "reviewed",
+      "image": "play-CAR18-side",
+      "audio": "car",
+      "observation": "摸摸车轮，看看车灯，带它去乐园动动手。",
+      "credit": {
+        "id": "CAR02",
+        "title": "File:2023 Ferrari 296 GTB.jpg",
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/2023_Ferrari_296_GTB.jpg/1280px-2023_Ferrari_296_GTB.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:2023_Ferrari_296_GTB.jpg",
+        "author": "Calreyn88",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
+      },
+      "displayImage": "play-CAR18-side",
+      "views": [
+        {
+          "id": "side",
+          "image": "play-CAR18-side",
+          "label": "侧面",
+          "caption": "重新生成的游戏跑车侧面",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        },
+        {
+          "id": "top",
+          "image": "play-CAR18-top",
+          "label": "俯视",
+          "caption": "重新生成的游戏跑车俯视",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.826,
+          "y": 0.6866666666666666
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "showcaseImage": "play-CAR18-side",
+      "showcaseHotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.826,
+          "y": 0.6866666666666666
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "game": {
+        "side": "play-CAR18-side",
+        "top": "play-CAR18-top",
+        "wheels": [
+          {
+            "x": 0.202,
+            "y": 0.6866666666666666,
+            "r": 0.075
+          },
+          {
+            "x": 0.826,
+            "y": 0.6866666666666666,
+            "r": 0.075
+          }
+        ]
+      }
+    },
+    {
+      "id": "CAR19",
+      "name": "兰博基尼 Huracán",
+      "zhBrand": "兰博基尼",
+      "brand": "Lamborghini",
+      "model": "Huracán",
+      "edition": "游戏跑车",
+      "color": "violet purple",
+      "reference": "https://openai.com/",
+      "status": "reviewed",
+      "image": "play-CAR19-side",
+      "audio": "car",
+      "observation": "摸摸车轮，看看车灯，带它去乐园动动手。",
+      "credit": {
+        "id": "CAR02",
+        "title": "File:2023 Ferrari 296 GTB.jpg",
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/2023_Ferrari_296_GTB.jpg/1280px-2023_Ferrari_296_GTB.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:2023_Ferrari_296_GTB.jpg",
+        "author": "Calreyn88",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
+      },
+      "displayImage": "play-CAR19-side",
+      "views": [
+        {
+          "id": "side",
+          "image": "play-CAR19-side",
+          "label": "侧面",
+          "caption": "重新生成的游戏跑车侧面",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        },
+        {
+          "id": "top",
+          "image": "play-CAR19-top",
+          "label": "俯视",
+          "caption": "重新生成的游戏跑车俯视",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.766,
+          "y": 0.6422222222222222
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "showcaseImage": "play-CAR19-side",
+      "showcaseHotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.766,
+          "y": 0.6422222222222222
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "game": {
+        "side": "play-CAR19-side",
+        "top": "play-CAR19-top",
+        "wheels": [
+          {
+            "x": 0.179,
+            "y": 0.6444444444444445,
+            "r": 0.075
+          },
+          {
+            "x": 0.766,
+            "y": 0.6422222222222222,
+            "r": 0.075
+          }
+        ]
+      }
+    },
+    {
+      "id": "CAR20",
+      "name": "法拉利 F8 Tributo",
+      "zhBrand": "法拉利",
+      "brand": "Ferrari",
+      "model": "F8 Tributo",
+      "edition": "游戏跑车",
+      "color": "Ferrari red",
+      "reference": "https://openai.com/",
+      "status": "reviewed",
+      "image": "play-CAR20-side",
+      "audio": "car",
+      "observation": "摸摸车轮，看看车灯，带它去乐园动动手。",
+      "credit": {
+        "id": "CAR02",
+        "title": "File:2023 Ferrari 296 GTB.jpg",
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/2023_Ferrari_296_GTB.jpg/1280px-2023_Ferrari_296_GTB.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:2023_Ferrari_296_GTB.jpg",
+        "author": "Calreyn88",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
+      },
+      "displayImage": "play-CAR20-side",
+      "views": [
+        {
+          "id": "side",
+          "image": "play-CAR20-side",
+          "label": "侧面",
+          "caption": "重新生成的游戏跑车侧面",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        },
+        {
+          "id": "top",
+          "image": "play-CAR20-top",
+          "label": "俯视",
+          "caption": "重新生成的游戏跑车俯视",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.796,
+          "y": 0.64
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "showcaseImage": "play-CAR20-side",
+      "showcaseHotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.796,
+          "y": 0.64
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "game": {
+        "side": "play-CAR20-side",
+        "top": "play-CAR20-top",
+        "wheels": [
+          {
+            "x": 0.15,
+            "y": 0.64,
+            "r": 0.075
+          },
+          {
+            "x": 0.796,
+            "y": 0.64,
+            "r": 0.075
+          }
+        ]
+      }
+    },
+    {
+      "id": "CAR21",
+      "name": "保时捷 718 Cayman",
+      "zhBrand": "保时捷",
+      "brand": "Porsche",
+      "model": "718 Cayman",
+      "edition": "游戏跑车",
+      "color": "turquoise",
+      "reference": "https://openai.com/",
+      "status": "reviewed",
+      "image": "play-CAR21-side",
+      "audio": "car",
+      "observation": "摸摸车轮，看看车灯，带它去乐园动动手。",
+      "credit": {
+        "id": "CAR02",
+        "title": "File:2023 Ferrari 296 GTB.jpg",
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/2023_Ferrari_296_GTB.jpg/1280px-2023_Ferrari_296_GTB.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:2023_Ferrari_296_GTB.jpg",
+        "author": "Calreyn88",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
+      },
+      "displayImage": "play-CAR21-side",
+      "views": [
+        {
+          "id": "side",
+          "image": "play-CAR21-side",
+          "label": "侧面",
+          "caption": "重新生成的游戏跑车侧面",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        },
+        {
+          "id": "top",
+          "image": "play-CAR21-top",
+          "label": "俯视",
+          "caption": "重新生成的游戏跑车俯视",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.809,
+          "y": 0.6622222222222223
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "showcaseImage": "play-CAR21-side",
+      "showcaseHotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.809,
+          "y": 0.6622222222222223
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "game": {
+        "side": "play-CAR21-side",
+        "top": "play-CAR21-top",
+        "wheels": [
+          {
+            "x": 0.166,
+            "y": 0.66,
+            "r": 0.075
+          },
+          {
+            "x": 0.809,
+            "y": 0.6622222222222223,
+            "r": 0.075
+          }
+        ]
+      }
+    },
+    {
+      "id": "CAR22",
+      "name": "迈凯伦 Artura",
+      "zhBrand": "迈凯伦",
+      "brand": "McLaren",
+      "model": "Artura",
+      "edition": "游戏跑车",
+      "color": "amethyst purple",
+      "reference": "https://openai.com/",
+      "status": "reviewed",
+      "image": "play-CAR22-side",
+      "audio": "car",
+      "observation": "摸摸车轮，看看车灯，带它去乐园动动手。",
+      "credit": {
+        "id": "CAR02",
+        "title": "File:2023 Ferrari 296 GTB.jpg",
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/2023_Ferrari_296_GTB.jpg/1280px-2023_Ferrari_296_GTB.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:2023_Ferrari_296_GTB.jpg",
+        "author": "Calreyn88",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
+      },
+      "displayImage": "play-CAR22-side",
+      "views": [
+        {
+          "id": "side",
+          "image": "play-CAR22-side",
+          "label": "侧面",
+          "caption": "重新生成的游戏跑车侧面",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        },
+        {
+          "id": "top",
+          "image": "play-CAR22-top",
+          "label": "俯视",
+          "caption": "重新生成的游戏跑车俯视",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.772,
+          "y": 0.6444444444444445
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "showcaseImage": "play-CAR22-side",
+      "showcaseHotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.772,
+          "y": 0.6444444444444445
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "game": {
+        "side": "play-CAR22-side",
+        "top": "play-CAR22-top",
+        "wheels": [
+          {
+            "x": 0.166,
+            "y": 0.6444444444444445,
+            "r": 0.075
+          },
+          {
+            "x": 0.772,
+            "y": 0.6444444444444445,
+            "r": 0.075
+          }
+        ]
+      }
+    },
+    {
+      "id": "CAR23",
+      "name": "玛莎拉蒂 MC20",
+      "zhBrand": "玛莎拉蒂",
+      "brand": "Maserati",
+      "model": "MC20",
+      "edition": "游戏跑车",
+      "color": "deep blue",
+      "reference": "https://openai.com/",
+      "status": "reviewed",
+      "image": "play-CAR23-side",
+      "audio": "car",
+      "observation": "摸摸车轮，看看车灯，带它去乐园动动手。",
+      "credit": {
+        "id": "CAR02",
+        "title": "File:2023 Ferrari 296 GTB.jpg",
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/2023_Ferrari_296_GTB.jpg/1280px-2023_Ferrari_296_GTB.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:2023_Ferrari_296_GTB.jpg",
+        "author": "Calreyn88",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
+      },
+      "displayImage": "play-CAR23-side",
+      "views": [
+        {
+          "id": "side",
+          "image": "play-CAR23-side",
+          "label": "侧面",
+          "caption": "重新生成的游戏跑车侧面",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        },
+        {
+          "id": "top",
+          "image": "play-CAR23-top",
+          "label": "俯视",
+          "caption": "重新生成的游戏跑车俯视",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.787,
+          "y": 0.6511111111111111
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "showcaseImage": "play-CAR23-side",
+      "showcaseHotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.787,
+          "y": 0.6511111111111111
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "game": {
+        "side": "play-CAR23-side",
+        "top": "play-CAR23-top",
+        "wheels": [
+          {
+            "x": 0.166,
+            "y": 0.6488888888888888,
+            "r": 0.075
+          },
+          {
+            "x": 0.787,
+            "y": 0.6511111111111111,
+            "r": 0.075
+          }
+        ]
+      }
+    },
+    {
+      "id": "CAR24",
+      "name": "路特斯 Emira",
+      "zhBrand": "路特斯",
+      "brand": "Lotus",
+      "model": "Emira",
+      "edition": "游戏跑车",
+      "color": "emerald green",
+      "reference": "https://openai.com/",
+      "status": "reviewed",
+      "image": "play-CAR24-side",
+      "audio": "car",
+      "observation": "摸摸车轮，看看车灯，带它去乐园动动手。",
+      "credit": {
+        "id": "CAR02",
+        "title": "File:2023 Ferrari 296 GTB.jpg",
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/2023_Ferrari_296_GTB.jpg/1280px-2023_Ferrari_296_GTB.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:2023_Ferrari_296_GTB.jpg",
+        "author": "Calreyn88",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
+      },
+      "displayImage": "play-CAR24-side",
+      "views": [
+        {
+          "id": "side",
+          "image": "play-CAR24-side",
+          "label": "侧面",
+          "caption": "重新生成的游戏跑车侧面",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        },
+        {
+          "id": "top",
+          "image": "play-CAR24-top",
+          "label": "俯视",
+          "caption": "重新生成的游戏跑车俯视",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.796,
+          "y": 0.6444444444444445
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "showcaseImage": "play-CAR24-side",
+      "showcaseHotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.796,
+          "y": 0.6444444444444445
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "game": {
+        "side": "play-CAR24-side",
+        "top": "play-CAR24-top",
+        "wheels": [
+          {
+            "x": 0.152,
+            "y": 0.6422222222222222,
+            "r": 0.075
+          },
+          {
+            "x": 0.796,
+            "y": 0.6444444444444445,
+            "r": 0.075
+          }
+        ]
+      }
+    },
+    {
+      "id": "CAR25",
+      "name": "阿尔派 A110",
+      "zhBrand": "阿尔派",
+      "brand": "Alpine",
+      "model": "A110",
+      "edition": "游戏跑车",
+      "color": "French blue",
+      "reference": "https://openai.com/",
+      "status": "reviewed",
+      "image": "play-CAR25-side",
+      "audio": "car",
+      "observation": "摸摸车轮，看看车灯，带它去乐园动动手。",
+      "credit": {
+        "id": "CAR02",
+        "title": "File:2023 Ferrari 296 GTB.jpg",
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/2023_Ferrari_296_GTB.jpg/1280px-2023_Ferrari_296_GTB.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:2023_Ferrari_296_GTB.jpg",
+        "author": "Calreyn88",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
+      },
+      "displayImage": "play-CAR25-side",
+      "views": [
+        {
+          "id": "side",
+          "image": "play-CAR25-side",
+          "label": "侧面",
+          "caption": "重新生成的游戏跑车侧面",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        },
+        {
+          "id": "top",
+          "image": "play-CAR25-top",
+          "label": "俯视",
+          "caption": "重新生成的游戏跑车俯视",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.809,
+          "y": 0.6666666666666666
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "showcaseImage": "play-CAR25-side",
+      "showcaseHotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.809,
+          "y": 0.6666666666666666
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "game": {
+        "side": "play-CAR25-side",
+        "top": "play-CAR25-top",
+        "wheels": [
+          {
+            "x": 0.161,
+            "y": 0.6577777777777778,
+            "r": 0.075
+          },
+          {
+            "x": 0.809,
+            "y": 0.6666666666666666,
+            "r": 0.075
+          }
+        ]
+      }
+    },
+    {
+      "id": "CAR26",
+      "name": "捷豹 F-Type",
+      "zhBrand": "捷豹",
+      "brand": "Jaguar",
+      "model": "F-Type",
+      "edition": "游戏跑车",
+      "color": "forest green",
+      "reference": "https://openai.com/",
+      "status": "reviewed",
+      "image": "play-CAR26-side",
+      "audio": "car",
+      "observation": "摸摸车轮，看看车灯，带它去乐园动动手。",
+      "credit": {
+        "id": "CAR02",
+        "title": "File:2023 Ferrari 296 GTB.jpg",
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/2023_Ferrari_296_GTB.jpg/1280px-2023_Ferrari_296_GTB.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:2023_Ferrari_296_GTB.jpg",
+        "author": "Calreyn88",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
+      },
+      "displayImage": "play-CAR26-side",
+      "views": [
+        {
+          "id": "side",
+          "image": "play-CAR26-side",
+          "label": "侧面",
+          "caption": "重新生成的游戏跑车侧面",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        },
+        {
+          "id": "top",
+          "image": "play-CAR26-top",
+          "label": "俯视",
+          "caption": "重新生成的游戏跑车俯视",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.832,
+          "y": 0.6533333333333333
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "showcaseImage": "play-CAR26-side",
+      "showcaseHotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.832,
+          "y": 0.6533333333333333
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "game": {
+        "side": "play-CAR26-side",
+        "top": "play-CAR26-top",
+        "wheels": [
+          {
+            "x": 0.175,
+            "y": 0.6533333333333333,
+            "r": 0.075
+          },
+          {
+            "x": 0.832,
+            "y": 0.6533333333333333,
+            "r": 0.075
+          }
+        ]
+      }
+    },
+    {
+      "id": "CAR27",
+      "name": "本田 NSX",
+      "zhBrand": "本田",
+      "brand": "Honda",
+      "model": "NSX",
+      "edition": "游戏跑车",
+      "color": "pearl silver",
+      "reference": "https://openai.com/",
+      "status": "reviewed",
+      "image": "play-CAR27-side",
+      "audio": "car",
+      "observation": "摸摸车轮，看看车灯，带它去乐园动动手。",
+      "credit": {
+        "id": "CAR02",
+        "title": "File:2023 Ferrari 296 GTB.jpg",
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/2023_Ferrari_296_GTB.jpg/1280px-2023_Ferrari_296_GTB.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:2023_Ferrari_296_GTB.jpg",
+        "author": "Calreyn88",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
+      },
+      "displayImage": "play-CAR27-side",
+      "views": [
+        {
+          "id": "side",
+          "image": "play-CAR27-side",
+          "label": "侧面",
+          "caption": "重新生成的游戏跑车侧面",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        },
+        {
+          "id": "top",
+          "image": "play-CAR27-top",
+          "label": "俯视",
+          "caption": "重新生成的游戏跑车俯视",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.763,
+          "y": 0.6488888888888888
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "showcaseImage": "play-CAR27-side",
+      "showcaseHotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.763,
+          "y": 0.6488888888888888
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "game": {
+        "side": "play-CAR27-side",
+        "top": "play-CAR27-top",
+        "wheels": [
+          {
+            "x": 0.168,
+            "y": 0.6444444444444445,
+            "r": 0.075
+          },
+          {
+            "x": 0.763,
+            "y": 0.6488888888888888,
+            "r": 0.075
+          }
+        ]
+      }
+    },
+    {
+      "id": "CAR28",
+      "name": "雪佛兰 Camaro",
+      "zhBrand": "雪佛兰",
+      "brand": "Chevrolet",
+      "model": "Camaro",
+      "edition": "游戏跑车",
+      "color": "orange with two black stripes",
+      "reference": "https://openai.com/",
+      "status": "reviewed",
+      "image": "play-CAR28-side",
+      "audio": "car",
+      "observation": "摸摸车轮，看看车灯，带它去乐园动动手。",
+      "credit": {
+        "id": "CAR02",
+        "title": "File:2023 Ferrari 296 GTB.jpg",
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/2023_Ferrari_296_GTB.jpg/1280px-2023_Ferrari_296_GTB.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:2023_Ferrari_296_GTB.jpg",
+        "author": "Calreyn88",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
+      },
+      "displayImage": "play-CAR28-side",
+      "views": [
+        {
+          "id": "side",
+          "image": "play-CAR28-side",
+          "label": "侧面",
+          "caption": "重新生成的游戏跑车侧面",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        },
+        {
+          "id": "top",
+          "image": "play-CAR28-top",
+          "label": "俯视",
+          "caption": "重新生成的游戏跑车俯视",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.846,
+          "y": 0.6622222222222223
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "showcaseImage": "play-CAR28-side",
+      "showcaseHotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.846,
+          "y": 0.6622222222222223
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "game": {
+        "side": "play-CAR28-side",
+        "top": "play-CAR28-top",
+        "wheels": [
+          {
+            "x": 0.183,
+            "y": 0.6644444444444444,
+            "r": 0.075
+          },
+          {
+            "x": 0.846,
+            "y": 0.6622222222222223,
+            "r": 0.075
+          }
+        ]
+      }
+    },
+    {
+      "id": "CAR29",
+      "name": "道奇 Viper",
+      "zhBrand": "道奇",
+      "brand": "Dodge",
+      "model": "Viper",
+      "edition": "游戏跑车",
+      "color": "blue with two white stripes",
+      "reference": "https://openai.com/",
+      "status": "reviewed",
+      "image": "play-CAR29-side",
+      "audio": "car",
+      "observation": "摸摸车轮，看看车灯，带它去乐园动动手。",
+      "credit": {
+        "id": "CAR02",
+        "title": "File:2023 Ferrari 296 GTB.jpg",
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/2023_Ferrari_296_GTB.jpg/1280px-2023_Ferrari_296_GTB.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:2023_Ferrari_296_GTB.jpg",
+        "author": "Calreyn88",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
+      },
+      "displayImage": "play-CAR29-side",
+      "views": [
+        {
+          "id": "side",
+          "image": "play-CAR29-side",
+          "label": "侧面",
+          "caption": "重新生成的游戏跑车侧面",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        },
+        {
+          "id": "top",
+          "image": "play-CAR29-top",
+          "label": "俯视",
+          "caption": "重新生成的游戏跑车俯视",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.841,
+          "y": 0.6444444444444445
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "showcaseImage": "play-CAR29-side",
+      "showcaseHotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.841,
+          "y": 0.6444444444444445
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "game": {
+        "side": "play-CAR29-side",
+        "top": "play-CAR29-top",
+        "wheels": [
+          {
+            "x": 0.186,
+            "y": 0.6444444444444445,
+            "r": 0.075
+          },
+          {
+            "x": 0.841,
+            "y": 0.6444444444444445,
+            "r": 0.075
+          }
+        ]
+      }
+    },
+    {
+      "id": "CAR30",
+      "name": "宝马 i8",
+      "zhBrand": "宝马",
+      "brand": "BMW",
+      "model": "i8",
+      "edition": "游戏跑车",
+      "color": "white and cyan accents",
+      "reference": "https://openai.com/",
+      "status": "reviewed",
+      "image": "play-CAR30-side",
+      "audio": "car",
+      "observation": "摸摸车轮，看看车灯，带它去乐园动动手。",
+      "credit": {
+        "id": "CAR02",
+        "title": "File:2023 Ferrari 296 GTB.jpg",
+        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/2023_Ferrari_296_GTB.jpg/1280px-2023_Ferrari_296_GTB.jpg",
+        "page": "https://commons.wikimedia.org/wiki/File:2023_Ferrari_296_GTB.jpg",
+        "author": "Calreyn88",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+        "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
+      },
+      "displayImage": "play-CAR30-side",
+      "views": [
+        {
+          "id": "side",
+          "image": "play-CAR30-side",
+          "label": "侧面",
+          "caption": "重新生成的游戏跑车侧面",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        },
+        {
+          "id": "top",
+          "image": "play-CAR30-top",
+          "label": "俯视",
+          "caption": "重新生成的游戏跑车俯视",
+          "credit": {
+            "author": "GPT Image",
+            "license": "Generated game artwork",
+            "licenseUrl": "https://openai.com/policies/terms-of-use/",
+            "sourceUrl": "https://openai.com/"
+          }
+        }
+      ],
+      "hotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.802,
+          "y": 0.6577777777777778
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "showcaseImage": "play-CAR30-side",
+      "showcaseHotspots": [
+        {
+          "id": "wheel",
+          "zh": "车轮",
+          "x": 0.802,
+          "y": 0.6577777777777778
+        },
+        {
+          "id": "door",
+          "zh": "车门",
+          "x": 0.51,
+          "y": 0.51
+        },
+        {
+          "id": "light",
+          "zh": "车灯",
+          "x": 0.9,
+          "y": 0.47
+        }
+      ],
+      "game": {
+        "side": "play-CAR30-side",
+        "top": "play-CAR30-top",
+        "wheels": [
+          {
+            "x": 0.181,
+            "y": 0.6577777777777778,
+            "r": 0.075
+          },
+          {
+            "x": 0.802,
+            "y": 0.6577777777777778,
+            "r": 0.075
+          }
+        ]
+      }
     }
   ],
   "stories": [

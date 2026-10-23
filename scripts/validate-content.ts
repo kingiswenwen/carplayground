@@ -19,25 +19,18 @@ for (const asset of content.assets) {
 const published = new Set(content.assets.map(a => a.path));
 async function verifyDirectory(folder:string):Promise<void>{for(const entry of await fs.readdir(path.join('public',folder),{withFileTypes:true})){const local=folder+'/'+entry.name;if(entry.isDirectory())await verifyDirectory(local);else if(!published.has(local))throw new Error(`未登记素材 ${local}`);}}
 await verifyDirectory('media');
-const showcases=JSON.parse(await fs.readFile('content/showcase-production.json','utf8')) as {assetId:string;file:string;webSha256:string;review:{status:string;hotspots?:{id:string;x:number;y:number}[];observationPoints?:Record<string,{x:number;y:number}>};reference:{file:string;page:string;author:string;license:string;licenseUrl:string}}[];
-const showcaseAssets=content.assets.filter(asset=>asset.path.startsWith('media/showcase/'));
-if(showcases.length!==showcaseAssets.length||new Set(showcases.map(item=>item.assetId)).size!==showcases.length)throw Error('情境图生产清单与素材数量不一致');
-for(const item of showcases){
-  const asset=showcaseAssets.find(asset=>asset.id===item.assetId);
-  if(!asset||asset.path!==item.file||asset.sha256!==item.webSha256||item.review.status!=='reviewed')throw Error(`情境图文件与审核不一致 ${item.assetId}`);
-  if(!content.assets.some(asset=>asset.path===item.reference.file)||!item.reference.author||!item.reference.license||!URL.canParse(item.reference.page)||!URL.canParse(item.reference.licenseUrl))throw Error(`情境图参考缺失 ${item.assetId}`);
-}
+const sources=JSON.parse(await fs.readFile('content/play-cars-production.json','utf8')) as {id:string;tool:string;generatedFile:string;prompt:string;views:{side:string;top:string};wheels:{x:number;y:number;r:number}[];checks:{transparentExport:boolean;distinctGeneratedSheet:boolean;dimensions:number[]}}[];
+if(sources.length!==30||new Set(sources.map(s=>s.id)).size!==30||new Set(sources.map(s=>s.generatedFile)).size!==30)throw Error('需要30款独立生成跑车的完整来源记录');
 for(const car of content.cars){
-  const source=showcases.find(item=>item.assetId===car.showcaseImage);
-  if(!source||JSON.stringify(source.review.hotspots)!==JSON.stringify(car.showcaseHotspots)||JSON.stringify(source.review.observationPoints)!==JSON.stringify(car.showcaseObservationPoints))throw Error(`车型情境图热点未核对 ${car.id}`);
+ const source=sources.find(s=>s.id===car.id);
+ if(!car.game||!source||source.tool!=='Built-in GPT Image'||!source.prompt||!source.checks.transparentExport||source.views.side!==car.game.side||source.views.top!==car.game.top||JSON.stringify(source.wheels)!==JSON.stringify(car.game.wheels))throw Error('游戏跑车与生成记录不一致 '+car.id);
+ if(car.image!==car.game.side||car.showcaseImage!==car.game.side||car.views.some(v=>!v.image.startsWith('play-CAR')))throw Error('游戏界面仍引用旧车图 '+car.id);
+ for(const id of [car.game.side,car.game.top]){
+  const asset=content.assets.find(a=>a.id===id);
+  if(!asset?.path.startsWith('media/play-cars/'))throw Error('游戏车素材目录错误 '+id);
+  const raw=await sharp(path.join('public',asset.path)).ensureAlpha().raw().toBuffer();
+  let clear=0;for(let i=3;i<raw.length;i+=4)if(raw[i]<10)clear++;
+  if(clear<1000*450*.15)throw Error('车辆缺少实际透明背景 '+id);
+ }
 }
-const photoSources=JSON.parse(await fs.readFile('content/photo-view-sources.json','utf8')) as {assetId:string;carId:string;view:string;file:string;status:string;webSha256:string;author:string;page:string;license:string;licenseUrl:string}[];
-const views=content.cars.flatMap(car=>car.views.map(view=>({car,view})));
-if(photoSources.length!==views.length||new Set(photoSources.map(source=>source.assetId)).size!==photoSources.length)throw Error('实拍视角来源数量或编号不一致');
-for(const {car,view}of views){
-  const source=photoSources.find(item=>item.assetId===view.image);
-  const asset=content.assets.find(item=>item.id===view.image)!;
-  if(!source||source.status!=='reviewed'||source.carId!==car.id||source.view!==view.id||source.webSha256!==asset.sha256||'media/'+source.file!==asset.path)throw Error(`视角与审核来源不一致 ${car.id}/${view.id}`);
-  if(source.author!==view.credit.author||source.page!==view.credit.sourceUrl||source.license!==view.credit.license||source.licenseUrl!==view.credit.licenseUrl)throw Error(`实拍署名不一致 ${car.id}/${view.id}`);
-}
-console.log(`内容 ${content.id} 验证通过：${content.cars.length} 车型 / ${content.scenes.length} 场景 / ${content.activities.length} 活动 / ${content.stories.length} 故事 / ${content.assets.length} 素材，引用、审核状态、文件与 SHA-256 一致。`);
+console.log(`内容 ${content.id} 验证通过：${content.cars.length} 款新生成跑车 / 60 独立视图 / ${content.activities.length} 活动，透明度、引用、来源、文件与 SHA-256 一致。`);

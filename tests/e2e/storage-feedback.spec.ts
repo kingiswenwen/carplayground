@@ -45,7 +45,7 @@ test('加载中的语音关闭后不恢复旧请求，重新开启仍可播放',
   await expect.poll(sounds).toBe(0);
   await page.getByRole('button', {name: '开启声音', exact: true}).click();
   await expect.poll(() => page.evaluate(() => (Reflect.get(window, 'Howler') as unknown as {_howls: {playing: () => boolean}[]})._howls.filter(howl => howl.playing()).length)).toBe(1);
-  await page.getByRole('link', {name: '回去看车', exact: true}).click();
+  await page.getByRole('link', {name: '回到乐园', exact: true}).click();
   await expect.poll(sounds).toBe(0);
   expect(errors).toEqual([]);
 });

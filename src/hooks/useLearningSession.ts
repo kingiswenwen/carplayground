@@ -4,7 +4,7 @@ import {newSessionId} from '../domain/session-id';
 import {audio} from '../services/audio';
 import {db, finishSession, safely, saveSessionResult, type SessionRecord, type SessionResult, type Settings} from '../services/storage';
 
-export function useLearningSession(activity: ActivityDefinition, settings: Settings, carId: string) {
+export function useLearningSession(activity: ActivityDefinition, settings: Settings, carId: string, autoInstruction = true) {
   const [initial] = useState<SessionRecord>(() => ({id: newSessionId(), activityId: activity.id, activityVersion: activity.version,
     contentReleaseId: content.id, carIds: [carId], difficulty: settings.difficulty, locale: 'zh-CN', audioEnabled: settings.sound,
     startedAt: new Date().toISOString(), state: 'playing', hints: 0, durationMs: 0}));
@@ -33,7 +33,7 @@ export function useLearningSession(activity: ActivityDefinition, settings: Setti
       }
     };
     document.addEventListener('visibilitychange', hide);
-    replay();
+    if (autoInstruction) replay();
     return () => {
       cancelled = true; alive.current = false;
       document.removeEventListener('visibilitychange', hide); audio.stop();

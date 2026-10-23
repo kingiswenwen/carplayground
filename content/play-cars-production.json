@@ -1,0 +1,1052 @@
+[
+  {
+    "id": "CAR01",
+    "brand": "Lamborghini",
+    "model": "Revuelto",
+    "color": "sunshine yellow",
+    "tool": "Built-in GPT Image",
+    "intent": "new generation, not a source-photograph extraction",
+    "prompt": "Use case: stylized-concept. Asset type: ONE production two-view game vehicle sprite sheet for CarPlayground. Generate a BRAND NEW sunshine yellow Lamborghini Revuelto, crafted as a beautiful realistic 3D game prop for a four-year-old's touch playground, NEVER an extracted photograph. Clear simplified readable surfaces, slightly softened but authentic recognizable sports-car body silhouette, dark readable windows and large round wheels. No cartoon faces. Use the provided red car sheet ONLY as a rendering/style/layout reference; replace the vehicle completely with the requested Lamborghini Revuelto in BOTH views. TRUE ALPHA TRANSPARENCY: all pixels outside cars fully transparent, no gradients/halos/shadows. Landscape 1536x1024 sheet, two rows separated by at least 70 empty transparent pixels at y=477..547. TOP ROW: exact orthographic side profile, nose RIGHT, centered inside x=120..1416,y=70..440, two visible circular wheels. BOTTOM ROW: exact orthographic TOP DOWN view of same car, nose RIGHT, centered inside x=120..1416,y=570..970. Preserve car identity, proportions and paint across both views. Whole bumpers, mirrors and wheels visible, ample margins. No floor, environment, podium, text, labels, watermark or extra vehicles. Production sprites for dragging, washing overlays, wheel assembly and top-down parking.",
+    "generatedFile": "exec-26986708-d85a-42be-affd-190c29e3b4d2.png",
+    "views": {
+      "side": "play-CAR01-side",
+      "top": "play-CAR01-top"
+    },
+    "wheels": [
+      {
+        "x": 0.153,
+        "y": 0.6266666666666667,
+        "r": 0.075
+      },
+      {
+        "x": 0.784,
+        "y": 0.6311111111111111,
+        "r": 0.075
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Game interpretation. Inspect visual identity, frame separation and wheel registration in the rendered contact sheet and actual scenes."
+  },
+  {
+    "id": "CAR02",
+    "brand": "Ferrari",
+    "model": "296 GTB",
+    "color": "red",
+    "tool": "Built-in GPT Image",
+    "intent": "new generation, not a source-photograph extraction",
+    "prompt": "Use case: stylized-concept. Asset type: production two-view sprite sheet for CarPlayground, a touch-first children's car playground. Create an entirely NEW GPT-rendered RED Ferrari 296 GTB game vehicle, not a cutout of a photograph, not an automotive showroom photograph. A carefully crafted realistic 3D game prop with accurate recognizable 296 GTB silhouette and slim headlights, clear simplified surfaces, slightly softened edges, rich red paint, readable dark windows, four coherent wheels, friendly inviting lighting. NO cartoon eyes or faces. ACTUAL TRANSPARENT BACKGROUND. Landscape 1536x1024 sheet, two equal horizontal 1536x512 cells. TOP CELL: exact orthographic LEFT SIDE profile, nose pointing RIGHT, both visible wheels perfectly circular, car centered with generous margin and whole car visible. BOTTOM CELL: exact orthographic TOP DOWN view of the SAME red Ferrari, nose pointing RIGHT, centered in cell, no perspective angle. Both views centered at x=768 in their cells and fit x=120..1416, y within each cell=80..430. NO environment, floor, podium, text, labels, badges, people, extra vehicles, contact shadow, checkerboard drawing or watermark. Keep geometry clear for finger dragging, separate wheel rotation masks, washing overlays and top-down parking. This is a clean playable vehicle sprite asset, never repurpose previous source photographs.",
+    "generatedFile": "exec-bf0e1a64-85da-457a-ac57-15536619dc79.png",
+    "views": {
+      "side": "play-CAR02-side",
+      "top": "play-CAR02-top"
+    },
+    "wheels": [
+      {
+        "x": 0.148,
+        "y": 0.6422222222222222,
+        "r": 0.075
+      },
+      {
+        "x": 0.793,
+        "y": 0.6422222222222222,
+        "r": 0.075
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Game interpretation. Inspect visual identity, frame separation and wheel registration in the rendered contact sheet and actual scenes."
+  },
+  {
+    "id": "CAR03",
+    "brand": "Porsche",
+    "model": "911 GT3 RS",
+    "color": "mint green with black aero",
+    "tool": "Built-in GPT Image",
+    "intent": "new generation, not a source-photograph extraction",
+    "prompt": "Use case: stylized-concept. Asset type: ONE production two-view game vehicle sprite sheet for CarPlayground. Generate a BRAND NEW mint green with black aero Porsche 911 GT3 RS, crafted as a beautiful realistic 3D game prop for a four-year-old's touch playground, NEVER an extracted photograph. Clear simplified readable surfaces, slightly softened but authentic recognizable sports-car body silhouette, dark readable windows and large round wheels. No cartoon faces. Use the provided red car sheet ONLY as a rendering/style/layout reference; replace the vehicle completely with the requested Porsche 911 GT3 RS in BOTH views. TRUE ALPHA TRANSPARENCY: all pixels outside cars fully transparent, no gradients/halos/shadows. Landscape 1536x1024 sheet, two rows separated by at least 70 empty transparent pixels at y=477..547. TOP ROW: exact orthographic side profile, nose RIGHT, centered inside x=120..1416,y=70..440, two visible circular wheels. BOTTOM ROW: exact orthographic TOP DOWN view of same car, nose RIGHT, centered inside x=120..1416,y=570..970. Preserve car identity, proportions and paint across both views. Whole bumpers, mirrors and wheels visible, ample margins. No floor, environment, podium, text, labels, watermark or extra vehicles. Production sprites for dragging, washing overlays, wheel assembly and top-down parking.",
+    "generatedFile": "exec-cb8aa265-e9d3-4d80-ae21-40f43e5ca81f.png",
+    "views": {
+      "side": "play-CAR03-side",
+      "top": "play-CAR03-top"
+    },
+    "wheels": [
+      {
+        "x": 0.173,
+        "y": 0.6333333333333333,
+        "r": 0.075
+      },
+      {
+        "x": 0.794,
+        "y": 0.6422222222222222,
+        "r": 0.075
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Game interpretation. Inspect visual identity, frame separation and wheel registration in the rendered contact sheet and actual scenes."
+  },
+  {
+    "id": "CAR04",
+    "brand": "McLaren",
+    "model": "750S",
+    "color": "tangerine orange",
+    "tool": "Built-in GPT Image",
+    "intent": "new generation, not a source-photograph extraction",
+    "prompt": "Use case: stylized-concept. Asset type: ONE production two-view game vehicle sprite sheet for CarPlayground. Generate a BRAND NEW tangerine orange McLaren 750S, crafted as a beautiful realistic 3D game prop for a four-year-old's touch playground, NEVER an extracted photograph. Clear simplified readable surfaces, slightly softened but authentic recognizable sports-car body silhouette, dark readable windows and large round wheels. No cartoon faces. Use the provided red car sheet ONLY as a rendering/style/layout reference; replace the vehicle completely with the requested McLaren 750S in BOTH views. TRUE ALPHA TRANSPARENCY: all pixels outside cars fully transparent, no gradients/halos/shadows. Landscape 1536x1024 sheet, two rows separated by at least 70 empty transparent pixels at y=477..547. TOP ROW: exact orthographic side profile, nose RIGHT, centered inside x=120..1416,y=70..440, two visible circular wheels. BOTTOM ROW: exact orthographic TOP DOWN view of same car, nose RIGHT, centered inside x=120..1416,y=570..970. Preserve car identity, proportions and paint across both views. Whole bumpers, mirrors and wheels visible, ample margins. No floor, environment, podium, text, labels, watermark or extra vehicles. Production sprites for dragging, washing overlays, wheel assembly and top-down parking.",
+    "generatedFile": "exec-94f9a57f-80d6-4404-9d28-0aa1e7dfcd38.png",
+    "views": {
+      "side": "play-CAR04-side",
+      "top": "play-CAR04-top"
+    },
+    "wheels": [
+      {
+        "x": 0.155,
+        "y": 0.64,
+        "r": 0.075
+      },
+      {
+        "x": 0.779,
+        "y": 0.6444444444444445,
+        "r": 0.075
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Game interpretation. Inspect visual identity, frame separation and wheel registration in the rendered contact sheet and actual scenes."
+  },
+  {
+    "id": "CAR05",
+    "brand": "Bugatti",
+    "model": "Chiron",
+    "color": "cobalt blue",
+    "tool": "Built-in GPT Image",
+    "intent": "new generation, not a source-photograph extraction",
+    "prompt": "Use case: stylized-concept. Asset type: ONE production two-view game vehicle sprite sheet for CarPlayground. Generate a BRAND NEW cobalt blue Bugatti Chiron, crafted as a beautiful realistic 3D game prop for a four-year-old's touch playground, NEVER an extracted photograph. Clear simplified readable surfaces, slightly softened but authentic recognizable sports-car body silhouette, dark readable windows and large round wheels. No cartoon faces. Use the provided red car sheet ONLY as a rendering/style/layout reference; replace the vehicle completely with the requested Bugatti Chiron in BOTH views. TRUE ALPHA TRANSPARENCY: all pixels outside cars fully transparent, no gradients/halos/shadows. Landscape 1536x1024 sheet, two rows separated by at least 70 empty transparent pixels at y=477..547. TOP ROW: exact orthographic side profile, nose RIGHT, centered inside x=120..1416,y=70..440, two visible circular wheels. BOTTOM ROW: exact orthographic TOP DOWN view of same car, nose RIGHT, centered inside x=120..1416,y=570..970. Preserve car identity, proportions and paint across both views. Whole bumpers, mirrors and wheels visible, ample margins. No floor, environment, podium, text, labels, watermark or extra vehicles. Production sprites for dragging, washing overlays, wheel assembly and top-down parking.",
+    "generatedFile": "exec-f5c20d5a-601d-4d17-99c1-cccd654c2197.png",
+    "views": {
+      "side": "play-CAR05-side",
+      "top": "play-CAR05-top"
+    },
+    "wheels": [
+      {
+        "x": 0.172,
+        "y": 0.6422222222222222,
+        "r": 0.075
+      },
+      {
+        "x": 0.801,
+        "y": 0.6488888888888888,
+        "r": 0.075
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Game interpretation. Inspect visual identity, frame separation and wheel registration in the rendered contact sheet and actual scenes."
+  },
+  {
+    "id": "CAR06",
+    "brand": "Pagani",
+    "model": "Huayra",
+    "color": "pearl silver",
+    "tool": "Built-in GPT Image",
+    "intent": "new generation, not a source-photograph extraction",
+    "prompt": "Use case: stylized-concept. Asset type: ONE production two-view game vehicle sprite sheet for CarPlayground. Generate a BRAND NEW pearl silver Pagani Huayra, crafted as a beautiful realistic 3D game prop for a four-year-old's touch playground, NEVER an extracted photograph. Clear simplified readable surfaces, slightly softened but authentic recognizable sports-car body silhouette, dark readable windows and large round wheels. No cartoon faces. Use the provided red car sheet ONLY as a rendering/style/layout reference; replace the vehicle completely with the requested Pagani Huayra in BOTH views. TRUE ALPHA TRANSPARENCY: all pixels outside cars fully transparent, no gradients/halos/shadows. Landscape 1536x1024 sheet, two rows separated by at least 70 empty transparent pixels at y=477..547. TOP ROW: exact orthographic side profile, nose RIGHT, centered inside x=120..1416,y=70..440, two visible circular wheels. BOTTOM ROW: exact orthographic TOP DOWN view of same car, nose RIGHT, centered inside x=120..1416,y=570..970. Preserve car identity, proportions and paint across both views. Whole bumpers, mirrors and wheels visible, ample margins. No floor, environment, podium, text, labels, watermark or extra vehicles. Production sprites for dragging, washing overlays, wheel assembly and top-down parking.",
+    "generatedFile": "exec-02b19bc0-f3d9-4c36-8ab6-ed2dc0ca680e.png",
+    "views": {
+      "side": "play-CAR06-side",
+      "top": "play-CAR06-top"
+    },
+    "wheels": [
+      {
+        "x": 0.165,
+        "y": 0.64,
+        "r": 0.075
+      },
+      {
+        "x": 0.791,
+        "y": 0.6444444444444445,
+        "r": 0.075
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Game interpretation. Inspect visual identity, frame separation and wheel registration in the rendered contact sheet and actual scenes."
+  },
+  {
+    "id": "CAR07",
+    "brand": "Koenigsegg",
+    "model": "Jesko Attack",
+    "color": "lime green",
+    "tool": "Built-in GPT Image",
+    "intent": "new generation, not a source-photograph extraction",
+    "prompt": "Use case: stylized-concept. Asset type: ONE production two-view game vehicle sprite sheet for CarPlayground. Generate a BRAND NEW lime green Koenigsegg Jesko Attack, crafted as a beautiful realistic 3D game prop for a four-year-old's touch playground, NEVER an extracted photograph. Clear simplified readable surfaces, slightly softened but authentic recognizable sports-car body silhouette, dark readable windows and large round wheels. No cartoon faces. Use the provided red car sheet ONLY as a rendering/style/layout reference; replace the vehicle completely with the requested Koenigsegg Jesko Attack in BOTH views. TRUE ALPHA TRANSPARENCY: all pixels outside cars fully transparent, no gradients/halos/shadows. Landscape 1536x1024 sheet, two rows separated by at least 70 empty transparent pixels at y=477..547. TOP ROW: exact orthographic side profile, nose RIGHT, centered inside x=120..1416,y=70..440, two visible circular wheels. BOTTOM ROW: exact orthographic TOP DOWN view of same car, nose RIGHT, centered inside x=120..1416,y=570..970. Preserve car identity, proportions and paint across both views. Whole bumpers, mirrors and wheels visible, ample margins. No floor, environment, podium, text, labels, watermark or extra vehicles. Production sprites for dragging, washing overlays, wheel assembly and top-down parking.",
+    "generatedFile": "exec-cc7b0c07-301a-4c74-8f2c-1150a765ffc0.png",
+    "views": {
+      "side": "play-CAR07-side",
+      "top": "play-CAR07-top"
+    },
+    "wheels": [
+      {
+        "x": 0.169,
+        "y": 0.6266666666666667,
+        "r": 0.075
+      },
+      {
+        "x": 0.788,
+        "y": 0.6377777777777778,
+        "r": 0.075
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Game interpretation. Inspect visual identity, frame separation and wheel registration in the rendered contact sheet and actual scenes."
+  },
+  {
+    "id": "CAR08",
+    "brand": "Aston Martin",
+    "model": "Vantage",
+    "color": "British racing green",
+    "tool": "Built-in GPT Image",
+    "intent": "new generation, not a source-photograph extraction",
+    "prompt": "Use case: stylized-concept. Asset type: ONE production two-view game vehicle sprite sheet for CarPlayground. Generate a BRAND NEW British racing green Aston Martin Vantage, crafted as a beautiful realistic 3D game prop for a four-year-old's touch playground, NEVER an extracted photograph. Clear simplified readable surfaces, slightly softened but authentic recognizable sports-car body silhouette, dark readable windows and large round wheels. No cartoon faces. Use the provided red car sheet ONLY as a rendering/style/layout reference; replace the vehicle completely with the requested Aston Martin Vantage in BOTH views. TRUE ALPHA TRANSPARENCY: all pixels outside cars fully transparent, no gradients/halos/shadows. Landscape 1536x1024 sheet, two rows separated by at least 70 empty transparent pixels at y=477..547. TOP ROW: exact orthographic side profile, nose RIGHT, centered inside x=120..1416,y=70..440, two visible circular wheels. BOTTOM ROW: exact orthographic TOP DOWN view of same car, nose RIGHT, centered inside x=120..1416,y=570..970. Preserve car identity, proportions and paint across both views. Whole bumpers, mirrors and wheels visible, ample margins. No floor, environment, podium, text, labels, watermark or extra vehicles. Production sprites for dragging, washing overlays, wheel assembly and top-down parking.",
+    "generatedFile": "exec-1a2a93dd-9895-43e7-b36d-89ca9a3c18c4.png",
+    "views": {
+      "side": "play-CAR08-side",
+      "top": "play-CAR08-top"
+    },
+    "wheels": [
+      {
+        "x": 0.176,
+        "y": 0.6466666666666666,
+        "r": 0.075
+      },
+      {
+        "x": 0.804,
+        "y": 0.6511111111111111,
+        "r": 0.075
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Game interpretation. Inspect visual identity, frame separation and wheel registration in the rendered contact sheet and actual scenes."
+  },
+  {
+    "id": "CAR09",
+    "brand": "Chevrolet",
+    "model": "Corvette C8 Stingray",
+    "color": "lemon yellow",
+    "tool": "Built-in GPT Image",
+    "intent": "new generation, not a source-photograph extraction",
+    "prompt": "Use case: stylized-concept. Asset type: ONE production two-view game vehicle sprite sheet for CarPlayground. Generate a BRAND NEW lemon yellow Chevrolet Corvette C8 Stingray, crafted as a beautiful realistic 3D game prop for a four-year-old's touch playground, NEVER an extracted photograph. Clear simplified readable surfaces, slightly softened but authentic recognizable sports-car body silhouette, dark readable windows and large round wheels. No cartoon faces. Use the provided red car sheet ONLY as a rendering/style/layout reference; replace the vehicle completely with the requested Chevrolet Corvette C8 Stingray in BOTH views. TRUE ALPHA TRANSPARENCY: all pixels outside cars fully transparent, no gradients/halos/shadows. Landscape 1536x1024 sheet, two rows separated by at least 70 empty transparent pixels at y=477..547. TOP ROW: exact orthographic side profile, nose RIGHT, centered inside x=120..1416,y=70..440, two visible circular wheels. BOTTOM ROW: exact orthographic TOP DOWN view of same car, nose RIGHT, centered inside x=120..1416,y=570..970. Preserve car identity, proportions and paint across both views. Whole bumpers, mirrors and wheels visible, ample margins. No floor, environment, podium, text, labels, watermark or extra vehicles. Production sprites for dragging, washing overlays, wheel assembly and top-down parking.",
+    "generatedFile": "exec-9f1493de-a7ac-466a-8dcb-9a82770eb370.png",
+    "views": {
+      "side": "play-CAR09-side",
+      "top": "play-CAR09-top"
+    },
+    "wheels": [
+      {
+        "x": 0.178,
+        "y": 0.6466666666666666,
+        "r": 0.075
+      },
+      {
+        "x": 0.797,
+        "y": 0.6466666666666666,
+        "r": 0.075
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Game interpretation. Inspect visual identity, frame separation and wheel registration in the rendered contact sheet and actual scenes."
+  },
+  {
+    "id": "CAR10",
+    "brand": "Mercedes-AMG",
+    "model": "GT Coupé",
+    "color": "cherry red",
+    "tool": "Built-in GPT Image",
+    "intent": "new generation, not a source-photograph extraction",
+    "prompt": "Use case: stylized-concept. Asset type: ONE production two-view game vehicle sprite sheet for CarPlayground. Generate a BRAND NEW cherry red Mercedes-AMG GT Coupé, crafted as a beautiful realistic 3D game prop for a four-year-old's touch playground, NEVER an extracted photograph. Clear simplified readable surfaces, slightly softened but authentic recognizable sports-car body silhouette, dark readable windows and large round wheels. No cartoon faces. Use the provided red car sheet ONLY as a rendering/style/layout reference; replace the vehicle completely with the requested Mercedes-AMG GT Coupé in BOTH views. TRUE ALPHA TRANSPARENCY: all pixels outside cars fully transparent, no gradients/halos/shadows. Landscape 1536x1024 sheet, two rows separated by at least 70 empty transparent pixels at y=477..547. TOP ROW: exact orthographic side profile, nose RIGHT, centered inside x=120..1416,y=70..440, two visible circular wheels. BOTTOM ROW: exact orthographic TOP DOWN view of same car, nose RIGHT, centered inside x=120..1416,y=570..970. Preserve car identity, proportions and paint across both views. Whole bumpers, mirrors and wheels visible, ample margins. No floor, environment, podium, text, labels, watermark or extra vehicles. Production sprites for dragging, washing overlays, wheel assembly and top-down parking.",
+    "generatedFile": "exec-0101060e-a0e8-4484-8d19-c4728cada809.png",
+    "views": {
+      "side": "play-CAR10-side",
+      "top": "play-CAR10-top"
+    },
+    "wheels": [
+      {
+        "x": 0.194,
+        "y": 0.6555555555555556,
+        "r": 0.075
+      },
+      {
+        "x": 0.807,
+        "y": 0.6644444444444444,
+        "r": 0.075
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Game interpretation. Inspect visual identity, frame separation and wheel registration in the rendered contact sheet and actual scenes."
+  },
+  {
+    "id": "CAR11",
+    "brand": "Audi",
+    "model": "R8 Coupé",
+    "color": "sky blue",
+    "tool": "Built-in GPT Image",
+    "intent": "new generation, not a source-photograph extraction",
+    "prompt": "Use case: stylized-concept. Asset type: ONE production two-view game vehicle sprite sheet for CarPlayground. Generate a BRAND NEW sky blue Audi R8 Coupé, crafted as a beautiful realistic 3D game prop for a four-year-old's touch playground, NEVER an extracted photograph. Clear simplified readable surfaces, slightly softened but authentic recognizable sports-car body silhouette, dark readable windows and large round wheels. No cartoon faces. Use the provided red car sheet ONLY as a rendering/style/layout reference; replace the vehicle completely with the requested Audi R8 Coupé in BOTH views. TRUE ALPHA TRANSPARENCY: all pixels outside cars fully transparent, no gradients/halos/shadows. Landscape 1536x1024 sheet, two rows separated by at least 70 empty transparent pixels at y=477..547. TOP ROW: exact orthographic side profile, nose RIGHT, centered inside x=120..1416,y=70..440, two visible circular wheels. BOTTOM ROW: exact orthographic TOP DOWN view of same car, nose RIGHT, centered inside x=120..1416,y=570..970. Preserve car identity, proportions and paint across both views. Whole bumpers, mirrors and wheels visible, ample margins. No floor, environment, podium, text, labels, watermark or extra vehicles. Production sprites for dragging, washing overlays, wheel assembly and top-down parking.",
+    "generatedFile": "exec-4cd11e22-e54f-445f-ae7a-76760a7c092f.png",
+    "views": {
+      "side": "play-CAR11-side",
+      "top": "play-CAR11-top"
+    },
+    "wheels": [
+      {
+        "x": 0.179,
+        "y": 0.6533333333333333,
+        "r": 0.075
+      },
+      {
+        "x": 0.78,
+        "y": 0.6533333333333333,
+        "r": 0.075
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Game interpretation. Inspect visual identity, frame separation and wheel registration in the rendered contact sheet and actual scenes."
+  },
+  {
+    "id": "CAR12",
+    "brand": "Lexus",
+    "model": "LC 500",
+    "color": "warm amber",
+    "tool": "Built-in GPT Image",
+    "intent": "new generation, not a source-photograph extraction",
+    "prompt": "Use case: stylized-concept. Asset type: ONE production two-view game vehicle sprite sheet for CarPlayground. Generate a BRAND NEW warm amber Lexus LC 500, crafted as a beautiful realistic 3D game prop for a four-year-old's touch playground, NEVER an extracted photograph. Clear simplified readable surfaces, slightly softened but authentic recognizable sports-car body silhouette, dark readable windows and large round wheels. No cartoon faces. Use the provided red car sheet ONLY as a rendering/style/layout reference; replace the vehicle completely with the requested Lexus LC 500 in BOTH views. TRUE ALPHA TRANSPARENCY: all pixels outside cars fully transparent, no gradients/halos/shadows. Landscape 1536x1024 sheet, two rows separated by at least 70 empty transparent pixels at y=477..547. TOP ROW: exact orthographic side profile, nose RIGHT, centered inside x=120..1416,y=70..440, two visible circular wheels. BOTTOM ROW: exact orthographic TOP DOWN view of same car, nose RIGHT, centered inside x=120..1416,y=570..970. Preserve car identity, proportions and paint across both views. Whole bumpers, mirrors and wheels visible, ample margins. No floor, environment, podium, text, labels, watermark or extra vehicles. Production sprites for dragging, washing overlays, wheel assembly and top-down parking.",
+    "generatedFile": "exec-e7b11412-e1dc-42a6-b517-a4673fb1338c.png",
+    "views": {
+      "side": "play-CAR12-side",
+      "top": "play-CAR12-top"
+    },
+    "wheels": [
+      {
+        "x": 0.185,
+        "y": 0.6511111111111111,
+        "r": 0.075
+      },
+      {
+        "x": 0.803,
+        "y": 0.6555555555555556,
+        "r": 0.075
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Game interpretation. Inspect visual identity, frame separation and wheel registration in the rendered contact sheet and actual scenes."
+  },
+  {
+    "id": "CAR13",
+    "brand": "Ford",
+    "model": "Mustang GT",
+    "color": "royal blue",
+    "tool": "Built-in GPT Image",
+    "intent": "new generation, not a source-photograph extraction",
+    "prompt": "Use case: stylized-concept. Asset type: ONE production two-view game vehicle sprite sheet for CarPlayground. Generate a BRAND NEW royal blue Ford Mustang GT, crafted as a beautiful realistic 3D game prop for a four-year-old's touch playground, NEVER an extracted photograph. Clear simplified readable surfaces, slightly softened but authentic recognizable sports-car body silhouette, dark readable windows and large round wheels. No cartoon faces. Use the provided red car sheet ONLY as a rendering/style/layout reference; replace the vehicle completely with the requested Ford Mustang GT in BOTH views. TRUE ALPHA TRANSPARENCY: all pixels outside cars fully transparent, no gradients/halos/shadows. Landscape 1536x1024 sheet, two rows separated by at least 70 empty transparent pixels at y=477..547. TOP ROW: exact orthographic side profile, nose RIGHT, centered inside x=120..1416,y=70..440, two visible circular wheels. BOTTOM ROW: exact orthographic TOP DOWN view of same car, nose RIGHT, centered inside x=120..1416,y=570..970. Preserve car identity, proportions and paint across both views. Whole bumpers, mirrors and wheels visible, ample margins. No floor, environment, podium, text, labels, watermark or extra vehicles. Production sprites for dragging, washing overlays, wheel assembly and top-down parking.",
+    "generatedFile": "exec-bf2eeed0-dc1e-48b1-9d0b-b9ac0705346a.png",
+    "views": {
+      "side": "play-CAR13-side",
+      "top": "play-CAR13-top"
+    },
+    "wheels": [
+      {
+        "x": 0.237,
+        "y": 0.6688888888888889,
+        "r": 0.075
+      },
+      {
+        "x": 0.806,
+        "y": 0.6755555555555556,
+        "r": 0.075
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Game interpretation. Inspect visual identity, frame separation and wheel registration in the rendered contact sheet and actual scenes."
+  },
+  {
+    "id": "CAR14",
+    "brand": "Toyota",
+    "model": "GR Supra",
+    "color": "scarlet red",
+    "tool": "Built-in GPT Image",
+    "intent": "new generation, not a source-photograph extraction",
+    "prompt": "Use case: stylized-concept. Asset type: ONE production two-view game vehicle sprite sheet for CarPlayground. Generate a BRAND NEW scarlet red Toyota GR Supra, crafted as a beautiful realistic 3D game prop for a four-year-old's touch playground, NEVER an extracted photograph. Clear simplified readable surfaces, slightly softened but authentic recognizable sports-car body silhouette, dark readable windows and large round wheels. No cartoon faces. Use the provided red car sheet ONLY as a rendering/style/layout reference; replace the vehicle completely with the requested Toyota GR Supra in BOTH views. TRUE ALPHA TRANSPARENCY: all pixels outside cars fully transparent, no gradients/halos/shadows. Landscape 1536x1024 sheet, two rows separated by at least 70 empty transparent pixels at y=477..547. TOP ROW: exact orthographic side profile, nose RIGHT, centered inside x=120..1416,y=70..440, two visible circular wheels. BOTTOM ROW: exact orthographic TOP DOWN view of same car, nose RIGHT, centered inside x=120..1416,y=570..970. Preserve car identity, proportions and paint across both views. Whole bumpers, mirrors and wheels visible, ample margins. No floor, environment, podium, text, labels, watermark or extra vehicles. Production sprites for dragging, washing overlays, wheel assembly and top-down parking.",
+    "generatedFile": "exec-a7c96e44-5709-41f1-80b3-c15ccd5153de.png",
+    "views": {
+      "side": "play-CAR14-side",
+      "top": "play-CAR14-top"
+    },
+    "wheels": [
+      {
+        "x": 0.188,
+        "y": 0.6644444444444444,
+        "r": 0.075
+      },
+      {
+        "x": 0.818,
+        "y": 0.6622222222222223,
+        "r": 0.075
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Game interpretation. Inspect visual identity, frame separation and wheel registration in the rendered contact sheet and actual scenes."
+  },
+  {
+    "id": "CAR15",
+    "brand": "Toyota",
+    "model": "GR86",
+    "color": "pearl white",
+    "tool": "Built-in GPT Image",
+    "intent": "new generation, not a source-photograph extraction",
+    "prompt": "Use case: stylized-concept. Asset type: ONE production two-view game vehicle sprite sheet for CarPlayground. Generate a BRAND NEW pearl white Toyota GR86, crafted as a beautiful realistic 3D game prop for a four-year-old's touch playground, NEVER an extracted photograph. Clear simplified readable surfaces, slightly softened but authentic recognizable sports-car body silhouette, dark readable windows and large round wheels. No cartoon faces. Use the provided red car sheet ONLY as a rendering/style/layout reference; replace the vehicle completely with the requested Toyota GR86 in BOTH views. TRUE ALPHA TRANSPARENCY: all pixels outside cars fully transparent, no gradients/halos/shadows. Landscape 1536x1024 sheet, two rows separated by at least 70 empty transparent pixels at y=477..547. TOP ROW: exact orthographic side profile, nose RIGHT, centered inside x=120..1416,y=70..440, two visible circular wheels. BOTTOM ROW: exact orthographic TOP DOWN view of same car, nose RIGHT, centered inside x=120..1416,y=570..970. Preserve car identity, proportions and paint across both views. Whole bumpers, mirrors and wheels visible, ample margins. No floor, environment, podium, text, labels, watermark or extra vehicles. Production sprites for dragging, washing overlays, wheel assembly and top-down parking.",
+    "generatedFile": "exec-abfb77d8-daee-4dbb-99bb-a02b63390dff.png",
+    "views": {
+      "side": "play-CAR15-side",
+      "top": "play-CAR15-top"
+    },
+    "wheels": [
+      {
+        "x": 0.205,
+        "y": 0.68,
+        "r": 0.075
+      },
+      {
+        "x": 0.815,
+        "y": 0.6777777777777778,
+        "r": 0.075
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Game interpretation. Inspect visual identity, frame separation and wheel registration in the rendered contact sheet and actual scenes."
+  },
+  {
+    "id": "CAR16",
+    "brand": "Nissan",
+    "model": "Z",
+    "color": "golden yellow",
+    "tool": "Built-in GPT Image",
+    "intent": "new generation, not a source-photograph extraction",
+    "prompt": "Use case: stylized-concept. Asset type: ONE production two-view game vehicle sprite sheet for CarPlayground. Generate a BRAND NEW golden yellow Nissan Z, crafted as a beautiful realistic 3D game prop for a four-year-old's touch playground, NEVER an extracted photograph. Clear simplified readable surfaces, slightly softened but authentic recognizable sports-car body silhouette, dark readable windows and large round wheels. No cartoon faces. Use the provided red car sheet ONLY as a rendering/style/layout reference; replace the vehicle completely with the requested Nissan Z in BOTH views. TRUE ALPHA TRANSPARENCY: all pixels outside cars fully transparent, no gradients/halos/shadows. Landscape 1536x1024 sheet, two rows separated by at least 70 empty transparent pixels at y=477..547. TOP ROW: exact orthographic side profile, nose RIGHT, centered inside x=120..1416,y=70..440, two visible circular wheels. BOTTOM ROW: exact orthographic TOP DOWN view of same car, nose RIGHT, centered inside x=120..1416,y=570..970. Preserve car identity, proportions and paint across both views. Whole bumpers, mirrors and wheels visible, ample margins. No floor, environment, podium, text, labels, watermark or extra vehicles. Production sprites for dragging, washing overlays, wheel assembly and top-down parking.",
+    "generatedFile": "exec-9d7e55d6-1300-4985-9e5b-92f615ccc8d0.png",
+    "views": {
+      "side": "play-CAR16-side",
+      "top": "play-CAR16-top"
+    },
+    "wheels": [
+      {
+        "x": 0.172,
+        "y": 0.6644444444444444,
+        "r": 0.075
+      },
+      {
+        "x": 0.794,
+        "y": 0.6666666666666666,
+        "r": 0.075
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Game interpretation. Inspect visual identity, frame separation and wheel registration in the rendered contact sheet and actual scenes."
+  },
+  {
+    "id": "CAR17",
+    "brand": "Mazda",
+    "model": "MX-5 RF",
+    "color": "burnt orange",
+    "tool": "Built-in GPT Image",
+    "intent": "new generation, not a source-photograph extraction",
+    "prompt": "Use case: stylized-concept. Asset type: ONE production two-view game vehicle sprite sheet for CarPlayground. Generate a BRAND NEW burnt orange Mazda MX-5 RF, crafted as a beautiful realistic 3D game prop for a four-year-old's touch playground, NEVER an extracted photograph. Clear simplified readable surfaces, slightly softened but authentic recognizable sports-car body silhouette, dark readable windows and large round wheels. No cartoon faces. Use the provided red car sheet ONLY as a rendering/style/layout reference; replace the vehicle completely with the requested Mazda MX-5 RF in BOTH views. TRUE ALPHA TRANSPARENCY: all pixels outside cars fully transparent, no gradients/halos/shadows. Landscape 1536x1024 sheet, two rows separated by at least 70 empty transparent pixels at y=477..547. TOP ROW: exact orthographic side profile, nose RIGHT, centered inside x=120..1416,y=70..440, two visible circular wheels. BOTTOM ROW: exact orthographic TOP DOWN view of same car, nose RIGHT, centered inside x=120..1416,y=570..970. Preserve car identity, proportions and paint across both views. Whole bumpers, mirrors and wheels visible, ample margins. No floor, environment, podium, text, labels, watermark or extra vehicles. Production sprites for dragging, washing overlays, wheel assembly and top-down parking.",
+    "generatedFile": "exec-85bc7376-19fe-4ce7-816d-d687018a1a32.png",
+    "views": {
+      "side": "play-CAR17-side",
+      "top": "play-CAR17-top"
+    },
+    "wheels": [
+      {
+        "x": 0.196,
+        "y": 0.68,
+        "r": 0.075
+      },
+      {
+        "x": 0.808,
+        "y": 0.68,
+        "r": 0.075
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Game interpretation. Inspect visual identity, frame separation and wheel registration in the rendered contact sheet and actual scenes."
+  },
+  {
+    "id": "CAR18",
+    "brand": "BMW",
+    "model": "M2",
+    "color": "bright blue",
+    "tool": "Built-in GPT Image",
+    "intent": "new generation, not a source-photograph extraction",
+    "prompt": "Use case: stylized-concept. Asset type: ONE production two-view game vehicle sprite sheet for CarPlayground. Generate a BRAND NEW bright blue BMW M2, crafted as a beautiful realistic 3D game prop for a four-year-old's touch playground, NEVER an extracted photograph. Clear simplified readable surfaces, slightly softened but authentic recognizable sports-car body silhouette, dark readable windows and large round wheels. No cartoon faces. Use the provided red car sheet ONLY as a rendering/style/layout reference; replace the vehicle completely with the requested BMW M2 in BOTH views. TRUE ALPHA TRANSPARENCY: all pixels outside cars fully transparent, no gradients/halos/shadows. Landscape 1536x1024 sheet, two rows separated by at least 70 empty transparent pixels at y=477..547. TOP ROW: exact orthographic side profile, nose RIGHT, centered inside x=120..1416,y=70..440, two visible circular wheels. BOTTOM ROW: exact orthographic TOP DOWN view of same car, nose RIGHT, centered inside x=120..1416,y=570..970. Preserve car identity, proportions and paint across both views. Whole bumpers, mirrors and wheels visible, ample margins. No floor, environment, podium, text, labels, watermark or extra vehicles. Production sprites for dragging, washing overlays, wheel assembly and top-down parking.",
+    "generatedFile": "exec-ea604bd9-c71a-42f1-a88e-ec9678454bca.png",
+    "views": {
+      "side": "play-CAR18-side",
+      "top": "play-CAR18-top"
+    },
+    "wheels": [
+      {
+        "x": 0.202,
+        "y": 0.6866666666666666,
+        "r": 0.075
+      },
+      {
+        "x": 0.826,
+        "y": 0.6866666666666666,
+        "r": 0.075
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Game interpretation. Inspect visual identity, frame separation and wheel registration in the rendered contact sheet and actual scenes."
+  },
+  {
+    "id": "CAR19",
+    "brand": "Lamborghini",
+    "model": "Huracán",
+    "color": "violet purple",
+    "tool": "Built-in GPT Image",
+    "intent": "new generation, not a source-photograph extraction",
+    "prompt": "Use case: stylized-concept. Asset type: ONE production two-view game vehicle sprite sheet for CarPlayground. Generate a BRAND NEW violet purple Lamborghini Huracán, crafted as a beautiful realistic 3D game prop for a four-year-old's touch playground, NEVER an extracted photograph. Clear simplified readable surfaces, slightly softened but authentic recognizable sports-car body silhouette, dark readable windows and large round wheels. No cartoon faces. Use the provided red car sheet ONLY as a rendering/style/layout reference; replace the vehicle completely with the requested Lamborghini Huracán in BOTH views. TRUE ALPHA TRANSPARENCY: all pixels outside cars fully transparent, no gradients/halos/shadows. Landscape 1536x1024 sheet, two rows separated by at least 70 empty transparent pixels at y=477..547. TOP ROW: exact orthographic side profile, nose RIGHT, centered inside x=120..1416,y=70..440, two visible circular wheels. BOTTOM ROW: exact orthographic TOP DOWN view of same car, nose RIGHT, centered inside x=120..1416,y=570..970. Preserve car identity, proportions and paint across both views. Whole bumpers, mirrors and wheels visible, ample margins. No floor, environment, podium, text, labels, watermark or extra vehicles. Production sprites for dragging, washing overlays, wheel assembly and top-down parking.",
+    "generatedFile": "exec-8d03a3ec-e8cb-4c19-a980-4681b883ec5e.png",
+    "views": {
+      "side": "play-CAR19-side",
+      "top": "play-CAR19-top"
+    },
+    "wheels": [
+      {
+        "x": 0.179,
+        "y": 0.6444444444444445,
+        "r": 0.075
+      },
+      {
+        "x": 0.766,
+        "y": 0.6422222222222222,
+        "r": 0.075
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Game interpretation. Inspect visual identity, frame separation and wheel registration in the rendered contact sheet and actual scenes."
+  },
+  {
+    "id": "CAR20",
+    "brand": "Ferrari",
+    "model": "F8 Tributo",
+    "color": "Ferrari red",
+    "tool": "Built-in GPT Image",
+    "intent": "new generation, not a source-photograph extraction",
+    "prompt": "Use case: stylized-concept. Asset type: ONE production two-view game vehicle sprite sheet for CarPlayground. Generate a BRAND NEW Ferrari red Ferrari F8 Tributo, crafted as a beautiful realistic 3D game prop for a four-year-old's touch playground, NEVER an extracted photograph. Clear simplified readable surfaces, slightly softened but authentic recognizable sports-car body silhouette, dark readable windows and large round wheels. No cartoon faces. Use the provided red car sheet ONLY as a rendering/style/layout reference; replace the vehicle completely with the requested Ferrari F8 Tributo in BOTH views. TRUE ALPHA TRANSPARENCY: all pixels outside cars fully transparent, no gradients/halos/shadows. Landscape 1536x1024 sheet, two rows separated by at least 70 empty transparent pixels at y=477..547. TOP ROW: exact orthographic side profile, nose RIGHT, centered inside x=120..1416,y=70..440, two visible circular wheels. BOTTOM ROW: exact orthographic TOP DOWN view of same car, nose RIGHT, centered inside x=120..1416,y=570..970. Preserve car identity, proportions and paint across both views. Whole bumpers, mirrors and wheels visible, ample margins. No floor, environment, podium, text, labels, watermark or extra vehicles. Production sprites for dragging, washing overlays, wheel assembly and top-down parking.",
+    "generatedFile": "exec-e0131603-047b-4e29-b28a-342f2f249755.png",
+    "views": {
+      "side": "play-CAR20-side",
+      "top": "play-CAR20-top"
+    },
+    "wheels": [
+      {
+        "x": 0.15,
+        "y": 0.64,
+        "r": 0.075
+      },
+      {
+        "x": 0.796,
+        "y": 0.64,
+        "r": 0.075
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Game interpretation. Inspect visual identity, frame separation and wheel registration in the rendered contact sheet and actual scenes."
+  },
+  {
+    "id": "CAR21",
+    "brand": "Porsche",
+    "model": "718 Cayman",
+    "color": "turquoise",
+    "tool": "Built-in GPT Image",
+    "intent": "new generation, not a source-photograph extraction",
+    "prompt": "Use case: stylized-concept. Asset type: ONE production two-view game vehicle sprite sheet for CarPlayground. Generate a BRAND NEW turquoise Porsche 718 Cayman, crafted as a beautiful realistic 3D game prop for a four-year-old's touch playground, NEVER an extracted photograph. Clear simplified readable surfaces, slightly softened but authentic recognizable sports-car body silhouette, dark readable windows and large round wheels. No cartoon faces. Use the provided red car sheet ONLY as a rendering/style/layout reference; replace the vehicle completely with the requested Porsche 718 Cayman in BOTH views. TRUE ALPHA TRANSPARENCY: all pixels outside cars fully transparent, no gradients/halos/shadows. Landscape 1536x1024 sheet, two rows separated by at least 70 empty transparent pixels at y=477..547. TOP ROW: exact orthographic side profile, nose RIGHT, centered inside x=120..1416,y=70..440, two visible circular wheels. BOTTOM ROW: exact orthographic TOP DOWN view of same car, nose RIGHT, centered inside x=120..1416,y=570..970. Preserve car identity, proportions and paint across both views. Whole bumpers, mirrors and wheels visible, ample margins. No floor, environment, podium, text, labels, watermark or extra vehicles. Production sprites for dragging, washing overlays, wheel assembly and top-down parking.",
+    "generatedFile": "exec-bd38453e-aae7-4d59-aab4-12f2f44b6997.png",
+    "views": {
+      "side": "play-CAR21-side",
+      "top": "play-CAR21-top"
+    },
+    "wheels": [
+      {
+        "x": 0.166,
+        "y": 0.66,
+        "r": 0.075
+      },
+      {
+        "x": 0.809,
+        "y": 0.6622222222222223,
+        "r": 0.075
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Game interpretation. Inspect visual identity, frame separation and wheel registration in the rendered contact sheet and actual scenes."
+  },
+  {
+    "id": "CAR22",
+    "brand": "McLaren",
+    "model": "Artura",
+    "color": "amethyst purple",
+    "tool": "Built-in GPT Image",
+    "intent": "new generation, not a source-photograph extraction",
+    "prompt": "Use case: stylized-concept. Asset type: ONE production two-view game vehicle sprite sheet for CarPlayground. Generate a BRAND NEW amethyst purple McLaren Artura, crafted as a beautiful realistic 3D game prop for a four-year-old's touch playground, NEVER an extracted photograph. Clear simplified readable surfaces, slightly softened but authentic recognizable sports-car body silhouette, dark readable windows and large round wheels. No cartoon faces. Use the provided red car sheet ONLY as a rendering/style/layout reference; replace the vehicle completely with the requested McLaren Artura in BOTH views. TRUE ALPHA TRANSPARENCY: all pixels outside cars fully transparent, no gradients/halos/shadows. Landscape 1536x1024 sheet, two rows separated by at least 70 empty transparent pixels at y=477..547. TOP ROW: exact orthographic side profile, nose RIGHT, centered inside x=120..1416,y=70..440, two visible circular wheels. BOTTOM ROW: exact orthographic TOP DOWN view of same car, nose RIGHT, centered inside x=120..1416,y=570..970. Preserve car identity, proportions and paint across both views. Whole bumpers, mirrors and wheels visible, ample margins. No floor, environment, podium, text, labels, watermark or extra vehicles. Production sprites for dragging, washing overlays, wheel assembly and top-down parking.",
+    "generatedFile": "exec-ae9ba142-c454-467d-992f-63d25c2c6ebe.png",
+    "views": {
+      "side": "play-CAR22-side",
+      "top": "play-CAR22-top"
+    },
+    "wheels": [
+      {
+        "x": 0.166,
+        "y": 0.6444444444444445,
+        "r": 0.075
+      },
+      {
+        "x": 0.772,
+        "y": 0.6444444444444445,
+        "r": 0.075
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Game interpretation. Inspect visual identity, frame separation and wheel registration in the rendered contact sheet and actual scenes."
+  },
+  {
+    "id": "CAR23",
+    "brand": "Maserati",
+    "model": "MC20",
+    "color": "deep blue",
+    "tool": "Built-in GPT Image",
+    "intent": "new generation, not a source-photograph extraction",
+    "prompt": "Use case: stylized-concept. Asset type: ONE production two-view game vehicle sprite sheet for CarPlayground. Generate a BRAND NEW deep blue Maserati MC20, crafted as a beautiful realistic 3D game prop for a four-year-old's touch playground, NEVER an extracted photograph. Clear simplified readable surfaces, slightly softened but authentic recognizable sports-car body silhouette, dark readable windows and large round wheels. No cartoon faces. Use the provided red car sheet ONLY as a rendering/style/layout reference; replace the vehicle completely with the requested Maserati MC20 in BOTH views. TRUE ALPHA TRANSPARENCY: all pixels outside cars fully transparent, no gradients/halos/shadows. Landscape 1536x1024 sheet, two rows separated by at least 70 empty transparent pixels at y=477..547. TOP ROW: exact orthographic side profile, nose RIGHT, centered inside x=120..1416,y=70..440, two visible circular wheels. BOTTOM ROW: exact orthographic TOP DOWN view of same car, nose RIGHT, centered inside x=120..1416,y=570..970. Preserve car identity, proportions and paint across both views. Whole bumpers, mirrors and wheels visible, ample margins. No floor, environment, podium, text, labels, watermark or extra vehicles. Production sprites for dragging, washing overlays, wheel assembly and top-down parking.",
+    "generatedFile": "exec-fb9a7300-54ce-4bc0-8134-2b917d268440.png",
+    "views": {
+      "side": "play-CAR23-side",
+      "top": "play-CAR23-top"
+    },
+    "wheels": [
+      {
+        "x": 0.166,
+        "y": 0.6488888888888888,
+        "r": 0.075
+      },
+      {
+        "x": 0.787,
+        "y": 0.6511111111111111,
+        "r": 0.075
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Game interpretation. Inspect visual identity, frame separation and wheel registration in the rendered contact sheet and actual scenes."
+  },
+  {
+    "id": "CAR24",
+    "brand": "Lotus",
+    "model": "Emira",
+    "color": "emerald green",
+    "tool": "Built-in GPT Image",
+    "intent": "new generation, not a source-photograph extraction",
+    "prompt": "Use case: stylized-concept. Asset type: ONE production two-view game vehicle sprite sheet for CarPlayground. Generate a BRAND NEW emerald green Lotus Emira, crafted as a beautiful realistic 3D game prop for a four-year-old's touch playground, NEVER an extracted photograph. Clear simplified readable surfaces, slightly softened but authentic recognizable sports-car body silhouette, dark readable windows and large round wheels. No cartoon faces. Use the provided red car sheet ONLY as a rendering/style/layout reference; replace the vehicle completely with the requested Lotus Emira in BOTH views. TRUE ALPHA TRANSPARENCY: all pixels outside cars fully transparent, no gradients/halos/shadows. Landscape 1536x1024 sheet, two rows separated by at least 70 empty transparent pixels at y=477..547. TOP ROW: exact orthographic side profile, nose RIGHT, centered inside x=120..1416,y=70..440, two visible circular wheels. BOTTOM ROW: exact orthographic TOP DOWN view of same car, nose RIGHT, centered inside x=120..1416,y=570..970. Preserve car identity, proportions and paint across both views. Whole bumpers, mirrors and wheels visible, ample margins. No floor, environment, podium, text, labels, watermark or extra vehicles. Production sprites for dragging, washing overlays, wheel assembly and top-down parking.",
+    "generatedFile": "exec-2c039a5a-d0b1-43c1-97c5-b54ea865426a.png",
+    "views": {
+      "side": "play-CAR24-side",
+      "top": "play-CAR24-top"
+    },
+    "wheels": [
+      {
+        "x": 0.152,
+        "y": 0.6422222222222222,
+        "r": 0.075
+      },
+      {
+        "x": 0.796,
+        "y": 0.6444444444444445,
+        "r": 0.075
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Game interpretation. Inspect visual identity, frame separation and wheel registration in the rendered contact sheet and actual scenes."
+  },
+  {
+    "id": "CAR25",
+    "brand": "Alpine",
+    "model": "A110",
+    "color": "French blue",
+    "tool": "Built-in GPT Image",
+    "intent": "new generation, not a source-photograph extraction",
+    "prompt": "Use case: stylized-concept. Asset type: ONE production two-view game vehicle sprite sheet for CarPlayground. Generate a BRAND NEW French blue Alpine A110, crafted as a beautiful realistic 3D game prop for a four-year-old's touch playground, NEVER an extracted photograph. Clear simplified readable surfaces, slightly softened but authentic recognizable sports-car body silhouette, dark readable windows and large round wheels. No cartoon faces. Use the provided red car sheet ONLY as a rendering/style/layout reference; replace the vehicle completely with the requested Alpine A110 in BOTH views. TRUE ALPHA TRANSPARENCY: all pixels outside cars fully transparent, no gradients/halos/shadows. Landscape 1536x1024 sheet, two rows separated by at least 70 empty transparent pixels at y=477..547. TOP ROW: exact orthographic side profile, nose RIGHT, centered inside x=120..1416,y=70..440, two visible circular wheels. BOTTOM ROW: exact orthographic TOP DOWN view of same car, nose RIGHT, centered inside x=120..1416,y=570..970. Preserve car identity, proportions and paint across both views. Whole bumpers, mirrors and wheels visible, ample margins. No floor, environment, podium, text, labels, watermark or extra vehicles. Production sprites for dragging, washing overlays, wheel assembly and top-down parking.",
+    "generatedFile": "exec-3685ac0c-f2f2-49fc-a18b-179c78dd79b9.png",
+    "views": {
+      "side": "play-CAR25-side",
+      "top": "play-CAR25-top"
+    },
+    "wheels": [
+      {
+        "x": 0.161,
+        "y": 0.6577777777777778,
+        "r": 0.075
+      },
+      {
+        "x": 0.809,
+        "y": 0.6666666666666666,
+        "r": 0.075
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Game interpretation. Inspect visual identity, frame separation and wheel registration in the rendered contact sheet and actual scenes."
+  },
+  {
+    "id": "CAR26",
+    "brand": "Jaguar",
+    "model": "F-Type",
+    "color": "forest green",
+    "tool": "Built-in GPT Image",
+    "intent": "new generation, not a source-photograph extraction",
+    "prompt": "Use case: stylized-concept. Asset type: ONE production two-view game vehicle sprite sheet for CarPlayground. Generate a BRAND NEW forest green Jaguar F-Type, crafted as a beautiful realistic 3D game prop for a four-year-old's touch playground, NEVER an extracted photograph. Clear simplified readable surfaces, slightly softened but authentic recognizable sports-car body silhouette, dark readable windows and large round wheels. No cartoon faces. Use the provided red car sheet ONLY as a rendering/style/layout reference; replace the vehicle completely with the requested Jaguar F-Type in BOTH views. TRUE ALPHA TRANSPARENCY: all pixels outside cars fully transparent, no gradients/halos/shadows. Landscape 1536x1024 sheet, two rows separated by at least 70 empty transparent pixels at y=477..547. TOP ROW: exact orthographic side profile, nose RIGHT, centered inside x=120..1416,y=70..440, two visible circular wheels. BOTTOM ROW: exact orthographic TOP DOWN view of same car, nose RIGHT, centered inside x=120..1416,y=570..970. Preserve car identity, proportions and paint across both views. Whole bumpers, mirrors and wheels visible, ample margins. No floor, environment, podium, text, labels, watermark or extra vehicles. Production sprites for dragging, washing overlays, wheel assembly and top-down parking.",
+    "generatedFile": "exec-055bff9c-7792-46c4-a98b-0ff5618f0aad.png",
+    "views": {
+      "side": "play-CAR26-side",
+      "top": "play-CAR26-top"
+    },
+    "wheels": [
+      {
+        "x": 0.175,
+        "y": 0.6533333333333333,
+        "r": 0.075
+      },
+      {
+        "x": 0.832,
+        "y": 0.6533333333333333,
+        "r": 0.075
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Game interpretation. Inspect visual identity, frame separation and wheel registration in the rendered contact sheet and actual scenes."
+  },
+  {
+    "id": "CAR27",
+    "brand": "Honda",
+    "model": "NSX",
+    "color": "pearl silver",
+    "tool": "Built-in GPT Image",
+    "intent": "new generation, not a source-photograph extraction",
+    "prompt": "Use case: stylized-concept. Asset type: ONE production two-view game vehicle sprite sheet for CarPlayground. Generate a BRAND NEW pearl silver Honda NSX, crafted as a beautiful realistic 3D game prop for a four-year-old's touch playground, NEVER an extracted photograph. Clear simplified readable surfaces, slightly softened but authentic recognizable sports-car body silhouette, dark readable windows and large round wheels. No cartoon faces. Use the provided red car sheet ONLY as a rendering/style/layout reference; replace the vehicle completely with the requested Honda NSX in BOTH views. TRUE ALPHA TRANSPARENCY: all pixels outside cars fully transparent, no gradients/halos/shadows. Landscape 1536x1024 sheet, two rows separated by at least 70 empty transparent pixels at y=477..547. TOP ROW: exact orthographic side profile, nose RIGHT, centered inside x=120..1416,y=70..440, two visible circular wheels. BOTTOM ROW: exact orthographic TOP DOWN view of same car, nose RIGHT, centered inside x=120..1416,y=570..970. Preserve car identity, proportions and paint across both views. Whole bumpers, mirrors and wheels visible, ample margins. No floor, environment, podium, text, labels, watermark or extra vehicles. Production sprites for dragging, washing overlays, wheel assembly and top-down parking.",
+    "generatedFile": "exec-b6f4b7af-9c9b-4153-9a2d-f190c4df89e4.png",
+    "views": {
+      "side": "play-CAR27-side",
+      "top": "play-CAR27-top"
+    },
+    "wheels": [
+      {
+        "x": 0.168,
+        "y": 0.6444444444444445,
+        "r": 0.075
+      },
+      {
+        "x": 0.763,
+        "y": 0.6488888888888888,
+        "r": 0.075
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Game interpretation. Inspect visual identity, frame separation and wheel registration in the rendered contact sheet and actual scenes."
+  },
+  {
+    "id": "CAR28",
+    "brand": "Chevrolet",
+    "model": "Camaro",
+    "color": "orange with two black stripes",
+    "tool": "Built-in GPT Image",
+    "intent": "new generation, not a source-photograph extraction",
+    "prompt": "Use case: stylized-concept. Asset type: ONE production two-view game vehicle sprite sheet for CarPlayground. Generate a BRAND NEW orange with two black stripes Chevrolet Camaro, crafted as a beautiful realistic 3D game prop for a four-year-old's touch playground, NEVER an extracted photograph. Clear simplified readable surfaces, slightly softened but authentic recognizable sports-car body silhouette, dark readable windows and large round wheels. No cartoon faces. Use the provided red car sheet ONLY as a rendering/style/layout reference; replace the vehicle completely with the requested Chevrolet Camaro in BOTH views. TRUE ALPHA TRANSPARENCY: all pixels outside cars fully transparent, no gradients/halos/shadows. Landscape 1536x1024 sheet, two rows separated by at least 70 empty transparent pixels at y=477..547. TOP ROW: exact orthographic side profile, nose RIGHT, centered inside x=120..1416,y=70..440, two visible circular wheels. BOTTOM ROW: exact orthographic TOP DOWN view of same car, nose RIGHT, centered inside x=120..1416,y=570..970. Preserve car identity, proportions and paint across both views. Whole bumpers, mirrors and wheels visible, ample margins. No floor, environment, podium, text, labels, watermark or extra vehicles. Production sprites for dragging, washing overlays, wheel assembly and top-down parking.",
+    "generatedFile": "exec-884eb214-fab2-4e7a-b2ee-1e29c53491fd.png",
+    "views": {
+      "side": "play-CAR28-side",
+      "top": "play-CAR28-top"
+    },
+    "wheels": [
+      {
+        "x": 0.183,
+        "y": 0.6644444444444444,
+        "r": 0.075
+      },
+      {
+        "x": 0.846,
+        "y": 0.6622222222222223,
+        "r": 0.075
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Game interpretation. Inspect visual identity, frame separation and wheel registration in the rendered contact sheet and actual scenes."
+  },
+  {
+    "id": "CAR29",
+    "brand": "Dodge",
+    "model": "Viper",
+    "color": "blue with two white stripes",
+    "tool": "Built-in GPT Image",
+    "intent": "new generation, not a source-photograph extraction",
+    "prompt": "Use case: stylized-concept. Asset type: ONE production two-view game vehicle sprite sheet for CarPlayground. Generate a BRAND NEW blue with two white stripes Dodge Viper, crafted as a beautiful realistic 3D game prop for a four-year-old's touch playground, NEVER an extracted photograph. Clear simplified readable surfaces, slightly softened but authentic recognizable sports-car body silhouette, dark readable windows and large round wheels. No cartoon faces. Use the provided red car sheet ONLY as a rendering/style/layout reference; replace the vehicle completely with the requested Dodge Viper in BOTH views. TRUE ALPHA TRANSPARENCY: all pixels outside cars fully transparent, no gradients/halos/shadows. Landscape 1536x1024 sheet, two rows separated by at least 70 empty transparent pixels at y=477..547. TOP ROW: exact orthographic side profile, nose RIGHT, centered inside x=120..1416,y=70..440, two visible circular wheels. BOTTOM ROW: exact orthographic TOP DOWN view of same car, nose RIGHT, centered inside x=120..1416,y=570..970. Preserve car identity, proportions and paint across both views. Whole bumpers, mirrors and wheels visible, ample margins. No floor, environment, podium, text, labels, watermark or extra vehicles. Production sprites for dragging, washing overlays, wheel assembly and top-down parking.",
+    "generatedFile": "exec-06018af7-e74a-4e4a-baa5-3b1e3e592378.png",
+    "views": {
+      "side": "play-CAR29-side",
+      "top": "play-CAR29-top"
+    },
+    "wheels": [
+      {
+        "x": 0.186,
+        "y": 0.6444444444444445,
+        "r": 0.075
+      },
+      {
+        "x": 0.841,
+        "y": 0.6444444444444445,
+        "r": 0.075
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Game interpretation. Inspect visual identity, frame separation and wheel registration in the rendered contact sheet and actual scenes."
+  },
+  {
+    "id": "CAR30",
+    "brand": "BMW",
+    "model": "i8",
+    "color": "white and cyan accents",
+    "tool": "Built-in GPT Image",
+    "intent": "new generation, not a source-photograph extraction",
+    "prompt": "Use case: stylized-concept. Asset type: ONE production two-view game vehicle sprite sheet for CarPlayground. Generate a BRAND NEW white and cyan accents BMW i8, crafted as a beautiful realistic 3D game prop for a four-year-old's touch playground, NEVER an extracted photograph. Clear simplified readable surfaces, slightly softened but authentic recognizable sports-car body silhouette, dark readable windows and large round wheels. No cartoon faces. Use the provided red car sheet ONLY as a rendering/style/layout reference; replace the vehicle completely with the requested BMW i8 in BOTH views. TRUE ALPHA TRANSPARENCY: all pixels outside cars fully transparent, no gradients/halos/shadows. Landscape 1536x1024 sheet, two rows separated by at least 70 empty transparent pixels at y=477..547. TOP ROW: exact orthographic side profile, nose RIGHT, centered inside x=120..1416,y=70..440, two visible circular wheels. BOTTOM ROW: exact orthographic TOP DOWN view of same car, nose RIGHT, centered inside x=120..1416,y=570..970. Preserve car identity, proportions and paint across both views. Whole bumpers, mirrors and wheels visible, ample margins. No floor, environment, podium, text, labels, watermark or extra vehicles. Production sprites for dragging, washing overlays, wheel assembly and top-down parking.",
+    "generatedFile": "exec-a18bf4bc-eaff-4e3b-ad76-eff973b77416.png",
+    "views": {
+      "side": "play-CAR30-side",
+      "top": "play-CAR30-top"
+    },
+    "wheels": [
+      {
+        "x": 0.181,
+        "y": 0.6577777777777778,
+        "r": 0.075
+      },
+      {
+        "x": 0.802,
+        "y": 0.6577777777777778,
+        "r": 0.075
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Game interpretation. Inspect visual identity, frame separation and wheel registration in the rendered contact sheet and actual scenes."
+  }
+]
