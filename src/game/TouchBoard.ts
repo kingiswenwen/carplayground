@@ -210,6 +210,7 @@ export class TouchBoard {
   }
   private compatible(item:Item,target:Target){
     if(target.occupied||target.enabled===false&&item.kind!=='bay')return false;
+    if(this.mode==='bridge'&&item.kind==='plank'&&item.w<target.w)return false;
     if(target.accepts&&!target.accepts.includes(item.id)||item.target&&item.target!==target.id)return false;
     if(this.mode==='assembly')return item.kind==='body'?target.id==='body':item.kind==='wheel'&&target.id.startsWith('wheel-')&&!!this.targets[0].occupied;
     if(this.mode==='sequence'){const next=this.targets.find(t=>!t.occupied);return next===target;}
@@ -514,11 +515,12 @@ export class TouchBoard {
     if(needsHint&&!this.grab){
       let first=this.selected||this.items.find(i=>!i.placed&&this.targets.some(t=>this.compatible(i,t)))||this.items.find(i=>!i.placed&&!i.id.startsWith('ink-')&&i.id!=='paper');
       let destination=first&&this.targets.find(t=>this.compatible(first!,t));
-      if(this.mode==='road')first=this.roadWon?this.items.find(i=>i.id==='next-road'):this.items.find(i=>i.kind==='road'&&!roadLessons[this.roadLevel].locked.includes(i.turn!));
+      if(this.mode==='road')first=this.roadWon?this.items.find(i=>i.id==='next-road'):this.items.find(i=>i.kind==='road'&&!roadLessons[this.roadLevel].locked.includes(i.turn!)&&this.road[i.turn!]!==roadLessons[this.roadLevel].solution[i.turn!]);
       if(this.mode==='traffic')first=this.items.find(i=>i.id===(this.signalGreen?'runner':'signal'));
       if(this.mode==='wash'&&this.washReady)first=this.items.find(i=>i.id==='next-car');
       const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches,phase=reduced?0:Math.min(1,(this.time%3)/1.8);
       let cue=this.mode==='wash'&&!this.washReady?{x:420+(reduced?0:Math.sin(this.time*2)*140),y:H*.4}:first&&destination?{x:first.x+(destination.x-first.x)*phase,y:first.y+(destination.y-first.y)*phase}:first||{x:500,y:H*.5};
+      if(first&&(['motion','rolling'].includes(this.mode)||this.mode==='traffic'&&this.signalGreen))cue={x:first.x+(reduced?0:phase*140),y:first.y};
       if(this.mode==='parts'){const regions=partRegions(getCar(this.options.carId)!,this.items[0]);cue=regions.find(p=>!this.seen.has(p.id))||regions[0];}
       if(destination){c.strokeStyle='#e5a34d';c.lineWidth=8;c.globalAlpha=.7;this.round({...destination,w:destination.w+15,h:destination.h+15},25);c.stroke();c.globalAlpha=1;}
       this.glyph('👆',cue.x+25,cue.y+35,70);

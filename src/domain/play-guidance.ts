@@ -15,8 +15,8 @@ export function partRegions(car:Car,rect:Rect){
 export function hitPart(car:Car,rect:Rect,point:Point){
  return partRegions(car,rect).find(p=>((point.x-p.x)/p.rx)**2+((point.y-p.y)/p.ry)**2<=1)?.id;
 }
-export const roadLessons:{width:number;shapes:RoadShape[];locked:number[];end:number}[]=[
- {width:3,shapes:['LR','UD','LR'],locked:[0,2],end:2},
- {width:2,shapes:['RD','UR','UD','LU'],locked:[0,3],end:3},
- {width:3,shapes:['RD','UD','UR','UD','LR','LR','UR','UD','LU'],locked:[0,8],end:8},
+export const roadLessons:{width:number;shapes:RoadShape[];solution:RoadShape[];locked:number[];end:number}[]=[
+ {width:3,shapes:['LR','UD','LR'],solution:['LR','LR','LR'],locked:[0,2],end:2},
+ {width:2,shapes:['RD','UR','UD','LU'],solution:['RD','DL','UD','LU'],locked:[0,3],end:3},
+ {width:3,shapes:['RD','UD','UR','UD','LR','LR','UR','UD','LU'],solution:['RD','LR','DL','UD','LR','UD','UR','UD','LU'],locked:[0,8],end:8},
 ];
