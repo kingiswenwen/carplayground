@@ -74,7 +74,10 @@ test('到达目的地、分类停车、场景表达无需输入或确认文字',
 });
 test('窄屏与尺寸变化保留停车状态，画面不横向溢出',async({page})=>{
  await page.setViewportSize({width:390,height:844});await open(page,'M01');await drop(page,'car-0','bay-0');await expect.poll(async()=>(await state(page)).items[0].placed).toBe(true);
- await page.setViewportSize({width:1000,height:760});await expect.poll(async()=>(await state(page)).items[0].placed).toBe(true);await drop(page,'car-1','bay-1');await complete(page);
+ await page.setViewportSize({width:1000,height:760});
+ // Viewport changes precede the media-query/layout update. Read new positions only after both settle.
+ await expect.poll(async()=>({height:await canvas(page).evaluate(c=>(c as HTMLCanvasElement).height),y:(await state(page)).targets[0].y})).toEqual({height:680,y:442});
+ await expect.poll(async()=>(await state(page)).items[0].placed).toBe(true);await drop(page,'car-1','bay-1');await complete(page);
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
 });
 test('倾斜权限拒绝或没有传感器时仍可拖推',async({page})=>{
