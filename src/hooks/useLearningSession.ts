@@ -61,7 +61,7 @@ export function useLearningSession(activity: ActivityDefinition, settings: Setti
     result.current = {...initial, state: activity.mode === 'open' ? 'participated' : 'completed', hints: hints.current,
       durationMs: elapsed.current + performance.now() - last.current, summary, endedAt: new Date().toISOString()};
     void retrySave();
-    void audio.play(activity.mode === 'open' ? 'expression-done' : activity.completeAudio);
+    void audio.play(activity.completeAudio);
   };
   const hint = () => {if (!alive.current || isPaused.current) return; hints.current++; setMessage(activity.hint); void audio.play(activity.hintAudio);};
   const resume = () => {last.current = performance.now(); isPaused.current = false; setPaused(false);};

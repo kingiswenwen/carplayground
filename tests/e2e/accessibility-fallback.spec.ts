@@ -25,6 +25,5 @@ test('@smoke 入口脚本网络失败保留静态重试，连接恢复后可打�
   await expect(page.getByText('如果一直没有打开，请检查连接后再试一次。', {exact: true})).toBeVisible();
   unavailable = false;
   await page.getByRole('link', {name: '重新打开汽车游乐园', exact: true}).click();
-  await expect(page.locator('.world-map .scene-art.art-ready')).toBeVisible();
-  await expect(page.getByRole('link', {name: '进入汽车展厅', exact: true})).toBeVisible();
+  await expect(page.getByRole('link', {name: '泡泡洗车屋', exact: true})).toBeVisible();
 });

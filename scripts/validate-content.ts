@@ -24,7 +24,7 @@ if(sources.length!==30||new Set(sources.map(s=>s.id)).size!==30||new Set(sources
 for(const car of content.cars){
  const source=sources.find(s=>s.id===car.id);
  if(!car.game||!source||source.tool!=='Built-in GPT Image'||!source.prompt||!source.checks.transparentExport||source.views.side!==car.game.side||source.views.top!==car.game.top||JSON.stringify(source.wheels)!==JSON.stringify(car.game.wheels))throw Error('游戏跑车与生成记录不一致 '+car.id);
- if(car.image!==car.game.side||car.showcaseImage!==car.game.side||car.views.some(v=>!v.image.startsWith('play-CAR')))throw Error('游戏界面仍引用旧车图 '+car.id);
+ if(car.image!==car.game.side||car.showcaseImage!==car.game.side||car.views.some(v=>!v.image.startsWith('orbit-CAR')))throw Error('游戏界面仍引用旧车图 '+car.id);
  for(const id of [car.game.side,car.game.top]){
   const asset=content.assets.find(a=>a.id===id);
   if(!asset?.path.startsWith('media/play-cars/'))throw Error('游戏车素材目录错误 '+id);
@@ -34,3 +34,14 @@ for(const car of content.cars){
  }
 }
 console.log(`内容 ${content.id} 验证通过：${content.cars.length} 款新生成跑车 / 60 独立视图 / ${content.activities.length} 活动，透明度、引用、来源、文件与 SHA-256 一致。`);
+
+const models=JSON.parse(await fs.readFile('content/vehicle-models.json','utf8')) as {id:string;file:string;sha256:string;factorySha256:string}[];
+const factoryHash=createHash('sha256').update(await fs.readFile('src/three/vehicle.ts')).digest('hex');
+if(models.length!==30||new Set(models.map(m=>m.id)).size!==30)throw Error('需要30款完整立体模型');
+for(const model of models){if(!content.cars.some(c=>c.id===model.id)||model.factorySha256!==factoryHash||!/^media\/models\/car\d{2}\.glb$/.test(model.file))throw Error('立体模型记录与工厂源码不一致');const b=await fs.readFile(path.join('public',model.file));if(b.toString('utf8',0,4)!=='glTF'||b.readUInt32LE(4)!==2||b.readUInt32LE(8)!==b.length||createHash('sha256').update(b).digest('hex')!==model.sha256)throw Error('模型文件损坏 '+model.id);}
+console.log('30款完整GLB、模型来源与生成代码哈希一致。');
+
+const turnarounds=JSON.parse(await fs.readFile('content/car-turnarounds-production.json','utf8')) as {id:string;tool:string;generatedFile:string;sheetSha256:string;prompt:string;views:{id:string;image:string}[]}[];
+if(turnarounds.length!==30||new Set(turnarounds.map(s=>s.id)).size!==30||new Set(turnarounds.map(s=>s.generatedFile)).size!==30||new Set(turnarounds.map(s=>s.sheetSha256)).size!==30)throw Error('需要30款独立生成的多角度车辆记录');
+for(const car of content.cars){const source=turnarounds.find(s=>s.id===car.id);if(!car.game?.orbit||!source||source.tool!=='Built-in GPT Image'||!source.prompt||JSON.stringify(car.game.orbit)!==JSON.stringify(source.views)||car.game.orbit.map(v=>v.id).join(',')!=='front-left,front,front-right,left,rear,right')throw Error('多角度车图与来源记录不一致 '+car.id);for(const view of car.game.orbit){const asset=content.assets.find(a=>a.id===view.image);if(!asset?.path.startsWith('media/car-turnarounds/')||asset.width!==800||asset.height!==480||!car.views.some(v=>v.id===view.id&&v.image===view.image))throw Error('多角度车图引用错误 '+car.id);}}
+console.log('30款车 / 180张GPT多角度外观图及其来源、引用、尺寸一致。');

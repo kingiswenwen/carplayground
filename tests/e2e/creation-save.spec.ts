@@ -11,6 +11,6 @@ test('轮印边画边存，保存排队期间的新笔画最终保留 @smoke',as
 });
 test('作品写入失败保留本次笔画，重试保存后仍可在车库找到 @smoke',async({page})=>{
  await page.addInitScript(()=>{Reflect.set(window,'__failCreation',true);const put=IDBObjectStore.prototype.put;IDBObjectStore.prototype.put=function(...args:Parameters<typeof put>){if(this.name==='creations'&&Reflect.get(window,'__failCreation'))throw new DOMException('Simulated quota','QuotaExceededError');return put.apply(this,args);};});
- await openTouch(page,'A02');await dragTouch(page,(await touchState(page)).items[0],{x:680,y:250});await expect(page.getByText('这次记录暂时没保存。')).toBeVisible();
+ await openTouch(page,'A02');await dragTouch(page,(await touchState(page)).items[0],{x:680,y:250});await expect(page.getByRole('button',{name:'重试保存',exact:true})).toBeVisible();
  await page.evaluate(()=>Reflect.set(window,'__failCreation',false));await page.getByRole('button',{name:'重试保存',exact:true}).click();await expect.poll(async()=>(await localRows(page,'creations')).length).toBe(1);
 });

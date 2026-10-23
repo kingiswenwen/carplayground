@@ -1,23 +1,14 @@
-import { useState } from 'react';
-import { ArrowLeft, ArrowRight, BookOpen, CarFront, Compass, Flag, Map, Play, Sparkles, Volume2, Wrench } from 'lucide-react';
-import { SceneArt } from '../components/SceneArt';
-import { content, domains, getActivity, type SceneId } from '../domain/content';
-import { sceneAtmosphere } from '../domain/scenes';
-import { audio } from '../services/audio';
-import { ActivityLinks } from './Browse';
-const positions = { showroom: {x:24,y:36}, parking:{x:27,y:70}, workshop:{x:74,y:35}, travel:{x:77,y:71} };
-const sceneIcons = { showroom: CarFront, parking: Flag, workshop: Wrench, travel: Compass };
-export function StoryShelf(){return <section className="story-shelf"><div className="section-heading"><div><span className="eyebrow">坐下来，听小车讲一个故事</span><h2>小车的故事时间</h2></div><BookOpen size={28}/></div><div className="story-cards">{content.stories.map((s,i)=><a className={`story-card story-${i}`} href={`#/stories/${s.id}`} key={s.id}><div className="story-cover"><SceneArt scene={s.scene} imageId={s.scene==='showroom'?'showcase-CAR01':`story-${s.scene}`}/><span><BookOpen size={24}/></span></div><div className="story-card-copy"><h3>{s.title}</h3><p>四幕故事 · 边听边玩</p><span>打开故事 <ArrowRight size={18}/></span></div></a>)}</div></section>;}
+import {useState} from 'react';
+import {ArrowLeft,ArrowRight} from 'lucide-react';
+import {ActivityLinks} from './Browse';
+import {PlayPicture} from '../components/PlayPicture';
+import {activeCar} from '../domain/active-car';
+import {content,type SceneId} from '../domain/content';
+const first=['H03','M01','T04','P01','T02','A02'];
 export function World({sceneId}:{sceneId?:SceneId}){
- const [domain,setDomain] = useState('');
- if(sceneId)return <SceneDestination sceneId={sceneId}/>;
- return <div className="world-page"><div className="world-intro"><div><span className="eyebrow"><Compass size={15}/>汽车游乐园 · 探索地图</span><h1>今天，开到哪里去？</h1><p>点一个地方，开进小车的世界。</p></div><a className="button map-car-link" href="#/cars"><CarFront size={20}/>先去选辆车</a></div>
- <section className="world-map" aria-label="汽车游乐园互动地图"><div className="world-map-canvas"><SceneArt scene="world" priority/>{content.scenes.map(s=>{const p=positions[s.id];const Icon=sceneIcons[s.id];return <a className={`world-pin scene-destination pin-${s.id}`} href={`#/explore/${s.id}`} style={{left:`${p.x}%`,top:`${p.y}%`}} aria-label={`进入${s.name}`} key={s.id}><span className="pin-icon"><Icon size={25}/></span><span><strong>{s.name}</strong><small>{s.subtitle}</small></span><ArrowRight size={19}/></a>;})}<div className="map-you"><span/><span>好奇心，从这里出发</span></div></div><div className="map-caption"><span><Map size={17}/>四个小世界，每个地方都有可以动手的发现</span><a href="#all-discoveries" onClick={e=>{e.preventDefault();document.getElementById('all-discoveries')?.scrollIntoView({behavior:'smooth'});}}>看看全部玩法 <ArrowRight size={16}/></a></div></section>
- <section className="discover-new" aria-label="跑车新玩法"><a href="#/play/P01"><SceneArt scene="driving"/><div><strong>让跑车，真的动起来</strong><small>推一推、换路面，看看它怎么慢慢停下</small></div><span className="new-icon"><Play size={22}/></span></a><a href="#/play/T04?car=CAR02"><SceneArt scene="workshop"/><div><strong>亲手组装一辆跑车</strong><small>真实照片里的四块大零件，等你装回去</small></div><span className="new-icon"><Wrench size={22}/></span></a></section><StoryShelf/><section id="all-discoveries" className="all-discoveries"><div className="section-heading"><div><span className="eyebrow">按兴趣挑一件小事</span><h2>还有哪些好玩的？</h2></div></div><div className="domain-filter" aria-label="探索方向筛选"><button aria-pressed={!domain} onClick={()=>setDomain('')}>全部发现</button>{domains.map(d=><button aria-pressed={domain===d} key={d} onClick={()=>setDomain(d)}>{d}</button>)}</div><ActivityLinks domain={domain||undefined}/></section></div>;
-}
-function SceneDestination({sceneId}:{sceneId:SceneId}){
- const scene=content.scenes.find(s=>s.id===sceneId)!;const meta=sceneAtmosphere[sceneId];const primary=getActivity(meta.primary)!;
- return <div className={`scene-page destination-page-${sceneId}`}><div className="scene-breadcrumb"><a className="text-button" href="#/explore"><ArrowLeft size={18}/>回到乐园地图</a><span><Map size={16}/> {scene.name}</span></div><section className={`destination-world world-${sceneId}`} aria-label={`${scene.name}互动场景`}><SceneArt scene={sceneId} imageId={sceneId==='showroom'?'showcase-CAR01':undefined} priority/><div className="destination-copy"><span className="scene-kicker">{meta.invitation}</span><h1>{scene.name}</h1><p>{meta.intro}</p></div>{meta.spots.map((s,i)=><a key={s.id} href={`#/play/${s.id}?from=${sceneId}`} style={{left:`${s.x}%`,top:`${s.y}%`}} className={`destination-spot spot-${i}`}><span className="spot-beacon"><Play size={16} fill="currentColor"/></span><strong>{s.label}</strong><ArrowRight size={16}/></a>)}<div className="scene-enter-note"><Sparkles size={16}/>点场景里的小标记，进去玩一玩</div></section>
- <div className="scene-invitation"><div><span>不知道先玩什么？</span><h2>{primary.title}</h2><p>{primary.goal}</p></div><a className="button primary" href={`#/play/${primary.id}?from=${sceneId}`}>现在就去 <ArrowRight size={20}/></a><button className="round-button" aria-label={`听听${primary.title}怎么玩`} onClick={()=>void audio.play(primary.instructionAudio)}><Volume2 size={20}/></button></div>
- <section className="scene-more"><div className="section-heading"><h2>在{scene.name}，还可以……</h2><a className="text-button" href="#/explore">换个地方 <ArrowRight size={18}/></a></div><ActivityLinks scene={sceneId}/></section></div>;
+ const[page,setPage]=useState(0);const ids=sceneId?content.activities.filter(a=>a.scene===sceneId).map(a=>a.id):[...first,...content.activities.map(a=>a.id).filter(id=>!first.includes(id))];const pages=Math.ceil(ids.length/3),car=activeCar();
+ return <div className="picture-world"><div className="world-sky" aria-hidden="true"><span>☁️</span><span>☀️</span><span>☁️</span></div>{sceneId&&<a className="picture-button world-back" href="#/explore" aria-label="回到乐园"><ArrowLeft/></a>}
+ <ActivityLinks ids={ids.slice(page*3,page*3+3)} carId={car}/>
+ <div className="picture-pagination"><button className="picture-button" aria-label="前一组玩法" disabled={page===0} onClick={()=>setPage(p=>p-1)}><ArrowLeft/></button><div className="picture-dots" aria-label="玩法分组">{Array.from({length:pages},(_,i)=>Math.abs(i-page)<=1&&<button key={i} aria-label={`第${i+1}组玩法`} aria-current={i===page?'page':undefined} onClick={()=>setPage(i)}/>)}</div><button className="picture-button" aria-label="更多玩法" disabled={page===pages-1} onClick={()=>setPage(p=>p+1)}><ArrowRight/></button></div>
+ {!sceneId&&<div className="picture-story-shelf" aria-label="故事">{content.stories.map(s=><a aria-label={s.title} key={s.id} href={`#/stories/${s.id}`}><PlayPicture id={s.id==='ST01'?'A01':s.id==='ST02'?'S03':'L03'} carId={car}/></a>)}</div>}</div>;
 }

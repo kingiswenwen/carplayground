@@ -32,9 +32,9 @@ export function CarImage({ presentation = 'object', lazy = false, carId = 'CAR01
       alt={`${car.name}，GPT重新生成的游戏跑车`}
       width={image.width} height={image.height} draggable={false} loading={lazy ? 'lazy' : 'eager'} fetchPriority={priority ? 'high' : 'auto'}
       onLoad={() => setStatus('ready')} onError={() => setStatus('error')} />}
-    {status === 'loading' && <span className="image-loading">小车正在驶来…</span>}
-    {status === 'error' && <div className="image-error" role="alert"><p>这张图片还没到，再试一次</p>
-      <button onClick={event => { event.preventDefault(); event.stopPropagation(); setStatus('loading'); setRetry(r => r + 1); }}><RefreshCw size={20} />重新加载</button></div>}
+    {status === 'loading' && <span className="image-loading" aria-label="正在准备小车">🛞</span>}
+    {status === 'error' && <div className="image-error" role="alert"><span className="sr-only">这张图片还没到，再试一次</span>
+      <button aria-label="重新加载小车图片" onClick={event => { event.preventDefault(); event.stopPropagation(); setStatus('loading'); setRetry(r => r + 1); }}><RefreshCw size={20} /></button></div>}
     {showPoints && points.map(part =>
       <button key={part.id} className={`hotspot ${active === part.id ? 'active' : ''}`} aria-label={`${part.zh} ${part.id}`}
         aria-pressed={active === part.id} style={{ left: `${part.x * 100}%`, top: `${part.y * 100}%` }} onClick={() => onPart?.(part.id)}>
