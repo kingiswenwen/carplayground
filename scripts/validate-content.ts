@@ -19,8 +19,9 @@ for (const asset of content.assets) {
 const published = new Set(content.assets.map(a => a.path));
 async function verifyDirectory(folder:string):Promise<void>{for(const entry of await fs.readdir(path.join('public',folder),{withFileTypes:true})){const local=folder+'/'+entry.name;if(entry.isDirectory())await verifyDirectory(local);else if(!published.has(local))throw new Error(`未登记素材 ${local}`);}}
 await verifyDirectory('media');
-const sources=JSON.parse(await fs.readFile('content/play-cars-production.json','utf8')) as {id:string;tool:string;generatedFile:string;prompt:string;views:{side:string;top:string};wheels:{x:number;y:number;r:number}[];checks:{transparentExport:boolean;distinctGeneratedSheet:boolean;dimensions:number[]}}[];
-if(sources.length!==30||new Set(sources.map(s=>s.id)).size!==30||new Set(sources.map(s=>s.generatedFile)).size!==30)throw Error('需要30款独立生成跑车的完整来源记录');
+const sources=JSON.parse(await fs.readFile('content/play-cars-production.json','utf8')) as {id:string;tool:string;generatedFile:string;sheetSha256?:string;atlasFrame?:{row:number;columns:{side:number;top:number}};prompt:string;views:{side:string;top:string};wheels:{x:number;y:number;r:number}[];checks:{transparentExport:boolean;distinctGeneratedSheet:boolean;distinctVehicleFrame?:boolean;dimensions:number[]}}[];
+if(sources.length!==30||new Set(sources.map(s=>s.id)).size!==30||new Set(sources.map(s=>`${s.generatedFile}#${s.atlasFrame?.row||'whole'}`)).size!==30)throw Error('需要30款跑车各自的完整来源与独立图帧记录');
+for(const source of sources)if(source.atlasFrame&&(!source.checks.distinctVehicleFrame||!source.sheetSha256?.match(/^[a-f0-9]{64}$/)||source.atlasFrame.row<1||source.atlasFrame.row>5||source.atlasFrame.columns.side!==1||source.atlasFrame.columns.top!==2))throw Error('玩具车图集来源或图帧无效 '+source.id);
 for(const car of content.cars){
  const source=sources.find(s=>s.id===car.id);
  if(!car.game||!source||source.tool!=='Built-in GPT Image'||!source.prompt||!source.checks.transparentExport||source.views.side!==car.game.side||source.views.top!==car.game.top||JSON.stringify(source.wheels)!==JSON.stringify(car.game.wheels))throw Error('游戏跑车与生成记录不一致 '+car.id);
@@ -31,6 +32,15 @@ for(const car of content.cars){
   const raw=await sharp(path.join('public',asset.path)).ensureAlpha().raw().toBuffer();
   let clear=0;for(let i=3;i<raw.length;i+=4)if(raw[i]<10)clear++;
   if(clear<1000*450*.15)throw Error('车辆缺少实际透明背景 '+id);
+  if(id===car.game.side){
+   const alpha=(x:number,y:number)=>raw[(Math.round(y)*1000+Math.round(x))*4+3]||0;
+   for(const point of car.hotspots)if(point.x<=0||point.x>=1||point.y<=0||point.y>=1||alpha(point.x*1000,point.y*450)<100)throw Error('部件中心落在透明区域 '+car.id+' '+point.id);
+   for(const wheel of car.game.wheels){
+    if(wheel.r<.06||wheel.r>.13||alpha(wheel.x*1000,wheel.y*450)<100)throw Error('轮子中心或半径无效 '+car.id);
+    let solid=0;for(let angle=0;angle<12;angle++){const a=angle*Math.PI/6;if(alpha(wheel.x*1000+Math.cos(a)*wheel.r*750,wheel.y*450+Math.sin(a)*wheel.r*750)>100)solid++;}
+    if(solid<10)throw Error('轮子轮廓注册偏离实际图像 '+car.id);
+   }
+  }
  }
 }
 console.log(`内容 ${content.id} 验证通过：${content.cars.length} 款新生成跑车 / 60 独立视图 / ${content.activities.length} 活动，透明度、引用、来源、文件与 SHA-256 一致。`);

@@ -52,7 +52,7 @@ Python 音频处理测试需要 FFmpeg。浏览器模拟结果不代表真机实
 
 默认车辆观察使用30套独立生成的六视图，左右拨动切换离散角度；生产记录见 `content/car-turnarounds-production.json`。使用 `node scripts/prepare-car-turnarounds.mjs <本机生成记录目录>` 处理3×2源图，导出180张WebP并登记哈希。输入生成记录中的绝对路径不写入公开来源清单。
 
-玩法使用重新生成的侧视、俯视图；生产提示词、来源和轮位记录见 `content/play-cars-production.json`。旧照片与按钮交互的浏览器脚本保留于 `tests/legacy-ui-v5/` 供历史回溯，当前回归位于 `tests/e2e/`。
+玩法使用30款玩具风格侧视、俯视图。`node scripts/prepare-toy-cars.mjs <本机图集索引.json>` 处理6张五车图集及可选的单车修正，清理透明噪点、导出60张WebP并按彩色轮毂和轮胎轮廓登记轮位；图帧与来源需要人工检查。输入索引的绝对路径不写入公开来源。生产提示词、来源和轮位记录见 `content/play-cars-production.json`。旧照片与按钮交互的浏览器脚本保留于 `tests/legacy-ui-v5/` 供历史回溯，当前回归位于 `tests/e2e/`。
 
 素材来源与署名保留在 `content/photo-sources.json`、`content/photo-view-sources.json` 等清单中。素材的许可范围需分别核对；声音听审与分发依据仍待确认。
 
@@ -61,3 +61,5 @@ Python 音频处理测试需要 FFmpeg。浏览器模拟结果不代表真机实
 构建产物位于 `dist/`。可选公开素材路径见 `.env.example`；`VITE_` 变量会进入网页，不能放凭据。
 
 实际部署配置、云资源标识、连接说明和运维回执只保存在私有环境中。自动部署从 GitHub 的 `production` Environment Secrets 读取配置；本地部署可通过 `CARPLAYGROUND_DEPLOYMENT_DIR` 指向仓库外的私有配置目录。公开代码不包含真实目标配置。
+
+统一绘制图形位于 `src/visual/play-symbols.ts`，React与Canvas共用，不依赖平台Emoji字体。`src/domain/play-journey.ts` 提供覆盖26项活动的可选下一站邀请；故事上下文仍走原故事下一幕，完成记录与儿童掌握程度分开。

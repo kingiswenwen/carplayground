@@ -2,7 +2,9 @@ import {useEffect, useRef, useState} from 'react';
 import {content, type ActivityDefinition} from '../domain/content';
 import {newSessionId} from '../domain/session-id';
 import {audio} from '../services/audio';
-import {db, finishSession, safely, saveSessionResult, type SessionRecord, type SessionResult, type Settings} from '../services/storage';
+import {db, finishSession, safely, type SessionRecord, type SessionResult, type Settings} from '../services/storage';
+
+import {hasPendingResults, queueSessionResult, retryPendingResults} from '../services/pending-session-results';
 
 export function useLearningSession(activity: ActivityDefinition, settings: Settings, carId: string, autoInstruction = true) {
   const [initial] = useState<SessionRecord>(() => ({id: newSessionId(), activityId: activity.id, activityVersion: activity.version,
@@ -25,6 +27,7 @@ export function useLearningSession(activity: ActivityDefinition, settings: Setti
       if (cancelled) return;
       started = true;
       start.current = safely(async () => {await db.sessions.put(initial); return true;}, false);
+      if (hasPendingResults()) void retrySave();
     });
     const hide = () => {
       if (document.hidden && !isPaused.current) {
@@ -46,22 +49,21 @@ export function useLearningSession(activity: ActivityDefinition, settings: Setti
   }, [id]);
 
   const retrySave = async () => {
-    if (!alive.current || isPaused.current || !result.current || saving.current) return;
+    if (!alive.current || isPaused.current || !hasPendingResults() || saving.current) return;
     saving.current = true;
     setRecordStatus('saving');
-    const snapshot = result.current;
-    const started = await start.current;
-    const saved = await safely(() => saveSessionResult(snapshot, !started), false);
+    const saved = await retryPendingResults();
     saving.current = false;
-    if (alive.current) setRecordStatus(saved ? 'saved' : 'error');
+    if (alive.current) setRecordStatus(saved ? (ended.current ? 'saved' : 'idle') : 'error');
   };
-  const finish = (summary: string) => {
+  const finish = (summary: string, sounds?: string[]) => {
     if (!alive.current || ended.current || isPaused.current) return;
     ended.current = true; setDone(true);
     result.current = {...initial, state: activity.mode === 'open' ? 'participated' : 'completed', hints: hints.current,
       durationMs: elapsed.current + performance.now() - last.current, summary, endedAt: new Date().toISOString()};
+    queueSessionResult(result.current, start.current);
     void retrySave();
-    void audio.play(activity.completeAudio);
+    void audio.play(...(sounds||[activity.completeAudio]));
   };
   const hint = () => {if (!alive.current || isPaused.current) return; hints.current++; setMessage(activity.hint); void audio.play(activity.hintAudio);};
   const resume = () => {last.current = performance.now(); isPaused.current = false; setPaused(false);};

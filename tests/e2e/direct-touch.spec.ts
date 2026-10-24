@@ -1,5 +1,6 @@
 import {test,expect,type Page} from '@playwright/test';
 import fs from 'node:fs';
+import {partTouchPoints} from './touch-helpers';
 const content=JSON.parse(fs.readFileSync('content/r3.json','utf8')) as {cars:{id:string}[];activities:{id:string}[]};
 type State={ready:boolean;completed:boolean;progress:number;moving:boolean;items:{id:string;x:number;y:number;placed:boolean}[];targets:{id:string;x:number;y:number;occupied?:boolean}[]};
 const canvas=(page:Page)=>page.locator('canvas.touch-canvas');
@@ -86,11 +87,11 @@ test('倾斜权限拒绝或没有传感器时仍可拖推',async({page})=>{
  await open(page,'P01');await page.getByRole('button',{name:'启用倾斜操控'}).click();await expect(page.getByRole('button',{name:'启用倾斜操控'})).toBeVisible();await drag(page,(await state(page)).items[0],{x:520,y:340});await complete(page);
 });
 test('部件探索、出发停止和形状滚动均由触碰物体完成',async({page})=>{
- for(const id of ['E02','T01']){await open(page,id);for(const p of [{x:764,y:391},{x:509,y:338},{x:860,y:321}]){const at=await position(page,p);await page.mouse.click(at.x,at.y);}await complete(page);}
+ for(const id of ['E02','T01']){await open(page,id);for(const p of partTouchPoints()){const at=await position(page,p);await page.mouse.click(at.x,at.y);}await complete(page);}
  for(const id of ['S01']){await open(page,id);await drag(page,(await state(page)).items[0],{x:500,y:340},4);await complete(page);}
 });
 test('新车图失败时不接受空图操作，重试后可继续 @smoke',async({page})=>{
- let fail=true;await page.route('**/play-cars/car02-side.webp',route=>fail?route.abort():route.continue());
+ let fail=true;await page.route('**/play-cars/*car02-side.webp',route=>fail?route.abort():route.continue());
  await page.goto('/#/play/M01?car=CAR02');await expect(page.getByRole('button',{name:'重新加载游戏跑车'})).toBeVisible();expect((await state(page)).ready).toBe(false);
  fail=false;await page.getByRole('button',{name:'重新加载游戏跑车'}).click();await expect.poll(async()=>(await state(page)).ready).toBe(true);await drop(page,'car-0','bay-0');await drop(page,'car-1','bay-1');await complete(page);
 });

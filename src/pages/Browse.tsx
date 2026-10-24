@@ -4,6 +4,7 @@ import {VehicleViews} from '../components/VehicleViews';
 import {ArrowLeft,Heart,Volume2,Download,RotateCcw} from 'lucide-react';
 import {CarImage} from '../components/CarImage';
 import {PlayPicture} from '../components/PlayPicture';
+import {PlaySymbol} from '../components/PlaySymbol';
 import {content,getCar} from '../domain/content';
 import {audio} from '../services/audio';
 import {db,safely,type Creation} from '../services/storage';
@@ -17,7 +18,7 @@ function Model({carId}:{carId:string}){return <VehicleViews key={carId} carId={c
 export function Showroom(_props:{welcome:boolean;begin:(sound:boolean)=>void}){
  const[index,setIndex]=useState(Math.max(0,content.cars.findIndex(c=>c.id===activeCar())));const car=content.cars[index];
  const choose=(i:number)=>{setIndex((i+content.cars.length)%content.cars.length);rememberCar(content.cars[(i+content.cars.length)%content.cars.length].id);};
- return <div className="picture-showroom"><div className="car-roundabout"><Model carId={car.id}/><a className="picture-button car-heart" aria-label={`走近看看 ${car.name}`} href={`#/cars/${car.id}`}><span aria-hidden="true">👀</span></a><button className="picture-button car-voice" aria-label="听车名" onClick={()=>void audio.play(car.audio)}><Volume2/></button></div>
+ return <div className="picture-showroom"><div className="car-roundabout"><Model carId={car.id}/><a className="picture-button car-heart" aria-label={`走近看看 ${car.name}`} href={`#/cars/${car.id}`}><PlaySymbol name="smile"/></a><button className="picture-button car-voice" aria-label="听车名" onClick={()=>void audio.play(car.audio)}><Volume2/></button></div>
  <div className="car-gallery car-ribbon" aria-label="选择跑车">{content.cars.map((c,i)=><button key={c.id} className={`car-gallery-card ${i===index?'selected':''}`} aria-label={`选择 ${c.name}`} aria-pressed={i===index} onClick={()=>choose(i)}><CarImage carId={c.id} lazy/></button>)}</div>
  <ActivityLinks carId={car.id} ids={['H03','M01','T04']}/></div>;
 }
@@ -29,6 +30,6 @@ export function Detail({carId,favorite,favoriteBusy=false,favoriteError,toggleFa
 }
 export function Garage({favorites}:{favorites:string[]}){
  const[creations,setCreations]=useState<Creation[]>([]);const[error,setError]=useState('');useEffect(()=>{void safely(()=>db.creations.orderBy('createdAt').reverse().toArray(),[]).then(setCreations);},[]);
- return <div className="picture-garage"><div className="garage-roof" aria-hidden="true">🏠<span>💛</span></div><div className="favorite-grid">{(favorites.length?favorites:content.cars.slice(0,3).map(c=>c.id)).map(id=><a className={favorites.length?'garage-car':'garage-invitation'} key={id} href={`#/cars/${id}`} aria-label={`看看 ${getCar(id)?.name}`}><CarImage carId={id}/>{!favorites.length&&<Heart aria-hidden="true"/>}</a>)}</div>
+ return <div className="picture-garage"><div className="garage-roof" aria-hidden="true"><PlaySymbol name="garage"/><PlaySymbol name="heart"/></div><div className="favorite-grid">{(favorites.length?favorites:content.cars.slice(0,3).map(c=>c.id)).map(id=><a className={favorites.length?'garage-car':'garage-invitation'} key={id} href={`#/cars/${id}`} aria-label={`看看 ${getCar(id)?.name}`}><CarImage carId={id}/>{!favorites.length&&<Heart aria-hidden="true"/>}</a>)}</div>
  <section className="garage-art" aria-label="我的作品">{creations.length?<div className="creation-grid">{creations.map(c=><div className="creation-card" key={c.id}><ArtworkView creation={c}/><button className="picture-button" aria-label="下载图片" onClick={async()=>{try{await exportArtwork(c);}catch{setError('图片暂时无法导出，作品仍保存在车库。');}}}><Download/></button></div>)}</div>:<ActivityLinks ids={['A01','A02']}/>}</section>{error&&<span className="sr-only" role="status">{error}</span>}</div>;
 }

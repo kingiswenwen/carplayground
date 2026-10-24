@@ -1,4 +1,7 @@
 import {expect,type Page} from '@playwright/test';
+import fs from 'node:fs';
+const carContent=JSON.parse(fs.readFileSync('content/r3.json','utf8')) as {cars:{id:string;hotspots:{id:string;x:number;y:number}[]}[]};
+export function partTouchPoints(carId='CAR02',height=680){return carContent.cars.find(c=>c.id===carId)!.hotspots.map(p=>({x:50+p.x*900,y:height*.49-202.5+p.y*405}));}
 export type TouchState={ready:boolean;completed:boolean;progress:number;moving:boolean;items:{id:string;x:number;y:number;placed:boolean}[];targets:{id:string;x:number;y:number;occupied?:boolean}[]};
 export const touchCanvas=(page:Page)=>page.locator('canvas.touch-canvas');
 export const touchState=async(page:Page):Promise<TouchState>=>JSON.parse((await touchCanvas(page).getAttribute('data-state'))!);

@@ -1,9 +1,9 @@
 import {expect,test,type Page} from '@playwright/test';
-import {openTouch,dropTouch,dragTouch,touchState,touchPosition,completedTouch,localRows} from './touch-helpers';
+import {openTouch,dropTouch,dragTouch,touchState,touchPosition,completedTouch,localRows,partTouchPoints} from './touch-helpers';
 async function gestures(page:Page,id:string){
  if(id==='E01')for(const color of ['red','blue','white'])await dropTouch(page,color,'color-home');
  else if(id==='M01'){await dropTouch(page,'car-0','bay-0');await dropTouch(page,'car-1','bay-1');}
- else if(id==='E02'){for(const p of [{x:764,y:391},{x:509,y:338},{x:860,y:321}]){const at=await touchPosition(page,p);await page.mouse.click(at.x,at.y);}}
+ else if(id==='E02'){for(const p of partTouchPoints()){const at=await touchPosition(page,p);await page.mouse.click(at.x,at.y);}}
  else{await dragTouch(page,(await touchState(page)).items.find(i=>i.id==='stamp-0')!,{x:200,y:220});await dragTouch(page,(await touchState(page)).items.find(i=>i.id==='stamp-1')!,{x:750,y:200});}
  await completedTouch(page);
 }

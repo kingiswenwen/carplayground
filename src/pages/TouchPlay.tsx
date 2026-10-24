@@ -1,4 +1,6 @@
 import {PlayPicture} from '../components/PlayPicture';
+import {PlaySymbol} from '../components/PlaySymbol';
+import {nextInvitation} from '../domain/play-journey';
 import { useEffect, useRef, useState, type PointerEvent } from 'react';
 import { ArrowLeft, ArrowRight, Check, Hand, Pause, Play, RotateCcw, Smartphone, Users, Volume2 } from 'lucide-react';
 import { getActivity, type ActivityId } from '../domain/content';
@@ -11,7 +13,8 @@ const empty:BoardSnapshot={ready:false,progress:0,completed:false,moving:false,h
 type OrientationPermission = typeof DeviceOrientationEvent & {requestPermission?:()=>Promise<string>};
 export function TouchPlay({id,carId,settings,backHref='#/explore',continueHref}:{id:ActivityId;carId:string;settings:Settings;backHref?:string;continueHref?:string}){
   const activity=getActivity(id)!;
-  const session=useLearningSession(activity,settings,carId,false);
+  const session=useLearningSession(activity,settings,carId,true);
+  const next=nextInvitation(id,carId);
   const canvas=useRef<HTMLCanvasElement>(null), board=useRef<TouchBoard|null>(null);
   const callbacks=useRef(session);callbacks.current=session;
   const [state,setState]=useState(empty),[error,setError]=useState(''),[attempt,setAttempt]=useState(0),[sensor,setSensor]=useState(false),[sensorMessage,setSensorMessage]=useState('');
@@ -43,7 +46,7 @@ export function TouchPlay({id,carId,settings,backHref='#/explore',continueHref}:
     if(!canvas.current)return;
     setState(empty);setError('');
     const next=new TouchBoard(canvas.current,{id,carId,portrait,
-      speak:sound=>{if(!callbacks.current.paused)void audio.play(sound);},finish:summary=>callbacks.current.finish(summary),feedback:text=>callbacks.current.setMessage(text),
+      speak:(...sounds)=>{if(!callbacks.current.paused)void audio.play(...sounds);},finish:(summary,sounds)=>callbacks.current.finish(summary,sounds),feedback:text=>callbacks.current.setMessage(text),
       changed:value=>{if(alive)setState(value);},paint:(points,background)=>{if(alive)paint(points,background);}});
     board.current=next;
     void next.load().catch(()=>{if(alive)setError('跑车素材暂时没准备好，请重试。');});
@@ -111,6 +114,11 @@ export function TouchPlay({id,carId,settings,backHref='#/explore',continueHref}:
       {state.completed&&<Check aria-label="记录一次探索"/>}
       {continueHref&&state.completed&&<a className="touch-icon" aria-label="继续故事" href={continueHref}><ArrowRight/></a>}
     </div>
+    {state.completed&&!continueHref&&<div className="next-invitation" role="region" aria-label="小车接下来想去哪里">
+      <PlaySymbol name="flag" className="invitation-flag"/>
+      <span className="invitation-trail" aria-hidden="true"/>
+      <a href={next.href} className="next-destination" aria-label={next.label}><PlayPicture id={next.picture} carId={carId}/><ArrowRight aria-hidden="true"/></a>
+    </div>}
     <span className="sr-only" role="status" aria-live="polite">{session.message}</span>
     {(session.recordStatus==='error'||creationStatus==='error')&&<div className="pictorial-error" role="status"><span className="sr-only">这次记录暂时没保存。</span><button className="picture-button" aria-label="重试保存" onClick={()=>{void session.retrySave();writeCreation();}}><RotateCcw/></button></div>}
     {sensorMessage&&<span className="sr-only" role="status">{sensorMessage}</span>}
