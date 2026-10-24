@@ -1,0 +1,9 @@
+{
+  "tool": "Built-in GPT Image",
+  "purpose": "six-angle visual reference, not a 3D model",
+  "prompt": "Use case: stylized-concept. Asset type: coherent six-view character turnaround reference sheet of ONE new golden yellow mid-engine wedge sports car for CarPlayground, a premium touch playground for four-year-old children. Create an original GPT-rendered vehicle with Lamborghini Revuelto-inspired low wedge proportions, not a source photo, no badges or logos, no cartoon face. Realistic polished 3D game asset, smooth rounded panel edges, black panoramic glass canopy, large readable machined five-spoke wheels, black lower aerodynamic trim, narrow Y-shaped headlights and slim triple tail LEDs. The SAME actual car in every cell, consistent wheelbase, details, proportions and paint. SIX VIEWS in a strictly aligned 3 columns by 2 rows sheet: front-left three-quarter, exact FRONT, front-right three-quarter / exact LEFT SIDE, exact REAR, exact RIGHT SIDE. All full vehicles fit within cells with generous clear margins, no overlap. Seamless pale mint studio backdrop, soft contact shadows. No labels, text, numbers, UI, people, floor patterns, watermark or extra cars. This is a design reference for a coherent real 3D model, emphasize front and rear architecture that side-view sprites lack. Clean child-friendly inviting realism, not a showroom photograph.",
+  "generatedFile": "exec-bbb26bd8-7d8d-49e3-8825-34fd798a9a82.png",
+  "savedPath": "public/references/vehicle-six-views.png",
+  "runtimeModel": "src/three/vehicle.ts",
+  "modelNote": "Original parametrically constructed game interpretations. The 3D mesh has shared geometry for front/rear/left/right/top; it is not reconstructed from or identical to the reference image."
+}

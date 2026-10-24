@@ -1,0 +1,1052 @@
+[
+  {
+    "id": "CAR01",
+    "tool": "Built-in GPT Image",
+    "generatedFile": "exec-bbb26bd8-7d8d-49e3-8825-34fd798a9a82.png",
+    "sheetSha256": "4dcde3be412dac2af3cae7eb80a580975422d31d92efa333e68652667b597dc4",
+    "prompt": "Use case: stylized-concept. Asset type: coherent six-view character turnaround reference sheet of ONE new golden yellow mid-engine wedge sports car for CarPlayground, a premium touch playground for four-year-old children. Create an original GPT-rendered vehicle with Lamborghini Revuelto-inspired low wedge proportions, not a source photo, no badges or logos, no cartoon face. Realistic polished 3D game asset, smooth rounded panel edges, black panoramic glass canopy, large readable machined five-spoke wheels, black lower aerodynamic trim, narrow Y-shaped headlights and slim triple tail LEDs. The SAME actual car in every cell, consistent wheelbase, details, proportions and paint. SIX VIEWS in a strictly aligned 3 columns by 2 rows sheet: front-left three-quarter, exact FRONT, front-right three-quarter / exact LEFT SIDE, exact REAR, exact RIGHT SIDE. All full vehicles fit within cells with generous clear margins, no overlap. Seamless pale mint studio backdrop, soft contact shadows. No labels, text, numbers, UI, people, floor patterns, watermark or extra cars. This is a design reference for a coherent real 3D model, emphasize front and rear architecture that side-view sprites lack. Clean child-friendly inviting realism, not a showroom photograph.",
+    "views": [
+      {
+        "id": "front-left",
+        "image": "orbit-CAR01-front-left"
+      },
+      {
+        "id": "front",
+        "image": "orbit-CAR01-front"
+      },
+      {
+        "id": "front-right",
+        "image": "orbit-CAR01-front-right"
+      },
+      {
+        "id": "left",
+        "image": "orbit-CAR01-left"
+      },
+      {
+        "id": "rear",
+        "image": "orbit-CAR01-rear"
+      },
+      {
+        "id": "right",
+        "image": "orbit-CAR01-right"
+      }
+    ],
+    "processing": "3 columns x 2 rows; crop, foreground bounds, contain 800x480 WebP. No perspective synthesis.",
+    "limits": "Six discrete CG views, not a photogrammetry scan or exact licensed manufacturer model."
+  },
+  {
+    "id": "CAR02",
+    "tool": "Built-in GPT Image",
+    "generatedFile": "exec-238002db-3b3e-47c3-81c0-cab5da8fb3a7.png",
+    "sheetSha256": "493db609e672dfba681500465e43f7c5c8ec3068030793d14bbd8101aa1094b6",
+    "prompt": "Use case: stylized-concept. Asset type: one coherent six-angle production turnaround sheet for a children's touch car playground. Generate a completely NEW red Ferrari 296 GTB realistic 3D game vehicle, accurate recognizable 296 silhouette and front/rear lighting, never extracted from a photo. The attached yellow-car sheet is ONLY a style/layout reference: replace the vehicle in EVERY panel with the red Ferrari. SAME actual Ferrari in all six panels, consistent paint, mirrors, roof, wheels, bumpers and wheelbase. EXACT 3 columns by 2 rows grid with narrow 8-pixel pale separators, pale mint studio background: top row front-left three-quarter / exact FRONT / front-right three-quarter; bottom row exact LEFT SIDE nose LEFT / exact REAR / exact RIGHT SIDE nose RIGHT. Whole vehicle centered and fully visible with generous margins in each 512x512 square cell of a 1536x1024 sheet. Premium realistic toy-game rendering with readable geometry, rich saturated red, gentle lighting and realistic materials; no face. No text, letters, labels, numbers, watermark, UI, badges or people. Do not repeat side-only images: include a clear FRONT and REAR.",
+    "views": [
+      {
+        "id": "front-left",
+        "image": "orbit-CAR02-front-left"
+      },
+      {
+        "id": "front",
+        "image": "orbit-CAR02-front"
+      },
+      {
+        "id": "front-right",
+        "image": "orbit-CAR02-front-right"
+      },
+      {
+        "id": "left",
+        "image": "orbit-CAR02-left"
+      },
+      {
+        "id": "rear",
+        "image": "orbit-CAR02-rear"
+      },
+      {
+        "id": "right",
+        "image": "orbit-CAR02-right"
+      }
+    ],
+    "processing": "3 columns x 2 rows; crop, foreground bounds, contain 800x480 WebP. No perspective synthesis.",
+    "limits": "Six discrete CG views, not a photogrammetry scan or exact licensed manufacturer model."
+  },
+  {
+    "id": "CAR03",
+    "tool": "Built-in GPT Image",
+    "generatedFile": "exec-0a4d6e56-fa17-479f-814b-49aebe980261.png",
+    "sheetSha256": "636cd5384a61a09af5bb4fd6f45c5ee640c75e854139d6403c74863986183ee5",
+    "prompt": "Use case: stylized-concept. Asset type: ONE coherent six-view production turnaround sheet for CarPlayground, a four-year-old's touch car playground. Generate a completely NEW mint green with black aero Porsche 911 GT3 RS, recognizable sports-car silhouette and correct distinctive FRONT and REAR lighting, realistic polished 3D game prop, NEVER a photographic cutout. Attached yellow car is ONLY rendering/style/layout reference: replace the car in EVERY cell with requested Porsche 911 GT3 RS. SAME car identity, proportions, wheelbase, paint and wheels in ALL six panels. EXACT 3 columns x 2 rows on 1536x1024, narrow pale grid separators, uniform pale mint studio background: TOP ROW front-left three-quarter / exact FRONT / front-right three-quarter; BOTTOM ROW exact LEFT SIDE nose LEFT / exact REAR / exact RIGHT SIDE nose RIGHT. Center FULL vehicle within each equal 512x512 cell with generous margins, no clipping, no repeated side-view substitutions. Premium realistic child-friendly game rendering, carefully crafted surfaces, readable windows and wheels, not a cartoon, no faces. No text, labels, letters, numbers, watermark, UI, people, podiums or extra vehicles. Include proper model-specific front bumper, hood, roof, rear architecture and tail lamps. This sheet will become six distinct views that a child swipes through; all views must belong to one car.",
+    "views": [
+      {
+        "id": "front-left",
+        "image": "orbit-CAR03-front-left"
+      },
+      {
+        "id": "front",
+        "image": "orbit-CAR03-front"
+      },
+      {
+        "id": "front-right",
+        "image": "orbit-CAR03-front-right"
+      },
+      {
+        "id": "left",
+        "image": "orbit-CAR03-left"
+      },
+      {
+        "id": "rear",
+        "image": "orbit-CAR03-rear"
+      },
+      {
+        "id": "right",
+        "image": "orbit-CAR03-right"
+      }
+    ],
+    "processing": "3 columns x 2 rows; crop, foreground bounds, contain 800x480 WebP. No perspective synthesis.",
+    "limits": "Six discrete CG views, not a photogrammetry scan or exact licensed manufacturer model."
+  },
+  {
+    "id": "CAR04",
+    "tool": "Built-in GPT Image",
+    "generatedFile": "exec-629b8a2d-4b64-49c0-8152-f2e196f4d00a.png",
+    "sheetSha256": "8865d6d254c7ba77ff8ef3473aaa20b58451d0b15aa2c8f3989d60496f45bccf",
+    "prompt": "Use case: stylized-concept. Asset type: ONE coherent six-view production turnaround sheet for CarPlayground, a four-year-old's touch car playground. Generate a completely NEW tangerine orange McLaren 750S, recognizable sports-car silhouette and correct distinctive FRONT and REAR lighting, realistic polished 3D game prop, NEVER a photographic cutout. Attached yellow car is ONLY rendering/style/layout reference: replace the car in EVERY cell with requested McLaren 750S. SAME car identity, proportions, wheelbase, paint and wheels in ALL six panels. EXACT 3 columns x 2 rows on 1536x1024, narrow pale grid separators, uniform pale mint studio background: TOP ROW front-left three-quarter / exact FRONT / front-right three-quarter; BOTTOM ROW exact LEFT SIDE nose LEFT / exact REAR / exact RIGHT SIDE nose RIGHT. Center FULL vehicle within each equal 512x512 cell with generous margins, no clipping, no repeated side-view substitutions. Premium realistic child-friendly game rendering, carefully crafted surfaces, readable windows and wheels, not a cartoon, no faces. No text, labels, letters, numbers, watermark, UI, people, podiums or extra vehicles. Include proper model-specific front bumper, hood, roof, rear architecture and tail lamps. This sheet will become six distinct views that a child swipes through; all views must belong to one car.",
+    "views": [
+      {
+        "id": "front-left",
+        "image": "orbit-CAR04-front-left"
+      },
+      {
+        "id": "front",
+        "image": "orbit-CAR04-front"
+      },
+      {
+        "id": "front-right",
+        "image": "orbit-CAR04-front-right"
+      },
+      {
+        "id": "left",
+        "image": "orbit-CAR04-left"
+      },
+      {
+        "id": "rear",
+        "image": "orbit-CAR04-rear"
+      },
+      {
+        "id": "right",
+        "image": "orbit-CAR04-right"
+      }
+    ],
+    "processing": "3 columns x 2 rows; crop, foreground bounds, contain 800x480 WebP. No perspective synthesis.",
+    "limits": "Six discrete CG views, not a photogrammetry scan or exact licensed manufacturer model."
+  },
+  {
+    "id": "CAR05",
+    "tool": "Built-in GPT Image",
+    "generatedFile": "exec-505f02c3-84bf-43dd-8fe6-a5fad2e77cfb.png",
+    "sheetSha256": "a08687e1e5840ad3121932e499a175a284184efc30e7c4c494fb346f7eac06e3",
+    "prompt": "Use case: stylized-concept. Asset type: ONE coherent six-view production turnaround sheet for CarPlayground, a four-year-old's touch car playground. Generate a completely NEW cobalt blue Bugatti Chiron, recognizable sports-car silhouette and correct distinctive FRONT and REAR lighting, realistic polished 3D game prop, NEVER a photographic cutout. Attached yellow car is ONLY rendering/style/layout reference: replace the car in EVERY cell with requested Bugatti Chiron. SAME car identity, proportions, wheelbase, paint and wheels in ALL six panels. EXACT 3 columns x 2 rows on 1536x1024, narrow pale grid separators, uniform pale mint studio background: TOP ROW front-left three-quarter / exact FRONT / front-right three-quarter; BOTTOM ROW exact LEFT SIDE nose LEFT / exact REAR / exact RIGHT SIDE nose RIGHT. Center FULL vehicle within each equal 512x512 cell with generous margins, no clipping, no repeated side-view substitutions. Premium realistic child-friendly game rendering, carefully crafted surfaces, readable windows and wheels, not a cartoon, no faces. No text, labels, letters, numbers, watermark, UI, people, podiums or extra vehicles. Include proper model-specific front bumper, hood, roof, rear architecture and tail lamps. This sheet will become six distinct views that a child swipes through; all views must belong to one car.",
+    "views": [
+      {
+        "id": "front-left",
+        "image": "orbit-CAR05-front-left"
+      },
+      {
+        "id": "front",
+        "image": "orbit-CAR05-front"
+      },
+      {
+        "id": "front-right",
+        "image": "orbit-CAR05-front-right"
+      },
+      {
+        "id": "left",
+        "image": "orbit-CAR05-left"
+      },
+      {
+        "id": "rear",
+        "image": "orbit-CAR05-rear"
+      },
+      {
+        "id": "right",
+        "image": "orbit-CAR05-right"
+      }
+    ],
+    "processing": "3 columns x 2 rows; crop, foreground bounds, contain 800x480 WebP. No perspective synthesis.",
+    "limits": "Six discrete CG views, not a photogrammetry scan or exact licensed manufacturer model."
+  },
+  {
+    "id": "CAR06",
+    "tool": "Built-in GPT Image",
+    "generatedFile": "exec-8713923d-21f0-48a6-85d7-05a95d0bc5a8.png",
+    "sheetSha256": "74c302c531bed0222634ddd2ce74a4912333b1ef3251e36465aaab8e4879be26",
+    "prompt": "Use case: stylized-concept. Asset type: ONE coherent six-view production turnaround sheet for CarPlayground, a four-year-old's touch car playground. Generate a completely NEW pearl silver Pagani Huayra, recognizable sports-car silhouette and correct distinctive FRONT and REAR lighting, realistic polished 3D game prop, NEVER a photographic cutout. Attached yellow car is ONLY rendering/style/layout reference: replace the car in EVERY cell with requested Pagani Huayra. SAME car identity, proportions, wheelbase, paint and wheels in ALL six panels. EXACT 3 columns x 2 rows on 1536x1024, narrow pale grid separators, uniform pale mint studio background: TOP ROW front-left three-quarter / exact FRONT / front-right three-quarter; BOTTOM ROW exact LEFT SIDE nose LEFT / exact REAR / exact RIGHT SIDE nose RIGHT. Center FULL vehicle within each equal 512x512 cell with generous margins, no clipping, no repeated side-view substitutions. Premium realistic child-friendly game rendering, carefully crafted surfaces, readable windows and wheels, not a cartoon, no faces. No text, labels, letters, numbers, watermark, UI, people, podiums or extra vehicles. Include proper model-specific front bumper, hood, roof, rear architecture and tail lamps. This sheet will become six distinct views that a child swipes through; all views must belong to one car.",
+    "views": [
+      {
+        "id": "front-left",
+        "image": "orbit-CAR06-front-left"
+      },
+      {
+        "id": "front",
+        "image": "orbit-CAR06-front"
+      },
+      {
+        "id": "front-right",
+        "image": "orbit-CAR06-front-right"
+      },
+      {
+        "id": "left",
+        "image": "orbit-CAR06-left"
+      },
+      {
+        "id": "rear",
+        "image": "orbit-CAR06-rear"
+      },
+      {
+        "id": "right",
+        "image": "orbit-CAR06-right"
+      }
+    ],
+    "processing": "3 columns x 2 rows; crop, foreground bounds, contain 800x480 WebP. No perspective synthesis.",
+    "limits": "Six discrete CG views, not a photogrammetry scan or exact licensed manufacturer model."
+  },
+  {
+    "id": "CAR07",
+    "tool": "Built-in GPT Image",
+    "generatedFile": "exec-569b7c27-6d0e-4015-9bf6-38a9b98cfcb0.png",
+    "sheetSha256": "9f2fcb95395b6bb1ff812bdd4a85ce6bc0cfd5b2e32101fe3517a9fc58bfd08e",
+    "prompt": "Use case: stylized-concept. Asset type: ONE coherent six-view production turnaround sheet for CarPlayground, a four-year-old's touch car playground. Generate a completely NEW lime green Koenigsegg Jesko Attack, recognizable sports-car silhouette and correct distinctive FRONT and REAR lighting, realistic polished 3D game prop, NEVER a photographic cutout. Attached yellow car is ONLY rendering/style/layout reference: replace the car in EVERY cell with requested Koenigsegg Jesko Attack. SAME car identity, proportions, wheelbase, paint and wheels in ALL six panels. EXACT 3 columns x 2 rows on 1536x1024, narrow pale grid separators, uniform pale mint studio background: TOP ROW front-left three-quarter / exact FRONT / front-right three-quarter; BOTTOM ROW exact LEFT SIDE nose LEFT / exact REAR / exact RIGHT SIDE nose RIGHT. Center FULL vehicle within each equal 512x512 cell with generous margins, no clipping, no repeated side-view substitutions. Premium realistic child-friendly game rendering, carefully crafted surfaces, readable windows and wheels, not a cartoon, no faces. No text, labels, letters, numbers, watermark, UI, people, podiums or extra vehicles. Include proper model-specific front bumper, hood, roof, rear architecture and tail lamps. This sheet will become six distinct views that a child swipes through; all views must belong to one car.",
+    "views": [
+      {
+        "id": "front-left",
+        "image": "orbit-CAR07-front-left"
+      },
+      {
+        "id": "front",
+        "image": "orbit-CAR07-front"
+      },
+      {
+        "id": "front-right",
+        "image": "orbit-CAR07-front-right"
+      },
+      {
+        "id": "left",
+        "image": "orbit-CAR07-left"
+      },
+      {
+        "id": "rear",
+        "image": "orbit-CAR07-rear"
+      },
+      {
+        "id": "right",
+        "image": "orbit-CAR07-right"
+      }
+    ],
+    "processing": "3 columns x 2 rows; crop, foreground bounds, contain 800x480 WebP. No perspective synthesis.",
+    "limits": "Six discrete CG views, not a photogrammetry scan or exact licensed manufacturer model."
+  },
+  {
+    "id": "CAR08",
+    "tool": "Built-in GPT Image",
+    "generatedFile": "exec-0018bfe0-f1f8-4da7-844c-d380a7dc1951.png",
+    "sheetSha256": "a2f5764c0b59ebfcaf762bbb51c400136bdc5143410a7bc08bbf4f9c100e07a6",
+    "prompt": "Use case: stylized-concept. Asset type: ONE coherent six-view production turnaround sheet for CarPlayground, a four-year-old's touch car playground. Generate a completely NEW British racing green Aston Martin Vantage, recognizable sports-car silhouette and correct distinctive FRONT and REAR lighting, realistic polished 3D game prop, NEVER a photographic cutout. Attached yellow car is ONLY rendering/style/layout reference: replace the car in EVERY cell with requested Aston Martin Vantage. SAME car identity, proportions, wheelbase, paint and wheels in ALL six panels. EXACT 3 columns x 2 rows on 1536x1024, narrow pale grid separators, uniform pale mint studio background: TOP ROW front-left three-quarter / exact FRONT / front-right three-quarter; BOTTOM ROW exact LEFT SIDE nose LEFT / exact REAR / exact RIGHT SIDE nose RIGHT. Center FULL vehicle within each equal 512x512 cell with generous margins, no clipping, no repeated side-view substitutions. Premium realistic child-friendly game rendering, carefully crafted surfaces, readable windows and wheels, not a cartoon, no faces. No text, labels, letters, numbers, watermark, UI, people, podiums or extra vehicles. Include proper model-specific front bumper, hood, roof, rear architecture and tail lamps. This sheet will become six distinct views that a child swipes through; all views must belong to one car.",
+    "views": [
+      {
+        "id": "front-left",
+        "image": "orbit-CAR08-front-left"
+      },
+      {
+        "id": "front",
+        "image": "orbit-CAR08-front"
+      },
+      {
+        "id": "front-right",
+        "image": "orbit-CAR08-front-right"
+      },
+      {
+        "id": "left",
+        "image": "orbit-CAR08-left"
+      },
+      {
+        "id": "rear",
+        "image": "orbit-CAR08-rear"
+      },
+      {
+        "id": "right",
+        "image": "orbit-CAR08-right"
+      }
+    ],
+    "processing": "3 columns x 2 rows; crop, foreground bounds, contain 800x480 WebP. No perspective synthesis.",
+    "limits": "Six discrete CG views, not a photogrammetry scan or exact licensed manufacturer model."
+  },
+  {
+    "id": "CAR09",
+    "tool": "Built-in GPT Image",
+    "generatedFile": "exec-7fcb33ad-018f-4100-839a-1b396bd4bfcf.png",
+    "sheetSha256": "66c34f2ddd8c47d005091ac229e92d3371fedea733cec102cd1053ec790472a1",
+    "prompt": "Use case: stylized-concept. Asset type: ONE coherent six-view production turnaround sheet for CarPlayground, a four-year-old's touch car playground. Generate a completely NEW lemon yellow Chevrolet Corvette C8 Stingray, recognizable sports-car silhouette and correct distinctive FRONT and REAR lighting, realistic polished 3D game prop, NEVER a photographic cutout. Attached yellow car is ONLY rendering/style/layout reference: replace the car in EVERY cell with requested Chevrolet Corvette C8 Stingray. SAME car identity, proportions, wheelbase, paint and wheels in ALL six panels. EXACT 3 columns x 2 rows on 1536x1024, narrow pale grid separators, uniform pale mint studio background: TOP ROW front-left three-quarter / exact FRONT / front-right three-quarter; BOTTOM ROW exact LEFT SIDE nose LEFT / exact REAR / exact RIGHT SIDE nose RIGHT. Center FULL vehicle within each equal 512x512 cell with generous margins, no clipping, no repeated side-view substitutions. Premium realistic child-friendly game rendering, carefully crafted surfaces, readable windows and wheels, not a cartoon, no faces. No text, labels, letters, numbers, watermark, UI, people, podiums or extra vehicles. Include proper model-specific front bumper, hood, roof, rear architecture and tail lamps. This sheet will become six distinct views that a child swipes through; all views must belong to one car.",
+    "views": [
+      {
+        "id": "front-left",
+        "image": "orbit-CAR09-front-left"
+      },
+      {
+        "id": "front",
+        "image": "orbit-CAR09-front"
+      },
+      {
+        "id": "front-right",
+        "image": "orbit-CAR09-front-right"
+      },
+      {
+        "id": "left",
+        "image": "orbit-CAR09-left"
+      },
+      {
+        "id": "rear",
+        "image": "orbit-CAR09-rear"
+      },
+      {
+        "id": "right",
+        "image": "orbit-CAR09-right"
+      }
+    ],
+    "processing": "3 columns x 2 rows; crop, foreground bounds, contain 800x480 WebP. No perspective synthesis.",
+    "limits": "Six discrete CG views, not a photogrammetry scan or exact licensed manufacturer model."
+  },
+  {
+    "id": "CAR10",
+    "tool": "Built-in GPT Image",
+    "generatedFile": "exec-46b868f7-f391-4827-89ce-78e29b39013b.png",
+    "sheetSha256": "e5ef125ef54e53661acd49e63d0e684060f73abdd3ea111878a3cf5de40ba6ed",
+    "prompt": "Use case: stylized-concept. Asset type: ONE coherent six-view production turnaround sheet for CarPlayground, a four-year-old's touch car playground. Generate a completely NEW cherry red Mercedes-AMG GT Coupé, recognizable sports-car silhouette and correct distinctive FRONT and REAR lighting, realistic polished 3D game prop, NEVER a photographic cutout. Attached yellow car is ONLY rendering/style/layout reference: replace the car in EVERY cell with requested Mercedes-AMG GT Coupé. SAME car identity, proportions, wheelbase, paint and wheels in ALL six panels. EXACT 3 columns x 2 rows on 1536x1024, narrow pale grid separators, uniform pale mint studio background: TOP ROW front-left three-quarter / exact FRONT / front-right three-quarter; BOTTOM ROW exact LEFT SIDE nose LEFT / exact REAR / exact RIGHT SIDE nose RIGHT. Center FULL vehicle within each equal 512x512 cell with generous margins, no clipping, no repeated side-view substitutions. Premium realistic child-friendly game rendering, carefully crafted surfaces, readable windows and wheels, not a cartoon, no faces. No text, labels, letters, numbers, watermark, UI, people, podiums or extra vehicles. Include proper model-specific front bumper, hood, roof, rear architecture and tail lamps. This sheet will become six distinct views that a child swipes through; all views must belong to one car.",
+    "views": [
+      {
+        "id": "front-left",
+        "image": "orbit-CAR10-front-left"
+      },
+      {
+        "id": "front",
+        "image": "orbit-CAR10-front"
+      },
+      {
+        "id": "front-right",
+        "image": "orbit-CAR10-front-right"
+      },
+      {
+        "id": "left",
+        "image": "orbit-CAR10-left"
+      },
+      {
+        "id": "rear",
+        "image": "orbit-CAR10-rear"
+      },
+      {
+        "id": "right",
+        "image": "orbit-CAR10-right"
+      }
+    ],
+    "processing": "3 columns x 2 rows; crop, foreground bounds, contain 800x480 WebP. No perspective synthesis.",
+    "limits": "Six discrete CG views, not a photogrammetry scan or exact licensed manufacturer model."
+  },
+  {
+    "id": "CAR11",
+    "tool": "Built-in GPT Image",
+    "generatedFile": "exec-1d55bafd-71ed-4358-a040-9bc476ed7bb6.png",
+    "sheetSha256": "85e503bb067c3269580938c2206b217fc7c5433a2cf9a6791e5bc6ce48c961fc",
+    "prompt": "Use case: stylized-concept. Asset type: ONE coherent six-view production turnaround sheet for CarPlayground, a four-year-old's touch car playground. Generate a completely NEW sky blue Audi R8 Coupé, recognizable sports-car silhouette and correct distinctive FRONT and REAR lighting, realistic polished 3D game prop, NEVER a photographic cutout. Attached yellow car is ONLY rendering/style/layout reference: replace the car in EVERY cell with requested Audi R8 Coupé. SAME car identity, proportions, wheelbase, paint and wheels in ALL six panels. EXACT 3 columns x 2 rows on 1536x1024, narrow pale grid separators, uniform pale mint studio background: TOP ROW front-left three-quarter / exact FRONT / front-right three-quarter; BOTTOM ROW exact LEFT SIDE nose LEFT / exact REAR / exact RIGHT SIDE nose RIGHT. Center FULL vehicle within each equal 512x512 cell with generous margins, no clipping, no repeated side-view substitutions. Premium realistic child-friendly game rendering, carefully crafted surfaces, readable windows and wheels, not a cartoon, no faces. No text, labels, letters, numbers, watermark, UI, people, podiums or extra vehicles. Include proper model-specific front bumper, hood, roof, rear architecture and tail lamps. This sheet will become six distinct views that a child swipes through; all views must belong to one car.",
+    "views": [
+      {
+        "id": "front-left",
+        "image": "orbit-CAR11-front-left"
+      },
+      {
+        "id": "front",
+        "image": "orbit-CAR11-front"
+      },
+      {
+        "id": "front-right",
+        "image": "orbit-CAR11-front-right"
+      },
+      {
+        "id": "left",
+        "image": "orbit-CAR11-left"
+      },
+      {
+        "id": "rear",
+        "image": "orbit-CAR11-rear"
+      },
+      {
+        "id": "right",
+        "image": "orbit-CAR11-right"
+      }
+    ],
+    "processing": "3 columns x 2 rows; crop, foreground bounds, contain 800x480 WebP. No perspective synthesis.",
+    "limits": "Six discrete CG views, not a photogrammetry scan or exact licensed manufacturer model."
+  },
+  {
+    "id": "CAR12",
+    "tool": "Built-in GPT Image",
+    "generatedFile": "exec-ecc881d2-261d-4882-aa9f-3c54f56205b2.png",
+    "sheetSha256": "246f8783bf862cec3dabf75ea00a737e323a45c5f56713041923282f9ae98e1b",
+    "prompt": "Use case: stylized-concept. Asset type: ONE coherent six-view production turnaround sheet for CarPlayground, a four-year-old's touch car playground. Generate a completely NEW warm amber Lexus LC 500, recognizable sports-car silhouette and correct distinctive FRONT and REAR lighting, realistic polished 3D game prop, NEVER a photographic cutout. Attached yellow car is ONLY rendering/style/layout reference: replace the car in EVERY cell with requested Lexus LC 500. SAME car identity, proportions, wheelbase, paint and wheels in ALL six panels. EXACT 3 columns x 2 rows on 1536x1024, narrow pale grid separators, uniform pale mint studio background: TOP ROW front-left three-quarter / exact FRONT / front-right three-quarter; BOTTOM ROW exact LEFT SIDE nose LEFT / exact REAR / exact RIGHT SIDE nose RIGHT. Center FULL vehicle within each equal 512x512 cell with generous margins, no clipping, no repeated side-view substitutions. Premium realistic child-friendly game rendering, carefully crafted surfaces, readable windows and wheels, not a cartoon, no faces. No text, labels, letters, numbers, watermark, UI, people, podiums or extra vehicles. Include proper model-specific front bumper, hood, roof, rear architecture and tail lamps. This sheet will become six distinct views that a child swipes through; all views must belong to one car.",
+    "views": [
+      {
+        "id": "front-left",
+        "image": "orbit-CAR12-front-left"
+      },
+      {
+        "id": "front",
+        "image": "orbit-CAR12-front"
+      },
+      {
+        "id": "front-right",
+        "image": "orbit-CAR12-front-right"
+      },
+      {
+        "id": "left",
+        "image": "orbit-CAR12-left"
+      },
+      {
+        "id": "rear",
+        "image": "orbit-CAR12-rear"
+      },
+      {
+        "id": "right",
+        "image": "orbit-CAR12-right"
+      }
+    ],
+    "processing": "3 columns x 2 rows; crop, foreground bounds, contain 800x480 WebP. No perspective synthesis.",
+    "limits": "Six discrete CG views, not a photogrammetry scan or exact licensed manufacturer model."
+  },
+  {
+    "id": "CAR13",
+    "tool": "Built-in GPT Image",
+    "generatedFile": "exec-45d5448f-ed6a-4328-a9f2-fd01a12584ef.png",
+    "sheetSha256": "30a271cb5efe922e11d44cab4028e20bc4c25cf01371a0f864e9650a7c49ee7c",
+    "prompt": "Use case: stylized-concept. Asset type: ONE coherent six-view production turnaround sheet for CarPlayground, a four-year-old's touch car playground. Generate a completely NEW royal blue Ford Mustang GT, recognizable sports-car silhouette and correct distinctive FRONT and REAR lighting, realistic polished 3D game prop, NEVER a photographic cutout. Attached yellow car is ONLY rendering/style/layout reference: replace the car in EVERY cell with requested Ford Mustang GT. SAME car identity, proportions, wheelbase, paint and wheels in ALL six panels. EXACT 3 columns x 2 rows on 1536x1024, narrow pale grid separators, uniform pale mint studio background: TOP ROW front-left three-quarter / exact FRONT / front-right three-quarter; BOTTOM ROW exact LEFT SIDE nose LEFT / exact REAR / exact RIGHT SIDE nose RIGHT. Center FULL vehicle within each equal 512x512 cell with generous margins, no clipping, no repeated side-view substitutions. Premium realistic child-friendly game rendering, carefully crafted surfaces, readable windows and wheels, not a cartoon, no faces. No text, labels, letters, numbers, watermark, UI, people, podiums or extra vehicles. Include proper model-specific front bumper, hood, roof, rear architecture and tail lamps. This sheet will become six distinct views that a child swipes through; all views must belong to one car.",
+    "views": [
+      {
+        "id": "front-left",
+        "image": "orbit-CAR13-front-left"
+      },
+      {
+        "id": "front",
+        "image": "orbit-CAR13-front"
+      },
+      {
+        "id": "front-right",
+        "image": "orbit-CAR13-front-right"
+      },
+      {
+        "id": "left",
+        "image": "orbit-CAR13-left"
+      },
+      {
+        "id": "rear",
+        "image": "orbit-CAR13-rear"
+      },
+      {
+        "id": "right",
+        "image": "orbit-CAR13-right"
+      }
+    ],
+    "processing": "3 columns x 2 rows; crop, foreground bounds, contain 800x480 WebP. No perspective synthesis.",
+    "limits": "Six discrete CG views, not a photogrammetry scan or exact licensed manufacturer model."
+  },
+  {
+    "id": "CAR14",
+    "tool": "Built-in GPT Image",
+    "generatedFile": "exec-c73012fa-103d-4e9f-a1f6-d041f2b882d9.png",
+    "sheetSha256": "ebe6980e80888279407d255b5c446946fd75601274db485ae7286c1000e2900b",
+    "prompt": "Use case: stylized-concept. Asset type: ONE coherent six-view production turnaround sheet for CarPlayground, a four-year-old's touch car playground. Generate a completely NEW scarlet red Toyota GR Supra, recognizable sports-car silhouette and correct distinctive FRONT and REAR lighting, realistic polished 3D game prop, NEVER a photographic cutout. Attached yellow car is ONLY rendering/style/layout reference: replace the car in EVERY cell with requested Toyota GR Supra. SAME car identity, proportions, wheelbase, paint and wheels in ALL six panels. EXACT 3 columns x 2 rows on 1536x1024, narrow pale grid separators, uniform pale mint studio background: TOP ROW front-left three-quarter / exact FRONT / front-right three-quarter; BOTTOM ROW exact LEFT SIDE nose LEFT / exact REAR / exact RIGHT SIDE nose RIGHT. Center FULL vehicle within each equal 512x512 cell with generous margins, no clipping, no repeated side-view substitutions. Premium realistic child-friendly game rendering, carefully crafted surfaces, readable windows and wheels, not a cartoon, no faces. No text, labels, letters, numbers, watermark, UI, people, podiums or extra vehicles. Include proper model-specific front bumper, hood, roof, rear architecture and tail lamps. This sheet will become six distinct views that a child swipes through; all views must belong to one car.",
+    "views": [
+      {
+        "id": "front-left",
+        "image": "orbit-CAR14-front-left"
+      },
+      {
+        "id": "front",
+        "image": "orbit-CAR14-front"
+      },
+      {
+        "id": "front-right",
+        "image": "orbit-CAR14-front-right"
+      },
+      {
+        "id": "left",
+        "image": "orbit-CAR14-left"
+      },
+      {
+        "id": "rear",
+        "image": "orbit-CAR14-rear"
+      },
+      {
+        "id": "right",
+        "image": "orbit-CAR14-right"
+      }
+    ],
+    "processing": "3 columns x 2 rows; crop, foreground bounds, contain 800x480 WebP. No perspective synthesis.",
+    "limits": "Six discrete CG views, not a photogrammetry scan or exact licensed manufacturer model."
+  },
+  {
+    "id": "CAR15",
+    "tool": "Built-in GPT Image",
+    "generatedFile": "exec-80eea08b-c814-48e1-b66b-2de3100c0201.png",
+    "sheetSha256": "9d50a6a47e20ff6b39d5925369392424a05e7723c554e2d29e0460e2bc6e80f6",
+    "prompt": "Use case: stylized-concept. Asset type: ONE coherent six-view production turnaround sheet for CarPlayground, a four-year-old's touch car playground. Generate a completely NEW pearl white Toyota GR86, recognizable sports-car silhouette and correct distinctive FRONT and REAR lighting, realistic polished 3D game prop, NEVER a photographic cutout. Attached yellow car is ONLY rendering/style/layout reference: replace the car in EVERY cell with requested Toyota GR86. SAME car identity, proportions, wheelbase, paint and wheels in ALL six panels. EXACT 3 columns x 2 rows on 1536x1024, narrow pale grid separators, uniform pale mint studio background: TOP ROW front-left three-quarter / exact FRONT / front-right three-quarter; BOTTOM ROW exact LEFT SIDE nose LEFT / exact REAR / exact RIGHT SIDE nose RIGHT. Center FULL vehicle within each equal 512x512 cell with generous margins, no clipping, no repeated side-view substitutions. Premium realistic child-friendly game rendering, carefully crafted surfaces, readable windows and wheels, not a cartoon, no faces. No text, labels, letters, numbers, watermark, UI, people, podiums or extra vehicles. Include proper model-specific front bumper, hood, roof, rear architecture and tail lamps. This sheet will become six distinct views that a child swipes through; all views must belong to one car.",
+    "views": [
+      {
+        "id": "front-left",
+        "image": "orbit-CAR15-front-left"
+      },
+      {
+        "id": "front",
+        "image": "orbit-CAR15-front"
+      },
+      {
+        "id": "front-right",
+        "image": "orbit-CAR15-front-right"
+      },
+      {
+        "id": "left",
+        "image": "orbit-CAR15-left"
+      },
+      {
+        "id": "rear",
+        "image": "orbit-CAR15-rear"
+      },
+      {
+        "id": "right",
+        "image": "orbit-CAR15-right"
+      }
+    ],
+    "processing": "3 columns x 2 rows; crop, foreground bounds, contain 800x480 WebP. No perspective synthesis.",
+    "limits": "Six discrete CG views, not a photogrammetry scan or exact licensed manufacturer model."
+  },
+  {
+    "id": "CAR16",
+    "tool": "Built-in GPT Image",
+    "generatedFile": "exec-a97b873a-6951-426c-9bfc-283d44c0fa4a.png",
+    "sheetSha256": "5c98a09006033656279ef47083e7612fa1c07440d0c09d98e6a446dd135f70d8",
+    "prompt": "Use case: stylized-concept. Asset type: ONE coherent six-view production turnaround sheet for CarPlayground, a four-year-old's touch car playground. Generate a completely NEW golden yellow Nissan Z, recognizable sports-car silhouette and correct distinctive FRONT and REAR lighting, realistic polished 3D game prop, NEVER a photographic cutout. Attached yellow car is ONLY rendering/style/layout reference: replace the car in EVERY cell with requested Nissan Z. SAME car identity, proportions, wheelbase, paint and wheels in ALL six panels. EXACT 3 columns x 2 rows on 1536x1024, narrow pale grid separators, uniform pale mint studio background: TOP ROW front-left three-quarter / exact FRONT / front-right three-quarter; BOTTOM ROW exact LEFT SIDE nose LEFT / exact REAR / exact RIGHT SIDE nose RIGHT. Center FULL vehicle within each equal 512x512 cell with generous margins, no clipping, no repeated side-view substitutions. Premium realistic child-friendly game rendering, carefully crafted surfaces, readable windows and wheels, not a cartoon, no faces. No text, labels, letters, numbers, watermark, UI, people, podiums or extra vehicles. Include proper model-specific front bumper, hood, roof, rear architecture and tail lamps. This sheet will become six distinct views that a child swipes through; all views must belong to one car.",
+    "views": [
+      {
+        "id": "front-left",
+        "image": "orbit-CAR16-front-left"
+      },
+      {
+        "id": "front",
+        "image": "orbit-CAR16-front"
+      },
+      {
+        "id": "front-right",
+        "image": "orbit-CAR16-front-right"
+      },
+      {
+        "id": "left",
+        "image": "orbit-CAR16-left"
+      },
+      {
+        "id": "rear",
+        "image": "orbit-CAR16-rear"
+      },
+      {
+        "id": "right",
+        "image": "orbit-CAR16-right"
+      }
+    ],
+    "processing": "3 columns x 2 rows; crop, foreground bounds, contain 800x480 WebP. No perspective synthesis.",
+    "limits": "Six discrete CG views, not a photogrammetry scan or exact licensed manufacturer model."
+  },
+  {
+    "id": "CAR17",
+    "tool": "Built-in GPT Image",
+    "generatedFile": "exec-c586b9ee-8784-40f7-ae8e-7dd42bafc777.png",
+    "sheetSha256": "7178835b41e9bf65d556da6443289eb86371b4d4c613cfc89fffb4ae1dab80f0",
+    "prompt": "Use case: stylized-concept. Asset type: ONE coherent six-view production turnaround sheet for CarPlayground, a four-year-old's touch car playground. Generate a completely NEW burnt orange Mazda MX-5 RF, recognizable sports-car silhouette and correct distinctive FRONT and REAR lighting, realistic polished 3D game prop, NEVER a photographic cutout. Attached yellow car is ONLY rendering/style/layout reference: replace the car in EVERY cell with requested Mazda MX-5 RF. SAME car identity, proportions, wheelbase, paint and wheels in ALL six panels. EXACT 3 columns x 2 rows on 1536x1024, narrow pale grid separators, uniform pale mint studio background: TOP ROW front-left three-quarter / exact FRONT / front-right three-quarter; BOTTOM ROW exact LEFT SIDE nose LEFT / exact REAR / exact RIGHT SIDE nose RIGHT. Center FULL vehicle within each equal 512x512 cell with generous margins, no clipping, no repeated side-view substitutions. Premium realistic child-friendly game rendering, carefully crafted surfaces, readable windows and wheels, not a cartoon, no faces. No text, labels, letters, numbers, watermark, UI, people, podiums or extra vehicles. Include proper model-specific front bumper, hood, roof, rear architecture and tail lamps. This sheet will become six distinct views that a child swipes through; all views must belong to one car.",
+    "views": [
+      {
+        "id": "front-left",
+        "image": "orbit-CAR17-front-left"
+      },
+      {
+        "id": "front",
+        "image": "orbit-CAR17-front"
+      },
+      {
+        "id": "front-right",
+        "image": "orbit-CAR17-front-right"
+      },
+      {
+        "id": "left",
+        "image": "orbit-CAR17-left"
+      },
+      {
+        "id": "rear",
+        "image": "orbit-CAR17-rear"
+      },
+      {
+        "id": "right",
+        "image": "orbit-CAR17-right"
+      }
+    ],
+    "processing": "3 columns x 2 rows; crop, foreground bounds, contain 800x480 WebP. No perspective synthesis.",
+    "limits": "Six discrete CG views, not a photogrammetry scan or exact licensed manufacturer model."
+  },
+  {
+    "id": "CAR18",
+    "tool": "Built-in GPT Image",
+    "generatedFile": "exec-9f2337b7-f97b-4811-8545-c2cbfd6f547e.png",
+    "sheetSha256": "52f75c8516aa3a85217fdbeccd96c4caf54cbb25b56a65b8c9a1c37165aba36c",
+    "prompt": "Use case: stylized-concept. Asset type: ONE coherent six-view production turnaround sheet for CarPlayground, a four-year-old's touch car playground. Generate a completely NEW bright blue BMW M2, recognizable sports-car silhouette and correct distinctive FRONT and REAR lighting, realistic polished 3D game prop, NEVER a photographic cutout. Attached yellow car is ONLY rendering/style/layout reference: replace the car in EVERY cell with requested BMW M2. SAME car identity, proportions, wheelbase, paint and wheels in ALL six panels. EXACT 3 columns x 2 rows on 1536x1024, narrow pale grid separators, uniform pale mint studio background: TOP ROW front-left three-quarter / exact FRONT / front-right three-quarter; BOTTOM ROW exact LEFT SIDE nose LEFT / exact REAR / exact RIGHT SIDE nose RIGHT. Center FULL vehicle within each equal 512x512 cell with generous margins, no clipping, no repeated side-view substitutions. Premium realistic child-friendly game rendering, carefully crafted surfaces, readable windows and wheels, not a cartoon, no faces. No text, labels, letters, numbers, watermark, UI, people, podiums or extra vehicles. Include proper model-specific front bumper, hood, roof, rear architecture and tail lamps. This sheet will become six distinct views that a child swipes through; all views must belong to one car.",
+    "views": [
+      {
+        "id": "front-left",
+        "image": "orbit-CAR18-front-left"
+      },
+      {
+        "id": "front",
+        "image": "orbit-CAR18-front"
+      },
+      {
+        "id": "front-right",
+        "image": "orbit-CAR18-front-right"
+      },
+      {
+        "id": "left",
+        "image": "orbit-CAR18-left"
+      },
+      {
+        "id": "rear",
+        "image": "orbit-CAR18-rear"
+      },
+      {
+        "id": "right",
+        "image": "orbit-CAR18-right"
+      }
+    ],
+    "processing": "3 columns x 2 rows; crop, foreground bounds, contain 800x480 WebP. No perspective synthesis.",
+    "limits": "Six discrete CG views, not a photogrammetry scan or exact licensed manufacturer model."
+  },
+  {
+    "id": "CAR19",
+    "tool": "Built-in GPT Image",
+    "generatedFile": "exec-6f4f2fef-6682-4b47-bc5f-bba349b64e5c.png",
+    "sheetSha256": "2d5436cc2feab6f971f77acba9bc05edfab228b3c84abefb5d497c71f6974c25",
+    "prompt": "Use case: stylized-concept. Asset type: ONE coherent six-view production turnaround sheet for CarPlayground, a four-year-old's touch car playground. Generate a completely NEW violet purple Lamborghini Huracán, recognizable sports-car silhouette and correct distinctive FRONT and REAR lighting, realistic polished 3D game prop, NEVER a photographic cutout. Attached yellow car is ONLY rendering/style/layout reference: replace the car in EVERY cell with requested Lamborghini Huracán. SAME car identity, proportions, wheelbase, paint and wheels in ALL six panels. EXACT 3 columns x 2 rows on 1536x1024, narrow pale grid separators, uniform pale mint studio background: TOP ROW front-left three-quarter / exact FRONT / front-right three-quarter; BOTTOM ROW exact LEFT SIDE nose LEFT / exact REAR / exact RIGHT SIDE nose RIGHT. Center FULL vehicle within each equal 512x512 cell with generous margins, no clipping, no repeated side-view substitutions. Premium realistic child-friendly game rendering, carefully crafted surfaces, readable windows and wheels, not a cartoon, no faces. No text, labels, letters, numbers, watermark, UI, people, podiums or extra vehicles. Include proper model-specific front bumper, hood, roof, rear architecture and tail lamps. This sheet will become six distinct views that a child swipes through; all views must belong to one car.",
+    "views": [
+      {
+        "id": "front-left",
+        "image": "orbit-CAR19-front-left"
+      },
+      {
+        "id": "front",
+        "image": "orbit-CAR19-front"
+      },
+      {
+        "id": "front-right",
+        "image": "orbit-CAR19-front-right"
+      },
+      {
+        "id": "left",
+        "image": "orbit-CAR19-left"
+      },
+      {
+        "id": "rear",
+        "image": "orbit-CAR19-rear"
+      },
+      {
+        "id": "right",
+        "image": "orbit-CAR19-right"
+      }
+    ],
+    "processing": "3 columns x 2 rows; crop, foreground bounds, contain 800x480 WebP. No perspective synthesis.",
+    "limits": "Six discrete CG views, not a photogrammetry scan or exact licensed manufacturer model."
+  },
+  {
+    "id": "CAR20",
+    "tool": "Built-in GPT Image",
+    "generatedFile": "exec-816b29b6-383b-4c79-9132-cd906e8a60e2.png",
+    "sheetSha256": "7375e8281e5a42bfbaf9c5f670a719f035a4f03b42034dda221412aa98ac3fa1",
+    "prompt": "Use case: stylized-concept. Asset type: ONE coherent six-view production turnaround sheet for CarPlayground, a four-year-old's touch car playground. Generate a completely NEW Ferrari red Ferrari F8 Tributo, recognizable sports-car silhouette and correct distinctive FRONT and REAR lighting, realistic polished 3D game prop, NEVER a photographic cutout. Attached yellow car is ONLY rendering/style/layout reference: replace the car in EVERY cell with requested Ferrari F8 Tributo. SAME car identity, proportions, wheelbase, paint and wheels in ALL six panels. EXACT 3 columns x 2 rows on 1536x1024, narrow pale grid separators, uniform pale mint studio background: TOP ROW front-left three-quarter / exact FRONT / front-right three-quarter; BOTTOM ROW exact LEFT SIDE nose LEFT / exact REAR / exact RIGHT SIDE nose RIGHT. Center FULL vehicle within each equal 512x512 cell with generous margins, no clipping, no repeated side-view substitutions. Premium realistic child-friendly game rendering, carefully crafted surfaces, readable windows and wheels, not a cartoon, no faces. No text, labels, letters, numbers, watermark, UI, people, podiums or extra vehicles. Include proper model-specific front bumper, hood, roof, rear architecture and tail lamps. This sheet will become six distinct views that a child swipes through; all views must belong to one car.",
+    "views": [
+      {
+        "id": "front-left",
+        "image": "orbit-CAR20-front-left"
+      },
+      {
+        "id": "front",
+        "image": "orbit-CAR20-front"
+      },
+      {
+        "id": "front-right",
+        "image": "orbit-CAR20-front-right"
+      },
+      {
+        "id": "left",
+        "image": "orbit-CAR20-left"
+      },
+      {
+        "id": "rear",
+        "image": "orbit-CAR20-rear"
+      },
+      {
+        "id": "right",
+        "image": "orbit-CAR20-right"
+      }
+    ],
+    "processing": "3 columns x 2 rows; crop, foreground bounds, contain 800x480 WebP. No perspective synthesis.",
+    "limits": "Six discrete CG views, not a photogrammetry scan or exact licensed manufacturer model."
+  },
+  {
+    "id": "CAR21",
+    "tool": "Built-in GPT Image",
+    "generatedFile": "exec-cadc2675-773f-458a-b884-9aed9d159e1e.png",
+    "sheetSha256": "ec6b90a606752abe060d62d9582fa019f982f47cc18992cbbfb8a46c87c5f3fd",
+    "prompt": "Use case: stylized-concept. Asset type: ONE coherent six-view production turnaround sheet for CarPlayground, a four-year-old's touch car playground. Generate a completely NEW turquoise Porsche 718 Cayman, recognizable sports-car silhouette and correct distinctive FRONT and REAR lighting, realistic polished 3D game prop, NEVER a photographic cutout. Attached yellow car is ONLY rendering/style/layout reference: replace the car in EVERY cell with requested Porsche 718 Cayman. SAME car identity, proportions, wheelbase, paint and wheels in ALL six panels. EXACT 3 columns x 2 rows on 1536x1024, narrow pale grid separators, uniform pale mint studio background: TOP ROW front-left three-quarter / exact FRONT / front-right three-quarter; BOTTOM ROW exact LEFT SIDE nose LEFT / exact REAR / exact RIGHT SIDE nose RIGHT. Center FULL vehicle within each equal 512x512 cell with generous margins, no clipping, no repeated side-view substitutions. Premium realistic child-friendly game rendering, carefully crafted surfaces, readable windows and wheels, not a cartoon, no faces. No text, labels, letters, numbers, watermark, UI, people, podiums or extra vehicles. Include proper model-specific front bumper, hood, roof, rear architecture and tail lamps. This sheet will become six distinct views that a child swipes through; all views must belong to one car.",
+    "views": [
+      {
+        "id": "front-left",
+        "image": "orbit-CAR21-front-left"
+      },
+      {
+        "id": "front",
+        "image": "orbit-CAR21-front"
+      },
+      {
+        "id": "front-right",
+        "image": "orbit-CAR21-front-right"
+      },
+      {
+        "id": "left",
+        "image": "orbit-CAR21-left"
+      },
+      {
+        "id": "rear",
+        "image": "orbit-CAR21-rear"
+      },
+      {
+        "id": "right",
+        "image": "orbit-CAR21-right"
+      }
+    ],
+    "processing": "3 columns x 2 rows; crop, foreground bounds, contain 800x480 WebP. No perspective synthesis.",
+    "limits": "Six discrete CG views, not a photogrammetry scan or exact licensed manufacturer model."
+  },
+  {
+    "id": "CAR22",
+    "tool": "Built-in GPT Image",
+    "generatedFile": "exec-3a6fe998-b6a6-48b6-a8c0-b94170fa9296.png",
+    "sheetSha256": "9e76f6ee42718ae675eb7ab6a38b63cf9e4f510083733f518da3eb5bdafb428b",
+    "prompt": "Use case: stylized-concept. Asset type: ONE coherent six-view production turnaround sheet for CarPlayground, a four-year-old's touch car playground. Generate a completely NEW amethyst purple McLaren Artura, recognizable sports-car silhouette and correct distinctive FRONT and REAR lighting, realistic polished 3D game prop, NEVER a photographic cutout. Attached yellow car is ONLY rendering/style/layout reference: replace the car in EVERY cell with requested McLaren Artura. SAME car identity, proportions, wheelbase, paint and wheels in ALL six panels. EXACT 3 columns x 2 rows on 1536x1024, narrow pale grid separators, uniform pale mint studio background: TOP ROW front-left three-quarter / exact FRONT / front-right three-quarter; BOTTOM ROW exact LEFT SIDE nose LEFT / exact REAR / exact RIGHT SIDE nose RIGHT. Center FULL vehicle within each equal 512x512 cell with generous margins, no clipping, no repeated side-view substitutions. Premium realistic child-friendly game rendering, carefully crafted surfaces, readable windows and wheels, not a cartoon, no faces. No text, labels, letters, numbers, watermark, UI, people, podiums or extra vehicles. Include proper model-specific front bumper, hood, roof, rear architecture and tail lamps. This sheet will become six distinct views that a child swipes through; all views must belong to one car.",
+    "views": [
+      {
+        "id": "front-left",
+        "image": "orbit-CAR22-front-left"
+      },
+      {
+        "id": "front",
+        "image": "orbit-CAR22-front"
+      },
+      {
+        "id": "front-right",
+        "image": "orbit-CAR22-front-right"
+      },
+      {
+        "id": "left",
+        "image": "orbit-CAR22-left"
+      },
+      {
+        "id": "rear",
+        "image": "orbit-CAR22-rear"
+      },
+      {
+        "id": "right",
+        "image": "orbit-CAR22-right"
+      }
+    ],
+    "processing": "3 columns x 2 rows; crop, foreground bounds, contain 800x480 WebP. No perspective synthesis.",
+    "limits": "Six discrete CG views, not a photogrammetry scan or exact licensed manufacturer model."
+  },
+  {
+    "id": "CAR23",
+    "tool": "Built-in GPT Image",
+    "generatedFile": "exec-e0df07dc-934b-4663-8c15-6931252376fe.png",
+    "sheetSha256": "8bf8587fb181480ddd61c46273cb5e92326252ce96e8431e4614a16a4a983ba5",
+    "prompt": "Use case: stylized-concept. Asset type: ONE coherent six-view production turnaround sheet for CarPlayground, a four-year-old's touch car playground. Generate a completely NEW deep blue Maserati MC20, recognizable sports-car silhouette and correct distinctive FRONT and REAR lighting, realistic polished 3D game prop, NEVER a photographic cutout. Attached yellow car is ONLY rendering/style/layout reference: replace the car in EVERY cell with requested Maserati MC20. SAME car identity, proportions, wheelbase, paint and wheels in ALL six panels. EXACT 3 columns x 2 rows on 1536x1024, narrow pale grid separators, uniform pale mint studio background: TOP ROW front-left three-quarter / exact FRONT / front-right three-quarter; BOTTOM ROW exact LEFT SIDE nose LEFT / exact REAR / exact RIGHT SIDE nose RIGHT. Center FULL vehicle within each equal 512x512 cell with generous margins, no clipping, no repeated side-view substitutions. Premium realistic child-friendly game rendering, carefully crafted surfaces, readable windows and wheels, not a cartoon, no faces. No text, labels, letters, numbers, watermark, UI, people, podiums or extra vehicles. Include proper model-specific front bumper, hood, roof, rear architecture and tail lamps. This sheet will become six distinct views that a child swipes through; all views must belong to one car.",
+    "views": [
+      {
+        "id": "front-left",
+        "image": "orbit-CAR23-front-left"
+      },
+      {
+        "id": "front",
+        "image": "orbit-CAR23-front"
+      },
+      {
+        "id": "front-right",
+        "image": "orbit-CAR23-front-right"
+      },
+      {
+        "id": "left",
+        "image": "orbit-CAR23-left"
+      },
+      {
+        "id": "rear",
+        "image": "orbit-CAR23-rear"
+      },
+      {
+        "id": "right",
+        "image": "orbit-CAR23-right"
+      }
+    ],
+    "processing": "3 columns x 2 rows; crop, foreground bounds, contain 800x480 WebP. No perspective synthesis.",
+    "limits": "Six discrete CG views, not a photogrammetry scan or exact licensed manufacturer model."
+  },
+  {
+    "id": "CAR24",
+    "tool": "Built-in GPT Image",
+    "generatedFile": "exec-a12d61ba-4336-48ea-ae12-0f12fda47020.png",
+    "sheetSha256": "4bbb70183fd1e0fc04d484f822730029c5b2c79a42f3f0b8e3a18c905cbfd435",
+    "prompt": "Use case: stylized-concept. Asset type: ONE coherent six-view production turnaround sheet for CarPlayground, a four-year-old's touch car playground. Generate a completely NEW emerald green Lotus Emira, recognizable sports-car silhouette and correct distinctive FRONT and REAR lighting, realistic polished 3D game prop, NEVER a photographic cutout. Attached yellow car is ONLY rendering/style/layout reference: replace the car in EVERY cell with requested Lotus Emira. SAME car identity, proportions, wheelbase, paint and wheels in ALL six panels. EXACT 3 columns x 2 rows on 1536x1024, narrow pale grid separators, uniform pale mint studio background: TOP ROW front-left three-quarter / exact FRONT / front-right three-quarter; BOTTOM ROW exact LEFT SIDE nose LEFT / exact REAR / exact RIGHT SIDE nose RIGHT. Center FULL vehicle within each equal 512x512 cell with generous margins, no clipping, no repeated side-view substitutions. Premium realistic child-friendly game rendering, carefully crafted surfaces, readable windows and wheels, not a cartoon, no faces. No text, labels, letters, numbers, watermark, UI, people, podiums or extra vehicles. Include proper model-specific front bumper, hood, roof, rear architecture and tail lamps. This sheet will become six distinct views that a child swipes through; all views must belong to one car.",
+    "views": [
+      {
+        "id": "front-left",
+        "image": "orbit-CAR24-front-left"
+      },
+      {
+        "id": "front",
+        "image": "orbit-CAR24-front"
+      },
+      {
+        "id": "front-right",
+        "image": "orbit-CAR24-front-right"
+      },
+      {
+        "id": "left",
+        "image": "orbit-CAR24-left"
+      },
+      {
+        "id": "rear",
+        "image": "orbit-CAR24-rear"
+      },
+      {
+        "id": "right",
+        "image": "orbit-CAR24-right"
+      }
+    ],
+    "processing": "3 columns x 2 rows; crop, foreground bounds, contain 800x480 WebP. No perspective synthesis.",
+    "limits": "Six discrete CG views, not a photogrammetry scan or exact licensed manufacturer model."
+  },
+  {
+    "id": "CAR25",
+    "tool": "Built-in GPT Image",
+    "generatedFile": "exec-b451e737-6be4-414f-b0d9-d61bdd9f4be4.png",
+    "sheetSha256": "3948fb85a2d07437412baf83f283c2f4b7dba1f1b0c9737e58d67b96e5d38f44",
+    "prompt": "Use case: stylized-concept. Asset type: ONE coherent six-view production turnaround sheet for CarPlayground, a four-year-old's touch car playground. Generate a completely NEW French blue Alpine A110, recognizable sports-car silhouette and correct distinctive FRONT and REAR lighting, realistic polished 3D game prop, NEVER a photographic cutout. Attached yellow car is ONLY rendering/style/layout reference: replace the car in EVERY cell with requested Alpine A110. SAME car identity, proportions, wheelbase, paint and wheels in ALL six panels. EXACT 3 columns x 2 rows on 1536x1024, narrow pale grid separators, uniform pale mint studio background: TOP ROW front-left three-quarter / exact FRONT / front-right three-quarter; BOTTOM ROW exact LEFT SIDE nose LEFT / exact REAR / exact RIGHT SIDE nose RIGHT. Center FULL vehicle within each equal 512x512 cell with generous margins, no clipping, no repeated side-view substitutions. Premium realistic child-friendly game rendering, carefully crafted surfaces, readable windows and wheels, not a cartoon, no faces. No text, labels, letters, numbers, watermark, UI, people, podiums or extra vehicles. Include proper model-specific front bumper, hood, roof, rear architecture and tail lamps. This sheet will become six distinct views that a child swipes through; all views must belong to one car.",
+    "views": [
+      {
+        "id": "front-left",
+        "image": "orbit-CAR25-front-left"
+      },
+      {
+        "id": "front",
+        "image": "orbit-CAR25-front"
+      },
+      {
+        "id": "front-right",
+        "image": "orbit-CAR25-front-right"
+      },
+      {
+        "id": "left",
+        "image": "orbit-CAR25-left"
+      },
+      {
+        "id": "rear",
+        "image": "orbit-CAR25-rear"
+      },
+      {
+        "id": "right",
+        "image": "orbit-CAR25-right"
+      }
+    ],
+    "processing": "3 columns x 2 rows; crop, foreground bounds, contain 800x480 WebP. No perspective synthesis.",
+    "limits": "Six discrete CG views, not a photogrammetry scan or exact licensed manufacturer model."
+  },
+  {
+    "id": "CAR26",
+    "tool": "Built-in GPT Image",
+    "generatedFile": "exec-950860d6-fce5-48ac-92ef-e6fcf06ffd7d.png",
+    "sheetSha256": "c3cca71f714f2a0152cdabbdc6beaf968e9563783e5559c23d7291843b5b6ac8",
+    "prompt": "Use case: stylized-concept. Asset type: ONE coherent six-view production turnaround sheet for CarPlayground, a four-year-old's touch car playground. Generate a completely NEW forest green Jaguar F-Type, recognizable sports-car silhouette and correct distinctive FRONT and REAR lighting, realistic polished 3D game prop, NEVER a photographic cutout. Attached yellow car is ONLY rendering/style/layout reference: replace the car in EVERY cell with requested Jaguar F-Type. SAME car identity, proportions, wheelbase, paint and wheels in ALL six panels. EXACT 3 columns x 2 rows on 1536x1024, narrow pale grid separators, uniform pale mint studio background: TOP ROW front-left three-quarter / exact FRONT / front-right three-quarter; BOTTOM ROW exact LEFT SIDE nose LEFT / exact REAR / exact RIGHT SIDE nose RIGHT. Center FULL vehicle within each equal 512x512 cell with generous margins, no clipping, no repeated side-view substitutions. Premium realistic child-friendly game rendering, carefully crafted surfaces, readable windows and wheels, not a cartoon, no faces. No text, labels, letters, numbers, watermark, UI, people, podiums or extra vehicles. Include proper model-specific front bumper, hood, roof, rear architecture and tail lamps. This sheet will become six distinct views that a child swipes through; all views must belong to one car.",
+    "views": [
+      {
+        "id": "front-left",
+        "image": "orbit-CAR26-front-left"
+      },
+      {
+        "id": "front",
+        "image": "orbit-CAR26-front"
+      },
+      {
+        "id": "front-right",
+        "image": "orbit-CAR26-front-right"
+      },
+      {
+        "id": "left",
+        "image": "orbit-CAR26-left"
+      },
+      {
+        "id": "rear",
+        "image": "orbit-CAR26-rear"
+      },
+      {
+        "id": "right",
+        "image": "orbit-CAR26-right"
+      }
+    ],
+    "processing": "3 columns x 2 rows; crop, foreground bounds, contain 800x480 WebP. No perspective synthesis.",
+    "limits": "Six discrete CG views, not a photogrammetry scan or exact licensed manufacturer model."
+  },
+  {
+    "id": "CAR27",
+    "tool": "Built-in GPT Image",
+    "generatedFile": "exec-3e243ed0-fe13-4d3e-9ed4-e2308d275f62.png",
+    "sheetSha256": "82f40aced9990b9f1f518f64f6bbf26123c1893ee4311e1aebb792c7a562e3a9",
+    "prompt": "Use case: stylized-concept. Asset type: ONE coherent six-view production turnaround sheet for CarPlayground, a four-year-old's touch car playground. Generate a completely NEW pearl silver Honda NSX, recognizable sports-car silhouette and correct distinctive FRONT and REAR lighting, realistic polished 3D game prop, NEVER a photographic cutout. Attached yellow car is ONLY rendering/style/layout reference: replace the car in EVERY cell with requested Honda NSX. SAME car identity, proportions, wheelbase, paint and wheels in ALL six panels. EXACT 3 columns x 2 rows on 1536x1024, narrow pale grid separators, uniform pale mint studio background: TOP ROW front-left three-quarter / exact FRONT / front-right three-quarter; BOTTOM ROW exact LEFT SIDE nose LEFT / exact REAR / exact RIGHT SIDE nose RIGHT. Center FULL vehicle within each equal 512x512 cell with generous margins, no clipping, no repeated side-view substitutions. Premium realistic child-friendly game rendering, carefully crafted surfaces, readable windows and wheels, not a cartoon, no faces. No text, labels, letters, numbers, watermark, UI, people, podiums or extra vehicles. Include proper model-specific front bumper, hood, roof, rear architecture and tail lamps. This sheet will become six distinct views that a child swipes through; all views must belong to one car.",
+    "views": [
+      {
+        "id": "front-left",
+        "image": "orbit-CAR27-front-left"
+      },
+      {
+        "id": "front",
+        "image": "orbit-CAR27-front"
+      },
+      {
+        "id": "front-right",
+        "image": "orbit-CAR27-front-right"
+      },
+      {
+        "id": "left",
+        "image": "orbit-CAR27-left"
+      },
+      {
+        "id": "rear",
+        "image": "orbit-CAR27-rear"
+      },
+      {
+        "id": "right",
+        "image": "orbit-CAR27-right"
+      }
+    ],
+    "processing": "3 columns x 2 rows; crop, foreground bounds, contain 800x480 WebP. No perspective synthesis.",
+    "limits": "Six discrete CG views, not a photogrammetry scan or exact licensed manufacturer model."
+  },
+  {
+    "id": "CAR28",
+    "tool": "Built-in GPT Image",
+    "generatedFile": "exec-5d7e9f59-32d9-4156-a5d3-c472ecf65ea2.png",
+    "sheetSha256": "36ec927b9cf777e0aa673a43bef8a00cca5346fabe6c3efab13e4c1c045192c8",
+    "prompt": "Use case: stylized-concept. Asset type: ONE coherent six-view production turnaround sheet for CarPlayground, a four-year-old's touch car playground. Generate a completely NEW orange with two black stripes Chevrolet Camaro, recognizable sports-car silhouette and correct distinctive FRONT and REAR lighting, realistic polished 3D game prop, NEVER a photographic cutout. Attached yellow car is ONLY rendering/style/layout reference: replace the car in EVERY cell with requested Chevrolet Camaro. SAME car identity, proportions, wheelbase, paint and wheels in ALL six panels. EXACT 3 columns x 2 rows on 1536x1024, narrow pale grid separators, uniform pale mint studio background: TOP ROW front-left three-quarter / exact FRONT / front-right three-quarter; BOTTOM ROW exact LEFT SIDE nose LEFT / exact REAR / exact RIGHT SIDE nose RIGHT. Center FULL vehicle within each equal 512x512 cell with generous margins, no clipping, no repeated side-view substitutions. Premium realistic child-friendly game rendering, carefully crafted surfaces, readable windows and wheels, not a cartoon, no faces. No text, labels, letters, numbers, watermark, UI, people, podiums or extra vehicles. Include proper model-specific front bumper, hood, roof, rear architecture and tail lamps. This sheet will become six distinct views that a child swipes through; all views must belong to one car.",
+    "views": [
+      {
+        "id": "front-left",
+        "image": "orbit-CAR28-front-left"
+      },
+      {
+        "id": "front",
+        "image": "orbit-CAR28-front"
+      },
+      {
+        "id": "front-right",
+        "image": "orbit-CAR28-front-right"
+      },
+      {
+        "id": "left",
+        "image": "orbit-CAR28-left"
+      },
+      {
+        "id": "rear",
+        "image": "orbit-CAR28-rear"
+      },
+      {
+        "id": "right",
+        "image": "orbit-CAR28-right"
+      }
+    ],
+    "processing": "3 columns x 2 rows; crop, foreground bounds, contain 800x480 WebP. No perspective synthesis.",
+    "limits": "Six discrete CG views, not a photogrammetry scan or exact licensed manufacturer model."
+  },
+  {
+    "id": "CAR29",
+    "tool": "Built-in GPT Image",
+    "generatedFile": "exec-5a3c8d1d-e99b-48ea-bf5e-523d252b4b28.png",
+    "sheetSha256": "41f67d17dfb832020c50bf6cdf2ab2baa96e864899bf564c6591cec20ea14f9f",
+    "prompt": "Use case: stylized-concept. Asset type: ONE coherent six-view production turnaround sheet for CarPlayground, a four-year-old's touch car playground. Generate a completely NEW blue with two white stripes Dodge Viper, recognizable sports-car silhouette and correct distinctive FRONT and REAR lighting, realistic polished 3D game prop, NEVER a photographic cutout. Attached yellow car is ONLY rendering/style/layout reference: replace the car in EVERY cell with requested Dodge Viper. SAME car identity, proportions, wheelbase, paint and wheels in ALL six panels. EXACT 3 columns x 2 rows on 1536x1024, narrow pale grid separators, uniform pale mint studio background: TOP ROW front-left three-quarter / exact FRONT / front-right three-quarter; BOTTOM ROW exact LEFT SIDE nose LEFT / exact REAR / exact RIGHT SIDE nose RIGHT. Center FULL vehicle within each equal 512x512 cell with generous margins, no clipping, no repeated side-view substitutions. Premium realistic child-friendly game rendering, carefully crafted surfaces, readable windows and wheels, not a cartoon, no faces. No text, labels, letters, numbers, watermark, UI, people, podiums or extra vehicles. Include proper model-specific front bumper, hood, roof, rear architecture and tail lamps. This sheet will become six distinct views that a child swipes through; all views must belong to one car.",
+    "views": [
+      {
+        "id": "front-left",
+        "image": "orbit-CAR29-front-left"
+      },
+      {
+        "id": "front",
+        "image": "orbit-CAR29-front"
+      },
+      {
+        "id": "front-right",
+        "image": "orbit-CAR29-front-right"
+      },
+      {
+        "id": "left",
+        "image": "orbit-CAR29-left"
+      },
+      {
+        "id": "rear",
+        "image": "orbit-CAR29-rear"
+      },
+      {
+        "id": "right",
+        "image": "orbit-CAR29-right"
+      }
+    ],
+    "processing": "3 columns x 2 rows; crop, foreground bounds, contain 800x480 WebP. No perspective synthesis.",
+    "limits": "Six discrete CG views, not a photogrammetry scan or exact licensed manufacturer model."
+  },
+  {
+    "id": "CAR30",
+    "tool": "Built-in GPT Image",
+    "generatedFile": "exec-95a3495c-ef9f-4563-8d58-9e33b0a76de0.png",
+    "sheetSha256": "3f3895437df5ed24ee2ff4ed6f249efbe3b5bc6eca695c2c62eeea4149ef4ec2",
+    "prompt": "Use case: stylized-concept. Asset type: ONE coherent six-view production turnaround sheet for CarPlayground, a four-year-old's touch car playground. Generate a completely NEW white and cyan accents BMW i8, recognizable sports-car silhouette and correct distinctive FRONT and REAR lighting, realistic polished 3D game prop, NEVER a photographic cutout. Attached yellow car is ONLY rendering/style/layout reference: replace the car in EVERY cell with requested BMW i8. SAME car identity, proportions, wheelbase, paint and wheels in ALL six panels. EXACT 3 columns x 2 rows on 1536x1024, narrow pale grid separators, uniform pale mint studio background: TOP ROW front-left three-quarter / exact FRONT / front-right three-quarter; BOTTOM ROW exact LEFT SIDE nose LEFT / exact REAR / exact RIGHT SIDE nose RIGHT. Center FULL vehicle within each equal 512x512 cell with generous margins, no clipping, no repeated side-view substitutions. Premium realistic child-friendly game rendering, carefully crafted surfaces, readable windows and wheels, not a cartoon, no faces. No text, labels, letters, numbers, watermark, UI, people, podiums or extra vehicles. Include proper model-specific front bumper, hood, roof, rear architecture and tail lamps. This sheet will become six distinct views that a child swipes through; all views must belong to one car.",
+    "views": [
+      {
+        "id": "front-left",
+        "image": "orbit-CAR30-front-left"
+      },
+      {
+        "id": "front",
+        "image": "orbit-CAR30-front"
+      },
+      {
+        "id": "front-right",
+        "image": "orbit-CAR30-front-right"
+      },
+      {
+        "id": "left",
+        "image": "orbit-CAR30-left"
+      },
+      {
+        "id": "rear",
+        "image": "orbit-CAR30-rear"
+      },
+      {
+        "id": "right",
+        "image": "orbit-CAR30-right"
+      }
+    ],
+    "processing": "3 columns x 2 rows; crop, foreground bounds, contain 800x480 WebP. No perspective synthesis.",
+    "limits": "Six discrete CG views, not a photogrammetry scan or exact licensed manufacturer model."
+  }
+]

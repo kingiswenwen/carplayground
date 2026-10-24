@@ -56,3 +56,18 @@ it('旧声音迟到的结束或错误不会影响新队列，也不会显示旧�
   await next;
   expect(harness.clips[1].unload).toHaveBeenCalledOnce();
 });
+
+
+it('先完整结束最后一个英文词，才启动中文完成反馈', async () => {
+  const pending = audio.play('white', 'color-success');
+  await Promise.resolve();
+  expect(harness.clips).toHaveLength(1);
+  expect(harness.clips[0].options.src).toEqual([expect.stringContaining('white')]);
+  expect(harness.clips[0].stop).not.toHaveBeenCalled();
+  harness.clips[0].options.onend?.(1);
+  await new Promise(resolve => setTimeout(resolve, 0));
+  expect(harness.clips).toHaveLength(2);
+  expect(harness.clips[1].options.src).toEqual([expect.stringContaining('color-success')]);
+  harness.clips[1].options.onend?.(2);
+  await pending;
+});
