@@ -15,6 +15,7 @@ const descriptions: Record<SceneArtId, string> = {
 };
 export function SceneArt({ scene, priority = false, imageId }: { scene: SceneArtId; priority?: boolean; imageId?: string }) {
   const holder=useRef<HTMLDivElement>(null);
+  if(imageId?.startsWith('showcase-')||imageId?.startsWith('story-')) imageId=undefined;
   const [active,setActive]=useState(priority);
   useEffect(()=>{if(active)return;if(!('IntersectionObserver' in window)){setActive(true);return;}const observer=new IntersectionObserver(entries=>{if(entries.some(entry=>entry.isIntersecting)){setActive(true);observer.disconnect();}},{rootMargin:'160px'});if(holder.current)observer.observe(holder.current);return()=>observer.disconnect();},[active]);
   const [status, setStatus] = useState('loading');

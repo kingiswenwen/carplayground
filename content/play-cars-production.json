@@ -1,0 +1,1768 @@
+[
+  {
+    "id": "CAR01",
+    "brand": "Lamborghini",
+    "model": "Revuelto",
+    "color": "sunshine yellow",
+    "tool": "Built-in GPT Image",
+    "intent": "new toy-style generation from vehicle identity and toy-style references",
+    "prompt": "Use case: stylized-concept. Production preschool car-learning sprite atlas. Identity/layout reference: existing five-car side/top contact sheet; style reference: first generated toy atlas. Rounded chunky matte plastic sports-car toys, big clear circular wheels, dark simple windows, gentle cream highlights, soft 3D picture-book illustration, simplified details, no faces. Preserve distinct sports-car silhouette and paint. Exact 5-row 2-column transparent atlas; target 2048x2048. Left column orthographic side, nose right, exactly two visible wheels. Right column exact overhead matching toy, nose right horizontally. Each sprite isolated in its cell with generous margins. No labels, text, logos, grid, ground or external shadow. Row identities and colors: 1: CAR01 sunshine yellow Lamborghini Revuelto; 2: CAR02 red Ferrari 296 GTB; 3: CAR03 mint green with black aero Porsche 911 GT3 RS; 4: CAR04 tangerine orange McLaren 750S; 5: CAR05 cobalt blue Bugatti Chiron",
+    "generatedFile": "exec-1dbded83-09c5-4f1e-ae5f-c6f7134a85b9.png",
+    "sheetSha256": "15a3b32b461b657bd1d073340aca6dc2351994f58118ea6e447e3fb755c17a0d",
+    "atlasFrame": {
+      "row": 1,
+      "columns": {
+        "side": 1,
+        "top": 2
+      },
+      "bounds": {
+        "x": [
+          0,
+          663,
+          1254
+        ],
+        "y": [
+          0,
+          255,
+          505,
+          749,
+          990,
+          1254
+        ]
+      }
+    },
+    "views": {
+      "side": "play-CAR01-side",
+      "top": "play-CAR01-top"
+    },
+    "wheels": [
+      {
+        "x": 0.21582736156351792,
+        "y": 0.6334394981300518,
+        "r": 0.09195222584147666
+      },
+      {
+        "x": 0.7474333333333333,
+        "y": 0.6531613756613757,
+        "r": 0.08807738095238096
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": false,
+      "distinctVehicleFrame": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Toy interpretation, not an exact brand replica. Review silhouettes, color, frame separation, wheel circles and hotspots in the contact sheet and actual play."
+  },
+  {
+    "id": "CAR02",
+    "brand": "Ferrari",
+    "model": "296 GTB",
+    "color": "red",
+    "tool": "Built-in GPT Image",
+    "intent": "new toy-style generation from vehicle identity and toy-style references",
+    "prompt": "Use case: stylized-concept. Production preschool car-learning sprite atlas. Identity/layout reference: existing five-car side/top contact sheet; style reference: first generated toy atlas. Rounded chunky matte plastic sports-car toys, big clear circular wheels, dark simple windows, gentle cream highlights, soft 3D picture-book illustration, simplified details, no faces. Preserve distinct sports-car silhouette and paint. Exact 5-row 2-column transparent atlas; target 2048x2048. Left column orthographic side, nose right, exactly two visible wheels. Right column exact overhead matching toy, nose right horizontally. Each sprite isolated in its cell with generous margins. No labels, text, logos, grid, ground or external shadow. Row identities and colors: 1: CAR01 sunshine yellow Lamborghini Revuelto; 2: CAR02 red Ferrari 296 GTB; 3: CAR03 mint green with black aero Porsche 911 GT3 RS; 4: CAR04 tangerine orange McLaren 750S; 5: CAR05 cobalt blue Bugatti Chiron",
+    "generatedFile": "exec-1dbded83-09c5-4f1e-ae5f-c6f7134a85b9.png",
+    "sheetSha256": "15a3b32b461b657bd1d073340aca6dc2351994f58118ea6e447e3fb755c17a0d",
+    "atlasFrame": {
+      "row": 2,
+      "columns": {
+        "side": 1,
+        "top": 2
+      },
+      "bounds": {
+        "x": [
+          0,
+          663,
+          1254
+        ],
+        "y": [
+          0,
+          255,
+          505,
+          749,
+          990,
+          1254
+        ]
+      }
+    },
+    "views": {
+      "side": "play-CAR02-side",
+      "top": "play-CAR02-top"
+    },
+    "wheels": [
+      {
+        "x": 0.20949333333333334,
+        "y": 0.6477851851851851,
+        "r": 0.09549666666666667
+      },
+      {
+        "x": 0.7499348534201954,
+        "y": 0.6599372662564845,
+        "r": 0.09302823018458196
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": false,
+      "distinctVehicleFrame": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Toy interpretation, not an exact brand replica. Review silhouettes, color, frame separation, wheel circles and hotspots in the contact sheet and actual play."
+  },
+  {
+    "id": "CAR03",
+    "brand": "Porsche",
+    "model": "911 GT3 RS",
+    "color": "mint green with black aero",
+    "tool": "Built-in GPT Image",
+    "intent": "new toy-style generation from vehicle identity and toy-style references",
+    "prompt": "Use case: stylized-concept. Production preschool car-learning sprite atlas. Identity/layout reference: existing five-car side/top contact sheet; style reference: first generated toy atlas. Rounded chunky matte plastic sports-car toys, big clear circular wheels, dark simple windows, gentle cream highlights, soft 3D picture-book illustration, simplified details, no faces. Preserve distinct sports-car silhouette and paint. Exact 5-row 2-column transparent atlas; target 2048x2048. Left column orthographic side, nose right, exactly two visible wheels. Right column exact overhead matching toy, nose right horizontally. Each sprite isolated in its cell with generous margins. No labels, text, logos, grid, ground or external shadow. Row identities and colors: 1: CAR01 sunshine yellow Lamborghini Revuelto; 2: CAR02 red Ferrari 296 GTB; 3: CAR03 mint green with black aero Porsche 911 GT3 RS; 4: CAR04 tangerine orange McLaren 750S; 5: CAR05 cobalt blue Bugatti Chiron",
+    "generatedFile": "exec-1dbded83-09c5-4f1e-ae5f-c6f7134a85b9.png",
+    "sheetSha256": "15a3b32b461b657bd1d073340aca6dc2351994f58118ea6e447e3fb755c17a0d",
+    "atlasFrame": {
+      "row": 3,
+      "columns": {
+        "side": 1,
+        "top": 2
+      },
+      "bounds": {
+        "x": [
+          0,
+          663,
+          1254
+        ],
+        "y": [
+          0,
+          255,
+          505,
+          749,
+          990,
+          1254
+        ]
+      }
+    },
+    "views": {
+      "side": "play-CAR03-side",
+      "top": "play-CAR03-top"
+    },
+    "wheels": [
+      {
+        "x": 0.2223042105263158,
+        "y": 0.6870643274853802,
+        "r": 0.09282105263157894
+      },
+      {
+        "x": 0.7592178447276942,
+        "y": 0.696240504699369,
+        "r": 0.08769177288528392
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": false,
+      "distinctVehicleFrame": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Toy interpretation, not an exact brand replica. Review silhouettes, color, frame separation, wheel circles and hotspots in the contact sheet and actual play."
+  },
+  {
+    "id": "CAR04",
+    "brand": "McLaren",
+    "model": "750S",
+    "color": "tangerine orange",
+    "tool": "Built-in GPT Image",
+    "intent": "new toy-style generation from vehicle identity and toy-style references",
+    "prompt": "Use case: stylized-concept. Production preschool car-learning sprite atlas. Identity/layout reference: existing five-car side/top contact sheet; style reference: first generated toy atlas. Rounded chunky matte plastic sports-car toys, big clear circular wheels, dark simple windows, gentle cream highlights, soft 3D picture-book illustration, simplified details, no faces. Preserve distinct sports-car silhouette and paint. Exact 5-row 2-column transparent atlas; target 2048x2048. Left column orthographic side, nose right, exactly two visible wheels. Right column exact overhead matching toy, nose right horizontally. Each sprite isolated in its cell with generous margins. No labels, text, logos, grid, ground or external shadow. Row identities and colors: 1: CAR01 sunshine yellow Lamborghini Revuelto; 2: CAR02 red Ferrari 296 GTB; 3: CAR03 mint green with black aero Porsche 911 GT3 RS; 4: CAR04 tangerine orange McLaren 750S; 5: CAR05 cobalt blue Bugatti Chiron",
+    "generatedFile": "exec-1dbded83-09c5-4f1e-ae5f-c6f7134a85b9.png",
+    "sheetSha256": "15a3b32b461b657bd1d073340aca6dc2351994f58118ea6e447e3fb755c17a0d",
+    "atlasFrame": {
+      "row": 4,
+      "columns": {
+        "side": 1,
+        "top": 2
+      },
+      "bounds": {
+        "x": [
+          0,
+          663,
+          1254
+        ],
+        "y": [
+          0,
+          255,
+          505,
+          749,
+          990,
+          1254
+        ]
+      }
+    },
+    "views": {
+      "side": "play-CAR04-side",
+      "top": "play-CAR04-top"
+    },
+    "wheels": [
+      {
+        "x": 0.21541321499013807,
+        "y": 0.647784352399737,
+        "r": 0.09649704142011836
+      },
+      {
+        "x": 0.7540430672268909,
+        "y": 0.6687698412698412,
+        "r": 0.09105357142857144
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": false,
+      "distinctVehicleFrame": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Toy interpretation, not an exact brand replica. Review silhouettes, color, frame separation, wheel circles and hotspots in the contact sheet and actual play."
+  },
+  {
+    "id": "CAR05",
+    "brand": "Bugatti",
+    "model": "Chiron",
+    "color": "cobalt blue",
+    "tool": "Built-in GPT Image",
+    "intent": "new toy-style generation from vehicle identity and toy-style references",
+    "prompt": "Use case: stylized-concept. Production preschool car-learning sprite atlas. Identity/layout reference: existing five-car side/top contact sheet; style reference: first generated toy atlas. Rounded chunky matte plastic sports-car toys, big clear circular wheels, dark simple windows, gentle cream highlights, soft 3D picture-book illustration, simplified details, no faces. Preserve distinct sports-car silhouette and paint. Exact 5-row 2-column transparent atlas; target 2048x2048. Left column orthographic side, nose right, exactly two visible wheels. Right column exact overhead matching toy, nose right horizontally. Each sprite isolated in its cell with generous margins. No labels, text, logos, grid, ground or external shadow. Row identities and colors: 1: CAR01 sunshine yellow Lamborghini Revuelto; 2: CAR02 red Ferrari 296 GTB; 3: CAR03 mint green with black aero Porsche 911 GT3 RS; 4: CAR04 tangerine orange McLaren 750S; 5: CAR05 cobalt blue Bugatti Chiron",
+    "generatedFile": "exec-1dbded83-09c5-4f1e-ae5f-c6f7134a85b9.png",
+    "sheetSha256": "15a3b32b461b657bd1d073340aca6dc2351994f58118ea6e447e3fb755c17a0d",
+    "atlasFrame": {
+      "row": 5,
+      "columns": {
+        "side": 1,
+        "top": 2
+      },
+      "bounds": {
+        "x": [
+          0,
+          663,
+          1254
+        ],
+        "y": [
+          0,
+          255,
+          505,
+          749,
+          990,
+          1254
+        ]
+      }
+    },
+    "views": {
+      "side": "play-CAR05-side",
+      "top": "play-CAR05-top"
+    },
+    "wheels": [
+      {
+        "x": 0.20925977933801407,
+        "y": 0.6407355399531929,
+        "r": 0.09766900702106318
+      },
+      {
+        "x": 0.7616368593238823,
+        "y": 0.6624475948140071,
+        "r": 0.08989858233369682
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": false,
+      "distinctVehicleFrame": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Toy interpretation, not an exact brand replica. Review silhouettes, color, frame separation, wheel circles and hotspots in the contact sheet and actual play."
+  },
+  {
+    "id": "CAR06",
+    "brand": "Pagani",
+    "model": "Huayra",
+    "color": "pearl silver",
+    "tool": "Built-in GPT Image",
+    "intent": "new toy-style generation from vehicle identity and toy-style references",
+    "prompt": "Use case: stylized-concept. Production preschool car-learning sprite atlas. Identity/layout reference: existing five-car side/top contact sheet; style reference: first generated toy atlas. Rounded chunky matte plastic sports-car toys, big clear circular wheels, dark simple windows, gentle cream highlights, soft 3D picture-book illustration, simplified details, no faces. Preserve distinct sports-car silhouette and paint. Exact 5-row 2-column transparent atlas; target 2048x2048. Left column orthographic side, nose right, exactly two visible wheels. Right column exact overhead matching toy, nose right horizontally. Each sprite isolated in its cell with generous margins. No labels, text, logos, grid, ground or external shadow. Row identities and colors: 1: CAR06 pearl silver Pagani Huayra; 2: CAR07 lime green Koenigsegg Jesko Attack; 3: CAR08 British racing green Aston Martin Vantage; 4: CAR09 lemon yellow Chevrolet Corvette C8 Stingray; 5: CAR10 cherry red Mercedes-AMG GT Coupé",
+    "generatedFile": "exec-30d7155b-5b12-4159-8cf3-a0917cb71c13.png",
+    "sheetSha256": "b7c653c367440359814ece96a013f75a9be0ea77b17ccd2a7a0a053ae540db29",
+    "atlasFrame": {
+      "row": 1,
+      "columns": {
+        "side": 1,
+        "top": 2
+      },
+      "bounds": {
+        "x": [
+          0,
+          658,
+          1254
+        ],
+        "y": [
+          0,
+          277,
+          532,
+          771,
+          1011,
+          1254
+        ]
+      }
+    },
+    "views": {
+      "side": "play-CAR06-side",
+      "top": "play-CAR06-top"
+    },
+    "wheels": [
+      {
+        "x": 0.2080838769804287,
+        "y": 0.6112975044009528,
+        "r": 0.09291612301957128
+      },
+      {
+        "x": 0.7558484500574053,
+        "y": 0.6480061232300038,
+        "r": 0.08539724454649826
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": false,
+      "distinctVehicleFrame": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Toy interpretation, not an exact brand replica. Review silhouettes, color, frame separation, wheel circles and hotspots in the contact sheet and actual play."
+  },
+  {
+    "id": "CAR07",
+    "brand": "Koenigsegg",
+    "model": "Jesko Attack",
+    "color": "lime green",
+    "tool": "Built-in GPT Image",
+    "intent": "new toy-style generation from vehicle identity and toy-style references",
+    "prompt": "Use case: stylized-concept. Production preschool car-learning sprite atlas. Identity/layout reference: existing five-car side/top contact sheet; style reference: first generated toy atlas. Rounded chunky matte plastic sports-car toys, big clear circular wheels, dark simple windows, gentle cream highlights, soft 3D picture-book illustration, simplified details, no faces. Preserve distinct sports-car silhouette and paint. Exact 5-row 2-column transparent atlas; target 2048x2048. Left column orthographic side, nose right, exactly two visible wheels. Right column exact overhead matching toy, nose right horizontally. Each sprite isolated in its cell with generous margins. No labels, text, logos, grid, ground or external shadow. Row identities and colors: 1: CAR06 pearl silver Pagani Huayra; 2: CAR07 lime green Koenigsegg Jesko Attack; 3: CAR08 British racing green Aston Martin Vantage; 4: CAR09 lemon yellow Chevrolet Corvette C8 Stingray; 5: CAR10 cherry red Mercedes-AMG GT Coupé",
+    "generatedFile": "exec-30d7155b-5b12-4159-8cf3-a0917cb71c13.png",
+    "sheetSha256": "b7c653c367440359814ece96a013f75a9be0ea77b17ccd2a7a0a053ae540db29",
+    "atlasFrame": {
+      "row": 2,
+      "columns": {
+        "side": 1,
+        "top": 2
+      },
+      "bounds": {
+        "x": [
+          0,
+          658,
+          1254
+        ],
+        "y": [
+          0,
+          277,
+          532,
+          771,
+          1011,
+          1254
+        ]
+      }
+    },
+    "views": {
+      "side": "play-CAR07-side",
+      "top": "play-CAR07-top"
+    },
+    "wheels": [
+      {
+        "x": 0.20518910256410258,
+        "y": 0.6087891737891739,
+        "r": 0.09204487179487177
+      },
+      {
+        "x": 0.7588488499452355,
+        "y": 0.6609005719849093,
+        "r": 0.08759474260679082
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": false,
+      "distinctVehicleFrame": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Toy interpretation, not an exact brand replica. Review silhouettes, color, frame separation, wheel circles and hotspots in the contact sheet and actual play."
+  },
+  {
+    "id": "CAR08",
+    "brand": "Aston Martin",
+    "model": "Vantage",
+    "color": "British racing green",
+    "tool": "Built-in GPT Image",
+    "intent": "new toy-style generation from vehicle identity and toy-style references",
+    "prompt": "Use case: stylized-concept. Production preschool car-learning sprite atlas. Identity/layout reference: existing five-car side/top contact sheet; style reference: first generated toy atlas. Rounded chunky matte plastic sports-car toys, big clear circular wheels, dark simple windows, gentle cream highlights, soft 3D picture-book illustration, simplified details, no faces. Preserve distinct sports-car silhouette and paint. Exact 5-row 2-column transparent atlas; target 2048x2048. Left column orthographic side, nose right, exactly two visible wheels. Right column exact overhead matching toy, nose right horizontally. Each sprite isolated in its cell with generous margins. No labels, text, logos, grid, ground or external shadow. Row identities and colors: 1: CAR06 pearl silver Pagani Huayra; 2: CAR07 lime green Koenigsegg Jesko Attack; 3: CAR08 British racing green Aston Martin Vantage; 4: CAR09 lemon yellow Chevrolet Corvette C8 Stingray; 5: CAR10 cherry red Mercedes-AMG GT Coupé",
+    "generatedFile": "exec-30d7155b-5b12-4159-8cf3-a0917cb71c13.png",
+    "sheetSha256": "b7c653c367440359814ece96a013f75a9be0ea77b17ccd2a7a0a053ae540db29",
+    "atlasFrame": {
+      "row": 3,
+      "columns": {
+        "side": 1,
+        "top": 2
+      },
+      "bounds": {
+        "x": [
+          0,
+          658,
+          1254
+        ],
+        "y": [
+          0,
+          277,
+          532,
+          771,
+          1011,
+          1254
+        ]
+      }
+    },
+    "views": {
+      "side": "play-CAR08-side",
+      "top": "play-CAR08-top"
+    },
+    "wheels": [
+      {
+        "x": 0.2121436004162331,
+        "y": 0.624763556480518,
+        "r": 0.08785639958376691
+      },
+      {
+        "x": 0.7706751863684771,
+        "y": 0.6587409773991244,
+        "r": 0.08756656017039405
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": false,
+      "distinctVehicleFrame": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Toy interpretation, not an exact brand replica. Review silhouettes, color, frame separation, wheel circles and hotspots in the contact sheet and actual play."
+  },
+  {
+    "id": "CAR09",
+    "brand": "Chevrolet",
+    "model": "Corvette C8 Stingray",
+    "color": "lemon yellow",
+    "tool": "Built-in GPT Image",
+    "intent": "new toy-style generation from vehicle identity and toy-style references",
+    "prompt": "Use case: stylized-concept. Production preschool car-learning sprite atlas. Identity/layout reference: existing five-car side/top contact sheet; style reference: first generated toy atlas. Rounded chunky matte plastic sports-car toys, big clear circular wheels, dark simple windows, gentle cream highlights, soft 3D picture-book illustration, simplified details, no faces. Preserve distinct sports-car silhouette and paint. Exact 5-row 2-column transparent atlas; target 2048x2048. Left column orthographic side, nose right, exactly two visible wheels. Right column exact overhead matching toy, nose right horizontally. Each sprite isolated in its cell with generous margins. No labels, text, logos, grid, ground or external shadow. Row identities and colors: 1: CAR06 pearl silver Pagani Huayra; 2: CAR07 lime green Koenigsegg Jesko Attack; 3: CAR08 British racing green Aston Martin Vantage; 4: CAR09 lemon yellow Chevrolet Corvette C8 Stingray; 5: CAR10 cherry red Mercedes-AMG GT Coupé",
+    "generatedFile": "exec-30d7155b-5b12-4159-8cf3-a0917cb71c13.png",
+    "sheetSha256": "b7c653c367440359814ece96a013f75a9be0ea77b17ccd2a7a0a053ae540db29",
+    "atlasFrame": {
+      "row": 4,
+      "columns": {
+        "side": 1,
+        "top": 2
+      },
+      "bounds": {
+        "x": [
+          0,
+          658,
+          1254
+        ],
+        "y": [
+          0,
+          277,
+          532,
+          771,
+          1011,
+          1254
+        ]
+      }
+    },
+    "views": {
+      "side": "play-CAR09-side",
+      "top": "play-CAR09-top"
+    },
+    "wheels": [
+      {
+        "x": 0.20197899159663865,
+        "y": 0.6199579831932773,
+        "r": 0.0900189075630252
+      },
+      {
+        "x": 0.7505422993492408,
+        "y": 0.654885514581827,
+        "r": 0.08530151843817788
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": false,
+      "distinctVehicleFrame": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Toy interpretation, not an exact brand replica. Review silhouettes, color, frame separation, wheel circles and hotspots in the contact sheet and actual play."
+  },
+  {
+    "id": "CAR10",
+    "brand": "Mercedes-AMG",
+    "model": "GT Coupé",
+    "color": "cherry red",
+    "tool": "Built-in GPT Image",
+    "intent": "new toy-style generation from vehicle identity and toy-style references",
+    "prompt": "Use case: stylized-concept. Production preschool car-learning sprite atlas. Identity/layout reference: existing five-car side/top contact sheet; style reference: first generated toy atlas. Rounded chunky matte plastic sports-car toys, big clear circular wheels, dark simple windows, gentle cream highlights, soft 3D picture-book illustration, simplified details, no faces. Preserve distinct sports-car silhouette and paint. Exact 5-row 2-column transparent atlas; target 2048x2048. Left column orthographic side, nose right, exactly two visible wheels. Right column exact overhead matching toy, nose right horizontally. Each sprite isolated in its cell with generous margins. No labels, text, logos, grid, ground or external shadow. Row identities and colors: 1: CAR06 pearl silver Pagani Huayra; 2: CAR07 lime green Koenigsegg Jesko Attack; 3: CAR08 British racing green Aston Martin Vantage; 4: CAR09 lemon yellow Chevrolet Corvette C8 Stingray; 5: CAR10 cherry red Mercedes-AMG GT Coupé",
+    "generatedFile": "exec-30d7155b-5b12-4159-8cf3-a0917cb71c13.png",
+    "sheetSha256": "b7c653c367440359814ece96a013f75a9be0ea77b17ccd2a7a0a053ae540db29",
+    "atlasFrame": {
+      "row": 5,
+      "columns": {
+        "side": 1,
+        "top": 2
+      },
+      "bounds": {
+        "x": [
+          0,
+          658,
+          1254
+        ],
+        "y": [
+          0,
+          277,
+          532,
+          771,
+          1011,
+          1254
+        ]
+      }
+    },
+    "views": {
+      "side": "play-CAR10-side",
+      "top": "play-CAR10-top"
+    },
+    "wheels": [
+      {
+        "x": 0.22715349887133182,
+        "y": 0.6388312014045648,
+        "r": 0.0875259593679458
+      },
+      {
+        "x": 0.7791676646706587,
+        "y": 0.6568436460412508,
+        "r": 0.08342035928143712
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": false,
+      "distinctVehicleFrame": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Toy interpretation, not an exact brand replica. Review silhouettes, color, frame separation, wheel circles and hotspots in the contact sheet and actual play."
+  },
+  {
+    "id": "CAR11",
+    "brand": "Audi",
+    "model": "R8 Coupé",
+    "color": "sky blue",
+    "tool": "Built-in GPT Image",
+    "intent": "new toy-style generation from vehicle identity and toy-style references",
+    "prompt": "Use case: stylized-concept. Production preschool car-learning sprite atlas. Identity/layout reference: existing five-car side/top contact sheet; style reference: first generated toy atlas. Rounded chunky matte plastic sports-car toys, big clear circular wheels, dark simple windows, gentle cream highlights, soft 3D picture-book illustration, simplified details, no faces. Preserve distinct sports-car silhouette and paint. Exact 5-row 2-column transparent atlas; target 2048x2048. Left column orthographic side, nose right, exactly two visible wheels. Right column exact overhead matching toy, nose right horizontally. Each sprite isolated in its cell with generous margins. No labels, text, logos, grid, ground or external shadow. Row identities and colors: 1: CAR11 sky blue Audi R8 Coupé; 2: CAR12 warm amber Lexus LC 500; 3: CAR13 royal blue Ford Mustang GT; 4: CAR14 scarlet red Toyota GR Supra; 5: CAR15 pearl white Toyota GR86",
+    "generatedFile": "exec-4468f621-c68d-4320-9da6-5cb7db4a88f5.png",
+    "sheetSha256": "b2dc027181940d2393df775d1b70ad375e1e15606d2b41f20d87d6fe30dea23a",
+    "atlasFrame": {
+      "row": 1,
+      "columns": {
+        "side": 1,
+        "top": 2
+      },
+      "bounds": {
+        "x": [
+          0,
+          672,
+          1254
+        ],
+        "y": [
+          0,
+          270,
+          519,
+          762,
+          1002,
+          1254
+        ]
+      }
+    },
+    "views": {
+      "side": "play-CAR11-side",
+      "top": "play-CAR11-top"
+    },
+    "wheels": [
+      {
+        "x": 0.20642867281760113,
+        "y": 0.649947165050075,
+        "r": 0.09452377572746627
+      },
+      {
+        "x": 0.7539882903981264,
+        "y": 0.6609003382773875,
+        "r": 0.08959484777517565
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": false,
+      "distinctVehicleFrame": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Toy interpretation, not an exact brand replica. Review silhouettes, color, frame separation, wheel circles and hotspots in the contact sheet and actual play."
+  },
+  {
+    "id": "CAR12",
+    "brand": "Lexus",
+    "model": "LC 500",
+    "color": "warm amber",
+    "tool": "Built-in GPT Image",
+    "intent": "new toy-style generation from vehicle identity and toy-style references",
+    "prompt": "Use case: stylized-concept. Production preschool car-learning sprite atlas. Identity/layout reference: existing five-car side/top contact sheet; style reference: first generated toy atlas. Rounded chunky matte plastic sports-car toys, big clear circular wheels, dark simple windows, gentle cream highlights, soft 3D picture-book illustration, simplified details, no faces. Preserve distinct sports-car silhouette and paint. Exact 5-row 2-column transparent atlas; target 2048x2048. Left column orthographic side, nose right, exactly two visible wheels. Right column exact overhead matching toy, nose right horizontally. Each sprite isolated in its cell with generous margins. No labels, text, logos, grid, ground or external shadow. Row identities and colors: 1: CAR11 sky blue Audi R8 Coupé; 2: CAR12 warm amber Lexus LC 500; 3: CAR13 royal blue Ford Mustang GT; 4: CAR14 scarlet red Toyota GR Supra; 5: CAR15 pearl white Toyota GR86",
+    "generatedFile": "exec-4468f621-c68d-4320-9da6-5cb7db4a88f5.png",
+    "sheetSha256": "b2dc027181940d2393df775d1b70ad375e1e15606d2b41f20d87d6fe30dea23a",
+    "atlasFrame": {
+      "row": 2,
+      "columns": {
+        "side": 1,
+        "top": 2
+      },
+      "bounds": {
+        "x": [
+          0,
+          672,
+          1254
+        ],
+        "y": [
+          0,
+          270,
+          519,
+          762,
+          1002,
+          1254
+        ]
+      }
+    },
+    "views": {
+      "side": "play-CAR12-side",
+      "top": "play-CAR12-top"
+    },
+    "wheels": [
+      {
+        "x": 0.21875516014234875,
+        "y": 0.6441012257809411,
+        "r": 0.0941544483985765
+      },
+      {
+        "x": 0.7657761521580103,
+        "y": 0.6611314313582053,
+        "r": 0.09149085588880763
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": false,
+      "distinctVehicleFrame": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Toy interpretation, not an exact brand replica. Review silhouettes, color, frame separation, wheel circles and hotspots in the contact sheet and actual play."
+  },
+  {
+    "id": "CAR13",
+    "brand": "Ford",
+    "model": "Mustang GT",
+    "color": "royal blue",
+    "tool": "Built-in GPT Image",
+    "intent": "new toy-style generation from vehicle identity and toy-style references",
+    "prompt": "Use case: stylized-concept. Production preschool car-learning sprite atlas. Identity/layout reference: existing five-car side/top contact sheet; style reference: first generated toy atlas. Rounded chunky matte plastic sports-car toys, big clear circular wheels, dark simple windows, gentle cream highlights, soft 3D picture-book illustration, simplified details, no faces. Preserve distinct sports-car silhouette and paint. Exact 5-row 2-column transparent atlas; target 2048x2048. Left column orthographic side, nose right, exactly two visible wheels. Right column exact overhead matching toy, nose right horizontally. Each sprite isolated in its cell with generous margins. No labels, text, logos, grid, ground or external shadow. Row identities and colors: 1: CAR11 sky blue Audi R8 Coupé; 2: CAR12 warm amber Lexus LC 500; 3: CAR13 royal blue Ford Mustang GT; 4: CAR14 scarlet red Toyota GR Supra; 5: CAR15 pearl white Toyota GR86",
+    "generatedFile": "exec-4468f621-c68d-4320-9da6-5cb7db4a88f5.png",
+    "sheetSha256": "b2dc027181940d2393df775d1b70ad375e1e15606d2b41f20d87d6fe30dea23a",
+    "atlasFrame": {
+      "row": 3,
+      "columns": {
+        "side": 1,
+        "top": 2
+      },
+      "bounds": {
+        "x": [
+          0,
+          672,
+          1254
+        ],
+        "y": [
+          0,
+          270,
+          519,
+          762,
+          1002,
+          1254
+        ]
+      }
+    },
+    "views": {
+      "side": "play-CAR13-side",
+      "top": "play-CAR13-top"
+    },
+    "wheels": [
+      {
+        "x": 0.23295971978984237,
+        "y": 0.6675968087176494,
+        "r": 0.09158143607705779
+      },
+      {
+        "x": 0.7851289424860853,
+        "y": 0.6808884766027623,
+        "r": 0.08760018552875698
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": false,
+      "distinctVehicleFrame": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Toy interpretation, not an exact brand replica. Review silhouettes, color, frame separation, wheel circles and hotspots in the contact sheet and actual play."
+  },
+  {
+    "id": "CAR14",
+    "brand": "Toyota",
+    "model": "GR Supra",
+    "color": "scarlet red",
+    "tool": "Built-in GPT Image",
+    "intent": "new toy-style generation from vehicle identity and toy-style references",
+    "prompt": "Use case: stylized-concept. Production preschool car-learning sprite atlas. Identity/layout reference: existing five-car side/top contact sheet; style reference: first generated toy atlas. Rounded chunky matte plastic sports-car toys, big clear circular wheels, dark simple windows, gentle cream highlights, soft 3D picture-book illustration, simplified details, no faces. Preserve distinct sports-car silhouette and paint. Exact 5-row 2-column transparent atlas; target 2048x2048. Left column orthographic side, nose right, exactly two visible wheels. Right column exact overhead matching toy, nose right horizontally. Each sprite isolated in its cell with generous margins. No labels, text, logos, grid, ground or external shadow. Row identities and colors: 1: CAR11 sky blue Audi R8 Coupé; 2: CAR12 warm amber Lexus LC 500; 3: CAR13 royal blue Ford Mustang GT; 4: CAR14 scarlet red Toyota GR Supra; 5: CAR15 pearl white Toyota GR86",
+    "generatedFile": "exec-4468f621-c68d-4320-9da6-5cb7db4a88f5.png",
+    "sheetSha256": "b2dc027181940d2393df775d1b70ad375e1e15606d2b41f20d87d6fe30dea23a",
+    "atlasFrame": {
+      "row": 4,
+      "columns": {
+        "side": 1,
+        "top": 2
+      },
+      "bounds": {
+        "x": [
+          0,
+          672,
+          1254
+        ],
+        "y": [
+          0,
+          270,
+          519,
+          762,
+          1002,
+          1254
+        ]
+      }
+    },
+    "views": {
+      "side": "play-CAR14-side",
+      "top": "play-CAR14-top"
+    },
+    "wheels": [
+      {
+        "x": 0.223911838790932,
+        "y": 0.6490362906987592,
+        "r": 0.09293366918555836
+      },
+      {
+        "x": 0.7662769753610875,
+        "y": 0.6679996223921457,
+        "r": 0.0904001699235344
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": false,
+      "distinctVehicleFrame": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Toy interpretation, not an exact brand replica. Review silhouettes, color, frame separation, wheel circles and hotspots in the contact sheet and actual play."
+  },
+  {
+    "id": "CAR15",
+    "brand": "Toyota",
+    "model": "GR86",
+    "color": "pearl white",
+    "tool": "Built-in GPT Image",
+    "intent": "new toy-style generation from vehicle identity and toy-style references",
+    "prompt": "Use case: stylized-concept. Production preschool car-learning sprite atlas. Identity/layout reference: existing five-car side/top contact sheet; style reference: first generated toy atlas. Rounded chunky matte plastic sports-car toys, big clear circular wheels, dark simple windows, gentle cream highlights, soft 3D picture-book illustration, simplified details, no faces. Preserve distinct sports-car silhouette and paint. Exact 5-row 2-column transparent atlas; target 2048x2048. Left column orthographic side, nose right, exactly two visible wheels. Right column exact overhead matching toy, nose right horizontally. Each sprite isolated in its cell with generous margins. No labels, text, logos, grid, ground or external shadow. Row identities and colors: 1: CAR11 sky blue Audi R8 Coupé; 2: CAR12 warm amber Lexus LC 500; 3: CAR13 royal blue Ford Mustang GT; 4: CAR14 scarlet red Toyota GR Supra; 5: CAR15 pearl white Toyota GR86",
+    "generatedFile": "exec-4468f621-c68d-4320-9da6-5cb7db4a88f5.png",
+    "sheetSha256": "b2dc027181940d2393df775d1b70ad375e1e15606d2b41f20d87d6fe30dea23a",
+    "atlasFrame": {
+      "row": 5,
+      "columns": {
+        "side": 1,
+        "top": 2
+      },
+      "bounds": {
+        "x": [
+          0,
+          672,
+          1254
+        ],
+        "y": [
+          0,
+          270,
+          519,
+          762,
+          1002,
+          1254
+        ]
+      }
+    },
+    "views": {
+      "side": "play-CAR15-side",
+      "top": "play-CAR15-top"
+    },
+    "wheels": [
+      {
+        "x": 0.22540842490842491,
+        "y": 0.6707773707773709,
+        "r": 0.08815018315018312
+      },
+      {
+        "x": 0.7744317140238313,
+        "y": 0.6801385069762705,
+        "r": 0.08793767186067827
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": false,
+      "distinctVehicleFrame": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Toy interpretation, not an exact brand replica. Review silhouettes, color, frame separation, wheel circles and hotspots in the contact sheet and actual play."
+  },
+  {
+    "id": "CAR16",
+    "brand": "Nissan",
+    "model": "Z",
+    "color": "golden yellow",
+    "tool": "Built-in GPT Image",
+    "intent": "new toy-style generation from vehicle identity and toy-style references",
+    "prompt": "Use case: stylized-concept. Production preschool car-learning sprite atlas. Identity/layout reference: existing five-car side/top contact sheet; style reference: first generated toy atlas. Rounded chunky matte plastic sports-car toys, big clear circular wheels, dark simple windows, gentle cream highlights, soft 3D picture-book illustration, simplified details, no faces. Preserve distinct sports-car silhouette and paint. Exact 5-row 2-column transparent atlas; target 2048x2048. Left column orthographic side, nose right, exactly two visible wheels. Right column exact overhead matching toy, nose right horizontally. Each sprite isolated in its cell with generous margins. No labels, text, logos, grid, ground or external shadow. Row identities and colors: 1: CAR16 golden yellow Nissan Z; 2: CAR17 burnt orange Mazda MX-5 RF; 3: CAR18 bright blue BMW M2; 4: CAR19 violet purple Lamborghini Huracán; 5: CAR20 Ferrari red Ferrari F8 Tributo",
+    "generatedFile": "exec-b237f91c-50ef-4a22-946d-78cf558b1936.png",
+    "sheetSha256": "a2dc281bae85bc4f299826f90d9a371c215d26a9021e3e82ac41179126cf9879",
+    "atlasFrame": {
+      "row": 1,
+      "columns": {
+        "side": 1,
+        "top": 2
+      },
+      "bounds": {
+        "x": [
+          0,
+          665,
+          1254
+        ],
+        "y": [
+          0,
+          267,
+          516,
+          765,
+          1003,
+          1254
+        ]
+      }
+    },
+    "views": {
+      "side": "play-CAR16-side",
+      "top": "play-CAR16-top"
+    },
+    "wheels": [
+      {
+        "x": 0.21830526315789472,
+        "y": 0.6579610136452242,
+        "r": 0.09691754385964912
+      },
+      {
+        "x": 0.7643978388998035,
+        "y": 0.67652914210871,
+        "r": 0.09056188605108054
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": false,
+      "distinctVehicleFrame": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Toy interpretation, not an exact brand replica. Review silhouettes, color, frame separation, wheel circles and hotspots in the contact sheet and actual play."
+  },
+  {
+    "id": "CAR17",
+    "brand": "Mazda",
+    "model": "MX-5 RF",
+    "color": "burnt orange",
+    "tool": "Built-in GPT Image",
+    "intent": "new toy-style generation from vehicle identity and toy-style references",
+    "prompt": "Use case: stylized-concept. Production preschool car-learning sprite atlas. Identity/layout reference: existing five-car side/top contact sheet; style reference: first generated toy atlas. Rounded chunky matte plastic sports-car toys, big clear circular wheels, dark simple windows, gentle cream highlights, soft 3D picture-book illustration, simplified details, no faces. Preserve distinct sports-car silhouette and paint. Exact 5-row 2-column transparent atlas; target 2048x2048. Left column orthographic side, nose right, exactly two visible wheels. Right column exact overhead matching toy, nose right horizontally. Each sprite isolated in its cell with generous margins. No labels, text, logos, grid, ground or external shadow. Row identities and colors: 1: CAR16 golden yellow Nissan Z; 2: CAR17 burnt orange Mazda MX-5 RF; 3: CAR18 bright blue BMW M2; 4: CAR19 violet purple Lamborghini Huracán; 5: CAR20 Ferrari red Ferrari F8 Tributo",
+    "generatedFile": "exec-b237f91c-50ef-4a22-946d-78cf558b1936.png",
+    "sheetSha256": "a2dc281bae85bc4f299826f90d9a371c215d26a9021e3e82ac41179126cf9879",
+    "atlasFrame": {
+      "row": 2,
+      "columns": {
+        "side": 1,
+        "top": 2
+      },
+      "bounds": {
+        "x": [
+          0,
+          665,
+          1254
+        ],
+        "y": [
+          0,
+          267,
+          516,
+          765,
+          1003,
+          1254
+        ]
+      }
+    },
+    "views": {
+      "side": "play-CAR17-side",
+      "top": "play-CAR17-top"
+    },
+    "wheels": [
+      {
+        "x": 0.22664292155094679,
+        "y": 0.6848832782286344,
+        "r": 0.09580252479711453
+      },
+      {
+        "x": 0.7735042333019756,
+        "y": 0.6877579178425839,
+        "r": 0.09450893697083723
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": false,
+      "distinctVehicleFrame": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Toy interpretation, not an exact brand replica. Review silhouettes, color, frame separation, wheel circles and hotspots in the contact sheet and actual play."
+  },
+  {
+    "id": "CAR18",
+    "brand": "BMW",
+    "model": "M2",
+    "color": "bright blue",
+    "tool": "Built-in GPT Image",
+    "intent": "new toy-style generation from vehicle identity and toy-style references",
+    "prompt": "Use case: stylized-concept. Production preschool car-learning sprite atlas. Identity/layout reference: existing five-car side/top contact sheet; style reference: first generated toy atlas. Rounded chunky matte plastic sports-car toys, big clear circular wheels, dark simple windows, gentle cream highlights, soft 3D picture-book illustration, simplified details, no faces. Preserve distinct sports-car silhouette and paint. Exact 5-row 2-column transparent atlas; target 2048x2048. Left column orthographic side, nose right, exactly two visible wheels. Right column exact overhead matching toy, nose right horizontally. Each sprite isolated in its cell with generous margins. No labels, text, logos, grid, ground or external shadow. Row identities and colors: 1: CAR16 golden yellow Nissan Z; 2: CAR17 burnt orange Mazda MX-5 RF; 3: CAR18 bright blue BMW M2; 4: CAR19 violet purple Lamborghini Huracán; 5: CAR20 Ferrari red Ferrari F8 Tributo",
+    "generatedFile": "exec-b237f91c-50ef-4a22-946d-78cf558b1936.png",
+    "sheetSha256": "a2dc281bae85bc4f299826f90d9a371c215d26a9021e3e82ac41179126cf9879",
+    "atlasFrame": {
+      "row": 3,
+      "columns": {
+        "side": 1,
+        "top": 2
+      },
+      "bounds": {
+        "x": [
+          0,
+          665,
+          1254
+        ],
+        "y": [
+          0,
+          267,
+          516,
+          765,
+          1003,
+          1254
+        ]
+      }
+    },
+    "views": {
+      "side": "play-CAR18-side",
+      "top": "play-CAR18-top"
+    },
+    "wheels": [
+      {
+        "x": 0.23014660633484163,
+        "y": 0.690630467571644,
+        "r": 0.09621628959276017
+      },
+      {
+        "x": 0.7836520947176684,
+        "y": 0.6905059704513257,
+        "r": 0.09427231329690346
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": false,
+      "distinctVehicleFrame": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Toy interpretation, not an exact brand replica. Review silhouettes, color, frame separation, wheel circles and hotspots in the contact sheet and actual play."
+  },
+  {
+    "id": "CAR19",
+    "brand": "Lamborghini",
+    "model": "Huracán",
+    "color": "violet purple",
+    "tool": "Built-in GPT Image",
+    "intent": "new toy-style generation from vehicle identity and toy-style references",
+    "prompt": "Use case: stylized-concept. Production preschool car-learning sprite atlas. Identity/layout reference: existing five-car side/top contact sheet; style reference: first generated toy atlas. Rounded chunky matte plastic sports-car toys, big clear circular wheels, dark simple windows, gentle cream highlights, soft 3D picture-book illustration, simplified details, no faces. Preserve distinct sports-car silhouette and paint. Exact 5-row 2-column transparent atlas; target 2048x2048. Left column orthographic side, nose right, exactly two visible wheels. Right column exact overhead matching toy, nose right horizontally. Each sprite isolated in its cell with generous margins. No labels, text, logos, grid, ground or external shadow. Row identities and colors: 1: CAR16 golden yellow Nissan Z; 2: CAR17 burnt orange Mazda MX-5 RF; 3: CAR18 bright blue BMW M2; 4: CAR19 violet purple Lamborghini Huracán; 5: CAR20 Ferrari red Ferrari F8 Tributo",
+    "generatedFile": "exec-b237f91c-50ef-4a22-946d-78cf558b1936.png",
+    "sheetSha256": "a2dc281bae85bc4f299826f90d9a371c215d26a9021e3e82ac41179126cf9879",
+    "atlasFrame": {
+      "row": 4,
+      "columns": {
+        "side": 1,
+        "top": 2
+      },
+      "bounds": {
+        "x": [
+          0,
+          665,
+          1254
+        ],
+        "y": [
+          0,
+          267,
+          516,
+          765,
+          1003,
+          1254
+        ]
+      }
+    },
+    "views": {
+      "side": "play-CAR19-side",
+      "top": "play-CAR19-top"
+    },
+    "wheels": [
+      {
+        "x": 0.22212876712328766,
+        "y": 0.6408198883815321,
+        "r": 0.09663105022831053
+      },
+      {
+        "x": 0.7580356778797146,
+        "y": 0.6471627590893646,
+        "r": 0.09277675840978594
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": false,
+      "distinctVehicleFrame": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Toy interpretation, not an exact brand replica. Review silhouettes, color, frame separation, wheel circles and hotspots in the contact sheet and actual play."
+  },
+  {
+    "id": "CAR20",
+    "brand": "Ferrari",
+    "model": "F8 Tributo",
+    "color": "Ferrari red",
+    "tool": "Built-in GPT Image",
+    "intent": "new toy-style generation from vehicle identity and toy-style references",
+    "prompt": "Use case: stylized-concept. Production preschool car-learning sprite atlas. Identity/layout reference: existing five-car side/top contact sheet; style reference: first generated toy atlas. Rounded chunky matte plastic sports-car toys, big clear circular wheels, dark simple windows, gentle cream highlights, soft 3D picture-book illustration, simplified details, no faces. Preserve distinct sports-car silhouette and paint. Exact 5-row 2-column transparent atlas; target 2048x2048. Left column orthographic side, nose right, exactly two visible wheels. Right column exact overhead matching toy, nose right horizontally. Each sprite isolated in its cell with generous margins. No labels, text, logos, grid, ground or external shadow. Row identities and colors: 1: CAR16 golden yellow Nissan Z; 2: CAR17 burnt orange Mazda MX-5 RF; 3: CAR18 bright blue BMW M2; 4: CAR19 violet purple Lamborghini Huracán; 5: CAR20 Ferrari red Ferrari F8 Tributo",
+    "generatedFile": "exec-b237f91c-50ef-4a22-946d-78cf558b1936.png",
+    "sheetSha256": "a2dc281bae85bc4f299826f90d9a371c215d26a9021e3e82ac41179126cf9879",
+    "atlasFrame": {
+      "row": 5,
+      "columns": {
+        "side": 1,
+        "top": 2
+      },
+      "bounds": {
+        "x": [
+          0,
+          665,
+          1254
+        ],
+        "y": [
+          0,
+          267,
+          516,
+          765,
+          1003,
+          1254
+        ]
+      }
+    },
+    "views": {
+      "side": "play-CAR20-side",
+      "top": "play-CAR20-top"
+    },
+    "wheels": [
+      {
+        "x": 0.2142289156626506,
+        "y": 0.6393203583565029,
+        "r": 0.09730583873957369
+      },
+      {
+        "x": 0.7454791252485089,
+        "y": 0.6499624475370003,
+        "r": 0.0905168986083499
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": false,
+      "distinctVehicleFrame": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Toy interpretation, not an exact brand replica. Review silhouettes, color, frame separation, wheel circles and hotspots in the contact sheet and actual play."
+  },
+  {
+    "id": "CAR21",
+    "brand": "Porsche",
+    "model": "718 Cayman",
+    "color": "turquoise",
+    "tool": "Built-in GPT Image",
+    "intent": "new toy-style generation from vehicle identity and toy-style references",
+    "prompt": "Use case: stylized-concept. Production preschool car-learning sprite atlas. Identity/layout reference: existing five-car side/top contact sheet; style reference: first generated toy atlas. Rounded chunky matte plastic sports-car toys, big clear circular wheels, dark simple windows, gentle cream highlights, soft 3D picture-book illustration, simplified details, no faces. Preserve distinct sports-car silhouette and paint. Exact 5-row 2-column transparent atlas; target 2048x2048. Left column orthographic side, nose right, exactly two visible wheels. Right column exact overhead matching toy, nose right horizontally. Each sprite isolated in its cell with generous margins. No labels, text, logos, grid, ground or external shadow. Row identities and colors: 1: CAR21 turquoise Porsche 718 Cayman; 2: CAR22 amethyst purple McLaren Artura; 3: CAR23 deep blue Maserati MC20; 4: CAR24 emerald green Lotus Emira; 5: CAR25 French blue Alpine A110",
+    "generatedFile": "exec-173642e1-413f-4130-96ba-fada77e2ead7.png",
+    "sheetSha256": "75a16d5ef7ffd33b94cc477dc3f8b98fee1a119a426ef9d2a1dc8e4208f64c4e",
+    "atlasFrame": {
+      "row": 1,
+      "columns": {
+        "side": 1,
+        "top": 2
+      },
+      "bounds": {
+        "x": [
+          0,
+          675,
+          1254
+        ],
+        "y": [
+          0,
+          259,
+          505,
+          749,
+          991,
+          1254
+        ]
+      }
+    },
+    "views": {
+      "side": "play-CAR21-side",
+      "top": "play-CAR21-top"
+    },
+    "wheels": [
+      {
+        "x": 0.22540627973358707,
+        "y": 0.6557479649011523,
+        "r": 0.09191341579448147
+      },
+      {
+        "x": 0.7605367286973556,
+        "y": 0.665952769615845,
+        "r": 0.08832125367286972
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": false,
+      "distinctVehicleFrame": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Toy interpretation, not an exact brand replica. Review silhouettes, color, frame separation, wheel circles and hotspots in the contact sheet and actual play."
+  },
+  {
+    "id": "CAR22",
+    "brand": "McLaren",
+    "model": "Artura",
+    "color": "amethyst purple",
+    "tool": "Built-in GPT Image",
+    "intent": "new toy-style generation from vehicle identity and toy-style references",
+    "prompt": "Use case: stylized-concept. Production preschool car-learning sprite atlas. Identity/layout reference: existing five-car side/top contact sheet; style reference: first generated toy atlas. Rounded chunky matte plastic sports-car toys, big clear circular wheels, dark simple windows, gentle cream highlights, soft 3D picture-book illustration, simplified details, no faces. Preserve distinct sports-car silhouette and paint. Exact 5-row 2-column transparent atlas; target 2048x2048. Left column orthographic side, nose right, exactly two visible wheels. Right column exact overhead matching toy, nose right horizontally. Each sprite isolated in its cell with generous margins. No labels, text, logos, grid, ground or external shadow. Row identities and colors: 1: CAR21 turquoise Porsche 718 Cayman; 2: CAR22 amethyst purple McLaren Artura; 3: CAR23 deep blue Maserati MC20; 4: CAR24 emerald green Lotus Emira; 5: CAR25 French blue Alpine A110",
+    "generatedFile": "exec-173642e1-413f-4130-96ba-fada77e2ead7.png",
+    "sheetSha256": "75a16d5ef7ffd33b94cc477dc3f8b98fee1a119a426ef9d2a1dc8e4208f64c4e",
+    "atlasFrame": {
+      "row": 2,
+      "columns": {
+        "side": 1,
+        "top": 2
+      },
+      "bounds": {
+        "x": [
+          0,
+          675,
+          1254
+        ],
+        "y": [
+          0,
+          259,
+          505,
+          749,
+          991,
+          1254
+        ]
+      }
+    },
+    "views": {
+      "side": "play-CAR22-side",
+      "top": "play-CAR22-top"
+    },
+    "wheels": [
+      {
+        "x": 0.21326074498567335,
+        "y": 0.6479104319218932,
+        "r": 0.09144030563514803
+      },
+      {
+        "x": 0.7641786372007366,
+        "y": 0.6584325762226314,
+        "r": 0.09070534069981585
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": false,
+      "distinctVehicleFrame": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Toy interpretation, not an exact brand replica. Review silhouettes, color, frame separation, wheel circles and hotspots in the contact sheet and actual play."
+  },
+  {
+    "id": "CAR23",
+    "brand": "Maserati",
+    "model": "MC20",
+    "color": "deep blue",
+    "tool": "Built-in GPT Image",
+    "intent": "new toy-style generation from vehicle identity and toy-style references",
+    "prompt": "Use case: stylized-concept. Production preschool car-learning sprite atlas. Identity/layout reference: existing five-car side/top contact sheet; style reference: first generated toy atlas. Rounded chunky matte plastic sports-car toys, big clear circular wheels, dark simple windows, gentle cream highlights, soft 3D picture-book illustration, simplified details, no faces. Preserve distinct sports-car silhouette and paint. Exact 5-row 2-column transparent atlas; target 2048x2048. Left column orthographic side, nose right, exactly two visible wheels. Right column exact overhead matching toy, nose right horizontally. Each sprite isolated in its cell with generous margins. No labels, text, logos, grid, ground or external shadow. Row identities and colors: 1: CAR21 turquoise Porsche 718 Cayman; 2: CAR22 amethyst purple McLaren Artura; 3: CAR23 deep blue Maserati MC20; 4: CAR24 emerald green Lotus Emira; 5: CAR25 French blue Alpine A110",
+    "generatedFile": "exec-173642e1-413f-4130-96ba-fada77e2ead7.png",
+    "sheetSha256": "75a16d5ef7ffd33b94cc477dc3f8b98fee1a119a426ef9d2a1dc8e4208f64c4e",
+    "atlasFrame": {
+      "row": 3,
+      "columns": {
+        "side": 1,
+        "top": 2
+      },
+      "bounds": {
+        "x": [
+          0,
+          675,
+          1254
+        ],
+        "y": [
+          0,
+          259,
+          505,
+          749,
+          991,
+          1254
+        ]
+      }
+    },
+    "views": {
+      "side": "play-CAR23-side",
+      "top": "play-CAR23-top"
+    },
+    "wheels": [
+      {
+        "x": 0.21427398444252377,
+        "y": 0.6570575242485355,
+        "r": 0.09232411408815903
+      },
+      {
+        "x": 0.7534875444839857,
+        "y": 0.6619375247133255,
+        "r": 0.09112811387900353
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": false,
+      "distinctVehicleFrame": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Toy interpretation, not an exact brand replica. Review silhouettes, color, frame separation, wheel circles and hotspots in the contact sheet and actual play."
+  },
+  {
+    "id": "CAR24",
+    "brand": "Lotus",
+    "model": "Emira",
+    "color": "emerald green",
+    "tool": "Built-in GPT Image",
+    "intent": "new toy-style generation from vehicle identity and toy-style references",
+    "prompt": "Use case: stylized-concept. Production preschool car-learning sprite atlas. Identity/layout reference: existing five-car side/top contact sheet; style reference: first generated toy atlas. Rounded chunky matte plastic sports-car toys, big clear circular wheels, dark simple windows, gentle cream highlights, soft 3D picture-book illustration, simplified details, no faces. Preserve distinct sports-car silhouette and paint. Exact 5-row 2-column transparent atlas; target 2048x2048. Left column orthographic side, nose right, exactly two visible wheels. Right column exact overhead matching toy, nose right horizontally. Each sprite isolated in its cell with generous margins. No labels, text, logos, grid, ground or external shadow. Row identities and colors: 1: CAR21 turquoise Porsche 718 Cayman; 2: CAR22 amethyst purple McLaren Artura; 3: CAR23 deep blue Maserati MC20; 4: CAR24 emerald green Lotus Emira; 5: CAR25 French blue Alpine A110",
+    "generatedFile": "exec-173642e1-413f-4130-96ba-fada77e2ead7.png",
+    "sheetSha256": "75a16d5ef7ffd33b94cc477dc3f8b98fee1a119a426ef9d2a1dc8e4208f64c4e",
+    "atlasFrame": {
+      "row": 4,
+      "columns": {
+        "side": 1,
+        "top": 2
+      },
+      "bounds": {
+        "x": [
+          0,
+          675,
+          1254
+        ],
+        "y": [
+          0,
+          259,
+          505,
+          749,
+          991,
+          1254
+        ]
+      }
+    },
+    "views": {
+      "side": "play-CAR24-side",
+      "top": "play-CAR24-top"
+    },
+    "wheels": [
+      {
+        "x": 0.2134927412467976,
+        "y": 0.6564474807856533,
+        "r": 0.09759863364645599
+      },
+      {
+        "x": 0.7492306289881495,
+        "y": 0.6634923528815962,
+        "r": 0.0934284412032817
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": false,
+      "distinctVehicleFrame": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Toy interpretation, not an exact brand replica. Review silhouettes, color, frame separation, wheel circles and hotspots in the contact sheet and actual play."
+  },
+  {
+    "id": "CAR25",
+    "brand": "Alpine",
+    "model": "A110",
+    "color": "French blue",
+    "tool": "Built-in GPT Image",
+    "intent": "new toy-style generation from vehicle identity and toy-style references",
+    "prompt": "Use case: stylized-concept. ONE specific toy-car identity correction for a preschool game. Identity reference: Alpine A110 side and top. Style reference: chunky matte toy sports car. French blue Alpine A110-inspired toy pair, compact rounded cabin, rounded front headlights, gently sculpted clean blue side, no Bugatti C-shaped intake or trim, no horseshoe grille. One row and two cells: side profile nose right with two wheels; overhead same toy nose right. Transparent 2048x1024 target, generous margins, simple gray rims and red hubs, dark windows, no text, logos, face, people, ground or shadows.",
+    "generatedFile": "exec-d80cdb31-4563-464e-a770-3897a958771b.png",
+    "sheetSha256": "b8dfeb77625bb0228e5cffe0a346e9175c2a30a6fdfd0f5202fd1261dc9e0607",
+    "atlasFrame": {
+      "row": 1,
+      "columns": {
+        "side": 1,
+        "top": 2
+      },
+      "bounds": {
+        "x": [
+          0,
+          940,
+          1774
+        ],
+        "y": [
+          0,
+          887
+        ]
+      }
+    },
+    "views": {
+      "side": "play-CAR25-side",
+      "top": "play-CAR25-top"
+    },
+    "wheels": [
+      {
+        "x": 0.22614140558848433,
+        "y": 0.6723435882961708,
+        "r": 0.10044538526672313
+      },
+      {
+        "x": 0.767439226519337,
+        "y": 0.6792306118272968,
+        "r": 0.0973462246777164
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": false,
+      "distinctVehicleFrame": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Toy interpretation, not an exact brand replica. Review silhouettes, color, frame separation, wheel circles and hotspots in the contact sheet and actual play."
+  },
+  {
+    "id": "CAR26",
+    "brand": "Jaguar",
+    "model": "F-Type",
+    "color": "forest green",
+    "tool": "Built-in GPT Image",
+    "intent": "new toy-style generation from vehicle identity and toy-style references",
+    "prompt": "Use case: stylized-concept. Production preschool car-learning sprite atlas. Identity/layout reference: existing five-car side/top contact sheet; style reference: first generated toy atlas. Rounded chunky matte plastic sports-car toys, big clear circular wheels, dark simple windows, gentle cream highlights, soft 3D picture-book illustration, simplified details, no faces. Preserve distinct sports-car silhouette and paint. Exact 5-row 2-column transparent atlas; target 2048x2048. Left column orthographic side, nose right, exactly two visible wheels. Right column exact overhead matching toy, nose right horizontally. Each sprite isolated in its cell with generous margins. No labels, text, logos, grid, ground or external shadow. Row identities and colors: 1: CAR26 forest green Jaguar F-Type; 2: CAR27 pearl silver Honda NSX; 3: CAR28 orange with two black stripes Chevrolet Camaro; 4: CAR29 blue with two white stripes Dodge Viper; 5: CAR30 white and cyan accents BMW i8",
+    "generatedFile": "exec-20694e21-1955-44f6-9920-cc7a37860e3e.png",
+    "sheetSha256": "7fa5f5adc6007a7a46b2c76d4f05f83b9bcc06af848e9668ce82c49d3d2c1a05",
+    "atlasFrame": {
+      "row": 1,
+      "columns": {
+        "side": 1,
+        "top": 2
+      },
+      "bounds": {
+        "x": [
+          0,
+          662,
+          1254
+        ],
+        "y": [
+          0,
+          276,
+          520,
+          753,
+          988,
+          1254
+        ]
+      }
+    },
+    "views": {
+      "side": "play-CAR26-side",
+      "top": "play-CAR26-top"
+    },
+    "wheels": [
+      {
+        "x": 0.23800812064965196,
+        "y": 0.6633720030935808,
+        "r": 0.09448259860788863
+      },
+      {
+        "x": 0.7576427718040621,
+        "y": 0.6652993495287403,
+        "r": 0.0936152927120669
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": false,
+      "distinctVehicleFrame": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Toy interpretation, not an exact brand replica. Review silhouettes, color, frame separation, wheel circles and hotspots in the contact sheet and actual play."
+  },
+  {
+    "id": "CAR27",
+    "brand": "Honda",
+    "model": "NSX",
+    "color": "pearl silver",
+    "tool": "Built-in GPT Image",
+    "intent": "new toy-style generation from vehicle identity and toy-style references",
+    "prompt": "Use case: stylized-concept. Production preschool car-learning sprite atlas. Identity/layout reference: existing five-car side/top contact sheet; style reference: first generated toy atlas. Rounded chunky matte plastic sports-car toys, big clear circular wheels, dark simple windows, gentle cream highlights, soft 3D picture-book illustration, simplified details, no faces. Preserve distinct sports-car silhouette and paint. Exact 5-row 2-column transparent atlas; target 2048x2048. Left column orthographic side, nose right, exactly two visible wheels. Right column exact overhead matching toy, nose right horizontally. Each sprite isolated in its cell with generous margins. No labels, text, logos, grid, ground or external shadow. Row identities and colors: 1: CAR26 forest green Jaguar F-Type; 2: CAR27 pearl silver Honda NSX; 3: CAR28 orange with two black stripes Chevrolet Camaro; 4: CAR29 blue with two white stripes Dodge Viper; 5: CAR30 white and cyan accents BMW i8",
+    "generatedFile": "exec-20694e21-1955-44f6-9920-cc7a37860e3e.png",
+    "sheetSha256": "7fa5f5adc6007a7a46b2c76d4f05f83b9bcc06af848e9668ce82c49d3d2c1a05",
+    "atlasFrame": {
+      "row": 2,
+      "columns": {
+        "side": 1,
+        "top": 2
+      },
+      "bounds": {
+        "x": [
+          0,
+          662,
+          1254
+        ],
+        "y": [
+          0,
+          276,
+          520,
+          753,
+          988,
+          1254
+        ]
+      }
+    },
+    "views": {
+      "side": "play-CAR27-side",
+      "top": "play-CAR27-top"
+    },
+    "wheels": [
+      {
+        "x": 0.21447624190064796,
+        "y": 0.6546676265898728,
+        "r": 0.09739956803455727
+      },
+      {
+        "x": 0.748472553699284,
+        "y": 0.6615247944842216,
+        "r": 0.09431384248210026
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": false,
+      "distinctVehicleFrame": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Toy interpretation, not an exact brand replica. Review silhouettes, color, frame separation, wheel circles and hotspots in the contact sheet and actual play."
+  },
+  {
+    "id": "CAR28",
+    "brand": "Chevrolet",
+    "model": "Camaro",
+    "color": "orange with two black stripes",
+    "tool": "Built-in GPT Image",
+    "intent": "new toy-style generation from vehicle identity and toy-style references",
+    "prompt": "Use case: stylized-concept. Production preschool car-learning sprite atlas. Identity/layout reference: existing five-car side/top contact sheet; style reference: first generated toy atlas. Rounded chunky matte plastic sports-car toys, big clear circular wheels, dark simple windows, gentle cream highlights, soft 3D picture-book illustration, simplified details, no faces. Preserve distinct sports-car silhouette and paint. Exact 5-row 2-column transparent atlas; target 2048x2048. Left column orthographic side, nose right, exactly two visible wheels. Right column exact overhead matching toy, nose right horizontally. Each sprite isolated in its cell with generous margins. No labels, text, logos, grid, ground or external shadow. Row identities and colors: 1: CAR26 forest green Jaguar F-Type; 2: CAR27 pearl silver Honda NSX; 3: CAR28 orange with two black stripes Chevrolet Camaro; 4: CAR29 blue with two white stripes Dodge Viper; 5: CAR30 white and cyan accents BMW i8",
+    "generatedFile": "exec-20694e21-1955-44f6-9920-cc7a37860e3e.png",
+    "sheetSha256": "7fa5f5adc6007a7a46b2c76d4f05f83b9bcc06af848e9668ce82c49d3d2c1a05",
+    "atlasFrame": {
+      "row": 3,
+      "columns": {
+        "side": 1,
+        "top": 2
+      },
+      "bounds": {
+        "x": [
+          0,
+          662,
+          1254
+        ],
+        "y": [
+          0,
+          276,
+          520,
+          753,
+          988,
+          1254
+        ]
+      }
+    },
+    "views": {
+      "side": "play-CAR28-side",
+      "top": "play-CAR28-top"
+    },
+    "wheels": [
+      {
+        "x": 0.22942639040348964,
+        "y": 0.6726862958924028,
+        "r": 0.09429116684841875
+      },
+      {
+        "x": 0.7802934782608696,
+        "y": 0.6714546430488458,
+        "r": 0.09084541062801935
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": false,
+      "distinctVehicleFrame": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Toy interpretation, not an exact brand replica. Review silhouettes, color, frame separation, wheel circles and hotspots in the contact sheet and actual play."
+  },
+  {
+    "id": "CAR29",
+    "brand": "Dodge",
+    "model": "Viper",
+    "color": "blue with two white stripes",
+    "tool": "Built-in GPT Image",
+    "intent": "new toy-style generation from vehicle identity and toy-style references",
+    "prompt": "Use case: stylized-concept. Production preschool car-learning sprite atlas. Identity/layout reference: existing five-car side/top contact sheet; style reference: first generated toy atlas. Rounded chunky matte plastic sports-car toys, big clear circular wheels, dark simple windows, gentle cream highlights, soft 3D picture-book illustration, simplified details, no faces. Preserve distinct sports-car silhouette and paint. Exact 5-row 2-column transparent atlas; target 2048x2048. Left column orthographic side, nose right, exactly two visible wheels. Right column exact overhead matching toy, nose right horizontally. Each sprite isolated in its cell with generous margins. No labels, text, logos, grid, ground or external shadow. Row identities and colors: 1: CAR26 forest green Jaguar F-Type; 2: CAR27 pearl silver Honda NSX; 3: CAR28 orange with two black stripes Chevrolet Camaro; 4: CAR29 blue with two white stripes Dodge Viper; 5: CAR30 white and cyan accents BMW i8",
+    "generatedFile": "exec-20694e21-1955-44f6-9920-cc7a37860e3e.png",
+    "sheetSha256": "7fa5f5adc6007a7a46b2c76d4f05f83b9bcc06af848e9668ce82c49d3d2c1a05",
+    "atlasFrame": {
+      "row": 4,
+      "columns": {
+        "side": 1,
+        "top": 2
+      },
+      "bounds": {
+        "x": [
+          0,
+          662,
+          1254
+        ],
+        "y": [
+          0,
+          276,
+          520,
+          753,
+          988,
+          1254
+        ]
+      }
+    },
+    "views": {
+      "side": "play-CAR29-side",
+      "top": "play-CAR29-top"
+    },
+    "wheels": [
+      {
+        "x": 0.2294087061668682,
+        "y": 0.6577697165121591,
+        "r": 0.09100362756952841
+      },
+      {
+        "x": 0.7697379972565158,
+        "y": 0.6618259411675049,
+        "r": 0.08917832647462279
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": false,
+      "distinctVehicleFrame": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Toy interpretation, not an exact brand replica. Review silhouettes, color, frame separation, wheel circles and hotspots in the contact sheet and actual play."
+  },
+  {
+    "id": "CAR30",
+    "brand": "BMW",
+    "model": "i8",
+    "color": "white and cyan accents",
+    "tool": "Built-in GPT Image",
+    "intent": "new toy-style generation from vehicle identity and toy-style references",
+    "prompt": "Use case: stylized-concept. Production preschool car-learning sprite atlas. Identity/layout reference: existing five-car side/top contact sheet; style reference: first generated toy atlas. Rounded chunky matte plastic sports-car toys, big clear circular wheels, dark simple windows, gentle cream highlights, soft 3D picture-book illustration, simplified details, no faces. Preserve distinct sports-car silhouette and paint. Exact 5-row 2-column transparent atlas; target 2048x2048. Left column orthographic side, nose right, exactly two visible wheels. Right column exact overhead matching toy, nose right horizontally. Each sprite isolated in its cell with generous margins. No labels, text, logos, grid, ground or external shadow. Row identities and colors: 1: CAR26 forest green Jaguar F-Type; 2: CAR27 pearl silver Honda NSX; 3: CAR28 orange with two black stripes Chevrolet Camaro; 4: CAR29 blue with two white stripes Dodge Viper; 5: CAR30 white and cyan accents BMW i8",
+    "generatedFile": "exec-20694e21-1955-44f6-9920-cc7a37860e3e.png",
+    "sheetSha256": "7fa5f5adc6007a7a46b2c76d4f05f83b9bcc06af848e9668ce82c49d3d2c1a05",
+    "atlasFrame": {
+      "row": 5,
+      "columns": {
+        "side": 1,
+        "top": 2
+      },
+      "bounds": {
+        "x": [
+          0,
+          662,
+          1254
+        ],
+        "y": [
+          0,
+          276,
+          520,
+          753,
+          988,
+          1254
+        ]
+      }
+    },
+    "views": {
+      "side": "play-CAR30-side",
+      "top": "play-CAR30-top"
+    },
+    "wheels": [
+      {
+        "x": 0.2028159509202454,
+        "y": 0.6569952283571916,
+        "r": 0.09435214723926379
+      },
+      {
+        "x": 0.749471673254282,
+        "y": 0.6580939833113746,
+        "r": 0.09385770750988144
+      }
+    ],
+    "checks": {
+      "transparentExport": true,
+      "distinctGeneratedSheet": false,
+      "distinctVehicleFrame": true,
+      "dimensions": [
+        1000,
+        450
+      ]
+    },
+    "review": "Toy interpretation, not an exact brand replica. Review silhouettes, color, frame separation, wheel circles and hotspots in the contact sheet and actual play."
+  }
+]

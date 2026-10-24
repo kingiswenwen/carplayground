@@ -19,25 +19,39 @@ for (const asset of content.assets) {
 const published = new Set(content.assets.map(a => a.path));
 async function verifyDirectory(folder:string):Promise<void>{for(const entry of await fs.readdir(path.join('public',folder),{withFileTypes:true})){const local=folder+'/'+entry.name;if(entry.isDirectory())await verifyDirectory(local);else if(!published.has(local))throw new Error(`未登记素材 ${local}`);}}
 await verifyDirectory('media');
-const showcases=JSON.parse(await fs.readFile('content/showcase-production.json','utf8')) as {assetId:string;file:string;webSha256:string;review:{status:string;hotspots?:{id:string;x:number;y:number}[];observationPoints?:Record<string,{x:number;y:number}>};reference:{file:string;page:string;author:string;license:string;licenseUrl:string}}[];
-const showcaseAssets=content.assets.filter(asset=>asset.path.startsWith('media/showcase/'));
-if(showcases.length!==showcaseAssets.length||new Set(showcases.map(item=>item.assetId)).size!==showcases.length)throw Error('情境图生产清单与素材数量不一致');
-for(const item of showcases){
-  const asset=showcaseAssets.find(asset=>asset.id===item.assetId);
-  if(!asset||asset.path!==item.file||asset.sha256!==item.webSha256||item.review.status!=='reviewed')throw Error(`情境图文件与审核不一致 ${item.assetId}`);
-  if(!content.assets.some(asset=>asset.path===item.reference.file)||!item.reference.author||!item.reference.license||!URL.canParse(item.reference.page)||!URL.canParse(item.reference.licenseUrl))throw Error(`情境图参考缺失 ${item.assetId}`);
-}
+const sources=JSON.parse(await fs.readFile('content/play-cars-production.json','utf8')) as {id:string;tool:string;generatedFile:string;sheetSha256?:string;atlasFrame?:{row:number;columns:{side:number;top:number}};prompt:string;views:{side:string;top:string};wheels:{x:number;y:number;r:number}[];checks:{transparentExport:boolean;distinctGeneratedSheet:boolean;distinctVehicleFrame?:boolean;dimensions:number[]}}[];
+if(sources.length!==30||new Set(sources.map(s=>s.id)).size!==30||new Set(sources.map(s=>`${s.generatedFile}#${s.atlasFrame?.row||'whole'}`)).size!==30)throw Error('需要30款跑车各自的完整来源与独立图帧记录');
+for(const source of sources)if(source.atlasFrame&&(!source.checks.distinctVehicleFrame||!source.sheetSha256?.match(/^[a-f0-9]{64}$/)||source.atlasFrame.row<1||source.atlasFrame.row>5||source.atlasFrame.columns.side!==1||source.atlasFrame.columns.top!==2))throw Error('玩具车图集来源或图帧无效 '+source.id);
 for(const car of content.cars){
-  const source=showcases.find(item=>item.assetId===car.showcaseImage);
-  if(!source||JSON.stringify(source.review.hotspots)!==JSON.stringify(car.showcaseHotspots)||JSON.stringify(source.review.observationPoints)!==JSON.stringify(car.showcaseObservationPoints))throw Error(`车型情境图热点未核对 ${car.id}`);
+ const source=sources.find(s=>s.id===car.id);
+ if(!car.game||!source||source.tool!=='Built-in GPT Image'||!source.prompt||!source.checks.transparentExport||source.views.side!==car.game.side||source.views.top!==car.game.top||JSON.stringify(source.wheels)!==JSON.stringify(car.game.wheels))throw Error('游戏跑车与生成记录不一致 '+car.id);
+ if(car.image!==car.game.side||car.showcaseImage!==car.game.side||car.views.some(v=>!v.image.startsWith('orbit-CAR')))throw Error('游戏界面仍引用旧车图 '+car.id);
+ for(const id of [car.game.side,car.game.top]){
+  const asset=content.assets.find(a=>a.id===id);
+  if(!asset?.path.startsWith('media/play-cars/'))throw Error('游戏车素材目录错误 '+id);
+  const raw=await sharp(path.join('public',asset.path)).ensureAlpha().raw().toBuffer();
+  let clear=0;for(let i=3;i<raw.length;i+=4)if(raw[i]<10)clear++;
+  if(clear<1000*450*.15)throw Error('车辆缺少实际透明背景 '+id);
+  if(id===car.game.side){
+   const alpha=(x:number,y:number)=>raw[(Math.round(y)*1000+Math.round(x))*4+3]||0;
+   for(const point of car.hotspots)if(point.x<=0||point.x>=1||point.y<=0||point.y>=1||alpha(point.x*1000,point.y*450)<100)throw Error('部件中心落在透明区域 '+car.id+' '+point.id);
+   for(const wheel of car.game.wheels){
+    if(wheel.r<.06||wheel.r>.13||alpha(wheel.x*1000,wheel.y*450)<100)throw Error('轮子中心或半径无效 '+car.id);
+    let solid=0;for(let angle=0;angle<12;angle++){const a=angle*Math.PI/6;if(alpha(wheel.x*1000+Math.cos(a)*wheel.r*750,wheel.y*450+Math.sin(a)*wheel.r*750)>100)solid++;}
+    if(solid<10)throw Error('轮子轮廓注册偏离实际图像 '+car.id);
+   }
+  }
+ }
 }
-const photoSources=JSON.parse(await fs.readFile('content/photo-view-sources.json','utf8')) as {assetId:string;carId:string;view:string;file:string;status:string;webSha256:string;author:string;page:string;license:string;licenseUrl:string}[];
-const views=content.cars.flatMap(car=>car.views.map(view=>({car,view})));
-if(photoSources.length!==views.length||new Set(photoSources.map(source=>source.assetId)).size!==photoSources.length)throw Error('实拍视角来源数量或编号不一致');
-for(const {car,view}of views){
-  const source=photoSources.find(item=>item.assetId===view.image);
-  const asset=content.assets.find(item=>item.id===view.image)!;
-  if(!source||source.status!=='reviewed'||source.carId!==car.id||source.view!==view.id||source.webSha256!==asset.sha256||'media/'+source.file!==asset.path)throw Error(`视角与审核来源不一致 ${car.id}/${view.id}`);
-  if(source.author!==view.credit.author||source.page!==view.credit.sourceUrl||source.license!==view.credit.license||source.licenseUrl!==view.credit.licenseUrl)throw Error(`实拍署名不一致 ${car.id}/${view.id}`);
-}
-console.log(`内容 ${content.id} 验证通过：${content.cars.length} 车型 / ${content.scenes.length} 场景 / ${content.activities.length} 活动 / ${content.stories.length} 故事 / ${content.assets.length} 素材，引用、审核状态、文件与 SHA-256 一致。`);
+console.log(`内容 ${content.id} 验证通过：${content.cars.length} 款新生成跑车 / 60 独立视图 / ${content.activities.length} 活动，透明度、引用、来源、文件与 SHA-256 一致。`);
+
+const models=JSON.parse(await fs.readFile('content/vehicle-models.json','utf8')) as {id:string;file:string;sha256:string;factorySha256:string}[];
+const factoryHash=createHash('sha256').update(await fs.readFile('src/three/vehicle.ts')).digest('hex');
+if(models.length!==30||new Set(models.map(m=>m.id)).size!==30)throw Error('需要30款完整立体模型');
+for(const model of models){if(!content.cars.some(c=>c.id===model.id)||model.factorySha256!==factoryHash||!/^media\/models\/car\d{2}\.glb$/.test(model.file))throw Error('立体模型记录与工厂源码不一致');const b=await fs.readFile(path.join('public',model.file));if(b.toString('utf8',0,4)!=='glTF'||b.readUInt32LE(4)!==2||b.readUInt32LE(8)!==b.length||createHash('sha256').update(b).digest('hex')!==model.sha256)throw Error('模型文件损坏 '+model.id);}
+console.log('30款完整GLB、模型来源与生成代码哈希一致。');
+
+const turnarounds=JSON.parse(await fs.readFile('content/car-turnarounds-production.json','utf8')) as {id:string;tool:string;generatedFile:string;sheetSha256:string;prompt:string;views:{id:string;image:string}[]}[];
+if(turnarounds.length!==30||new Set(turnarounds.map(s=>s.id)).size!==30||new Set(turnarounds.map(s=>s.generatedFile)).size!==30||new Set(turnarounds.map(s=>s.sheetSha256)).size!==30)throw Error('需要30款独立生成的多角度车辆记录');
+for(const car of content.cars){const source=turnarounds.find(s=>s.id===car.id);if(!car.game?.orbit||!source||source.tool!=='Built-in GPT Image'||!source.prompt||JSON.stringify(car.game.orbit)!==JSON.stringify(source.views)||car.game.orbit.map(v=>v.id).join(',')!=='front-left,front,front-right,left,rear,right')throw Error('多角度车图与来源记录不一致 '+car.id);for(const view of car.game.orbit){const asset=content.assets.find(a=>a.id===view.image);if(!asset?.path.startsWith('media/car-turnarounds/')||asset.width!==800||asset.height!==480||!car.views.some(v=>v.id===view.id&&v.image===view.image))throw Error('多角度车图引用错误 '+car.id);}}
+console.log('30款车 / 180张GPT多角度外观图及其来源、引用、尺寸一致。');
