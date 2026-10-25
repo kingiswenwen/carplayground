@@ -1,7 +1,7 @@
 {
-  "id": "r10-play-help-0.10.0",
+  "id": "r10-play-help-0.10.1",
   "schemaVersion": 2,
-  "appVersion": "0.10.0",
+  "appVersion": "0.10.1",
   "car": {
     "id": "CAR01",
     "brand": "Lamborghini",
@@ -135,7 +135,7 @@
     {
       "id": "E03",
       "title": "出发和停止",
-      "version": 7,
+      "version": 8,
       "domain": "英语",
       "scene": "parking",
       "mode": "closed",
