@@ -33,11 +33,12 @@ test('@smoke 禁用脚本时开启脚本说明与重新打开入口仍可见', a
   } finally {await context.close();}
 });
 
-test('@smoke 入口脚本网络失败保留静态重试，连接恢复后可打开', async ({page}) => {
+for (const entry of ['/#/explore', '/index.html#/explore']) {
+test(`@smoke 入口脚本网络失败后可在原地址重试 ${entry}`, async ({page}) => {
   let unavailable = true;
   await page.route('**/*', route => unavailable && route.request().resourceType() === 'script' ? route.abort() : route.continue());
   const failed = page.waitForEvent('requestfailed', request => request.resourceType() === 'script');
-  await page.goto('/#/explore');
+  await page.goto(entry);
   await failed;
   await expect(page.getByText('连接暂时中断，请再试一次。', {exact: true})).toBeVisible();
   await expect(page.locator('#entry-loading')).toBeHidden();
@@ -45,3 +46,4 @@ test('@smoke 入口脚本网络失败保留静态重试，连接恢复后可打�
   await page.getByRole('link', {name: '重新打开汽车游乐园', exact: true}).click();
   await expect(page.getByRole('link', {name: '泡泡洗车屋', exact: true})).toBeVisible();
 });
+}
