@@ -18,7 +18,14 @@
         if (event.target instanceof HTMLScriptElement && event.target.type === 'module') {
           var loading = document.getElementById('entry-loading');
           var retry = document.getElementById('entry-retry');
-          if (loading && retry) { loading.hidden = true; retry.hidden = false; }
+          if (loading && retry) {
+            loading.hidden = true;
+            retry.hidden = false;
+            retry.querySelector('a').addEventListener('click', function (event) {
+              event.preventDefault();
+              window.location.reload();
+            });
+          }
         }
       }, true);
     </script>
