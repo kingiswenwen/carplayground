@@ -237,7 +237,7 @@ export class TouchBoard {
     if(this.mode==='story'||this.mode==='paint'&&this.options.id==='A01')item=this.items.find(i=>i.id.startsWith('stamp-')&&!this.seen.has(i.id));
     let action:GuideCue['action']='drag';
     if(this.mode==='road'){item=this.roadWon?this.items.find(i=>i.id==='next-road'):this.items.find(i=>i.kind==='road'&&!roadLessons[this.roadLevel].locked.includes(i.turn!)&&this.road[i.turn!]!==roadLessons[this.roadLevel].solution[i.turn!]);action=this.roadWon?'tap':'turn';}
-    if(this.mode==='traffic'){item=this.items.find(i=>i.id===(this.signalGreen?'runner':'signal'));action=this.signalGreen?'push':'tap';}
+    if(this.mode==='traffic'){const push=this.signalGreen&&!this.seen.has('go');item=this.items.find(i=>i.id===(push?'runner':'signal'));action=push?'push':'tap';}
     if(this.mode==='wash'){
       if(!this.washReady)return{start:{x:340,y:H*.4},end:{x:700,y:H*.4},action:'wipe',subject:'车身'};
       item=this.items.find(i=>i.id==='next-car');action='tap';
@@ -252,7 +252,7 @@ export class TouchBoard {
     if(['motion','rolling'].includes(this.mode)||this.options.id==='A02'){action='push';end={x:Math.min(860,start.x+260),y:start.y};}
     if(this.mode==='shadow')end={x:start.x<500?780:220,y:start.y};
     if(action==='tap'||action==='turn')end=start;
-    return{start,end,item,action,subject:item?.kind==='car'?getCar(item.carId||this.options.carId)!.name:item?.kind==='wheel'?'车轮':item?.kind==='body'?'车身':item?.kind==='road'?'路块':item?.kind==='plank'?'桥板':'物件'};
+    return{start,end,item,action,subject:item?.id==='signal'?'信号灯':item?.kind==='car'?getCar(item.carId||this.options.carId)!.name:item?.kind==='wheel'?'车轮':item?.kind==='body'?'车身':item?.kind==='road'?'路块':item?.kind==='plank'?'桥板':'物件'};
   }
   guideDescription(step:number){
     const cue=this.guideCue(),verbs={drag:'移到发亮的轮廓',push:'向前推一推',tap:'轻轻点一下',turn:'点一下，让路块转动',wipe:'在车身上来回擦'};
