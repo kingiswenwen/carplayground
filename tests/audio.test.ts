@@ -71,3 +71,27 @@ it('先完整结束最后一个英文词，才启动中文完成反馈', async (
   harness.clips[1].options.onend?.(2);
   await pending;
 });
+
+it('本地中文反馈可读出不同短句，关闭声音后不会被迟到错误重新播放', () => {
+ const utterances:{text:string;onstart?:()=>void;onerror?:()=>void}[]=[];
+ const synth={getVoices:()=>[{lang:'zh-CN',localService:true}],speak:vi.fn(u=>utterances.push(u)),cancel:vi.fn()};
+ vi.stubGlobal('window',{speechSynthesis:synth});
+ vi.stubGlobal('SpeechSynthesisUtterance',class {constructor(public text:string){}});
+ audio.feedback('两辆小车都有自己的停车位了。',['parking-success']);
+ expect(utterances[0].text).toBe('两辆小车都有自己的停车位了。');utterances[0].onstart?.();
+ audio.feedback('换个空车位，小车也能停进去。',['phrase-park']);
+ expect(utterances[1].text).not.toBe(utterances[0].text);
+ audio.setEnabled(false);utterances[0].onerror?.();utterances[1].onerror?.();
+ expect(synth.cancel).toHaveBeenCalledTimes(2);expect(harness.clips).toHaveLength(0);
+});
+
+it('不使用远程中文声音，缺少本地声音或语音出错时退回现有音频', async () => {
+ let spoken:{onerror?:()=>void}|undefined;
+ const synth={getVoices:()=>[{lang:'zh-CN',localService:false}],speak:vi.fn(u=>{spoken=u;}),cancel:vi.fn()};
+ vi.stubGlobal('window',{speechSynthesis:synth});vi.stubGlobal('SpeechSynthesisUtterance',class {constructor(public text:string){}});
+ audio.feedback('小车停稳啦。',['parking-success']);expect(synth.speak).not.toHaveBeenCalled();expect(harness.clips).toHaveLength(1);
+ synth.getVoices=()=>[{lang:'zh-CN',localService:true}];
+ audio.feedback('车身和车轮装好啦。',['phrase-go']);expect(synth.speak).toHaveBeenCalledOnce();spoken?.onerror?.();
+ expect(harness.clips).toHaveLength(2);expect(harness.clips[1].options.src).toEqual([expect.stringContaining('phrase-go')]);
+ harness.clips[1].options.onend?.(2);await Promise.resolve();
+});

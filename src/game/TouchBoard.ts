@@ -9,6 +9,7 @@ import {hitPart,partRegions,rotateRoad,roadLessons} from '../domain/play-guidanc
 type Item = Rect & { id: string; kind: 'car'|'body'|'wheel'|'prop'|'plank'|'road'|'bay'|'shape'; glyph?: string; color?: string; carId?: string; home: Point; placed?: boolean; target?: string; turn?: number; dock?: string };
 type Target = Rect & { id: string; glyph?: string; color?: string; accepts?: string[]; occupied?: boolean; enabled?: boolean };
 type Grab = { id: number; item?: Item; start: Point; offset: Point; samples: (Point & {t:number})[]; origin?: Point; washing?: boolean; dock?:string; wasPlaced?:boolean };
+type GuideCue={start:Point;end:Point;item?:Item;action:'drag'|'push'|'tap'|'turn'|'wipe';subject:string};
 export type BoardSnapshot = { ready: boolean; progress: number; completed: boolean; moving: boolean; hint:boolean;recovering:boolean;selected:string|null;signalGreen:boolean;road:{level:number;shapes:RoadShape[];locked:number[];won:boolean};comparison:{smooth:number;rough:number}[];wash:{clean:number;waiting:boolean};parts:string[]; items: {id:string;x:number;y:number;placed:boolean;carId?:string}[]; targets: Target[] };
 export type BoardOptions = { id: ActivityId; carId: string; portrait: boolean; finish: (summary:string,sounds?:string[])=>void; feedback:(message:string)=>void; changed:(state:BoardSnapshot)=>void; speak?:(...ids:string[])=>void; paint?:(points:Mark[],background?:string)=>void };
 const SKY='#d9f1f6', GRASS='#d9e9bc', ASPHALT='#718388', CREAM='#fff9e9';
@@ -27,7 +28,6 @@ export class TouchBoard {
   private alpha: Uint8ClampedArray | null = null;
   private velocity = 0;
   private rolling = 0;
-  private touched = false;
   private complete = false;
   private progress = 0;
   private ready = false;
@@ -41,7 +41,6 @@ export class TouchBoard {
   private roadWon=false;
   private roadTurns=new Map<number,{from:RoadShape;at:number}>();
   private selected:Item|null=null;
-  private lastAction=0;
   private correction:{item:Item;from:Point;to:Point;target?:Target;at:number}|null=null;
   private signalGreen=false;
   private velocities=new Map<string,number>();
@@ -61,6 +60,14 @@ export class TouchBoard {
   private roadStep=0;
   private assemblyTravel=0;
   private lastDirtCheck=0;
+  private guideStep:number|null=null;
+  private guideTime=0;
+  private guideBase=document.createElement('canvas');
+  private hintUntil=0;
+  private completedAt=-10;
+  private arrivals=new Map<string,{from:Point;at:number}>();
+  private pulses:{x:number;y:number;at:number}[]=[];
+  private partPulses=new Map<string,number>();
   tilt = 0;
   constructor(private canvas: HTMLCanvasElement, private options: BoardOptions) {
     this.height=options.portrait?1200:680;
@@ -103,6 +110,7 @@ export class TouchBoard {
       for(const item of this.items){if(item.id==='next-road')continue;adapt(item);if(item.kind==='road')item.w=item.h=cell;}
       for(const point of this.roadJourney)adapt(point);
     }
+    if(this.guideStep!==null){this.guideBase.width=this.width;this.guideBase.height=this.height;this.draw(0);}
     this.notify();
   }
   private item(id:string,kind:Item['kind'],x:number,y:number,w:number,h:number,extra:Partial<Item>={}) {
@@ -218,9 +226,64 @@ export class TouchBoard {
     return true;
   }
   private pickupPadding(item:Item){const scale=1000/Math.max(1,this.canvas.getBoundingClientRect().width);return Math.max(15,(48*scale-Math.min(item.w,item.h))/2);}
-  showHint(){this.touched=false;this.lastAction=this.time;this.notify();}
+  showHint(){this.hintUntil=this.time+3;this.notify();}
+  setGuideStep(step:number|null){
+    if(step!==null&&this.guideStep===null){this.cancel();this.guideBase.width=this.width;this.guideBase.height=this.height;this.guideBase.getContext('2d')!.drawImage(this.canvas,0,0);}
+    this.guideStep=step;this.guideTime=0;this.notify();
+  }
+  private guideCue():GuideCue{
+    const H=this.height;
+    let item=this.selected||this.items.find(i=>!i.placed&&this.targets.some(t=>this.compatible(i,t)))||this.items.find(i=>!i.placed&&!i.id.startsWith('ink-')&&i.id!=='paper'&&!(i.id==='my-car'&&this.options.id==='A01'));
+    if(this.mode==='story'||this.mode==='paint'&&this.options.id==='A01')item=this.items.find(i=>i.id.startsWith('stamp-')&&!this.seen.has(i.id));
+    let action:GuideCue['action']='drag';
+    if(this.mode==='road'){item=this.roadWon?this.items.find(i=>i.id==='next-road'):this.items.find(i=>i.kind==='road'&&!roadLessons[this.roadLevel].locked.includes(i.turn!)&&this.road[i.turn!]!==roadLessons[this.roadLevel].solution[i.turn!]);action=this.roadWon?'tap':'turn';}
+    if(this.mode==='traffic'){item=this.items.find(i=>i.id===(this.signalGreen?'runner':'signal'));action=this.signalGreen?'push':'tap';}
+    if(this.mode==='wash'){
+      if(!this.washReady)return{start:{x:340,y:H*.4},end:{x:700,y:H*.4},action:'wipe',subject:'车身'};
+      item=this.items.find(i=>i.id==='next-car');action='tap';
+    }
+    if(this.mode==='parts'){
+      const regions=partRegions(getCar(this.options.carId)!,this.items[0]),part=regions.find(p=>!this.seen.has(p.id))||regions[0];
+      return{start:part,end:part,action:'tap',subject:({wheel:'车轮',light:'车灯',door:'车门'}as const)[part.id]};
+    }
+    const target=item&&this.targets.find(t=>this.compatible(item!,t));
+    const start=item?{x:item.x,y:item.y}:{x:500,y:H*.5};
+    let end:Point=target?{x:target.x,y:target.y}:{x:500,y:H*.43};
+    if(['motion','rolling'].includes(this.mode)||this.options.id==='A02'){action='push';end={x:Math.min(860,start.x+260),y:start.y};}
+    if(this.mode==='shadow')end={x:start.x<500?780:220,y:start.y};
+    if(action==='tap'||action==='turn')end=start;
+    return{start,end,item,action,subject:item?.kind==='car'?getCar(item.carId||this.options.carId)!.name:item?.kind==='wheel'?'车轮':item?.kind==='body'?'车身':item?.kind==='road'?'路块':item?.kind==='plank'?'桥板':'物件'};
+  }
+  guideDescription(step:number){
+    const cue=this.guideCue(),verbs={drag:'移到发亮的轮廓',push:'向前推一推',tap:'轻轻点一下',turn:'点一下，让路块转动',wipe:'在车身上来回擦'};
+    return step===0?`找到${cue.subject}`:step===1?verbs[cue.action]:cue.action==='drag'?'放下，再自己试试':cue.action==='turn'?'看看开口有没有对齐':cue.action==='wipe'?'看看干净的地方，再自己擦一擦':'看看变化，再自己试试';
+  }
+  guidePreview(canvas:HTMLCanvasElement,step:number,phase=step===1?.6:1,large=false){
+    const width=large?1000:240;canvas.width=width;canvas.height=Math.round(width*this.height/1000);
+    const c=canvas.getContext('2d')!;c.scale(width/1000,width/1000);c.drawImage(this.guideBase,0,0);this.guideOverlay(c,step,phase);
+  }
+  private guideOverlay(c:CanvasRenderingContext2D,step:number,phase:number){
+    const cue=this.guideCue(),p=step===0?cue.start:step===2?cue.end:{x:cue.start.x+(cue.end.x-cue.start.x)*phase,y:cue.start.y+(cue.end.y-cue.start.y)*phase};
+    c.save();c.strokeStyle='#b87524';c.lineWidth=8;c.lineCap='round';
+    if(cue.action==='drag'||cue.action==='push'||cue.action==='wipe'){
+      if(step>0){c.setLineDash([10,16]);c.beginPath();c.moveTo(cue.start.x,cue.start.y);c.lineTo(cue.end.x,cue.end.y);c.stroke();c.setLineDash([]);}
+      if(cue.item&&step>0){const item=cue.item;c.globalAlpha=.65;
+        if(item.kind==='car')this.sprite(item.carId||this.options.carId,{...item,...p},['parking','spaces','sorting','road','visit'].includes(this.mode),1,c);
+        else if(item.kind==='body'&&this.body)c.drawImage(this.body,p.x-item.w/2,p.y-item.h/2,item.w,item.h);
+        else if(item.kind==='wheel'){const image=this.images.get(`${this.options.carId}/side`)!,w=this.wheelPoints[Number(item.id.split('-')[1])];c.save();c.beginPath();c.arc(p.x,p.y,item.w/2,0,Math.PI*2);c.clip();c.drawImage(image,w.x*image.width-w.r*image.width,w.y*image.height-w.r*image.width,w.r*2*image.width,w.r*2*image.width,p.x-item.w/2,p.y-item.h/2,item.w,item.h);c.restore();}
+        else this.glyph(item.glyph||'hand',p.x,p.y,Math.min(item.w,item.h)*.7,c);
+        c.globalAlpha=1;
+      }
+    }
+    if(cue.action==='turn'&&step>0&&cue.item){const item=cue.item;c.save();c.translate(item.x,item.y);c.rotate(Math.PI/2*phase);c.drawImage(this.guideBase,item.x-item.w/2,item.y-item.h/2,item.w,item.h,-item.w/2,-item.h/2,item.w,item.h);c.restore();}
+    const radius=cue.action==='wipe'?76:Math.min(150,Math.max(64,(cue.item?.w||100)*.48));
+    c.beginPath();c.ellipse(p.x,p.y,radius,radius*.72,0,0,Math.PI*2);c.stroke();
+    this.glyph('hand',p.x+34,p.y+54,110,c);
+    if(step===2)this.glyph(cue.action==='turn'?'arrow':'sparkle',p.x+90,p.y-75,80,c);
+    c.restore();
+  }
   private reject(item:Item,grab:Grab,target?:Target){
-    this.selected=null;this.touched=false;
+    this.selected=null;
     this.correction={item,from:{x:item.x,y:item.y},to:grab.origin||item.home,target:target||this.targets.find(t=>this.compatible(item,t)),at:this.time};
     if(grab.wasPlaced&&grab.dock){item.placed=true;this.targets.find(t=>t.id===grab.dock)!.occupied=true;}
     this.options.feedback('再看看发亮的轮廓，也可以点选物件后点轮廓放下。');this.notify();
@@ -248,9 +311,9 @@ export class TouchBoard {
     this.wheelPoints.forEach(p=>{c.beginPath();c.arc(p.x*1000,p.y*450,p.r*1000,0,Math.PI*2);c.fill();});this.body=canvas;
   }
   private notify(){
-    this.options.changed({ready:this.ready,progress:this.progress,completed:this.complete,moving:Math.abs(this.velocity)>1||[...this.velocities.values()].some(v=>Math.abs(v)>1),hint:!this.touched||this.time-this.lastAction>4||!!this.correction,recovering:!!this.correction,selected:this.selected?.id||null,signalGreen:this.signalGreen,road:{level:this.roadLevel,shapes:this.road.slice(),locked:roadLessons[this.roadLevel].locked,won:this.roadWon},comparison:this.motionResults.slice(),wash:{clean:this.cleanCars,waiting:this.washReady},parts:[...this.seen].filter(p=>['wheel','light','door'].includes(p)),items:this.items.map(i=>({id:i.id,x:i.x,y:i.y,placed:!!i.placed,carId:i.carId})),targets:this.targets.map(t=>({...t}))});
+    this.options.changed({ready:this.ready,progress:this.progress,completed:this.complete,moving:Math.abs(this.velocity)>1||[...this.velocities.values()].some(v=>Math.abs(v)>1),hint:this.guideStep!==null||this.time<this.hintUntil||!!this.correction,recovering:!!this.correction,selected:this.selected?.id||null,signalGreen:this.signalGreen,road:{level:this.roadLevel,shapes:this.road.slice(),locked:roadLessons[this.roadLevel].locked,won:this.roadWon},comparison:this.motionResults.slice(),wash:{clean:this.cleanCars,waiting:this.washReady},parts:[...this.seen].filter(p=>['wheel','light','door'].includes(p)),items:this.items.map(i=>({id:i.id,x:i.x,y:i.y,placed:!!i.placed,carId:i.carId})),targets:this.targets.map(t=>({...t}))});
   }
-  private finish(summary:string,sounds?:string[]){if(this.complete)return;this.complete=true;this.progress=1;this.options.feedback('');this.selected=null;this.options.finish(summary,sounds);this.notify();}
+  private finish(summary:string,sounds?:string[]){if(this.complete)return;this.complete=true;this.completedAt=this.time;this.progress=1;this.selected=null;this.options.finish(summary,sounds);this.notify();}
   private scrub(from:Point,to:Point){
     if(!this.mask||!this.alpha)return;
     const r=this.carRect(), c=this.mask.getContext('2d')!;
@@ -262,7 +325,7 @@ export class TouchBoard {
   private updateDirt(){
     this.lastDirtCheck=performance.now();if(this.washReady||this.complete)return;
     const washed=1-this.countDirt()/Math.max(1,this.dirtyOriginal);this.progress=(this.cleanCars+washed)/2;
-    if(washed>.91){this.mask?.getContext('2d')!.clearRect(0,0,1000,450);this.cleanCars++;this.progress=this.cleanCars/2;this.washReady=true;this.touched=false;
+    if(washed>.91){this.mask?.getContext('2d')!.clearRect(0,0,1000,450);this.cleanCars++;this.progress=this.cleanCars/2;this.washReady=true;
       if(this.cleanCars===2)this.finish('轮流为两辆车擦净车身，第一辆离开后下一辆才进入');
       else this.items.find(i=>i.id==='next-car')!.placed=false;
     }this.notify();
@@ -273,33 +336,33 @@ export class TouchBoard {
     const selected=this.selected;
     if(id!==-1&&selected&&this.targets.some(t=>inside(p,t,25))){this.selected=null;this.grab={id,item:selected,start:{...selected},offset:{x:0,y:0},origin:{...selected},samples:[]};selected.x=p.x;selected.y=p.y;this.up(id,p,now);return;}
     const item=[...this.items].reverse().find(i=>!(i.kind==='bay'&&i.placed)&&(!i.placed||['story','paint','motion','shadow','assembly','rolling','parking','spaces','sorting'].includes(this.mode))&&!(i.id==='my-car'&&this.options.id==='A01')&&inside(p,i,this.pickupPadding(i)));
-    if(this.mode==='wash'&&!this.washReady&&!this.complete&&inside(p,this.carRect())){this.touched=true;this.lastAction=this.time;this.grab={id,start:p,offset:{x:0,y:0},samples:[],washing:true};this.scrub(p,p);return;}
+    if(this.mode==='wash'&&!this.washReady&&!this.complete&&inside(p,this.carRect())){this.grab={id,start:p,offset:{x:0,y:0},samples:[],washing:true};this.scrub(p,p);return;}
     if(this.mode==='parts'){
       const part=hitPart(getCar(this.options.carId)!,this.items[0],p);
       if(!part){this.showHint();return;}
-      this.touched=true;this.lastAction=this.time;this.seen.add(part);this.options.speak?.(part);this.progress=this.seen.size/3;this.rolling=part==='wheel'?3:0;
+      this.seen.add(part);this.partPulses.set(part,this.time);this.options.speak?.(part);this.progress=this.seen.size/3;this.rolling=part==='wheel'?3:0;
       this.options.feedback({wheel:'wheel · 车轮转起来了',light:'light · 车灯亮起来了',door:'door · 看看车门的位置'}[part]);
       if(this.seen.size===3)this.finish('触摸对应实物部件，观察车轮、车灯和车门反馈',[part,'discovery-done']);this.notify();return;
     }
-    if(item?.id.startsWith('ink-')){this.ink=item.color!;this.lastAction=this.time;this.notify();return;}
+    if(item?.id.startsWith('ink-')){this.ink=item.color!;this.notify();return;}
     if(item?.id==='paper'){const colors=['#eef1d6','#f4ddcc','#d9eaf2'];this.paper=colors[(colors.indexOf(this.paper)+1)%colors.length];this.saveArt();this.notify();return;}
     if(item?.kind==='road'){
       const index=item.turn!,lesson=roadLessons[this.roadLevel];
       if(lesson.locked.includes(index)||this.roadJourney.length){this.showHint();return;}
-      this.roadTurns.set(index,{from:this.road[index],at:this.time});this.road[index]=rotateRoad(this.road[index]);this.touched=true;this.lastAction=this.time;
+      this.roadTurns.set(index,{from:this.road[index],at:this.time});this.road[index]=rotateRoad(this.road[index]);
       if(roadConnected(this.road,lesson.width,0,lesson.end))this.startRoad();this.notify();return;
     }
-    if(item?.id==='next-road'){this.roadLevel++;this.setupRoad();this.touched=false;this.notify();return;}
-    if(item?.id==='next-car'){this.items=this.items.filter(i=>i.id!=='next-car');this.washIndex=1;this.washReady=false;this.createDirt();this.touched=false;this.options.feedback('');this.notify();return;}
+    if(item?.id==='next-road'){this.roadLevel++;this.setupRoad();this.notify();return;}
+    if(item?.id==='next-car'){this.items=this.items.filter(i=>i.id!=='next-car');this.washIndex=1;this.washReady=false;this.createDirt();this.options.feedback('');this.notify();return;}
     if(item?.id==='signal'){
-      this.signalGreen=!this.signalGreen;this.lastAction=this.time;this.touched=true;this.options.speak?.(this.signalGreen?'go':'stop');
+      this.signalGreen=!this.signalGreen;this.options.speak?.(this.signalGreen?'go':'stop');
       if(!this.signalGreen&&this.seen.has('go')){this.velocity=0;this.seen.add('stop');this.finish('绿灯推动小车出发，红灯让小车停下',['stop','discovery-done']);}
       this.notify();return;
     }
-    if(this.mode==='wash'&&item){this.washedTool=item.id;this.lastAction=this.time;this.showHint();return;}
+    if(this.mode==='wash'&&item){this.washedTool=item.id;this.showHint();return;}
     if(!item){this.selected=null;this.notify();return;}
     if(this.mode==='color'&&['red','blue','white'].includes(item.id))this.options.speak?.(item.id);
-    this.lastAction=this.time;
+
     const wasPlaced=!!item.placed,dock=item.dock;
     if(wasPlaced&&['assembly','parking','spaces','sorting'].includes(this.mode)){item.placed=false;const target=this.targets.find(t=>t.id===dock);if(target)target.occupied=false;}
     this.grab={id,item,start:p,offset:{x:p.x-item.x,y:p.y-item.y},origin:{x:item.x,y:item.y},samples:[{x:item.x,y:item.y,t:now}],wasPlaced,dock};
@@ -312,7 +375,7 @@ export class TouchBoard {
     item.x=clamp(p.x-grab.offset.x,item.w/2,1000-item.w/2);item.y=clamp(p.y-grab.offset.y,item.h/2,this.height-item.h/2);
     if(['motion','rolling','traffic'].includes(this.mode)){item.y=item.home.y;if(['motion','rolling'].includes(this.mode))for(const other of this.items.filter(i=>i!==item))other.x=item.x;}
     if(this.mode==='traffic'&&!this.signalGreen)item.x=Math.min(item.x,440);
-    if(distance(grab.start,p)>12){this.touched=true;this.lastAction=this.time;this.selected=null;}
+    if(distance(grab.start,p)>12){this.selected=null;}
     grab.samples.push({x:item.x,y:item.y,t:now});grab.samples=grab.samples.filter(s=>now-s.t<180);
     if(this.mode==='shadow'){this.seen.add(item.x<400?'left':item.x>600?'right':'middle');if(this.seen.has('left')&&this.seen.has('right'))this.finish('直接移动光源，观察两侧的影子变化');}
     if(this.mode==='paint'&&this.options.id==='A02'&&item.kind==='car'){
@@ -326,21 +389,21 @@ export class TouchBoard {
     const item=grab.item;if(!item)return;
     if(distance(grab.start,p)<12&&this.targets.length&&item.kind!=='plank'){
       if(grab.wasPlaced&&grab.dock){item.placed=true;const t=this.targets.find(t=>t.id===grab.dock);if(t)t.occupied=true;}
-      this.selected=this.selected===item?null:item;this.lastAction=this.time;this.notify();return;
+      this.selected=this.selected===item?null:item;this.notify();return;
     }
     if(['motion','rolling','traffic'].includes(this.mode)){
       const v=flickVelocity(grab.samples,now);this.movingItem=item.id;
       if(this.mode==='traffic'){
         if(!this.signalGreen){item.x=Math.min(item.x,440);this.velocity=0;this.showHint();this.notify();return;}
-        if(grab.origin&&Math.abs(item.x-grab.origin.x)>45){this.seen.add('go');this.touched=true;this.lastAction=this.time;}this.velocity=v.x;
+        if(grab.origin&&Math.abs(item.x-grab.origin.x)>45){this.seen.add('go');}this.velocity=v.x;
       }else if(this.mode==='motion'||this.mode==='rolling'){
         if(grab.origin&&Math.abs(item.x-grab.origin.x)>35){
           const speed=Math.sign(v.x||item.x-grab.origin.x)*clamp(Math.abs(v.x)||260,200,430);
           // Both lanes receive exactly the same launch position and velocity.
           const launch=clamp(item.x,180,520);for(const car of this.items){car.x=launch;this.velocities.set(car.id,speed);}
-          this.seen.add('pushed');this.touched=true;this.lastAction=this.time;
+          this.seen.add('pushed');
         }
-      }else{this.velocity=item.id==='cube'?v.x*.28:v.x;this.seen.add(item.id);this.touched=true;}
+      }else{this.velocity=item.id==='cube'?v.x*.28:v.x;this.seen.add(item.id);}
       this.options.feedback('');this.notify();return;
     }
     if(['shadow','story','paint'].includes(this.mode)){
@@ -355,15 +418,17 @@ export class TouchBoard {
       else{this.reject(item,grab,this.targets[0]);}return;
     }
     if(target){
+      const landingFrom={x:item.x,y:item.y};
       if(item.kind==='bay'){target.enabled=true;item.placed=true;item.x=target.x;item.y=target.y;this.notify();return;}
       item.x=target.x;item.y=target.y;target.occupied=true;item.dock=target.id;
       if(item.kind==='body'||item.kind==='wheel'){item.w=target.w;item.h=target.h;}
       if(this.mode==='packing'||this.mode==='trip'&&target.id==='bag'){item.x=target.x-100+(this.seen.size%3)*100;item.y=target.y+30;target.occupied=false;this.seen.add(item.id);}
       item.placed=true;this.progress=this.items.filter(i=>i.placed&&i.kind!=='bay').length/Math.max(1,this.targets.length);
-      this.touched=true;this.lastAction=this.time;this.selected=null;this.options.feedback('');
+      this.selected=null;this.options.feedback('');
       if(this.mode==='color'){
         this.seen.add(item.id);this.progress=this.seen.size/3;item.x=180+(this.seen.size-1)*320;item.y=this.height*.12;item.w=200;item.h=90;const next=['red','blue','white'][this.seen.size];
-        if(next){target.occupied=false;target.accepts=[next];target.color=({red:'#cf5648',blue:'#4e9cce',white:'#faf8e9'}as Record<string,string>)[next];this.touched=false;this.options.speak?.(item.id,'color-'+next);}else this.finish('触碰听颜色词，并依次按红、蓝、白的可见颜色配对；完成不代表已掌握英语',[item.id,'color-success']);this.notify();return;
+        this.arrivals.set(item.id,{from:landingFrom,at:this.time});this.pulses.push({x:target.x,y:target.y,at:this.time});
+        if(next){target.occupied=false;target.accepts=[next];target.color=({red:'#cf5648',blue:'#4e9cce',white:'#faf8e9'}as Record<string,string>)[next];this.options.speak?.(item.id,'color-'+next);}else this.finish('触碰听颜色词，并依次按红、蓝、白的可见颜色配对；完成不代表已掌握英语',[item.id,'color-success']);this.notify();return;
       }
       if(this.mode==='sequence')this.options.speak?.(['sequence-pack','sequence-belt','sequence-go'][this.targets.indexOf(target)]);
       if(this.mode==='visit')this.options.speak?.(['place-park','place-library','place-museum'][this.targets.indexOf(target)]);
@@ -374,7 +439,8 @@ export class TouchBoard {
         const index=target.id.slice(-1);this.item(`filled-${index}`,'car',target.x,target.y,240,110,{carId:item.carId,placed:true});item.x=item.home.x;item.y=item.home.y;item.placed=false;
       }
       const all=this.mode==='trip'?this.items.every(i=>i.placed):this.mode==='visit'?true:this.mode==='packing'?this.seen.has('pack-0')&&this.seen.has('pack-1'):['parking','spaces','sorting'].includes(this.mode)?this.items.filter(i=>i.kind==='car').every(i=>i.placed):this.targets.every(t=>t.occupied);
-      if(all)this.finish(`直接操作完成 ${this.options.id}：物体实际到达目标位置`);
+      this.arrivals.set(item.id,{from:landingFrom,at:this.time});this.pulses.push({x:target.x,y:target.y,at:this.time});
+      if(all)this.finish(`直接操作完成 ${this.options.id}：物体实际到达目标位置`,this.mode==='visit'?[['place-park','place-library','place-museum'][this.targets.indexOf(target)]]:this.mode==='sequence'?['sequence-go']:this.mode==='help'?['help-please']:undefined);
     }else{this.reject(item,grab);}
     this.notify();
   }
@@ -397,10 +463,10 @@ export class TouchBoard {
     }else if(key==='Escape')this.cancel();
   }
   private round(r:Rect,radius=20){this.ctx.beginPath();this.ctx.roundRect(r.x-r.w/2,r.y-r.h/2,r.w,r.h,radius);}
-  private glyph(glyph:string,x:number,y:number,size=85){if(drawPlaySymbol(this.ctx,glyph,x,y,size))return;this.ctx.font=`${size}px system-ui,sans-serif`;this.ctx.textAlign='center';this.ctx.textBaseline='middle';this.ctx.fillText(glyph,x,y);}
-  private sprite(carId:string,r:Rect,top=false,opacity=1){
+  private glyph(glyph:string,x:number,y:number,size=85,c=this.ctx){if(drawPlaySymbol(c,glyph,x,y,size))return;c.font=`${size}px system-ui,sans-serif`;c.textAlign='center';c.textBaseline='middle';c.fillText(glyph,x,y);}
+  private sprite(carId:string,r:Rect,top=false,opacity=1,c=this.ctx){
     const image=this.images.get(`${carId}/${top?'top':'side'}`);if(!image)return;
-    this.ctx.save();this.ctx.globalAlpha=opacity;this.ctx.drawImage(image,r.x-r.w/2,r.y-r.h/2,r.w,r.h);this.ctx.restore();
+    c.save();c.globalAlpha=opacity;c.drawImage(image,r.x-r.w/2,r.y-r.h/2,r.w,r.h);c.restore();
   }
   private background(){
     const c=this.ctx,H=this.height;
@@ -434,8 +500,10 @@ export class TouchBoard {
   }
   draw(seconds:number){
     if(this.destroyed)return;
+    this.guideTime+=seconds;if(this.guideStep!==null)seconds=0;
     this.time+=seconds;const c=this.ctx,H=this.height;c.clearRect(0,0,1000,H);this.background();
     if(!this.ready){this.glyph('🛞',500,H*.45,100);return;}
+    if(this.guideStep===null){
     if(this.correction){const r=this.correction,phase=clamp((this.time-r.at-(this.mode==='bridge'?.9:.35))/.55,0,1),ease=1-(1-phase)**3;r.item.x=r.from.x+(r.to.x-r.from.x)*ease;r.item.y=r.from.y+(r.to.y-r.from.y)*ease;if(phase===1){this.correction=null;this.options.feedback('');}}
     if(['motion','rolling'].includes(this.mode)&&!this.grab&&this.velocities.size){
       for(const car of this.items){const v=this.velocities.get(car.id)||0,next=coast(car.x,v,seconds,car.id==='runner'?180:600,115,885);car.x=next.x;this.velocities.set(car.id,next.velocity);}
@@ -451,6 +519,7 @@ export class TouchBoard {
     if(this.roadJourney.length&&!this.grab){const runner=this.items[0],next=this.roadJourney[this.roadStep];const d=distance(runner,next),step=seconds*180;if(d<=step){runner.x=next.x;runner.y=next.y;this.roadStep++;if(this.roadStep>=this.roadJourney.length){this.roadJourney=[];this.roadWon=true;this.progress=(this.roadLevel+1)/3;if(this.roadLevel===2)this.finish('从三块直路到转弯和九宫格，转动同一形状的路块，让车到达公园');else this.item('next-road','prop',850,H*.88,150,150,{glyph:'➜'});}}else{runner.x+=(next.x-runner.x)/d*step;runner.y+=(next.y-runner.y)/d*step;}}
     if(this.tilt&&!this.grab&&this.mode==='motion'){
       for(const runner of this.items)runner.x=clamp(runner.x+this.tilt*seconds*9,140,860);this.seen.add('tilted');
+    }
     }
     if(this.mode==='shadow'){
       const lamp=this.items[0];c.fillStyle='#354c3b66';c.save();c.translate(500+(500-lamp.x)*.45,H*.69);c.rotate((500-lamp.x)/1600);c.scale(1.3,.2);c.beginPath();c.ellipse(0,0,230,90,0,0,Math.PI*2);c.fill();c.restore();
@@ -476,6 +545,8 @@ export class TouchBoard {
     for(const item of renderItems){
       if(item.kind==='bay'&&item.placed)continue;
       c.save();
+      const arrival=this.arrivals.get(item.id),reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if(arrival){const phase=clamp((this.time-arrival.at)/.24,0,1);if(phase===1)this.arrivals.delete(item.id);else if(!reduced){const rest=(1-phase)**3;c.translate((arrival.from.x-item.x)*rest,(arrival.from.y-item.y)*rest);}}
       if(item.kind==='car')this.sprite(item.carId||this.options.carId,item,['parking','spaces','sorting','road','visit'].includes(this.mode));
       else if(item.kind==='body'&&this.body)c.drawImage(this.body,item.x-item.w/2,item.y-item.h/2,item.w,item.h);
       else if(item.kind==='wheel'){
@@ -495,7 +566,6 @@ export class TouchBoard {
       else if(this.mode==='paint'&&item.id.startsWith('stamp-')){paintMark(c,{x:item.x/1000,y:item.y/H,color:item.color||this.ink,shape:({'stamp-0':'leaf','stamp-1':'sun','stamp-2':'star'}as const)[item.id as 'stamp-0'|'stamp-1'|'stamp-2']},1000,H);}
       else if(item.id==='signal'){c.fillStyle='#354f53';this.round(item,25);c.fill();for(const [i,color]of ['#d86358','#71a96d'].entries()){c.fillStyle=(i===1)===this.signalGreen?color:'#617071';c.beginPath();c.arc(item.x,item.y-55+i*110,42,0,Math.PI*2);c.fill();}}
       else this.glyph(item.glyph||'⭐',item.x,item.y,Math.min(item.w,item.h)*.72);
-      if(item.placed&&item.kind!=='car')this.glyph('✨',item.x+item.w*.36,item.y-item.h*.35,32);
       c.restore();
     }
     if(this.mode==='road'){
@@ -511,12 +581,13 @@ export class TouchBoard {
     if(this.mode==='parts'){
       for(const part of partRegions(getCar(this.options.carId)!,this.items[0])){if(!this.seen.has(part.id))continue;
         c.strokeStyle=part.id==='light'?'#ffdd68':'#fffcdf';c.lineWidth=5;c.beginPath();c.ellipse(part.x,part.y,part.rx,part.ry,0,0,Math.PI*2);c.stroke();
-        if(part.id==='wheel'){c.save();c.translate(part.x,part.y);c.rotate(this.time*2);c.beginPath();c.moveTo(-part.rx*.65,0);c.lineTo(part.rx*.65,0);c.moveTo(0,-part.ry*.65);c.lineTo(0,part.ry*.65);c.stroke();c.restore();}
-        if(part.id==='light'){c.fillStyle='#fff4a466';c.beginPath();c.moveTo(part.x,part.y);c.lineTo(995,part.y-60);c.lineTo(995,part.y+50);c.fill();}
+        const age=this.time-(this.partPulses.get(part.id)??-10),motion=!window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if(part.id==='wheel'&&age<1.3){c.save();c.translate(part.x,part.y);c.rotate(motion?Math.min(1,age/1.3)*Math.PI*3:0);c.beginPath();c.moveTo(-part.rx*.65,0);c.lineTo(part.rx*.65,0);c.moveTo(0,-part.ry*.65);c.lineTo(0,part.ry*.65);c.stroke();c.restore();}
+        if(part.id==='light'&&age<1.2){c.fillStyle='#fff4a466';c.beginPath();c.moveTo(part.x,part.y);c.lineTo(995,part.y-60);c.lineTo(995,part.y+50);c.fill();}
       }
     }
     if(this.selected){c.strokeStyle='#e69c3a';c.lineWidth=8;this.round({...this.selected,w:this.selected.w+25,h:this.selected.h+25},24);c.stroke();}
-    const needsHint=!this.complete&&(!this.touched||this.time-this.lastAction>4);
+    const needsHint=!this.complete&&this.guideStep===null&&this.time<this.hintUntil;
     if(needsHint&&!this.grab){
       let first=this.selected||this.items.find(i=>!i.placed&&this.targets.some(t=>this.compatible(i,t)))||this.items.find(i=>!i.placed&&!i.id.startsWith('ink-')&&i.id!=='paper');
       let destination=first&&this.targets.find(t=>this.compatible(first!,t));
@@ -534,7 +605,11 @@ export class TouchBoard {
       if(this.mode==='bridge'&&this.correction.item.w<target.w){c.strokeStyle='#cd8265';c.lineWidth=7;c.setLineDash([7,9]);for(const side of [-1,1]){c.beginPath();c.moveTo(target.x+side*this.correction.item.w/2,target.y);c.lineTo(target.x+side*target.w/2,target.y);c.stroke();}c.setLineDash([]);}
     }
     if(this.complete&&['parking','spaces','sorting'].includes(this.mode)){for(const t of this.targets.filter(t=>t.occupied))this.glyph('home',t.x,t.y-t.h*.82,65);}
-    if(this.complete){this.glyph('✨',80,70,55);this.glyph('✨',920,80,55);}
+    const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.pulses=this.pulses.filter(p=>this.time-p.at<.7);
+    for(const p of this.pulses){const phase=(this.time-p.at)/.7;c.save();c.globalAlpha=1-phase;c.strokeStyle='#e8bc5a';c.lineWidth=7;c.beginPath();c.arc(p.x,p.y,reduced?55:45+phase*60,0,Math.PI*2);c.stroke();this.glyph('sparkle',p.x+65,p.y-55,45,c);c.restore();}
+    if(this.complete){const age=this.time-this.completedAt;if(age<1.4){for(const side of [-1,1]){const phase=Math.min(1,age/1.4);c.save();c.globalAlpha=1-phase;this.glyph('sparkle',500+side*(reduced?180:100+phase*260),H*.3-(reduced?0:phase*90),55+phase*20,c);c.restore();}}}
+    if(this.guideStep!==null){this.guideBase.getContext('2d')!.clearRect(0,0,1000,H);this.guideBase.getContext('2d')!.drawImage(this.canvas,0,0);this.guideOverlay(c,this.guideStep,reduced?1:Math.min(1,this.guideTime/1.4));}
     if(this.time-this.notifyAt>.2){this.notifyAt=this.time;this.notify();}
   }
 }

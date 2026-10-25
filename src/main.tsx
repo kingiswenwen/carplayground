@@ -9,6 +9,7 @@ import './styles/showcase.css';
 import './styles/touch-play.css';
 import './styles/child-world.css';
 import './styles/play-world.css';
+import './styles/play-help.css';
 class Recovery extends Component<{ children: ReactNode }, { failed: boolean }> {
   state = { failed: false };
   static getDerivedStateFromError() { return { failed: true }; }

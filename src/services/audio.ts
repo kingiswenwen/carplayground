@@ -4,6 +4,7 @@ let enabled = false;
 let current: Howl | undefined;
 let settleCurrent: ((success: boolean) => void) | undefined;
 let generation = 0;
+let cancelSpeech: (() => void) | undefined;
 let error = '';
 const listeners = new Set<() => void>();
 function report(message: string) { error = message; listeners.forEach(fn => fn()); }
@@ -22,6 +23,7 @@ export const audio = {
   },
   stop() {
     generation++;
+    cancelSpeech?.(); cancelSpeech = undefined;
     // Howler queues stop during loading; unloading need not emit onstop.
     // Settle our queue explicitly before destroying the pending clip.
     settleCurrent?.(false);
@@ -29,6 +31,25 @@ export const audio = {
     const clip = current;
     current = undefined;
     clip?.stop(); clip?.unload(); report('');
+  },
+  feedback(text: string, fallback: string[], preferClips = false) {
+    this.stop();
+    if (!enabled || document.hidden) return;
+    // Only an installed local Chinese voice may read these fixed game phrases.
+    // Devices without one keep the bundled clips; no speech service is called.
+    const synth = typeof window === 'undefined' ? undefined : window.speechSynthesis;
+    const voice = !preferClips && synth?.getVoices().find(v => v.localService && /^zh[-_]/i.test(v.lang));
+    if (!synth || !voice || typeof SpeechSynthesisUtterance === 'undefined') {void this.play(...fallback); return;}
+    const token = generation, utterance = new SpeechSynthesisUtterance(text);
+    utterance.voice = voice; utterance.lang = voice.lang; utterance.rate = .88; utterance.volume = .85;
+    let timer: ReturnType<typeof setTimeout>;
+    const fail = () => {if (token === generation) void this.play(...fallback);};
+    utterance.onstart = () => clearTimeout(timer);
+    utterance.onend = () => {clearTimeout(timer);if (token === generation) cancelSpeech = undefined;};
+    utterance.onerror = fail;
+    cancelSpeech = () => {clearTimeout(timer);synth.cancel();};
+    timer = setTimeout(fail, 2000);
+    try {synth.speak(utterance);} catch {fail();}
   },
   async play(...ids: string[]) {
     this.stop();

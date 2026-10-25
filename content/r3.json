@@ -1,7 +1,7 @@
 {
-  "id": "r9-toy-journey-0.9.1",
+  "id": "r10-play-help-0.10.0",
   "schemaVersion": 2,
-  "appVersion": "0.9.1",
+  "appVersion": "0.10.0",
   "car": {
     "id": "CAR01",
     "brand": "Lamborghini",
@@ -39,7 +39,7 @@
     {
       "id": "E01",
       "title": "发现颜色",
-      "version": 6,
+      "version": 7,
       "domain": "英语",
       "scene": "showroom",
       "mode": "closed",
@@ -87,7 +87,7 @@
     {
       "id": "E02",
       "title": "汽车的身体",
-      "version": 6,
+      "version": 7,
       "domain": "英语",
       "scene": "showroom",
       "mode": "closed",
@@ -98,7 +98,7 @@
       "extension": "给玩具车的车轮、车门和车灯取名字。",
       "instructionAudio": "parts-task",
       "hintAudio": "parts-hint",
-      "completeAudio": "parts-success",
+      "completeAudio": "wheel",
       "carIds": [
         "CAR01",
         "CAR02",
@@ -135,7 +135,7 @@
     {
       "id": "E03",
       "title": "出发和停止",
-      "version": 6,
+      "version": 7,
       "domain": "英语",
       "scene": "parking",
       "mode": "closed",
@@ -146,7 +146,7 @@
       "extension": "和家人玩一轮出发、停止的动作游戏。",
       "instructionAudio": "activity-E03",
       "hintAudio": "hint-E03",
-      "completeAudio": "discovery-done",
+      "completeAudio": "phrase-stop",
       "carIds": [
         "CAR01",
         "CAR02",
@@ -183,7 +183,7 @@
     {
       "id": "M01",
       "title": "小车回家",
-      "version": 6,
+      "version": 7,
       "domain": "数学",
       "scene": "parking",
       "mode": "closed",
@@ -231,7 +231,7 @@
     {
       "id": "M02",
       "title": "还缺几个车位",
-      "version": 6,
+      "version": 7,
       "domain": "数学",
       "scene": "parking",
       "mode": "closed",
@@ -242,7 +242,7 @@
       "extension": "拿积木当车位，试试添一个、少一个。",
       "instructionAudio": "activity-M02",
       "hintAudio": "hint-M02",
-      "completeAudio": "discovery-done",
+      "completeAudio": "parking-success",
       "carIds": [
         "CAR01",
         "CAR02",
@@ -279,7 +279,7 @@
     {
       "id": "M03",
       "title": "车位够不够",
-      "version": 6,
+      "version": 7,
       "domain": "数学",
       "scene": "parking",
       "mode": "closed",
@@ -290,7 +290,7 @@
       "extension": "把杯子和家人数配一配，看看够不够。",
       "instructionAudio": "activity-M03",
       "hintAudio": "hint-M03",
-      "completeAudio": "discovery-done",
+      "completeAudio": "parking-success",
       "carIds": [
         "CAR01",
         "CAR02",
@@ -327,7 +327,7 @@
     {
       "id": "M04",
       "title": "红蓝车队",
-      "version": 6,
+      "version": 7,
       "domain": "数学",
       "scene": "parking",
       "mode": "closed",
@@ -338,7 +338,7 @@
       "extension": "用两种颜色的积木排出自己的队伍。",
       "instructionAudio": "activity-M04",
       "hintAudio": "hint-M04",
-      "completeAudio": "discovery-done",
+      "completeAudio": "red",
       "carIds": [
         "CAR01",
         "CAR02",
@@ -375,7 +375,7 @@
     {
       "id": "C01",
       "title": "我喜欢这辆车",
-      "version": 6,
+      "version": 7,
       "domain": "中文表达",
       "scene": "showroom",
       "mode": "open",
@@ -386,7 +386,7 @@
       "extension": "家长可以回应：你注意到了什么细节？",
       "instructionAudio": "activity-C01",
       "hintAudio": "hint-C01",
-      "completeAudio": "expression-done",
+      "completeAudio": "phrase-look",
       "carIds": [
         "CAR01",
         "CAR02",
@@ -423,7 +423,7 @@
     {
       "id": "C02",
       "title": "先做什么",
-      "version": 6,
+      "version": 7,
       "domain": "中文表达",
       "scene": "travel",
       "mode": "closed",
@@ -434,7 +434,7 @@
       "extension": "讲讲今天出门前，你先做了什么。",
       "instructionAudio": "activity-C02",
       "hintAudio": "hint-C02",
-      "completeAudio": "discovery-done",
+      "completeAudio": "sequence-go",
       "carIds": [
         "CAR01",
         "CAR02",
@@ -471,7 +471,7 @@
     {
       "id": "C03",
       "title": "接着讲下去",
-      "version": 6,
+      "version": 7,
       "domain": "中文表达",
       "scene": "travel",
       "mode": "open",
@@ -482,7 +482,7 @@
       "extension": "轮流接一句，把小故事讲给家人听。",
       "instructionAudio": "activity-C03",
       "hintAudio": "hint-C03",
-      "completeAudio": "expression-done",
+      "completeAudio": "hint-C03",
       "carIds": [
         "CAR01",
         "CAR02",
@@ -519,7 +519,7 @@
     {
       "id": "S01",
       "title": "什么会滚",
-      "version": 6,
+      "version": 7,
       "domain": "科学",
       "scene": "workshop",
       "mode": "open",
@@ -530,7 +530,7 @@
       "extension": "找一个球和一个盒子，在安全平面试一试。",
       "instructionAudio": "activity-S01",
       "hintAudio": "hint-S01",
-      "completeAudio": "discovery-done",
+      "completeAudio": "hint-S01",
       "carIds": [
         "CAR01",
         "CAR02",
@@ -567,7 +567,7 @@
     {
       "id": "S02",
       "title": "车灯和影子",
-      "version": 6,
+      "version": 7,
       "domain": "科学",
       "scene": "workshop",
       "mode": "open",
@@ -578,7 +578,7 @@
       "extension": "和大人在墙上玩手影，别用强光照眼睛。",
       "instructionAudio": "activity-S02",
       "hintAudio": "hint-S02",
-      "completeAudio": "discovery-done",
+      "completeAudio": "light",
       "carIds": [
         "CAR01",
         "CAR02",
@@ -615,7 +615,7 @@
     {
       "id": "S03",
       "title": "雨天出发",
-      "version": 6,
+      "version": 7,
       "domain": "科学",
       "scene": "travel",
       "mode": "closed",
@@ -626,7 +626,7 @@
       "extension": "看看窗外的天气，说说地面和天空。",
       "instructionAudio": "activity-S03",
       "hintAudio": "hint-S03",
-      "completeAudio": "discovery-done",
+      "completeAudio": "rain",
       "carIds": [
         "CAR01",
         "CAR02",
@@ -663,7 +663,7 @@
     {
       "id": "T01",
       "title": "零件帮什么忙",
-      "version": 6,
+      "version": 7,
       "domain": "动手思考",
       "scene": "workshop",
       "mode": "closed",
@@ -674,7 +674,7 @@
       "extension": "观察玩具车，试着说说每个部件帮什么忙。",
       "instructionAudio": "activity-T01",
       "hintAudio": "hint-T01",
-      "completeAudio": "discovery-done",
+      "completeAudio": "zh-wheel",
       "carIds": [
         "CAR01",
         "CAR02",
@@ -711,7 +711,7 @@
     {
       "id": "T02",
       "title": "给小车搭桥",
-      "version": 6,
+      "version": 7,
       "domain": "动手思考",
       "scene": "workshop",
       "mode": "closed",
@@ -722,7 +722,7 @@
       "extension": "和大人用积木搭桥，只让玩具车通过。",
       "instructionAudio": "activity-T02",
       "hintAudio": "hint-T02",
-      "completeAudio": "discovery-done",
+      "completeAudio": "phrase-go",
       "carIds": [
         "CAR01",
         "CAR02",
@@ -759,7 +759,7 @@
     {
       "id": "T03",
       "title": "把路连起来",
-      "version": 6,
+      "version": 7,
       "domain": "动手思考",
       "scene": "parking",
       "mode": "closed",
@@ -770,7 +770,7 @@
       "extension": "用纸条在桌上连一条路。",
       "instructionAudio": "activity-T03",
       "hintAudio": "hint-T03",
-      "completeAudio": "discovery-done",
+      "completeAudio": "phrase-go",
       "carIds": [
         "CAR01",
         "CAR02",
@@ -807,7 +807,7 @@
     {
       "id": "H01",
       "title": "去看看",
-      "version": 6,
+      "version": 7,
       "domain": "社会与人文",
       "scene": "travel",
       "mode": "open",
@@ -818,7 +818,7 @@
       "extension": "下一次出门，观察一个你感兴趣的地方。",
       "instructionAudio": "activity-H01",
       "hintAudio": "hint-H01",
-      "completeAudio": "discovery-done",
+      "completeAudio": "phrase-look",
       "carIds": [
         "CAR01",
         "CAR02",
@@ -855,7 +855,7 @@
     {
       "id": "H02",
       "title": "谁能帮忙",
-      "version": 6,
+      "version": 7,
       "domain": "社会与人文",
       "scene": "workshop",
       "mode": "closed",
@@ -866,7 +866,7 @@
       "extension": "和家人说说，今天是谁帮助了我们。",
       "instructionAudio": "activity-H02",
       "hintAudio": "hint-H02",
-      "completeAudio": "discovery-done",
+      "completeAudio": "help-please",
       "carIds": [
         "CAR01",
         "CAR02",
@@ -903,7 +903,7 @@
     {
       "id": "H03",
       "title": "泡泡洗车屋",
-      "version": 6,
+      "version": 7,
       "domain": "社会与人文",
       "scene": "parking",
       "mode": "closed",
@@ -914,7 +914,7 @@
       "extension": "和家人轮流用一个玩具，试着说轮到你啦。",
       "instructionAudio": "activity-H03",
       "hintAudio": "hint-H03",
-      "completeAudio": "discovery-done",
+      "completeAudio": "water",
       "carIds": [
         "CAR01",
         "CAR02",
@@ -951,7 +951,7 @@
     {
       "id": "A01",
       "title": "车展海报",
-      "version": 6,
+      "version": 7,
       "domain": "艺术创作",
       "scene": "showroom",
       "mode": "open",
@@ -962,7 +962,7 @@
       "extension": "向家人介绍你设计的海报。",
       "instructionAudio": "activity-A01",
       "hintAudio": "hint-A01",
-      "completeAudio": "discovery-done",
+      "completeAudio": "hint-A01",
       "carIds": [
         "CAR01",
         "CAR02",
@@ -999,7 +999,7 @@
     {
       "id": "A02",
       "title": "轮印花纹",
-      "version": 6,
+      "version": 7,
       "domain": "艺术创作",
       "scene": "showroom",
       "mode": "open",
@@ -1010,7 +1010,7 @@
       "extension": "用可清洗材料和玩具车，在大人陪伴下印一印。",
       "instructionAudio": "activity-A02",
       "hintAudio": "hint-A02",
-      "completeAudio": "discovery-done",
+      "completeAudio": "hint-A02",
       "carIds": [
         "CAR01",
         "CAR02",
@@ -1047,7 +1047,7 @@
     {
       "id": "L01",
       "title": "出发准备",
-      "version": 6,
+      "version": 7,
       "domain": "生活习惯",
       "scene": "travel",
       "mode": "closed",
@@ -1058,7 +1058,7 @@
       "extension": "出门前和家人一起检查自己的小背包。",
       "instructionAudio": "activity-L01",
       "hintAudio": "hint-L01",
-      "completeAudio": "discovery-done",
+      "completeAudio": "sequence-go",
       "carIds": [
         "CAR01",
         "CAR02",
@@ -1095,7 +1095,7 @@
     {
       "id": "L02",
       "title": "请你帮帮我",
-      "version": 6,
+      "version": 7,
       "domain": "生活习惯",
       "scene": "parking",
       "mode": "open",
@@ -1106,7 +1106,7 @@
       "extension": "告诉家人你希望得到怎样的帮助。",
       "instructionAudio": "activity-L02",
       "hintAudio": "hint-L02",
-      "completeAudio": "expression-done",
+      "completeAudio": "help-please",
       "carIds": [
         "CAR01",
         "CAR02",
@@ -1143,7 +1143,7 @@
     {
       "id": "L03",
       "title": "整理车库",
-      "version": 6,
+      "version": 7,
       "domain": "生活习惯",
       "scene": "parking",
       "mode": "closed",
@@ -1154,7 +1154,7 @@
       "extension": "选一种方法，把玩具车整理回家。",
       "instructionAudio": "activity-L03",
       "hintAudio": "hint-L03",
-      "completeAudio": "discovery-done",
+      "completeAudio": "parking-success",
       "carIds": [
         "CAR01",
         "CAR02",
@@ -1190,7 +1190,7 @@
     },
     {
       "id": "P01",
-      "version": 5,
+      "version": 6,
       "title": "推一推跑车",
       "subtitle": "推力、路面与慢慢停下",
       "domain": "科学",
@@ -1238,7 +1238,7 @@
     },
     {
       "id": "T04",
-      "version": 5,
+      "version": 6,
       "title": "装好自己的跑车",
       "subtitle": "真实汽车照片拼装",
       "domain": "动手思考",
@@ -1250,7 +1250,7 @@
       "extension": "拿一张打印的车图，和家人一起分成几块大拼图，再拼回去。",
       "instructionAudio": "assembly-body",
       "hintAudio": "hint-T04",
-      "completeAudio": "discovery-done",
+      "completeAudio": "phrase-go",
       "carIds": [
         "CAR01",
         "CAR02",
@@ -4085,246 +4085,6 @@
       "sha256": "956363b6965eb4f2741a176e479380afc513c5d425ec44e231b6fed1f0a21bf5"
     },
     {
-      "id": "model-CAR01",
-      "kind": "model",
-      "path": "media/models/car01.glb",
-      "sha256": "9bebda470dd195ee4f5caf073fa14476d0dac06b28311c359022d933385afa68",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR02",
-      "kind": "model",
-      "path": "media/models/car02.glb",
-      "sha256": "917bf2805211bf26bdaaf86c8a2bb6277bd044217414db7541795d29bd1c6f41",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR03",
-      "kind": "model",
-      "path": "media/models/car03.glb",
-      "sha256": "3de933ddd8032bbb8552acb03a8f9565e42b0b76a9478c1a43aa759663ce25f2",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR04",
-      "kind": "model",
-      "path": "media/models/car04.glb",
-      "sha256": "a99f597b48aead386d7da901170a8c09308b237854c70cd35141a50df5137532",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR05",
-      "kind": "model",
-      "path": "media/models/car05.glb",
-      "sha256": "048510174591a5b8b1908602c2e9c210af305784719c2f0d02e7a605a9ae5f2d",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR06",
-      "kind": "model",
-      "path": "media/models/car06.glb",
-      "sha256": "34eba3f7dbfadf14c5e16261d3de3894581683f90e1aace89332451c5e291b4d",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR07",
-      "kind": "model",
-      "path": "media/models/car07.glb",
-      "sha256": "a92385588c654e7d933adf51277bbe230ce94d86cdba1bd6cf6c0d527490319c",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR08",
-      "kind": "model",
-      "path": "media/models/car08.glb",
-      "sha256": "db817e72c7d3a7177b8f8f5e09117ac9506bcd8646a6d2d4cdef362d7376d042",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR09",
-      "kind": "model",
-      "path": "media/models/car09.glb",
-      "sha256": "d6d28cadd03ab89ef766ba0f05db7a74cc245e3862b1d919f28fe5d2c31cd01b",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR10",
-      "kind": "model",
-      "path": "media/models/car10.glb",
-      "sha256": "3158fe7922b7edd0cbe54104599af560290e8eb5a104950c5af3cb2a35cb5933",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR11",
-      "kind": "model",
-      "path": "media/models/car11.glb",
-      "sha256": "5d45c0920e2d8b23fcc6a4b26b90aff181975ac7ca2d0d2779e0d920d7b7e5b1",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR12",
-      "kind": "model",
-      "path": "media/models/car12.glb",
-      "sha256": "def3c8869c2db2e973b7f117ce9deee42cb97d4a00797dd1742f3122a3ea421b",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR13",
-      "kind": "model",
-      "path": "media/models/car13.glb",
-      "sha256": "e4fca03d1d2158bd3b850fb431b0aa26fb9c173bfadabe676fea2d638de979c7",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR14",
-      "kind": "model",
-      "path": "media/models/car14.glb",
-      "sha256": "261dd77bb3525803ae9691575dd9d2dd125f8374fe82c91741eb8f46d090090b",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR15",
-      "kind": "model",
-      "path": "media/models/car15.glb",
-      "sha256": "8307c21ad654e59f5bd47e56e83149c4df837906f70338abe1d8cd53151f31c1",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR16",
-      "kind": "model",
-      "path": "media/models/car16.glb",
-      "sha256": "4633ce7c34f0070b30d11fe3dcc349c82a30056328c1f9c32231d4c175bae66e",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR17",
-      "kind": "model",
-      "path": "media/models/car17.glb",
-      "sha256": "d40ac5d65f7cfb6baf305aa5cf808a21b49a3714a1a12fdd1bb3ddbbcac6688b",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR18",
-      "kind": "model",
-      "path": "media/models/car18.glb",
-      "sha256": "4117531c5f3d418426eb28dcea4cd37311e5fa1d8cc192391f0f4808dfd0ebea",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR19",
-      "kind": "model",
-      "path": "media/models/car19.glb",
-      "sha256": "1da73239211fc9f4a59e019bce16e7211204b5acbe00db7dd76f3accaeba2432",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR20",
-      "kind": "model",
-      "path": "media/models/car20.glb",
-      "sha256": "0662213d8b3fc271dc29a6ee77a77e84e2dbfb25791c84a695d552a21a01fefe",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR21",
-      "kind": "model",
-      "path": "media/models/car21.glb",
-      "sha256": "1ec0987fbbfb76d76f749edc726ef94fce5028275df8c148bf64c403e7b3b3c4",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR22",
-      "kind": "model",
-      "path": "media/models/car22.glb",
-      "sha256": "d41adc30bc95f2c3ddb9e62023ee65a662a2ec7c02231249cb4203e4aadb5db2",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR23",
-      "kind": "model",
-      "path": "media/models/car23.glb",
-      "sha256": "85c2dc3a26f582471aea66f9d9f8eb16a4ce0b467835d37fc3754fad1a14211e",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR24",
-      "kind": "model",
-      "path": "media/models/car24.glb",
-      "sha256": "a1dc0bddbb2ec672c6e0595af56ec959afae1c92bd984f64be5b2271f63c2090",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR25",
-      "kind": "model",
-      "path": "media/models/car25.glb",
-      "sha256": "2e80e96a9f8d6223e5483a14565e7bb75809a0cc09262fc49d2ec36e44736666",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR26",
-      "kind": "model",
-      "path": "media/models/car26.glb",
-      "sha256": "daccdab5da5fef1f76241c2ac1db3c92318a9dc7ca5276d03745d8bc607fe614",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR27",
-      "kind": "model",
-      "path": "media/models/car27.glb",
-      "sha256": "d9fc90224d32a0f372454b4871b6e26685550e328d7ea6ec81529a2b912d50ce",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR28",
-      "kind": "model",
-      "path": "media/models/car28.glb",
-      "sha256": "a081041eb650e4d3935f03022d4b17a9d06cb8e074b3ba873712bed197e79f95",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR29",
-      "kind": "model",
-      "path": "media/models/car29.glb",
-      "sha256": "d9bc5f497a049331ea2fe14339eea7245c924dbe8bde04aded756e9baffab38f",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR30",
-      "kind": "model",
-      "path": "media/models/car30.glb",
-      "sha256": "a96f8a1629e808ace9445f0acdc745e6bb6d8766516f7301c588fb03f728f737",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
       "id": "orbit-CAR01-front-left",
       "kind": "image",
       "path": "media/car-turnarounds/car01-front-left.webp",
@@ -6123,6 +5883,246 @@
       "sha256": "c7ba560f4afc10436b08b3716d1809548bee20df54143ec48df0e12d195e3033",
       "status": "approved",
       "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
+    },
+    {
+      "id": "model-CAR01",
+      "kind": "model",
+      "path": "media/models/car01.glb",
+      "sha256": "c2ff7af3ef6c936b830c726b68705d624016a4de4c8026b9bfbd87890f8ea4a7",
+      "status": "approved",
+      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
+    },
+    {
+      "id": "model-CAR02",
+      "kind": "model",
+      "path": "media/models/car02.glb",
+      "sha256": "cc390c17e84180d3883d806a23f6ba6d3235f4d2dfdd1ffce5e85f9b8e70ca94",
+      "status": "approved",
+      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
+    },
+    {
+      "id": "model-CAR03",
+      "kind": "model",
+      "path": "media/models/car03.glb",
+      "sha256": "d9eb7b067a96874f24dc0113ac971df2877c1d295f798fbcec6ce64b2ee08406",
+      "status": "approved",
+      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
+    },
+    {
+      "id": "model-CAR04",
+      "kind": "model",
+      "path": "media/models/car04.glb",
+      "sha256": "adfc0e4d0c6e93e61de8a4a2b9dfa788da32454fb72d0cf02bbbb1d3020ef860",
+      "status": "approved",
+      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
+    },
+    {
+      "id": "model-CAR05",
+      "kind": "model",
+      "path": "media/models/car05.glb",
+      "sha256": "f24219891f26cba64f835a581b466a0544c641cf2034f6a7ab20a6027c72c511",
+      "status": "approved",
+      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
+    },
+    {
+      "id": "model-CAR06",
+      "kind": "model",
+      "path": "media/models/car06.glb",
+      "sha256": "c36eb97653dbb5bb5f548d808e2968c64cd4336d8069000df68b024001ab93a6",
+      "status": "approved",
+      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
+    },
+    {
+      "id": "model-CAR07",
+      "kind": "model",
+      "path": "media/models/car07.glb",
+      "sha256": "5d8c224868ca228b34f3d85b80d84383313defa2cb9af649973fa52141074c3f",
+      "status": "approved",
+      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
+    },
+    {
+      "id": "model-CAR08",
+      "kind": "model",
+      "path": "media/models/car08.glb",
+      "sha256": "f7f403bef9b7e116c957262ff95355529bc03b211110059a0c1f78a9b7f879ae",
+      "status": "approved",
+      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
+    },
+    {
+      "id": "model-CAR09",
+      "kind": "model",
+      "path": "media/models/car09.glb",
+      "sha256": "18faabe66c735c051912399f616c64e8454e422d072a17b4fa267003e6cadea6",
+      "status": "approved",
+      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
+    },
+    {
+      "id": "model-CAR10",
+      "kind": "model",
+      "path": "media/models/car10.glb",
+      "sha256": "20e81a8a74cebda81ca3f887c5c9a204db79a3342912073fc7b44f34818e6812",
+      "status": "approved",
+      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
+    },
+    {
+      "id": "model-CAR11",
+      "kind": "model",
+      "path": "media/models/car11.glb",
+      "sha256": "ce30742ac5ec81c0d04e81cf030d8056e250a6113a487f22f057e28fa89ba1f4",
+      "status": "approved",
+      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
+    },
+    {
+      "id": "model-CAR12",
+      "kind": "model",
+      "path": "media/models/car12.glb",
+      "sha256": "d6e971bdb978679b7a27491acbe63a0eb38346d1c28769930bec5f12bc76e3a2",
+      "status": "approved",
+      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
+    },
+    {
+      "id": "model-CAR13",
+      "kind": "model",
+      "path": "media/models/car13.glb",
+      "sha256": "da450ed4695d3a15e3d927867373156803091610a829c74837712efcf0640e07",
+      "status": "approved",
+      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
+    },
+    {
+      "id": "model-CAR14",
+      "kind": "model",
+      "path": "media/models/car14.glb",
+      "sha256": "96b1190c527953858d63423b1f9fe2b0ad0d4d16c47054d6b634bf92e1428809",
+      "status": "approved",
+      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
+    },
+    {
+      "id": "model-CAR15",
+      "kind": "model",
+      "path": "media/models/car15.glb",
+      "sha256": "902a12e0a276c8b70119200481d0292f5d9d6611aed6c3aa1242f1b8b8d628ac",
+      "status": "approved",
+      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
+    },
+    {
+      "id": "model-CAR16",
+      "kind": "model",
+      "path": "media/models/car16.glb",
+      "sha256": "fbaf603b20f9adc4c3f55f831e6f9337309f81d1d17d73970c6cd28af7e0a621",
+      "status": "approved",
+      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
+    },
+    {
+      "id": "model-CAR17",
+      "kind": "model",
+      "path": "media/models/car17.glb",
+      "sha256": "3d56263a64b4ee783d1e1d60e26753a6b00b3617cabb7548c74e164753cbc9fc",
+      "status": "approved",
+      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
+    },
+    {
+      "id": "model-CAR18",
+      "kind": "model",
+      "path": "media/models/car18.glb",
+      "sha256": "f0e06ca43f5c67562aa3a7fff993a9f58731a849415424149f93228ee296e88d",
+      "status": "approved",
+      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
+    },
+    {
+      "id": "model-CAR19",
+      "kind": "model",
+      "path": "media/models/car19.glb",
+      "sha256": "d72c8e714d24efa3f98e532757062c22a48c7bca3dd39f160f18932cf8aec1a9",
+      "status": "approved",
+      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
+    },
+    {
+      "id": "model-CAR20",
+      "kind": "model",
+      "path": "media/models/car20.glb",
+      "sha256": "8588b62eb698ab2d53bd4852862e30d1f98d63eb845bd1c4838c0a809dbfc84d",
+      "status": "approved",
+      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
+    },
+    {
+      "id": "model-CAR21",
+      "kind": "model",
+      "path": "media/models/car21.glb",
+      "sha256": "9ca04cbfc9465f294004de715cf7264e3f32c99103c6df8ad713edd478439f98",
+      "status": "approved",
+      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
+    },
+    {
+      "id": "model-CAR22",
+      "kind": "model",
+      "path": "media/models/car22.glb",
+      "sha256": "dd1a52d728f749a607981f9785dfdd8dead8da40f9eaeafd54965adf1ad6ed2e",
+      "status": "approved",
+      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
+    },
+    {
+      "id": "model-CAR23",
+      "kind": "model",
+      "path": "media/models/car23.glb",
+      "sha256": "02a0ce2630effa13d6456942b104a9f697a2ba667e781c7451f4045e8db6f05c",
+      "status": "approved",
+      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
+    },
+    {
+      "id": "model-CAR24",
+      "kind": "model",
+      "path": "media/models/car24.glb",
+      "sha256": "e0060baaaaf73b7c9896cb613c0162515894def1ec6e95c40b3a753bd0fa0f45",
+      "status": "approved",
+      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
+    },
+    {
+      "id": "model-CAR25",
+      "kind": "model",
+      "path": "media/models/car25.glb",
+      "sha256": "6ca2afb91da7f89abc196dc2bd486434ffb1c4918a6c2f6ac93210e03c5482a3",
+      "status": "approved",
+      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
+    },
+    {
+      "id": "model-CAR26",
+      "kind": "model",
+      "path": "media/models/car26.glb",
+      "sha256": "10e542bce708f406e3f572f6f85b19187b2ca2127628d280eacc34444d29639a",
+      "status": "approved",
+      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
+    },
+    {
+      "id": "model-CAR27",
+      "kind": "model",
+      "path": "media/models/car27.glb",
+      "sha256": "727eb58fe947138b50fabc45debef84e256386e86199039264df3094722b2669",
+      "status": "approved",
+      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
+    },
+    {
+      "id": "model-CAR28",
+      "kind": "model",
+      "path": "media/models/car28.glb",
+      "sha256": "2edf0d033c8865ad16e30c0aa524fc75035e33c456135496c2db7448573c8178",
+      "status": "approved",
+      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
+    },
+    {
+      "id": "model-CAR29",
+      "kind": "model",
+      "path": "media/models/car29.glb",
+      "sha256": "c0f56b200c14671a79a40c1951ff84862354f8b5b5dcb9616f7d57fa8d5ef3ea",
+      "status": "approved",
+      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
+    },
+    {
+      "id": "model-CAR30",
+      "kind": "model",
+      "path": "media/models/car30.glb",
+      "sha256": "abc13e2e73db7a79e2c3561f41967444597cef1f2768149b2bb1d6ff0f36592e",
+      "status": "approved",
+      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
     }
   ],
   "scenes": [
