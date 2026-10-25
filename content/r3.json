@@ -1,7 +1,7 @@
 {
-  "id": "r9-toy-journey-0.9.0",
+  "id": "r9-toy-journey-0.9.1",
   "schemaVersion": 2,
-  "appVersion": "0.9.0",
+  "appVersion": "0.9.1",
   "car": {
     "id": "CAR01",
     "brand": "Lamborghini",
