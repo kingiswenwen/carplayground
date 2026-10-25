@@ -6,11 +6,37 @@
     <meta name="theme-color" content="#f5f3eb" />
     <meta name="description" content="汽车游乐园：看真实跑车，数一数、讲一讲、动手探索和创作。" />
     <title>汽车游乐园 · CarPlayground</title>
+    <style>
+      .entry-loading { min-height: 100svh; display: grid; place-items: center; background: #f5f3eb; }
+      .entry-loading[hidden] { display: none; }
+      .entry-retry { padding: 32px; font-family: sans-serif; line-height: 1.8; color: #294b3d; }
+      .entry-retry a { color: inherit; }
+    </style>
+    <script>
+      // Keep recovery out of the normal loading screen; show it only if the entry module fails.
+      window.addEventListener('error', function (event) {
+        if (event.target instanceof HTMLScriptElement && event.target.type === 'module') {
+          var loading = document.getElementById('entry-loading');
+          var retry = document.getElementById('entry-retry');
+          if (loading && retry) { loading.hidden = true; retry.hidden = false; }
+        }
+      }, true);
+    </script>
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='12' fill='%2327392c'/%3E%3Cpath d='M8 24h24l-3-9H13z' fill='%23dcf48b'/%3E%3Ccircle cx='13' cy='27' r='4' fill='%23dcf48b'/%3E%3Ccircle cx='27' cy='27' r='4' fill='%23dcf48b'/%3E%3C/svg%3E" />
   </head>
   <body>
-    <div id="root"><div style="padding:32px;font-family:sans-serif;line-height:1.8;color:#294b3d"><p>正在打开汽车游乐园…</p><p>如果一直没有打开，请检查连接后再试一次。</p><a href="./index.html#/explore">重新打开汽车游乐园</a><p>建议使用较新的 Safari、Chrome、Edge 或 Firefox。</p></div></div>
-    <noscript>请开启 JavaScript，才能看车和玩游戏。</noscript>
+    <div id="root">
+      <div id="entry-loading" class="entry-loading" role="status" aria-label="正在准备小车">
+        <svg width="96" height="64" viewBox="0 0 96 64" fill="none" aria-hidden="true">
+          <path d="M12 43V31l13-5 9-13h28l14 16 8 4v10H12Z" fill="#edc85e" stroke="#456c60" stroke-width="3" stroke-linejoin="round" />
+          <path d="m33 27 7-9h19l8 9H33Z" fill="#bad6d2" stroke="#456c60" stroke-width="3" stroke-linejoin="round" />
+          <circle cx="29" cy="44" r="9" fill="#456c60" /><circle cx="69" cy="44" r="9" fill="#456c60" />
+          <circle cx="29" cy="44" r="4" fill="#f5f3eb" /><circle cx="69" cy="44" r="4" fill="#f5f3eb" />
+        </svg>
+      </div>
+      <div id="entry-retry" class="entry-retry" role="alert" hidden><p>连接暂时中断，请再试一次。</p><a href="./index.html#/explore">重新打开汽车游乐园</a></div>
+    </div>
+    <noscript><style>.entry-loading { display: none; }</style><div class="entry-retry"><p>请开启 JavaScript，才能看车和玩游戏。</p><a href="./index.html#/explore">重新打开汽车游乐园</a></div></noscript>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>
