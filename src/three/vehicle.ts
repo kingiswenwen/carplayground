@@ -131,6 +131,13 @@ export function createVehicle(id:string,detail:'full'|'low'='full'):VehicleModel
  for(let i=-2;i<=2;i++)mesh(new T.BoxGeometry(.28,.09,.026),carbon,body,-L/2+.05,.26,i*.22);
  for(let i=0;i<4;i++)mesh(new T.BoxGeometry(.032,.012,W*.39),trim,body,-L*.39+i*.065,hood(-L*.39+i*.065)+.028,0);
  if(p.wing){for(const side of [-1,1])mesh(new T.BoxGeometry(.036,.21,.04),carbon,body,-L*.38,1.02,side*.50);const wing=mesh(new T.BoxGeometry(.28,.045,W*.88),carbon,body,-L*.38,1.15);wing.rotation.z=-.08;}
+ // Wheels and spokes share identical primitives. Reuse their buffers in both
+ // WebGL and GLB instead of serializing a fresh copy for every repeated part.
+ const shared=new Map<string,T.BufferGeometry>();
+ root.traverse(o=>{if(o instanceof T.Mesh&&['BoxGeometry','SphereGeometry','CylinderGeometry','TorusGeometry'].includes(o.geometry.type)){
+  const geometry=o.geometry as T.BufferGeometry&{parameters:Record<string,unknown>},key=geometry.type+JSON.stringify(geometry.parameters),existing=shared.get(key);
+  if(existing&&existing!==geometry){o.geometry=existing;geometry.dispose();}else if(!existing)shared.set(key,geometry);
+ }});
  const materials=new Set<T.Material>(),geometries=new Set<T.BufferGeometry>();root.traverse(o=>{if(o instanceof T.Mesh){geometries.add(o.geometry);for(const m of Array.isArray(o.material)?o.material:[o.material])materials.add(m);}});
  return{root,wheels,body,lamps,profile:p,dispose:()=>{geometries.forEach(g=>g.dispose());materials.forEach(m=>m.dispose());}};
 }
