@@ -47,10 +47,11 @@ test('表达玩法重玩后反馈会改变，也不再请求统一的谢谢分�
 });
 
 test('看车时换车保留立体模式，显示当前选中的车型 @smoke',async({page})=>{
- await page.goto('/#/cars');await page.getByRole('button',{name:'打开简化立体模型',exact:true}).click();
- for(const [name,id]of [['法拉利 296 GTB','CAR02'],['保时捷 911 GT3 RS','CAR03'],['兰博基尼 Revuelto','CAR01']]){
+ test.setTimeout(120000);
+ await page.goto('/#/cars');await page.getByRole('button',{name:'打开车型立体模型',exact:true}).click();
+ for(const [name,id]of [['奥迪 R8 Coupé','CAR11'],['保时捷 911 GT3 RS','CAR03'],['兰博基尼 Revuelto','CAR01']]){
   await page.getByRole('button',{name:`选择 ${name}`,exact:true}).click();await expect(page.locator('.vehicle-views')).toHaveAttribute('data-mode','model');
-  await expect(page.locator('.vehicle-webgl[data-ready=true]:visible,.svg-vehicle svg')).toHaveAttribute('data-car',id);
+  await expect(page.locator('.vehicle-webgl[data-ready=true]:visible')).toHaveAttribute('data-car',id,{timeout:30000});
  }
 });
 

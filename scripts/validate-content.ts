@@ -45,11 +45,15 @@ for(const car of content.cars){
 }
 console.log(`内容 ${content.id} 验证通过：${content.cars.length} 款新生成跑车 / 60 独立视图 / ${content.activities.length} 活动，透明度、引用、来源、文件与 SHA-256 一致。`);
 
-const models=JSON.parse(await fs.readFile('content/vehicle-models.json','utf8')) as {id:string;file:string;sha256:string;factorySha256:string}[];
-const factoryHash=createHash('sha256').update(await fs.readFile('src/three/vehicle.ts')).digest('hex');
-if(models.length!==30||new Set(models.map(m=>m.id)).size!==30)throw Error('需要30款完整立体模型');
-for(const model of models){if(!content.cars.some(c=>c.id===model.id)||model.factorySha256!==factoryHash||!/^media\/models\/car\d{2}\.glb$/.test(model.file))throw Error('立体模型记录与工厂源码不一致');const b=await fs.readFile(path.join('public',model.file));if(b.toString('utf8',0,4)!=='glTF'||b.readUInt32LE(4)!==2||b.readUInt32LE(8)!==b.length||createHash('sha256').update(b).digest('hex')!==model.sha256)throw Error('模型文件损坏 '+model.id);}
-console.log('30款完整GLB、模型来源与生成代码哈希一致。');
+const models=JSON.parse(await fs.readFile('content/vehicle-models.json','utf8')) as {id:string;file:string;sha256:string;bytes:number;source:{url:string;author:string;license:string;licenseUrl:string;modifications:string}}[];
+if(!models.length||new Set(models.map(m=>m.id)).size!==models.length)throw Error('车型模型记录缺失或重复');
+if(content.assets.filter(a=>a.kind==='model').length!==models.length)throw Error('模型清单与素材登记不一致');
+for(const model of models){
+ if(!content.cars.some(c=>c.id===model.id)||!/^media\/models\/car\d{2}\.glb$/.test(model.file)||!model.source.author||!model.source.url.startsWith('https://sketchfab.com/3d-models/')||model.source.license!=='CC BY 4.0'||model.source.licenseUrl!=='https://creativecommons.org/licenses/by/4.0/'||!model.source.modifications)throw Error('车型模型来源与署名不完整 '+model.id);
+ const b=await fs.readFile(path.join('public',model.file));if(b.toString('utf8',0,4)!=='glTF'||b.readUInt32LE(4)!==2||b.readUInt32LE(8)!==b.length||b.length!==model.bytes||createHash('sha256').update(b).digest('hex')!==model.sha256)throw Error('模型文件损坏 '+model.id);
+ const gltf=JSON.parse(b.subarray(20,20+b.readUInt32LE(12)).toString());if((gltf.buffers||[]).some((b:{uri?:string})=>b.uri)||(gltf.images||[]).some((i:{uri?:string})=>i.uri))throw Error('模型含外部运行时依赖 '+model.id);
+}
+console.log(`${models.length}款独立车型GLB、来源署名与文件哈希一致；其余车型使用六角度图，不替换成通用车身。`);
 
 const turnarounds=JSON.parse(await fs.readFile('content/car-turnarounds-production.json','utf8')) as {id:string;tool:string;generatedFile:string;sheetSha256:string;prompt:string;views:{id:string;image:string}[]}[];
 if(turnarounds.length!==30||new Set(turnarounds.map(s=>s.id)).size!==30||new Set(turnarounds.map(s=>s.generatedFile)).size!==30||new Set(turnarounds.map(s=>s.sheetSha256)).size!==30)throw Error('需要30款独立生成的多角度车辆记录');

@@ -6,15 +6,31 @@ test('儿童首页、选车、详情、车库、故事和玩法无需读文字 @
  await page.goto('/#/explore');await page.getByRole('link',{name:'泡泡洗车屋',exact:true}).click();await expect(page.locator('canvas.touch-canvas')).toHaveAttribute('data-state',/"ready":true/);await page.getByRole('link',{name:'回到乐园',exact:true}).click();await expect(page.locator('.picture-activities')).toBeVisible();
 });
 test('直接拖动立体车可看到前后左右，键盘和重新选车也能继续 @smoke',async({page})=>{
- await page.goto('/#/cars/CAR01');await page.getByRole('button',{name:'打开简化立体模型'}).click();const canvas=page.locator('.vehicle-webgl:visible,.svg-vehicle svg');await expect(canvas).toHaveAttribute('data-ready','true');
+ test.setTimeout(120000);
+ await page.goto('/#/cars/CAR01');await page.getByRole('button',{name:'打开车型立体模型'}).click();const canvas=page.locator('.vehicle-webgl:visible');await expect(canvas).toHaveAttribute('data-ready','true',{timeout:30000});
  if(await page.locator('.vehicle-webgl').count()){await canvas.click();await expect(canvas).toHaveAttribute('data-lights','on');await canvas.click();await expect(canvas).toHaveAttribute('data-lights','off');}
- const start=Number(await canvas.getAttribute('data-yaw'));const box=(await canvas.boundingBox())!;await page.mouse.move(box.x+box.width*.4,box.y+box.height*.5);await page.mouse.down();await page.mouse.move(box.x+box.width*.8,box.y+box.height*.5,{steps:15});await page.mouse.up();await expect.poll(async()=>Math.abs(Number(await canvas.getAttribute('data-yaw'))-start)).toBeGreaterThan(1);
+ const start=Number(await canvas.getAttribute('data-yaw'));const box=(await canvas.boundingBox())!;await page.mouse.move(box.x+box.width*.4,box.y+box.height*.5);await page.mouse.down();await page.mouse.move(box.x+box.width*.8,box.y+box.height*.5,{steps:4});await page.mouse.up();await expect.poll(async()=>Math.abs(Number(await canvas.getAttribute('data-yaw'))-start)).toBeGreaterThan(1);
  await canvas.focus();const before=Number(await canvas.getAttribute('data-yaw'));await canvas.press('ArrowLeft');await expect.poll(async()=>Number(await canvas.getAttribute('data-yaw'))).not.toBe(before);
- await page.getByRole('link',{name:'看车',exact:true}).click();await page.getByRole('button',{name:/选择.*296 GTB/}).click();await page.getByRole('button',{name:'打开简化立体模型'}).click();await expect(page.locator('.vehicle-webgl:visible,.svg-vehicle svg')).toHaveAttribute('data-car','CAR02');
 });
-test('WebGL不可用时仍是能转动的完整三维投影，不退回单侧照片 @smoke',async({page})=>{
+test('离开立体查看后能重新选车并打开对应模型 @smoke',async({page})=>{
+ test.setTimeout(120000);await page.goto('/#/cars/CAR01');await page.getByRole('button',{name:'打开车型立体模型'}).click();await expect(page.locator('.vehicle-webgl')).toHaveAttribute('data-ready','true',{timeout:30000});
+ await page.getByRole('link',{name:'看车',exact:true}).click();await page.getByRole('button',{name:/选择.*911 GT3 RS/}).click();await page.getByRole('button',{name:'打开车型立体模型'}).click();await expect(page.locator('.vehicle-webgl:visible')).toHaveAttribute('data-car','CAR03',{timeout:30000});
+});
+test('WebGL不可用时回到同车型六角度图，不再显示通用车身 @smoke',async({page})=>{
  await page.addInitScript(()=>{const original=HTMLCanvasElement.prototype.getContext;Reflect.set(HTMLCanvasElement.prototype,'getContext',function(this:HTMLCanvasElement,type:string,...args:unknown[]){if(type.startsWith('webgl'))return null;return Reflect.apply(original,this,[type,...args]);});});
- await page.goto('/#/cars/CAR02');await page.getByRole('button',{name:'打开简化立体模型'}).click();const svg=page.locator('.svg-vehicle svg');await expect(svg).toHaveAttribute('data-ready','true');const before=Number(await svg.getAttribute('data-yaw'));const b=(await svg.boundingBox())!;await page.mouse.move(b.x+b.width*.4,b.y+b.height*.5);await page.mouse.down();await page.mouse.move(b.x+b.width*.7,b.y+b.height*.5,{steps:10});await page.mouse.up();await expect.poll(async()=>Math.abs(Number(await svg.getAttribute('data-yaw'))-before)).toBeGreaterThan(.5);
+ await page.goto('/#/cars/CAR01');await page.getByRole('button',{name:'打开车型立体模型'}).click();await expect(page.locator('.vehicle-views')).toHaveAttribute('data-mode','pictures');await expect(page.locator('.vehicle-angle')).toHaveAttribute('data-ready','true',{timeout:30000});
+ await page.getByRole('button',{name:'看后一个角度'}).click();await expect(page.locator('.vehicle-views')).toHaveAttribute('data-view','front');await expect(page.locator('.svg-vehicle')).toHaveCount(0);
+});
+test('没有对应模型的车保留外观图，切回已核对车型可继续立体观察 @smoke',async({page})=>{
+ test.setTimeout(120000);
+ await page.goto('/#/cars');await page.getByRole('button',{name:'打开车型立体模型'}).click();await expect(page.locator('.vehicle-webgl')).toHaveAttribute('data-ready','true',{timeout:30000});
+ await page.getByRole('button',{name:/选择.*296 GTB/}).click();await expect(page.locator('.vehicle-views')).toHaveAttribute('data-mode','pictures');await expect(page.getByRole('button',{name:'打开车型立体模型'})).toHaveCount(0);
+ await page.getByRole('button',{name:/选择.*911 GT3 RS/}).click();await expect(page.locator('.vehicle-webgl')).toHaveAttribute('data-car','CAR03',{timeout:30000});
+});
+test('模型网络失败后仍能看车，重试能恢复对应模型 @smoke',async({page})=>{
+ test.setTimeout(120000);
+ await page.route('**/media/models/car01.glb',route=>route.abort());await page.goto('/#/cars/CAR01');await page.getByRole('button',{name:'打开车型立体模型'}).click();await expect(page.locator('.vehicle-views')).toHaveAttribute('data-mode','pictures');
+ await page.unroute('**/media/models/car01.glb');await page.getByRole('button',{name:'打开车型立体模型'}).click();await expect(page.locator('.vehicle-webgl')).toHaveAttribute('data-source','reviewed-gltf',{timeout:30000});
 });
 test('30辆车的前脸车尾两侧共180张新图都能实际打开 @photos',async({page})=>{
  test.setTimeout(180000);

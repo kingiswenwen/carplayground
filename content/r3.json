@@ -1,7 +1,7 @@
 {
-  "id": "r10-play-help-0.10.2",
+  "id": "r12-independent-models-0.11.0",
   "schemaVersion": 2,
-  "appVersion": "0.10.2",
+  "appVersion": "0.11.0",
   "car": {
     "id": "CAR01",
     "brand": "Lamborghini",
@@ -5888,241 +5888,33 @@
       "id": "model-CAR01",
       "kind": "model",
       "path": "media/models/car01.glb",
-      "sha256": "8e7ae06bf95db93a5a0003fec8cd41638373a7c00a3937a1d0ef54d7c0d3e0e1",
+      "sha256": "47f148ba4efb0b9bb7c7b7e810f2e0557a616bd33bbbe1381a6015fe12b79809",
       "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR02",
-      "kind": "model",
-      "path": "media/models/car02.glb",
-      "sha256": "ff546ae48c4e111faaa4e03b660601ef99a8597f29105f4d4706ddde411b3efc",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
+      "source": "https://sketchfab.com/3d-models/free-lamborghini-revuelto-cf52245eb68f48daa909c7ad2a8deaa3 · ALIEEEN · CC BY 4.0"
     },
     {
       "id": "model-CAR03",
       "kind": "model",
       "path": "media/models/car03.glb",
-      "sha256": "d6616347deca394722f4d0ae21186b17af66919aa6228a946c19b5291a4002cc",
+      "sha256": "6f66b263e7779925f5a17ac066a0ab1eea3949529d311992e58195a81890f678",
       "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR04",
-      "kind": "model",
-      "path": "media/models/car04.glb",
-      "sha256": "238377277668a56849b2dbbe8b1c64be816e6315a0837caf764249f0cf7382d8",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR05",
-      "kind": "model",
-      "path": "media/models/car05.glb",
-      "sha256": "7ffebd1d8725f57c3aea094f1bf64fcd0da8b29833b49afe5b38d32547346b6e",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR06",
-      "kind": "model",
-      "path": "media/models/car06.glb",
-      "sha256": "7ad2b121cd1305eacb02a355f7346b3bb485c98e4817801b86f05856fc26338c",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR07",
-      "kind": "model",
-      "path": "media/models/car07.glb",
-      "sha256": "038d536d9ad06a64695402cbad9565f4a09a2794bee0a711dceaeed390d3c2d2",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR08",
-      "kind": "model",
-      "path": "media/models/car08.glb",
-      "sha256": "b49b7908d43861e0e2eaf7bea61a2a3095a9d5b91dfafc3a8a77196419cead92",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR09",
-      "kind": "model",
-      "path": "media/models/car09.glb",
-      "sha256": "b2e67b324005dfc0df659385ec0e86a2824aa20763b966418b0ce9d30b28d0ee",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
+      "source": "https://sketchfab.com/3d-models/porsche-gt3-rs-e738eae819c34d19a31dd066c45e0f3d · Black Snow · CC BY 4.0"
     },
     {
       "id": "model-CAR10",
       "kind": "model",
       "path": "media/models/car10.glb",
-      "sha256": "e2e1078196cbb7af8ac26747a4690eb7eef488c520e5b1f40a70ac0b41a9989e",
+      "sha256": "fe15897ad73d7c87b4e864a4724ae90b8377f382be5b462b40a0d3fb0a787422",
       "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
+      "source": "https://sketchfab.com/3d-models/mercedes-benz-amg-gt-661dcab94455463784651a3ebc63cfb9 · Yan Carvalho · CC BY 4.0"
     },
     {
       "id": "model-CAR11",
       "kind": "model",
       "path": "media/models/car11.glb",
-      "sha256": "29ace8afdeefc5c5c164688cb0ebd6f70c910b74dd74065a8e8928b44a009a49",
+      "sha256": "627004f3b68fe3ab2917159d7798c22d125f32f1c6d5eb064c0f68947a02f20e",
       "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR12",
-      "kind": "model",
-      "path": "media/models/car12.glb",
-      "sha256": "0f313323f47c9b5758e70dce4fc01e4b7cb4e1e941176dca3f59c643c9bb40ca",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR13",
-      "kind": "model",
-      "path": "media/models/car13.glb",
-      "sha256": "7bcf61bd479fea5514259c4e787730aa3f00c7ff70bc22b486f73e251c4138f6",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR14",
-      "kind": "model",
-      "path": "media/models/car14.glb",
-      "sha256": "02be04b308e0f5e8d94fb7313cc85c5710bb05e2b7b07f2806912438887bf3c5",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR15",
-      "kind": "model",
-      "path": "media/models/car15.glb",
-      "sha256": "7bc2bd88852c1fa4bfd2ad6c253811fb380e4bad49994192481ca07c6995e817",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR16",
-      "kind": "model",
-      "path": "media/models/car16.glb",
-      "sha256": "7e9c53092ef73a232aa170a8d4c3a0ece550246652d9669d25c5373865beb177",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR17",
-      "kind": "model",
-      "path": "media/models/car17.glb",
-      "sha256": "f8ec5a247ec0f161b2ce283e44e4bab2e93328867c84a1a6cee47d00035fc0e0",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR18",
-      "kind": "model",
-      "path": "media/models/car18.glb",
-      "sha256": "ec34515367d3e8d61e708706c394a0db1d30abd8dae3e9f156c62e6e6b4d052e",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR19",
-      "kind": "model",
-      "path": "media/models/car19.glb",
-      "sha256": "362f101a94138bc32eaa89fef5095c19b3aeab02611a8ab3afdcb1d2c0171873",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR20",
-      "kind": "model",
-      "path": "media/models/car20.glb",
-      "sha256": "21218c8223974637b284de72f5f9c26cbffdc030870fa549de67179cd3e7901d",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR21",
-      "kind": "model",
-      "path": "media/models/car21.glb",
-      "sha256": "bab5cd2fc75ab7ec0db35dce33250784e604975611c283f4736f819813c49968",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR22",
-      "kind": "model",
-      "path": "media/models/car22.glb",
-      "sha256": "2918271ae2f206b8caa911f5e417deaef037082efc18b917f3786b743f140222",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR23",
-      "kind": "model",
-      "path": "media/models/car23.glb",
-      "sha256": "b07375c6d7f1a708810ba5c109ce2c8c25e7d345119c9e5918dd50872e7da16a",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR24",
-      "kind": "model",
-      "path": "media/models/car24.glb",
-      "sha256": "212ebaf7fa28c1d3136f33eb53a2b93c6f0427aea907a82880237e32aa5c9c73",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR25",
-      "kind": "model",
-      "path": "media/models/car25.glb",
-      "sha256": "c7343fd1a080a002231f8d039603f7e19d1e4566ddca3573a1e7288966285861",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR26",
-      "kind": "model",
-      "path": "media/models/car26.glb",
-      "sha256": "035c4a11a2792c8b14bbc74064588fe52c7e37ae33da9d21eb476fc7869b29d1",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR27",
-      "kind": "model",
-      "path": "media/models/car27.glb",
-      "sha256": "599847a5d523981e54071f455b76a51f03eeb9ffa39bac6dc6bfec43faea22d8",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR28",
-      "kind": "model",
-      "path": "media/models/car28.glb",
-      "sha256": "4207f2a3eb6a0e9c715c59e6cb9c68d032b6429ef4d2cf6f6682539c157c2f6e",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR29",
-      "kind": "model",
-      "path": "media/models/car29.glb",
-      "sha256": "24d15de7ece058d55e1096f403b0148cbc2919665aeb0cc04151c9601e33c039",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
-    },
-    {
-      "id": "model-CAR30",
-      "kind": "model",
-      "path": "media/models/car30.glb",
-      "sha256": "cf7d2e57f5fcae37d94b053f822924f7a47da367528864a93d0bd825468e1f36",
-      "status": "approved",
-      "source": "Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim"
+      "source": "https://sketchfab.com/3d-models/audi-r8-e17e438f076f4427a58d93aa779edaed · wallon · CC BY 4.0"
     }
   ],
   "scenes": [
