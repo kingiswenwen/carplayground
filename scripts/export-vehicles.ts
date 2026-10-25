@@ -13,9 +13,10 @@ await fs.mkdir('public/media/models',{recursive:true});
 const factorySha256=createHash('sha256').update(await fs.readFile('src/three/vehicle.ts')).digest('hex');
 const records=[];
 for(const profile of vehicleProfiles){
- const model=createVehicle(profile.id);const data=await new GLTFExporter().parseAsync(model.root,{binary:true});
+ // Ship the complete lower-density mesh; the interactive renderer uses full detail.
+ const model=createVehicle(profile.id,'low');const data=await new GLTFExporter().parseAsync(model.root,{binary:true});
  if(!(data instanceof ArrayBuffer))throw Error('Expected binary model');const bytes=Buffer.from(data),file=`media/models/${profile.id.toLowerCase()}.glb`;
- await fs.writeFile(path.join('public',file),bytes);records.push({...profile,file,factorySha256,sha256:createHash('sha256').update(bytes).digest('hex'),bytes:bytes.length,source:'Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim',views:'shared mesh: front, rear, left, right, top and arbitrary intermediate angles'});model.dispose();
+ await fs.writeFile(path.join('public',file),bytes);records.push({...profile,file,exportDetail:'low',factorySha256,sha256:createHash('sha256').update(bytes).digest('hex'),bytes:bytes.length,source:'Original GPT-authored parametric 3D game geometry; no downloaded manufacturer mesh or image-to-3D claim',views:'shared mesh: front, rear, left, right, top and arbitrary intermediate angles'});model.dispose();
 }
 await fs.writeFile('content/vehicle-models.json',JSON.stringify(records,null,2)+'\n');console.log(`Exported ${records.length} complete 3D game models.`);
 

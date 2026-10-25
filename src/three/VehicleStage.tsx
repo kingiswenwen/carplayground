@@ -44,7 +44,7 @@ export function VehicleStage({carId,onTouch}:{carId:string;onTouch?:()=>void}){
    const end=(event:PointerEvent)=>{
     if(Math.hypot(event.clientX-down.x,event.clientY-down.y)>9)return;
     const rect=canvas.getBoundingClientRect();ray.setFromCamera(new T.Vector2((event.clientX-rect.left)/rect.width*2-1,-(event.clientY-rect.top)/rect.height*2+1),camera);
-    if(ray.intersectObject(model.root,true).length){model.lamps.forEach(light=>{const m=light.material as T.MeshStandardMaterial;m.emissiveIntensity=m.emissiveIntensity>1?.65:1.8;});needsRender=true;}
+    if(ray.intersectObject(model.root,true).length){const lamps=new Set(model.lamps.map(light=>light.material as T.MeshStandardMaterial));lamps.forEach(m=>{m.emissiveIntensity=m.emissiveIntensity>1?.65:1.8;});canvas.dataset.lights=[...lamps].some(m=>m.emissiveIntensity>1)?'on':'off';needsRender=true;}
    };
    const key=(event:KeyboardEvent)=>{
     if(!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(event.key))return;event.preventDefault();
