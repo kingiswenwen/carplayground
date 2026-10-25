@@ -1,6 +1,7 @@
 import {useEffect, useRef, useState} from 'react';
 import {content, type ActivityDefinition} from '../domain/content';
 import {newSessionId} from '../domain/session-id';
+import {nextCompletionFeedback,type PlayFeedback} from '../domain/play-feedback';
 import {audio} from '../services/audio';
 import {db, finishSession, safely, type SessionRecord, type SessionResult, type Settings} from '../services/storage';
 
@@ -14,6 +15,7 @@ export function useLearningSession(activity: ActivityDefinition, settings: Setti
   const [done, setDone] = useState(false);
   const [paused, setPaused] = useState(document.hidden);
   const [message, setMessage] = useState('');
+  const [completion,setCompletion]=useState<PlayFeedback|null>(null);
   const [recordStatus, setRecordStatus] = useState<'idle'|'saving'|'saved'|'error'>('idle');
   const ended = useRef(false), alive = useRef(true), hints = useRef(0), isPaused = useRef(document.hidden);
   const elapsed = useRef(0), last = useRef(performance.now()), start = useRef<Promise<boolean>>(Promise.resolve(false));
@@ -63,7 +65,11 @@ export function useLearningSession(activity: ActivityDefinition, settings: Setti
       durationMs: elapsed.current + performance.now() - last.current, summary, endedAt: new Date().toISOString()};
     queueSessionResult(result.current, start.current);
     void retrySave();
-    void audio.play(...(sounds||[activity.completeAudio]));
+    const feedback=nextCompletionFeedback(activity.id);
+    const contextual=sounds?.filter(id=>id!=='expression-done'&&id!=='discovery-done');
+    if(contextual?.length){feedback.sounds=contextual;feedback.preferClips=true;}
+    setCompletion(feedback);setMessage(feedback.text);
+    audio.feedback(feedback.text,feedback.sounds,feedback.preferClips);
   };
   const hint = () => {if (!alive.current || isPaused.current) return; hints.current++; setMessage(activity.hint); void audio.play(activity.hintAudio);};
   const resume = () => {last.current = performance.now(); isPaused.current = false; setPaused(false);};
@@ -75,5 +81,5 @@ export function useLearningSession(activity: ActivityDefinition, settings: Setti
       return true;
     }, false);
   };
-  return {id, done, paused, message, setMessage, replay, finish, hint, resume, observe, recordStatus, retrySave};
+  return {id, done, paused, message, setMessage, completion, replay, finish, hint, resume, observe, recordStatus, retrySave};
 }

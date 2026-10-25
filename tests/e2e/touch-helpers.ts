@@ -6,7 +6,7 @@ export type TouchState={ready:boolean;completed:boolean;progress:number;moving:b
 export const touchCanvas=(page:Page)=>page.locator('canvas.touch-canvas');
 export const touchState=async(page:Page):Promise<TouchState>=>JSON.parse((await touchCanvas(page).getAttribute('data-state'))!);
 export async function openTouch(page:Page,id:string,car='CAR02'){
- await page.goto(`/#/play/${id}?car=${car}`);await expect(touchCanvas(page)).toBeVisible();await expect.poll(async()=>(await touchState(page)).ready).toBe(true);
+ await page.goto(`/#/play/${id}?car=${car}`);await expect(page.locator('.touch-play')).toHaveAttribute('data-activity',id);await expect(touchCanvas(page)).toBeVisible();await expect.poll(async()=>(await touchState(page)).ready).toBe(true);
 }
 export async function touchPosition(page:Page,p:{x:number;y:number}){
  const box=(await touchCanvas(page).boundingBox())!,height=await touchCanvas(page).evaluate(c=>(c as HTMLCanvasElement).height);

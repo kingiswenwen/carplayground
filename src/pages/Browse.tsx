@@ -14,7 +14,7 @@ export function ActivityLinks({ids,carId,domain,scene}:{ids?:string[];carId?:str
  const chosen=carId||activeCar();const list=content.activities.filter(a=>(!ids||ids.includes(a.id))&&(!domain||a.domain===domain)&&(!scene||a.scene===scene)&&a.carIds.includes(chosen)).sort((a,b)=>ids?ids.indexOf(a.id)-ids.indexOf(b.id):0);
  return <div className="activity-links picture-activities">{list.map(item=><a href={`#/play/${item.id}?car=${chosen}`} className={`activity-link picture-activity play-${item.id}`} key={item.id} aria-label={item.title}><PlayPicture id={item.id} carId={chosen}/></a>)}</div>;
 }
-function Model({carId}:{carId:string}){return <VehicleViews key={carId} carId={carId}/>;}
+function Model({carId}:{carId:string}){return <VehicleViews carId={carId}/>;}
 export function Showroom(_props:{welcome:boolean;begin:(sound:boolean)=>void}){
  const[index,setIndex]=useState(Math.max(0,content.cars.findIndex(c=>c.id===activeCar())));const car=content.cars[index];
  const choose=(i:number)=>{setIndex((i+content.cars.length)%content.cars.length);rememberCar(content.cars[(i+content.cars.length)%content.cars.length].id);};

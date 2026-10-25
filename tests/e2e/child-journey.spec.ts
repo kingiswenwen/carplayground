@@ -10,9 +10,9 @@ test('完成后主动选下一站，保留爱车、记录与重玩选择 @smoke'
  const b=(await next.boundingBox())!;expect(b.width).toBeGreaterThanOrEqual(100);expect(b.y+b.height).toBeLessThanOrEqual(844);
  // Free play is still available. Replaying does not silently advance the route.
  await page.getByRole('button',{name:'重新玩',exact:true}).click();
- await expect.poll(async()=>(await touchState(page)).ready).toBe(true);expect((await touchState(page)).completed).toBe(false);
+ await expect.poll(async()=>(await touchState(page)).ready).toBe(true);await expect.poll(async()=>(await touchState(page)).completed).toBe(false);
  await dropTouch(page,'car-0','bay-0');await dropTouch(page,'car-1','bay-1');await completedTouch(page);await next.click();
- await expect(page).toHaveURL(/play\/M02\?car=CAR30/);await expect.poll(async()=>(await touchState(page)).ready).toBe(true);
+ await expect(page).toHaveURL(/play\/M02\?car=CAR30/);await expect(page.locator('.touch-play')).toHaveAttribute('data-activity','M02');await expect.poll(async()=>(await touchState(page)).ready).toBe(true);
  expect((await touchState(page)).completed).toBe(false);
  await expect.poll(async()=>(await localRows(page,'sessions')).filter(r=>r.activityId==='M01'&&r.state==='completed').length).toBe(2);
 });
