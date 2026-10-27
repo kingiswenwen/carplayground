@@ -57,10 +57,10 @@ it('三十辆车的收藏、会话与作品都能导出和恢复，未知车仍�
   await db.recent.bulkPut(content.cars.map(car=>({carId:car.id,at:now})));
   await db.sessions.put({id:'car30',activityId:'M01',activityVersion:1,contentReleaseId:content.id,carIds:['CAR30'],difficulty:'gentle',locale:'zh-CN',audioEnabled:false,startedAt:now,state:'completed',hints:0,durationMs:100,endedAt:now});
   await db.creations.put({id:'car30-art',kind:'poster',carId:'CAR30',background:'#e4edda',caption:'',marks:[],createdAt:now,version:1});
-  const backup=await makeBackup();expect(backup.favorites).toHaveLength(30);expect(backup.recent).toHaveLength(30);
+  const backup=await makeBackup();expect(backup.favorites).toHaveLength(content.cars.length);expect(backup.recent).toHaveLength(content.cars.length);
   await replaceBackup(parseBackup(JSON.stringify(backup)));
   expect((await makeBackup()).creations[0].carId).toBe('CAR30');
-  const bad=structuredClone(backup);bad.favorites[0].carId='CAR99';expect(()=>parseBackup(JSON.stringify(bad))).toThrow();
+  const bad=structuredClone(backup);bad.favorites[0].carId='CAR999';expect(()=>parseBackup(JSON.stringify(bad))).toThrow();
 });
 
 it('导入前下载失败不会丢掉原待重试结果', async () => {

@@ -27,7 +27,7 @@ test('家长观察独立保存，失败不丢文字也不替孩子完成游戏 @
 test('完成写入排队时离开，结果不会被退出或下一关覆盖 @smoke',async({page})=>{
  await openTouch(page,'C01');await expect.poll(async()=>(await localRows(page,'sessions')).length).toBe(1);
  await page.evaluate(()=>new Promise<void>((resolve,reject)=>{const request=indexedDB.open('carplayground-local-v1');request.onerror=()=>reject(request.error);request.onsuccess=()=>{const db=request.result,transaction=db.transaction('sessions','readwrite'),store=transaction.objectStore('sessions');Reflect.set(window,'__holdSessionWrite',true);let started=false;const hold=()=>{const read=store.get('__hold__');read.onsuccess=()=>{if(!started){started=true;resolve();}if(Reflect.get(window,'__holdSessionWrite'))hold();};};transaction.oncomplete=()=>db.close();hold();};}));
- await gestures(page,'C01');await page.getByRole('link',{name:'回到乐园',exact:true}).click();await page.evaluate(()=>{location.hash='/play/C03?car=CAR03';});
+ await gestures(page,'C01');await page.getByRole('link',{name:'回到乐园',exact:true}).click();await page.evaluate(()=>{location.hash='/play/C03?car=CAR03&view=2d';});
  await expect.poll(async()=>(await touchState(page)).ready).toBe(true);await page.evaluate(()=>Reflect.set(window,'__holdSessionWrite',false));
  expect((await touchState(page)).completed).toBe(false);await gestures(page,'C03');
  await expect.poll(async()=>(await localRows(page,'sessions')).filter(r=>r.state==='participated').length).toBe(2);

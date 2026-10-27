@@ -48,6 +48,12 @@ try {
     const target=path.join(site,'media',content.id,relative);
     await fs.mkdir(path.dirname(target),{recursive:true});
     await fs.copyFile(path.join(root,'public',asset.path),target);
+    // Raster origin sidecars travel with their approved image, just as embedded
+    // metadata does. They are included in the package hash manifest below.
+    if(asset.kind==='image') {
+      const origin=path.join(root,'public',asset.path+'.json');
+      try{await fs.copyFile(origin,target+'.json');}catch(error){if(error.code!=='ENOENT')throw error;}
+    }
   }
   const files=[];
   for(const filename of await listFiles(site)) {const bytes=await fs.readFile(path.join(site,filename));files.push({path:filename,bytes:bytes.length,sha256:sha256(bytes),headers:headersFor(filename)});}

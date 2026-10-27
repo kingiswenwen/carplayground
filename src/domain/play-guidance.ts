@@ -13,7 +13,8 @@ export function partRegions(car:Car,rect:Rect){
  ...car.hotspots.filter(p=>p.id!=='wheel').map(p=>({id:p.id,...point(p.x,p.y),rx:rect.w*(p.id==='door'?.1:.055),ry:rect.h*(p.id==='door'?.17:.1)}))];
 }
 export function hitPart(car:Car,rect:Rect,point:Point){
- return partRegions(car,rect).find(p=>((point.x-p.x)/p.rx)**2+((point.y-p.y)/p.ry)**2<=1)?.id;
+ const regions=partRegions(car,rect).map(p=>({...p,distance:((point.x-p.x)/p.rx)**2+((point.y-p.y)/p.ry)**2}));
+ return regions.filter(p=>p.distance<=1).sort((a,b)=>a.distance-b.distance)[0]?.id;
 }
 export const roadLessons:{width:number;shapes:RoadShape[];solution:RoadShape[];locked:number[];end:number}[]=[
  {width:3,shapes:['LR','UD','LR'],solution:['LR','LR','LR'],locked:[0,2],end:2},

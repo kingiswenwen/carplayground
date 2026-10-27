@@ -19,6 +19,7 @@ test('完成后主动选下一站，保留爱车、记录与重玩选择 @smoke'
 
 test('故事完成玩法回到下一幕，不被普通下一站替换，刷新仍保留进度 @smoke',async({page})=>{
  await page.goto('/#/stories/ST01?step=1');await page.getByRole('link',{name:'一起玩：小车回家',exact:true}).click();
+ await expect(page.locator('canvas.touch-world-canvas')).toHaveAttribute('data-ready','true',{timeout:45000});
  await expect.poll(async()=>(await touchState(page)).ready).toBe(true);
  await dropTouch(page,'car-0','bay-0');await dropTouch(page,'car-1','bay-1');await completedTouch(page);
  await expect(page.getByRole('region',{name:'小车接下来想去哪里'})).toHaveCount(0);

@@ -1,0 +1,4406 @@
+[
+  {
+    "id": "CAR13",
+    "name": "福特 Mustang GT",
+    "brand": "Ford",
+    "edition": "玩具游戏跑车",
+    "image": "play-CAR13-side",
+    "showcaseImage": "play-CAR13-side",
+    "game": {
+      "side": "play-CAR13-side",
+      "top": "play-CAR13-top",
+      "wheels": [
+        {
+          "x": 0.23295971978984237,
+          "y": 0.6675968087176494,
+          "r": 0.09158143607705779
+        },
+        {
+          "x": 0.7851289424860853,
+          "y": 0.6808884766027623,
+          "r": 0.08760018552875698
+        }
+      ],
+      "orbit": [
+        {
+          "id": "front-left",
+          "image": "orbit-CAR13-front-left"
+        },
+        {
+          "id": "front",
+          "image": "orbit-CAR13-front"
+        },
+        {
+          "id": "front-right",
+          "image": "orbit-CAR13-front-right"
+        },
+        {
+          "id": "left",
+          "image": "orbit-CAR13-left"
+        },
+        {
+          "id": "rear",
+          "image": "orbit-CAR13-rear"
+        },
+        {
+          "id": "right",
+          "image": "orbit-CAR13-right"
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.7851289424860853,
+        "y": 0.6808884766027623
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.51,
+        "y": 0.56
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9,
+        "y": 0.46
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.7851289424860853,
+        "y": 0.6808884766027623
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.51,
+        "y": 0.56
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9,
+        "y": 0.46
+      }
+    ],
+    "displayImage": "play-CAR13-side",
+    "origins": []
+  },
+  {
+    "id": "CAR27",
+    "name": "本田 NSX",
+    "brand": "Honda",
+    "edition": "玩具游戏跑车",
+    "image": "play-CAR27-side",
+    "showcaseImage": "play-CAR27-side",
+    "game": {
+      "side": "play-CAR27-side",
+      "top": "play-CAR27-top",
+      "wheels": [
+        {
+          "x": 0.21447624190064796,
+          "y": 0.6546676265898728,
+          "r": 0.09739956803455727
+        },
+        {
+          "x": 0.748472553699284,
+          "y": 0.6615247944842216,
+          "r": 0.09431384248210026
+        }
+      ],
+      "orbit": [
+        {
+          "id": "front-left",
+          "image": "orbit-CAR27-front-left"
+        },
+        {
+          "id": "front",
+          "image": "orbit-CAR27-front"
+        },
+        {
+          "id": "front-right",
+          "image": "orbit-CAR27-front-right"
+        },
+        {
+          "id": "left",
+          "image": "orbit-CAR27-left"
+        },
+        {
+          "id": "rear",
+          "image": "orbit-CAR27-rear"
+        },
+        {
+          "id": "right",
+          "image": "orbit-CAR27-right"
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.748472553699284,
+        "y": 0.6615247944842216
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.51,
+        "y": 0.56
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9,
+        "y": 0.46
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.748472553699284,
+        "y": 0.6615247944842216
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.51,
+        "y": 0.56
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9,
+        "y": 0.46
+      }
+    ],
+    "displayImage": "play-CAR27-side",
+    "origins": []
+  },
+  {
+    "id": "CAR28",
+    "name": "雪佛兰 Camaro",
+    "brand": "Chevrolet",
+    "edition": "玩具游戏跑车",
+    "image": "play-CAR28-side",
+    "showcaseImage": "play-CAR28-side",
+    "game": {
+      "side": "play-CAR28-side",
+      "top": "play-CAR28-top",
+      "wheels": [
+        {
+          "x": 0.22942639040348964,
+          "y": 0.6726862958924028,
+          "r": 0.09429116684841875
+        },
+        {
+          "x": 0.7802934782608696,
+          "y": 0.6714546430488458,
+          "r": 0.09084541062801935
+        }
+      ],
+      "orbit": [
+        {
+          "id": "front-left",
+          "image": "orbit-CAR28-front-left"
+        },
+        {
+          "id": "front",
+          "image": "orbit-CAR28-front"
+        },
+        {
+          "id": "front-right",
+          "image": "orbit-CAR28-front-right"
+        },
+        {
+          "id": "left",
+          "image": "orbit-CAR28-left"
+        },
+        {
+          "id": "rear",
+          "image": "orbit-CAR28-rear"
+        },
+        {
+          "id": "right",
+          "image": "orbit-CAR28-right"
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.7802934782608696,
+        "y": 0.6714546430488458
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.51,
+        "y": 0.56
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9,
+        "y": 0.46
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.7802934782608696,
+        "y": 0.6714546430488458
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.51,
+        "y": 0.56
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9,
+        "y": 0.46
+      }
+    ],
+    "displayImage": "play-CAR28-side",
+    "origins": []
+  },
+  {
+    "id": "CAR33",
+    "name": "兰博基尼 Aventador Lp700-4",
+    "brand": "Lamborghini",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR33-side",
+    "showcaseImage": "render-CAR33-side",
+    "game": {
+      "side": "render-CAR33-side",
+      "top": "render-CAR33-top",
+      "wheels": [
+        {
+          "x": 0.25,
+          "y": 0.77,
+          "r": 0.09
+        },
+        {
+          "x": 0.75,
+          "y": 0.77,
+          "r": 0.09
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5482242914607298
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.600640740668466
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5482242914607298
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.600640740668466
+      }
+    ],
+    "displayImage": "render-CAR33-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car33-side.webp.json",
+        "sha256": "1a5fc7cc74495c7854b5567fc6fb99b86e49532c516048ed75fdcf0f99188113"
+      }
+    ],
+    "modelCredit": {
+      "title": "2013 Lamborghini Aventador lp700-4 Roadster",
+      "author": "_shobh19",
+      "authorUrl": "https://sketchfab.com/s0h1o9b",
+      "url": "https://sketchfab.com/3d-models/none-dbd3e2ccdc2748af957c34310163d848",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/lamborghini-aventador-lp700-4.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR35",
+    "name": "兰博基尼 Terzo Millennio",
+    "brand": "Lamborghini",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR35-side",
+    "showcaseImage": "render-CAR35-side",
+    "game": {
+      "side": "render-CAR35-side",
+      "top": "render-CAR35-top",
+      "wheels": [
+        {
+          "x": 0.41134170495237643,
+          "y": 0.7989306883839891,
+          "r": 0.07099219681344378
+        },
+        {
+          "x": 0.5888851081197176,
+          "y": 0.7989297282245553,
+          "r": 0.07099219681344378
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.41134170495237643,
+        "y": 0.7989306883839891
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5935607346444036
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6654118022344588
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.41134170495237643,
+        "y": 0.7989306883839891
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5935607346444036
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6654118022344588
+      }
+    ],
+    "displayImage": "render-CAR35-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car35-side.webp.json",
+        "sha256": "c686bbcb5ddb1a386d68866978ea14a82df543e34e3ce3d153411bb1a1937957"
+      }
+    ],
+    "modelCredit": {
+      "title": "( FREE ) Lamborghini Terzo Millennio Wind tunnel",
+      "author": "SDC PERFORMANCE™️",
+      "authorUrl": "https://sketchfab.com/Lambo_SC04",
+      "url": "https://sketchfab.com/3d-models/none-81a79d29815246a58b9e1dbad5bd5b37",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/lamborghini-terzo-millennio.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR41",
+    "name": "兰博基尼 Gallardo",
+    "brand": "Lamborghini",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR41-side",
+    "showcaseImage": "render-CAR41-side",
+    "game": {
+      "side": "render-CAR41-side",
+      "top": "render-CAR41-top",
+      "wheels": [
+        {
+          "x": 0.19956976176613195,
+          "y": 0.5845929750906645,
+          "r": 0.12
+        },
+        {
+          "x": 0.9045728207492736,
+          "y": 0.62918110935462,
+          "r": 0.065
+        }
+      ],
+      "orbit": [
+        {
+          "id": "front-left",
+          "image": "render-CAR41-front-left"
+        },
+        {
+          "id": "front",
+          "image": "render-CAR41-front"
+        },
+        {
+          "id": "front-right",
+          "image": "render-CAR41-front-right"
+        },
+        {
+          "id": "left",
+          "image": "render-CAR41-left"
+        },
+        {
+          "id": "rear",
+          "image": "render-CAR41-rear"
+        },
+        {
+          "id": "right",
+          "image": "render-CAR41-right"
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.19956976176613195,
+        "y": 0.5845929750906645
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5515638100045608
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6118325697067946
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.19956976176613195,
+        "y": 0.5845929750906645
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5515638100045608
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6118325697067946
+      }
+    ],
+    "displayImage": "render-CAR41-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car41-side.webp.json",
+        "sha256": "6e1df348957d1f2a6b0b44b907fe13f927b31f4c6479ddf34ab21da7b85a7177"
+      }
+    ],
+    "modelCredit": {
+      "title": "Lamborghini Gallardo 2010",
+      "author": "Artem P",
+      "authorUrl": "https://sketchfab.com/temp0.crazy",
+      "url": "https://sketchfab.com/3d-models/none-ff0eb2242d0e42eb8b7034b4db639e56",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/lamborghini-gallardo.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR44",
+    "name": "法拉利 488",
+    "brand": "Ferrari",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR44-side",
+    "showcaseImage": "render-CAR44-side",
+    "game": {
+      "side": "render-CAR44-side",
+      "top": "render-CAR44-top",
+      "wheels": [
+        {
+          "x": 0.20722269335057375,
+          "y": 0.5436846767883516,
+          "r": 0.065
+        },
+        {
+          "x": 0.7124161856758473,
+          "y": 0.6004329873847953,
+          "r": 0.12
+        }
+      ],
+      "orbit": [
+        {
+          "id": "front-left",
+          "image": "render-CAR44-front-left"
+        },
+        {
+          "id": "front",
+          "image": "render-CAR44-front"
+        },
+        {
+          "id": "front-right",
+          "image": "render-CAR44-front-right"
+        },
+        {
+          "id": "left",
+          "image": "render-CAR44-left"
+        },
+        {
+          "id": "rear",
+          "image": "render-CAR44-rear"
+        },
+        {
+          "id": "right",
+          "image": "render-CAR44-right"
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.20722269335057375,
+        "y": 0.5436846767883516
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5477660815946784
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6041850187261439
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.20722269335057375,
+        "y": 0.5436846767883516
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5477660815946784
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6041850187261439
+      }
+    ],
+    "displayImage": "render-CAR44-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car44-side.webp.json",
+        "sha256": "4931e6e9517a61de91450959cd8ce0629491778f0a5de0665b324f03e4e0e8bf"
+      }
+    ],
+    "modelCredit": {
+      "title": "Ferrari 488 Pista Widebody",
+      "author": "Dev365TH",
+      "authorUrl": "https://sketchfab.com/dev365th",
+      "url": "https://sketchfab.com/3d-models/16c28f5b3ed24991ac3d1208f4a8bc1f",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/ferrari-488.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR47",
+    "name": "迈凯伦 Spider",
+    "brand": "McLaren",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR47-side",
+    "showcaseImage": "render-CAR47-side",
+    "game": {
+      "side": "render-CAR47-side",
+      "top": "render-CAR47-top",
+      "wheels": [
+        {
+          "x": 0.2072780470638434,
+          "y": 0.5712791683327525,
+          "r": 0.12
+        },
+        {
+          "x": 0.7369084220753164,
+          "y": 0.5781324578187,
+          "r": 0.12
+        }
+      ],
+      "orbit": [
+        {
+          "id": "front-left",
+          "image": "render-CAR47-front-left"
+        },
+        {
+          "id": "front",
+          "image": "render-CAR47-front"
+        },
+        {
+          "id": "front-right",
+          "image": "render-CAR47-front-right"
+        },
+        {
+          "id": "left",
+          "image": "render-CAR47-left"
+        },
+        {
+          "id": "rear",
+          "image": "render-CAR47-rear"
+        },
+        {
+          "id": "right",
+          "image": "render-CAR47-right"
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.2072780470638434,
+        "y": 0.5712791683327525
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5480221759199803
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6070998587897163
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.2072780470638434,
+        "y": 0.5712791683327525
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5480221759199803
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6070998587897163
+      }
+    ],
+    "displayImage": "render-CAR47-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car47-side.webp.json",
+        "sha256": "20d7a9dbabc6f4a00f203402459df4a47f95da16e2ef174714717666f98114d6"
+      }
+    ],
+    "modelCredit": {
+      "title": "McLaren Spider",
+      "author": "SINNIK",
+      "authorUrl": "https://sketchfab.com/sinnik",
+      "url": "https://sketchfab.com/3d-models/none-10b474f26b2643be82ee26417ca78a0a",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/mclaren-spider.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR49",
+    "name": "迈凯伦 18' Senna",
+    "brand": "McLaren",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR49-side",
+    "showcaseImage": "render-CAR49-side",
+    "game": {
+      "side": "render-CAR49-side",
+      "top": "render-CAR49-top",
+      "wheels": [
+        {
+          "x": 0.291282295482476,
+          "y": 0.6362164213927374,
+          "r": 0.12
+        },
+        {
+          "x": 0.8008159689999654,
+          "y": 0.5624697871348522,
+          "r": 0.12
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.291282295482476,
+        "y": 0.6362164213927374
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5502323421077929
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181819,
+        "y": 0.6098212543512517
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.291282295482476,
+        "y": 0.6362164213927374
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5502323421077929
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181819,
+        "y": 0.6098212543512517
+      }
+    ],
+    "displayImage": "render-CAR49-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car49-side.webp.json",
+        "sha256": "e51dd4f70a6650d362da218d509379d622eccac7280db4cc22f2043eb51b4e16"
+      }
+    ],
+    "modelCredit": {
+      "title": "18' McLaren Senna Crxw Widebody Kit (Animated)",
+      "author": "crxw.cgi",
+      "authorUrl": "https://sketchfab.com/crxwdesign",
+      "url": "https://sketchfab.com/3d-models/none-5d1f14a4b68b47c8aa65b7a8f1bb4c5a",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/mclaren-18-senna.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR50",
+    "name": "迈凯伦 P1 GTR",
+    "brand": "McLaren",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR50-side",
+    "showcaseImage": "render-CAR50-side",
+    "game": {
+      "side": "render-CAR50-side",
+      "top": "render-CAR50-top",
+      "wheels": [
+        {
+          "x": 0.25,
+          "y": 0.77,
+          "r": 0.09
+        },
+        {
+          "x": 0.75,
+          "y": 0.77,
+          "r": 0.09
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5446212943543702
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.602738161119424
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5446212943543702
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.602738161119424
+      }
+    ],
+    "displayImage": "render-CAR50-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car50-side.webp.json",
+        "sha256": "535e7a3a819e827446e23ddd71012c4273141bae4c2b82df76f6c58bbfe0554a"
+      }
+    ],
+    "modelCredit": {
+      "title": "Free McLaren P1 GTR",
+      "author": "ALIEEEN",
+      "authorUrl": "https://sketchfab.com/ALIEEEN",
+      "url": "https://sketchfab.com/3d-models/none-d805bec04cf5407fa7c036c20c726d39",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/mclaren-p1-gtr.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR51",
+    "name": "保时捷 911 GT3",
+    "brand": "Porsche",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR51-side",
+    "showcaseImage": "render-CAR51-side",
+    "game": {
+      "side": "render-CAR51-side",
+      "top": "render-CAR51-top",
+      "wheels": [
+        {
+          "x": 0.2553303390307398,
+          "y": 0.6539218710840791,
+          "r": 0.12
+        },
+        {
+          "x": 0.7450442193137037,
+          "y": 0.6074021781667066,
+          "r": 0.12
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.2553303390307398,
+        "y": 0.6539218710840791
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5465608018178666
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6144255198000066
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.2553303390307398,
+        "y": 0.6539218710840791
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5465608018178666
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6144255198000066
+      }
+    ],
+    "displayImage": "render-CAR51-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car51-side.webp.json",
+        "sha256": "aa270460c7a1b9203aca8a73776a6603bc336818859baa026c23215d18e72117"
+      }
+    ],
+    "modelCredit": {
+      "title": "Porsche 911 GT3",
+      "author": "ChevroletSS",
+      "authorUrl": "https://sketchfab.com/ChevroletSS",
+      "url": "https://sketchfab.com/3d-models/none-78d5c47ab2554c2592b7e499179a0792",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/porsche-911-gt3.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR52",
+    "name": "保时捷 Low Poly",
+    "brand": "Porsche",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR52-side",
+    "showcaseImage": "render-CAR52-side",
+    "game": {
+      "side": "render-CAR52-side",
+      "top": "render-CAR52-top",
+      "wheels": [
+        {
+          "x": 0.25,
+          "y": 0.77,
+          "r": 0.09
+        },
+        {
+          "x": 0.75,
+          "y": 0.77,
+          "r": 0.09
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5474860857555681
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6171515956502629
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5474860857555681
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6171515956502629
+      }
+    ],
+    "displayImage": "render-CAR52-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car52-side.webp.json",
+        "sha256": "24066306853c641ace3847cd90ead8de88a99e63708ec787a1904a2c69dde941"
+      }
+    ],
+    "modelCredit": {
+      "title": "Low poly Porsche 964 Wide Body",
+      "author": "All-Wide",
+      "authorUrl": "https://sketchfab.com/dsm350",
+      "url": "https://sketchfab.com/3d-models/none-2554786e72b14c589ea2098a3bad1525",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/porsche-low-poly.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR53",
+    "name": "保时捷 911 C4S",
+    "brand": "Porsche",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR53-side",
+    "showcaseImage": "render-CAR53-side",
+    "game": {
+      "side": "render-CAR53-side",
+      "top": "render-CAR53-top",
+      "wheels": [
+        {
+          "x": 0.25,
+          "y": 0.77,
+          "r": 0.09
+        },
+        {
+          "x": 0.75,
+          "y": 0.77,
+          "r": 0.09
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.544749280341966
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6138055062690813
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.544749280341966
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6138055062690813
+      }
+    ],
+    "displayImage": "render-CAR53-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car53-side.webp.json",
+        "sha256": "649363746f8ea29d3a02fa90ec5165ce0201f35b9a264afc6d15046759dcddf7"
+      }
+    ],
+    "modelCredit": {
+      "title": "Porsche 911 C4S 2020 Aerokit",
+      "author": "JK3Dstudios",
+      "authorUrl": "https://sketchfab.com/JK3Dstudio",
+      "url": "https://sketchfab.com/3d-models/none-ee69c474a1cc4085944cde4cb7ae87db",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/porsche-911-c4s.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR54",
+    "name": "保时捷 911 Turbo",
+    "brand": "Porsche",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR54-side",
+    "showcaseImage": "render-CAR54-side",
+    "game": {
+      "side": "render-CAR54-side",
+      "top": "render-CAR54-top",
+      "wheels": [
+        {
+          "x": 0.25,
+          "y": 0.77,
+          "r": 0.09
+        },
+        {
+          "x": 0.75,
+          "y": 0.77,
+          "r": 0.09
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5451625994179872
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6167218891493442
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5451625994179872
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6167218891493442
+      }
+    ],
+    "displayImage": "render-CAR54-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car54-side.webp.json",
+        "sha256": "9ba305d2d8ffe794bccacbcd2778d8da7f66ff940caf836bfd6737dd7b8ac013"
+      }
+    ],
+    "modelCredit": {
+      "title": "Porsche 911 (930) Turbo 1975",
+      "author": "Lexyc16",
+      "authorUrl": "https://sketchfab.com/Lexyc16",
+      "url": "https://sketchfab.com/3d-models/de1ffd344c41481892511f7fd332c136",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/porsche-911.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR55",
+    "name": "保时捷 911 Carrera",
+    "brand": "Porsche",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR55-side",
+    "showcaseImage": "render-CAR55-side",
+    "game": {
+      "side": "render-CAR55-side",
+      "top": "render-CAR55-top",
+      "wheels": [
+        {
+          "x": 0.25,
+          "y": 0.77,
+          "r": 0.09
+        },
+        {
+          "x": 0.75,
+          "y": 0.77,
+          "r": 0.09
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5528471392510863
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6081791138822439
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5528471392510863
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6081791138822439
+      }
+    ],
+    "displayImage": "render-CAR55-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car55-side.webp.json",
+        "sha256": "b4d244863c2bb7e921803a0a323bb9ddaa31af2ed4a020f0da9b8ed3399dc449"
+      }
+    ],
+    "modelCredit": {
+      "title": "(FREE) Porsche 911 Carrera 4S",
+      "author": "Lionsharp Studios",
+      "authorUrl": "https://sketchfab.com/lionsharp",
+      "url": "https://sketchfab.com/3d-models/none-d01b254483794de3819786d93e0e1ebf",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/porsche-911-carrera.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR59",
+    "name": "保时捷 911 RAUH-Welt",
+    "brand": "Porsche",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR59-side",
+    "showcaseImage": "render-CAR59-side",
+    "game": {
+      "side": "render-CAR59-side",
+      "top": "render-CAR59-top",
+      "wheels": [
+        {
+          "x": 0.25,
+          "y": 0.77,
+          "r": 0.09
+        },
+        {
+          "x": 0.75,
+          "y": 0.77,
+          "r": 0.09
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5466434672264875
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6158083830106766
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5466434672264875
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6158083830106766
+      }
+    ],
+    "displayImage": "render-CAR59-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car59-side.webp.json",
+        "sha256": "45d05bfe479989043e59f2837a643a1901d1060eaf299962c0f545ea8723911d"
+      }
+    ],
+    "modelCredit": {
+      "title": "Porsche 911 RAUH-Welt [FREE]",
+      "author": "autoNgraphic",
+      "authorUrl": "https://sketchfab.com/autoNgraphic",
+      "url": "https://sketchfab.com/3d-models/none-0e1f5e1c0ddc4c3f88b8484461146a79",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/porsche-911-rauh-welt.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR64",
+    "name": "科尼赛克 Gemera",
+    "brand": "Koenigsegg",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR64-side",
+    "showcaseImage": "render-CAR64-side",
+    "game": {
+      "side": "render-CAR64-side",
+      "top": "render-CAR64-top",
+      "wheels": [
+        {
+          "x": 0.2287195000591648,
+          "y": 0.6139605402703905,
+          "r": 0.12
+        },
+        {
+          "x": 0.7835028644414355,
+          "y": 0.6093176614875001,
+          "r": 0.12
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.2287195000591648,
+        "y": 0.6139605402703905
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5436737852660909
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6022859374677669
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.2287195000591648,
+        "y": 0.6139605402703905
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5436737852660909
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6022859374677669
+      }
+    ],
+    "displayImage": "render-CAR64-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car64-side.webp.json",
+        "sha256": "b0abdba9619fb06f73ca3f2458397283b07ad3993673ac99816a77114d7822a1"
+      }
+    ],
+    "modelCredit": {
+      "title": "Free Koenigsegg Gemera",
+      "author": "ALIEEEN",
+      "authorUrl": "https://sketchfab.com/ALIEEEN",
+      "url": "https://sketchfab.com/3d-models/none-8bae74bd359940508717afb5c1f212a3",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/koenigsegg-gemera.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR69",
+    "name": "日产 200SX Silvia",
+    "brand": "Nissan",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR69-side",
+    "showcaseImage": "render-CAR69-side",
+    "game": {
+      "side": "render-CAR69-side",
+      "top": "render-CAR69-top",
+      "wheels": [
+        {
+          "x": 0.25,
+          "y": 0.77,
+          "r": 0.09
+        },
+        {
+          "x": 0.75,
+          "y": 0.77,
+          "r": 0.09
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5455614707759286
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6134388365341897
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5455614707759286
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6134388365341897
+      }
+    ],
+    "displayImage": "render-CAR69-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car69-side.webp.json",
+        "sha256": "2d61e7aef0e6e41471985c403c6a1d81085569bbc9807315be5b3a703b77a348"
+      }
+    ],
+    "modelCredit": {
+      "title": "Nissan 200SX Silvia S14",
+      "author": "Lexyc16",
+      "authorUrl": "https://sketchfab.com/Lexyc16",
+      "url": "https://sketchfab.com/3d-models/none-f2a917a924734a89a020e7f970e55e7c",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/nissan-200sx-silvia.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR70",
+    "name": "日产 Proto",
+    "brand": "Nissan",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR70-side",
+    "showcaseImage": "render-CAR70-side",
+    "game": {
+      "side": "render-CAR70-side",
+      "top": "render-CAR70-top",
+      "wheels": [
+        {
+          "x": 0.25,
+          "y": 0.77,
+          "r": 0.09
+        },
+        {
+          "x": 0.75,
+          "y": 0.77,
+          "r": 0.09
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5498625474075323
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6253944503619526
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5498625474075323
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6253944503619526
+      }
+    ],
+    "displayImage": "render-CAR70-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car70-side.webp.json",
+        "sha256": "30e4b4b4522d1fadf0de1e481fe01535f1644d14605473156201df4d4bc27f70"
+      }
+    ],
+    "modelCredit": {
+      "title": "Nissan Z Proto",
+      "author": "Lexyc16",
+      "authorUrl": "https://sketchfab.com/Lexyc16",
+      "url": "https://sketchfab.com/3d-models/none-db9a5f7ae9d84a0fb01cac96afe3e69c",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/nissan-proto.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR73",
+    "name": "日产 Aimgain GT",
+    "brand": "Nissan",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR73-side",
+    "showcaseImage": "render-CAR73-side",
+    "game": {
+      "side": "render-CAR73-side",
+      "top": "render-CAR73-top",
+      "wheels": [
+        {
+          "x": 0.24778282328203072,
+          "y": 0.6635481566284629,
+          "r": 0.07164318815782782
+        },
+        {
+          "x": 0.7548386655941944,
+          "y": 0.6111145100897712,
+          "r": 0.12
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.24778282328203072,
+        "y": 0.6635481566284629
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5458694149903146
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6120081913274265
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.24778282328203072,
+        "y": 0.6635481566284629
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5458694149903146
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6120081913274265
+      }
+    ],
+    "displayImage": "render-CAR73-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car73-side.webp.json",
+        "sha256": "89d385772cdad3f1d006cb767f597f8d47671448b0caa984e02872c70393a2cc"
+      }
+    ],
+    "modelCredit": {
+      "title": "Nissan Aimgain GT R35 Type2",
+      "author": "vecarz",
+      "authorUrl": "https://sketchfab.com/heynic",
+      "url": "https://sketchfab.com/3d-models/none-77456704dc1b4d299a23fecdf341003c",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/nissan-aimgain-gt.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR74",
+    "name": "日产 Custom GTR",
+    "brand": "Nissan",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR74-side",
+    "showcaseImage": "render-CAR74-side",
+    "game": {
+      "side": "render-CAR74-side",
+      "top": "render-CAR74-top",
+      "wheels": [
+        {
+          "x": 0.7361373507257795,
+          "y": 0.4670563491227051,
+          "r": 0.065
+        },
+        {
+          "x": 0.8429967570437724,
+          "y": 0.6229713574251499,
+          "r": 0.10929815299534867
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.7361373507257795,
+        "y": 0.4670563491227051
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.546100445014528
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6083328275808132
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.7361373507257795,
+        "y": 0.4670563491227051
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.546100445014528
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6083328275808132
+      }
+    ],
+    "displayImage": "render-CAR74-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car74-side.webp.json",
+        "sha256": "4bdacfb5d09545f84ccde4ec8ba431b4cc314d8115a1397b4b838d2fdc31a556"
+      }
+    ],
+    "modelCredit": {
+      "title": "Custom 2017 Nissan GTR",
+      "author": "Socksthecat",
+      "authorUrl": "https://sketchfab.com/Socksthecat",
+      "url": "https://sketchfab.com/3d-models/none-a79151120b524854a958ce46a3b064a8",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/nissan-custom-gtr.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR76",
+    "name": "日产 Silvia S15",
+    "brand": "Nissan",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR76-side",
+    "showcaseImage": "render-CAR76-side",
+    "game": {
+      "side": "render-CAR76-side",
+      "top": "render-CAR76-top",
+      "wheels": [
+        {
+          "x": 0.172875383243972,
+          "y": 0.5630502264598869,
+          "r": 0.0717874798808271
+        },
+        {
+          "x": 0.753497291533546,
+          "y": 0.5809252308471272,
+          "r": 0.06908619212059829
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.172875383243972,
+        "y": 0.5630502264598869
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5453938860160672
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181819,
+        "y": 0.6032307982151257
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.172875383243972,
+        "y": 0.5630502264598869
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5453938860160672
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181819,
+        "y": 0.6032307982151257
+      }
+    ],
+    "displayImage": "render-CAR76-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car76-side.webp.json",
+        "sha256": "1bd99f1789e6f2071ab0c71bfbe5a94cd85c1d2f68efc337e19c61906c018a62"
+      }
+    ],
+    "modelCredit": {
+      "title": "Nissan Silvia S15 Custom",
+      "author": "Socksthecat",
+      "authorUrl": "https://sketchfab.com/Socksthecat",
+      "url": "https://sketchfab.com/3d-models/none-2c3481e502c24d818d23a5eb2be8dac9",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/nissan-silvia-s15.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR77",
+    "name": "日产 Skyline GT-R",
+    "brand": "Nissan",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR77-side",
+    "showcaseImage": "render-CAR77-side",
+    "game": {
+      "side": "render-CAR77-side",
+      "top": "render-CAR77-top",
+      "wheels": [
+        {
+          "x": 0.20786201966069578,
+          "y": 0.6753820894591387,
+          "r": 0.12
+        },
+        {
+          "x": 0.7377205755666881,
+          "y": 0.6209930087977691,
+          "r": 0.12
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.20786201966069578,
+        "y": 0.6753820894591387
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5441917153217792
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181819,
+        "y": 0.6150486151202063
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.20786201966069578,
+        "y": 0.6753820894591387
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5441917153217792
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181819,
+        "y": 0.6150486151202063
+      }
+    ],
+    "displayImage": "render-CAR77-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car77-side.webp.json",
+        "sha256": "657802ba8c9fe33c8f82c98d202f5343d161cb2aa354daa397c8ba255082c9f8"
+      }
+    ],
+    "modelCredit": {
+      "title": "Nissan Skyline GT-R C110 Kenmeri '73",
+      "author": "Martin Trafas",
+      "authorUrl": "https://sketchfab.com/TinoD2",
+      "url": "https://sketchfab.com/3d-models/none-1a950b81ee274a0eb8014bd84ba047f5",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/nissan-skyline-gt-r.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR78",
+    "name": "日产 GTR R34",
+    "brand": "Nissan",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR78-side",
+    "showcaseImage": "render-CAR78-side",
+    "game": {
+      "side": "render-CAR78-side",
+      "top": "render-CAR78-top",
+      "wheels": [
+        {
+          "x": 0.22936554166710227,
+          "y": 0.5262495233661635,
+          "r": 0.12
+        },
+        {
+          "x": 0.7282648255241404,
+          "y": 0.527281168801518,
+          "r": 0.12
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.22936554166710227,
+        "y": 0.5262495233661635
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5485112769976098
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6466261278224618
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.22936554166710227,
+        "y": 0.5262495233661635
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5485112769976098
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6466261278224618
+      }
+    ],
+    "displayImage": "render-CAR78-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car78-side.webp.json",
+        "sha256": "7507a675f486d7a7cc17deb8f6d025d59e80824c0eed69d35f507747824eae32"
+      }
+    ],
+    "modelCredit": {
+      "title": "Nissan GTR R34 Skyline | GT-R Skyline",
+      "author": "Pooya_dh",
+      "authorUrl": "https://sketchfab.com/Pooya_dh",
+      "url": "https://sketchfab.com/3d-models/none-5eed440cfd094c5a8fdc9929eb43ab02",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/nissan-gtr-r34.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR79",
+    "name": "日产 Silvia 180sx",
+    "brand": "Nissan",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR79-side",
+    "showcaseImage": "render-CAR79-side",
+    "game": {
+      "side": "render-CAR79-side",
+      "top": "render-CAR79-top",
+      "wheels": [
+        {
+          "x": 0.24636708152214476,
+          "y": 0.5904112833571741,
+          "r": 0.09926658174741179
+        },
+        {
+          "x": 0.7894223345934596,
+          "y": 0.5859436203317476,
+          "r": 0.12
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.24636708152214476,
+        "y": 0.5904112833571741
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5454326404669053
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6106310871147678
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.24636708152214476,
+        "y": 0.5904112833571741
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5454326404669053
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6106310871147678
+      }
+    ],
+    "displayImage": "render-CAR79-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car79-side.webp.json",
+        "sha256": "e341159dbbafb09dee6751278098a4ce70f159a8fbff59a9b58f8be53d6a5758"
+      }
+    ],
+    "modelCredit": {
+      "title": "Nissan Silvia 180sx [Free]",
+      "author": "Black Snow",
+      "authorUrl": "https://sketchfab.com/BlackSnow02",
+      "url": "https://sketchfab.com/3d-models/none-eb3b4310304948ec8eaa4447080d2380",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/nissan-silvia-180sx.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR80",
+    "name": "日产 240sx",
+    "brand": "Nissan",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR80-side",
+    "showcaseImage": "render-CAR80-side",
+    "game": {
+      "side": "render-CAR80-side",
+      "top": "render-CAR80-top",
+      "wheels": [
+        {
+          "x": 0.12201234085533441,
+          "y": 0.6116147537892255,
+          "r": 0.09913369290726565
+        },
+        {
+          "x": 0.7458604085104338,
+          "y": 0.6162957933203415,
+          "r": 0.10984274110200586
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.12201234085533441,
+        "y": 0.6116147537892255
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5449806199940748
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.604745482703327
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.12201234085533441,
+        "y": 0.6116147537892255
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5449806199940748
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.604745482703327
+      }
+    ],
+    "displayImage": "render-CAR80-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car80-side.webp.json",
+        "sha256": "fda83ecbbd196eded9e6604f4c12da3f73f462bb7715a0562750e82bb6c71277"
+      }
+    ],
+    "modelCredit": {
+      "title": "Nissan 240sx [FREE]",
+      "author": "autoNgraphic",
+      "authorUrl": "https://sketchfab.com/autoNgraphic",
+      "url": "https://sketchfab.com/3d-models/none-0c82659677374e0895026c2772d3beba",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/nissan-240sx.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR82",
+    "name": "日产 S15 Drift",
+    "brand": "Nissan",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR82-side",
+    "showcaseImage": "render-CAR82-side",
+    "game": {
+      "side": "render-CAR82-side",
+      "top": "render-CAR82-top",
+      "wheels": [
+        {
+          "x": 0.25,
+          "y": 0.77,
+          "r": 0.09
+        },
+        {
+          "x": 0.75,
+          "y": 0.77,
+          "r": 0.09
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5452921913208886
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6058648374130242
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5452921913208886
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6058648374130242
+      }
+    ],
+    "displayImage": "render-CAR82-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car82-side.webp.json",
+        "sha256": "9c5a7eb1982d005dac5b554296d8f8d3e10e198498ba3443f51aafb2a7950d16"
+      }
+    ],
+    "modelCredit": {
+      "title": "Nissan S15 Drift [FREE]",
+      "author": "autoNgraphic",
+      "authorUrl": "https://sketchfab.com/autoNgraphic",
+      "url": "https://sketchfab.com/3d-models/none-18348c1698f74d9db1497a791bd21a2f",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/nissan-s15-drift.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR83",
+    "name": "日产 350z Rocket",
+    "brand": "Nissan",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR83-side",
+    "showcaseImage": "render-CAR83-side",
+    "game": {
+      "side": "render-CAR83-side",
+      "top": "render-CAR83-top",
+      "wheels": [
+        {
+          "x": 0.25,
+          "y": 0.77,
+          "r": 0.09
+        },
+        {
+          "x": 0.75,
+          "y": 0.77,
+          "r": 0.09
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5479979607377362
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6174204273361572
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5479979607377362
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6174204273361572
+      }
+    ],
+    "displayImage": "render-CAR83-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car83-side.webp.json",
+        "sha256": "882029a315def4b4d5b9e6337256d8c607bd9ff27e85b22b204445305f30a47f"
+      }
+    ],
+    "modelCredit": {
+      "title": "Nissan 350z Rocket Bunny",
+      "author": "Black Snow",
+      "authorUrl": "https://sketchfab.com/BlackSnow02",
+      "url": "https://sketchfab.com/3d-models/none-c881a7e4285c42c2b359abf525fa7c95",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/nissan-350z-rocket.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR84",
+    "name": "丰田 Corolla AE86",
+    "brand": "Toyota",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR84-side",
+    "showcaseImage": "render-CAR84-side",
+    "game": {
+      "side": "render-CAR84-side",
+      "top": "render-CAR84-top",
+      "wheels": [
+        {
+          "x": 0.25,
+          "y": 0.77,
+          "r": 0.09
+        },
+        {
+          "x": 0.75,
+          "y": 0.77,
+          "r": 0.09
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5474401177893844
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6187405312205029
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5474401177893844
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6187405312205029
+      }
+    ],
+    "displayImage": "render-CAR84-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car84-side.webp.json",
+        "sha256": "ae13d745c1b17d0bf55ec62287b569556910be4c1218b33d2c15b29adb1467e0"
+      }
+    ],
+    "modelCredit": {
+      "title": "Toyota Corolla AE86 Trueno",
+      "author": "Lexyc16",
+      "authorUrl": "https://sketchfab.com/Lexyc16",
+      "url": "https://sketchfab.com/3d-models/none-fe02fba6302e450ea8424591493341ea",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/toyota-corolla-ae86.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR86",
+    "name": "丰田 Supra Mk4 F&F",
+    "brand": "Toyota",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR86-side",
+    "showcaseImage": "render-CAR86-side",
+    "game": {
+      "side": "render-CAR86-side",
+      "top": "render-CAR86-top",
+      "wheels": [
+        {
+          "x": 0.25,
+          "y": 0.77,
+          "r": 0.09
+        },
+        {
+          "x": 0.75,
+          "y": 0.77,
+          "r": 0.09
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5515687407982631
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6283593956545953
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5515687407982631
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6283593956545953
+      }
+    ],
+    "displayImage": "render-CAR86-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car86-side.webp.json",
+        "sha256": "b36989ad774a7c4df613676f85a4ae8d5f797ca91a705538f1cbb1f328b6eb54"
+      }
+    ],
+    "modelCredit": {
+      "title": "Toyota Supra Mk4 [FREE], Fast and Furious.",
+      "author": "sudhakar2378",
+      "authorUrl": "https://sketchfab.com/sudhakar2378",
+      "url": "https://sketchfab.com/3d-models/toyota-supra-mk4-free-fast-and-furious-172e4b0b890a463e80e4dc483fffe7a6",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/toyota-supra-mk4-ff.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR87",
+    "name": "丰田 Supra Mk4",
+    "brand": "Toyota",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR87-side",
+    "showcaseImage": "render-CAR87-side",
+    "game": {
+      "side": "render-CAR87-side",
+      "top": "render-CAR87-top",
+      "wheels": [
+        {
+          "x": 0.2167939028647241,
+          "y": 0.587884532306266,
+          "r": 0.12
+        },
+        {
+          "x": 0.7596497698442297,
+          "y": 0.5923493634992605,
+          "r": 0.12
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.2167939028647241,
+        "y": 0.587884532306266
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5483017050288511
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6233730830575896
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.2167939028647241,
+        "y": 0.587884532306266
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5483017050288511
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6233730830575896
+      }
+    ],
+    "displayImage": "render-CAR87-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car87-side.webp.json",
+        "sha256": "586b747a98209dc6fa2643836533302c11b01fd9661d1b19d3409d7b30da42a2"
+      }
+    ],
+    "modelCredit": {
+      "title": "Toyota Supra mk4",
+      "author": "Black Snow",
+      "authorUrl": "https://sketchfab.com/BlackSnow02",
+      "url": "https://sketchfab.com/3d-models/none-8bebdee25b774067929bb33e648533ac",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/toyota-supra-mk4.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR88",
+    "name": "丰田 86",
+    "brand": "Toyota",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR88-side",
+    "showcaseImage": "render-CAR88-side",
+    "game": {
+      "side": "render-CAR88-side",
+      "top": "render-CAR88-top",
+      "wheels": [
+        {
+          "x": 0.25,
+          "y": 0.77,
+          "r": 0.09
+        },
+        {
+          "x": 0.75,
+          "y": 0.77,
+          "r": 0.09
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5510528397283102
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.629898105157807
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5510528397283102
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.629898105157807
+      }
+    ],
+    "displayImage": "render-CAR88-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car88-side.webp.json",
+        "sha256": "2254a458d2c17ee87388e078438d264da00f19962385f99b4ffc934e99979e4d"
+      }
+    ],
+    "modelCredit": {
+      "title": "Fox`s Rocketbunny GT86",
+      "author": "Swiss_Fox",
+      "authorUrl": "https://sketchfab.com/Swiss_Fox",
+      "url": "https://sketchfab.com/3d-models/815691bbc8cd459fb0fafea2d7a02df7",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/toyota-86.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR90",
+    "name": "丰田 AE86 Black",
+    "brand": "Toyota",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR90-side",
+    "showcaseImage": "render-CAR90-side",
+    "game": {
+      "side": "render-CAR90-side",
+      "top": "render-CAR90-top",
+      "wheels": [
+        {
+          "x": 0.25085053084982467,
+          "y": 0.6818080537274278,
+          "r": 0.12
+        },
+        {
+          "x": 0.9150885720184564,
+          "y": 0.4703752231384068,
+          "r": 0.1003642019666548
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25085053084982467,
+        "y": 0.6818080537274278
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5487055119902645
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6201711191666206
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25085053084982467,
+        "y": 0.6818080537274278
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5487055119902645
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6201711191666206
+      }
+    ],
+    "displayImage": "render-CAR90-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car90-side.webp.json",
+        "sha256": "eb5b31d558d97b4e281b440208c2cc5ac4fc9c78ecda092b30bfa317501a9689"
+      }
+    ],
+    "modelCredit": {
+      "title": "Toyota AE86 Black Limited Kouki",
+      "author": "Martin Trafas",
+      "authorUrl": "https://sketchfab.com/TinoD2",
+      "url": "https://sketchfab.com/3d-models/none-80854ba302034431b517f523db328129",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/toyota-ae86-black.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR92",
+    "name": "马自达 RX-7 FC",
+    "brand": "Mazda",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR92-side",
+    "showcaseImage": "render-CAR92-side",
+    "game": {
+      "side": "render-CAR92-side",
+      "top": "render-CAR92-top",
+      "wheels": [
+        {
+          "x": 0.25,
+          "y": 0.77,
+          "r": 0.09
+        },
+        {
+          "x": 0.75,
+          "y": 0.77,
+          "r": 0.09
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5707768306286366
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.636032345699657
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5707768306286366
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.636032345699657
+      }
+    ],
+    "displayImage": "render-CAR92-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car92-side.webp.json",
+        "sha256": "952b9b2f5a4869105778c8223d20fbc99dcf68b9c7e5a76ea42e6c1de60ff588"
+      }
+    ],
+    "modelCredit": {
+      "title": "Mazda RX-7 FC",
+      "author": "Lexyc16",
+      "authorUrl": "https://sketchfab.com/Lexyc16",
+      "url": "https://sketchfab.com/3d-models/none-8ac0df459f514950ab83ac37109a06ab",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/mazda-rx-7-fc.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR93",
+    "name": "马自达 RX-7 FC3S",
+    "brand": "Mazda",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR93-side",
+    "showcaseImage": "render-CAR93-side",
+    "game": {
+      "side": "render-CAR93-side",
+      "top": "render-CAR93-top",
+      "wheels": [
+        {
+          "x": 0.2419722874478118,
+          "y": 0.6496639841470949,
+          "r": 0.12
+        },
+        {
+          "x": 0.7571491527780738,
+          "y": 0.678951289513353,
+          "r": 0.09289871769211358
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.2419722874478118,
+        "y": 0.6496639841470949
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5449630594634246
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6152390329380132
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.2419722874478118,
+        "y": 0.6496639841470949
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5449630594634246
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6152390329380132
+      }
+    ],
+    "displayImage": "render-CAR93-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car93-side.webp.json",
+        "sha256": "3123a80bcf654db342a3cbf6962401cc1aa4ff44ce0526a534e2fa4fdaff551b"
+      }
+    ],
+    "modelCredit": {
+      "title": "Mazda RX-7 FC3S (\"Akagi's White Comet\") [remake]",
+      "author": "Myedsu",
+      "authorUrl": "https://sketchfab.com/myedsu",
+      "url": "https://sketchfab.com/3d-models/none-de2dd3c49fc8467aa8af0ec934a40c15",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/mazda-rx-7-fc3s.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR101",
+    "name": "宝马 Z4",
+    "brand": "BMW",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR101-side",
+    "showcaseImage": "render-CAR101-side",
+    "game": {
+      "side": "render-CAR101-side",
+      "top": "render-CAR101-top",
+      "wheels": [
+        {
+          "x": 0.25,
+          "y": 0.77,
+          "r": 0.09
+        },
+        {
+          "x": 0.75,
+          "y": 0.77,
+          "r": 0.09
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5475634244347558
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6147864709451889
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5475634244347558
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6147864709451889
+      }
+    ],
+    "displayImage": "render-CAR101-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car101-side.webp.json",
+        "sha256": "17481f756ccded827988f2d1e606d885329f0de23afa7cd0daa17cb10eb6172c"
+      }
+    ],
+    "modelCredit": {
+      "title": "BMW Z4 GT3",
+      "author": "Mona x Supercars",
+      "authorUrl": "https://sketchfab.com/Car2022",
+      "url": "https://sketchfab.com/3d-models/600ecd7a8ed54f7c89cbd3f0af90d200",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/bmw-z4.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR104",
+    "name": "宝马 M3 Coupe",
+    "brand": "BMW",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR104-side",
+    "showcaseImage": "render-CAR104-side",
+    "game": {
+      "side": "render-CAR104-side",
+      "top": "render-CAR104-top",
+      "wheels": [
+        {
+          "x": 0.2978823002684864,
+          "y": 0.8284780619630392,
+          "r": 0.07341492024576014
+        },
+        {
+          "x": 0.7448672234488162,
+          "y": 0.8278193386034413,
+          "r": 0.09628967924060688
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.2978823002684864,
+        "y": 0.8284780619630392
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5443434176861323
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.8580804496989647,
+        "y": 0.6499894694387999
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.2978823002684864,
+        "y": 0.8284780619630392
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5443434176861323
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.8580804496989647,
+        "y": 0.6499894694387999
+      }
+    ],
+    "displayImage": "render-CAR104-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car104-side.webp.json",
+        "sha256": "577ffcb8cd1b85ba0ac7532aa9ee187d3ca0fca4875a39ef7df1a049cd72d3a0"
+      }
+    ],
+    "modelCredit": {
+      "title": "BMW M3 Coupe (E30) [stance style]",
+      "author": "Myedsu",
+      "authorUrl": "https://sketchfab.com/myedsu",
+      "url": "https://sketchfab.com/3d-models/none-e622086e10a947739c3de39c51abacb2",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/bmw-m3-coupe.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR106",
+    "name": "宝马 M3 E92",
+    "brand": "BMW",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR106-side",
+    "showcaseImage": "render-CAR106-side",
+    "game": {
+      "side": "render-CAR106-side",
+      "top": "render-CAR106-top",
+      "wheels": [
+        {
+          "x": 0.25163880866641625,
+          "y": 0.6705668746970799,
+          "r": 0.12
+        },
+        {
+          "x": 0.7953315517001771,
+          "y": 0.6180768550833339,
+          "r": 0.12
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25163880866641625,
+        "y": 0.6705668746970799
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5468194725158635
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6163886358742336
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25163880866641625,
+        "y": 0.6705668746970799
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5468194725158635
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6163886358742336
+      }
+    ],
+    "displayImage": "render-CAR106-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car106-side.webp.json",
+        "sha256": "57b90650d9143401a21859be898fe84ce924c2bb873b28823502dd96f6c5e728"
+      }
+    ],
+    "modelCredit": {
+      "title": "BMW M3 e92 [stance]",
+      "author": "Black Snow",
+      "authorUrl": "https://sketchfab.com/BlackSnow02",
+      "url": "https://sketchfab.com/3d-models/none-c35a14d811b042d792a6da69381f7f80",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/bmw-m3-e92.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR107",
+    "name": "宝马 M4 F82",
+    "brand": "BMW",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR107-side",
+    "showcaseImage": "render-CAR107-side",
+    "game": {
+      "side": "render-CAR107-side",
+      "top": "render-CAR107-top",
+      "wheels": [
+        {
+          "x": 0.24911316600991068,
+          "y": 0.6239365967664563,
+          "r": 0.12
+        },
+        {
+          "x": 0.7928471016924883,
+          "y": 0.6800038316194397,
+          "r": 0.12
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.24911316600991068,
+        "y": 0.6239365967664563
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.547044917843029
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6195867831229213
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.24911316600991068,
+        "y": 0.6239365967664563
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.547044917843029
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6195867831229213
+      }
+    ],
+    "displayImage": "render-CAR107-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car107-side.webp.json",
+        "sha256": "1eaaac09dbb8ee38b2770e31d974307f1a1d50631b3e96be6b0883c9317c0d5c"
+      }
+    ],
+    "modelCredit": {
+      "title": "BMW M4 f82",
+      "author": "Black Snow",
+      "authorUrl": "https://sketchfab.com/BlackSnow02",
+      "url": "https://sketchfab.com/3d-models/none-8e87379f40fd40dcac0a751e22c1a188",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/bmw-m4-f82.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR109",
+    "name": "宝马 F22 EUROFIGHTER",
+    "brand": "BMW",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR109-side",
+    "showcaseImage": "render-CAR109-side",
+    "game": {
+      "side": "render-CAR109-side",
+      "top": "render-CAR109-top",
+      "wheels": [
+        {
+          "x": 0.11526288635375659,
+          "y": 0.6285985455068683,
+          "r": 0.12
+        },
+        {
+          "x": 0.8820874330857864,
+          "y": 0.4459239845536145,
+          "r": 0.09346265221429295
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.11526288635375659,
+        "y": 0.6285985455068683
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5490336860850582
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181819,
+        "y": 0.6231708308020842
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.11526288635375659,
+        "y": 0.6285985455068683
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5490336860850582
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181819,
+        "y": 0.6231708308020842
+      }
+    ],
+    "displayImage": "render-CAR109-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car109-side.webp.json",
+        "sha256": "52a05883410bf120dc7d19940763941b210754448b934df008dba2eaaf62296f"
+      }
+    ],
+    "modelCredit": {
+      "title": "BMW F22 \"EUROFIGHTER\" [FREE]",
+      "author": "autoNgraphic",
+      "authorUrl": "https://sketchfab.com/autoNgraphic",
+      "url": "https://sketchfab.com/3d-models/none-d4ffe0df9066481fa028eb1e1348c4b0",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/bmw-f22-eurofighter.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR110",
+    "name": "宝马 3-Series E36",
+    "brand": "BMW",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR110-side",
+    "showcaseImage": "render-CAR110-side",
+    "game": {
+      "side": "render-CAR110-side",
+      "top": "render-CAR110-top",
+      "wheels": [
+        {
+          "x": 0.24307701004225818,
+          "y": 0.6796756557183451,
+          "r": 0.1127613724878289
+        },
+        {
+          "x": 0.8011050065154616,
+          "y": 0.679340439281419,
+          "r": 0.11270561653376991
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.24307701004225818,
+        "y": 0.6796756557183451
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5459559473412319
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6157760856375333
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.24307701004225818,
+        "y": 0.6796756557183451
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5459559473412319
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6157760856375333
+      }
+    ],
+    "displayImage": "render-CAR110-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car110-side.webp.json",
+        "sha256": "38d047401e62dc690ad2f76888550ca69ddee860b8674037bc88b43d97f8da00"
+      }
+    ],
+    "modelCredit": {
+      "title": "BMW 3-Series e36 [Street]",
+      "author": "Black Snow",
+      "authorUrl": "https://sketchfab.com/BlackSnow02",
+      "url": "https://sketchfab.com/3d-models/none-13d0a12ecda04317b96ce1e618300412",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/bmw-3-series-e36.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR114",
+    "name": "梅赛德斯-奔驰 S63 Coupe",
+    "brand": "Mercedes-Benz",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR114-side",
+    "showcaseImage": "render-CAR114-side",
+    "game": {
+      "side": "render-CAR114-side",
+      "top": "render-CAR114-top",
+      "wheels": [
+        {
+          "x": 0.22793945254549286,
+          "y": 0.6602278900356692,
+          "r": 0.11964918744290325
+        },
+        {
+          "x": 0.7513054182043883,
+          "y": 0.603396993485154,
+          "r": 0.11964918744290325
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.22793945254549286,
+        "y": 0.6602278900356692
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5444351513869482
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6097141473812443
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.22793945254549286,
+        "y": 0.6602278900356692
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5444351513869482
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6097141473812443
+      }
+    ],
+    "displayImage": "render-CAR114-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car114-side.webp.json",
+        "sha256": "e6b93cfd4c93d366ecd135f68a804ffcdf14c6f03fdf0cb79e977f081f85d973"
+      }
+    ],
+    "modelCredit": {
+      "title": "Mercedes-Benz s63 Coupe Brabus 800",
+      "author": "Black Snow",
+      "authorUrl": "https://sketchfab.com/BlackSnow02",
+      "url": "https://sketchfab.com/3d-models/none-1b79ffa597de49d188537b3f40aa8b50",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/mercedes-benz-s63-coupe.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR117",
+    "name": "奥迪 R18",
+    "brand": "Audi",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR117-side",
+    "showcaseImage": "render-CAR117-side",
+    "game": {
+      "side": "render-CAR117-side",
+      "top": "render-CAR117-top",
+      "wheels": [
+        {
+          "x": 0.1891289353505357,
+          "y": 0.6336741607235202,
+          "r": 0.0802826045051032
+        },
+        {
+          "x": 0.7672173281307775,
+          "y": 0.5802687822862811,
+          "r": 0.0802826045051032
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.1891289353505357,
+        "y": 0.6336741607235202
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5458206902679142
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6063312963140132
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.1891289353505357,
+        "y": 0.6336741607235202
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5458206902679142
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6063312963140132
+      }
+    ],
+    "displayImage": "render-CAR117-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car117-side.webp.json",
+        "sha256": "a183fdcea6206561868c3c84fae4c39b543c9e2484585cda0348610eacf5df57"
+      }
+    ],
+    "modelCredit": {
+      "title": "AUDI R18",
+      "author": "Godheim",
+      "authorUrl": "https://sketchfab.com/Godheim",
+      "url": "https://sketchfab.com/3d-models/none-3a5f4938e662429b8633120aa62805a4",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/audi-r18.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR121",
+    "name": "道奇 Dominic Toretto's",
+    "brand": "Dodge",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR121-side",
+    "showcaseImage": "render-CAR121-side",
+    "game": {
+      "side": "render-CAR121-side",
+      "top": "render-CAR121-top",
+      "wheels": [
+        {
+          "x": 0.25,
+          "y": 0.77,
+          "r": 0.09
+        },
+        {
+          "x": 0.75,
+          "y": 0.77,
+          "r": 0.09
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5412394720444484
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.605083002059673
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5412394720444484
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.605083002059673
+      }
+    ],
+    "displayImage": "render-CAR121-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car121-side.webp.json",
+        "sha256": "19326e888769e9c8446aa9a3d5c6f709b6db4ed35da38833efb8c48f80172d72"
+      }
+    ],
+    "modelCredit": {
+      "title": "Dominic Toretto's 1970 Dodge Charger R/T FAST X",
+      "author": "Emmanual Robinson, Jr.",
+      "authorUrl": "https://sketchfab.com/3001105",
+      "url": "https://sketchfab.com/3d-models/none-0e2c80e2928d4b76b49914db5bbb47ca",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/dodge-dominic-toretto-s.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR122",
+    "name": "道奇 ",
+    "brand": "Dodge",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR122-side",
+    "showcaseImage": "render-CAR122-side",
+    "game": {
+      "side": "render-CAR122-side",
+      "top": "render-CAR122-top",
+      "wheels": [
+        {
+          "x": 0.1832104777676271,
+          "y": 0.4750773626580441,
+          "r": 0.09669798523374915
+        },
+        {
+          "x": 0.7225569239376243,
+          "y": 0.6462602077189173,
+          "r": 0.08626660845900883
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.1832104777676271,
+        "y": 0.4750773626580441
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5458717037263391
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6065798988695225
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.1832104777676271,
+        "y": 0.4750773626580441
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5458717037263391
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6065798988695225
+      }
+    ],
+    "displayImage": "render-CAR122-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car122-side.webp.json",
+        "sha256": "85a5916dad3c0fd58413b0f7e4b13f3a11a58fd49d714ee32d4436fc141ac4cb"
+      }
+    ],
+    "modelCredit": {
+      "title": "F&F 8 | Dominic Toretto's ICE DODGE CHARGER",
+      "author": "kevin (ケビン)",
+      "authorUrl": "https://sketchfab.com/sohyalebret",
+      "url": "https://sketchfab.com/3d-models/none-ffb8bead6c2642bbbd02a71b0b19e5b9",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/dodge-.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR124",
+    "name": "福特 Mustang GT3",
+    "brand": "Ford",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR124-side",
+    "showcaseImage": "render-CAR124-side",
+    "game": {
+      "side": "render-CAR124-side",
+      "top": "render-CAR124-top",
+      "wheels": [
+        {
+          "x": 0.25,
+          "y": 0.77,
+          "r": 0.09
+        },
+        {
+          "x": 0.75,
+          "y": 0.77,
+          "r": 0.09
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5449237013050219
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181819,
+        "y": 0.6166975514272226
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5449237013050219
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181819,
+        "y": 0.6166975514272226
+      }
+    ],
+    "displayImage": "render-CAR124-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car124-side.webp.json",
+        "sha256": "49eb58050109279a445a5e9bb8db7a7b8f08bb3eb1ab96ade3540b0d35c7fad6"
+      }
+    ],
+    "modelCredit": {
+      "title": "2024 Ford Mustang GT3",
+      "author": "kevin (ケビン)",
+      "authorUrl": "https://sketchfab.com/sohyalebret",
+      "url": "https://sketchfab.com/3d-models/none-d2b7823f48f147e99e857ee825d089cc",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/ford-mustang-gt3.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR126",
+    "name": "福特 Mustang Convertible",
+    "brand": "Ford",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR126-side",
+    "showcaseImage": "render-CAR126-side",
+    "game": {
+      "side": "render-CAR126-side",
+      "top": "render-CAR126-top",
+      "wheels": [
+        {
+          "x": 0.25,
+          "y": 0.77,
+          "r": 0.09
+        },
+        {
+          "x": 0.75,
+          "y": 0.77,
+          "r": 0.09
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5423917709042845
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6057459216074386
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5423917709042845
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6057459216074386
+      }
+    ],
+    "displayImage": "render-CAR126-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car126-side.webp.json",
+        "sha256": "6625ef66b9a3da260b9435d80ed3595500fb9b574158f2d673617d2467314e35"
+      }
+    ],
+    "modelCredit": {
+      "title": "1965 Ford Mustang Convertible",
+      "author": "Kristian LaGrange",
+      "authorUrl": "https://sketchfab.com/kristian123",
+      "url": "https://sketchfab.com/3d-models/none-05f2a294087541ab82f681136d134344",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/ford-mustang-convertible.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR127",
+    "name": "福特 Capri Group",
+    "brand": "Ford",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR127-side",
+    "showcaseImage": "render-CAR127-side",
+    "game": {
+      "side": "render-CAR127-side",
+      "top": "render-CAR127-top",
+      "wheels": [
+        {
+          "x": 0.2892583633595073,
+          "y": 0.6212611258356533,
+          "r": 0.09839933732092916
+        },
+        {
+          "x": 0.7464372010311893,
+          "y": 0.6398995294233802,
+          "r": 0.08551247809101095
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.2892583633595073,
+        "y": 0.6212611258356533
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5419744791191436
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.5966733425702742
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.2892583633595073,
+        "y": 0.6212611258356533
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5419744791191436
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.5966733425702742
+      }
+    ],
+    "displayImage": "render-CAR127-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car127-side.webp.json",
+        "sha256": "9df96d3b7cd5f530f0951ffc5e1c6355f548cac5bd44c454666d5099686104c6"
+      }
+    ],
+    "modelCredit": {
+      "title": "Ford Capri Group B",
+      "author": "Tiaan.Pretorius",
+      "authorUrl": "https://sketchfab.com/Tiaan.Pretorius",
+      "url": "https://sketchfab.com/3d-models/none-a8821371a98a4ccbad0beee12fd4f3e9",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/ford-capri-group.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR130",
+    "name": "达特桑 Gaijin 240Z",
+    "brand": "Datsun",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR130-side",
+    "showcaseImage": "render-CAR130-side",
+    "game": {
+      "side": "render-CAR130-side",
+      "top": "render-CAR130-top",
+      "wheels": [
+        {
+          "x": 0.25,
+          "y": 0.77,
+          "r": 0.09
+        },
+        {
+          "x": 0.75,
+          "y": 0.77,
+          "r": 0.09
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5543010224385789
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6331146629058876
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5543010224385789
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6331146629058876
+      }
+    ],
+    "displayImage": "render-CAR130-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car130-side.webp.json",
+        "sha256": "374ddc57b1f516d4a9499f3d07687eb0df0dcdffc23e8fe669b67e7b44dd7153"
+      }
+    ],
+    "modelCredit": {
+      "title": "Gaijin - Datsun 240Z",
+      "author": "felipegall",
+      "authorUrl": "https://sketchfab.com/felipegall",
+      "url": "https://sketchfab.com/3d-models/none-b52a72137cb14ee5917443b369817670",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/datsun-gaijin-240z.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR131",
+    "name": "达特桑 280Z",
+    "brand": "Datsun",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR131-side",
+    "showcaseImage": "render-CAR131-side",
+    "game": {
+      "side": "render-CAR131-side",
+      "top": "render-CAR131-top",
+      "wheels": [
+        {
+          "x": 0.23462176075882796,
+          "y": 0.6618732877630229,
+          "r": 0.11484781509010936
+        },
+        {
+          "x": 0.7214617447481865,
+          "y": 0.6059133633830557,
+          "r": 0.11603567084591902
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.23462176075882796,
+        "y": 0.6618732877630229
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5494456608258794
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6161618886609792
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.23462176075882796,
+        "y": 0.6618732877630229
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5494456608258794
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.6161618886609792
+      }
+    ],
+    "displayImage": "render-CAR131-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car131-side.webp.json",
+        "sha256": "f7b522ddeab3519af5feb0341e405d42a1f84e92ebf888e88b4b62c976353fe6"
+      }
+    ],
+    "modelCredit": {
+      "title": "[FREE] Datsun 280Z",
+      "author": "Martin Trafas",
+      "authorUrl": "https://sketchfab.com/TinoD2",
+      "url": "https://sketchfab.com/3d-models/none-0789ab2ece9442de94b3c41595e0ecbd",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/datsun-280z.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR132",
+    "name": "斯巴鲁 Impreza",
+    "brand": "Subaru",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR132-side",
+    "showcaseImage": "render-CAR132-side",
+    "game": {
+      "side": "render-CAR132-side",
+      "top": "render-CAR132-top",
+      "wheels": [
+        {
+          "x": 0.2293752364266159,
+          "y": 0.7143919683203845,
+          "r": 0.11364703738262971
+        },
+        {
+          "x": 0.7378439620465858,
+          "y": 0.661119927406667,
+          "r": 0.12
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.2293752364266159,
+        "y": 0.7143919683203845
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5493784856795951
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.626391751294138
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.2293752364266159,
+        "y": 0.7143919683203845
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5493784856795951
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.626391751294138
+      }
+    ],
+    "displayImage": "render-CAR132-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car132-side.webp.json",
+        "sha256": "f13321d7211c44478e2b80869564cf1831b3a1b7db7f4929ece90d29a659a958"
+      }
+    ],
+    "modelCredit": {
+      "title": "Subaru Impreza WRX STi 2004 Custom",
+      "author": "MAC ULT ARTS",
+      "authorUrl": "https://sketchfab.com/MACULTARTS",
+      "url": "https://sketchfab.com/3d-models/08296bc950364621b6174a3078bb19e0",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/subaru-impreza.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR134",
+    "name": "特斯拉 Roadster",
+    "brand": "Tesla",
+    "edition": "作者建模与改装版本",
+    "image": "render-CAR134-side",
+    "showcaseImage": "render-CAR134-side",
+    "game": {
+      "side": "render-CAR134-side",
+      "top": "render-CAR134-top",
+      "wheels": [
+        {
+          "x": 0.1816309151966204,
+          "y": 0.5767806827625731,
+          "r": 0.07890288382367494
+        },
+        {
+          "x": 0.7881166963214605,
+          "y": 0.6429384272755421,
+          "r": 0.1123419206716988
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.1816309151966204,
+        "y": 0.5767806827625731
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5432027567719168
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181819,
+        "y": 0.6033684667484476
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.1816309151966204,
+        "y": 0.5767806827625731
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5432027567719168
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181819,
+        "y": 0.6033684667484476
+      }
+    ],
+    "displayImage": "render-CAR134-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car134-side.webp.json",
+        "sha256": "e12e1a350fdf27f01078cf77ba5c5a4649b775bca34e5e02a7eb4e8775b67342"
+      }
+    ],
+    "modelCredit": {
+      "title": "Tesla Roadster 2020",
+      "author": "metarex.4d",
+      "authorUrl": "https://sketchfab.com/metarex.4d",
+      "url": "https://sketchfab.com/3d-models/none-1fbf29e297bd4a17ac39a00a378441d8",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/tesla-roadster.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  },
+  {
+    "id": "CAR103",
+    "name": "宝马 635 CSi (E24)",
+    "brand": "BMW",
+    "edition": "真实量产车型的游戏外观",
+    "image": "render-CAR103-side",
+    "showcaseImage": "render-CAR103-side",
+    "game": {
+      "side": "render-CAR103-side",
+      "top": "render-CAR103-top",
+      "wheels": [
+        {
+          "x": 0.25,
+          "y": 0.77,
+          "r": 0.09
+        },
+        {
+          "x": 0.75,
+          "y": 0.77,
+          "r": 0.09
+        }
+      ]
+    },
+    "hotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5445257655263623
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.607902605216992
+      }
+    ],
+    "showcaseHotspots": [
+      {
+        "id": "wheel",
+        "zh": "车轮",
+        "x": 0.25,
+        "y": 0.77
+      },
+      {
+        "id": "door",
+        "zh": "车门",
+        "x": 0.5,
+        "y": 0.5445257655263623
+      },
+      {
+        "id": "light",
+        "zh": "车灯",
+        "x": 0.9318181818181818,
+        "y": 0.607902605216992
+      }
+    ],
+    "displayImage": "render-CAR103-side",
+    "origins": [
+      {
+        "path": "media/rendered-cars/car103-side.webp.json",
+        "sha256": "2eac267695c739a67fbcd4b2f4005be9157f9138463c80497886b719c451361d"
+      }
+    ],
+    "modelCredit": {
+      "title": "BMW e24 635csi",
+      "author": "Black Snow",
+      "authorUrl": "https://sketchfab.com/BlackSnow02",
+      "url": "https://sketchfab.com/3d-models/none-77de92d93fd44c21a86bfc12c1dbfdab",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/bmw-e24-635csi.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    }
+  }
+]

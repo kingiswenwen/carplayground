@@ -9,7 +9,7 @@ describe('open invitations after play',()=>{
    expect(visited.has(id)).toBe(false);visited.add(id);
    const next=nextInvitation(id,'CAR01');
    if(next.href==='#/garage')break;
-   const match=next.href.match(/^#\/play\/([^?]+)\?car=(CAR\d{2})$/)!;
+   const match=next.href.match(/^#\/play\/([^?]+)\?car=(CAR\d{2,3})$/)!;
    expect(match).not.toBeNull();const activity=getActivity(match[1])!;
    expect(activity.carIds).toContain(match[2]);id=activity.id;
   }

@@ -1,6 +1,6 @@
 import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from 'react';
 import { RefreshCw } from 'lucide-react';
-import { assetUrl, content, getCar, type Color, type Part } from '../domain/content';
+import { assetUrl, content, getDisplayCar, type Color, type Part } from '../domain/content';
 
 type Props = { presentation?: 'object' | 'showcase'; lazy?: boolean; carId?: string; color?: Color; hotspots?: boolean; active?: Part; onPart?: (part: Part) => void; marker?: { x: number; y: number }; priority?: boolean; onReadyChange?: (ready: boolean) => void };
 export function CarImage({ presentation = 'object', lazy = false, carId = 'CAR01', color = 'white', hotspots = false, active, onPart, marker, priority, onReadyChange }: Props) {
@@ -20,7 +20,7 @@ export function CarImage({ presentation = 'object', lazy = false, carId = 'CAR01
   const imageElement = useRef<HTMLImageElement>(null);
   const readyCallback = useRef(onReadyChange); readyCallback.current = onReadyChange;
   useEffect(() => { readyCallback.current?.(status === 'ready'); }, [status, retry]);
-  const car = getCar(carId) || content.cars[0];
+  const car = getDisplayCar(carId) || content.cars[0];
   const showcase = presentation === 'showcase';
   const imageId = car.game?.side || (showcase ? car.showcaseImage : car.id === 'CAR01' ? content.car.images[color] : car.displayImage || car.image);
   useLayoutEffect(() => { const element=imageElement.current;setStatus(element?.complete ? (element.naturalWidth>0 ? 'ready' : 'error') : 'loading');setRetry(0); }, [imageId]);
@@ -29,7 +29,7 @@ export function CarImage({ presentation = 'object', lazy = false, carId = 'CAR01
   const showPoints = hotspots && status === 'ready';
   return <div ref={holder} className={`car-image ${status} ${showcase ? 'car-showcase' : car.id === 'CAR01' || car.displayImage ? '' : 'real-photo'} ${showPoints ? 'has-part-hotspots' : ''}`} style={{ aspectRatio: `${image.width}/${image.height}`, '--part-count': points.length } as CSSProperties}>
     {visible && <img ref={imageElement} key={retry} src={assetUrl(imageId) + (retry ? `?retry=${retry}` : '')}
-      alt={`${car.name}，GPT重新生成的游戏跑车`}
+      alt={`${car.name}，${car.game?.side.startsWith('render-')?'独立立体模型预览':'游戏跑车'}`}
       width={image.width} height={image.height} draggable={false} loading={lazy ? 'lazy' : 'eager'} fetchPriority={priority ? 'high' : 'auto'}
       onLoad={() => setStatus('ready')} onError={() => setStatus('error')} />}
     {status === 'loading' && <span className="image-loading" aria-label="正在准备小车">🛞</span>}

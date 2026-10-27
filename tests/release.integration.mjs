@@ -36,6 +36,15 @@ test('当前审阅包记录用户设备豁免，仍保留其他发布条件',asy
   assert.ok(manifest.outstanding.some(item=>item.id==='audio-distribution'));
   assert.ok(!manifest.outstanding.some(item=>['real-ipad','real-phone'].includes(item.id)));
 });
+test('模型渲染来源侧车随图片交付，孤立的来源文件不能混入发布包',async()=>{
+ const manifest=await verifyPackage(first),origins=manifest.files.filter(file=>file.path.endsWith('.webp.json'));
+ assert.ok(origins.length>=101);
+ for(const origin of origins){assert.ok(manifest.files.some(file=>file.path===origin.path.slice(0,-5)));assert.match(JSON.parse(await fs.readFile(path.join(first,'site',origin.path),'utf8')).prompt,/^Origin:/);}
+ const folder=path.join(sandbox,'orphan-origin');await fs.cp(first,folder,{recursive:true});
+ const file={...origins[0],path:origins[0].path.replace(/car\d{2,3}-/,'car999-')},bytes=await fs.readFile(path.join(first,'site',origins[0].path));
+ await fs.writeFile(path.join(folder,'site',file.path),bytes);manifest.files.push(file);manifest.totalBytes+=file.bytes;await fs.writeFile(path.join(folder,'manifest.json'),JSON.stringify(manifest));
+ await assert.rejects(verifyPackage(folder),/非网页交付文件/);
+});
 test('前进与回滚改变入口版本，保留旧版本脚本和全部媒体',async()=>{
   for(const [folder,active]of [[forward,'review-b'],[rollback,'review-a']])await withServer(folder,async url=>{
     const rootResponse=await fetch(url),html=await rootResponse.text();

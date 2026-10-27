@@ -26,10 +26,10 @@ describe('直接操作的有效结果',()=>{
  it('快速擦过的两次采样之间仍覆盖连续路径',()=>{
   const points=sampledSegment({x:0,y:0},{x:200,y:0},20);expect(points[0]).toEqual({x:0,y:0});expect(points.at(-1)).toEqual({x:200,y:0});expect(points.length).toBe(11);
  });
- it('三十款车每辆都有全新侧视、俯视和独立轮位；全部活动引用有效',()=>{
-  expect(content.cars).toHaveLength(30);
-  const sides=content.cars.map(car=>car.game?.side);expect(new Set(sides).size).toBe(30);
-  for(const car of content.cars){expect(car.game?.side).toBe(`play-${car.id}-side`);expect(car.game?.top).toBe(`play-${car.id}-top`);expect(car.game?.wheels).toHaveLength(2);for(const view of [car.game!.side,car.game!.top])expect(content.assets.find(a=>a.id===view)?.path).toMatch(/^media\/play-cars\//);}
-  for(const activity of content.activities)expect(activity.carIds).toHaveLength(30);
+ it('扩充车型均有侧视、俯视和轮位；全部活动引用有效',()=>{
+  expect(content.cars.length).toBeGreaterThanOrEqual(66);
+  const sides=content.cars.map(car=>car.game?.side);expect(new Set(sides).size).toBe(content.cars.length);
+  for(const car of content.cars){expect(car.game?.side).toMatch(new RegExp(`^(play|render)-${car.id}-side$`));expect(car.game?.top).toMatch(new RegExp(`^(play|render)-${car.id}-top$`));expect(car.game?.wheels).toHaveLength(2);for(const view of [car.game!.side,car.game!.top])expect(content.assets.find(a=>a.id===view)?.path).toMatch(/^media\/(play-cars|rendered-cars)\//);}
+  for(const activity of content.activities)expect(activity.carIds).toHaveLength(content.cars.length);
  });
 });

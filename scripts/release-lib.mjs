@@ -65,11 +65,12 @@ export async function verifyPackage(packageDirectory) {
   for(const id of [...appIds,...contentIds])if(!/^[a-zA-Z0-9][a-zA-Z0-9._-]{0,127}$/.test(id))throw Error('版本编号无效');
   if(new Set(appIds).size!==appIds.length)throw Error('保留版本编号重复');
   for(const filename of names){
-    const allowed=filename==='index.html'||appIds.some(id=>filename===`releases/${id}/index.html`||(filename.startsWith(`releases/${id}/assets/`)&&/\.(js|css)$/.test(filename)))||contentIds.some(id=>filename===`content/${id}/manifest.json`||(filename.startsWith(`media/${id}/`)&&/\.(webp|mp3|glb)$/.test(filename)));
+    const allowed=filename==='index.html'||appIds.some(id=>filename===`releases/${id}/index.html`||(filename.startsWith(`releases/${id}/assets/`)&&/\.(js|css)$/.test(filename)))||contentIds.some(id=>filename===`content/${id}/manifest.json`||(filename.startsWith(`media/${id}/`)&&/\.(webp|mp3|glb)$/.test(filename))||(filename.startsWith(`media/${id}/rendered-cars/`)&&/^car\d{2,3}-[\w-]+\.webp\.json$/.test(path.posix.basename(filename))&&names.includes(filename.slice(0,-5))));
     if(!allowed)throw Error(`发布包包含非网页交付文件：${filename}`);
   }
   for(const file of manifest.files) {
     const bytes=await fs.readFile(path.join(site,file.path));
+    if(file.path.endsWith('.webp.json')&&!JSON.parse(bytes.toString()).prompt?.startsWith('Origin:'))throw Error(`图像来源凭据无效：${file.path}`);
     if(bytes.length!==file.bytes || sha256(bytes)!==file.sha256) throw Error(`发布文件校验失败：${file.path}`);
     if(file.headers?.['Content-Type']!==mimeType(file.path)) throw Error(`MIME 不匹配：${file.path}`);
     if(file.headers?.['Cache-Control']!==headersFor(file.path)['Cache-Control']) throw Error(`缓存策略不匹配：${file.path}`);

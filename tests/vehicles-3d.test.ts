@@ -1,22 +1,48 @@
 import {describe,it,expect} from 'vitest';
 import fs from 'node:fs';
+import {createHash} from 'node:crypto';
 import * as T from 'three';
-import {createVehicle,vehicleProfiles} from '../src/three/vehicle';
-import models from '../content/vehicle-models.json';
-describe('complete three-dimensional car assets',()=>{
- it('exports 30 valid GLB files with mesh geometry, instead of flat billboard images',()=>{
-  expect(models).toHaveLength(30);
-  for(const m of models){const b=fs.readFileSync('public/'+m.file);expect(b.length,`${m.id} transfer budget`).toBeLessThan(512*1024);expect(b.toString('ascii',0,4)).toBe('glTF');expect(b.readUInt32LE(8)).toBe(b.length);const document=JSON.parse(b.subarray(20,20+b.readUInt32LE(12)).toString());expect(document.meshes.length).toBeGreaterThan(20);expect(document.images||[]).toHaveLength(0);}
+import {fitModel,disposeModel,frameModel} from '../src/three/model';
+import {vehicleModel,vehicleModels} from '../src/domain/vehicle-models';
+
+describe('independent vehicle models',()=>{
+ it('ships the exact credited self-contained mesh for each enabled vehicle',()=>{
+  expect(vehicleModels.length).toBeGreaterThanOrEqual(50);expect(new Set(vehicleModels.map(m=>m.source.url)).size).toBe(vehicleModels.length);expect(new Set(vehicleModels.map(m=>m.sha256)).size).toBe(vehicleModels.length);
+  for(const model of vehicleModels){
+   const bytes=fs.readFileSync('public/'+model.file);expect(bytes.length).toBe(model.bytes);expect(bytes.length).toBeLessThan(8*1024*1024);
+   expect(createHash('sha256').update(bytes).digest('hex')).toBe(model.sha256);expect(bytes.toString('ascii',0,4)).toBe('glTF');expect(bytes.readUInt32LE(8)).toBe(bytes.length);
+   const doc=JSON.parse(bytes.subarray(20,20+bytes.readUInt32LE(12)).toString());
+   expect(doc.meshes.length).toBeGreaterThan(0);expect(doc.meshes.reduce((sum:number,m:{primitives:{indices:number}[]})=>sum+m.primitives.reduce((n,p)=>n+doc.accessors[p.indices].count,0),0)).toBeGreaterThan(900);
+   expect((doc.images||[]).every((image:{bufferView?:number;uri?:string})=>image.bufferView!==undefined&&!image.uri)).toBe(true);
+   expect((doc.buffers||[]).some((buffer:{uri?:string})=>buffer.uri)).toBe(false);
+   expect(model.source.author.length).toBeGreaterThan(0);expect(['CC BY 4.0','CC BY-SA 4.0','CC0 1.0']).toContain(model.source.license);expect(model.source.url).toMatch(/^https:\/\/sketchfab.com\/3d-models\//);
+   for(const name of [...model.paintMaterials,...model.lampMaterials])expect(doc.materials.some((m:{name:string})=>m.name===name),`${model.id}: ${name}`).toBe(true);
+   for(const name of model.excludedNodes)expect(doc.nodes.some((n:{name:string})=>n.name===name)).toBe(true);
+  }
+  expect(vehicleModel('CAR02')).toBeUndefined();expect(vehicleModel('unknown')).toBeUndefined();
+ },20000);
+ it('normalizes units and origin without distorting the authored body proportions',()=>{
+  const root=new T.Group(),body=new T.Mesh(new T.BoxGeometry(480,130,200),new T.MeshStandardMaterial());body.position.set(25,95,-31);root.add(body);
+  const bounds=fitModel(root,Math.PI/2),size=bounds.getSize(new T.Vector3()),center=bounds.getCenter(new T.Vector3());
+  expect(size.z).toBeCloseTo(4.65);expect(size.x/size.z).toBeCloseTo(200/480);expect(size.y/size.z).toBeCloseTo(130/480);expect(bounds.min.y).toBeCloseTo(0);expect(center.x).toBeCloseTo(0);expect(center.z).toBeCloseTo(0);disposeModel(root);
  });
- it('has four physical wheels and finite volume for every car, preserving both sides and end faces',()=>{
-  for(const p of vehicleProfiles){const car=createVehicle(p.id);expect(car.wheels).toHaveLength(4);const bounds=new T.Box3().setFromObject(car.root),size=bounds.getSize(new T.Vector3());expect(size.x).toBeGreaterThan(3.8);expect(size.z).toBeGreaterThan(1.5);expect(size.y).toBeGreaterThan(1);car.root.traverse(object=>{if(object instanceof T.Mesh){const positions=object.geometry.getAttribute('position');expect(Array.from(positions.array).every(Number.isFinite)).toBe(true);}});car.dispose();}
+ it('rejects missing geometry rather than producing a tiny or non-finite car',()=>{
+  expect(()=>fitModel(new T.Group(),0)).toThrow('Invalid vehicle bounds');
  });
- it('uses one closed shell with outward front and rear faces, avoiding missing bumpers and disconnected panels',()=>{
-  for(const id of ['CAR01','CAR03','CAR17']){
-   const car=createVehicle(id),shell=car.root.getObjectByName('continuous-sculpted-body') as T.Mesh;
-   const normals=shell.geometry.getAttribute('normal'),count=normals.count;
-   expect(normals.getX(count-1)).toBeGreaterThan(.8);expect(normals.getX(count-2)).toBeLessThan(-.8);
-   expect(Array.from(normals.array).every(Number.isFinite)).toBe(true);car.dispose();
+ it('grounds rotated exporter meshes using actual vertices rather than inflated transformed boxes',()=>{
+  const root=new T.Group(),g=new T.BoxGeometry(4.65,.8,1.8);g.rotateX(-Math.PI/4);
+  const body=new T.Mesh(g,new T.MeshStandardMaterial());body.rotation.x=Math.PI/4;body.position.y=5;root.add(body);
+  const bounds=fitModel(root,0),size=bounds.getSize(new T.Vector3());expect(size.y).toBeCloseTo(.8);expect(bounds.min.y).toBeCloseTo(0);
+  const actual=new T.Box3().setFromObject(root,true);expect(actual.min.y).toBeCloseTo(0);expect(actual.max.y).toBeCloseTo(.8);disposeModel(root);
+ });
+ it('keeps the full car inside desktop and phone frames throughout a horizontal orbit',()=>{
+  const bounds=new T.Box3(new T.Vector3(-2.325,0,-1),new T.Vector3(2.325,1.3,1)),center=bounds.getCenter(new T.Vector3());
+  for(const aspect of [.45,3.2])for(let step=0;step<16;step++){
+   const camera=new T.OrthographicCamera(-3,3,2,-2,.1,60),angle=step*Math.PI/8;
+   camera.position.set(Math.cos(angle)*8,3,Math.sin(angle)*8);camera.lookAt(center);frameModel(camera,bounds,aspect);camera.updateMatrixWorld(true);
+   for(const x of [bounds.min.x,bounds.max.x])for(const y of [bounds.min.y,bounds.max.y])for(const z of [bounds.min.z,bounds.max.z]){
+    const projected=new T.Vector3(x,y,z).project(camera);expect(Math.abs(projected.x)).toBeLessThan(.9);expect(Math.abs(projected.y)).toBeLessThan(.9);
+   }
   }
  });
 });

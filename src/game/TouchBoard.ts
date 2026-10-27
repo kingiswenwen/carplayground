@@ -4,14 +4,15 @@ import {roadConnected,type RoadShape} from '../domain/learning';
 import {paintMark} from '../services/artwork';
 import {drawPlaySymbol,loadPlaySymbols} from '../visual/play-symbols';
 import type {Mark} from '../services/storage';
+import {loadImage} from '../services/load-image';
 import {hitPart,partRegions,rotateRoad,roadLessons} from '../domain/play-guidance';
 
 type Item = Rect & { id: string; kind: 'car'|'body'|'wheel'|'prop'|'plank'|'road'|'bay'|'shape'; glyph?: string; color?: string; carId?: string; home: Point; placed?: boolean; target?: string; turn?: number; dock?: string };
 type Target = Rect & { id: string; glyph?: string; color?: string; accepts?: string[]; occupied?: boolean; enabled?: boolean };
-type Grab = { id: number; item?: Item; start: Point; offset: Point; samples: (Point & {t:number})[]; origin?: Point; washing?: boolean; dock?:string; wasPlaced?:boolean };
+type Grab = { id: number; item?: Item; start: Point; offset: Point; samples: (Point & {t:number})[]; origin?: Point; washing?: boolean; dock?:string; wasPlaced?:boolean; companions?:{item:Item;origin:Point}[] };
 type GuideCue={start:Point;end:Point;item?:Item;action:'drag'|'push'|'tap'|'turn'|'wipe';subject:string};
 export type BoardSnapshot = { ready: boolean; progress: number; completed: boolean; moving: boolean; hint:boolean;recovering:boolean;selected:string|null;signalGreen:boolean;road:{level:number;shapes:RoadShape[];locked:number[];won:boolean};comparison:{smooth:number;rough:number}[];wash:{clean:number;waiting:boolean};parts:string[]; items: {id:string;x:number;y:number;placed:boolean;carId?:string}[]; targets: Target[] };
-export type BoardOptions = { id: ActivityId; carId: string; portrait: boolean; finish: (summary:string,sounds?:string[])=>void; feedback:(message:string)=>void; changed:(state:BoardSnapshot)=>void; speak?:(...ids:string[])=>void; paint?:(points:Mark[],background?:string)=>void };
+export type BoardOptions = { id: ActivityId; carId: string; portrait: boolean; attempt?:number; finish: (summary:string,sounds?:string[])=>void; feedback:(message:string)=>void; changed:(state:BoardSnapshot)=>void; speak?:(...ids:string[])=>void; paint?:(points:Mark[],background?:string)=>void };
 const SKY='#d9f1f6', GRASS='#d9e9bc', ASPHALT='#718388', CREAM='#fff9e9';
 const carForColor = { red:'CAR02',blue:'CAR11',white:'CAR15' };
 
@@ -32,6 +33,7 @@ export class TouchBoard {
   private progress = 0;
   private ready = false;
   private destroyed = false;
+  private loading=new AbortController();
   private notifyAt = 0;
   private time = 0;
   private rough = false;
@@ -45,6 +47,7 @@ export class TouchBoard {
   private signalGreen=false;
   private velocities=new Map<string,number>();
   private motionResults:{smooth:number;rough:number}[]=[];
+  private launchX=180;
   private washIndex=0;
   private cleanCars=0;
   private washReady=false;
@@ -77,11 +80,11 @@ export class TouchBoard {
     this.mode=modes[options.id]; this.setup();
   }
   async load() {
-    const ids=[...new Set([this.options.carId,'CAR02','CAR11','CAR15'])];
+    const ids=[...new Set([this.options.carId,...this.items.filter(i=>i.carId).map(i=>i.carId!)])];
     await Promise.all([loadPlaySymbols(),...ids.flatMap(id=>['side','top'].map(async view=>{
       const car=getCar(id); const imageId=car?.game?.[view as 'side'|'top'];
       if(!imageId) throw Error(`缺少游戏车图 ${id}/${view}`);
-      const image=new Image(); image.src=assetUrl(imageId); await image.decode();
+      const image=await loadImage(assetUrl(imageId)+(this.options.attempt?`?retry=${this.options.attempt}`:''),this.loading.signal);
       if(!this.destroyed)this.images.set(`${id}/${view}`,image);
     }))]);
     if(this.destroyed)return;
@@ -90,7 +93,7 @@ export class TouchBoard {
     if(this.mode==='assembly')this.createBody();
     this.notify(); this.draw(0);
   }
-  dispose(){this.destroyed=true;this.cancel();this.images.clear();}
+  dispose(){this.destroyed=true;this.loading.abort();this.cancel();this.images.clear();}
   resize(portrait:boolean){
     const next=portrait?1200:680;if(next===this.height)return;
     const previousHeight=this.height,ratio=next/previousHeight;
@@ -225,6 +228,9 @@ export class TouchBoard {
     if(this.mode==='sequence'){const next=this.targets.find(t=>!t.occupied);return next===target;}
     return true;
   }
+  private dropTarget(item:Item){
+    return this.targets.filter(t=>this.compatible(item,t)&&inside(item,t,30)).sort((a,b)=>distance(item,a)-distance(item,b))[0];
+  }
   private pickupPadding(item:Item){const scale=1000/Math.max(1,this.canvas.getBoundingClientRect().width);return Math.max(15,(48*scale-Math.min(item.w,item.h))/2);}
   showHint(){this.hintUntil=this.time+3;this.notify();}
   setGuideStep(step:number|null){
@@ -254,6 +260,7 @@ export class TouchBoard {
     if(action==='tap'||action==='turn')end=start;
     return{start,end,item,action,subject:item?.id==='signal'?'信号灯':item?.kind==='car'?getCar(item.carId||this.options.carId)!.name:item?.kind==='wheel'?'车轮':item?.kind==='body'?'车身':item?.kind==='road'?'路块':item?.kind==='plank'?'桥板':'物件'};
   }
+  get demonstration(){return this.guideCue();}
   guideDescription(step:number){
     const cue=this.guideCue(),verbs={drag:'移到发亮的轮廓',push:'向前推一推',tap:'轻轻点一下',turn:'点一下，让路块转动',wipe:'在车身上来回擦'};
     return step===0?`找到${cue.subject}`:step===1?verbs[cue.action]:cue.action==='drag'?'放下，再自己试试':cue.action==='turn'?'看看开口有没有对齐':cue.action==='wipe'?'看看干净的地方，再自己擦一擦':'看看变化，再自己试试';
@@ -330,6 +337,24 @@ export class TouchBoard {
       else this.items.find(i=>i.id==='next-car')!.placed=false;
     }this.notify();
   }
+  // The 3D view measures coverage on the actual dirt surface, not image pixels.
+  washSurface(coverage:number){
+    if(this.mode!=='wash'||!this.ready||this.washReady||this.complete)return;
+    const washed=clamp(coverage,0,1);this.progress=(this.cleanCars+washed)/2;
+    if(washed>.91){this.mask?.getContext('2d')?.clearRect(0,0,1000,450);this.cleanCars++;this.progress=this.cleanCars/2;this.washReady=true;
+      if(this.cleanCars===2)this.finish('在立体车身上逐处擦除污渍，两辆车轮流进入洗车位');
+      else this.items.find(i=>i.id==='next-car')!.placed=false;
+    }this.notify();
+  }
+  touchPart(part:'wheel'|'door'|'light',wheelRotates=true,lightIlluminates=true){
+    if(this.mode!=='parts'||!this.ready)return;
+    this.seen.add(part);this.partPulses.set(part,this.time);this.options.speak?.(part);this.progress=this.seen.size/3;
+    this.options.feedback({wheel:wheelRotates?'wheel · 车轮转起来了':'wheel · 看看车轮的位置',light:lightIlluminates?'light · 车灯亮起来了':'light · 看看车灯的位置',door:'door · 看看车门的位置'}[part]);
+    if(this.seen.size===3)this.finish('直接触碰立体车轮、车灯与车门，观察对应部件反馈',[part,'discovery-done']);
+    this.notify();
+  }
+  get artwork(){return this.paintPoints;}
+  get selectedItem(){return this.grab?.item?.id||this.selected?.id||null;}
   down(id:number,p:Point,now:number){
     if(!this.ready||this.grab)return;
     if(this.correction){const r=this.correction;if(!inside(p,r.item,this.pickupPadding(r.item))){r.item.x=r.to.x;r.item.y=r.to.y;}this.correction=null;}
@@ -366,6 +391,7 @@ export class TouchBoard {
     const wasPlaced=!!item.placed,dock=item.dock;
     if(wasPlaced&&['assembly','parking','spaces','sorting'].includes(this.mode)){item.placed=false;const target=this.targets.find(t=>t.id===dock);if(target)target.occupied=false;}
     this.grab={id,item,start:p,offset:{x:p.x-item.x,y:p.y-item.y},origin:{x:item.x,y:item.y},samples:[{x:item.x,y:item.y,t:now}],wasPlaced,dock};
+    if(['motion','rolling'].includes(this.mode))this.grab.companions=this.items.filter(i=>i!==item).map(i=>({item:i,origin:{x:i.x,y:i.y}}));
     if(['motion','rolling','traffic'].includes(this.mode)){this.velocity=0;this.velocities.clear();}
   }
   move(id:number,p:Point,now:number){
@@ -398,9 +424,9 @@ export class TouchBoard {
         if(grab.origin&&Math.abs(item.x-grab.origin.x)>45){this.seen.add('go');}this.velocity=v.x;
       }else if(this.mode==='motion'||this.mode==='rolling'){
         if(grab.origin&&Math.abs(item.x-grab.origin.x)>35){
-          const speed=Math.sign(v.x||item.x-grab.origin.x)*clamp(Math.abs(v.x)||260,200,430);
-          // Both lanes receive exactly the same launch position and velocity.
-          const launch=clamp(item.x,180,520);for(const car of this.items){car.x=launch;this.velocities.set(car.id,speed);}
+          // Release where the finger left the car. A held, stationary car stays still.
+          const speed=clamp(v.x,-650,650);this.launchX=item.x;
+          if(speed)for(const car of this.items)this.velocities.set(car.id,speed);
           this.seen.add('pushed');
         }
       }else{this.velocity=item.id==='cube'?v.x*.28:v.x;this.seen.add(item.id);}
@@ -412,7 +438,7 @@ export class TouchBoard {
       if(this.mode==='paint'&&this.options.id==='A02'&&this.paintPoints.length>3)this.finish('推着小车画出轮印，作品自动保存在本机');
       return;
     }
-    const target=this.targets.find(t=>this.compatible(item,t)&&inside(item,t,30));
+    const target=this.dropTarget(item);
     if(this.mode==='bridge'){
       if(target&&item.w>=target.w){item.x=target.x;item.y=target.y;item.placed=true;target.occupied=true;this.movingItem='traveller';this.velocity=540;this.seen.add('bridge');}
       else{this.reject(item,grab,this.targets[0]);}return;
@@ -448,10 +474,18 @@ export class TouchBoard {
     const grab=this.grab;
     if(!grab||(pointerId!==undefined&&pointerId!==grab.id))return;
     if(grab.item&&grab.origin){grab.item.x=grab.origin.x;grab.item.y=grab.origin.y;if(grab.wasPlaced&&grab.dock){grab.item.placed=true;const target=this.targets.find(t=>t.id===grab.dock);if(target)target.occupied=true;}}
+    for(const companion of grab.companions||[])Object.assign(companion.item,companion.origin);
     this.grab=null;this.velocity=0;this.notify();
   }
   keyboard(key:string){
-    const item=this.items.find(i=>!i.placed&&i.kind!=='prop')||this.items.find(i=>!i.placed&&!i.id.startsWith('ink-')&&i.id!=='paper');
+    const candidates=this.items.filter(i=>!i.placed);
+    if(key==='['||key===']'){
+      this.cancel();const index=this.selected?candidates.indexOf(this.selected):-1;
+      this.selected=candidates.length?candidates[(index+(key===']'?1:index<0?0:-1)+candidates.length)%candidates.length]:null;
+      this.notify();return;
+    }
+    if(key==='Escape'){this.cancel();this.selected=null;this.notify();return;}
+    const item=this.grab?.item||(this.selected&&candidates.includes(this.selected)?this.selected:null)||candidates.find(i=>i.kind!=='prop')||candidates[0];
     if(!item)return;
     if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(key)){
       if(!this.grab)this.down(-1,{x:item.x,y:item.y},performance.now());
@@ -460,7 +494,7 @@ export class TouchBoard {
       if(this.grab)this.up(-1,{x:item.x,y:item.y},performance.now());
       else if(this.mode==='motion'||this.mode==='rolling'){const now=performance.now(),to={x:item.x+100,y:item.y};this.down(-1,{...item},now);this.move(-1,to,now+100);this.up(-1,to,now+100);}
       else this.down(-1,{x:item.x,y:item.y},performance.now());
-    }else if(key==='Escape')this.cancel();
+    }
   }
   private round(r:Rect,radius=20){this.ctx.beginPath();this.ctx.roundRect(r.x-r.w/2,r.y-r.h/2,r.w,r.h,radius);}
   private glyph(glyph:string,x:number,y:number,size=85,c=this.ctx){if(drawPlaySymbol(c,glyph,x,y,size))return;c.font=`${size}px system-ui,sans-serif`;c.textAlign='center';c.textBaseline='middle';c.fillText(glyph,x,y);}
@@ -504,10 +538,10 @@ export class TouchBoard {
     this.time+=seconds;const c=this.ctx,H=this.height;c.clearRect(0,0,1000,H);this.background();
     if(!this.ready){this.glyph('🛞',500,H*.45,100);return;}
     if(this.guideStep===null){
-    if(this.correction){const r=this.correction,phase=clamp((this.time-r.at-(this.mode==='bridge'?.9:.35))/.55,0,1),ease=1-(1-phase)**3;r.item.x=r.from.x+(r.to.x-r.from.x)*ease;r.item.y=r.from.y+(r.to.y-r.from.y)*ease;if(phase===1){this.correction=null;this.options.feedback('');}}
+    if(this.correction){const r=this.correction,phase=clamp((this.time-r.at-(this.mode==='bridge'?.9:.08))/.28,0,1),ease=1-(1-phase)**3;r.item.x=r.from.x+(r.to.x-r.from.x)*ease;r.item.y=r.from.y+(r.to.y-r.from.y)*ease;if(phase===1){this.correction=null;this.options.feedback('');}}
     if(['motion','rolling'].includes(this.mode)&&!this.grab&&this.velocities.size){
       for(const car of this.items){const v=this.velocities.get(car.id)||0,next=coast(car.x,v,seconds,car.id==='runner'?180:600,115,885);car.x=next.x;this.velocities.set(car.id,next.velocity);}
-      if([...this.velocities.values()].every(v=>Math.abs(v)<1)){this.motionResults.push({smooth:this.items[0].x-180,rough:this.items[1].x-180});this.velocities.clear();this.finish(this.mode==='motion'?'同样的车在两种路面接受相同推动，实际比较滑行距离；记录探索不代表掌握概念':'球和方块接受相同推动，观察它们移动的差异；未自动评判预测表达');}
+      if([...this.velocities.values()].every(v=>Math.abs(v)<1)){this.motionResults.push({smooth:this.items[0].x-this.launchX,rough:this.items[1].x-this.launchX});this.velocities.clear();this.finish(this.mode==='motion'?'同样的车在两种路面接受相同推动，实际比较滑行距离；记录探索不代表掌握概念':'球和方块接受相同推动，观察它们移动的差异；未自动评判预测表达');}
     }
     if(this.mode==='assembly'&&this.complete&&!this.grab&&this.assemblyTravel<100){const step=Math.min(100-this.assemblyTravel,seconds*45);this.assemblyTravel+=step;this.rolling+=step/65;for(const item of this.items)if(item.placed)item.x+=step;}
     if(this.velocity&&!this.grab){
@@ -525,6 +559,7 @@ export class TouchBoard {
       const lamp=this.items[0];c.fillStyle='#354c3b66';c.save();c.translate(500+(500-lamp.x)*.45,H*.69);c.rotate((500-lamp.x)/1600);c.scale(1.3,.2);c.beginPath();c.ellipse(0,0,230,90,0,0,Math.PI*2);c.fill();c.restore();
       c.fillStyle='#ffe57e55';c.beginPath();c.moveTo(lamp.x,lamp.y);c.lineTo(730,H*.65);c.lineTo(280,H*.65);c.fill();
     }
+    const held=this.grab?.item||this.selected,near=held&&this.dropTarget(held);
     for(const target of this.targets){
       if(target.enabled===false)continue;
       if(this.mode==='assembly'&&(target.id==='body'||!this.targets[0].occupied))continue;
@@ -532,6 +567,12 @@ export class TouchBoard {
       if(this.mode==='assembly'){c.beginPath();c.arc(target.x,target.y,target.w/2,0,Math.PI*2);c.stroke();}
       else{this.round(target,20);c.fill();c.stroke();}
       c.setLineDash([]);if(target.glyph)this.glyph(target.glyph,target.x,target.y,Math.min(100,target.h*.55));c.restore();
+      if(held&&this.compatible(held,target)){
+        c.save();c.strokeStyle=near===target?'#347858':'#e8bd59';c.lineWidth=near===target?12:6;
+        if(this.mode==='assembly'){c.beginPath();c.arc(target.x,target.y,target.w/2+9,0,Math.PI*2);c.stroke();}
+        else{this.round({...target,w:target.w+14,h:target.h+14},25);c.stroke();}
+        if(near===target)this.glyph('sparkle',target.x+target.w*.42,target.y-target.h*.5,42);c.restore();
+      }
     }
     if(['wash','assembly'].includes(this.mode)){
       const r=this.carRect();
@@ -541,10 +582,15 @@ export class TouchBoard {
       if(this.mode==='wash'&&this.grab?.washing){for(let i=0;i<9;i++){c.fillStyle='#eefaffbb';c.beginPath();c.arc(this.grab.start.x+Math.sin(this.time*2+i)*40,this.grab.start.y+Math.cos(this.time*2+i)*25,8+i%4*3,0,Math.PI*2);c.fill();}}
     }
     if(this.options.id==='A02')for(const mark of this.paintPoints)paintMark(c,mark,1000,H);
-    const renderItems=['road','bridge'].includes(this.mode)?[...this.items.filter(i=>i.kind!=='car'),...this.items.filter(i=>i.kind==='car')]:this.items;
+    const orderedItems=['road','bridge'].includes(this.mode)?[...this.items.filter(i=>i.kind!=='car'),...this.items.filter(i=>i.kind==='car')]:this.items;
+    const renderItems=this.grab?.item?[...orderedItems.filter(i=>i!==this.grab!.item),this.grab.item]:orderedItems;
     for(const item of renderItems){
       if(item.kind==='bay'&&item.placed)continue;
       c.save();
+      if(item===this.grab?.item){
+        c.save();c.fillStyle='#304f4933';c.beginPath();c.ellipse(item.x,item.y+item.h*.4,item.w*.44,item.h*.23,0,0,Math.PI*2);c.fill();c.restore();
+        c.translate(item.x,item.y);if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)c.scale(1.03,1.03);c.translate(-item.x,-item.y);
+      }
       const arrival=this.arrivals.get(item.id),reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       if(arrival){const phase=clamp((this.time-arrival.at)/.24,0,1);if(phase===1)this.arrivals.delete(item.id);else if(!reduced){const rest=(1-phase)**3;c.translate((arrival.from.x-item.x)*rest,(arrival.from.y-item.y)*rest);}}
       if(item.kind==='car')this.sprite(item.carId||this.options.carId,item,['parking','spaces','sorting','road','visit'].includes(this.mode));
