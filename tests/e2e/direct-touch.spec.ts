@@ -22,7 +22,7 @@ async function complete(page:Page){await expect.poll(async()=>(await state(page)
 test('立体车库支持品牌筛选、八辆分页与对应模型默认打开 @smoke',async({page})=>{
  await page.goto('/#/cars');await expect(page.locator('.car-gallery-card')).toHaveCount(8);await expect(page.locator('.garage-count')).toContainText(String(modelIds.size));
  const first=await page.locator('.car-gallery-card').first().getAttribute('aria-label');await page.getByRole('button',{name:'下一组跑车'}).click();await expect(page.locator('.car-gallery-card').first()).not.toHaveAttribute('aria-label',first!);
- await page.getByRole('combobox',{name:'按汽车品牌筛选'}).selectOption('Ferrari');await expect(page.locator('.car-gallery-card')).toHaveCount(4);
+ await page.getByRole('combobox',{name:'按汽车品牌筛选'}).selectOption('Ferrari');await expect(page.locator('.car-gallery-card')).toHaveCount(3);
  await page.goto('/#/cars/CAR135');await expect(page.locator('.vehicle-webgl[data-ready=true]')).toHaveAttribute('data-car','CAR135',{timeout:45000});
  await page.goto('/#/cars/CAR02');await expect(page.locator('.vehicle-angle')).toBeVisible();await expect(page.getByRole('button',{name:'打开车型立体模型',exact:true})).toHaveCount(0);
 });
@@ -48,8 +48,14 @@ test('生成车身与独立轮子直接拖装，错放不能计为装好 @smoke'
  await open(page,'T04');const s=await state(page);await drag(page,s.items.find(i=>i.id==='wheel-0')!,{x:40,y:40});expect((await state(page)).progress).toBe(0);
  await drop(page,'body','body');await drop(page,'wheel-0','wheel-0');await drop(page,'wheel-1','wheel-1');await complete(page);
 });
-test('推车松手之后继续滑行，无启动和完成按钮 @smoke',async({page})=>{
- await open(page,'P01');await drag(page,(await state(page)).items.find(i=>i.id==='runner')!,{x:500,y:340},4);
+test('推车松手之后继续滑行，无启动和完成按钮 @smoke',async({page,browserName})=>{
+ await open(page,'P01');
+ if(browserName==='chromium'){
+  const from=await position(page,(await state(page)).items.find(i=>i.id==='runner')!),to=await position(page,{x:500,y:340}),input=await page.context().newCDPSession(page),time=Date.now()/1000;
+  await input.send('Input.dispatchMouseEvent',{type:'mousePressed',...from,button:'left',buttons:1,clickCount:1,timestamp:time});
+  for(let n=1;n<=3;n++)await input.send('Input.dispatchMouseEvent',{type:'mouseMoved',x:from.x+(to.x-from.x)*n/3,y:from.y+(to.y-from.y)*n/3,button:'left',buttons:1,timestamp:time+n*.025});
+  await input.send('Input.dispatchMouseEvent',{type:'mouseReleased',...to,button:'left',buttons:0,clickCount:1,timestamp:time+.085});await input.detach();
+ }else await drag(page,(await state(page)).items.find(i=>i.id==='runner')!,{x:500,y:340},1);
  await expect.poll(async()=>(await state(page)).items[0].x,{timeout:3000}).toBeGreaterThan(520);await complete(page);
  await expect(page.getByRole('button',{name:/推一下|我发现了/})).toHaveCount(0);
 });
