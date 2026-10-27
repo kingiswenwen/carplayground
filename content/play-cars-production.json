@@ -5,58 +5,78 @@
     "model": "Revuelto",
     "color": "sunshine yellow",
     "tool": "Built-in GPT Image",
-    "intent": "new toy-style generation from vehicle identity and toy-style references",
-    "prompt": "Use case: stylized-concept. Production preschool car-learning sprite atlas. Identity/layout reference: existing five-car side/top contact sheet; style reference: first generated toy atlas. Rounded chunky matte plastic sports-car toys, big clear circular wheels, dark simple windows, gentle cream highlights, soft 3D picture-book illustration, simplified details, no faces. Preserve distinct sports-car silhouette and paint. Exact 5-row 2-column transparent atlas; target 2048x2048. Left column orthographic side, nose right, exactly two visible wheels. Right column exact overhead matching toy, nose right horizontally. Each sprite isolated in its cell with generous margins. No labels, text, logos, grid, ground or external shadow. Row identities and colors: 1: CAR01 sunshine yellow Lamborghini Revuelto; 2: CAR02 red Ferrari 296 GTB; 3: CAR03 mint green with black aero Porsche 911 GT3 RS; 4: CAR04 tangerine orange McLaren 750S; 5: CAR05 cobalt blue Bugatti Chiron",
-    "generatedFile": "exec-1dbded83-09c5-4f1e-ae5f-c6f7134a85b9.png",
-    "sheetSha256": "15a3b32b461b657bd1d073340aca6dc2351994f58118ea6e447e3fb755c17a0d",
-    "atlasFrame": {
-      "row": 1,
-      "columns": {
-        "side": 1,
-        "top": 2
-      },
-      "bounds": {
-        "x": [
-          0,
-          663,
-          1254
-        ],
-        "y": [
-          0,
-          255,
-          505,
-          749,
-          990,
-          1254
-        ]
-      }
-    },
+    "intent": "single-vehicle eight-view generation directly referenced to real vehicle photographs",
+    "prompt": "Reference-led 2024 Lamborghini Revuelto eight-view game atlas. Real front/side/rear photographs define low wedge proportions, Y front and rear lights, black angular side intakes, exposed V12 engine deck, twin high hexagonal exhausts and black multi-spoke wheels. Golden yellow consistent across six exterior angles plus transparent side and top game sprites. No cartoon face, generic bulb headlights, racing wing, text or scene. Exact final full prompt is retained in the local production receipt.",
+    "generatedFile": "exec-a9f82a18-42d7-4e8d-b288-e857c004560e.png",
+    "sheetSha256": "de25e451c16d8f5a3cf70f77731cbe42eafb84803a95fdb97748869c4a0acb36",
     "views": {
       "side": "play-CAR01-side",
       "top": "play-CAR01-top"
     },
     "wheels": [
       {
-        "x": 0.21582736156351792,
-        "y": 0.6334394981300518,
-        "r": 0.09195222584147666
+        "x": 0.185,
+        "y": 0.61,
+        "r": 0.077
       },
       {
-        "x": 0.7474333333333333,
-        "y": 0.6531613756613757,
-        "r": 0.08807738095238096
+        "x": 0.752,
+        "y": 0.616,
+        "r": 0.077
       }
     ],
     "checks": {
       "transparentExport": true,
-      "distinctGeneratedSheet": false,
+      "distinctGeneratedSheet": true,
       "distinctVehicleFrame": true,
       "dimensions": [
         1000,
         450
       ]
     },
-    "review": "Toy interpretation, not an exact brand replica. Review silhouettes, color, frame separation, wheel circles and hotspots in the contact sheet and actual play."
+    "review": "Toy interpretation, not an exact brand replica. Review silhouettes, color, frame separation, wheel circles and hotspots in the contact sheet and actual play.",
+    "referenceImages": [
+      {
+        "title": "File:2023 Lamborghini Revuelto 4.jpg",
+        "url": "https://commons.wikimedia.org/wiki/File:2023_Lamborghini_Revuelto_4.jpg",
+        "author": "Calreyn88",
+        "license": "CC0",
+        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+      },
+      {
+        "title": "File:2024 Lamborghini Revuelto 15.jpg",
+        "url": "https://commons.wikimedia.org/wiki/File:2024_Lamborghini_Revuelto_15.jpg",
+        "author": "Calreyn88",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
+      {
+        "title": "File:2023 Lamborghini Revuelto 6.jpg",
+        "url": "https://commons.wikimedia.org/wiki/File:2023_Lamborghini_Revuelto_6.jpg",
+        "author": "Calreyn88",
+        "license": "CC0",
+        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+      },
+      {
+        "title": "File:Lamborghini Revuelto intérieur 03.jpg",
+        "url": "https://commons.wikimedia.org/wiki/File:Lamborghini_Revuelto_int%C3%A9rieur_03.jpg",
+        "author": "Y.Leclercq",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+      }
+    ],
+    "referenceReview": {
+      "status": "reference-led-not-measured",
+      "generation": "2023-onward Revuelto",
+      "features": [
+        "Y-shaped front DRLs",
+        "angular black side intakes",
+        "exposed engine deck",
+        "twin high central exhausts",
+        "Y-shaped rear lamps"
+      ],
+      "limits": "Illustration derived from photographs, not measured CAD. Orthographic top remains inferred."
+    }
   },
   {
     "id": "CAR02",

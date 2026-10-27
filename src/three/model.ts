@@ -9,12 +9,15 @@ export function disposeModel(root:T.Object3D){
 /** Preserve authored proportions: change orientation, uniform scale and origin only. */
 export function fitModel(root:T.Object3D,rotationY:number){
  root.rotation.y+=rotationY;root.updateMatrixWorld(true);
- let bounds=new T.Box3().setFromObject(root),size=bounds.getSize(new T.Vector3());
+ // Imported accessor bounds may include unused exporter extents. Recompute from
+ // actual vertex data before fitting so a valid small car is not framed as a speck.
+ root.traverse(object=>{if(object instanceof T.Mesh)object.geometry.computeBoundingBox();});
+ let bounds=new T.Box3().setFromObject(root,true),size=bounds.getSize(new T.Vector3());
  if(![size.x,size.y,size.z].every(v=>Number.isFinite(v)&&v>0))throw Error('Invalid vehicle bounds');
  root.scale.multiplyScalar(4.65/Math.max(size.x,size.z));root.updateMatrixWorld(true);
- bounds=new T.Box3().setFromObject(root);const center=bounds.getCenter(new T.Vector3());
+ bounds=new T.Box3().setFromObject(root,true);const center=bounds.getCenter(new T.Vector3());
  root.position.sub(new T.Vector3(center.x,bounds.min.y,center.z));root.updateMatrixWorld(true);
- return new T.Box3().setFromObject(root);
+ return new T.Box3().setFromObject(root,true);
 }
 
 export function frameModel(camera:T.OrthographicCamera,bounds:T.Box3,aspect:number){
@@ -24,3 +27,6 @@ export function frameModel(camera:T.OrthographicCamera,bounds:T.Box3,aspect:numb
  const height=size.y*Math.cos(elevation)+diagonal*Math.sin(elevation),half=Math.max(height/2,diagonal/(2*aspect))*1.12;
  camera.left=-half*aspect;camera.right=half*aspect;camera.top=half;camera.bottom=-half;camera.updateProjectionMatrix();
 }
+
+/** glTF node names are sanitized by Three during import. */
+export function removeModelNodes(root:T.Object3D,names:string[]){for(const name of names){const clean=name.replace(/\s/g,'_').replace(/[\[\]\.:\/]/g,'');(root.getObjectByName(name)||root.getObjectByName(clean))?.removeFromParent();}}

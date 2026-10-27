@@ -2,11 +2,12 @@ import {test,expect,type Page} from '@playwright/test';
 import fs from 'node:fs';
 import {partTouchPoints} from './touch-helpers';
 const content=JSON.parse(fs.readFileSync('content/r3.json','utf8')) as {cars:{id:string}[];activities:{id:string}[]};
+const modelIds=new Set((JSON.parse(fs.readFileSync('content/vehicle-models.json','utf8')) as {id:string}[]).map(m=>m.id));
 type State={ready:boolean;completed:boolean;progress:number;moving:boolean;items:{id:string;x:number;y:number;placed:boolean}[];targets:{id:string;x:number;y:number;occupied?:boolean}[]};
 const canvas=(page:Page)=>page.locator('canvas.touch-canvas');
 const state=async(page:Page):Promise<State>=>JSON.parse((await canvas(page).getAttribute('data-state'))!);
 async function open(page:Page,id:string,car='CAR02'){
- await page.goto(`/#/play/${id}?car=${car}`);await expect(canvas(page)).toBeVisible();await expect.poll(async()=>(await state(page)).ready).toBe(true);
+ await page.goto(`/#/play/${id}?car=${car}&view=2d`);await expect(canvas(page)).toBeVisible();await expect.poll(async()=>(await state(page)).ready).toBe(true);
 }
 async function position(page:Page,p:{x:number;y:number}){
  const box=(await canvas(page).boundingBox())!,height=await canvas(page).evaluate(c=>(c as HTMLCanvasElement).height);
@@ -18,11 +19,12 @@ async function drag(page:Page,from:{x:number;y:number},to:{x:number;y:number},st
 async function drop(page:Page,itemId:string,targetId:string){await expect.poll(async()=>JSON.parse((await canvas(page).getAttribute('data-state'))!).recovering).toBe(false);const s=await state(page);await drag(page,s.items.find(i=>i.id===itemId)!,s.targets.find(t=>t.id===targetId)!);}
 async function complete(page:Page){await expect.poll(async()=>(await state(page)).completed,{timeout:12000}).toBe(true);}
 
-test('30款均有六面生成外观和可打开的立体模型，展厅不显示旧照片 @smoke',async({page})=>{
- test.setTimeout(180000);
- await page.goto('/#/cars');await expect(page.locator('.car-gallery-card')).toHaveCount(30);
- const images=page.locator('.car-image img');const paths=await images.evaluateAll(list=>list.map(i=>(i as HTMLImageElement).src));expect(paths.length).toBeGreaterThan(0);expect(paths.every(p=>p.includes('/play-cars/'))).toBe(true);
- for(const car of content.cars){await page.goto(`/#/cars/${car.id}`);await expect(page.locator('.vehicle-views')).toHaveAttribute('data-ready','true');await expect(page.locator('.vehicle-angle')).toHaveAttribute('src',/car-turnarounds/);await page.getByRole('button',{name:'打开简化立体模型'}).click();await expect(page.locator('.vehicle-webgl[data-ready=true]:visible,.svg-vehicle svg[data-ready=true]')).toBeVisible();await expect(page.locator('.photo-gallery')).toHaveCount(0);}
+test('立体车库支持品牌筛选、八辆分页与对应模型默认打开 @smoke',async({page})=>{
+ await page.goto('/#/cars');await expect(page.locator('.car-gallery-card')).toHaveCount(8);await expect(page.locator('.garage-count')).toContainText(String(modelIds.size));
+ const first=await page.locator('.car-gallery-card').first().getAttribute('aria-label');await page.getByRole('button',{name:'下一组跑车'}).click();await expect(page.locator('.car-gallery-card').first()).not.toHaveAttribute('aria-label',first!);
+ await page.getByRole('combobox',{name:'按汽车品牌筛选'}).selectOption('Ferrari');await expect(page.locator('.car-gallery-card')).toHaveCount(4);
+ await page.goto('/#/cars/CAR135');await expect(page.locator('.vehicle-webgl[data-ready=true]')).toHaveAttribute('data-car','CAR135',{timeout:45000});
+ await page.goto('/#/cars/CAR02');await expect(page.locator('.vehicle-angle')).toBeVisible();await expect(page.getByRole('button',{name:'打开车型立体模型',exact:true})).toHaveCount(0);
 });
 test('所有26个玩法均进入直接操作场景，无必读文字选择器 @smoke',async({page})=>{
  test.setTimeout(90000);const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
@@ -50,6 +52,13 @@ test('推车松手之后继续滑行，无启动和完成按钮 @smoke',async({p
  await open(page,'P01');await drag(page,(await state(page)).items.find(i=>i.id==='runner')!,{x:500,y:340},4);
  await expect.poll(async()=>(await state(page)).items[0].x,{timeout:3000}).toBeGreaterThan(520);await complete(page);
  await expect(page.getByRole('button',{name:/推一下|我发现了/})).toHaveCount(0);
+});
+test('把车拖过旧发车上限后停住，松手不跳回、不自动补速度 @smoke',async({page})=>{
+ await open(page,'P01');const start=await position(page,(await state(page)).items[0]),end=await position(page,{x:740,y:230});
+ await page.mouse.move(start.x,start.y);await page.mouse.down();await page.mouse.move(end.x,end.y,{steps:6});
+ const held=await state(page);expect(held.items[0].x).toBeGreaterThan(700);
+ await page.waitForTimeout(180);await page.mouse.up();await page.waitForTimeout(150);
+ const released=await state(page);expect(released.items[0].x).toBeCloseTo(held.items[0].x);expect(released.items[1].x).toBeCloseTo(held.items[1].x);expect(released.moving).toBe(false);expect(released.completed).toBe(false);
 });
 for(const id of ['M02'])test(`${id}拖动补车位之后再停第三辆车`,async({page})=>{
  await open(page,id);await drop(page,'car-0','bay-0');await drop(page,'car-1','bay-1');expect((await state(page)).completed).toBe(false);await drop(page,'extra-bay','bay-2');await drop(page,'car-2','bay-2');await complete(page);

@@ -2,9 +2,9 @@
   {
     "id": "CAR01",
     "tool": "Built-in GPT Image",
-    "generatedFile": "exec-bbb26bd8-7d8d-49e3-8825-34fd798a9a82.png",
-    "sheetSha256": "4dcde3be412dac2af3cae7eb80a580975422d31d92efa333e68652667b597dc4",
-    "prompt": "Use case: stylized-concept. Asset type: coherent six-view character turnaround reference sheet of ONE new golden yellow mid-engine wedge sports car for CarPlayground, a premium touch playground for four-year-old children. Create an original GPT-rendered vehicle with Lamborghini Revuelto-inspired low wedge proportions, not a source photo, no badges or logos, no cartoon face. Realistic polished 3D game asset, smooth rounded panel edges, black panoramic glass canopy, large readable machined five-spoke wheels, black lower aerodynamic trim, narrow Y-shaped headlights and slim triple tail LEDs. The SAME actual car in every cell, consistent wheelbase, details, proportions and paint. SIX VIEWS in a strictly aligned 3 columns by 2 rows sheet: front-left three-quarter, exact FRONT, front-right three-quarter / exact LEFT SIDE, exact REAR, exact RIGHT SIDE. All full vehicles fit within cells with generous clear margins, no overlap. Seamless pale mint studio backdrop, soft contact shadows. No labels, text, numbers, UI, people, floor patterns, watermark or extra cars. This is a design reference for a coherent real 3D model, emphasize front and rear architecture that side-view sprites lack. Clean child-friendly inviting realism, not a showroom photograph.",
+    "generatedFile": "exec-a9f82a18-42d7-4e8d-b288-e857c004560e.png",
+    "sheetSha256": "de25e451c16d8f5a3cf70f77731cbe42eafb84803a95fdb97748869c4a0acb36",
+    "prompt": "Reference-led 2024 Lamborghini Revuelto eight-view game atlas. Real front/side/rear photographs define low wedge proportions, Y front and rear lights, black angular side intakes, exposed V12 engine deck, twin high hexagonal exhausts and black multi-spoke wheels. Golden yellow consistent across six exterior angles plus transparent side and top game sprites. No cartoon face, generic bulb headlights, racing wing, text or scene. Exact final full prompt is retained in the local production receipt.",
     "views": [
       {
         "id": "front-left",
@@ -32,7 +32,49 @@
       }
     ],
     "processing": "3 columns x 2 rows; crop, foreground bounds, contain 800x480 WebP. No perspective synthesis.",
-    "limits": "Six discrete CG views, not a photogrammetry scan or exact licensed manufacturer model."
+    "limits": "Six discrete CG views, not a photogrammetry scan or exact licensed manufacturer model.",
+    "referenceImages": [
+      {
+        "title": "File:2023 Lamborghini Revuelto 4.jpg",
+        "url": "https://commons.wikimedia.org/wiki/File:2023_Lamborghini_Revuelto_4.jpg",
+        "author": "Calreyn88",
+        "license": "CC0",
+        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+      },
+      {
+        "title": "File:2024 Lamborghini Revuelto 15.jpg",
+        "url": "https://commons.wikimedia.org/wiki/File:2024_Lamborghini_Revuelto_15.jpg",
+        "author": "Calreyn88",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+      },
+      {
+        "title": "File:2023 Lamborghini Revuelto 6.jpg",
+        "url": "https://commons.wikimedia.org/wiki/File:2023_Lamborghini_Revuelto_6.jpg",
+        "author": "Calreyn88",
+        "license": "CC0",
+        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en"
+      },
+      {
+        "title": "File:Lamborghini Revuelto intérieur 03.jpg",
+        "url": "https://commons.wikimedia.org/wiki/File:Lamborghini_Revuelto_int%C3%A9rieur_03.jpg",
+        "author": "Y.Leclercq",
+        "license": "CC BY-SA 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0"
+      }
+    ],
+    "referenceReview": {
+      "status": "reference-led-not-measured",
+      "generation": "2023-onward Revuelto",
+      "features": [
+        "Y-shaped front DRLs",
+        "angular black side intakes",
+        "exposed engine deck",
+        "twin high central exhausts",
+        "Y-shaped rear lamps"
+      ],
+      "limits": "Illustration derived from photographs, not measured CAD. Orthographic top remains inferred."
+    }
   },
   {
     "id": "CAR02",

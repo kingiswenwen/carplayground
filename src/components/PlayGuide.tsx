@@ -2,13 +2,14 @@ import {useEffect,useRef} from 'react';
 import {ArrowLeft,ArrowRight,Play,X} from 'lucide-react';
 import type {TouchBoard} from '../game/TouchBoard';
 
-export function PlayGuide({board,step,onStep,close,portrait}:{board:TouchBoard;step:number;onStep:(step:number)=>void;close:()=>void;portrait:boolean}){
+export function PlayGuide({board,step,onStep,close,portrait,renderPreview}:{board:TouchBoard;step:number;onStep:(step:number)=>void;close:()=>void;portrait:boolean;renderPreview?:(canvas:HTMLCanvasElement,step:number,phase:number,large?:boolean)=>void}){
  const previews=useRef<(HTMLCanvasElement|null)[]>([]),panel=useRef<HTMLDialogElement>(null),large=useRef<HTMLCanvasElement>(null);
  useEffect(()=>{const dialog=panel.current;dialog?.showModal();return()=>dialog?.close();},[]);
  useEffect(()=>{
   const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  let frame=0,copied=false;const start=performance.now();
-  const draw=(now:number)=>{if(!copied){previews.current.forEach((canvas,i)=>{if(canvas)board.guidePreview(canvas,i);});copied=true;}const phase=reduced?1:Math.min(1,(now-start)/1400);if(large.current)board.guidePreview(large.current,step,phase,true);if(phase<1)frame=requestAnimationFrame(draw);};
+  const preview=renderPreview||((canvas:HTMLCanvasElement,index:number,phase:number,large?:boolean)=>board.guidePreview(canvas,index,phase,large));
+  let frame=0,copied=false,last=-9999;const start=performance.now();
+  const draw=(now:number)=>{if(renderPreview&&now-last<160){frame=requestAnimationFrame(draw);return;}last=now;if(!copied){previews.current.forEach((canvas,i)=>{if(canvas)preview(canvas,i,i===1?.6:1);});copied=true;}const phase=reduced?1:Math.min(1,(now-start)/1400);if(large.current)preview(large.current,step,phase,true);if(phase<1)frame=requestAnimationFrame(draw);};
   frame=requestAnimationFrame(draw);return()=>cancelAnimationFrame(frame);
  },[board,step,portrait]);
  return <dialog className="play-guide" ref={panel} aria-label="图示玩法" onCancel={event=>{event.preventDefault();close();}}>

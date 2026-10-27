@@ -1,0 +1,853 @@
+{
+  "policy": "One real production model family per manufacturer, including historical production cars. Generations, trim, paint, tuning and regional aliases do not increase the count. Community game meshes may be stylized or modified; never treat source titles alone as model identity. Concept-only and racing-only vehicles are excluded.",
+  "cars": [
+    {
+      "id": "CAR01",
+      "brand": "Lamborghini",
+      "model": "Revuelto",
+      "catalogKey": "lamborghini/revuelto",
+      "productionStatus": "production",
+      "reference": "https://www.lamborghini.com/en-en/models/revuelto-models/revuelto"
+    },
+    {
+      "id": "CAR02",
+      "brand": "Ferrari",
+      "model": "296 GTB",
+      "catalogKey": "ferrari/296-gtb",
+      "productionStatus": "production",
+      "reference": "https://www.ferrari.com/en-EN/auto/296-gtb"
+    },
+    {
+      "id": "CAR03",
+      "brand": "Porsche",
+      "model": "911 GT3 RS",
+      "catalogKey": "porsche/911",
+      "productionStatus": "production",
+      "reference": "https://www.porsche.com/international/models/911/911-gt3-rs/911-gt3-rs/"
+    },
+    {
+      "id": "CAR04",
+      "brand": "McLaren",
+      "model": "750S",
+      "catalogKey": "mclaren/750s",
+      "productionStatus": "production",
+      "reference": "https://cars.mclaren.com/en/750s"
+    },
+    {
+      "id": "CAR05",
+      "brand": "Bugatti",
+      "model": "Chiron Profilée",
+      "catalogKey": "bugatti/chiron",
+      "productionStatus": "production",
+      "reference": "https://newsroom.bugatti.com/api/en/press-releases/pdf/the-bugatti-chiron-profilee-an-automotive-solitaire"
+    },
+    {
+      "id": "CAR06",
+      "brand": "Pagani",
+      "model": "Huayra",
+      "catalogKey": "pagani/huayra",
+      "productionStatus": "production",
+      "reference": "https://www.pagani.com/huayra/"
+    },
+    {
+      "id": "CAR07",
+      "brand": "Koenigsegg",
+      "model": "Jesko Attack",
+      "catalogKey": "koenigsegg/jesko",
+      "productionStatus": "production",
+      "reference": "https://www.koenigsegg.com/model/jesko-attack"
+    },
+    {
+      "id": "CAR08",
+      "brand": "Aston Martin",
+      "model": "Vantage",
+      "catalogKey": "aston-martin/vantage",
+      "productionStatus": "production",
+      "reference": "https://www.astonmartin.com/en/models/vantage"
+    },
+    {
+      "id": "CAR09",
+      "brand": "Chevrolet",
+      "model": "Corvette C8 Stingray",
+      "catalogKey": "chevrolet/corvette",
+      "productionStatus": "production",
+      "reference": "https://www.chevrolet.com/performance/corvette"
+    },
+    {
+      "id": "CAR10",
+      "brand": "Mercedes-AMG",
+      "model": "GT Coupé",
+      "catalogKey": "mercedes-benz/amg-gt",
+      "productionStatus": "production",
+      "reference": "https://www.mercedes-amg.com/en/vehicles/gt/coupe.html"
+    },
+    {
+      "id": "CAR11",
+      "brand": "Audi",
+      "model": "R8 Coupé",
+      "catalogKey": "audi/r8",
+      "productionStatus": "production",
+      "reference": "https://www.audi-mediacenter.com/en/audi-r8-23"
+    },
+    {
+      "id": "CAR12",
+      "brand": "Lexus",
+      "model": "LC 500",
+      "catalogKey": "lexus/lc",
+      "productionStatus": "production",
+      "reference": "https://www.lexus.com/models/LC"
+    },
+    {
+      "id": "CAR14",
+      "brand": "Toyota",
+      "model": "GR Supra",
+      "catalogKey": "toyota/supra",
+      "productionStatus": "production",
+      "reference": "https://www.toyota.com/grsupra/"
+    },
+    {
+      "id": "CAR15",
+      "brand": "Toyota",
+      "model": "GR86",
+      "catalogKey": "toyota/86",
+      "productionStatus": "production",
+      "reference": "https://www.toyota.com/gr86/"
+    },
+    {
+      "id": "CAR16",
+      "brand": "Nissan",
+      "model": "Z",
+      "catalogKey": "nissan/z",
+      "productionStatus": "production",
+      "reference": "https://www.nissanusa.com/vehicles/sports-cars/nissan-z.html"
+    },
+    {
+      "id": "CAR17",
+      "brand": "Mazda",
+      "model": "MX-5 RF",
+      "catalogKey": "mazda/mx-5",
+      "productionStatus": "production",
+      "reference": "https://www.mazdausa.com/vehicles/mx-5-miata-rf"
+    },
+    {
+      "id": "CAR18",
+      "brand": "BMW",
+      "model": "M2",
+      "catalogKey": "bmw/m2",
+      "productionStatus": "production",
+      "reference": "https://www.bmw-m.com/en/all-models/overview-m-and-m-performance/bmw-m2/2024/bmw-m2-coupe.html"
+    },
+    {
+      "id": "CAR19",
+      "brand": "Lamborghini",
+      "model": "Huracán",
+      "catalogKey": "lamborghini/hurac-n",
+      "productionStatus": "production",
+      "reference": "https://www.lamborghini.com/en-en/history"
+    },
+    {
+      "id": "CAR20",
+      "brand": "Ferrari",
+      "model": "F8 Tributo",
+      "catalogKey": "ferrari/f8-tributo",
+      "productionStatus": "production",
+      "reference": "https://www.ferrari.com/en-EN/auto/f8-tributo"
+    },
+    {
+      "id": "CAR21",
+      "brand": "Porsche",
+      "model": "718 Cayman",
+      "catalogKey": "porsche/718-cayman",
+      "productionStatus": "production",
+      "reference": "https://www.porsche.com/international/models/718/"
+    },
+    {
+      "id": "CAR22",
+      "brand": "McLaren",
+      "model": "Artura",
+      "catalogKey": "mclaren/artura",
+      "productionStatus": "production",
+      "reference": "https://cars.mclaren.com/en/artura"
+    },
+    {
+      "id": "CAR23",
+      "brand": "Maserati",
+      "model": "MC20",
+      "catalogKey": "maserati/mc20",
+      "productionStatus": "production",
+      "reference": "https://www.maserati.com/global/en/models/mc20"
+    },
+    {
+      "id": "CAR24",
+      "brand": "Lotus",
+      "model": "Emira",
+      "catalogKey": "lotus/emira",
+      "productionStatus": "production",
+      "reference": "https://www.lotuscars.com/en-GB/emira"
+    },
+    {
+      "id": "CAR25",
+      "brand": "Alpine",
+      "model": "A110",
+      "catalogKey": "alpine/a110",
+      "productionStatus": "production",
+      "reference": "https://www.alpinecars.com/en/model/a110.html"
+    },
+    {
+      "id": "CAR26",
+      "brand": "Jaguar",
+      "model": "F-Type",
+      "catalogKey": "jaguar/f-type",
+      "productionStatus": "production",
+      "reference": "https://media.jlr.com/archive-jaguar/news/2024/06/jaguar-marks-sports-car-anniversary-final-f-type"
+    },
+    {
+      "id": "CAR29",
+      "brand": "Dodge",
+      "model": "Viper",
+      "catalogKey": "dodge/viper",
+      "productionStatus": "production",
+      "reference": "https://www.dodge.com/viper.html"
+    },
+    {
+      "id": "CAR30",
+      "brand": "BMW",
+      "model": "i8",
+      "catalogKey": "bmw/i8",
+      "productionStatus": "production",
+      "reference": "https://www.press.bmwgroup.com/canada/article/attachment/T0310099EN/453341"
+    },
+    {
+      "id": "CAR31",
+      "brand": "Lamborghini",
+      "model": "Countach",
+      "catalogKey": "lamborghini/countach",
+      "productionStatus": "production",
+      "reference": "https://www.lamborghini.com/en-en/history"
+    },
+    {
+      "id": "CAR32",
+      "brand": "Lamborghini",
+      "model": "Aventador SVJ",
+      "catalogKey": "lamborghini/aventador",
+      "productionStatus": "production",
+      "reference": "https://www.lamborghini.com/en-en/history"
+    },
+    {
+      "id": "CAR34",
+      "brand": "Lamborghini",
+      "model": "Gallardo LP 560-4",
+      "catalogKey": "lamborghini/gallardo",
+      "productionStatus": "production",
+      "reference": "https://www.lamborghini.com/en-en/history"
+    },
+    {
+      "id": "CAR39",
+      "brand": "Lamborghini",
+      "model": "Centenario LP 770-4",
+      "catalogKey": "lamborghini/centenario",
+      "productionStatus": "production",
+      "reference": "https://www.lamborghini.com/en-en/history"
+    },
+    {
+      "id": "CAR42",
+      "brand": "Ferrari",
+      "model": "Portofino",
+      "catalogKey": "ferrari/portofino",
+      "productionStatus": "production",
+      "reference": "https://www.ferrari.com/content/dam/ferrari-fcom/old/pdf/cs_ferrari_portofino_gbr.pdf"
+    },
+    {
+      "id": "CAR43",
+      "brand": "Ferrari",
+      "model": "F40",
+      "catalogKey": "ferrari/f40",
+      "productionStatus": "production",
+      "reference": "https://www.ferrari.com/en-US/corporate/articles/the-new-supercars-exhibition-opens-at-the-enzo-ferrari-museum-in-modena"
+    },
+    {
+      "id": "CAR45",
+      "brand": "Ferrari",
+      "model": "599 GTO",
+      "catalogKey": "ferrari/599-gto",
+      "productionStatus": "production",
+      "reference": "https://cdn.ferrari.com/cms/network/media/pdf/2023_08_02%20-%20Ferrari%20-%20Q2%202023%20Results%20Presentation.pdf"
+    },
+    {
+      "id": "CAR46",
+      "brand": "McLaren",
+      "model": "720S",
+      "catalogKey": "mclaren/720s",
+      "productionStatus": "production",
+      "reference": "https://cars.mclaren.com/en/super-series/720s"
+    },
+    {
+      "id": "CAR48",
+      "brand": "McLaren",
+      "model": "Senna",
+      "catalogKey": "mclaren/senna",
+      "productionStatus": "production",
+      "reference": "https://cars.mclaren.com/en/ultimate-series/mclaren-senna"
+    },
+    {
+      "id": "CAR56",
+      "brand": "Porsche",
+      "model": "918 Spyder",
+      "catalogKey": "porsche/918-spyder",
+      "productionStatus": "production",
+      "reference": "https://newsroom.porsche.com/pdf/e9920c42-d519-4f3d-8ae8-b43cae7e3b83?print="
+    },
+    {
+      "id": "CAR58",
+      "brand": "Porsche",
+      "model": "959",
+      "catalogKey": "porsche/959",
+      "productionStatus": "production",
+      "reference": "https://newsroom.porsche.com/pdf/6f0a7073-5063-41d8-8987-30e564b8722b?print="
+    },
+    {
+      "id": "CAR60",
+      "brand": "Bugatti",
+      "model": "Veyron",
+      "catalogKey": "bugatti/veyron",
+      "productionStatus": "production",
+      "reference": "https://www.bugatti.com/en/models/veyron"
+    },
+    {
+      "id": "CAR61",
+      "brand": "Pagani",
+      "model": "Zonda Cinque",
+      "catalogKey": "pagani/zonda",
+      "productionStatus": "production",
+      "reference": "https://www.pagani.com/zonda-cinque/"
+    },
+    {
+      "id": "CAR62",
+      "brand": "Pagani",
+      "model": "Utopia",
+      "catalogKey": "pagani/utopia",
+      "productionStatus": "production",
+      "reference": "https://www.pagani.com/utopia/"
+    },
+    {
+      "id": "CAR63",
+      "brand": "Koenigsegg",
+      "model": "One:1",
+      "catalogKey": "koenigsegg/one-1",
+      "productionStatus": "production",
+      "reference": "https://www.koenigsegg.com/model/one1"
+    },
+    {
+      "id": "CAR65",
+      "brand": "Koenigsegg",
+      "model": "CCX",
+      "catalogKey": "koenigsegg/ccx",
+      "productionStatus": "production",
+      "reference": "https://www.koenigsegg.com/model/ccx"
+    },
+    {
+      "id": "CAR66",
+      "brand": "Aston Martin",
+      "model": "DB11",
+      "catalogKey": "aston-martin/db11",
+      "productionStatus": "production",
+      "reference": "https://media.astonmartin.com/sublime-choices-db11-now-offered-with-v8-engine/?lang=eng"
+    },
+    {
+      "id": "CAR67",
+      "brand": "Lotus",
+      "model": "Elise",
+      "catalogKey": "lotus/elise",
+      "productionStatus": "production",
+      "reference": "https://www.lotuscars.com/en-MX/lotus-story/road-cars/elise"
+    },
+    {
+      "id": "CAR71",
+      "brand": "Nissan",
+      "model": "Silvia S13",
+      "catalogKey": "nissan/silvia",
+      "productionStatus": "production",
+      "reference": "https://www.nissan-global.com/EN/HERITAGE_COLLECTION/"
+    },
+    {
+      "id": "CAR72",
+      "brand": "Nissan",
+      "model": "Skyline GT-R (R34)",
+      "catalogKey": "nissan/skyline",
+      "productionStatus": "production",
+      "reference": "https://www.nissan-global.com/EN/HERITAGE_COLLECTION/"
+    },
+    {
+      "id": "CAR75",
+      "brand": "Nissan",
+      "model": "GT-R (R35)",
+      "catalogKey": "nissan/gt-r",
+      "productionStatus": "production",
+      "reference": "https://www.nissanusa.com/vehicles/sports-cars/gt-r.html"
+    },
+    {
+      "id": "CAR81",
+      "brand": "Nissan",
+      "model": "180SX",
+      "catalogKey": "nissan/180sx",
+      "productionStatus": "production",
+      "reference": "https://www.nissan-global.com/PDF/ff_fy01e.pdf"
+    },
+    {
+      "id": "CAR85",
+      "brand": "Toyota",
+      "model": "MR2 (W20)",
+      "catalogKey": "toyota/mr2",
+      "productionStatus": "production",
+      "reference": "https://www.toyota-global.com/company/history_of_toyota/75years/data/automotive_business/products_technology/vehicle_lineage_chart/origin/"
+    },
+    {
+      "id": "CAR89",
+      "brand": "Toyota",
+      "model": "Corolla Levin (AE92)",
+      "catalogKey": "toyota/corolla",
+      "productionStatus": "production",
+      "reference": "https://www.toyota-global.com/company/history_of_toyota/75years/data/automotive_business/products_technology/vehicle_lineage_chart/origin/"
+    },
+    {
+      "id": "CAR95",
+      "brand": "Mazda",
+      "model": "RX-7",
+      "catalogKey": "mazda/rx-7",
+      "productionStatus": "production",
+      "reference": "https://www.mazda.com/en/about/history/1990-1999/"
+    },
+    {
+      "id": "CAR98",
+      "brand": "Honda",
+      "model": "Integra Type R (DB8)",
+      "catalogKey": "honda/integra",
+      "productionStatus": "production",
+      "reference": "https://global.honda/jp/SOUNDSITTER/pdf/syasyu.pdf"
+    },
+    {
+      "id": "CAR99",
+      "brand": "Honda",
+      "model": "NSX (1990)",
+      "catalogKey": "honda/nsx",
+      "productionStatus": "production",
+      "reference": "https://global.honda/jp/SOUNDSITTER/pdf/syasyu.pdf"
+    },
+    {
+      "id": "CAR100",
+      "brand": "Honda",
+      "model": "S800",
+      "catalogKey": "honda/s800",
+      "productionStatus": "production",
+      "reference": "https://global.honda/jp/SOUNDSITTER/pdf/syasyu.pdf"
+    },
+    {
+      "id": "CAR105",
+      "brand": "BMW",
+      "model": "M4 CSL",
+      "catalogKey": "bmw/m4",
+      "productionStatus": "production",
+      "reference": "https://www.bmw-m.com/en/topics/magazine-article-pool/bmw-m4-csl.html"
+    },
+    {
+      "id": "CAR108",
+      "brand": "BMW",
+      "model": "M6 Gran Coupé",
+      "catalogKey": "bmw/m6",
+      "productionStatus": "production",
+      "reference": "https://www.press.bmwgroup.com/usa/article/detail/T0135219EN_US/introducing-the-all-new-bmw-m6-gran-coupe?language=en_US"
+    },
+    {
+      "id": "CAR111",
+      "brand": "BMW",
+      "model": "M3 (E30)",
+      "catalogKey": "bmw/m3",
+      "productionStatus": "production",
+      "reference": "https://www.bmw-m.com/en/topics/magazine-article-pool/bmw-m3-generationen.html"
+    },
+    {
+      "id": "CAR113",
+      "brand": "Mercedes-Benz",
+      "model": "300 SL",
+      "catalogKey": "mercedes-benz/300-sl",
+      "productionStatus": "production",
+      "reference": "https://www.mercedes-benz.com/en/innovation/milestones/mercedes-benz-300-sl-gullwing/"
+    },
+    {
+      "id": "CAR116",
+      "brand": "Audi",
+      "model": "TT Roadster",
+      "catalogKey": "audi/tt",
+      "productionStatus": "production",
+      "reference": "https://www.audi.com/en/audi-tt-roadster-69"
+    },
+    {
+      "id": "CAR118",
+      "brand": "Audi",
+      "model": "RS5",
+      "catalogKey": "audi/rs5",
+      "productionStatus": "production",
+      "reference": "https://uploads.audi-mediacenter.com/system/production/uploaded_files/16690/file/b6992f5100845cdcaeeb75349744429acdc83c82/enBasisInfo_Audi_RS_5.pdf?1586349672=&disposition=attachment"
+    },
+    {
+      "id": "CAR119",
+      "brand": "Chevrolet",
+      "model": "Camaro (1970)",
+      "catalogKey": "chevrolet/camaro",
+      "productionStatus": "production",
+      "reference": "https://www.chevrolet.com/legacy/camaro"
+    },
+    {
+      "id": "CAR120",
+      "brand": "Dodge",
+      "model": "Challenger SRT",
+      "catalogKey": "dodge/challenger",
+      "productionStatus": "production",
+      "reference": "https://www.dodge.com/challenger.html"
+    },
+    {
+      "id": "CAR125",
+      "brand": "Ford",
+      "model": "Mustang Shelby GT500",
+      "catalogKey": "ford/mustang",
+      "productionStatus": "production",
+      "reference": "https://www.ford.mx/content/dam/Ford/website-assets/latam/mx/nameplate/shelby-gt500/2022/pdf/ford-shelby-gt500-2022-catalogo-descargable.pdf"
+    },
+    {
+      "id": "CAR129",
+      "brand": "Alfa Romeo",
+      "model": "4C",
+      "catalogKey": "alfa-romeo/4c",
+      "productionStatus": "production",
+      "reference": "https://www.media.stellantis.com/em-en/alfa-romeo/press/the-alfa-romeo-4c"
+    },
+    {
+      "id": "CAR135",
+      "brand": "Pontiac",
+      "model": "Firebird Trans Am",
+      "catalogKey": "pontiac/firebird",
+      "productionStatus": "production",
+      "reference": "https://www.gm.com/heritage/archive/vehicle-information-kits"
+    }
+  ],
+  "retired": [
+    {
+      "id": "CAR13",
+      "name": "福特 Mustang GT",
+      "replacement": "CAR125",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR27",
+      "name": "本田 NSX",
+      "replacement": "CAR99",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR28",
+      "name": "雪佛兰 Camaro",
+      "replacement": "CAR119",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR33",
+      "name": "兰博基尼 Aventador Lp700-4",
+      "replacement": "CAR32",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR35",
+      "name": "兰博基尼 Terzo Millennio",
+      "replacement": null,
+      "reason": "concept-racing-modified-or-unverified"
+    },
+    {
+      "id": "CAR41",
+      "name": "兰博基尼 Gallardo",
+      "replacement": "CAR34",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR44",
+      "name": "法拉利 488",
+      "replacement": null,
+      "reason": "concept-racing-modified-or-unverified"
+    },
+    {
+      "id": "CAR47",
+      "name": "迈凯伦 Spider",
+      "replacement": null,
+      "reason": "concept-racing-modified-or-unverified"
+    },
+    {
+      "id": "CAR49",
+      "name": "迈凯伦 18' Senna",
+      "replacement": "CAR48",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR50",
+      "name": "迈凯伦 P1 GTR",
+      "replacement": null,
+      "reason": "concept-racing-modified-or-unverified"
+    },
+    {
+      "id": "CAR51",
+      "name": "保时捷 911 GT3",
+      "replacement": "CAR03",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR52",
+      "name": "保时捷 Low Poly",
+      "replacement": "CAR03",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR53",
+      "name": "保时捷 911 C4S",
+      "replacement": "CAR03",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR54",
+      "name": "保时捷 911 Turbo",
+      "replacement": "CAR03",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR55",
+      "name": "保时捷 911 Carrera",
+      "replacement": "CAR03",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR59",
+      "name": "保时捷 911 RAUH-Welt",
+      "replacement": "CAR03",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR64",
+      "name": "科尼赛克 Gemera",
+      "replacement": null,
+      "reason": "concept-racing-modified-or-unverified"
+    },
+    {
+      "id": "CAR69",
+      "name": "日产 200SX Silvia",
+      "replacement": "CAR71",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR70",
+      "name": "日产 Proto",
+      "replacement": "CAR16",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR73",
+      "name": "日产 Aimgain GT",
+      "replacement": "CAR75",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR74",
+      "name": "日产 Custom GTR",
+      "replacement": "CAR75",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR76",
+      "name": "日产 Silvia S15",
+      "replacement": "CAR71",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR77",
+      "name": "日产 Skyline GT-R",
+      "replacement": "CAR72",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR78",
+      "name": "日产 GTR R34",
+      "replacement": "CAR72",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR79",
+      "name": "日产 Silvia 180sx",
+      "replacement": "CAR81",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR80",
+      "name": "日产 240sx",
+      "replacement": "CAR81",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR82",
+      "name": "日产 S15 Drift",
+      "replacement": "CAR71",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR83",
+      "name": "日产 350z Rocket",
+      "replacement": "CAR16",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR84",
+      "name": "丰田 Corolla AE86",
+      "replacement": "CAR89",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR86",
+      "name": "丰田 Supra Mk4 F&F",
+      "replacement": "CAR14",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR87",
+      "name": "丰田 Supra Mk4",
+      "replacement": "CAR14",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR88",
+      "name": "丰田 86",
+      "replacement": "CAR15",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR90",
+      "name": "丰田 AE86 Black",
+      "replacement": "CAR89",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR92",
+      "name": "马自达 RX-7 FC",
+      "replacement": "CAR95",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR93",
+      "name": "马自达 RX-7 FC3S",
+      "replacement": "CAR95",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR101",
+      "name": "宝马 Z4",
+      "replacement": null,
+      "reason": "concept-racing-modified-or-unverified"
+    },
+    {
+      "id": "CAR104",
+      "name": "宝马 M3 Coupe",
+      "replacement": "CAR111",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR106",
+      "name": "宝马 M3 E92",
+      "replacement": "CAR111",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR107",
+      "name": "宝马 M4 F82",
+      "replacement": "CAR105",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR109",
+      "name": "宝马 F22 EUROFIGHTER",
+      "replacement": null,
+      "reason": "concept-racing-modified-or-unverified"
+    },
+    {
+      "id": "CAR110",
+      "name": "宝马 3-Series E36",
+      "replacement": null,
+      "reason": "concept-racing-modified-or-unverified"
+    },
+    {
+      "id": "CAR114",
+      "name": "梅赛德斯-奔驰 S63 Coupe",
+      "replacement": null,
+      "reason": "concept-racing-modified-or-unverified"
+    },
+    {
+      "id": "CAR117",
+      "name": "奥迪 R18",
+      "replacement": null,
+      "reason": "concept-racing-modified-or-unverified"
+    },
+    {
+      "id": "CAR121",
+      "name": "道奇 Dominic Toretto's",
+      "replacement": null,
+      "reason": "concept-racing-modified-or-unverified"
+    },
+    {
+      "id": "CAR122",
+      "name": "道奇 ",
+      "replacement": null,
+      "reason": "concept-racing-modified-or-unverified"
+    },
+    {
+      "id": "CAR124",
+      "name": "福特 Mustang GT3",
+      "replacement": "CAR125",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR126",
+      "name": "福特 Mustang Convertible",
+      "replacement": "CAR125",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR127",
+      "name": "福特 Capri Group",
+      "replacement": null,
+      "reason": "concept-racing-modified-or-unverified"
+    },
+    {
+      "id": "CAR130",
+      "name": "达特桑 Gaijin 240Z",
+      "replacement": "CAR16",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR131",
+      "name": "达特桑 280Z",
+      "replacement": "CAR16",
+      "reason": "duplicate-family"
+    },
+    {
+      "id": "CAR132",
+      "name": "斯巴鲁 Impreza",
+      "replacement": null,
+      "reason": "concept-racing-modified-or-unverified"
+    },
+    {
+      "id": "CAR134",
+      "name": "特斯拉 Roadster",
+      "replacement": null,
+      "reason": "concept-racing-modified-or-unverified"
+    },
+    {
+      "id": "CAR103",
+      "name": "宝马 635 CSi (E24)",
+      "replacement": "CAR108",
+      "reason": "source-mesh-identifies-m635csi-m6-duplicate-family"
+    }
+  ]
+}
