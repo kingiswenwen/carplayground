@@ -5,12 +5,13 @@ import {separateWheelMeshes} from './wheel-meshes';
 import {assetUrl} from '../domain/content';
 import {vehicleModel} from '../domain/vehicle-models';
 import {fitModel,disposeModel,removeModelNodes} from './model';
+import {loadModelBytes} from './model-bytes';
 
 export type PlayVehicle={root:T.Group;wheels:T.Object3D[];paint:T.MeshStandardMaterial[];lights:T.MeshStandardMaterial[];bounds:T.Box3};
 export async function loadPlayVehicle(carId:string,signal:AbortSignal):Promise<PlayVehicle>{
  const spec=vehicleModel(carId);if(!spec)throw Error('该车型独立模型尚未接入');
- const response=await fetch(assetUrl((spec.playFile?'model-play-':'model-')+carId),{signal});if(!response.ok)throw Error('模型暂时无法打开');
- const gltf=await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).parseAsync(await response.arrayBuffer(),'');
+ const bytes=await loadModelBytes(assetUrl((spec.playFile?'model-play-':'model-')+carId),{bytes:spec.playBytes??spec.bytes,sha256:spec.playSha256??spec.sha256},signal);
+ const gltf=await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).parseAsync(bytes,'');
  if(signal.aborted){disposeModel(gltf.scene);throw Error('模型已取消');}
  const root=gltf.scene;
  removeModelNodes(root,spec.excludedNodes);

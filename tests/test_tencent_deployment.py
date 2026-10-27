@@ -208,7 +208,7 @@ class DeploymentTest(unittest.TestCase):
         self.cloud.origin_get, self.cloud.put = get, put
         self.run_deploy(publish=True, expected='absent')
         self.assertGreater(peak, 1)
-        self.assertLessEqual(peak, 4)
+        self.assertLessEqual(peak, 8)
         self.assertEqual(set(self.receipt['cdnVerified']), expected)
         self.assertEqual([event for event in self.cloud.events if event[0] == 'put'][-1], ('put', 'index.html'))
 

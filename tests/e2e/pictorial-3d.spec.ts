@@ -1,4 +1,13 @@
 import {test,expect,type Page} from '@playwright/test';
+test('发布包模型分块损坏会回到同车图片，重试后恢复原模型 @smoke',async({page})=>{
+ test.skip(!process.env.PLAYWRIGHT_BASE_URL,'分块交付用于构建后的发布包');test.setTimeout(90000);
+ const pattern='**/models/car01.glb.part-001.bin';let intercepted=false;
+ await page.route(pattern,async route=>{intercepted=true;const response=await route.fetch(),bytes=await response.body();bytes[0]^=1;await route.fulfill({response,body:bytes});});
+ await page.goto('/#/cars/CAR01');await expect(page.locator('.vehicle-views')).toHaveAttribute('data-mode','pictures');
+ await expect.poll(()=>intercepted).toBe(true);await expect(page.locator('.vehicle-angle')).toBeVisible();
+ await page.unroute(pattern);await page.getByRole('button',{name:'打开车型立体模型',exact:true}).click();
+ await expect(page.locator('.vehicle-webgl[data-ready=true]')).toHaveAttribute('data-car','CAR01',{timeout:45000});
+});
 async function words(page:Page){return page.evaluate(()=>{const words:string[]=[];const walker=document.createTreeWalker(document.getElementById('root')!,NodeFilter.SHOW_TEXT);while(walker.nextNode()){const n=walker.currentNode,e=n.parentElement;if(!e||e.closest('.sr-only,[aria-hidden=true],details:not([open]),.garage-picker')||!/[a-zA-Z\u3400-\u9fff]/.test(n.textContent||''))continue;const s=getComputedStyle(e),r=e.getBoundingClientRect();if(s.display!=='none'&&s.visibility!=='hidden'&&r.width>3&&r.height>3)words.push(n.textContent!);}return words;});}
 test('儿童首页、选车、详情、车库、故事和玩法无需读文字 @smoke',async({page})=>{
  test.setTimeout(90000);await page.setViewportSize({width:390,height:844});
@@ -29,8 +38,8 @@ test('没有对应模型的车保留外观图，切回已核对车型可继续�
 });
 test('模型网络失败后仍能看车，重试能恢复对应模型 @smoke',async({page})=>{
  test.setTimeout(120000);
- await page.route('**/models/car01.glb',route=>route.abort());await page.goto('/#/cars/CAR01');await expect(page.locator('.vehicle-views')).toHaveAttribute('data-mode','pictures');
- await page.unroute('**/models/car01.glb');await page.getByRole('button',{name:'打开车型立体模型'}).click();await expect(page.locator('.vehicle-webgl')).toHaveAttribute('data-source','reviewed-gltf',{timeout:30000});
+ await page.route('**/models/car01.glb*',route=>route.abort());await page.goto('/#/cars/CAR01');await expect(page.locator('.vehicle-views')).toHaveAttribute('data-mode','pictures');
+ await page.unroute('**/models/car01.glb*');await page.getByRole('button',{name:'打开车型立体模型'}).click();await expect(page.locator('.vehicle-webgl')).toHaveAttribute('data-source','reviewed-gltf',{timeout:30000});
 });
 test('保留的180张生成角度图可读取，图片查看可键盘拨动 @photos',async({page,request})=>{
  test.setTimeout(120000);
