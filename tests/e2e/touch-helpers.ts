@@ -6,7 +6,8 @@ export type TouchState={ready:boolean;completed:boolean;progress:number;moving:b
 export const touchCanvas=(page:Page)=>page.locator('canvas.touch-canvas');
 export const touchState=async(page:Page):Promise<TouchState>=>{
  const world=page.locator('canvas.touch-world-canvas');
- return JSON.parse((await (await world.count()?world:touchCanvas(page)).getAttribute('data-state'))!);
+ const rendered=await world.evaluateAll(nodes=>nodes[0]?.getAttribute('data-state')??null);
+ return JSON.parse(rendered||(await touchCanvas(page).getAttribute('data-state'))!);
 };
 export async function openTouch(page:Page,id:string,car='CAR02'){
  await page.goto(`/#/play/${id}?car=${car}&view=2d`);await expect(page.locator('.touch-play')).toHaveAttribute('data-activity',id);await expect(touchCanvas(page)).toBeVisible();await expect.poll(async()=>(await touchState(page)).ready).toBe(true);
