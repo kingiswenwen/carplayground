@@ -1,15 +1,50 @@
 """Release transport failure checks, without cloud access or credentials."""
 import copy
+import gzip
+import io
 import importlib.util
 from pathlib import Path
 import tempfile
 import threading
 import time
 import unittest
+from unittest.mock import PropertyMock, patch
 
 spec = importlib.util.spec_from_file_location('deployment', Path(__file__).resolve().parents[1] / 'scripts/deploy-tencent-release.py')
 deployment = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(deployment)
+
+
+class UploadEncodingTests(unittest.TestCase):
+    def test_large_text_uses_gzip_but_keeps_original_decoded_bytes(self):
+        data = b'const value = "a repeated test payload";\n' * 20000
+        headers = {'Content-Type': 'text/javascript', 'Cache-Control': 'public, max-age=31536000, immutable'}
+        payload, options = deployment.upload_payload('releases/test/assets/app.js', data, headers)
+        self.assertLessEqual(len(payload), 512 * 1024)
+        self.assertEqual(gzip.decompress(payload), data)
+        self.assertEqual(options['ContentEncoding'], 'gzip')
+        self.assertEqual(options['ContentType'], headers['Content-Type'])
+
+    def test_unbounded_binary_is_rejected_before_any_cloud_write(self):
+        with self.assertRaisesRegex(ValueError, 'Upload payload exceeds'):
+            deployment.upload_payload('media/test/oversized.bin', b'0' * (512 * 1024 + 1),
+                                      {'Content-Type': 'application/octet-stream', 'Cache-Control': 'immutable'})
+
+    def test_origin_readback_decodes_transport_compression_for_source_hash(self):
+        data = b'original source bytes' * 30000
+        class Body:
+            def get_raw_stream(self):
+                return io.BytesIO(gzip.compress(data, mtime=0))
+        class Client:
+            def get_object(self, **kwargs):
+                return {'Body': Body(), 'Content-Encoding': 'gzip', 'Content-Type': 'text/javascript'}
+        # origin_get imports only the SDK exception type before reading the body.
+        import sys, types
+        exception_module = types.ModuleType('qcloud_cos.cos_exception')
+        exception_module.CosServiceError = type('CosServiceError', (Exception,), {})
+        with patch.dict(sys.modules, {'qcloud_cos': types.ModuleType('qcloud_cos'), 'qcloud_cos.cos_exception': exception_module}), patch.object(deployment.TencentCloud, 'cos', new_callable=PropertyMock, return_value=Client()):
+            cloud = deployment.TencentCloud({'bucket': 'test', 'domain': 'example.test'}, {})
+            self.assertEqual(cloud.origin_get('releases/test/assets/app.js')['data'], data)
 
 
 class Cloud:

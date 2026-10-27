@@ -6,6 +6,7 @@ import argparse
 from concurrent.futures import ThreadPoolExecutor, as_completed
 import datetime
 import fcntl
+import gzip
 import hashlib
 import json
 import logging
@@ -21,6 +22,17 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def digest(data):
     return hashlib.sha256(data).hexdigest()
+
+
+def upload_payload(name, data, headers):
+    options = {'ContentType': headers['Content-Type'], 'CacheControl': headers['Cache-Control']}
+    payload = data
+    if len(payload) > 512 * 1024 and name.endswith(('.js', '.json', '.css', '.html')):
+        payload = gzip.compress(payload, compresslevel=6, mtime=0)
+        options['ContentEncoding'] = 'gzip'
+    if len(payload) > 512 * 1024:
+        raise ValueError('Upload payload exceeds 512 KiB: ' + name)
+    return payload, options
 
 
 def validate_target(target):
@@ -107,7 +119,7 @@ def deploy(package, manifest, cloud, receipt, save, publish=False, expected=None
     # Complete preflight before writing anything. Existing immutable objects must
     # match both bytes and headers; wrong metadata requires a new version ID.
     def preflight(file):
-        read_local(package, file)
+        upload_payload(file['path'], read_local(package, file), file['headers'])
         existing = cloud.origin_get(file['path'])
         if existing is None:
             return True
@@ -170,7 +182,7 @@ class TencentCloud:
         if not hasattr(self.local, 'cos'):
             self.local.cos = CosS3Client(CosConfig(Region=self.target['region'],
                                        SecretId=self.key['secretId'], SecretKey=self.key['secretKey'],
-                                       Token=self.key.get('token'), Scheme='https'))
+                                       Token=self.key.get('token'), Scheme='https', Timeout=120))
         return self.local.cos
 
     @property
@@ -190,14 +202,22 @@ class TencentCloud:
             raise
         stream = response['Body'].get_raw_stream()
         try:
-            return {'data': stream.read(), 'headers': response}
+            data = stream.read()
+            encoding = response.get('Content-Encoding', response.get('ContentEncoding', ''))
+            if encoding == 'gzip' and data.startswith(b'\x1f\x8b'):
+                data = gzip.decompress(data)
+            return {'data': data, 'headers': response}
         finally:
             stream.close()
 
     def put(self, name, data, headers):
-        self.cos.put_object(Bucket=self.bucket, Key=name, Body=data, EnableMD5=True,
-                            ContentType=headers['Content-Type'],
-                            CacheControl=headers['Cache-Control'])
+        payload, options = upload_payload(name, data, headers)
+        try:
+            self.cos.put_object(Bucket=self.bucket, Key=name, Body=payload, EnableMD5=True, **options)
+        except Exception as error:
+            error.deployment_object = name
+            error.deployment_bytes = len(payload)
+            raise
 
     def cdn_get(self, name):
         # No credentials, cache-busting query, Host override or TLS bypass.
@@ -297,6 +317,14 @@ def main():
         except Exception as error:
             # SDK exception strings can include request/response details.
             receipt['failureType'] = type(error).__name__
+            if hasattr(error, 'deployment_object'):
+                receipt['failureObject'] = error.deployment_object
+                receipt['failurePayloadBytes'] = error.deployment_bytes
+            cause, classes = error, []
+            while cause is not None and len(classes) < 4:
+                classes.append(type(cause).__name__)
+                cause = cause.__cause__ or cause.__context__
+            receipt['failureClasses'] = classes
             if isinstance(error, ValueError):
                 receipt['reason'] = str(error)
             raise
