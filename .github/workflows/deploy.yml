@@ -89,7 +89,7 @@ jobs:
     needs: check
     if: github.repository == 'kingiswenwen/carplayground' && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 40
     environment:
       name: production
     concurrency:

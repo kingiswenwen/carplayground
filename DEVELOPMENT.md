@@ -63,3 +63,7 @@ Python 音频处理测试需要 FFmpeg。浏览器模拟结果不代表真机实
 实际部署配置、云资源标识、连接说明和运维回执只保存在私有环境中。自动部署从 GitHub 的 `production` Environment Secrets 读取配置；本地部署可通过 `CARPLAYGROUND_DEPLOYMENT_DIR` 指向仓库外的私有配置目录。公开代码不包含真实目标配置。
 
 统一绘制图形位于 `src/visual/play-symbols.ts`，React与Canvas共用，不依赖平台Emoji字体。`src/domain/play-journey.ts` 提供覆盖26项活动的可选下一站邀请；故事上下文仍走原故事下一幕，完成记录与儿童掌握程度分开。
+
+## 模型交付
+
+保留来源 GLB 及其署名哈希。发布打包将超过 512 KiB 的模型拆成最大 256 KiB 的有序分块，在公开内容清单中附带 `delivery` 引用。浏览器核对每一块与重组后的完整 GLB，再解析模型；请求失败或取消仍可返回同车型图片并重试。本地开发直接读取原文件。

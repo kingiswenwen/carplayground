@@ -36,6 +36,16 @@ test('当前审阅包记录用户设备豁免，仍保留其他发布条件',asy
   assert.ok(manifest.outstanding.some(item=>item.id==='audio-distribution'));
   assert.ok(!manifest.outstanding.some(item=>['real-ipad','real-phone'].includes(item.id)));
 });
+test('large models ship in bounded parts that reconstruct the source hash',async()=>{
+ const manifest=await verifyPackage(first),content=JSON.parse(await fs.readFile(path.join(first,'site','content',manifest.contentReleaseId,'manifest.json'),'utf8'));
+ const models=content.assets.filter(a=>a.kind==='model'&&a.delivery);assert.ok(models.length>20);
+ for(const asset of models){
+  const location='media/'+content.id+'/'+asset.delivery.path.replace(/^media\//,''),info=JSON.parse(await fs.readFile(path.join(first,'site',location),'utf8')),parts=[];
+  for(const part of info.parts){assert.ok(part.bytes<=256*1024);parts.push(await fs.readFile(path.join(first,'site',path.posix.dirname(location),part.path)));}
+  assert.equal(sha256(Buffer.concat(parts)),asset.sha256);assert.equal(info.bytes,Buffer.concat(parts).length);
+  assert.ok(!manifest.files.some(f=>f.path==='media/'+content.id+'/'+asset.path.replace(/^media\//,'')));
+ }
+});
 test('模型渲染来源侧车随图片交付，孤立的来源文件不能混入发布包',async()=>{
  const manifest=await verifyPackage(first),origins=manifest.files.filter(file=>file.path.endsWith('.webp.json'));
  assert.ok(origins.length>=101);

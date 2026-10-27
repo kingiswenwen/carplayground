@@ -32,8 +32,8 @@ test('立体装车和推车使用实体模型，松手惯性仍按实际操作�
 
 test('新增跑车进入玩法时加载自己的车型网格，模型失败可简化并重试 @smoke',async({page})=>{
  test.setTimeout(90000);await open(page,'M01','CAR31');expect((await snapshot(page)).actors.find((a:{id:string})=>a.id==='car-0').sourceCar).toBe('CAR31');
- await page.route('**/models/car31.glb',r=>r.abort());await page.reload();await expect(page.locator('.touch-canvas[data-presentation=flat]')).toBeVisible({timeout:45000});
- await page.unroute('**/models/car31.glb');await page.getByRole('button',{name:'打开立体玩法',exact:true}).click();await expect(world(page)).toHaveAttribute('data-ready','true',{timeout:45000});expect((await snapshot(page)).actors.find((a:{id:string})=>a.id==='car-0').sourceCar).toBe('CAR31');
+ await page.route('**/models/car31.glb*',r=>r.abort());await page.reload();await expect(page.locator('.touch-canvas[data-presentation=flat]')).toBeVisible({timeout:45000});
+ await page.unroute('**/models/car31.glb*');await page.getByRole('button',{name:'打开立体玩法',exact:true}).click();await expect(world(page)).toHaveAttribute('data-ready','true',{timeout:45000});expect((await snapshot(page)).actors.find((a:{id:string})=>a.id==='car-0').sourceCar).toBe('CAR31');
 });
 test('26个玩法均可打开真实立体场景 @smoke',async({page})=>{
  test.setTimeout(240000);for(const id of ['E01','E02','E03','M01','M02','M03','M04','C01','C02','C03','S01','S02','S03','T01','T02','T03','H01','H02','H03','A01','A02','L01','L02','L03','P01','T04']){await open(page,id);expect((await snapshot(page)).actors.length,id).toBeGreaterThan(0);}

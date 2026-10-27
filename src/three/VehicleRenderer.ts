@@ -1,6 +1,7 @@
 import * as T from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+import {loadModelBytes} from './model-bytes';
 import {MeshoptDecoder} from 'three/addons/libs/meshopt_decoder.module.js';
 import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
 import {toCreasedNormals} from 'three/addons/utils/BufferGeometryUtils.js';
@@ -68,8 +69,7 @@ export class VehicleRenderer{
   this.timer=setTimeout(()=>{if(epoch===this.epoch)this.fail();},30000);
   try{
    // Fetch before compiling the studio, so transport errors recover promptly.
-   const response=await fetch(assetUrl('model-'+spec.id),{signal:abort.signal});if(!response.ok)throw Error('Model unavailable');
-   const bytes=await response.arrayBuffer();if(this.disposed||epoch!==this.epoch)return;
+   const bytes=await loadModelBytes(assetUrl('model-'+spec.id),spec,abort.signal);if(this.disposed||epoch!==this.epoch)return;
    const gltf=await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).parseAsync(bytes,'');
    if(this.disposed||epoch!==this.epoch){disposeModel(gltf.scene);return;}
    clearTimeout(this.timer);this.root=gltf.scene;

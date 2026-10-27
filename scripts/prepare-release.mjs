@@ -3,6 +3,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import { headersFor, listFiles, sha256, verifyPackage, readinessSnapshot } from './release-lib.mjs';
+import {writeModelParts} from './model-delivery.mjs';
 
 const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
 const args=process.argv.slice(2);
@@ -11,6 +12,7 @@ const kind=option('--kind','review');
 if(!['review','family'].includes(kind)) throw Error('--kind 只接受 review 或 family');
 const pkg=JSON.parse(await fs.readFile(path.join(root,'package.json'),'utf8'));
 const content=JSON.parse(await fs.readFile(path.join(root,'content/r3.json'),'utf8'));
+for(const asset of content.assets)if(asset.kind==='model'&&(await fs.stat(path.join(root,'public',asset.path))).size>512*1024)asset.delivery={format:'model-parts-v1',path:asset.path+'.parts.json'};
 const commit=execFileSync('git',['rev-parse','HEAD'],{cwd:root,encoding:'utf8'}).trim();
 const dirty=Boolean(execFileSync('git',['status','--porcelain'],{cwd:root,encoding:'utf8'}).trim());
 const stamp=new Date().toISOString().replace(/[-:]/g,'').replace(/\.\d+Z$/,'Z');
@@ -31,7 +33,7 @@ for(const sibling of await fs.readdir(outputRoot,{withFileTypes:true}))if(siblin
   if(prior.contentReleaseId===content.id&&prior.contentFingerprint!==contentFingerprint)throw Error('相同内容版本已有不同内容；请先创建新 contentReleaseId');
 }
 const npm=process.platform==='win32'?'npm.cmd':'npm';
-execFileSync(npm,['run','build','--','--base',`/releases/${id}/`],{cwd:root,stdio:'inherit',env:{...process.env,VITE_MEDIA_BASE_URL:`/media/${content.id}/`,VITE_APP_RELEASE_ID:id}});
+execFileSync(npm,['run','build','--','--base',`/releases/${id}/`],{cwd:root,stdio:'inherit',env:{...process.env,VITE_MEDIA_BASE_URL:`/media/${content.id}/`,VITE_APP_RELEASE_ID:id,VITE_MODEL_PARTS:'1'}});
 const temporary=path.join(outputRoot,`.preparing-${id}-${process.pid}`);
 await fs.mkdir(temporary,{recursive:false});
 try {
@@ -47,7 +49,8 @@ try {
     const relative=asset.path.replace(/^media\//,'');
     const target=path.join(site,'media',content.id,relative);
     await fs.mkdir(path.dirname(target),{recursive:true});
-    await fs.copyFile(path.join(root,'public',asset.path),target);
+    if(asset.delivery)await writeModelParts(path.join(root,'public',asset.path),target,asset.sha256);
+    else await fs.copyFile(path.join(root,'public',asset.path),target);
     // Raster origin sidecars travel with their approved image, just as embedded
     // metadata does. They are included in the package hash manifest below.
     if(asset.kind==='image') {

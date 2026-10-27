@@ -74,7 +74,7 @@ def check_bytes(file, remote):
 def verify_phase(items, work, phase, progress):
     """Bound object requests; a phase must finish before the next may start."""
     results = [None] * len(items)
-    with ThreadPoolExecutor(max_workers=4) as pool:
+    with ThreadPoolExecutor(max_workers=8) as pool:
         pending = {pool.submit(work, item): index for index, item in enumerate(items)}
         try:
             for done, future in enumerate(as_completed(pending), 1):
