@@ -1,7 +1,7 @@
 {
-  "id": "r16-model-parts-0.13.1",
+  "id": "r17-bounded-delivery-0.13.2",
   "schemaVersion": 2,
-  "appVersion": "0.13.1",
+  "appVersion": "0.13.2",
   "car": {
     "id": "CAR01",
     "brand": "Lamborghini",
@@ -2875,12 +2875,12 @@
     {
       "id": "scene-world",
       "path": "media/scenes/world-v3.webp",
-      "source": "Built-in GPT Image; production environment; gameplay objects and counts are rendered separately; reviewed 2026-10-17.",
+      "source": "Built-in GPT Image; production environment; gameplay objects and counts are rendered separately; reviewed 2026-10-17. WebP encoding optimized at the original dimensions; scene composition retained.",
       "kind": "image",
       "status": "approved",
       "width": 1536,
       "height": 1024,
-      "sha256": "e49f7743af37f0d1aadd4c323ae2ba7c0dc4110dea44e5fc39a2cda9dcce5efc"
+      "sha256": "a80fa595ccd0092f2787a7ff394caf7a1871ef6e908f9afb6813f247d559b7bf"
     },
     {
       "id": "scene-showroom",
