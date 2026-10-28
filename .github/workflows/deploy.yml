@@ -56,7 +56,7 @@ jobs:
           npm run release:prepare -- --id "$release_id" --kind review
           echo "release_id=$release_id" >> "$GITHUB_OUTPUT"
           echo "artifact_name=release-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}" >> "$GITHUB_OUTPUT"
-      - run: npx playwright install --with-deps chromium
+      - run: npx playwright install --with-deps chromium firefox
       - name: Test built website browser flows
         shell: bash
         env:
@@ -71,6 +71,7 @@ jobs:
             sleep 1
           done
           npx playwright test --project=chromium --workers=2
+          npx playwright test tests/e2e/responsive-ui.spec.ts tests/e2e/direct-touch.spec.ts tests/e2e/play-guidance.spec.ts --project=firefox --workers=2 --grep '三段故事和控件适配|车型分页和家长说明|推车松手|两路同推|洗车依次'
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: ${{ steps.package.outputs.artifact_name }}

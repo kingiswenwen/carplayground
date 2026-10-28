@@ -129,6 +129,9 @@ test('保留版本也核对入口、应用内容版本及指纹；旧格式可�
     manifest.totalBytes=manifest.files.reduce((sum,file)=>sum+file.bytes,0)+(scenario==='wrong-total'?1:0);
     await fs.writeFile(path.join(folder,'manifest.json'),JSON.stringify(manifest));
     await assert.rejects(verifyPackage(folder),/缺少入口|入口与版本|应用与内容|内容版本指纹|版本编号重复|总字节数|豁免/);
+    // Each corruption case owns a full release copy; keep only the active one
+    // so a small temporary filesystem does not turn validation into quota errors.
+    await fs.rm(folder,{recursive:true,force:true});
   }
   const legacy=path.join(sandbox,'legacy');await fs.cp(forward,legacy,{recursive:true});
   const manifest=JSON.parse(await fs.readFile(path.join(legacy,'manifest.json'),'utf8'));

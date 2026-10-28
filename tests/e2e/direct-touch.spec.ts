@@ -1,6 +1,6 @@
 import {test,expect,type Page} from '@playwright/test';
 import fs from 'node:fs';
-import {partTouchPoints} from './touch-helpers';
+import {partTouchPoints,flickTouch} from './touch-helpers';
 const content=JSON.parse(fs.readFileSync('content/r3.json','utf8')) as {cars:{id:string}[];activities:{id:string}[]};
 const modelIds=new Set((JSON.parse(fs.readFileSync('content/vehicle-models.json','utf8')) as {id:string}[]).map(m=>m.id));
 type State={ready:boolean;completed:boolean;progress:number;moving:boolean;items:{id:string;x:number;y:number;placed:boolean}[];targets:{id:string;x:number;y:number;occupied?:boolean}[]};
@@ -48,14 +48,9 @@ test('生成车身与独立轮子直接拖装，错放不能计为装好 @smoke'
  await open(page,'T04');const s=await state(page);await drag(page,s.items.find(i=>i.id==='wheel-0')!,{x:40,y:40});expect((await state(page)).progress).toBe(0);
  await drop(page,'body','body');await drop(page,'wheel-0','wheel-0');await drop(page,'wheel-1','wheel-1');await complete(page);
 });
-test('推车松手之后继续滑行，无启动和完成按钮 @smoke',async({page,browserName})=>{
+test('推车松手之后继续滑行，无启动和完成按钮 @smoke',async({page})=>{
  await open(page,'P01');
- if(browserName==='chromium'){
-  const from=await position(page,(await state(page)).items.find(i=>i.id==='runner')!),to=await position(page,{x:500,y:340}),input=await page.context().newCDPSession(page),time=Date.now()/1000;
-  await input.send('Input.dispatchMouseEvent',{type:'mousePressed',...from,button:'left',buttons:1,clickCount:1,timestamp:time});
-  for(let n=1;n<=3;n++)await input.send('Input.dispatchMouseEvent',{type:'mouseMoved',x:from.x+(to.x-from.x)*n/3,y:from.y+(to.y-from.y)*n/3,button:'left',buttons:1,timestamp:time+n*.025});
-  await input.send('Input.dispatchMouseEvent',{type:'mouseReleased',...to,button:'left',buttons:0,clickCount:1,timestamp:time+.085});await input.detach();
- }else await drag(page,(await state(page)).items.find(i=>i.id==='runner')!,{x:500,y:340},1);
+ await flickTouch(page,(await state(page)).items.find(i=>i.id==='runner')!,{x:500,y:340});
  await expect.poll(async()=>(await state(page)).items[0].x,{timeout:3000}).toBeGreaterThan(520);await complete(page);
  await expect(page.getByRole('button',{name:/推一下|我发现了/})).toHaveCount(0);
 });
@@ -99,11 +94,11 @@ test('窄屏与尺寸变化保留停车状态，画面不横向溢出',async({pa
 });
 test('倾斜权限拒绝或没有传感器时仍可拖推',async({page})=>{
  await page.addInitScript(()=>{Object.defineProperty(window,'DeviceOrientationEvent',{value:class {static requestPermission(){return Promise.resolve('denied');}},configurable:true});});
- await open(page,'P01');await page.getByRole('button',{name:'启用倾斜操控'}).click();await expect(page.getByRole('button',{name:'启用倾斜操控'})).toBeVisible();await drag(page,(await state(page)).items[0],{x:520,y:340});await complete(page);
+ await open(page,'P01');await page.getByRole('button',{name:'启用倾斜操控'}).click();await expect(page.getByRole('button',{name:'启用倾斜操控'})).toBeVisible();await flickTouch(page,(await state(page)).items[0],{x:520,y:340});await complete(page);
 });
 test('部件探索、出发停止和形状滚动均由触碰物体完成',async({page})=>{
  for(const id of ['E02','T01']){await open(page,id);for(const p of partTouchPoints()){const at=await position(page,p);await page.mouse.click(at.x,at.y);}await complete(page);}
- for(const id of ['S01']){await open(page,id);await drag(page,(await state(page)).items[0],{x:500,y:340},4);await complete(page);}
+ for(const id of ['S01']){await open(page,id);await flickTouch(page,(await state(page)).items[0],{x:500,y:340});await complete(page);}
 });
 test('新车图失败时不接受空图操作，重试后可继续 @smoke',async({page})=>{
  let fail=true;await page.route('**/play-cars/*car02-side.webp',route=>fail?route.abort():route.continue());
@@ -114,7 +109,7 @@ test('切后台暂停后物体不漂移，返回须恢复操作 @smoke',async({p
  await open(page,'P01');await page.evaluate(()=>{Object.defineProperty(document,'hidden',{configurable:true,value:true});document.dispatchEvent(new Event('visibilitychange'));});
  const before=await state(page);await page.waitForTimeout(250);expect((await state(page)).items).toEqual(before.items);
  await page.evaluate(()=>{Object.defineProperty(document,'hidden',{configurable:true,value:false});document.dispatchEvent(new Event('visibilitychange'));});
- await page.getByRole('button',{name:'继续探索',exact:true}).click();await drag(page,(await state(page)).items[0],{x:500,y:340});await complete(page);
+ await page.getByRole('button',{name:'继续探索',exact:true}).click();await flickTouch(page,(await state(page)).items[0],{x:500,y:340});await complete(page);
 });
 test('手机原生触控拖车，第二根手指离开不会取消第一根拖动',async({page,browserName})=>{
  test.skip(browserName!=='chromium','原生触控通过Chromium输入协议验证');

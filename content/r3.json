@@ -1,7 +1,7 @@
 {
-  "id": "r17-bounded-delivery-0.13.2",
+  "id": "r18-responsive-stability-0.13.3",
   "schemaVersion": 2,
-  "appVersion": "0.13.2",
+  "appVersion": "0.13.3",
   "car": {
     "id": "CAR01",
     "brand": "Lamborghini",
