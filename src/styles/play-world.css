@@ -49,7 +49,7 @@
 .child-shell .touch-play[data-completed=true]{width:min(100%,calc((100svh - 350px)*1.47))}
 .touch-bottom{margin:15px 8px 8px}
 .touch-adult{margin-top:16px}
-.picture-story .story-picture{aspect-ratio:1.6;background:#dbece2;overflow:hidden;border:1px solid #cbdccf;box-shadow:0 6px 20px #3656530d}
+.picture-story .story-picture{width:100%;min-height:0;aspect-ratio:1.6;background:#dbece2;overflow:hidden;border:1px solid #cbdccf;box-shadow:0 6px 20px #3656530d}
 .story-scene{display:block;position:relative;width:100%;height:100%;isolation:isolate;overflow:hidden}
 .story-landscape{position:absolute;inset:0;width:100%;height:100%}
 .story-hero-car{position:absolute;width:57%;left:21.5%;top:45%;height:auto;filter:drop-shadow(0 5px 4px #36565318);pointer-events:none}

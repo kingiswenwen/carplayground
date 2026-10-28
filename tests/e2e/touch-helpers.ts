@@ -16,8 +16,38 @@ export async function touchPosition(page:Page,p:{x:number;y:number}){
  const box=(await touchCanvas(page).boundingBox())!,height=await touchCanvas(page).evaluate(c=>(c as HTMLCanvasElement).height);
  return{x:box.x+p.x/1000*box.width,y:box.y+p.y/height*box.height};
 }
-export async function dragTouch(page:Page,from:{x:number;y:number},to:{x:number;y:number}){
- const a=await touchPosition(page,from),b=await touchPosition(page,to);await page.mouse.move(a.x,a.y);await page.mouse.down();await page.mouse.move(b.x,b.y,{steps:14});await page.mouse.up();
+export async function dragTouch(page:Page,from:{x:number;y:number},to:{x:number;y:number},steps=14){
+ const a=await touchPosition(page,from),b=await touchPosition(page,to);await page.mouse.move(a.x,a.y);await page.mouse.down();await page.mouse.move(b.x,b.y,{steps});await page.mouse.up();
+}
+// A flick needs a recent velocity sample. Unpaced mouse.move({steps}) depends on
+// machine load and can represent either a held car or a sub-8ms gesture.
+export async function flickPointer(page:Page,from:{x:number;y:number},to:{x:number;y:number}){
+ if(page.context().browser()?.browserType().name()==='chromium'){
+  const input=await page.context().newCDPSession(page),time=Date.now()/1000;
+  try{
+   await input.send('Input.dispatchMouseEvent',{type:'mousePressed',...from,button:'left',buttons:1,clickCount:1,timestamp:time});
+   for(let n=1;n<=3;n++)await input.send('Input.dispatchMouseEvent',{type:'mouseMoved',x:from.x+(to.x-from.x)*n/3,y:from.y+(to.y-from.y)*n/3,button:'left',buttons:1,timestamp:time+n*.025});
+   await input.send('Input.dispatchMouseEvent',{type:'mouseReleased',...to,button:'left',buttons:0,clickCount:1,timestamp:time+.085});
+  }finally{await input.detach();}
+ }else{
+  // Playwright's non-CDP mouse API cannot set timestamps. Keep real browser
+  // hit-testing/capture, but pace the event timestamps, not slow driver IPC.
+  const timing=await page.evaluateHandle(()=>{
+   let time=performance.now();
+   const stamp=(event:Event)=>{Object.defineProperty(event,'timeStamp',{value:time});time+=25;};
+   const types=['pointerdown','pointermove','pointerup'];
+   for(const type of types)window.addEventListener(type,stamp,true);
+   return()=>{for(const type of types)window.removeEventListener(type,stamp,true);};
+  });
+  try{
+   await page.mouse.move(from.x,from.y);await page.mouse.down();
+   for(let n=1;n<=3;n++)await page.mouse.move(from.x+(to.x-from.x)*n/3,from.y+(to.y-from.y)*n/3);
+   await page.mouse.up();
+  }finally{await timing.evaluate(dispose=>dispose());await timing.dispose();}
+ }
+}
+export async function flickTouch(page:Page,from:{x:number;y:number},to:{x:number;y:number}){
+ await flickPointer(page,await touchPosition(page,from),await touchPosition(page,to));
 }
 export async function dropTouch(page:Page,item:string,target:string){
  const world=page.locator('canvas.touch-world-canvas');

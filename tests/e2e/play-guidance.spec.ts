@@ -1,5 +1,5 @@
 import {test,expect,type Page} from '@playwright/test';
-import {openTouch,dropTouch,dragTouch,touchState,touchPosition,touchCanvas,completedTouch} from './touch-helpers';
+import {openTouch,dropTouch,dragTouch,flickTouch,touchState,touchPosition,touchCanvas,completedTouch} from './touch-helpers';
 import fs from 'node:fs';
 const content=JSON.parse(fs.readFileSync('content/r3.json','utf8')) as {cars:{id:string;hotspots:{x:number;y:number}[]}[]};
 const snapshot=async(page:Page)=>JSON.parse((await touchCanvas(page).getAttribute('data-state'))!);
@@ -32,12 +32,12 @@ test('红灯不能直接推过线，绿灯出发后红灯才记录停止 @smoke'
  await tapItem(page,'signal');await dragTouch(page,(await touchState(page)).items[0],{x:650,y:340});expect((await snapshot(page)).signalGreen).toBe(true);expect((await touchState(page)).completed).toBe(false);await tapItem(page,'signal');await completedTouch(page);expect((await touchState(page)).moving).toBe(false);
 });
 test('两路同推采用相同输入，粗糙路面实际停得更近 @smoke',async({page})=>{
- await openTouch(page,'P01');await dragTouch(page,(await touchState(page)).items[0],{x:400,y:340});await completedTouch(page);const s=await snapshot(page);expect(s.comparison).toHaveLength(1);expect(s.comparison[0].smooth).toBeGreaterThan(s.comparison[0].rough+20);expect(s.items[0].y).not.toBe(s.items[1].y);
+ await openTouch(page,'P01');await flickTouch(page,(await touchState(page)).items[0],{x:400,y:340});await completedTouch(page);const s=await snapshot(page);expect(s.comparison).toHaveLength(1);expect(s.comparison[0].smooth).toBeGreaterThan(s.comparison[0].rough+20);expect(s.items[0].y).not.toBe(s.items[1].y);
 });
 test('洗车依次轮流，两辆擦净后完成态保持100%，继续划不会降回93% @smoke',async({page})=>{
- await openTouch(page,'H03');const H=await touchCanvas(page).evaluate(c=>(c as HTMLCanvasElement).height);
- const wash=async()=>{for(let y=H*.4-160;y<H*.4+180;y+=45)await dragTouch(page,{x:65,y},{x:935,y});};
- await wash();await expect.poll(async()=>(await snapshot(page)).wash.clean).toBe(1);expect((await touchState(page)).completed).toBe(false);await tapItem(page,'next-car');await wash();await completedTouch(page);expect((await snapshot(page)).wash.clean).toBe(2);await dragTouch(page,{x:400,y:H*.4},{x:600,y:H*.4});expect((await touchState(page)).progress).toBe(1);
+ test.setTimeout(60000);await openTouch(page,'H03');const H=await touchCanvas(page).evaluate(c=>(c as HTMLCanvasElement).height);
+ const wash=async()=>{for(let y=H*.4-160;y<H*.4+180;y+=45)await dragTouch(page,{x:65,y},{x:935,y},4);};
+ await wash();await expect.poll(async()=>(await snapshot(page)).wash.clean).toBe(1);expect((await touchState(page)).completed).toBe(false);await tapItem(page,'next-car');await expect.poll(async()=>(await snapshot(page)).wash.waiting).toBe(false);await wash();await completedTouch(page);expect((await snapshot(page)).wash.clean).toBe(2);await dragTouch(page,{x:400,y:H*.4},{x:600,y:H*.4});expect((await touchState(page)).progress).toBe(1);
 });
 test('接路逐步展开，直路不会变弯路，最终实际开到公园 @smoke',async({page})=>{
  test.setTimeout(60000);await openTouch(page,'T03');

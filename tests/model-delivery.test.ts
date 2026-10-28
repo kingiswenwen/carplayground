@@ -13,7 +13,7 @@ function fixture(change?:'corrupt'|'unsafe'|'unavailable'){
 }
 afterEach(()=>vi.unstubAllGlobals());
 describe('verified model delivery',()=>{
- it('reassembles exactly the credited model bytes in part order',async()=>{const fetcher=fixture(),result=await loadModelBytes('https://example.test/models/car01.glb',expected,new AbortController().signal,true);expect(new Uint8Array(result)).toEqual(bytes);expect(fetcher).toHaveBeenCalledTimes(4);});
+ it('reassembles exactly the credited model bytes in part order',async()=>{const fetcher=fixture(),result=await loadModelBytes('https://example.test/models/car01.glb',expected,new AbortController().signal,true);expect(Buffer.from(result).equals(Buffer.from(bytes))).toBe(true);expect(fetcher).toHaveBeenCalledTimes(4);});
  it('rejects changed bytes even when the chunk size is unchanged',async()=>{fixture('corrupt');await expect(loadModelBytes('https://example.test/models/car01.glb',expected,new AbortController().signal,true)).rejects.toThrow('校验失败');});
  it('rejects paths outside the declared model before requesting any part',async()=>{const fetcher=fixture('unsafe');await expect(loadModelBytes('https://example.test/models/car01.glb',expected,new AbortController().signal,true)).rejects.toThrow('清单无效');expect(fetcher).toHaveBeenCalledTimes(1);});
  it('propagates cancellation without making a request',async()=>{const fetcher=fixture(),abort=new AbortController();abort.abort();await expect(loadModelBytes('https://example.test/models/car01.glb',expected,abort.signal,true)).rejects.toThrow();expect(fetcher).not.toHaveBeenCalled();});

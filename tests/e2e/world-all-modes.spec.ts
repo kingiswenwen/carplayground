@@ -1,5 +1,6 @@
 import {test,expect,type Page} from '@playwright/test';
 import * as T from 'three';
+import {flickPointer} from './touch-helpers';
 test.use({viewport:{width:1000,height:760}});
 const world=(p:Page)=>p.locator('canvas.touch-world-canvas');
 const snap=async(p:Page)=>JSON.parse((await world(p).getAttribute('data-state'))!);
@@ -10,10 +11,8 @@ async function drag(p:Page,id:string,to:{x:number;y:number},steps=6){const s=awa
 async function drop(p:Page,id:string,target:string){await expect.poll(async()=>(await snap(p)).recovering).toBe(false);const s=await snap(p);await drag(p,id,s.targetScreens.find((t:any)=>t.id===target).screen);}
 async function ground(p:Page,x:number,y:number){const s=await snap(p);const v=new T.Vector3((x-500)*.02,0,(y-s.boardHeight/2)*.02).applyMatrix4(new T.Matrix4().fromArray(s.floorProjection));return{x:(v.x+1)/2,y:(1-v.y)/2};}
 async function flick(p:Page,id:string){
- const s=await snap(p),a=await at(p,s.actors.find((a:any)=>a.id===id).screen),b=await at(p,await ground(p,410,230)),input=await p.context().newCDPSession(p),t=Date.now()/1000;
- await input.send('Input.dispatchMouseEvent',{type:'mousePressed',...a,button:'left',buttons:1,clickCount:1,timestamp:t});
- for(let n=1;n<=3;n++)await input.send('Input.dispatchMouseEvent',{type:'mouseMoved',x:a.x+(b.x-a.x)*n/3,y:a.y+(b.y-a.y)*n/3,button:'left',buttons:1,timestamp:t+n*.025});
- await input.send('Input.dispatchMouseEvent',{type:'mouseReleased',...b,button:'left',buttons:0,clickCount:1,timestamp:t+.085});await input.detach();
+ const s=await snap(p),a=await at(p,s.actors.find((a:any)=>a.id===id).screen),b=await at(p,await ground(p,410,230));
+ await flickPointer(p,a,b);
 }
 async function done(p:Page){await expect(p.locator('.touch-play')).toHaveAttribute('data-completed','true',{timeout:25000});await expect.poll(async()=>(await snap(p)).progress).toBe(1);}
 const ids=['E01','E02','E03','M01','M02','M03','M04','C01','C02','C03','S01','S02','S03','T01','T02','T03','H01','H02','H03','A01','A02','L01','L02','L03','P01','T04'];
