@@ -29,7 +29,7 @@
 .orbit-invitation>svg{width:32px;height:32px;color:#527c69}
 @keyframes guide-unfold{from{opacity:.5;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
 @keyframes discovery-arrives{from{transform:scale(.75);opacity:.4}to{transform:scale(1);opacity:1}}
-@keyframes destination-arrives{from{transform:translateX(24px);opacity:.5}to{transform:translateX(0);opacity:1}}
+@keyframes destination-arrives{from{transform:translateY(8px);opacity:.5}to{transform:translateY(0);opacity:1}}
 @media(max-width:420px){.touch-toolbar{gap:6px}.touch-tools{gap:6px}.touch-tools>.touch-icon{min-width:48px;min-height:48px}.touch-tools>.help-demonstration{min-width:56px;min-height:56px}.touch-play[data-activity=P01] .touch-title{display:none}.guide-frames{gap:6px}.play-guide{padding:8px 10px 12px}.guide-actions{gap:16px}}
 @media(max-height:500px){.play-guide[open]{grid-template-rows:40px minmax(0,1fr) 56px}.guide-frames{display:none}.guide-actions{margin-top:0}.guide-actions .touch-icon,.guide-actions .guide-try{min-width:48px;min-height:48px}.guide-heading>.touch-icon{min-width:40px;min-height:40px}}
 @media(prefers-reduced-motion:reduce){.play-guide,.completion-replay,.next-invitation .next-destination{animation:none}.guide-frame,.touch-progress>span{transition:none}.guide-frame[aria-pressed=true]{transform:none}}
