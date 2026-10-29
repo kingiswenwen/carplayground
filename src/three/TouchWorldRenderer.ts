@@ -29,6 +29,7 @@ export class TouchWorldRenderer{
  private scenery=new T.Group();
  private dirt=new T.Group();
  private tracks=new T.Group();
+ private selection=new T.Mesh(new T.RingGeometry(.85,1,40),new T.MeshBasicMaterial({color:'#efb44e',transparent:true,opacity:.85,depthWrite:false,side:T.DoubleSide}));
  private markCount=0;
  private shadow?:T.Group;
  private dirtPoints:T.Mesh[]=[];
@@ -67,7 +68,7 @@ export class TouchWorldRenderer{
   const canvas=this.renderer.domElement;canvas.className='touch-world-canvas';canvas.tabIndex=0;canvas.setAttribute('role','application');canvas.setAttribute('aria-label',activity==='H03'?'立体洗车场景，直接擦洗车身；回车擦洗下一处，第一辆洗净后回车换车':'立体汽车互动场景，直接拖动车辆和物件；方向键移动，回车放下，方括号选择物体');canvas.dataset.ready='false';canvas.dataset.activity=activity;host.append(canvas);
   this.scene.add(new T.HemisphereLight('#f2faff','#adc395',2.2));
   const sun=new T.DirectionalLight('#fff5df',3.1);sun.position.set(-8,18,10);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);sun.shadow.camera.left=-15;sun.shadow.camera.right=15;sun.shadow.camera.top=20;sun.shadow.camera.bottom=-20;sun.shadow.normalBias=.035;sun.shadow.bias=-.0003;this.scene.add(sun);
-  this.scene.add(this.retired,this.scenery,this.dirt,this.tracks);this.retired.visible=false;
+  this.scene.add(this.retired,this.scenery,this.dirt,this.tracks,this.selection);this.retired.visible=false;this.selection.rotation.x=-Math.PI/2;this.selection.visible=false;
 
   this.controls=new OrbitControls(this.camera,canvas);this.controls.enablePan=false;this.controls.enableDamping=true;this.controls.minPolarAngle=.25;this.controls.maxPolarAngle=1.35;this.controls.minDistance=18;this.controls.maxDistance=65;this.controls.enabled=false;
   this.buildScenery();this.resetCamera();
@@ -78,7 +79,8 @@ export class TouchWorldRenderer{
  }
  update(state:BoardSnapshot){this.state=state;}
  setOrbit(enabled:boolean){this.orbit=enabled;this.controls.enabled=enabled;this.needsRender=true;this.cancel();}
- resetCamera(){const length=this.board.height*UNIT;this.camera.position.set(10,Math.max(19,length*1.2),Math.max(18,length*1.15));this.camera.lookAt(0,0,0);this.controls.target.set(0,0,0);this.controls.update();this.resize();}
+ setPaused(value:boolean){this.paused=value;this.controls.enabled=this.orbit&&!value;if(value)this.cancel();}
+ resetCamera(){const length=this.board.height*UNIT,portrait=this.host.clientWidth<this.host.clientHeight;this.camera.position.set(portrait?0:10,Math.max(19,length*1.2),Math.max(18,length*1.15));this.camera.lookAt(0,0,0);this.controls.target.set(0,0,0);this.controls.update();this.resize();}
  private resize=()=>{if(this.disposed)return;const w=Math.max(1,this.host.clientWidth),h=Math.max(1,this.host.clientHeight);this.renderer.setSize(w,h,false);this.camera.aspect=w/h;const depth=this.board.height*UNIT;const distance=Math.max(depth*1.9,22/this.camera.aspect/Math.tan(37*Math.PI/360)/2)*1.12;const direction=this.camera.position.clone().sub(this.controls.target).normalize();this.camera.position.copy(this.controls.target).addScaledVector(direction,distance);this.camera.updateProjectionMatrix();if(this.activity==='T04'&&this.actors.size)this.fitAssemblyCamera();this.needsRender=true;};
  private fitAssemblyCamera(){
   const depth=this.board.height*UNIT,bounds=new T.Box3(new T.Vector3(-11,-.5,-depth/2-1),new T.Vector3(11,0,depth/2+1));
@@ -106,6 +108,34 @@ export class TouchWorldRenderer{
  private pick(){this.scene.updateMatrixWorld(true);const roots=[...this.actors.values()].map(a=>a.group);return this.ray.intersectObjects(roots,true).find(hit=>hit.object.visible&&this.visibleParents(hit.object));}
  private visibleParents(object:T.Object3D):boolean{if(!object.visible)return false;return object.parent?this.visibleParents(object.parent):true;}
  private actorId(object:T.Object3D){let p:T.Object3D|null=object;while(p){if(p.userData.item)return p.userData.item as string;p=p.parent;}return undefined;}
+ private washPoint(hit:T.Intersection|undefined){
+  const dirt=this.ray.intersectObjects(this.dirtPoints.filter(point=>point.visible),false)[0];
+  // A visible dirt patch can extend past the body's silhouette. Hit the patch
+  // itself, while keeping dirt hidden behind the car or tools out of reach.
+  if(dirt&&(!hit||dirt.distance<=hit.distance+.2))return dirt.object.getWorldPosition(new T.Vector3());
+  return hit&&this.actorId(hit.object)==='wash-car'?hit.point:undefined;
+ }
+ private nearbyItem(event:PointerEvent){
+  const rect=this.renderer.domElement.getBoundingClientRect(),x=event.clientX-rect.left,y=event.clientY-rect.top;
+  const candidates=[...this.actors].filter(([id,a])=>a.group.visible&&this.board.items.some(i=>i.id===id&&!i.placed)).map(([id,a])=>{
+   const box=this.screenBounds(this.actorBounds(a)),left=box.min.x*rect.width,right=box.max.x*rect.width,top=box.min.y*rect.height,bottom=box.max.y*rect.height;
+   const padX=Math.max(0,(44-(right-left))/2),padY=Math.max(0,(44-(bottom-top))/2);
+   return{id,inside:x>=left-padX&&x<=right+padX&&y>=top-padY&&y<=bottom+padY,distance:Math.hypot(x-(left+right)/2,y-(top+bottom)/2)};
+  });
+  return candidates.filter(c=>c.inside).sort((a,b)=>a.distance-b.distance)[0]?.id;
+ }
+ private targetAt(floor:T.Vector3){
+  const available=this.board.targets.filter(t=>t.enabled!==false&&!t.occupied&&this.targets.get(t.id)?.visible);
+  const hits=this.ray.intersectObjects(available.map(t=>this.targets.get(t.id)!),true);
+  for(const hit of hits){let node:T.Object3D|null=hit.object;while(node){const target=available.find(t=>t.id===node!.userData.target);if(target)return target;node=node.parent;}}
+  const point=this.boardPoint(floor);
+  return available.find(t=>{
+   // Wheel sockets sit on the model, above and beside the rule engine's floor.
+   // Their visible ring is the input target in both tap and drag interactions.
+   if(this.activity==='T04'&&t.id.startsWith('wheel-'))return false;
+   return Math.abs(point.x-t.x)<t.w/2+18&&Math.abs(point.y-t.y)<t.h/2+18;
+  });
+ }
  private partAt(actor:Actor,hit:T.Intersection){
   const p=actor.group.worldToLocal(hit.point.clone()),name=(hit.object.name+' '+(Array.isArray((hit.object as T.Mesh).material)?((hit.object as T.Mesh).material as T.Material[])[hit.face?.materialIndex||0]?.name:((hit.object as T.Mesh).material as T.Material)?.name)).toLowerCase();
   const bounds=this.templates.get(actor.sourceCar!)!.bounds,size=bounds.getSize(new T.Vector3()),center=bounds.getCenter(new T.Vector3()),x=(p.x-center.x)/size.x,y=(p.y-bounds.min.y)/size.y,z=Math.abs(p.z-center.z)/size.z;
@@ -122,32 +152,33 @@ export class TouchWorldRenderer{
   actor.group.userData.partCamera=cameraKey;actor.group.userData.partScreens=points;return points;
  }
  private activatePart(actor:Actor,part:'wheel'|'door'|'light',point:T.Vector3){
-  this.board.touchPart(part,actor.wheels.length>0,!!actor.light?.length);if(this.partPulse){this.partPulse.mesh.removeFromParent();disposeModel(this.partPulse.mesh);}const ring=new T.Mesh(new T.RingGeometry(.22,.3,24),new T.MeshBasicMaterial({color:'#ffe49a',depthTest:false,transparent:true,opacity:1}));ring.position.copy(point);ring.quaternion.copy(this.camera.quaternion);ring.renderOrder=10;this.scene.add(ring);this.partPulse={mesh:ring,part,life:1.2};delete actor.group.userData.partCamera;this.needsRender=true;
+  this.board.touchPart(part,actor.wheels.length>0,!!actor.light?.length);if(this.partPulse){this.partPulse.mesh.removeFromParent();disposeModel(this.partPulse.mesh);}const ring=new T.Mesh(new T.RingGeometry(.22,.3,24),new T.MeshBasicMaterial({color:'#ffe49a',depthTest:false,transparent:true,opacity:1}));ring.position.copy(point);ring.quaternion.copy(this.camera.quaternion);ring.renderOrder=10;this.scene.add(ring);this.partPulse={mesh:ring,part,life:1.2};this.needsRender=true;
   if(part==='light')actor.light?.forEach(m=>{m.emissive.set('#fff0a0');m.emissiveIntensity=2;});
-  if(part==='wheel')for(const wheel of actor.wheels)wheel.rotateOnAxis(wheel.userData.axis,Math.PI*.8);
+  if(part==='wheel'){for(const wheel of actor.wheels)wheel.rotateOnAxis(wheel.userData.axis,Math.PI*.8);delete actor.group.userData.partCamera;}
   this.burst(point,part==='light'?'#fff4b2':'#a5d6d3');
  }
  private down=(event:PointerEvent)=>{
   if(!this.ready||this.paused||this.orbit||this.pointer)return;const floor=this.point(event);if(!floor)return;
-  const hit=this.pick(),id=hit&&this.actorId(hit.object);const item=this.board.items.find(i=>i.id===id);
-  if(this.activity==='H03'&&id==='wash-car'&&!this.state.wash.waiting&&!this.state.completed){this.pointer={id:event.pointerId,start:floor,boardStart:this.boardPoint(floor),wash:true};this.renderer.domElement.setPointerCapture(event.pointerId);this.scrub(hit!.point);return;}
+  const hit=this.pick(),surface=['E02','T01','H03'].includes(this.activity),id=(hit&&this.actorId(hit.object))||(!surface?this.nearbyItem(event):undefined);const item=this.board.items.find(i=>i.id===id);
+  if(this.activity==='H03'&&!this.state.wash.waiting&&!this.state.completed){const point=this.washPoint(hit);if(point){this.pointer={id:event.pointerId,start:floor,boardStart:this.boardPoint(floor),wash:true};this.renderer.domElement.setPointerCapture(event.pointerId);this.scrub(point);return;}}
   if(['E02','T01'].includes(this.activity)&&hit&&id==='parts-car'){
    const actor=this.actors.get(id)!,part=this.partAt(actor,hit);if(!part){this.board.showHint();return;}this.activatePart(actor,part,hit.point);return;
   }
   // Surface-specific games only accept the visible mesh hit, never hidden flat hit areas.
   if(['E02','T01'].includes(this.activity)||this.activity==='H03'&&!this.state.wash.waiting&&!this.state.completed){this.board.showHint();return;}
+  const destination=this.state.selected&&this.targetAt(floor);
+  if(destination){this.board.down(event.pointerId,{x:destination.x,y:destination.y},event.timeStamp);this.needsRender=true;return;}
   if(!item){const point=this.boardPoint(floor);this.pointer={id:event.pointerId,start:floor.clone(),boardStart:point};this.board.down(event.pointerId,point,event.timeStamp);this.renderer.domElement.setPointerCapture(event.pointerId);return;}
   this.pointer={id:event.pointerId,item:item.id,start:floor.clone(),boardStart:{x:item.x,y:item.y}};
   this.board.down(event.pointerId,{x:item.x,y:item.y},event.timeStamp);this.renderer.domElement.setPointerCapture(event.pointerId);
  };
  private move=(event:PointerEvent)=>{const pointer=this.pointer;if(!pointer||pointer.id!==event.pointerId||this.paused)return;const p=this.point(event);if(!p)return;
-  if(pointer.wash){const hit=this.pick();if(hit&&this.actorId(hit.object)==='wash-car')this.scrub(hit.point);return;}
+  if(pointer.wash){const point=this.washPoint(this.pick());if(point)this.scrub(point);return;}
   this.board.move(pointer.id,{x:pointer.boardStart.x+(p.x-pointer.start.x)/UNIT,y:pointer.boardStart.y+(p.z-pointer.start.z)/UNIT},event.timeStamp);
  };
  private up=(event:PointerEvent)=>{const pointer=this.pointer;if(!pointer||pointer.id!==event.pointerId)return;const p=this.point(event);this.pointer=null;
   if(!pointer.wash&&p){let drop={x:pointer.boardStart.x+(p.x-pointer.start.x)/UNIT,y:pointer.boardStart.y+(p.z-pointer.start.z)/UNIT};
-   const socketHit=this.ray.intersectObjects([...this.targets.values()].filter(g=>g.visible),true)[0];let node:T.Object3D|undefined=socketHit?.object;let socket:string|undefined;while(node){if(node.userData.target)socket=node.userData.target;node=node.parent||undefined;}
-   const floor=this.boardPoint(p),target=this.board.targets.find(t=>t.id===socket)||this.board.targets.find(t=>t.enabled!==false&&!t.occupied&&Math.abs(floor.x-t.x)<t.w/2+18&&Math.abs(floor.y-t.y)<t.h/2+18);
+   const target=this.targetAt(p);
    if(target&&p.distanceTo(pointer.start)>.2){drop={x:target.x,y:target.y};this.board.move(pointer.id,drop,event.timeStamp);}
    this.board.up(pointer.id,drop,event.timeStamp);
   }
@@ -155,7 +186,7 @@ export class TouchWorldRenderer{
  };
  private cancel=(event?:PointerEvent)=>{if(event&&this.pointer?.id!==event.pointerId)return;this.board.cancel(this.pointer?.id);this.pointer=null;};
  private key=(event:KeyboardEvent)=>{
-  if(this.paused||!this.ready)return;
+  if(this.paused||!this.ready||this.orbit)return;
   if(['E02','T01'].includes(this.activity)&&['Enter',' '].includes(event.key)){event.preventDefault();const actor=this.actors.get('parts-car');if(actor){const part=(['wheel','door','light'] as const).find(p=>!this.state.parts.includes(p))||'wheel';const point=this.partScreens()?.[part];let hit:T.Intersection|undefined;if(point){this.ray.setFromCamera(new T.Vector2(point.x*2-1,1-point.y*2),this.camera);hit=this.ray.intersectObject(actor.model!,true).find(h=>this.visibleParents(h.object));}this.activatePart(actor,part,hit?.point||this.actorBounds(actor).getCenter(new T.Vector3()));}return;}
   if(this.activity==='H03'&&['Enter',' '].includes(event.key)){event.preventDefault();
    if(this.state.wash.waiting){const next=this.board.items.find(i=>i.id==='next-car');if(next)this.board.down(-1,{x:next.x,y:next.y},performance.now());}
@@ -258,10 +289,17 @@ export class TouchWorldRenderer{
   for(const[id,group]of this.targets)if(!targetIds.has(id)){this.retired.add(group);this.targets.delete(id);}
   for(const target of this.board.targets){let group=this.targets.get(target.id);if(!group){group=new T.Group();group.userData.target=target.id;
     if(this.activity==='T04'&&target.id.startsWith('wheel-')){const radius=target.w*UNIT*.43;const ring=new T.Mesh(new T.TorusGeometry(radius,.065,6,32),new T.MeshBasicMaterial({color:'#fff2be'}));group.add(ring);const hit=new T.Mesh(new T.BoxGeometry(radius*2.3,radius*2.3,.5),new T.MeshBasicMaterial({transparent:true,opacity:0,depthWrite:false,colorWrite:false}));group.add(hit);}
-    else this.outline(group,target.w*UNIT,target.h*UNIT,target.color||colors.cream);
+    else{this.outline(group,target.w*UNIT,target.h*UNIT,target.color||colors.cream);const fill=new T.Mesh(new T.PlaneGeometry(target.w*UNIT,target.h*UNIT),new T.MeshBasicMaterial({color:target.color||colors.cream,transparent:true,opacity:.15,depthWrite:false,side:T.DoubleSide}));fill.rotation.x=-Math.PI/2;fill.position.y=.025;fill.userData.destinationFill=true;group.add(fill);}
+    group.userData.feedbackMeshes=group.children.filter(o=>o instanceof T.Mesh);
     if(target.glyph&&!/^\d$/.test(target.glyph)){const prop=this.prop({id:'target-'+target.id,kind:'prop',glyph:target.glyph,w:Math.min(target.w,150),h:Math.min(target.h,150),x:0,y:0,home:{x:0,y:0}});group.add(prop.group);prop.group.traverse(o=>delete o.userData.item);}
     if(target.glyph&&/^\d$/.test(target.glyph)){for(let i=0;i<Number(target.glyph);i++)add(group,ball(.16,colors.cream),-.35*(Number(target.glyph)-1)+i*.7,.2,-target.h*UNIT*.32);}
-    this.scene.add(group);this.targets.set(target.id,group);}group.position.copy(this.targetPoint(target));group.visible=target.enabled!==false&&(!target.occupied||!!target.glyph)&&!(this.activity==='T04'&&target.id.startsWith('wheel-')&&!this.board.targets[0]?.occupied);}
+    this.scene.add(group);this.targets.set(target.id,group);}group.position.copy(this.targetPoint(target));group.visible=target.enabled!==false&&(!target.occupied||!!target.glyph)&&!(this.activity==='T04'&&target.id.startsWith('wheel-')&&!this.board.targets[0]?.occupied);
+    const selected=this.board.selectedItem,matches=!!selected&&this.board.canPlace(selected,target.id);
+    for(const mesh of group.userData.feedbackMeshes as T.Mesh[]){const m=mesh.material as T.MeshBasicMaterial;m.color.set(matches?'#f1bd58':target.color||colors.cream);if(mesh.userData.destinationFill)m.opacity=matches?.32:this.state.hint?.24:.15;}
+    group.userData.color='#'+((group.userData.feedbackMeshes[0] as T.Mesh).material as T.MeshBasicMaterial).color.getHexString();
+  }
+  const chosen=this.actors.get(this.board.selectedItem||'');this.selection.visible=!!chosen&&!this.state.completed;
+  if(chosen){const bounds=this.actorBounds(chosen),size=bounds.getSize(new T.Vector3());this.selection.position.copy(bounds.getCenter(new T.Vector3()));this.selection.position.y=.07;this.selection.scale.set(Math.max(.7,size.x*.62),Math.max(.6,size.z*.7),1);}
   if(this.activity==='S02'){
    const car=this.actors.get('shadow-car'),lamp=this.actors.get('lamp');if(car&&lamp){if(!this.shadow){this.shadow=car.group.clone(true);this.shadow.traverse(o=>{delete o.userData.item;if(o instanceof T.Mesh)o.material=new T.MeshBasicMaterial({color:'#445b5f',transparent:true,opacity:.35,depthWrite:false});});this.scene.add(this.shadow);}
     this.shadow.position.copy(car.group.position).add(new T.Vector3((car.x-lamp.x)*.6,0,(car.z-lamp.z)*.2));this.shadow.position.y=.035;this.shadow.scale.set(car.scale*(1+Math.abs(car.x-lamp.x)*.04),.006,car.scale);this.shadow.rotation.y=car.yaw;}
@@ -269,7 +307,7 @@ export class TouchWorldRenderer{
   if(this.activity==='A02'&&this.board.artwork.length!==this.markCount){for(const child of [...this.tracks.children]){child.removeFromParent();disposeModel(child);}this.markCount=this.board.artwork.length;for(const mark of this.board.artwork){const point=this.world(mark.x*1000,mark.y*this.board.height);for(const dz of [-.5,.5]){const tread=block(.16,.035,.3,mark.color);add(this.tracks,tread,point.x,.03,point.z+dz);}}}
 
   if(this.state.completed&&!this.complete){this.burst(new T.Vector3(0,2,0),'#f1ca6c',32);}this.complete=this.state.completed;
-  this.renderer.domElement.dataset.state=JSON.stringify({...this.state,partScreens:this.partScreens(),partEffect:this.partPulse?{part:this.partPulse.part,screen:this.project(this.partPulse.mesh.position)}:undefined,boardHeight:this.board.height,floorProjection:new T.Matrix4().multiplyMatrices(this.camera.projectionMatrix,this.camera.matrixWorldInverse).toArray(),items:this.board.items.map(i=>({id:i.id,x:i.x,y:i.y,placed:!!i.placed})),actors:[...this.actors].map(([id,a])=>({id,sourceCar:a.sourceCar,position:a.group.position.toArray(),screen:this.project(this.actorBounds(a).getCenter(new T.Vector3())),screenBounds:a.model?this.screenBounds(this.actorBounds(a)):undefined,yaw:a.group.rotation.y,mesh:!!a.model,wheelCount:a.wheels.length,wheelRotation:a.wheels[0]?.quaternion.toArray()})),targetScreens:this.board.targets.map(t=>({id:t.id,screen:this.project(this.targetPoint(t))})),dirt:this.dirtPoints.filter(p=>p.visible).map(p=>this.project(p.position)),camera:this.camera.position.toArray(),triangles:this.renderer.info.render.triangles});
+  this.renderer.domElement.dataset.state=JSON.stringify({...this.state,orbit:this.orbit,partScreens:this.partScreens(),partEffect:this.partPulse?{part:this.partPulse.part,screen:this.project(this.partPulse.mesh.position)}:undefined,boardHeight:this.board.height,floorProjection:new T.Matrix4().multiplyMatrices(this.camera.projectionMatrix,this.camera.matrixWorldInverse).toArray(),items:this.board.items.map(i=>({id:i.id,x:i.x,y:i.y,placed:!!i.placed})),actors:[...this.actors].map(([id,a])=>({id,sourceCar:a.sourceCar,position:a.group.position.toArray(),screen:this.project(this.actorBounds(a).getCenter(new T.Vector3())),screenBounds:a.model?this.screenBounds(this.actorBounds(a)):undefined,yaw:a.group.rotation.y,mesh:!!a.model,wheelCount:a.wheels.length,wheelRotation:a.wheels[0]?.quaternion.toArray()})),targetScreens:this.board.targets.map(t=>({id:t.id,screen:this.project(this.targetPoint(t)),color:this.targets.get(t.id)?.userData.color})),dirt:this.dirtPoints.filter(p=>p.visible).map(p=>this.project(p.position)),camera:this.camera.position.toArray(),triangles:this.renderer.info.render.triangles});
  }
  private project(point:T.Vector3){const p=point.clone().project(this.camera);return{x:(p.x+1)/2,y:(1-p.y)/2};}
  private createDirt(actor:Actor){

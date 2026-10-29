@@ -75,3 +75,11 @@
 @media(max-width:700px){.child-dock .main-nav a{width:58px;height:58px}.child-dock .main-nav .play-symbol{width:43px;height:43px}.child-dock .picture-home .play-symbol{width:39px;height:39px}.world-sky{height:70px}.world-sky .play-symbol{height:55px;width:55px}.picture-activities{gap:17px}.picture-activities .picture-activity{border-radius:26px}.picture-story-shelf{gap:12px}.picture-story .story-picture{aspect-ratio:1.2}.story-landscape{width:133.34%;max-width:none;left:-16.67%}.story-hero-car{top:49%;width:75%;left:12.5%}.story-prop{width:23%;height:26%}.story-prop-first{left:3%}.story-prop-second{right:3%}.story-scene .story-play-hand{width:12%;height:18%;bottom:6%}.story-packing-props{bottom:5%;left:16%;width:68%;height:18%}.story-art-ST02.story-art-frame-2 .story-hero-car{width:46%;left:2%;top:57%}.next-invitation{height:92px;gap:12px}.child-shell .touch-play[data-completed=true]{width:100%}.picture-story-shelf .illustrated-picture .picture-object{width:25%;height:34%}}
 @media(max-height:500px) and (min-width:701px){.child-shell .touch-play[data-completed=true]{width:min(100%,calc((100svh - 205px)*1.47))}.next-invitation{height:75px}.next-destination{height:68px}.next-destination .play-picture{height:65px}.touch-adult{margin-top:8px}}
 @media(prefers-reduced-motion:reduce){.picture-scrub{animation:none}.picture-activities .picture-activity{transition:none}}
+@media(max-height:500px) and (min-width:601px){
+ .child-shell .touch-play,.child-shell .touch-play[data-completed=true]{width:min(100%,calc((100svh - 100px)*1.47))}
+ .child-shell .touch-play[data-completed=true]:has(.next-invitation){width:min(100%,calc((100svh - 100px)*1.47 + 180px));display:grid;grid-template-columns:minmax(0,1fr) 160px;column-gap:12px}
+ .touch-play:has(.next-invitation)>.touch-toolbar,.touch-play:has(.next-invitation)>.touch-adult{grid-column:1/-1}
+ .touch-play:has(.next-invitation)>.touch-canvas-wrap,.touch-play:has(.next-invitation)>.touch-bottom{grid-column:1}
+ .touch-play>.next-invitation{grid-column:2;grid-row:2/4;align-self:center;flex-direction:column;height:auto;gap:12px;margin:0}
+ .next-invitation .invitation-trail{display:none}
+}

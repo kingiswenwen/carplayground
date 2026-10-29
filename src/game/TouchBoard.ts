@@ -231,6 +231,10 @@ export class TouchBoard {
   private dropTarget(item:Item){
     return this.targets.filter(t=>this.compatible(item,t)&&inside(item,t,30)).sort((a,b)=>distance(item,a)-distance(item,b))[0];
   }
+  canPlace(itemId:string,targetId:string){
+    const item=this.items.find(i=>i.id===itemId),target=this.targets.find(t=>t.id===targetId);
+    return !!item&&!!target&&this.compatible(item,target);
+  }
   private pickupPadding(item:Item){const scale=1000/Math.max(1,this.canvas.getBoundingClientRect().width);return Math.max(15,(48*scale-Math.min(item.w,item.h))/2);}
   showHint(){this.hintUntil=this.time+3;this.notify();}
   setGuideStep(step:number|null){
@@ -413,7 +417,7 @@ export class TouchBoard {
     const grab=this.grab;if(!grab||grab.id!==id)return;
     this.grab=null; if(grab.washing){this.updateDirt();return;}
     const item=grab.item;if(!item)return;
-    if(distance(grab.start,p)<12&&this.targets.length&&item.kind!=='plank'){
+    if(distance(grab.start,p)<12&&this.targets.length){
       if(grab.wasPlaced&&grab.dock){item.placed=true;const t=this.targets.find(t=>t.id===grab.dock);if(t)t.occupied=true;}
       this.selected=this.selected===item?null:item;this.notify();return;
     }

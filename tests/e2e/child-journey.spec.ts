@@ -69,11 +69,9 @@ test('记录失败仍可去下一站，并能恢复上一站原结果 @smoke',as
 });
 
 
-test('30辆玩具车均可装车身和两轮，并触碰全部三个部件 @smoke',async({page})=>{
- test.setTimeout(240000);
- const content=JSON.parse(fs.readFileSync('content/r3.json','utf8')) as {cars:{id:string}[]};
- for(const car of content.cars){
+const vehicleContent=JSON.parse(fs.readFileSync('content/r3.json','utf8')) as {cars:{id:string}[]};
+for(const car of vehicleContent.cars)test(`${car.id} 平面装车身和两轮，并触碰全部三个部件 @smoke`,async({page})=>{
+ test.setTimeout(45000);
   await openTouch(page,'T04',car.id);await dropTouch(page,'body','body');await dropTouch(page,'wheel-0','wheel-0');await dropTouch(page,'wheel-1','wheel-1');await completedTouch(page);
   await openTouch(page,'E02',car.id);for(const point of partTouchPoints(car.id)){const at=await touchPosition(page,point);await page.mouse.click(at.x,at.y);}await completedTouch(page);
- }
 });
