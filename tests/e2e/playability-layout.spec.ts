@@ -27,3 +27,29 @@ for (const viewport of [{width: 667, height: 375}, {width: 844, height: 390}]) f
     await page.screenshot({path: info.outputPath('landscape-done.png')});
   });
 }
+
+test('完成邀请动画从开始到结束都不撑宽手机页面 @smoke', async ({page}) => {
+  test.setTimeout(60000);
+  await page.emulateMedia({reducedMotion: 'no-preference'});
+  for (const width of [320, 360, 390]) {
+    await page.setViewportSize({width, height: 844});
+    await openTouch(page, 'M03');
+    for (let index = 0; index < 3; index++) await dropTouch(page, `car-${index}`, `bay-${index}`);
+    await completedTouch(page);
+    const destination = page.locator('.next-destination');
+    for (const phase of [0, .25, .5, .75, .99, 1]) {
+      const layout = await destination.evaluate((element, progress) => {
+        const animation = element.getAnimations()[0];
+        if (animation) {
+          animation.pause();
+          animation.currentTime = Number(animation.effect!.getTiming().duration) * progress;
+        }
+        const rect = element.getBoundingClientRect();
+        return {viewport: innerWidth, scrollWidth: document.documentElement.scrollWidth, left: rect.left, right: rect.right};
+      }, phase);
+      expect(layout.scrollWidth, `${width}px / animation ${phase}`).toBeLessThanOrEqual(layout.viewport);
+      expect(layout.left).toBeGreaterThanOrEqual(0);
+      expect(layout.right).toBeLessThanOrEqual(layout.viewport);
+    }
+  }
+});
