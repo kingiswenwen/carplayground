@@ -1,5 +1,5 @@
 import {test, expect} from '@playwright/test';
-import {openTouch, dropTouch, completedTouch, touchCanvas} from './touch-helpers';
+import {openTouch, dropTouch, completedTouch, touchCanvas, touchState} from './touch-helpers';
 
 for (const viewport of [{width: 667, height: 375}, {width: 844, height: 390}]) for (const mode of ['flat', 'three']) {
   test(`手机横屏 ${viewport.width}px ${mode} 的游戏场景够大，完成后仍能继续操作`, async ({page}, info) => {
@@ -34,6 +34,11 @@ test('完成邀请动画从开始到结束都不撑宽手机页面 @smoke', asyn
   for (const width of [320, 360, 390]) {
     await page.setViewportSize({width, height: 844});
     await openTouch(page, 'M03');
+    await page.getByRole('button', {name: '重新玩', exact: true}).click();
+    await expect(page.locator('.touch-play')).toHaveAttribute('data-completed', 'false');
+    await expect.poll(async () => (await touchState(page)).ready).toBe(true);
+    // Pause from the moment the invitation mounts, including on a busy runner.
+    await page.addStyleTag({content: '.next-destination { animation-play-state: paused !important; }'});
     for (let index = 0; index < 3; index++) await dropTouch(page, `car-${index}`, `bay-${index}`);
     await completedTouch(page);
     const destination = page.locator('.next-destination');
@@ -45,8 +50,9 @@ test('完成邀请动画从开始到结束都不撑宽手机页面 @smoke', asyn
           animation.currentTime = Number(animation.effect!.getTiming().duration) * progress;
         }
         const rect = element.getBoundingClientRect();
-        return {viewport: innerWidth, scrollWidth: document.documentElement.scrollWidth, left: rect.left, right: rect.right};
+        return {animated: !!animation, viewport: innerWidth, scrollWidth: document.documentElement.scrollWidth, left: rect.left, right: rect.right};
       }, phase);
+      expect(layout.animated, `${width}px / animation ${phase}`).toBe(true);
       expect(layout.scrollWidth, `${width}px / animation ${phase}`).toBeLessThanOrEqual(layout.viewport);
       expect(layout.left).toBeGreaterThanOrEqual(0);
       expect(layout.right).toBeLessThanOrEqual(layout.viewport);
