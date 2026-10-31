@@ -35,10 +35,12 @@ npx playwright test tests/e2e/playability.spec.ts tests/e2e/playability-layout.s
 ## 逐车型回归
 
 ```sh
-npx playwright test tests/e2e/catalog-models.spec.ts tests/e2e/catalog-wash.spec.ts tests/e2e/child-journey.spec.ts tests/e2e/catalog-search.spec.ts --project=chromium --workers=2
+npx playwright test tests/e2e/catalog-models.spec.ts tests/e2e/catalog-wash.spec.ts tests/e2e/child-journey.spec.ts tests/e2e/catalog-search.spec.ts tests/e2e/color-models.spec.ts --project=chromium --workers=2
 ```
 
 独立模型逐辆检查部件点击、手机触摸装配和连续洗两辆车；平面装配与部件探索按当前车型清单逐辆生成独立用例。新增车型会自动进入验收，不依赖标题中的固定数量，也不会让整组车型共用一个超时预算。每辆车使用自己的模型及命中位置，成功需通过实际指针操作和完成判定。
+
+固定贴图且没有独立可换色车漆的车型，在认颜色、规律和颜色分类活动中自动使用颜色正确的平面车图。CCX 和 Model 3 的回归检查实际红、蓝像素，并通过手机触摸完成这三项活动；支持换色的车型继续验证三维玩法。
 
 世界车库另在 320、768、1440 像素宽度检查中文品牌、英文车型、品牌发源地、空结果恢复及新增车型打开；插画必须来自登记的 GPT 图帧。模型 LOD 的来源哈希、实际三角面数量和字节数记录在 `content/model-lods.json`；目录来源流程及仍待补齐的模型见 `docs/CATALOG_WORKFLOW.md`。
 

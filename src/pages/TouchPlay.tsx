@@ -18,7 +18,11 @@ export function TouchPlay({id,carId,settings,backHref='#/explore',continueHref}:
   const activity=getActivity(id)!;
   const [threeFailed,setThreeFailed]=useState(false),[worldReady,setWorldReady]=useState(false);
   const [flat,setFlat]=useState(()=>new URLSearchParams(location.hash.split('?')[1]||'').get('view')==='2d');
-  const three=!!vehicleModel(carId)&&!threeFailed&&!flat;
+  const model=vehicleModel(carId);
+  // Colour rules need a recolourable body; fixed atlas paint can make red and
+  // white choices look identical. The picture activity keeps their true colours.
+  const threeAvailable=!!model&&(!['E01','M04','L03'].includes(id)||model.paintMaterials.length>0);
+  const three=threeAvailable&&!threeFailed&&!flat;
   const session=useLearningSession(activity,settings,carId,true);
   const next=nextInvitation(id,carId);
   const canvas=useRef<HTMLCanvasElement>(null), board=useRef<TouchBoard|null>(null);
@@ -98,7 +102,7 @@ export function TouchPlay({id,carId,settings,backHref='#/explore',continueHref}:
       <a className="touch-icon" href={backHref} aria-label="回到乐园"><ArrowLeft/></a>
       <a className="touch-title" href={`#/cars/${carId}`} aria-label="旋转看看这辆车"><PlayPicture id={id} carId={carId}/></a>
       <div className="touch-tools">
-        {vehicleModel(carId)&&<button className="touch-icon" aria-label={three?'使用平面简化玩法':'打开立体玩法'} aria-pressed={three} onClick={()=>{setThreeFailed(false);setFlat(three);}}><Box/></button>}
+        {threeAvailable&&<button className="touch-icon" aria-label={three?'使用平面简化玩法':'打开立体玩法'} aria-pressed={three} onClick={()=>{setThreeFailed(false);setFlat(three);}}><Box/></button>}
         {id==='P01'&&typeof window.DeviceOrientationEvent!=='undefined'&&<button className="touch-icon" aria-label={sensor?'关闭倾斜操控':'启用倾斜操控'} aria-pressed={sensor} onClick={()=>void tilt()}><Smartphone/></button>}
         <button className="touch-icon help-demonstration" aria-label="看看怎么玩" aria-expanded={guideStep!==null} disabled={!active||state.completed||(three&&!worldReady)} onClick={()=>{if(guideStep!==null){guide(null);return;}guide(0);session.hint();}}><PlaySymbol name="hand"/><Play className="help-play" fill="currentColor"/></button>
         <button className="touch-icon" aria-label="重听玩法" disabled={session.paused} onClick={()=>{void audio.play(activity.instructionAudio);}}><Volume2/></button>
