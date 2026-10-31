@@ -83,10 +83,10 @@ def check_bytes(file, remote):
             raise ValueError('Remote header differs: ' + file['path'] + ' ' + header)
 
 
-def verify_phase(items, work, phase, progress):
+def verify_phase(items, work, phase, progress, workers=8):
     """Bound object requests; a phase must finish before the next may start."""
     results = [None] * len(items)
-    with ThreadPoolExecutor(max_workers=8) as pool:
+    with ThreadPoolExecutor(max_workers=workers) as pool:
         pending = {pool.submit(work, item): index for index, item in enumerate(items)}
         try:
             for done, future in enumerate(as_completed(pending), 1):
@@ -100,9 +100,17 @@ def verify_phase(items, work, phase, progress):
     return results
 
 
+def checkpoint_receipt(folder, receipt):
+    temporary = folder / 'receipt.json.tmp'
+    temporary.write_text(json.dumps(receipt, ensure_ascii=False, indent=2) + '\n')
+    temporary.replace(folder / 'receipt.json')
+
+
 def deploy(package, manifest, cloud, receipt, save, publish=False, expected=None,
-           authorized_review=False, before_promote=None, progress=None):
+           authorized_review=False, before_promote=None, progress=None, workers=8):
     """cloud is a COS/CDN adapter. Tests inject transport failures and conflicts."""
+    if not isinstance(workers, int) or not 1 <= workers <= 32:
+        raise ValueError('Deployment workers must be between 1 and 32')
     blockers = upload_blockers(manifest, authorized_review)
     if blockers:
         raise ValueError('Upload blocked: ' + ', '.join(blockers))
@@ -126,7 +134,7 @@ def deploy(package, manifest, cloud, receipt, save, publish=False, expected=None
         check_bytes(file, existing)
         return False
 
-    absent = verify_phase(files, preflight, 'preflight', progress)
+    absent = verify_phase(files, preflight, 'preflight', progress, workers)
     missing = [file for file, is_absent in zip(files, absent) if is_absent]
     receipt['existingObjectsVerified'] = len(files) - len(missing)
     receipt_lock = threading.Lock()
@@ -143,14 +151,14 @@ def deploy(package, manifest, cloud, receipt, save, publish=False, expected=None
             receipt['uploaded'].append(file['path'])
         check_bytes(file, cloud.origin_get(file['path']))
 
-    verify_phase(missing, upload, 'upload-and-origin-readback', progress)
+    verify_phase(missing, upload, 'upload-and-origin-readback', progress, workers)
 
     def cdn_verify(file):
         check_bytes(file, cloud.cdn_get(file['path']))
         with receipt_lock:
             receipt['cdnVerified'].append(file['path'])
 
-    verify_phase(files, cdn_verify, 'cdn-readback', progress)
+    verify_phase(files, cdn_verify, 'cdn-readback', progress, workers)
     receipt['staged'] = True
     if not publish:
         return
@@ -248,6 +256,8 @@ def main():
                         help='Use the explicit user authorization in deployment/automation.json; does not approve outstanding acceptance')
     parser.add_argument('--auto-current-index', action='store_true',
                         help='Read the current index under the deployment lock before staging')
+    parser.add_argument('--workers', type=int, choices=range(1, 33), default=8,
+                        help='Bound concurrent object requests (default 8; maximum 32)')
     args = parser.parse_args()
     package = args.package.resolve()
     verified = subprocess.run(['node', str(ROOT / 'scripts/verify-release.mjs'), str(package), '--json'],
@@ -268,7 +278,7 @@ def main():
             'objects': len(manifest['files']) - (0 if args.publish else 1),
             'bytes': sum(file['bytes'] for file in manifest['files'] if args.publish or file['path'] != 'index.html'), 'publishIndexLast': args.publish,
             'deleteOldObjects': False, 'blockers': blockers, 'executed': False,
-            'authorizedReview': args.authorized_review,
+            'authorizedReview': args.authorized_review, 'workers': args.workers,
             'outstanding': manifest['outstanding'], 'waived': manifest.get('waived', []),
             'sourceCommit': manifest['sourceCommit']}
     print(json.dumps(plan, ensure_ascii=False, indent=2))
@@ -293,6 +303,7 @@ def main():
         folder.mkdir(mode=0o700)
         receipt = {**plan, 'startedAt': stamp, 'executed': True, 'uploaded': [], 'cdnVerified': [],
                    'staged': False, 'indexWritten': False, 'published': False}
+        checkpoint_receipt(folder, receipt)
         try:
             cloud = TencentCloud(target, key)
             expected = args.expect_current_sha256
@@ -309,11 +320,13 @@ def main():
                     raise ValueError('A newer main commit exists; old run cannot promote')
             def progress(phase, done, total):
                 if done % 25 == 0 or done == total:
+                    receipt.update(phase=phase, phaseCompleted=done, phaseObjects=total)
+                    checkpoint_receipt(folder, receipt)
                     print(f'Deployment {phase}: {done}/{total} objects verified', flush=True)
             deploy(package, manifest, cloud, receipt,
                    lambda name, data: (folder / name).write_bytes(data),
                    publish=args.publish, expected=expected, authorized_review=args.authorized_review,
-                   before_promote=check_source, progress=progress)
+                   before_promote=check_source, progress=progress, workers=args.workers)
         except Exception as error:
             # SDK exception strings can include request/response details.
             receipt['failureType'] = type(error).__name__
@@ -329,7 +342,7 @@ def main():
                 receipt['reason'] = str(error)
             raise
         finally:
-            (folder / 'receipt.json').write_text(json.dumps(receipt, ensure_ascii=False, indent=2) + '\n')
+            checkpoint_receipt(folder, receipt)
             print('Deployment receipt: ' + str(folder / 'receipt.json'))
 
 

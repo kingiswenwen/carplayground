@@ -93,7 +93,7 @@ export class VehicleRenderer{
   }catch(error){if(this.disposed||epoch!==this.epoch)return;console.warn('车辆模型未能打开',error);this.fail();}
  }
  private fail(){if(this.disposed)return;this.dispose();this.onUnavailable();}
- setPaint(color:string){this.paint.forEach(material=>material.color.set(color));this.renderer.domElement.dataset.paint=color;this.needsRender=true;}
+ setPaint(color:string){this.paint.forEach(material=>{material.color.set(color);if(material.map){material.map=null;material.needsUpdate=true;}});this.renderer.domElement.dataset.paint=color;this.needsRender=true;}
  private start=(event:PointerEvent)=>{this.pointers.add(event.pointerId);this.down=this.pointers.size===1?{id:event.pointerId,x:event.clientX,y:event.clientY}:null;this.onTouch();};
  private cancel=(event:PointerEvent)=>{this.pointers.delete(event.pointerId);this.down=null;};
  private end=(event:PointerEvent)=>{
