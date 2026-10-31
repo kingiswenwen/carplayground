@@ -2,7 +2,19 @@ import {test, expect, type Page} from '@playwright/test';
 import {dropTouch, completedTouch} from './touch-helpers';
 
 const canvas = (page: Page) => page.locator('canvas.touch-world-canvas');
-const state = async (page: Page) => JSON.parse((await canvas(page).getAttribute('data-state'))!);
+async function state(page: Page) {
+  let snapshot: any = null;
+  await expect.poll(async () => {
+    snapshot = await canvas(page).evaluate(element => {
+      const surface = element as HTMLCanvasElement;
+      if (surface.dataset.ready !== 'true' || !surface.dataset.state) return null;
+      const value = JSON.parse(surface.dataset.state);
+      return value.actors?.length ? value : null;
+    });
+    return snapshot !== null;
+  }, {timeout: 45000, message: 'current 3D canvas has a rendered interaction state'}).toBe(true);
+  return snapshot;
+}
 async function open(page: Page, id: string) {
   await page.goto(`/#/play/${id}?car=CAR01`);
   await expect(canvas(page)).toHaveAttribute('data-ready', 'true', {timeout: 45000});
@@ -36,7 +48,10 @@ test('转动观察后横竖屏切换，按钮状态与触碰操控保持一致',
   await open(page, 'M01');
   await page.getByRole('button', {name: '转动看看立体场景'}).click();
   await page.setViewportSize({width: 390, height: 844});
-  await expect(canvas(page)).toHaveAttribute('data-ready', 'true', {timeout: 45000});
+  // Media-query updates and React effects rebuild the portrait renderer after
+  // setViewportSize resolves. Let that commit happen before reading readiness.
+  await page.evaluate(() => new Promise<void>(resolve => requestAnimationFrame(() => requestAnimationFrame(() => resolve()))));
+  await expect.poll(async () => (await state(page)).boardHeight).toBe(1200);
   const back = page.getByRole('button', {name: '回到触碰玩法'});
   await expect(back).toBeVisible();
   const inOrbit = await state(page);
