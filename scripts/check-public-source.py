@@ -24,7 +24,12 @@ def problems(name, data):
             or ('credentials' in path.name.lower() and path.suffix == '.json')):
         reasons.append('private file')
     if b'\0' not in data:
-        reasons.extend(label for label, pattern in PATTERNS.items() if re.search(pattern, data))
+        for label, pattern in PATTERNS.items():
+            # Official website paths may contain /home/. Only filesystem checks
+            # exclude HTTP URLs; credentials and cloud identities still scan them.
+            scanned = re.sub(rb'https?://[^\s"\x27<>]+', b'', data) if label == 'personal filesystem path' else data
+            if re.search(pattern, scanned):
+                reasons.append(label)
     return reasons
 
 

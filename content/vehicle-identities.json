@@ -528,6 +528,374 @@
       "catalogKey": "pontiac/firebird",
       "productionStatus": "production",
       "reference": "https://www.gm.com/heritage/archive/vehicle-information-kits"
+    },
+    {
+      "id": "CAR140",
+      "brand": "Ferrari",
+      "model": "288 GTO",
+      "catalogKey": "ferrari/288-gto",
+      "productionStatus": "production",
+      "reference": "https://www.ferrari.com/en-EN/auto/gto"
+    },
+    {
+      "id": "CAR141",
+      "brand": "Ferrari",
+      "model": "Roma",
+      "catalogKey": "ferrari/roma",
+      "productionStatus": "production",
+      "reference": "https://www.ferrari.com/en-EN/auto/ferrari-roma"
+    },
+    {
+      "id": "CAR143",
+      "brand": "McLaren",
+      "model": "P1",
+      "catalogKey": "mclaren/p1",
+      "productionStatus": "production",
+      "reference": "https://cars.mclaren.com/us_en/legacy/mclaren-p1"
+    },
+    {
+      "id": "CAR144",
+      "brand": "McLaren",
+      "model": "570S Spider",
+      "catalogKey": "mclaren/570s",
+      "productionStatus": "production",
+      "reference": "https://cars.mclaren.com/es_es/legacy/570s-spider"
+    },
+    {
+      "id": "CAR145",
+      "brand": "McLaren",
+      "model": "12C",
+      "catalogKey": "mclaren/12c",
+      "productionStatus": "production",
+      "reference": "https://cars.mclaren.com/gl_en/legacy/12c"
+    },
+    {
+      "id": "CAR146",
+      "brand": "Jaguar",
+      "model": "XJ220",
+      "catalogKey": "jaguar/xj220",
+      "productionStatus": "production",
+      "reference": "https://www.jaguarheritage.com/vehicle-collection/1992-jaguar-xj220-production-car/"
+    },
+    {
+      "id": "CAR147",
+      "brand": "Aston Martin",
+      "model": "Valour",
+      "catalogKey": "aston-martin/valour",
+      "productionStatus": "production",
+      "reference": "https://media.astonmartin.com/valour-a-spectacular-celebration-of-110-years-of-history/?lang=eng"
+    },
+    {
+      "id": "CAR149",
+      "brand": "Porsche",
+      "model": "Taycan Turbo S",
+      "catalogKey": "porsche/taycan",
+      "productionStatus": "production",
+      "reference": "https://www.porsche.com/international/models/taycan/"
+    },
+    {
+      "id": "CAR152",
+      "brand": "Mitsubishi",
+      "model": "Lancer Evolution VI",
+      "catalogKey": "mitsubishi/lancer-evolution",
+      "productionStatus": "production",
+      "reference": "https://www.mitsubishi-motors.com/en/company/history/car/"
+    },
+    {
+      "id": "CAR153",
+      "brand": "Hyundai",
+      "model": "Veloster Turbo",
+      "catalogKey": "hyundai/veloster",
+      "productionStatus": "production",
+      "reference": "https://www.hyundainews.com/en-us/models/hyundai-veloster-2021-veloster"
+    },
+    {
+      "id": "CAR155",
+      "brand": "Alfa Romeo",
+      "model": "Giulia Sprint (1965)",
+      "catalogKey": "alfa-romeo/giulia",
+      "productionStatus": "production",
+      "reference": "https://www.alfaromeo.com/end-of-series/giulia-gta-e-gtam"
+    },
+    {
+      "id": "CAR156",
+      "brand": "Lamborghini",
+      "model": "Urus",
+      "catalogKey": "lamborghini/urus",
+      "productionStatus": "production",
+      "reference": "https://www.lamborghini.com/en-en/models/urus"
+    },
+    {
+      "id": "CAR157",
+      "brand": "Rolls-Royce",
+      "model": "Ghost",
+      "catalogKey": "rolls-royce/ghost",
+      "productionStatus": "production",
+      "reference": "https://www.rolls-roycemotorcars.com/en_GB/showroom/ghost.html"
+    },
+    {
+      "id": "CAR158",
+      "brand": "Rolls-Royce",
+      "model": "Phantom",
+      "catalogKey": "rolls-royce/phantom",
+      "productionStatus": "production",
+      "reference": "https://www.rolls-roycemotorcars.com/en_GB/showroom/phantom.html"
+    },
+    {
+      "id": "CAR159",
+      "brand": "Rolls-Royce",
+      "model": "Cullinan",
+      "catalogKey": "rolls-royce/cullinan",
+      "productionStatus": "production",
+      "reference": "https://www.rolls-roycemotorcars.com/en_GB/showroom/cullinan.html"
+    },
+    {
+      "id": "CAR160",
+      "brand": "BYD",
+      "model": "Seal",
+      "catalogKey": "byd/seal",
+      "productionStatus": "production",
+      "reference": "https://www.byd.com/eu/electric-cars/seal"
+    },
+    {
+      "id": "CAR161",
+      "brand": "Honda",
+      "model": "Civic Type R (EK9)",
+      "catalogKey": "honda/civic",
+      "productionStatus": "production",
+      "reference": "https://global.honda/en/stories/048.html"
+    },
+    {
+      "id": "CAR162",
+      "brand": "Volkswagen",
+      "model": "Karmann Ghia",
+      "catalogKey": "volkswagen/karmann-ghia",
+      "productionStatus": "production",
+      "reference": "https://www.volkswagen-newsroom.com/en/vehicle-data-karmann-ghia-type-14-coupe-profile-19631"
+    },
+    {
+      "id": "CAR163",
+      "brand": "Volkswagen",
+      "model": "Golf GTI (Mk8)",
+      "catalogKey": "volkswagen/golf",
+      "productionStatus": "production",
+      "reference": "https://www.volkswagen-newsroom.com/en/the-new-golf-gti-edition-50-international-media-drive-20143/the-history-of-the-golf-gti-in-detail-20156"
+    },
+    {
+      "id": "CAR164",
+      "brand": "MINI",
+      "model": "Cooper S",
+      "catalogKey": "mini/cooper",
+      "productionStatus": "production",
+      "reference": "https://www.mini.com/en_MS/home/heritage/the-definitive-list-of-mini-special-editions_test.html"
+    },
+    {
+      "id": "CAR165",
+      "brand": "Suzuki",
+      "model": "Swift",
+      "catalogKey": "suzuki/swift",
+      "productionStatus": "production",
+      "reference": "https://www.globalsuzuki.com/automobile/lineup/swift/"
+    },
+    {
+      "id": "CAR166",
+      "brand": "Peugeot",
+      "model": "205",
+      "catalogKey": "peugeot/205",
+      "productionStatus": "production",
+      "reference": "https://www.media.stellantis.com/em-en/peugeot/press/the-peugeot-205-is-turning-40-an-alluring-sacred-number"
+    },
+    {
+      "id": "CAR168",
+      "brand": "Subaru",
+      "model": "Impreza WRX STI (2004)",
+      "catalogKey": "subaru/impreza",
+      "productionStatus": "production",
+      "reference": "https://www.subaru.com/vehicles/impreza.html"
+    },
+    {
+      "id": "CAR169",
+      "brand": "Toyota",
+      "model": "Crown Athlete (S210)",
+      "catalogKey": "toyota/crown",
+      "productionStatus": "production",
+      "reference": "https://global.toyota/en/newsroom/toyota/"
+    },
+    {
+      "id": "CAR170",
+      "brand": "Dodge",
+      "model": "Charger R/T (1970)",
+      "catalogKey": "dodge/charger",
+      "productionStatus": "production",
+      "reference": "https://www.dodge.com/charger.html"
+    },
+    {
+      "id": "CAR171",
+      "brand": "Tesla",
+      "model": "Model 3",
+      "catalogKey": "tesla/model-3",
+      "productionStatus": "production",
+      "reference": "https://www.tesla.com/model3"
+    },
+    {
+      "id": "CAR172",
+      "brand": "Cadillac",
+      "model": "Escalade",
+      "catalogKey": "cadillac/escalade",
+      "productionStatus": "production",
+      "reference": "https://www.cadillac.com/suvs/escalade"
+    },
+    {
+      "id": "CAR173",
+      "brand": "Buick",
+      "model": "Skylark Convertible (1953)",
+      "catalogKey": "buick/skylark",
+      "productionStatus": "production",
+      "reference": "https://www.gm.com/heritage/archive/vehicle-information-kits"
+    },
+    {
+      "id": "CAR174",
+      "brand": "Land Rover",
+      "model": "Range Rover (2006)",
+      "catalogKey": "land-rover/range-rover",
+      "productionStatus": "production",
+      "reference": "https://www.rangerover.com/en-gb/range-rover/index.html"
+    },
+    {
+      "id": "CAR175",
+      "brand": "Hummer",
+      "model": "H2",
+      "catalogKey": "hummer/h2",
+      "productionStatus": "production",
+      "reference": "https://www.gm.com/heritage/archive/vehicle-information-kits"
+    },
+    {
+      "id": "CAR176",
+      "brand": "Audi",
+      "model": "RS3 Sportback",
+      "catalogKey": "audi/rs3",
+      "productionStatus": "production",
+      "reference": "https://www.audi.com/en/media-releases/a-feast-for-the-senses-upgrade-for-the-audi-rs-3-16140"
+    },
+    {
+      "id": "CAR177",
+      "brand": "Lexus",
+      "model": "ES Hybrid",
+      "catalogKey": "lexus/es",
+      "productionStatus": "production",
+      "reference": "https://www.lexus.com/models/ES"
+    },
+    {
+      "id": "CAR178",
+      "brand": "Ford",
+      "model": "Bronco",
+      "catalogKey": "ford/bronco",
+      "productionStatus": "production",
+      "reference": "https://www.ford.com/suvs/bronco/"
+    },
+    {
+      "id": "CAR180",
+      "brand": "Renault",
+      "model": "Mégane Sedan",
+      "catalogKey": "renault/megane",
+      "productionStatus": "production",
+      "reference": "https://www.renaultgroup.com/en/group/locations/bursa-plant-oyak/"
+    },
+    {
+      "id": "CAR181",
+      "brand": "Fiat",
+      "model": "500 Abarth",
+      "catalogKey": "fiat/500",
+      "productionStatus": "production",
+      "reference": "https://www.media.stellantis.com/de-de/abarth/press/neuer-500-abarth-deutschlandstart-am-19-juli-offizielle-premiere-des-kult-modells-mit-live-act-in-munchen"
+    },
+    {
+      "id": "CAR182",
+      "brand": "BMW",
+      "model": "X5 M Competition",
+      "catalogKey": "bmw/x5",
+      "productionStatus": "production",
+      "reference": "https://www.bmw-m.com/en/all-models/overview-m-and-m-performance/bmw-x5-m/2023/bmw-x5-m.html"
+    },
+    {
+      "id": "CAR183",
+      "brand": "Alfa Romeo",
+      "model": "Stelvio Quadrifoglio",
+      "catalogKey": "alfa-romeo/stelvio",
+      "productionStatus": "production",
+      "reference": "https://www.media.stellantis.com/uk-en/alfa-romeo/press/statement-from-a-stellantis-spokesperson"
+    },
+    {
+      "id": "CAR185",
+      "brand": "Fiat",
+      "model": "850 Spider",
+      "catalogKey": "fiat/850",
+      "productionStatus": "production",
+      "reference": "https://www.media.stellantis.com/es-es/fiat/press/decadas-de-veranos-de-ensueno-con-los-descapotables-fiat"
+    },
+    {
+      "id": "CAR186",
+      "brand": "Audi",
+      "model": "A7 Sportback",
+      "catalogKey": "audi/a7",
+      "productionStatus": "production",
+      "reference": "https://www.audi.com/en/audi-a7-sportback-47"
+    },
+    {
+      "id": "CAR187",
+      "brand": "BMW",
+      "model": "1 Series",
+      "catalogKey": "bmw/1-series",
+      "productionStatus": "production",
+      "reference": "https://www.press.bmwgroup.com/asia/article/attachment/T0442858EN/617355"
+    },
+    {
+      "id": "CAR189",
+      "brand": "Jaguar",
+      "model": "XF",
+      "catalogKey": "jaguar/xf",
+      "productionStatus": "production",
+      "reference": "https://macedonia.jaguar.com/jaguar-range/xf/overview"
+    },
+    {
+      "id": "CAR190",
+      "brand": "Porsche",
+      "model": "Macan",
+      "catalogKey": "porsche/macan",
+      "productionStatus": "production",
+      "reference": "https://newsroom.porsche.com/en/products/porsche-macan-2018-compact-suv-start-production-china-expansion-leipzig-design-body-shop-paint-shop-assembly-line-16016.html"
+    },
+    {
+      "id": "CAR192",
+      "brand": "BYD",
+      "model": "Dolphin",
+      "catalogKey": "byd/dolphin",
+      "productionStatus": "production",
+      "reference": "https://www.byd.com/eu/electric-cars/dolphin"
+    },
+    {
+      "id": "CAR193",
+      "brand": "Maserati",
+      "model": "Levante",
+      "catalogKey": "maserati/levante",
+      "productionStatus": "production",
+      "reference": "https://www.maserati.com/content/dam/maserati/international/catalogues/th/Maserati_Levante_Digital_Flyer_EN.pdf"
+    },
+    {
+      "id": "CAR194",
+      "brand": "Mercedes-Benz",
+      "model": "190 E",
+      "catalogKey": "mercedes-benz/190-e",
+      "productionStatus": "production",
+      "reference": "https://media.mercedes-benz.com/en/article/25dd00e4-5ef9-4c2f-b12c-55169f795d4d"
+    },
+    {
+      "id": "CAR195",
+      "brand": "Hyundai",
+      "model": "i30",
+      "catalogKey": "hyundai/i30",
+      "productionStatus": "production",
+      "reference": "https://www.hyundai.com/worldwide/en/footer/corporate/vehicle-history/2000/i30"
     }
   ],
   "retired": [

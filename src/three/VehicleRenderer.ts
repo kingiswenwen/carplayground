@@ -8,6 +8,7 @@ import {toCreasedNormals} from 'three/addons/utils/BufferGeometryUtils.js';
 import {assetUrl} from '../domain/content';
 import type {VehicleModelSpec} from '../domain/vehicle-models';
 import {disposeModel,fitModel,frameModel} from './model';
+import {isVehicleLampName} from './part-names';
 
 /** One context and studio per viewer. Changing cars replaces only the vehicle. */
 export class VehicleRenderer{
@@ -73,6 +74,7 @@ export class VehicleRenderer{
    const gltf=await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).parseAsync(bytes,'');
    if(this.disposed||epoch!==this.epoch){disposeModel(gltf.scene);return;}
    clearTimeout(this.timer);this.root=gltf.scene;
+   this.root.traverse(object=>{if(object instanceof T.Line||object instanceof T.Points)object.visible=false;});
    for(const name of spec.excludedNodes){const clean=name.replace(/\s/g,'_').replace(/[\[\]\.:\/]/g,'');const object=this.root.getObjectByName(name)||this.root.getObjectByName(clean);if(object){object.removeFromParent();this.removed.push(object);}}
    this.root.traverse(object=>{if(object instanceof T.Mesh){object.receiveShadow=true;
     const materials=Array.isArray(object.material)?object.material:[object.material];object.castShadow=materials.some(material=>spec.paintMaterials.includes(material.name)||/tire/i.test(material.name));
@@ -81,7 +83,7 @@ export class VehicleRenderer{
       if(spec.recalculateNormals){const original=object.geometry;object.geometry=toCreasedNormals(original,Math.PI/4);if(original!==object.geometry)original.dispose();}
       if(!spec.preservePaint)material.color.set(spec.color);material.roughness=.27;material.metalness=.55;this.paint.add(material);
      }
-     if(spec.lampMaterials.includes(material.name))this.lamps.set(material,{color:material.emissive.clone(),intensity:material.emissiveIntensity});
+     if(spec.lampMaterials.includes(material.name)||isVehicleLampName(material.name))this.lamps.set(material,{color:material.emissive.clone(),intensity:material.emissiveIntensity});
     }
    }});
    this.bounds=fitModel(this.root,spec.rotationY);this.scene.add(this.root);

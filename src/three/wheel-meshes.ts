@@ -4,11 +4,11 @@ import * as T from 'three';
 // Recognize only geometry wholly confined to small, round wheel volumes at
 // the lower outer corners of the normalized 4.65-unit vehicle. Body/chassis
 // meshes crossing the center or extending above those volumes are excluded.
-function isUnnamedWheel(mesh:T.Mesh){
+export function isWheelMesh(mesh:T.Mesh){
  const position=mesh.geometry.getAttribute('position');if(!position)return false;
  const boxes=Array.from({length:4},()=>new T.Box3()),counts=[0,0,0,0],p=new T.Vector3();
  for(let i=0;i<position.count;i++){p.fromBufferAttribute(position,i).applyMatrix4(mesh.matrixWorld);const q=(p.x>0?2:0)+(p.z>0?1:0);boxes[q].expandByPoint(p);counts[q]++;}
- return boxes.filter((_,i)=>counts[i]>0).every(box=>{const size=box.getSize(new T.Vector3()),center=box.getCenter(new T.Vector3());return size.x>.22&&size.x<1.05&&size.y>.22&&size.y<1.05&&size.z<.7&&size.x/size.y>.7&&size.x/size.y<1.4&&box.min.y>-.04&&box.max.y<.95&&Math.abs(center.x)-size.x/2>.45&&Math.abs(center.z)-size.z/2>.35;});
+ return counts.some(Boolean)&&boxes.filter((_,i)=>counts[i]>0).every(box=>{const size=box.getSize(new T.Vector3()),center=box.getCenter(new T.Vector3());return size.x>.22&&size.x<1.05&&size.y>.22&&size.y<1.05&&size.z<.7&&size.x/size.y>.7&&size.x/size.y<1.4&&box.min.y>-.04&&box.min.y<.35&&box.max.y<.95&&Math.abs(center.x)-size.x/2>.45&&Math.abs(center.z)-size.z/2>.35;});
 }
 
 /** Some authored cars combine all four tires into one mesh. Split named or
@@ -17,7 +17,9 @@ function isUnnamedWheel(mesh:T.Mesh){
 export function separateWheelMeshes(root:T.Group){
  root.updateMatrixWorld(true);const candidates:T.Mesh[]=[];
  root.traverse(object=>{if(!(object instanceof T.Mesh)||object instanceof T.SkinnedMesh||Array.isArray(object.material))return;const mats=Array.isArray(object.material)?object.material:[object.material];
-  if(!/wheel|tire|tyre|pneu|rim/i.test(object.name+' '+mats.map(m=>m.name).join(' '))){if(!isUnnamedWheel(object))return;object.name+='_wheel';}
+  // Names are only hints: some exporters reuse "wheels" materials on body panels.
+  if(!isWheelMesh(object))return;
+  if(!/wheel|tire|tyre|pneu|rim/i.test(object.name+' '+mats.map(m=>m.name).join(' ')))object.name+='_wheel';
   const size=new T.Box3().setFromObject(object,true).getSize(new T.Vector3());if(size.x>1.65&&size.y<1.5)candidates.push(object);
  });
  for(const mesh of candidates){const geometry=mesh.geometry,index=geometry.index,position=geometry.getAttribute('position'),groups=[[],[],[],[]] as number[][],point=new T.Vector3();

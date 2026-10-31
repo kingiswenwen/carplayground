@@ -13,6 +13,7 @@ async function bake(spec:VehicleModelSpec&{absoluteFile?:string}){
  if(root){scene.remove(root);disposeModel(root);}renderer.info.reset();
  const response=await fetch(spec.absoluteFile?'/@fs'+spec.absoluteFile:'/'+spec.file);if(!response.ok)throw Error('GLB unavailable '+spec.id);
  root=(await new GLTFLoader().setMeshoptDecoder(MeshoptDecoder).parseAsync(await response.arrayBuffer(),'')).scene;
+ root.traverse(object=>{if(object instanceof T.Line||object instanceof T.Points)object.visible=false;});
  removeModelNodes(root,spec.excludedNodes);
  let box=fitModel(root,spec.rotationY);if(box.getSize(new T.Vector3()).z>box.getSize(new T.Vector3()).x)box=fitModel(root,Math.PI/2);
  root.traverse(o=>{if(o instanceof T.Mesh){if(!o.geometry.getAttribute('normal'))o.geometry.computeVertexNormals();for(const m of Array.isArray(o.material)?o.material:[o.material]){if(m instanceof T.MeshStandardMaterial&&spec.paintMaterials.includes(m.name)&&!spec.preservePaint){m.color.set(spec.color);m.metalness=.55;m.roughness=.3;}if(m instanceof T.MeshPhysicalMaterial){m.transmission=0;m.clearcoat=0;}}}});

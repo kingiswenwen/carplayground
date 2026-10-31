@@ -1,0 +1,51 @@
+[
+  {
+    "id": "CAR146",
+    "sourceUrl": "https://sketchfab.com/3d-models/none-d99bb7b0fc0e4e3c9553246679dd067f",
+    "inputSha256": "f107a351db27004a5c548170cd5f4607349edace462932b018e42c6b641aab66",
+    "outputSha256": "6aee2ad31951633400d26f03038d0e53ab430f073c669803cd22d5895caefab2",
+    "operation": "Remove authored presentation ground, which otherwise reduces the car to a speck."
+  },
+  {
+    "id": "CAR155",
+    "sourceUrl": "https://sketchfab.com/3d-models/3b30a0277a7b45a58496c843e6588212",
+    "inputSha256": "95f951364e062718239558f1f51f0164691a7899557cf854dcc5ae5332ff7fec",
+    "outputSha256": "d9a35df7494e6114fdbe66ee3923fd047770b9dfb3316a7452e8c7a1c2ba2d45",
+    "operation": "Keep the assembled Giulia at the scene origin; remove the second exploded presentation copy."
+  },
+  {
+    "id": "CAR164",
+    "sourceUrl": "https://sketchfab.com/3d-models/b262744901a04cda823f17289d1a4847",
+    "inputSha256": "844d0f278ac32c1a052708fe0c79e1b0c48c9a4ac9082d1922f09722de35ff34",
+    "outputSha256": "269385ade0930f5d382199ec011b9c79fba25bd18a90967f106b3b643635bb4c",
+    "operation": "Use alpha cutout for the combined body atlas instead of sorting overlapping translucent body panels."
+  },
+  {
+    "id": "CAR170",
+    "sourceUrl": "https://sketchfab.com/3d-models/0e2c80e2928d4b76b49914db5bbb47ca",
+    "inputSha256": "e4028a1c2db089bfd1120a5c4f07c454096fc5933d6e71f2cad4a3bc9ecd17e7",
+    "outputSha256": "f3401174cd23432b27980f58f20b0387c825f968526171bb2e28d8ae27d23ee1",
+    "operation": "Remove source wire edges (line primitives); retain the original solid road-car surfaces."
+  },
+  {
+    "id": "CAR176",
+    "sourceUrl": "https://sketchfab.com/3d-models/19c892aa76a7435a994b001d726ffdcf",
+    "inputSha256": "47eebcb400f0634a9dc41f71b56c89c1cb6c649bb9f4e5bdff52f7aea97350ba",
+    "outputSha256": "74bf63a21f52726fdc84e2afa324337c83b0cd2be291be7f3a6f3cece160e8cf",
+    "operation": "Retain the RS3 body; add four original simplified game wheels to the source that omits wheel geometry. Wheels are teaching geometry, not scanned OEM rims."
+  },
+  {
+    "id": "CAR18",
+    "sourceUrl": "https://sketchfab.com/3d-models/none-394feedd0a0742c595917c7b0f6edcad",
+    "inputSha256": "7e8e192ae0f58ad64c002e06ff9c015a06e1d18de36da182859eb0b08490af0d",
+    "outputSha256": "04b099d58507998424fd0db070498534a6f06cb4f368566754982226378c8949",
+    "operation": "Remove the separate pPlane23 presentation ground; retain the complete BMW M2."
+  },
+  {
+    "id": "CAR187",
+    "sourceUrl": "https://sketchfab.com/3d-models/fddf543ea68245309379bf7336aaa7a3",
+    "inputSha256": "96879505e1cd3c79226bdfd28dcb80033f37f3d7cf9ca2d2a0e7aa9d53a10ebf",
+    "outputSha256": "a24ce737dfe56a38377af0b3afacdca8f7cb3c3aeaed0e17c4f04e221bcab9c5",
+    "operation": "Reset the exporter presentation quaternion so the original BMW body stands upright."
+  }
+]
