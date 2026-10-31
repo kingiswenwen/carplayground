@@ -50,7 +50,9 @@ test('看车时换车保留立体模式，显示当前选中的车型 @smoke',as
  test.setTimeout(120000);
  await page.goto('/#/cars');await expect(page.locator('.vehicle-webgl[data-ready=true]:visible')).toHaveAttribute('data-car','CAR01',{timeout:45000});
  for(const [name,id]of [['奥迪 R8 Coupé','CAR11'],['保时捷 911 GT3 RS','CAR03'],['兰博基尼 Revuelto','CAR01']]){
-  await page.getByRole('button',{name:`选择 ${name}，有独立立体模型`,exact:true}).click();await expect(page.locator('.vehicle-views')).toHaveAttribute('data-mode','model');
+  await page.getByRole('searchbox',{name:'查找车型或品牌'}).fill(name);
+  const card=page.getByRole('button',{name:`选择 ${name}，有独立立体模型`,exact:true});
+  await card.click();await expect(card).toHaveAttribute('aria-pressed','true');await expect(page.locator('.vehicle-views')).toHaveAttribute('data-mode','model');
   await expect(page.locator('.vehicle-webgl[data-ready=true]:visible')).toHaveAttribute('data-car',id,{timeout:30000});
  }
 });

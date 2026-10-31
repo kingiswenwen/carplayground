@@ -1,7 +1,7 @@
 import {test,expect,type Page} from '@playwright/test';
 import fs from 'node:fs';
 import {partTouchPoints,flickTouch} from './touch-helpers';
-const content=JSON.parse(fs.readFileSync('content/r3.json','utf8')) as {cars:{id:string}[];activities:{id:string}[]};
+const content=JSON.parse(fs.readFileSync('content/r3.json','utf8')) as {cars:{id:string;brand:string;model:string}[];activities:{id:string}[]};
 const modelIds=new Set((JSON.parse(fs.readFileSync('content/vehicle-models.json','utf8')) as {id:string}[]).map(m=>m.id));
 type State={ready:boolean;completed:boolean;progress:number;moving:boolean;items:{id:string;x:number;y:number;placed:boolean}[];targets:{id:string;x:number;y:number;occupied?:boolean}[]};
 const canvas=(page:Page)=>page.locator('canvas.touch-canvas');
@@ -20,9 +20,14 @@ async function drop(page:Page,itemId:string,targetId:string){await expect.poll(a
 async function complete(page:Page){await expect.poll(async()=>(await state(page)).completed,{timeout:12000}).toBe(true);}
 
 test('立体车库支持品牌筛选、八辆分页与对应模型默认打开 @smoke',async({page})=>{
+ // This journey opens the showroom and two detail viewers, including GLB loads.
+ test.setTimeout(90000);
  await page.goto('/#/cars');await expect(page.locator('.car-gallery-card')).toHaveCount(8);await expect(page.locator('.garage-count')).toContainText(String(modelIds.size));
  const first=await page.locator('.car-gallery-card').first().getAttribute('aria-label');await page.getByRole('button',{name:'下一组跑车'}).click();await expect(page.locator('.car-gallery-card').first()).not.toHaveAttribute('aria-label',first!);
- await page.getByRole('combobox',{name:'按汽车品牌筛选'}).selectOption('Ferrari');await expect(page.locator('.car-gallery-card')).toHaveCount(3);
+ const ferraris=content.cars.filter(car=>car.brand==='Ferrari'&&modelIds.has(car.id));
+ await page.getByRole('combobox',{name:'按汽车品牌筛选'}).selectOption('Ferrari');
+ await expect(page.locator('.car-gallery-card')).toHaveCount(Math.min(8,ferraris.length));
+ await expect(page.locator('.car-gallery-card .garage-car-name')).toHaveText(ferraris.slice(0,8).map(car=>car.model));
  await page.goto('/#/cars/CAR135');await expect(page.locator('.vehicle-webgl[data-ready=true]')).toHaveAttribute('data-car','CAR135',{timeout:45000});
  await page.goto('/#/cars/CAR02');await expect(page.locator('.vehicle-angle')).toBeVisible();await expect(page.getByRole('button',{name:'打开车型立体模型',exact:true})).toHaveCount(0);
 });
