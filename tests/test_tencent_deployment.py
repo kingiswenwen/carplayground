@@ -3,6 +3,7 @@ import copy
 import gzip
 import io
 import importlib.util
+import json
 from pathlib import Path
 import tempfile
 import threading
@@ -241,11 +242,32 @@ class DeploymentTest(unittest.TestCase):
             return original_put(name, data, headers)
 
         self.cloud.origin_get, self.cloud.put = get, put
-        self.run_deploy(publish=True, expected='absent')
+        self.run_deploy(publish=True, expected='absent', workers=3)
         self.assertGreater(peak, 1)
-        self.assertLessEqual(peak, 8)
+        self.assertLessEqual(peak, 3)
         self.assertEqual(set(self.receipt['cdnVerified']), expected)
         self.assertEqual([event for event in self.cloud.events if event[0] == 'put'][-1], ('put', 'index.html'))
+
+    def test_invalid_worker_limits_fail_before_cloud_access(self):
+        for workers in [0, -1, 33, '32']:
+            with self.subTest(workers=workers):
+                with self.assertRaisesRegex(ValueError, 'workers must be between'):
+                    self.run_deploy(workers=workers)
+        self.assertEqual(self.cloud.events, [])
+
+    def test_progress_receipt_survives_interrupted_staging(self):
+        def progress(phase, done, total):
+            self.receipt.update(phase=phase, phaseCompleted=done, phaseObjects=total)
+            deployment.checkpoint_receipt(self.package, self.receipt)
+
+        self.cloud.fail_cdn = self.files[1]['path']
+        with self.assertRaisesRegex(ValueError, 'CDN returns'):
+            self.run_deploy(publish=True, expected='absent', progress=progress)
+        saved = json.loads((self.package / 'receipt.json').read_text())
+        self.assertFalse(saved['published'])
+        self.assertFalse(saved['indexWritten'])
+        self.assertEqual(set(saved['uploaded']), {file['path'] for file in self.files[:-1]})
+        self.assertNotIn(('put', 'index.html'), self.cloud.events)
 
     def test_parallel_upload_failure_never_promotes_and_can_resume(self):
         original_put = self.cloud.put
