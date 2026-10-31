@@ -267,7 +267,8 @@
     "color": "#d8b764",
     "rotationY": 0,
     "paintMaterials": [
-      "RRViper_turbo_black"
+      "pickup",
+      "RRViper_turbo_painted2"
     ],
     "lampMaterials": [],
     "excludedNodes": [],
@@ -430,9 +431,7 @@
     "sha256": "43ce6554bea819e409087fb71bb388d5231a2824a5fc2982f6368b9e979b80a3",
     "color": "#d8b764",
     "rotationY": 0,
-    "paintMaterials": [
-      "default"
-    ],
+    "paintMaterials": [],
     "lampMaterials": [],
     "excludedNodes": [],
     "recalculateNormals": false,
@@ -1249,10 +1248,7 @@
     "sha256": "e304d6e66701809d7dc5e950b71ba2b0d9416ca20010fb175f64660ef498204b",
     "color": "#d8b764",
     "rotationY": 0,
-    "paintMaterials": [
-      "Car_Body",
-      "Paint"
-    ],
+    "paintMaterials": [],
     "lampMaterials": [],
     "excludedNodes": [],
     "recalculateNormals": false,
@@ -1849,9 +1845,7 @@
     "preservePaint": true,
     "color": "#d8b764",
     "rotationY": 0,
-    "paintMaterials": [
-      "Scene_-_Root"
-    ],
+    "paintMaterials": [],
     "lampMaterials": [],
     "excludedNodes": [],
     "recalculateNormals": false,
@@ -1905,9 +1899,7 @@
     "preservePaint": true,
     "color": "#d8b764",
     "rotationY": 0,
-    "paintMaterials": [
-      "material_0"
-    ],
+    "paintMaterials": [],
     "lampMaterials": [],
     "excludedNodes": [],
     "recalculateNormals": false,
@@ -2019,9 +2011,7 @@
     "preservePaint": true,
     "color": "#d8b764",
     "rotationY": 0,
-    "paintMaterials": [
-      "Vehicle"
-    ],
+    "paintMaterials": [],
     "lampMaterials": [],
     "excludedNodes": [],
     "recalculateNormals": false,
@@ -2722,8 +2712,11 @@
     "color": "#d8b764",
     "rotationY": 0,
     "paintMaterials": [
+      "Kuzov",
+      "Kuzov.001",
       "kuzov",
-      "Kuzov.001"
+      "kuzov_Hamam",
+      "Bagaznik"
     ],
     "lampMaterials": [],
     "excludedNodes": [],

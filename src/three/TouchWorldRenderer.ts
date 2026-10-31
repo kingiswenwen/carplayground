@@ -5,7 +5,7 @@ import {drawPlaySymbol,symbolSvg} from '../visual/play-symbols';
 import type {TouchBoard,BoardSnapshot} from '../game/TouchBoard';
 import {vehicleModel} from '../domain/vehicle-models';
 import {loadPlayVehicle,type PlayVehicle} from './play-model';
-import {disposeModel,isColourMaterial} from './model';
+import {disposeModel} from './model';
 import {isVehicleLampName} from './part-names';
 
 type Item=TouchBoard['items'][number];
@@ -236,8 +236,8 @@ export class TouchWorldRenderer{
   const shadow=new T.Mesh(new T.CircleGeometry(1,24),new T.MeshBasicMaterial({color:'#33483a',transparent:true,opacity:.18,depthWrite:false}));shadow.rotation.x=-Math.PI/2;shadow.scale.set(2.15,.85,1);shadow.position.y=.018;group.add(shadow);
   const paint=new Map<T.Material,T.Material>(),light:(T.MeshStandardMaterial|T.MeshLambertMaterial)[]=[],wheels:T.Group[]=[];
   model.traverse(object=>{if(!(object instanceof T.Mesh))return;const old=Array.isArray(object.material)?object.material:[object.material];const next=old.map(m=>{if(!paint.has(m))paint.set(m,this.copyMaterial(m));return paint.get(m)!;});object.material=Array.isArray(object.material)?next:next[0];
-   for(const m of next)if(isColourMaterial(m)){if(template.paint.some(p=>p.name===m.name)&&'carId'in item&&['E01','M04','L03'].includes(this.activity)){m.color.set(item.id.includes('blue')||item.carId==='CAR11'?'#2e8ed4':item.id.includes('white')||item.carId==='CAR15'?'#f7f5e9':'#dc4940');m.map=null;}
-    if((m instanceof T.MeshStandardMaterial||m instanceof T.MeshLambertMaterial)&&template.lights.some(l=>l.name===m.name))light.push(m);
+   for(const m of next)if(m instanceof T.MeshStandardMaterial||m instanceof T.MeshLambertMaterial){if(template.paint.some(p=>p.name===m.name)&&'carId'in item&&['E01','M04','L03'].includes(this.activity)){m.color.set(item.id.includes('blue')||item.carId==='CAR11'?'#2e8ed4':item.id.includes('white')||item.carId==='CAR15'?'#f7f5e9':'#dc4940');m.map=null;}
+    if(template.lights.some(l=>l.name===m.name))light.push(m);
    }
   });
   model.updateMatrixWorld(true);
