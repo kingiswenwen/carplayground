@@ -44,28 +44,6 @@
     "reference": "https://www.ferrari.com/en-EN/auto/ferrari-roma"
   },
   {
-    "id": "CAR143",
-    "tool": "Built-in GPT Image",
-    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
-    "prompt": "Create a production asset sheet for a children's real-car exploration game, using REAL existing road-production car models with accurate distinctive body shapes. Transparent background. EXACT grid 2 columns x 4 rows with generous fully transparent gutters, no overlap, no text labels, no floor, no shadows outside the silhouettes. Each row is ONE particular real vehicle, shown twice: left cell strict full side profile facing RIGHT, right cell strict overhead TOP view with nose pointing RIGHT. All eight cars completely visible and centered in their cells. Row1: classic 1984 Ferrari 288 GTO, red, pop-up headlight housings, flared fenders, black roofline accents. Row2: 2020 Ferrari Roma coupe, elegant long-nose silver, slim slit headlights, smooth fastback roof. Row3: 2013 Ferrari LaFerrari road car, red with black glass roof, mid-engine hypercar silhouette with sculpted side intakes. Row4: 2013 McLaren P1 road car, orange with black roof, flowing rear haunches and sculpted side intakes. Consistent high quality toy-like 3D illustration style, recognizable faithful car proportions, readable black rubber tires and silver circular wheel hubs, side-view wheels fully visible. No fictional parts, no race modifications, no cartoons with faces. High resolution portrait sheet, all rows same height and both columns equal width. This is a game illustration inspired by real cars, not a photograph or an engineering model.",
-    "generatedFile": "exec-287f3895-6265-4258-9825-085ff10e4532.png",
-    "sheetSha256": "a0ac42e522daa1a7d48269a0793770d673b94860d8f30dbb02607fc3a8c1de25",
-    "atlasFrame": {
-      "index": 6,
-      "columns": 2,
-      "rows": 4,
-      "bounds": {
-        "left": 0,
-        "top": 1152,
-        "width": 544,
-        "height": 384
-      }
-    },
-    "asset": "illustration-CAR143-side",
-    "sha256": "4f4e288ecf4eb57d03f71b7bdf6415a03ed3470dac0e5284eb3ed844a6803415",
-    "reference": "https://cars.mclaren.com/us_en/legacy/mclaren-p1"
-  },
-  {
     "id": "CAR144",
     "tool": "Built-in GPT Image",
     "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
@@ -218,72 +196,6 @@
     "asset": "illustration-CAR153-side",
     "sha256": "e4e746dc96240f9da426d897d1c5676c2d900b10b5cae98b9766479e492bb665",
     "reference": "https://www.hyundainews.com/en-us/models/hyundai-veloster-2021-veloster"
-  },
-  {
-    "id": "CAR155",
-    "tool": "Built-in GPT Image",
-    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
-    "prompt": "Production transparent sprite sheet of EIGHT REAL road cars for a children's car exploration game. EXACT 2 columns x 4 rows, one whole car per cell in row-major order. Strict SIDE PROFILE facing RIGHT. Recognizable faithful model-specific proportions and details, polished toy-like 3D illustration, black rubber tires, silver hubs. ALL cars fit fully inside their own cell with 10% transparent padding and transparent gutters. Fully transparent background, no text, labels, floor, shadows outside cars, faces or fictional parts. In order left-to-right then top-to-bottom: 1 red 1999 Mitsubishi Lancer Evolution VI road sedan; 2 yellow 2019 Hyundai Veloster Turbo coupe (three doors); 3 orange classic 1971 Datsun 240Z fastback; 4 red classic 1965 Alfa Romeo Giulia Sprint GT coupe; 5 yellow 2018 Lamborghini Urus SUV; 6 silver Rolls-Royce Ghost luxury sedan; 7 black Rolls-Royce Phantom luxury sedan; 8 pearl white Rolls-Royce Cullinan SUV. Clearly distinguish compact sports cars and tall SUVs. No sport modifications.",
-    "generatedFile": "exec-ed56f9d1-cbd2-44b9-a74f-8b7cd5d805a6.png",
-    "sheetSha256": "81a9e959f0df9c1f3dfabcd3d54cd93eeb09be0aa4300ce3e23d70c4c1b423c3",
-    "atlasFrame": {
-      "index": 3,
-      "columns": 2,
-      "rows": 4,
-      "bounds": {
-        "left": 768,
-        "top": 256,
-        "width": 768,
-        "height": 256
-      }
-    },
-    "asset": "illustration-CAR155-side",
-    "sha256": "6181960cb11ca6dd9737df6763d10cf9f161f2f17862b569db67ee7c62e15ae0",
-    "reference": "https://www.alfaromeo.com/end-of-series/giulia-gta-e-gtam"
-  },
-  {
-    "id": "CAR156",
-    "tool": "Built-in GPT Image",
-    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
-    "prompt": "Production transparent sprite sheet of EIGHT REAL road cars for a children's car exploration game. EXACT 2 columns x 4 rows, one whole car per cell in row-major order. Strict SIDE PROFILE facing RIGHT. Recognizable faithful model-specific proportions and details, polished toy-like 3D illustration, black rubber tires, silver hubs. ALL cars fit fully inside their own cell with 10% transparent padding and transparent gutters. Fully transparent background, no text, labels, floor, shadows outside cars, faces or fictional parts. In order left-to-right then top-to-bottom: 1 red 1999 Mitsubishi Lancer Evolution VI road sedan; 2 yellow 2019 Hyundai Veloster Turbo coupe (three doors); 3 orange classic 1971 Datsun 240Z fastback; 4 red classic 1965 Alfa Romeo Giulia Sprint GT coupe; 5 yellow 2018 Lamborghini Urus SUV; 6 silver Rolls-Royce Ghost luxury sedan; 7 black Rolls-Royce Phantom luxury sedan; 8 pearl white Rolls-Royce Cullinan SUV. Clearly distinguish compact sports cars and tall SUVs. No sport modifications.",
-    "generatedFile": "exec-ed56f9d1-cbd2-44b9-a74f-8b7cd5d805a6.png",
-    "sheetSha256": "81a9e959f0df9c1f3dfabcd3d54cd93eeb09be0aa4300ce3e23d70c4c1b423c3",
-    "atlasFrame": {
-      "index": 4,
-      "columns": 2,
-      "rows": 4,
-      "bounds": {
-        "left": 0,
-        "top": 512,
-        "width": 768,
-        "height": 256
-      }
-    },
-    "asset": "illustration-CAR156-side",
-    "sha256": "bff547aa81742f8c4aecc308c49d44ba7f8e4d893d314784bc370b897642e08d",
-    "reference": "https://www.lamborghini.com/en-en/models/urus"
-  },
-  {
-    "id": "CAR157",
-    "tool": "Built-in GPT Image",
-    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
-    "prompt": "Production transparent sprite sheet of EIGHT REAL road cars for a children's car exploration game. EXACT 2 columns x 4 rows, one whole car per cell in row-major order. Strict SIDE PROFILE facing RIGHT. Recognizable faithful model-specific proportions and details, polished toy-like 3D illustration, black rubber tires, silver hubs. ALL cars fit fully inside their own cell with 10% transparent padding and transparent gutters. Fully transparent background, no text, labels, floor, shadows outside cars, faces or fictional parts. In order left-to-right then top-to-bottom: 1 red 1999 Mitsubishi Lancer Evolution VI road sedan; 2 yellow 2019 Hyundai Veloster Turbo coupe (three doors); 3 orange classic 1971 Datsun 240Z fastback; 4 red classic 1965 Alfa Romeo Giulia Sprint GT coupe; 5 yellow 2018 Lamborghini Urus SUV; 6 silver Rolls-Royce Ghost luxury sedan; 7 black Rolls-Royce Phantom luxury sedan; 8 pearl white Rolls-Royce Cullinan SUV. Clearly distinguish compact sports cars and tall SUVs. No sport modifications.",
-    "generatedFile": "exec-ed56f9d1-cbd2-44b9-a74f-8b7cd5d805a6.png",
-    "sheetSha256": "81a9e959f0df9c1f3dfabcd3d54cd93eeb09be0aa4300ce3e23d70c4c1b423c3",
-    "atlasFrame": {
-      "index": 5,
-      "columns": 2,
-      "rows": 4,
-      "bounds": {
-        "left": 768,
-        "top": 512,
-        "width": 768,
-        "height": 256
-      }
-    },
-    "asset": "illustration-CAR157-side",
-    "sha256": "b3bc1e3bc9d7d3deae69e08c2d901a180ef836433a3d911cac04e7cddd6097d9",
-    "reference": "https://www.rolls-roycemotorcars.com/en_GB/showroom/ghost.html"
   },
   {
     "id": "CAR158",
@@ -462,50 +374,6 @@
     "reference": "https://www.globalsuzuki.com/automobile/lineup/swift/"
   },
   {
-    "id": "CAR166",
-    "tool": "Built-in GPT Image",
-    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
-    "prompt": "Production transparent sprite sheet of EIGHT REAL road cars for a children's car exploration game. EXACT 2 columns x 4 rows, one whole car per cell in row-major order. Strict SIDE PROFILE facing RIGHT. Recognizable faithful model-specific proportions and details, polished toy-like 3D illustration, black rubber tires, silver hubs. ALL cars fit fully inside their own cell with 10% transparent padding and transparent gutters. Fully transparent background, no text, labels, floor, shadows outside cars, faces or fictional parts. In order left-to-right then top-to-bottom: 1 pale blue 2024 BYD Seal electric sedan; 2 white 1998 Honda Civic Type R EK9 three-door hatchback; 3 cream classic Volkswagen Karmann Ghia coupe; 4 red 2021 Volkswagen Golf GTI Mk8 hatchback; 5 British racing green 2005 Mini Cooper S three-door hatchback with white roof; 6 red 2018 Suzuki Swift five-door hatchback; 7 grey classic 1990 Peugeot 205 three-door hatchback; 8 blue 2003 Volvo S60 R sedan. Carefully preserve recognizable roof lines, door counts, front and rear architecture of each real model.",
-    "generatedFile": "exec-0c37de0f-af37-4e3e-910b-80aacc14f53c.png",
-    "sheetSha256": "5949b7d3bdac1f25ecb0a1f183546ebab142c1fd574de689f6e06d7166727f52",
-    "atlasFrame": {
-      "index": 6,
-      "columns": 2,
-      "rows": 4,
-      "bounds": {
-        "left": 0,
-        "top": 965,
-        "width": 611,
-        "height": 322
-      }
-    },
-    "asset": "illustration-CAR166-side",
-    "sha256": "1d86aa63e1e32cf6ce175b4f1c5e2c96a31c596a5038c0c11f55e1004730611a",
-    "reference": "https://www.media.stellantis.com/em-en/peugeot/press/the-peugeot-205-is-turning-40-an-alluring-sacred-number"
-  },
-  {
-    "id": "CAR168",
-    "tool": "Built-in GPT Image",
-    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
-    "prompt": "Transparent production sprite atlas for a real-car children's exploration game. EXACT 2-column x 4-row grid, EIGHT separate REAL cars, one per cell. Strict SIDE PROFILE facing RIGHT. Each complete car fully contained inside its cell with generous transparent gutters; no clipping or overlap. High quality polished 3D game illustration, faithful recognizable proportions, wheels and body design of the specified road production models, black rubber tires and detailed silver hubs. Fully transparent background with CLEAN alpha edges, no colored fringes, floor shadows, text, badges, faces or fictional features. In row-major order: 1 blue 2004 Subaru Impreza WRX STI sedan with gold wheels; 2 pearl white 2013 Toyota Crown Athlete S210 luxury sedan; 3 black classic 1970 Dodge Charger R/T coupe with normal road-car hood; 4 red 2018 Tesla Model 3 electric sedan; 5 black 2021 Cadillac Escalade SUV; 6 light blue 1953 Buick Skylark convertible with roof down; 7 dark green 2006 Land Rover Range Rover SUV; 8 yellow Hummer H2 SUV. Distinct sizes and body shapes, all faithfully based on real models.",
-    "generatedFile": "exec-5f726d85-2aea-45d6-86db-f076a0e16f6b.png",
-    "sheetSha256": "75b1217491e12f7d7668236e56beda9a3738e038313793bf0c029d1daa3e27e2",
-    "atlasFrame": {
-      "index": 0,
-      "columns": 2,
-      "rows": 4,
-      "bounds": {
-        "left": 0,
-        "top": 0,
-        "width": 768,
-        "height": 256
-      }
-    },
-    "asset": "illustration-CAR168-side",
-    "sha256": "d41c1948e75651ab7c02655e3c13cb3c951ac3416dd2d55b9bdbe42dcfc6e23a",
-    "reference": "https://www.subaru.com/vehicles/impreza.html"
-  },
-  {
     "id": "CAR169",
     "tool": "Built-in GPT Image",
     "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
@@ -526,94 +394,6 @@
     "asset": "illustration-CAR169-side",
     "sha256": "fdec789feaf55dad6a8e2db4254ae31ef1345adcfcf6bc68799f73ff8b02aacb",
     "reference": "https://global.toyota/en/newsroom/toyota/"
-  },
-  {
-    "id": "CAR170",
-    "tool": "Built-in GPT Image",
-    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
-    "prompt": "Transparent production sprite atlas for a real-car children's exploration game. EXACT 2-column x 4-row grid, EIGHT separate REAL cars, one per cell. Strict SIDE PROFILE facing RIGHT. Each complete car fully contained inside its cell with generous transparent gutters; no clipping or overlap. High quality polished 3D game illustration, faithful recognizable proportions, wheels and body design of the specified road production models, black rubber tires and detailed silver hubs. Fully transparent background with CLEAN alpha edges, no colored fringes, floor shadows, text, badges, faces or fictional features. In row-major order: 1 blue 2004 Subaru Impreza WRX STI sedan with gold wheels; 2 pearl white 2013 Toyota Crown Athlete S210 luxury sedan; 3 black classic 1970 Dodge Charger R/T coupe with normal road-car hood; 4 red 2018 Tesla Model 3 electric sedan; 5 black 2021 Cadillac Escalade SUV; 6 light blue 1953 Buick Skylark convertible with roof down; 7 dark green 2006 Land Rover Range Rover SUV; 8 yellow Hummer H2 SUV. Distinct sizes and body shapes, all faithfully based on real models.",
-    "generatedFile": "exec-5f726d85-2aea-45d6-86db-f076a0e16f6b.png",
-    "sheetSha256": "75b1217491e12f7d7668236e56beda9a3738e038313793bf0c029d1daa3e27e2",
-    "atlasFrame": {
-      "index": 2,
-      "columns": 2,
-      "rows": 4,
-      "bounds": {
-        "left": 0,
-        "top": 256,
-        "width": 768,
-        "height": 256
-      }
-    },
-    "asset": "illustration-CAR170-side",
-    "sha256": "98bdc2f4ce60b1efdc1b56812c7e68b7d371b8987a07f692692f3583ce022c53",
-    "reference": "https://www.dodge.com/charger.html"
-  },
-  {
-    "id": "CAR171",
-    "tool": "Built-in GPT Image",
-    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
-    "prompt": "Transparent production sprite atlas for a real-car children's exploration game. EXACT 2-column x 4-row grid, EIGHT separate REAL cars, one per cell. Strict SIDE PROFILE facing RIGHT. Each complete car fully contained inside its cell with generous transparent gutters; no clipping or overlap. High quality polished 3D game illustration, faithful recognizable proportions, wheels and body design of the specified road production models, black rubber tires and detailed silver hubs. Fully transparent background with CLEAN alpha edges, no colored fringes, floor shadows, text, badges, faces or fictional features. In row-major order: 1 blue 2004 Subaru Impreza WRX STI sedan with gold wheels; 2 pearl white 2013 Toyota Crown Athlete S210 luxury sedan; 3 black classic 1970 Dodge Charger R/T coupe with normal road-car hood; 4 red 2018 Tesla Model 3 electric sedan; 5 black 2021 Cadillac Escalade SUV; 6 light blue 1953 Buick Skylark convertible with roof down; 7 dark green 2006 Land Rover Range Rover SUV; 8 yellow Hummer H2 SUV. Distinct sizes and body shapes, all faithfully based on real models.",
-    "generatedFile": "exec-5f726d85-2aea-45d6-86db-f076a0e16f6b.png",
-    "sheetSha256": "75b1217491e12f7d7668236e56beda9a3738e038313793bf0c029d1daa3e27e2",
-    "atlasFrame": {
-      "index": 3,
-      "columns": 2,
-      "rows": 4,
-      "bounds": {
-        "left": 768,
-        "top": 256,
-        "width": 768,
-        "height": 256
-      }
-    },
-    "asset": "illustration-CAR171-side",
-    "sha256": "0f0bb9ef38ac93dd213bd5f85062651f218927b4c132d0b3819b00622748e62c",
-    "reference": "https://www.tesla.com/model3"
-  },
-  {
-    "id": "CAR172",
-    "tool": "Built-in GPT Image",
-    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
-    "prompt": "Transparent production sprite atlas for a real-car children's exploration game. EXACT 2-column x 4-row grid, EIGHT separate REAL cars, one per cell. Strict SIDE PROFILE facing RIGHT. Each complete car fully contained inside its cell with generous transparent gutters; no clipping or overlap. High quality polished 3D game illustration, faithful recognizable proportions, wheels and body design of the specified road production models, black rubber tires and detailed silver hubs. Fully transparent background with CLEAN alpha edges, no colored fringes, floor shadows, text, badges, faces or fictional features. In row-major order: 1 blue 2004 Subaru Impreza WRX STI sedan with gold wheels; 2 pearl white 2013 Toyota Crown Athlete S210 luxury sedan; 3 black classic 1970 Dodge Charger R/T coupe with normal road-car hood; 4 red 2018 Tesla Model 3 electric sedan; 5 black 2021 Cadillac Escalade SUV; 6 light blue 1953 Buick Skylark convertible with roof down; 7 dark green 2006 Land Rover Range Rover SUV; 8 yellow Hummer H2 SUV. Distinct sizes and body shapes, all faithfully based on real models.",
-    "generatedFile": "exec-5f726d85-2aea-45d6-86db-f076a0e16f6b.png",
-    "sheetSha256": "75b1217491e12f7d7668236e56beda9a3738e038313793bf0c029d1daa3e27e2",
-    "atlasFrame": {
-      "index": 4,
-      "columns": 2,
-      "rows": 4,
-      "bounds": {
-        "left": 0,
-        "top": 512,
-        "width": 768,
-        "height": 256
-      }
-    },
-    "asset": "illustration-CAR172-side",
-    "sha256": "c471a394e5e8b24a9a33a61f230502af15e781a4d55c16d02c612b2a9c4c06be",
-    "reference": "https://www.cadillac.com/suvs/escalade"
-  },
-  {
-    "id": "CAR173",
-    "tool": "Built-in GPT Image",
-    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
-    "prompt": "Transparent production sprite atlas for a real-car children's exploration game. EXACT 2-column x 4-row grid, EIGHT separate REAL cars, one per cell. Strict SIDE PROFILE facing RIGHT. Each complete car fully contained inside its cell with generous transparent gutters; no clipping or overlap. High quality polished 3D game illustration, faithful recognizable proportions, wheels and body design of the specified road production models, black rubber tires and detailed silver hubs. Fully transparent background with CLEAN alpha edges, no colored fringes, floor shadows, text, badges, faces or fictional features. In row-major order: 1 blue 2004 Subaru Impreza WRX STI sedan with gold wheels; 2 pearl white 2013 Toyota Crown Athlete S210 luxury sedan; 3 black classic 1970 Dodge Charger R/T coupe with normal road-car hood; 4 red 2018 Tesla Model 3 electric sedan; 5 black 2021 Cadillac Escalade SUV; 6 light blue 1953 Buick Skylark convertible with roof down; 7 dark green 2006 Land Rover Range Rover SUV; 8 yellow Hummer H2 SUV. Distinct sizes and body shapes, all faithfully based on real models.",
-    "generatedFile": "exec-5f726d85-2aea-45d6-86db-f076a0e16f6b.png",
-    "sheetSha256": "75b1217491e12f7d7668236e56beda9a3738e038313793bf0c029d1daa3e27e2",
-    "atlasFrame": {
-      "index": 5,
-      "columns": 2,
-      "rows": 4,
-      "bounds": {
-        "left": 768,
-        "top": 512,
-        "width": 768,
-        "height": 256
-      }
-    },
-    "asset": "illustration-CAR173-side",
-    "sha256": "1c061eaec673463daeed475463f0562feff0015e845fa7b4f541cced2e0081cb",
-    "reference": "https://www.gm.com/heritage/archive/vehicle-information-kits"
   },
   {
     "id": "CAR174",
@@ -746,28 +526,6 @@
     "asset": "illustration-CAR180-side",
     "sha256": "489c1fb5226efe1cb8e2fc8a01aa87388e26f6ce74b11f02a28315cf96a44790",
     "reference": "https://www.renaultgroup.com/en/group/locations/bursa-plant-oyak/"
-  },
-  {
-    "id": "CAR181",
-    "tool": "Built-in GPT Image",
-    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
-    "prompt": "Transparent production sprite atlas for a real-car children's exploration game. EXACT 2-column x 4-row grid, EIGHT separate REAL cars, one per cell. Strict SIDE PROFILE facing RIGHT. Each complete car fully contained inside its cell with generous transparent gutters; no clipping or overlap. High quality polished 3D game illustration, faithful recognizable proportions, wheels and body design of the specified road production models, black rubber tires and detailed silver hubs. Fully transparent background with CLEAN alpha edges, no colored fringes, floor shadows, text, badges, faces or fictional features. In row-major order: 1 green 2021 Audi RS3 Sportback five-door hatch; 2 silver 2019 Lexus ES Hybrid sedan; 3 orange 2021 Ford Bronco two-door SUV; 4 silver 2008 Mercedes-Benz SL65 AMG R230 roadster, roof closed; 5 dark blue 2017 Renault Megane four-door sedan; 6 white 2010 Fiat Abarth 500 three-door hatch; 7 blue 2020 BMW X5 M Competition SUV; 8 red 2017 Alfa Romeo Stelvio Quadrifoglio SUV. Faithfully distinguish the eight model-specific silhouettes.",
-    "generatedFile": "exec-a016dea9-814e-4646-b1a4-3b229a0bdafb.png",
-    "sheetSha256": "fe1ee76185b105897580fc8516fa5fbc84eb9f99290bac00afffdc4988c3830e",
-    "atlasFrame": {
-      "index": 5,
-      "columns": 2,
-      "rows": 4,
-      "bounds": {
-        "left": 768,
-        "top": 512,
-        "width": 768,
-        "height": 256
-      }
-    },
-    "asset": "illustration-CAR181-side",
-    "sha256": "4a7b72c967074b0fe38c23b31bdcd965b2f8f2644e39968fb58d6a0cfbddaece",
-    "reference": "https://www.media.stellantis.com/de-de/abarth/press/neuer-500-abarth-deutschlandstart-am-19-juli-offizielle-premiere-des-kult-modells-mit-live-act-in-munchen"
   },
   {
     "id": "CAR182",
@@ -968,28 +726,6 @@
     "reference": "https://www.maserati.com/content/dam/maserati/international/catalogues/th/Maserati_Levante_Digital_Flyer_EN.pdf"
   },
   {
-    "id": "CAR194",
-    "tool": "Built-in GPT Image",
-    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
-    "prompt": "Transparent production game asset sheet with exactly TWO real road cars in ONE COLUMN and TWO ROWS, one full vehicle per row, both strict SIDE PROFILE facing RIGHT. Top row: blue 2017 Maserati Levante SUV, recognizable sloping roof, signature triple side vents behind front wheel, elegant long hood, silver wheels. Bottom row: dark metallic grey 1990 Mercedes-Benz 190 E 2.5-16 Evolution II ROAD car, W201 four-door sedan, squared body, rectangular headlights, flared wheel arches and the actual factory tall rear wing, silver multi-spoke wheels; no racing stickers. Faithful recognizable real-model proportions, door counts, silhouette and wheelbase. Polished high quality toy-like 3D illustration for a children's car exploration game. Fully transparent background, clean alpha edges, generous padding and transparent gutter. No labels, words, faces, scenery or shadows outside cars. Every bumper and wheel fully inside its own row. No fictional parts.",
-    "generatedFile": "exec-5307503e-81be-4264-8f9b-3cac796a975e.png",
-    "sheetSha256": "49ee32e86428f1d20b256672aefcfc113d7432a70b386eb449843020f6f5132f",
-    "atlasFrame": {
-      "index": 1,
-      "columns": 1,
-      "rows": 2,
-      "bounds": {
-        "left": 0,
-        "top": 512,
-        "width": 1536,
-        "height": 512
-      }
-    },
-    "asset": "illustration-CAR194-side",
-    "sha256": "de1ed35119309ddc6a4c54721ed8c652a6c7ae0481524ad3470925a3c033438d",
-    "reference": "https://media.mercedes-benz.com/en/article/25dd00e4-5ef9-4c2f-b12c-55169f795d4d"
-  },
-  {
     "id": "CAR195",
     "tool": "Built-in GPT Image",
     "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
@@ -1010,5 +746,317 @@
     "asset": "illustration-CAR195-side",
     "sha256": "92557bc568a2e87a73a8e8356d386810d847fa4acf8294a273eddec81b9b9bef",
     "reference": "https://www.hyundai.com/worldwide/en/footer/corporate/vehicle-history/2000/i30"
+  },
+  {
+    "id": "CAR143",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Edit the supplied GPT-generated game illustration. Keep ONLY the main complete McLaren P1, in the same strict SIDE PROFILE FACING RIGHT, with the same paint color, same wheels, recognizable real-model proportions and styling. Remove EVERY detached fragment, partial roof, stray vertical stripe, partial second car or floating object outside the main car. Restore any main-car roof, roof rails, windshield or other edge that was accidentally clipped by the atlas cell; the main McLaren P1 must be a single WHOLE intact car. Do not change the model identity and do not add custom parts. One car only, fully within the frame with generous transparent margin on all sides. Clean continuous alpha edges; completely TRANSPARENT background. No ground plane, no external shadow, no text, no labels, no additional vehicles. High quality polished toy-like real-car game illustration. This is a single-car cleanup, not an atlas or contact sheet.",
+    "generatedFile": "exec-d2c55c6d-ef21-486d-94a7-d9fe29466ed7.png",
+    "sheetSha256": "fd7ab51459dc5f03257ac98326a9c3ece410b6a9bd72d2bda551be8fdcfa405b",
+    "editedFrom": {
+      "asset": "illustration-CAR143-side",
+      "sha256": "4f4e288ecf4eb57d03f71b7bdf6415a03ed3470dac0e5284eb3ed844a6803415"
+    },
+    "atlasFrame": {
+      "index": 0,
+      "columns": 1,
+      "rows": 1,
+      "bounds": {
+        "left": 0,
+        "top": 0,
+        "width": 1871,
+        "height": 840
+      }
+    },
+    "asset": "illustration-CAR143-side",
+    "sha256": "ca679fcdce359d64febbe5036ead8177d6b5572d6cef39a044545cbe61e6db45",
+    "reference": "https://cars.mclaren.com/us_en/legacy/mclaren-p1"
+  },
+  {
+    "id": "CAR155",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Edit the supplied GPT-generated illustration: keep ONLY the main whole Alfa Romeo Giulia Sprint (1965), strict SIDE PROFILE facing RIGHT, preserving its paint, wheels, real-model proportions and styling. Remove the partial OTHER car or fragment at the bottom or side. Restore any main-car roof, windshield, bumper or edge that was accidentally chopped by atlas cropping; the main Alfa Romeo Giulia Sprint (1965) must be an intact complete real car with the correct roof shape. One complete car centered with generous transparent margin on all four sides. No additional cars or disconnected objects, no text, no shadow or ground. Fully TRANSPARENT background, clean alpha edges. Same polished toy-like real-car game illustration quality. This is a single car, not an atlas.",
+    "generatedFile": "exec-4878aaf9-6be3-4952-bb10-a08b6d97d82e.png",
+    "sheetSha256": "30793a9922175a3097e26f59c4d17bc2311c3eef1d5b3ac3d54650b80e6aa01c",
+    "editedFrom": {
+      "asset": "illustration-CAR155-side",
+      "sha256": "6181960cb11ca6dd9737df6763d10cf9f161f2f17862b569db67ee7c62e15ae0"
+    },
+    "atlasFrame": {
+      "index": 0,
+      "columns": 1,
+      "rows": 1,
+      "bounds": {
+        "left": 0,
+        "top": 0,
+        "width": 1871,
+        "height": 840
+      }
+    },
+    "asset": "illustration-CAR155-side",
+    "sha256": "4df4f7fcd2eb7a626bda0154c05fddb9a6d5b730760ee865405d39e3575a4ffb",
+    "reference": "https://www.alfaromeo.com/end-of-series/giulia-gta-e-gtam"
+  },
+  {
+    "id": "CAR156",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Edit the supplied GPT-generated illustration: keep ONLY the main whole Lamborghini Urus, strict SIDE PROFILE facing RIGHT, preserving its paint, wheels, real-model proportions and styling. Remove the partial OTHER car or fragment at the bottom or side. Restore any main-car roof, windshield, bumper or edge that was accidentally chopped by atlas cropping; the main Lamborghini Urus must be an intact complete real car with the correct roof shape. One complete car centered with generous transparent margin on all four sides. No additional cars or disconnected objects, no text, no shadow or ground. Fully TRANSPARENT background, clean alpha edges. Same polished toy-like real-car game illustration quality. This is a single car, not an atlas.",
+    "generatedFile": "exec-c7de52bc-e074-4f42-80a2-553b2af4342a.png",
+    "sheetSha256": "1ab77081823fa9146673330154fb10da8e756ccb2118a0a8eeb70a6e5eee5bf0",
+    "editedFrom": {
+      "asset": "illustration-CAR156-side",
+      "sha256": "bff547aa81742f8c4aecc308c49d44ba7f8e4d893d314784bc370b897642e08d"
+    },
+    "atlasFrame": {
+      "index": 0,
+      "columns": 1,
+      "rows": 1,
+      "bounds": {
+        "left": 0,
+        "top": 0,
+        "width": 1871,
+        "height": 840
+      }
+    },
+    "asset": "illustration-CAR156-side",
+    "sha256": "4e8a48a4391788f99aa09a0571191a88d95cfda3d4ef8ed414759bf87540be05",
+    "reference": "https://www.lamborghini.com/en-en/models/urus"
+  },
+  {
+    "id": "CAR157",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Edit the supplied GPT-generated game illustration. Keep ONLY the main complete Rolls-Royce Ghost, in the same strict SIDE PROFILE FACING RIGHT, with the same paint color, same wheels, recognizable real-model proportions and styling. Remove EVERY detached fragment, partial roof, stray vertical stripe, partial second car or floating object outside the main car. Restore any main-car roof, roof rails, windshield or other edge that was accidentally clipped by the atlas cell; the main Rolls-Royce Ghost must be a single WHOLE intact car. Do not change the model identity and do not add custom parts. One car only, fully within the frame with generous transparent margin on all sides. Clean continuous alpha edges; completely TRANSPARENT background. No ground plane, no external shadow, no text, no labels, no additional vehicles. High quality polished toy-like real-car game illustration. This is a single-car cleanup, not an atlas or contact sheet.",
+    "generatedFile": "exec-d4697714-48c4-4366-8147-cff6b06e9e2d.png",
+    "sheetSha256": "a2b7581140fe3f64be341a707c9a181fe6eaaa33138ecc827e04a27fc945787b",
+    "editedFrom": {
+      "asset": "illustration-CAR157-side",
+      "sha256": "b3bc1e3bc9d7d3deae69e08c2d901a180ef836433a3d911cac04e7cddd6097d9"
+    },
+    "atlasFrame": {
+      "index": 0,
+      "columns": 1,
+      "rows": 1,
+      "bounds": {
+        "left": 0,
+        "top": 0,
+        "width": 1871,
+        "height": 840
+      }
+    },
+    "asset": "illustration-CAR157-side",
+    "sha256": "0fbc2b0267c0e9415a4bb984a83a15c22df6b7c6b622a8669fe8b9888a203e8d",
+    "reference": "https://www.rolls-roycemotorcars.com/en_GB/showroom/ghost.html"
+  },
+  {
+    "id": "CAR166",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Edit the supplied GPT-generated illustration: keep ONLY the main whole Peugeot 205, strict SIDE PROFILE facing RIGHT, preserving its paint, wheels, real-model proportions and styling. Remove the partial OTHER car or fragment at the bottom or side. Restore any main-car roof, windshield, bumper or edge that was accidentally chopped by atlas cropping; the main Peugeot 205 must be an intact complete real car with the correct roof shape. One complete car centered with generous transparent margin on all four sides. No additional cars or disconnected objects, no text, no shadow or ground. Fully TRANSPARENT background, clean alpha edges. Same polished toy-like real-car game illustration quality. This is a single car, not an atlas.",
+    "generatedFile": "exec-f77c435c-2012-4e54-9100-e8f86d38a27c.png",
+    "sheetSha256": "6fd3cc9c75c4b6d17b03392dc9b2176453ea105f92a4cd644a9239038a8d5696",
+    "editedFrom": {
+      "asset": "illustration-CAR166-side",
+      "sha256": "1d86aa63e1e32cf6ce175b4f1c5e2c96a31c596a5038c0c11f55e1004730611a"
+    },
+    "atlasFrame": {
+      "index": 0,
+      "columns": 1,
+      "rows": 1,
+      "bounds": {
+        "left": 0,
+        "top": 0,
+        "width": 1871,
+        "height": 840
+      }
+    },
+    "asset": "illustration-CAR166-side",
+    "sha256": "13cf88e9b1e66286d485694e646ec895e8174e5603e12ec70ca0476f5dcdcdca",
+    "reference": "https://www.media.stellantis.com/em-en/peugeot/press/the-peugeot-205-is-turning-40-an-alluring-sacred-number"
+  },
+  {
+    "id": "CAR168",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Edit the supplied GPT-generated game illustration. Keep ONLY the main complete Subaru Impreza WRX STI (2004), in the same strict SIDE PROFILE FACING RIGHT, with the same paint color, same wheels, recognizable real-model proportions and styling. Remove EVERY detached fragment, partial roof, stray vertical stripe, partial second car or floating object outside the main car. Restore any main-car roof, roof rails, windshield or other edge that was accidentally clipped by the atlas cell; the main Subaru Impreza WRX STI (2004) must be a single WHOLE intact car. Do not change the model identity and do not add custom parts. One car only, fully within the frame with generous transparent margin on all sides. Clean continuous alpha edges; completely TRANSPARENT background. No ground plane, no external shadow, no text, no labels, no additional vehicles. High quality polished toy-like real-car game illustration. This is a single-car cleanup, not an atlas or contact sheet.",
+    "generatedFile": "exec-674381f7-500d-4954-8cd2-3b56c7205822.png",
+    "sheetSha256": "f669e414e0a2c22a213b0546aa58652c86bee41f926ef2a4cc01c3c8564991ec",
+    "editedFrom": {
+      "asset": "illustration-CAR168-side",
+      "sha256": "d41c1948e75651ab7c02655e3c13cb3c951ac3416dd2d55b9bdbe42dcfc6e23a"
+    },
+    "atlasFrame": {
+      "index": 0,
+      "columns": 1,
+      "rows": 1,
+      "bounds": {
+        "left": 0,
+        "top": 0,
+        "width": 1871,
+        "height": 840
+      }
+    },
+    "asset": "illustration-CAR168-side",
+    "sha256": "ac3801a5c65a6b2325520fee2f80fd135d96c42068111fccc348da30a3e026f3",
+    "reference": "https://www.subaru.com/vehicles/impreza.html"
+  },
+  {
+    "id": "CAR170",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Edit the supplied GPT-generated game illustration. Keep ONLY the main complete Dodge Charger R/T (1970), in the same strict SIDE PROFILE FACING RIGHT, with the same paint color, same wheels, recognizable real-model proportions and styling. Remove EVERY detached fragment, partial roof, stray vertical stripe, partial second car or floating object outside the main car. Restore any main-car roof, roof rails, windshield or other edge that was accidentally clipped by the atlas cell; the main Dodge Charger R/T (1970) must be a single WHOLE intact car. Do not change the model identity and do not add custom parts. One car only, fully within the frame with generous transparent margin on all sides. Clean continuous alpha edges; completely TRANSPARENT background. No ground plane, no external shadow, no text, no labels, no additional vehicles. High quality polished toy-like real-car game illustration. This is a single-car cleanup, not an atlas or contact sheet.",
+    "generatedFile": "exec-66369d64-56cc-40ff-acf5-d7eb962d6b91.png",
+    "sheetSha256": "d0d1b7a48b6fa935787cf84c01aa2862188e5b043f83c5351785b7b77a801d5e",
+    "editedFrom": {
+      "asset": "illustration-CAR170-side",
+      "sha256": "98bdc2f4ce60b1efdc1b56812c7e68b7d371b8987a07f692692f3583ce022c53"
+    },
+    "atlasFrame": {
+      "index": 0,
+      "columns": 1,
+      "rows": 1,
+      "bounds": {
+        "left": 0,
+        "top": 0,
+        "width": 1871,
+        "height": 840
+      }
+    },
+    "asset": "illustration-CAR170-side",
+    "sha256": "4be5f7fe38ca365c0aa1c195e710af8c64ad67c0fae4b0d7252b9383504b4128",
+    "reference": "https://www.dodge.com/charger.html"
+  },
+  {
+    "id": "CAR171",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Edit the supplied GPT-generated game illustration. Keep ONLY the main complete Tesla Model 3, in the same strict SIDE PROFILE FACING RIGHT, with the same paint color, same wheels, recognizable real-model proportions and styling. Remove EVERY detached fragment, partial roof, stray vertical stripe, partial second car or floating object outside the main car. Restore any main-car roof, roof rails, windshield or other edge that was accidentally clipped by the atlas cell; the main Tesla Model 3 must be a single WHOLE intact car. Do not change the model identity and do not add custom parts. One car only, fully within the frame with generous transparent margin on all sides. Clean continuous alpha edges; completely TRANSPARENT background. No ground plane, no external shadow, no text, no labels, no additional vehicles. High quality polished toy-like real-car game illustration. This is a single-car cleanup, not an atlas or contact sheet.",
+    "generatedFile": "exec-5984af6b-b930-42a5-bb2b-09ccb578b007.png",
+    "sheetSha256": "f1be3a52493760a1bc3f560faa1ded6e7a2ece1a2530c6bc18aeda55504d18f7",
+    "editedFrom": {
+      "asset": "illustration-CAR171-side",
+      "sha256": "0f0bb9ef38ac93dd213bd5f85062651f218927b4c132d0b3819b00622748e62c"
+    },
+    "atlasFrame": {
+      "index": 0,
+      "columns": 1,
+      "rows": 1,
+      "bounds": {
+        "left": 0,
+        "top": 0,
+        "width": 1871,
+        "height": 840
+      }
+    },
+    "asset": "illustration-CAR171-side",
+    "sha256": "312f10beb71335973bcf1794bd76e196add53293c771fefe5961d1619a6b3c93",
+    "reference": "https://www.tesla.com/model3"
+  },
+  {
+    "id": "CAR172",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Edit the supplied GPT-generated game illustration. Keep ONLY the main complete Cadillac Escalade, in the same strict SIDE PROFILE FACING RIGHT, with the same paint color, same wheels, recognizable real-model proportions and styling. Remove EVERY detached fragment, partial roof, stray vertical stripe, partial second car or floating object outside the main car. Restore any main-car roof, roof rails, windshield or other edge that was accidentally clipped by the atlas cell; the main Cadillac Escalade must be a single WHOLE intact car. Do not change the model identity and do not add custom parts. One car only, fully within the frame with generous transparent margin on all sides. Clean continuous alpha edges; completely TRANSPARENT background. No ground plane, no external shadow, no text, no labels, no additional vehicles. High quality polished toy-like real-car game illustration. This is a single-car cleanup, not an atlas or contact sheet.",
+    "generatedFile": "exec-1be89482-d48b-4861-a375-1f1033ad5d85.png",
+    "sheetSha256": "b463000fb4b6da58ccf28035cfebb0b0fe02c1ab0e473b5d110ab67a9e5167ab",
+    "editedFrom": {
+      "asset": "illustration-CAR172-side",
+      "sha256": "c471a394e5e8b24a9a33a61f230502af15e781a4d55c16d02c612b2a9c4c06be"
+    },
+    "atlasFrame": {
+      "index": 0,
+      "columns": 1,
+      "rows": 1,
+      "bounds": {
+        "left": 0,
+        "top": 0,
+        "width": 1871,
+        "height": 840
+      }
+    },
+    "asset": "illustration-CAR172-side",
+    "sha256": "b8cf983f91e072ca22ea75e78fb4862fb6b1417e373c8472a1767c0508f0d5ce",
+    "reference": "https://www.cadillac.com/suvs/escalade"
+  },
+  {
+    "id": "CAR173",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Edit the supplied GPT-generated game illustration. Keep ONLY the main complete Buick Skylark Convertible (1953), in the same strict SIDE PROFILE FACING RIGHT, with the same paint color, same wheels, recognizable real-model proportions and styling. Remove EVERY detached fragment, partial roof, stray vertical stripe, partial second car or floating object outside the main car. Restore any main-car roof, roof rails, windshield or other edge that was accidentally clipped by the atlas cell; the main Buick Skylark Convertible (1953) must be a single WHOLE intact car. Do not change the model identity and do not add custom parts. One car only, fully within the frame with generous transparent margin on all sides. Clean continuous alpha edges; completely TRANSPARENT background. No ground plane, no external shadow, no text, no labels, no additional vehicles. High quality polished toy-like real-car game illustration. This is a single-car cleanup, not an atlas or contact sheet.",
+    "generatedFile": "exec-08bb831b-d19a-42db-9736-2b61152e98c1.png",
+    "sheetSha256": "b8b310649793a71965a840109833a84d957e7f0c4ba05f065d210221163665a7",
+    "editedFrom": {
+      "asset": "illustration-CAR173-side",
+      "sha256": "1c061eaec673463daeed475463f0562feff0015e845fa7b4f541cced2e0081cb"
+    },
+    "atlasFrame": {
+      "index": 0,
+      "columns": 1,
+      "rows": 1,
+      "bounds": {
+        "left": 0,
+        "top": 0,
+        "width": 1871,
+        "height": 840
+      }
+    },
+    "asset": "illustration-CAR173-side",
+    "sha256": "4378403a3fb2a4a443096a244b0c36dd44629dbf8fa3c42baa3a16387bf2240b",
+    "reference": "https://www.gm.com/heritage/archive/vehicle-information-kits"
+  },
+  {
+    "id": "CAR181",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Edit the supplied GPT-generated game illustration. Keep ONLY the main complete Fiat 500 Abarth, in the same strict SIDE PROFILE FACING RIGHT, with the same paint color, same wheels, recognizable real-model proportions and styling. Remove EVERY detached fragment, partial roof, stray vertical stripe, partial second car or floating object outside the main car. Restore any main-car roof, roof rails, windshield or other edge that was accidentally clipped by the atlas cell; the main Fiat 500 Abarth must be a single WHOLE intact car. Do not change the model identity and do not add custom parts. One car only, fully within the frame with generous transparent margin on all sides. Clean continuous alpha edges; completely TRANSPARENT background. No ground plane, no external shadow, no text, no labels, no additional vehicles. High quality polished toy-like real-car game illustration. This is a single-car cleanup, not an atlas or contact sheet.",
+    "generatedFile": "exec-4734522c-be4b-451d-bf9a-ad1c9c59344d.png",
+    "sheetSha256": "845f809a270f444364ef5af2eb9c2c59ec639831dc752dd1c24192ab398db5be",
+    "editedFrom": {
+      "asset": "illustration-CAR181-side",
+      "sha256": "4a7b72c967074b0fe38c23b31bdcd965b2f8f2644e39968fb58d6a0cfbddaece"
+    },
+    "atlasFrame": {
+      "index": 0,
+      "columns": 1,
+      "rows": 1,
+      "bounds": {
+        "left": 0,
+        "top": 0,
+        "width": 1871,
+        "height": 840
+      }
+    },
+    "asset": "illustration-CAR181-side",
+    "sha256": "3749d7a91e810dbaa9e6ba58aec099ae8b9994117f1fa20263031b826edd49dd",
+    "reference": "https://www.media.stellantis.com/de-de/abarth/press/neuer-500-abarth-deutschlandstart-am-19-juli-offizielle-premiere-des-kult-modells-mit-live-act-in-munchen"
+  },
+  {
+    "id": "CAR194",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Edit the supplied GPT-generated game illustration. Keep ONLY the main complete Mercedes-Benz 190 E, in the same strict SIDE PROFILE FACING RIGHT, with the same paint color, same wheels, recognizable real-model proportions and styling. Remove EVERY detached fragment, partial roof, stray vertical stripe, partial second car or floating object outside the main car. Restore any main-car roof, roof rails, windshield or other edge that was accidentally clipped by the atlas cell; the main Mercedes-Benz 190 E must be a single WHOLE intact car. Do not change the model identity and do not add custom parts. One car only, fully within the frame with generous transparent margin on all sides. Clean continuous alpha edges; completely TRANSPARENT background. No ground plane, no external shadow, no text, no labels, no additional vehicles. High quality polished toy-like real-car game illustration. This is a single-car cleanup, not an atlas or contact sheet.",
+    "generatedFile": "exec-edcc41f0-facb-4565-a9d2-6b84eb0122e8.png",
+    "sheetSha256": "398330cd82adb3cf44a8394988058dea555d3d204b5c507814ce2d0fd822abed",
+    "editedFrom": {
+      "asset": "illustration-CAR194-side",
+      "sha256": "de1ed35119309ddc6a4c54721ed8c652a6c7ae0481524ad3470925a3c033438d"
+    },
+    "atlasFrame": {
+      "index": 0,
+      "columns": 1,
+      "rows": 1,
+      "bounds": {
+        "left": 0,
+        "top": 0,
+        "width": 1871,
+        "height": 840
+      }
+    },
+    "asset": "illustration-CAR194-side",
+    "sha256": "bd470aa93fc242a1781be7c09bea9813f65e5a95758dc07ff5d78039cfb0cc39",
+    "reference": "https://media.mercedes-benz.com/en/article/25dd00e4-5ef9-4c2f-b12c-55169f795d4d"
   }
 ]

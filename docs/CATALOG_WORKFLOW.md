@@ -6,7 +6,7 @@
 
 1. 在厂家车型页、厂家新闻资料或品牌历史档案中核对名称及量产身份，登记 `content/vehicle-identities.json`。先查现有系列及旧链接别名；概念车、纯赛车和身份不明的资源不进入目录。
 2. 检查来源模型的实际形状、作者、许可和可下载文件。镜像清单的标题和许可需与来源站核对；若当前来源不匹配，保留候选记录，另选资源。
-3. 按核实的真实车型，用 GPT Image 生成目录插画。保留实际提示词、原图哈希及裁切图帧。当前新增 46 款的记录在 `content/catalog-illustrations.json`；它们是游戏插画，不能作为 GLB 或实车照片计数。
+3. 按核实的真实车型，用 GPT Image 生成目录插画。保留实际提示词、原图哈希及裁切图帧。图集边界导致车身裁切或邻车残片时，用 GPT Image 按单车修正，保留编辑前素材哈希；最终逐张检查完整车身和透明背景。校验器检查主体留白及主体外明显的独立碎片。当前新增 46 款的记录在 `content/catalog-illustrations.json`；它们是游戏插画，不能作为 GLB 或实车照片计数。
 4. 导入模型、压缩纹理和几何，保存来源及字节哈希。`scripts/import-vehicle-models.mjs` 接收本机审核清单，`scripts/bake-vehicle-images.mjs` 从同一模型渲染实际玩法所需的侧视、俯视和预览，并登记轮位。
 5. 检查源文件是否夹带展示地板、另一辆展示车、导出器姿态或线框。对已确认的缺陷，使用 `scripts/repair-catalog-models.mjs` 修复；`content/model-preparation.json` 记录修复前后哈希和具体处理。无法可靠修复的候选不启用。
 6. 用 `scripts/install-catalog.mjs` 安装核对后的身份、模型和预览。生成玩法 LOD，再用 `scripts/prepare-catalog-illustrations.mjs` 处理经过检查的 GPT 图集。目录插画与玩法命中点分别登记。

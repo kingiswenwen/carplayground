@@ -3,6 +3,7 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import sharp from 'sharp';
 import { content } from '../src/domain/content';
+import {assertIllustrationSubject} from './illustration-alpha';
 
 const publicRoot = path.resolve('public');
 for (const asset of content.assets) {
@@ -69,14 +70,16 @@ const renders=JSON.parse(await fs.readFile('content/model-renders.json','utf8'))
 for(const car of content.cars.filter(c=>c.game?.side.startsWith('render-'))){const record=renders.find(r=>r.id===car.id),model=models.find(m=>m.id===car.id);if(!record||!model||record.sourceModelSha256!==model.sha256||record.triangles<100||record.bounds.some(n=>!Number.isFinite(n)||n<=0)||!record.assets.some(a=>a.id===car.game!.side)||!record.assets.some(a=>a.id===car.game!.top))throw Error('模型衍生预览不完整 '+car.id);for(const image of record.assets){if(!content.assets.some(a=>a.id===image.id&&a.sha256===image.sha256))throw Error('模型渲染素材登记不一致 '+image.id);}}
 console.log(`${renders.length}款模型衍生预览通过来源模型哈希与引用核对。`);
 
-const illustrations=JSON.parse(await fs.readFile('content/catalog-illustrations.json','utf8')) as {id:string;tool:string;prompt:string;generatedFile:string;sheetSha256:string;atlasFrame:{index:number;columns:number;rows:number};asset:string;sha256:string;reference:string}[];
+const illustrations=JSON.parse(await fs.readFile('content/catalog-illustrations.json','utf8')) as {id:string;tool:string;prompt:string;generatedFile:string;sheetSha256:string;editedFrom?:{asset:string;sha256:string};atlasFrame:{index:number;columns:number;rows:number};asset:string;sha256:string;reference:string}[];
 if(new Set(illustrations.map(row=>row.id)).size!==illustrations.length)throw Error('新增车型插画记录重复');
 for(const row of illustrations){
  const car=content.cars.find(car=>car.id===row.id),asset=content.assets.find(asset=>asset.id===row.asset);
+ if(row.editedFrom&&(row.editedFrom.asset!==row.asset||!row.editedFrom.sha256.match(/^[a-f0-9]{64}$/)))throw Error('车型插画编辑来源无效 '+row.id);
  if(!car||car.illustrationImage!==row.asset||row.tool!=='Built-in GPT Image'||row.reference!==car.reference||!row.prompt||!row.generatedFile||!row.sheetSha256.match(/^[a-f0-9]{64}$/)||row.atlasFrame.index<0||row.atlasFrame.index>=row.atlasFrame.rows*row.atlasFrame.columns||!asset||asset.sha256!==row.sha256||asset.width!==1000||asset.height!==450)throw Error('新增车型GPT插画与来源不一致 '+row.id);
  const {data,info}=await sharp(path.join('public',asset.path)).ensureAlpha().raw().toBuffer({resolveWithObject:true});
  let transparent=0,opaque=0;for(let i=3;i<data.length;i+=4){if(data[i]<10)transparent++;if(data[i]>240)opaque++;}
  if(transparent<info.width*info.height*.2||opaque<info.width*info.height*.07)throw Error('新增车型插画透明背景或主体无效 '+row.id);
+ assertIllustrationSubject(data,info.width,info.height,row.id);
 }
 for(const car of content.cars)if(car.illustrationImage&&!illustrations.some(row=>row.id===car.id))throw Error('车型插画缺少GPT生成来源 '+car.id);
 console.log(`${illustrations.length}款新增GPT车型插画通过图帧、引用、透明度与哈希核对。`);

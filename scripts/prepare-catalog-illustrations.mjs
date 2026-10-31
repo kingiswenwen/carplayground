@@ -38,7 +38,7 @@ for(const sheet of sheets){
   const bytes=await sharp({create:{width:1000,height:450,channels:4,background:'#00000000'}}).composite([{input:cutout,left:Math.floor((1000-size.width)/2),top:Math.floor((450-size.height)/2)}]).webp({quality:88,alphaQuality:100}).toBuffer();
   const file=`media/catalog-illustrations/${car.id.toLowerCase()}-side.webp`,id=`illustration-${car.id}-side`;
   assets.push({id,kind:'image',path:file,sha256:sha(bytes),status:'approved',width:1000,height:450,source:`Built-in GPT Image illustration inspired by the real ${car.brand} ${car.model}. ${car.reference}. Game illustration; not a photograph, scan or engineering model.`});
-  records.push({id:car.id,tool:'Built-in GPT Image',purpose:'Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.',prompt:sheet.prompt,generatedFile:path.basename(sheet.file),sheetSha256:sha(original),atlasFrame:{index:cell.index,columns:sheet.columns,rows:sheet.rows,bounds:{left,top,width:right-left,height:bottom-top}},asset:id,sha256:sha(bytes),reference:car.reference});
+  records.push({id:car.id,tool:'Built-in GPT Image',purpose:'Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.',prompt:sheet.prompt,generatedFile:path.basename(sheet.file),sheetSha256:sha(original),...(sheet.editedFrom?{editedFrom:sheet.editedFrom}:{}),atlasFrame:{index:cell.index,columns:sheet.columns,rows:sheet.rows,bounds:{left,top,width:right-left,height:bottom-top}},asset:id,sha256:sha(bytes),reference:car.reference});
   car.illustrationImage=id;exports.push({file,bytes});
  }
 }
