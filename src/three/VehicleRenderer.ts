@@ -7,7 +7,7 @@ import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
 import {toCreasedNormals} from 'three/addons/utils/BufferGeometryUtils.js';
 import {assetUrl} from '../domain/content';
 import type {VehicleModelSpec} from '../domain/vehicle-models';
-import {disposeModel,fitModel,frameModel} from './model';
+import {disposeModel,fitModel,frameModel,isColourMaterial,type ColourMaterial} from './model';
 import {isVehicleLampName} from './part-names';
 
 /** One context and studio per viewer. Changing cars replaces only the vehicle. */
@@ -23,7 +23,7 @@ export class VehicleRenderer{
  private removed:T.Object3D[]=[];
  private bounds?:T.Box3;
  private lamps=new Map<T.MeshStandardMaterial,{color:T.Color;intensity:number}>();
- private paint=new Set<T.MeshStandardMaterial>();
+ private paint=new Set<ColourMaterial>();
  private abort?:AbortController;
  private timer?:ReturnType<typeof setTimeout>;
  private epoch=0;
@@ -78,12 +78,12 @@ export class VehicleRenderer{
    for(const name of spec.excludedNodes){const clean=name.replace(/\s/g,'_').replace(/[\[\]\.:\/]/g,'');const object=this.root.getObjectByName(name)||this.root.getObjectByName(clean);if(object){object.removeFromParent();this.removed.push(object);}}
    this.root.traverse(object=>{if(object instanceof T.Mesh){object.receiveShadow=true;
     const materials=Array.isArray(object.material)?object.material:[object.material];object.castShadow=materials.some(material=>spec.paintMaterials.includes(material.name)||/tire/i.test(material.name));
-    for(const material of Array.isArray(object.material)?object.material:[object.material]){if(!(material instanceof T.MeshStandardMaterial))continue;
+    for(const material of Array.isArray(object.material)?object.material:[object.material]){if(!isColourMaterial(material))continue;
      if(spec.paintMaterials.includes(material.name)){
       if(spec.recalculateNormals){const original=object.geometry;object.geometry=toCreasedNormals(original,Math.PI/4);if(original!==object.geometry)original.dispose();}
-      if(!spec.preservePaint)material.color.set(spec.color);material.roughness=.27;material.metalness=.55;this.paint.add(material);
+      if(!spec.preservePaint)material.color.set(spec.color);if(material instanceof T.MeshStandardMaterial){material.roughness=.27;material.metalness=.55;}this.paint.add(material);
      }
-     if(spec.lampMaterials.includes(material.name)||isVehicleLampName(material.name))this.lamps.set(material,{color:material.emissive.clone(),intensity:material.emissiveIntensity});
+     if(material instanceof T.MeshStandardMaterial&&(spec.lampMaterials.includes(material.name)||isVehicleLampName(material.name)))this.lamps.set(material,{color:material.emissive.clone(),intensity:material.emissiveIntensity});
     }
    }});
    this.bounds=fitModel(this.root,spec.rotationY);this.scene.add(this.root);
@@ -93,7 +93,7 @@ export class VehicleRenderer{
   }catch(error){if(this.disposed||epoch!==this.epoch)return;console.warn('车辆模型未能打开',error);this.fail();}
  }
  private fail(){if(this.disposed)return;this.dispose();this.onUnavailable();}
- setPaint(color:string){this.paint.forEach(material=>material.color.set(color));this.renderer.domElement.dataset.paint=color;this.needsRender=true;}
+ setPaint(color:string){this.paint.forEach(material=>{material.color.set(color);if(material.map){material.map=null;material.needsUpdate=true;}});this.renderer.domElement.dataset.paint=color;this.needsRender=true;}
  private start=(event:PointerEvent)=>{this.pointers.add(event.pointerId);this.down=this.pointers.size===1?{id:event.pointerId,x:event.clientX,y:event.clientY}:null;this.onTouch();};
  private cancel=(event:PointerEvent)=>{this.pointers.delete(event.pointerId);this.down=null;};
  private end=(event:PointerEvent)=>{

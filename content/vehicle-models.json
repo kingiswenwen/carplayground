@@ -67,9 +67,7 @@
     "sha256": "5a288a8125f9f4d3ef3d01a7da1e57804a3df97edc99550a7e7ccf67eef0d1ba",
     "color": "#d8b764",
     "rotationY": 0,
-    "paintMaterials": [
-      "Meshpart128Mtl"
-    ],
+    "paintMaterials": [],
     "lampMaterials": [],
     "excludedNodes": [],
     "recalculateNormals": false,
@@ -769,7 +767,7 @@
     "color": "#d8b764",
     "rotationY": 0,
     "paintMaterials": [
-      "amdb11_grey"
+      "amdb11"
     ],
     "lampMaterials": [],
     "excludedNodes": [],
@@ -1222,6 +1220,7 @@
     "color": "#d8b764",
     "rotationY": 0,
     "paintMaterials": [
+      "varnish",
       "metal"
     ],
     "lampMaterials": [],
@@ -1280,9 +1279,7 @@
     "sha256": "4020ed8617096c16acc921489d211399d0686905a36a742733571a3d621b8b3d",
     "color": "#d8b764",
     "rotationY": 0,
-    "paintMaterials": [
-      "Meshpart1Mtl"
-    ],
+    "paintMaterials": [],
     "lampMaterials": [],
     "excludedNodes": [],
     "recalculateNormals": false,
@@ -1310,7 +1307,9 @@
     "color": "#d8b764",
     "rotationY": 0,
     "paintMaterials": [
-      "visse.001"
+      "Carosserie",
+      "Material.012",
+      "Material.009"
     ],
     "lampMaterials": [],
     "excludedNodes": [],
@@ -1367,9 +1366,7 @@
     "sha256": "274fa8ef58a3b490e8b0c6ad9035aba156f469e1f79ae7392f550627855b1239",
     "color": "#d8b764",
     "rotationY": 0,
-    "paintMaterials": [
-      "CAR_BODY_PAINT"
-    ],
+    "paintMaterials": [],
     "lampMaterials": [],
     "excludedNodes": [],
     "recalculateNormals": false,
@@ -1454,7 +1451,7 @@
     "color": "#d8b764",
     "rotationY": 0,
     "paintMaterials": [
-      "Ferrari_RomaRewardRecycled_2020Coloured_Material"
+      "Ferrari_RomaRewardRecycled_2020Paint_Material"
     ],
     "lampMaterials": [],
     "excludedNodes": [],
@@ -1823,6 +1820,7 @@
     "color": "#d8b764",
     "rotationY": 0,
     "paintMaterials": [
+      "colored",
       "material"
     ],
     "lampMaterials": [],
@@ -2106,9 +2104,7 @@
     "preservePaint": true,
     "color": "#d8b764",
     "rotationY": 0,
-    "paintMaterials": [
-      "Charcoal"
-    ],
+    "paintMaterials": [],
     "lampMaterials": [],
     "excludedNodes": [],
     "recalculateNormals": false,
@@ -2163,7 +2159,7 @@
     "color": "#d8b764",
     "rotationY": 0,
     "paintMaterials": [
-      "BLACK_GLL"
+      "car_body"
     ],
     "lampMaterials": [],
     "excludedNodes": [],
@@ -2303,9 +2299,7 @@
     "preservePaint": true,
     "color": "#d8b764",
     "rotationY": 0,
-    "paintMaterials": [
-      "Part1Mtl"
-    ],
+    "paintMaterials": [],
     "lampMaterials": [],
     "excludedNodes": [],
     "recalculateNormals": false,
@@ -2418,7 +2412,7 @@
     "color": "#d8b764",
     "rotationY": 0,
     "paintMaterials": [
-      "Color_M08"
+      "Marina_Bay_Blue_Metallic"
     ],
     "lampMaterials": [],
     "excludedNodes": [],
@@ -2477,7 +2471,7 @@
     "color": "#d8b764",
     "rotationY": 0,
     "paintMaterials": [
-      "Coloured"
+      "OEMPaint"
     ],
     "lampMaterials": [],
     "excludedNodes": [],
@@ -2671,9 +2665,7 @@
     "preservePaint": true,
     "color": "#d8b764",
     "rotationY": 0,
-    "paintMaterials": [
-      "wire_170177195"
-    ],
+    "paintMaterials": [],
     "lampMaterials": [],
     "excludedNodes": [],
     "recalculateNormals": false,
@@ -2759,9 +2751,7 @@
     "preservePaint": true,
     "color": "#d8b764",
     "rotationY": 0,
-    "paintMaterials": [
-      "Scene_-_Root"
-    ],
+    "paintMaterials": [],
     "lampMaterials": [],
     "excludedNodes": [],
     "recalculateNormals": false,
@@ -2845,7 +2835,7 @@
     "color": "#d8b764",
     "rotationY": 0,
     "paintMaterials": [
-      "black_1"
+      "paint"
     ],
     "lampMaterials": [],
     "excludedNodes": [],

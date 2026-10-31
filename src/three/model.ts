@@ -1,5 +1,10 @@
 import * as T from 'three';
 
+export type ColourMaterial=T.MeshStandardMaterial|T.MeshBasicMaterial|T.MeshLambertMaterial;
+export function isColourMaterial(material:T.Material):material is ColourMaterial{
+ return material instanceof T.MeshStandardMaterial||material instanceof T.MeshBasicMaterial||material instanceof T.MeshLambertMaterial;
+}
+
 export function disposeModel(root:T.Object3D){
  const geometries=new Set<T.BufferGeometry>(),materials=new Set<T.Material>(),textures=new Set<T.Texture>();
  root.traverse(object=>{if(object instanceof T.Mesh||object instanceof T.Line||object instanceof T.Points){geometries.add(object.geometry);for(const material of Array.isArray(object.material)?object.material:[object.material]){materials.add(material);for(const value of Object.values(material))if(value instanceof T.Texture)textures.add(value);}}});
