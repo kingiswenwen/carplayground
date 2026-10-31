@@ -135,7 +135,7 @@ Authored proportions and textures retained; bounded-error mesh simplification, W
 ## CAR65 · 科尼赛克 CCX
 
 [2007 Koenigsegg CCX (No Roof)](https://sketchfab.com/3d-models/none-423b64e085974b97b5cfd5a87d9dcce3) · [_shobh19](https://sketchfab.com/s0h1o9b) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
+Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls. Presentation ground and two caption planes omitted from the app and derived renders.
 
 ## CAR66 · 阿斯顿·马丁 DB11
 

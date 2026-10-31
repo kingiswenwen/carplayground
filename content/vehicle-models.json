@@ -740,7 +740,9 @@
     "paintMaterials": [],
     "lampMaterials": [],
     "excludedNodes": [
-      "Plane.004_Material.003_0"
+      "Plane.004_Material.003_0",
+      "Plane.002_Material.001_0",
+      "Plane.003_Material.002_0"
     ],
     "recalculateNormals": false,
     "source": {
@@ -751,7 +753,7 @@
       "license": "CC BY 4.0",
       "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
       "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/koenigsegg-ccx-no.glb",
-      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls. Presentation ground and two caption planes omitted from the app and derived renders."
     },
     "preservePaint": true,
     "catalogKey": "koenigsegg/ccx",

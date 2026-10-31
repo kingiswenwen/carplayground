@@ -2189,12 +2189,14 @@
   },
   {
     "id": "CAR65",
+    "recipe": "solid-surfaces-v1",
+    "settingsSha256": "99855ac36a7319fac03113728c442509c2f77533dd7ab0057dec58a6ab181245",
     "assets": [
       {
         "id": "render-CAR65-side",
         "kind": "image",
         "path": "media/rendered-cars/car65-side.webp",
-        "sha256": "92609dd71033abffbfd84d7dd6be42dc6a9d45e0eafb56becc01da0d2b936539",
+        "sha256": "e6b73b2779ab7aa2bbd17bc8a22700918d1e3545456fea792d6ac0ddfd48d3d8",
         "status": "approved",
         "width": 1000,
         "height": 450,
@@ -2204,7 +2206,7 @@
         "id": "render-CAR65-top",
         "kind": "image",
         "path": "media/rendered-cars/car65-top.webp",
-        "sha256": "876ea83ded8d23967eac7acd057488a742d30981fc2e896f117d11a583bed6e9",
+        "sha256": "8f8f04b2aec3f74ab6f9901fb79a9e22a912b38411b1f41b615ddd1ed6d71dcc",
         "status": "approved",
         "width": 1000,
         "height": 450,
@@ -2214,60 +2216,60 @@
         "id": "render-CAR65-front-left",
         "kind": "image",
         "path": "media/rendered-cars/car65-front-left.webp",
-        "sha256": "eb3aff9b0830246f213e45a5b0032d9e4663f639a49bbdf3d358a04c1b428321",
+        "sha256": "c3530d496ac830659c506cf77f3b2fbd84d86fdbb2b72dfaae7762076d2e9b6a",
         "status": "approved",
         "width": 800,
         "height": 480,
         "source": "Rendered from the independently credited model CAR65. _shobh19; CC BY 4.0. https://sketchfab.com/3d-models/none-423b64e085974b97b5cfd5a87d9dcce3"
       }
     ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car65-side.webp.json",
+        "sha256": "5fe5ca6d6007d57c153cacb46bbe691488bc6b8d995243cf10f71f3a95d83b8e"
+      },
+      {
+        "path": "media/rendered-cars/car65-top.webp.json",
+        "sha256": "dcc439bf5fae650d5a305cefb6a49690ba292a2fb95fcf4442d640a9f79fdc7a"
+      },
+      {
+        "path": "media/rendered-cars/car65-front-left.webp.json",
+        "sha256": "d079c307f469f6cf17a21d867b0852676f8ae01abf9c0ab1bb57d73de3d33a91"
+      }
+    ],
     "wheels": [
       {
         "x": 0.23490109410596377,
-        "y": 0.5871843877991357,
+        "y": 0.6001490945296446,
         "r": 0.12
       },
       {
         "x": 0.788850685931006,
-        "y": 0.5926140275740359,
+        "y": 0.6055787343045447,
         "r": 0.12
       }
     ],
     "points": {
       "door": {
         "x": 0.5,
-        "y": 0.5688800827155115
+        "y": 0.5559153431391927
       },
       "light": {
         "x": 0.9318181818181818,
-        "y": 0.6228951362890007
+        "y": 0.6125233352663279
       },
       "wheel": {
         "x": 0.23490109410596377,
-        "y": 0.5871843877991357
+        "y": 0.6001490945296446
       }
     },
     "bounds": [
       4.65,
-      1.1681837401359219,
-      3.3921897390798206
+      1.1681835788154151,
+      2.643766567148691
     ],
-    "triangles": 41546,
-    "sourceModelSha256": "0e4ac6ccf4c485e06329716cd1dc98e28b4177e1b73f88c1f95f158bc33acd4b",
-    "origins": [
-      {
-        "path": "media/rendered-cars/car65-side.webp.json",
-        "sha256": "460c0bb1cbd149e99a2a4019397ec964086eebb18952cb76734a5e6af7bdf40c"
-      },
-      {
-        "path": "media/rendered-cars/car65-top.webp.json",
-        "sha256": "2882e8022a9ee343bfc02d0d11832f3a2fdae70d59cd099ea302b0930dcbd134"
-      },
-      {
-        "path": "media/rendered-cars/car65-front-left.webp.json",
-        "sha256": "908914ed83b4a3152900bdce1e666f1f6e557c921008ef40ccc5910ec8d6cd06"
-      }
-    ]
+    "triangles": 41542,
+    "sourceModelSha256": "0e4ac6ccf4c485e06329716cd1dc98e28b4177e1b73f88c1f95f158bc33acd4b"
   },
   {
     "id": "CAR66",

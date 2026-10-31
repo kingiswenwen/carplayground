@@ -9242,13 +9242,13 @@
       "path": "media/models/car65.glb",
       "sha256": "0e4ac6ccf4c485e06329716cd1dc98e28b4177e1b73f88c1f95f158bc33acd4b",
       "status": "approved",
-      "source": "_shobh19; CC BY 4.0; https://sketchfab.com/3d-models/none-423b64e085974b97b5cfd5a87d9dcce3. Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+      "source": "_shobh19; CC BY 4.0; https://sketchfab.com/3d-models/none-423b64e085974b97b5cfd5a87d9dcce3. Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls. Presentation ground and caption planes omitted in the app."
     },
     {
       "id": "render-CAR65-side",
       "kind": "image",
       "path": "media/rendered-cars/car65-side.webp",
-      "sha256": "92609dd71033abffbfd84d7dd6be42dc6a9d45e0eafb56becc01da0d2b936539",
+      "sha256": "e6b73b2779ab7aa2bbd17bc8a22700918d1e3545456fea792d6ac0ddfd48d3d8",
       "status": "approved",
       "width": 1000,
       "height": 450,
@@ -9258,7 +9258,7 @@
       "id": "render-CAR65-top",
       "kind": "image",
       "path": "media/rendered-cars/car65-top.webp",
-      "sha256": "876ea83ded8d23967eac7acd057488a742d30981fc2e896f117d11a583bed6e9",
+      "sha256": "8f8f04b2aec3f74ab6f9901fb79a9e22a912b38411b1f41b615ddd1ed6d71dcc",
       "status": "approved",
       "width": 1000,
       "height": 450,
@@ -9268,7 +9268,7 @@
       "id": "render-CAR65-front-left",
       "kind": "image",
       "path": "media/rendered-cars/car65-front-left.webp",
-      "sha256": "eb3aff9b0830246f213e45a5b0032d9e4663f639a49bbdf3d358a04c1b428321",
+      "sha256": "c3530d496ac830659c506cf77f3b2fbd84d86fdbb2b72dfaae7762076d2e9b6a",
       "status": "approved",
       "width": 800,
       "height": 480,
@@ -20991,19 +20991,19 @@
           "id": "wheel",
           "zh": "车轮",
           "x": 0.23490109410596377,
-          "y": 0.5871843877991357
+          "y": 0.6001490945296446
         },
         {
           "id": "door",
           "zh": "车门",
           "x": 0.5,
-          "y": 0.5688800827155115
+          "y": 0.5559153431391927
         },
         {
           "id": "light",
           "zh": "车灯",
           "x": 0.9318181818181818,
-          "y": 0.6228951362890007
+          "y": 0.6125233352663279
         }
       ],
       "showcaseHotspots": [
@@ -21011,19 +21011,19 @@
           "id": "wheel",
           "zh": "车轮",
           "x": 0.23490109410596377,
-          "y": 0.5871843877991357
+          "y": 0.6001490945296446
         },
         {
           "id": "door",
           "zh": "车门",
           "x": 0.5,
-          "y": 0.5688800827155115
+          "y": 0.5559153431391927
         },
         {
           "id": "light",
           "zh": "车灯",
           "x": 0.9318181818181818,
-          "y": 0.6228951362890007
+          "y": 0.6125233352663279
         }
       ],
       "views": [
@@ -21072,12 +21072,12 @@
         "wheels": [
           {
             "x": 0.23490109410596377,
-            "y": 0.5871843877991357,
+            "y": 0.6001490945296446,
             "r": 0.12
           },
           {
             "x": 0.788850685931006,
-            "y": 0.5926140275740359,
+            "y": 0.6055787343045447,
             "r": 0.12
           }
         ]
