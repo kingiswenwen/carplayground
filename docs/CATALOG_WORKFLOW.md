@@ -1,0 +1,35 @@
+# 真实车型与素材扩充流程
+
+0.14.0 登记 112 个真实量产车型系列，其中 101 个有独立 GLB，11 个保留图像玩法。不同年款、配置、车漆、改装和地区别名不增加车型系列计数。品牌发源地不代表具体车辆的生产地点。
+
+## 每辆车的流程
+
+1. 在厂家车型页、厂家新闻资料或品牌历史档案中核对名称及量产身份，登记 `content/vehicle-identities.json`。先查现有系列及旧链接别名；概念车、纯赛车和身份不明的资源不进入目录。
+2. 检查来源模型的实际形状、作者、许可和可下载文件。镜像清单的标题和许可需与来源站核对；若当前来源不匹配，保留候选记录，另选资源。
+3. 按核实的真实车型，用 GPT Image 生成目录插画。保留实际提示词、原图哈希及裁切图帧。当前新增 46 款的记录在 `content/catalog-illustrations.json`；它们是游戏插画，不能作为 GLB 或实车照片计数。
+4. 导入模型、压缩纹理和几何，保存来源及字节哈希。`scripts/import-vehicle-models.mjs` 接收本机审核清单，`scripts/bake-vehicle-images.mjs` 从同一模型渲染实际玩法所需的侧视、俯视和预览，并登记轮位。
+5. 检查源文件是否夹带展示地板、另一辆展示车、导出器姿态或线框。对已确认的缺陷，使用 `scripts/repair-catalog-models.mjs` 修复；`content/model-preparation.json` 记录修复前后哈希和具体处理。无法可靠修复的候选不启用。
+6. 用 `scripts/install-catalog.mjs` 安装核对后的身份、模型和预览。生成玩法 LOD，再用 `scripts/prepare-catalog-illustrations.mjs` 处理经过检查的 GPT 图集。目录插画与玩法命中点分别登记。
+7. 验证资产和实际操作。独立模型逐辆检查车轮、车门、车灯，并逐辆完成手机尺寸的 3D 装配；图像玩法按全部车型检查装配和部件探索。26 个玩法另做桌面、平板和手机尺寸回归。发布包再次核对资产引用和 SHA-256。
+
+本机审核清单、下载原件和生成原图保留在公开仓库之外；公开记录包含可追溯来源、实际素材与必要署名。
+
+## 仍待补齐的独立模型
+
+这些车型已有 GPT 车图及图像玩法，当前仍标注“参考图片 · 模型待补”：
+
+| ID | 真实车型 |
+| --- | --- |
+| CAR02 | Ferrari 296 GTB |
+| CAR04 | McLaren 750S |
+| CAR14 | Toyota GR Supra |
+| CAR15 | Toyota GR86 |
+| CAR16 | Nissan Z |
+| CAR17 | Mazda MX-5 RF |
+| CAR20 | Ferrari F8 Tributo |
+| CAR22 | McLaren Artura |
+| CAR23 | Maserati MC20 |
+| CAR25 | Alpine A110 |
+| CAR26 | Jaguar F-Type |
+
+补齐需要与对应车型匹配、能取得并登记来源的 GLB。GPT Image 生成的车图不能直接充当可旋转、可拆装的三维几何。

@@ -26,8 +26,8 @@
     "excludedNodes": [],
     "recalculateNormals": true,
     "playFile": "media/models/play/car01.glb",
-    "playBytes": 666408,
-    "playSha256": "15d5a70538f93ae8285f313691380ba8815fd04aa34545509f11e45b3d37120d",
+    "playBytes": 383368,
+    "playSha256": "c1824ac834f20191cb8ec9a09d26b7c35779ad0b4d8871c4d1552914a7b5f36c",
     "catalogKey": "lamborghini/revuelto"
   },
   {
@@ -56,8 +56,8 @@
     "excludedNodes": [],
     "recalculateNormals": false,
     "playFile": "media/models/play/car03.glb",
-    "playBytes": 2453640,
-    "playSha256": "212c0b7e25cc14a591a604fece68247501f3a1c58130e071d3578d45b0549607",
+    "playBytes": 887556,
+    "playSha256": "e724372fb7431bf3da019a634b0cf74b1003712122f63640c983c99be43c387d",
     "catalogKey": "porsche/911"
   },
   {
@@ -84,7 +84,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "bugatti/chiron"
+    "catalogKey": "bugatti/chiron",
+    "playFile": "media/models/play/car05.glb",
+    "playBytes": 686824,
+    "playSha256": "2c33741a030ddd1e25a8bad8cebc7af1333acd9f83a37587e70edf51dd598e8b"
   },
   {
     "id": "CAR06",
@@ -108,7 +111,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "pagani/huayra"
+    "catalogKey": "pagani/huayra",
+    "playFile": "media/models/play/car06.glb",
+    "playBytes": 533148,
+    "playSha256": "4a88f0b44f3117f77eca06c9e517cd335fa7622afd440df95e113f8ce34eab1c"
   },
   {
     "id": "CAR10",
@@ -136,8 +142,8 @@
     ],
     "recalculateNormals": false,
     "playFile": "media/models/play/car10.glb",
-    "playBytes": 1214616,
-    "playSha256": "38914e931959a42fcc4c402a6af935568b1ce8480cac115bd13045edf597a938",
+    "playBytes": 569416,
+    "playSha256": "a43e11987bee0b3d5ec5559715c752e2ded1a255e3f734854050dad78f08ce3a",
     "catalogKey": "mercedes-benz/amg-gt"
   },
   {
@@ -166,8 +172,8 @@
     "excludedNodes": [],
     "recalculateNormals": false,
     "playFile": "media/models/play/car11.glb",
-    "playBytes": 782636,
-    "playSha256": "6a941d05784822249d463f485fbb1cd3858fe8bcb95f19c3096fb3bb8bd420dd",
+    "playBytes": 396248,
+    "playSha256": "f4119a39b5e9c499e174c1f02a1e49aac14544763afcb37ee2b89b991ed7ed94",
     "catalogKey": "audi/r8"
   },
   {
@@ -194,7 +200,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "lexus/lc"
+    "catalogKey": "lexus/lc",
+    "playFile": "media/models/play/car12.glb",
+    "playBytes": 707440,
+    "playSha256": "1d9c219b00910465146bf5bff21fb8bfca5afbc1ac13fa12a54e90c4334d4a8c"
   },
   {
     "id": "CAR19",
@@ -220,7 +229,10 @@
       "mirror": "https://mirror.traines.eu/sketchfab-backup/fe/fed5e9f2a15c40b48f7ce1d6b22c0f1c.zip",
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
-    "catalogKey": "lamborghini/hurac-n"
+    "catalogKey": "lamborghini/hurac-n",
+    "playFile": "media/models/play/car19.glb",
+    "playBytes": 191604,
+    "playSha256": "3307f7f732e6c2ebbbd70dc90e85c33dda199b14bd2b8d9ea0039327bca52a57"
   },
   {
     "id": "CAR24",
@@ -244,7 +256,10 @@
       "mirror": "https://mirror.traines.eu/sketchfab-backup/35/353d4768b2d74a7f888567e18952bcb1.zip",
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
-    "catalogKey": "lotus/emira"
+    "catalogKey": "lotus/emira",
+    "playFile": "media/models/play/car24.glb",
+    "playBytes": 1724928,
+    "playSha256": "395008e9ab2592a2993de6002e7552abc5e41df0e5dbab49dee358239d8f0bcd"
   },
   {
     "id": "CAR29",
@@ -270,7 +285,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "dodge/viper"
+    "catalogKey": "dodge/viper",
+    "playFile": "media/models/play/car29.glb",
+    "playBytes": 388108,
+    "playSha256": "5b666dda5014099e8aad3c4e7d8b516bc425b823ed4a58e0c7c1126284d2ceb0"
   },
   {
     "id": "CAR30",
@@ -294,7 +312,10 @@
       "mirror": "https://mirror.traines.eu/sketchfab-backup/dc/dc99c215b2b147ed920101bce39287ca.zip",
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
-    "catalogKey": "bmw/i8"
+    "catalogKey": "bmw/i8",
+    "playFile": "media/models/play/car30.glb",
+    "playBytes": 187552,
+    "playSha256": "0c0b476f341c4de9493e2c81d95f435d005ca83516e9fd1fe99dd782cd34ee02"
   },
   {
     "id": "CAR31",
@@ -318,7 +339,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "lamborghini/countach"
+    "catalogKey": "lamborghini/countach",
+    "playFile": "media/models/play/car31.glb",
+    "playBytes": 271856,
+    "playSha256": "aed3f4e03c75e30989f09d87704602196887cc478429a65b72f9937b4be30418"
   },
   {
     "id": "CAR32",
@@ -342,7 +366,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "lamborghini/aventador"
+    "catalogKey": "lamborghini/aventador",
+    "playFile": "media/models/play/car32.glb",
+    "playBytes": 306148,
+    "playSha256": "0d49129f09d884fa68ba1878c1880154c047c2bcb9950157a3541f66488cd881"
   },
   {
     "id": "CAR34",
@@ -366,7 +393,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "lamborghini/gallardo"
+    "catalogKey": "lamborghini/gallardo",
+    "playFile": "media/models/play/car34.glb",
+    "playBytes": 622856,
+    "playSha256": "89142ae88a5cc12d145b706a3c81068f8ce343a459253cbf28e194f1e1496d6c"
   },
   {
     "id": "CAR39",
@@ -390,7 +420,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "lamborghini/centenario"
+    "catalogKey": "lamborghini/centenario",
+    "playFile": "media/models/play/car39.glb",
+    "playBytes": 738148,
+    "playSha256": "00b5c4cbd35293147f03b552a9c58febc56f52151efc4cd98f5ecb2453aa0c7e"
   },
   {
     "id": "CAR42",
@@ -416,7 +449,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "ferrari/portofino"
+    "catalogKey": "ferrari/portofino",
+    "playFile": "media/models/play/car42.glb",
+    "playBytes": 143700,
+    "playSha256": "684116a05ec7fa4b5ec802a1f4325eec053e8169a86eef4ba8fbe1c948c45479"
   },
   {
     "id": "CAR43",
@@ -440,7 +476,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "ferrari/f40"
+    "catalogKey": "ferrari/f40",
+    "playFile": "media/models/play/car43.glb",
+    "playBytes": 360584,
+    "playSha256": "674305850f474c41bb1dcc7173a48afc4d5d3ef9c4d044d16e8bd4ead66969be"
   },
   {
     "id": "CAR45",
@@ -464,7 +503,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "ferrari/599-gto"
+    "catalogKey": "ferrari/599-gto",
+    "playFile": "media/models/play/car45.glb",
+    "playBytes": 1432220,
+    "playSha256": "f789c72d513bb7f65b86b4851611022e2c75fcfa1066d88aa3a3efe77164dd77"
   },
   {
     "id": "CAR46",
@@ -490,7 +532,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "mclaren/720s"
+    "catalogKey": "mclaren/720s",
+    "playFile": "media/models/play/car46.glb",
+    "playBytes": 195752,
+    "playSha256": "2320715471a3a0129309f16bcd1130276f0976d595d326f672f892b3adb5bf7c"
   },
   {
     "id": "CAR48",
@@ -514,7 +559,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "mclaren/senna"
+    "catalogKey": "mclaren/senna",
+    "playFile": "media/models/play/car48.glb",
+    "playBytes": 468636,
+    "playSha256": "316733673e438df409579814021c532342f1058aed2f6db4b1a12aa1ab6b1331"
   },
   {
     "id": "CAR56",
@@ -538,7 +586,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "porsche/918-spyder"
+    "catalogKey": "porsche/918-spyder",
+    "playFile": "media/models/play/car56.glb",
+    "playBytes": 659260,
+    "playSha256": "95b5133e42845840bd6756ae3859a4e3b19159558b1127cde7a621b7b017154b"
   },
   {
     "id": "CAR58",
@@ -564,7 +615,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "porsche/959"
+    "catalogKey": "porsche/959",
+    "playFile": "media/models/play/car58.glb",
+    "playBytes": 687260,
+    "playSha256": "2ab735ec9d987453eb292c7043c79cdc2cc5a211740195bd736c2b995166d5ee"
   },
   {
     "id": "CAR60",
@@ -590,7 +644,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "bugatti/veyron"
+    "catalogKey": "bugatti/veyron",
+    "playFile": "media/models/play/car60.glb",
+    "playBytes": 233164,
+    "playSha256": "1a75b62fb152d4646f09dc3d5831490e128dd60496881811cc65bd408cacc97f"
   },
   {
     "id": "CAR61",
@@ -614,7 +671,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "pagani/zonda"
+    "catalogKey": "pagani/zonda",
+    "playFile": "media/models/play/car61.glb",
+    "playBytes": 217408,
+    "playSha256": "3cdcdb6f26b4c50a3a9b6a4db04b208d005d28c22dbe8b7bfb69f3f63dc15036"
   },
   {
     "id": "CAR62",
@@ -638,7 +698,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "pagani/utopia"
+    "catalogKey": "pagani/utopia",
+    "playFile": "media/models/play/car62.glb",
+    "playBytes": 1193732,
+    "playSha256": "bfc2bb0c776c73d9fb33844280a8cbd03f4f7bc245ca5c5fc125a3586275076a"
   },
   {
     "id": "CAR63",
@@ -662,7 +725,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "koenigsegg/one-1"
+    "catalogKey": "koenigsegg/one-1",
+    "playFile": "media/models/play/car63.glb",
+    "playBytes": 337512,
+    "playSha256": "af7dd7379595052cb83c12f00e3f5d91a8ee40625cc28567ecb0ac6bd9e5a265"
   },
   {
     "id": "CAR65",
@@ -688,7 +754,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "koenigsegg/ccx"
+    "catalogKey": "koenigsegg/ccx",
+    "playFile": "media/models/play/car65.glb",
+    "playBytes": 399820,
+    "playSha256": "7f6898d2967946bf9298c26b344eaebe83171b0ce74097d0e9833442f0fed2e4"
   },
   {
     "id": "CAR66",
@@ -714,7 +783,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "aston-martin/db11"
+    "catalogKey": "aston-martin/db11",
+    "playFile": "media/models/play/car66.glb",
+    "playBytes": 458948,
+    "playSha256": "4ceab7c1707a3e152de53b286b0543d74d954911d7b3164d3e422d034a633ebf"
   },
   {
     "id": "CAR67",
@@ -741,7 +813,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "lotus/elise"
+    "catalogKey": "lotus/elise",
+    "playFile": "media/models/play/car67.glb",
+    "playBytes": 1059488,
+    "playSha256": "49f0a2948a7a75336dc8221ca3e4cf580c4deab943c5d87e6ba2b4c38d92335a"
   },
   {
     "id": "CAR71",
@@ -767,7 +842,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "nissan/silvia"
+    "catalogKey": "nissan/silvia",
+    "playFile": "media/models/play/car71.glb",
+    "playBytes": 241204,
+    "playSha256": "c176be8c0ec82602edc07f08c699efbacf288d94e4a297eff5dd7957294af5f6"
   },
   {
     "id": "CAR72",
@@ -791,7 +869,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "nissan/skyline"
+    "catalogKey": "nissan/skyline",
+    "playFile": "media/models/play/car72.glb",
+    "playBytes": 262116,
+    "playSha256": "f96035ae695167b7459eb54ea809bb803f2b4edbb551f293a569bd020aca48d4"
   },
   {
     "id": "CAR75",
@@ -815,7 +896,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "nissan/gt-r"
+    "catalogKey": "nissan/gt-r",
+    "playFile": "media/models/play/car75.glb",
+    "playBytes": 952032,
+    "playSha256": "31f26ab0e9e65af44d60fe1e86b5f487d613025a29cd397cdbebaec66b5cdec7"
   },
   {
     "id": "CAR81",
@@ -839,7 +923,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "nissan/180sx"
+    "catalogKey": "nissan/180sx",
+    "playFile": "media/models/play/car81.glb",
+    "playBytes": 1142592,
+    "playSha256": "f8b99490f9e6df9203e7f185f5ae44738500da12be0dac65fce4afd479f91e89"
   },
   {
     "id": "CAR85",
@@ -867,7 +954,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "toyota/mr2"
+    "catalogKey": "toyota/mr2",
+    "playFile": "media/models/play/car85.glb",
+    "playBytes": 126712,
+    "playSha256": "fd5b25b412d71b900070b835f4a6a7221507362d5c84f3555b80a46454ceea14"
   },
   {
     "id": "CAR89",
@@ -893,7 +983,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "toyota/corolla"
+    "catalogKey": "toyota/corolla",
+    "playFile": "media/models/play/car89.glb",
+    "playBytes": 1096052,
+    "playSha256": "eb478349946243dd5a30add15aa2d60c24fc76aaf834a9eefc9c85c04c13b4b3"
   },
   {
     "id": "CAR95",
@@ -919,7 +1012,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "mazda/rx-7"
+    "catalogKey": "mazda/rx-7",
+    "playFile": "media/models/play/car95.glb",
+    "playBytes": 364200,
+    "playSha256": "479a1da8782e96cda66d0cf26cea56b13990387b89701e7f36d0fbc2a9e78ff7"
   },
   {
     "id": "CAR98",
@@ -945,7 +1041,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "honda/integra"
+    "catalogKey": "honda/integra",
+    "playFile": "media/models/play/car98.glb",
+    "playBytes": 189524,
+    "playSha256": "76321dd78201a3a333d01da1abcaa6f92cfdcb572ee80b6b1e6330abdf39e9e5"
   },
   {
     "id": "CAR99",
@@ -971,7 +1070,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "honda/nsx"
+    "catalogKey": "honda/nsx",
+    "playFile": "media/models/play/car99.glb",
+    "playBytes": 243332,
+    "playSha256": "6db4167b8114d71c1e7f70b1d0d096f304dd501f922c32c68d5b70c2961d5088"
   },
   {
     "id": "CAR100",
@@ -995,7 +1097,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "honda/s800"
+    "catalogKey": "honda/s800",
+    "playFile": "media/models/play/car100.glb",
+    "playBytes": 808572,
+    "playSha256": "41892de1e8e54d0932ab454e1db1963c55b69e4b0184ee0aa77efcff6bdf0d36"
   },
   {
     "id": "CAR105",
@@ -1019,7 +1124,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "bmw/m4"
+    "catalogKey": "bmw/m4",
+    "playFile": "media/models/play/car105.glb",
+    "playBytes": 545764,
+    "playSha256": "044dcc44a25664d406ec77e657d77c7c91029958b374cd107cfe5e947d054944"
   },
   {
     "id": "CAR108",
@@ -1043,7 +1151,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "bmw/m6"
+    "catalogKey": "bmw/m6",
+    "playFile": "media/models/play/car108.glb",
+    "playBytes": 839368,
+    "playSha256": "f78b04efcacc1963099a2289660fae86c928e30a4a122aab8cee46163e0d689e"
   },
   {
     "id": "CAR111",
@@ -1067,7 +1178,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "bmw/m3"
+    "catalogKey": "bmw/m3",
+    "playFile": "media/models/play/car111.glb",
+    "playBytes": 626348,
+    "playSha256": "73cfec80659f9defb5f3204f5ece03fd63b04290c7e7460c066f43029ade509a"
   },
   {
     "id": "CAR113",
@@ -1093,7 +1207,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "mercedes-benz/300-sl"
+    "catalogKey": "mercedes-benz/300-sl",
+    "playFile": "media/models/play/car113.glb",
+    "playBytes": 175076,
+    "playSha256": "c81512ad7b6540ae8e4dea3a54f25978e95649c7cb0e9d9b22c51efd2f0eea21"
   },
   {
     "id": "CAR116",
@@ -1119,7 +1236,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "audi/tt"
+    "catalogKey": "audi/tt",
+    "playFile": "media/models/play/car116.glb",
+    "playBytes": 133964,
+    "playSha256": "85ce67a47c26812d325ba63c1b1ba72cf0564b8b0584010a2a53c10ae1ff327d"
   },
   {
     "id": "CAR118",
@@ -1146,7 +1266,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "audi/rs5"
+    "catalogKey": "audi/rs5",
+    "playFile": "media/models/play/car118.glb",
+    "playBytes": 662228,
+    "playSha256": "c49dd50e4fc86f76a8972e09d146235b067d7fc06be32051530a87fa8d45ed06"
   },
   {
     "id": "CAR119",
@@ -1172,7 +1295,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "chevrolet/camaro"
+    "catalogKey": "chevrolet/camaro",
+    "playFile": "media/models/play/car119.glb",
+    "playBytes": 419436,
+    "playSha256": "aaea6e9505b812a74c8a558f1c4e1b3bf20b1f33c0b179922789ee855adbf775"
   },
   {
     "id": "CAR120",
@@ -1198,7 +1324,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "dodge/challenger"
+    "catalogKey": "dodge/challenger",
+    "playFile": "media/models/play/car120.glb",
+    "playBytes": 252748,
+    "playSha256": "37044db5187e928e28c179096f0ed680e90edd9b645896c036e520ffa486e65c"
   },
   {
     "id": "CAR125",
@@ -1224,7 +1353,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "ford/mustang"
+    "catalogKey": "ford/mustang",
+    "playFile": "media/models/play/car125.glb",
+    "playBytes": 456492,
+    "playSha256": "76b1cbdb9e05eef6f72756f08a39551df76fa26c03766dd65d21166a61f5bd97"
   },
   {
     "id": "CAR129",
@@ -1250,7 +1382,10 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "alfa-romeo/4c"
+    "catalogKey": "alfa-romeo/4c",
+    "playFile": "media/models/play/car129.glb",
+    "playBytes": 321352,
+    "playSha256": "6f23e104ad1be9d00bc939b58d33a7ed975cb35dd82f9d46456c86edd123634a"
   },
   {
     "id": "CAR135",
@@ -1276,6 +1411,1456 @@
       "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
     },
     "preservePaint": true,
-    "catalogKey": "pontiac/firebird"
+    "catalogKey": "pontiac/firebird",
+    "playFile": "media/models/play/car135.glb",
+    "playBytes": 857888,
+    "playSha256": "6bd2c447db88d16a92d3d415d6a41d4cb8e566ffbbb6276988c4cea476a70e0d"
+  },
+  {
+    "id": "CAR140",
+    "file": "media/models/car140.glb",
+    "bytes": 920424,
+    "sha256": "a322affd82cfa947c3ec6c51d3460d563585e2394cd3949cbd1a1abe0410b04a",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "Ferrari 288 GTO",
+      "author": "Randomness",
+      "authorUrl": "https://sketchfab.com/throwbackthursdaymodels",
+      "url": "https://sketchfab.com/3d-models/none-e83da098149746b5a3ba6f1661645b09",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/ferrari-288-gto.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "ferrari/288-gto",
+    "playFile": "media/models/play/car140.glb",
+    "playBytes": 441528,
+    "playSha256": "c38e86afd9cf39dfaa160c3eabc76709709737df1f43d47288b4db42db55ed8d"
+  },
+  {
+    "id": "CAR141",
+    "file": "media/models/car141.glb",
+    "bytes": 2471108,
+    "sha256": "18f51a4159d278dae3079ee4a6483847bbfccf2ba9ca3d61e970db22bb745403",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [
+      "Ferrari_RomaRewardRecycled_2020Coloured_Material"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "2020 Ferrari Roma",
+      "author": "Ddiaz Design",
+      "authorUrl": "https://sketchfab.com/ddiaz-design",
+      "url": "https://sketchfab.com/3d-models/cbc0c13c0fb54fc8bbfa79a9ff99e3aa",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/ferrari-roma.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "ferrari/roma",
+    "playFile": "media/models/play/car141.glb",
+    "playBytes": 816908,
+    "playSha256": "ca25adc74dcf04166b358948c0b5d92b1211a9dd47ae5b7dd16b11de88db907f"
+  },
+  {
+    "id": "CAR143",
+    "file": "media/models/car143.glb",
+    "bytes": 2014652,
+    "sha256": "494bd37e943fff060e16b9a4c7e110a74c8343d6c08fea4659d7e4101bc893b6",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [
+      "Carpaint"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "Mclaren P1 | www.vecarz.com",
+      "author": "vecarz",
+      "authorUrl": "https://sketchfab.com/heynic",
+      "url": "https://sketchfab.com/3d-models/none-adae2edc721e4ce7b31c1d06a581e30a",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/mclaren-p1.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "mclaren/p1",
+    "playFile": "media/models/play/car143.glb",
+    "playBytes": 894464,
+    "playSha256": "d3ecdfed6fccba99181e5fb8a64df9c39656f892d283a962dfd881c295fe66f1"
+  },
+  {
+    "id": "CAR144",
+    "file": "media/models/car144.glb",
+    "bytes": 1039960,
+    "sha256": "8af8f869359ba3190963036147ff95c83a8ea47562ceb0b92d9c63ca98025c26",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [
+      "carpaint"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "2018 McLaren 570S Spider",
+      "author": "Ddiaz Design",
+      "authorUrl": "https://sketchfab.com/ddiaz-design",
+      "url": "https://sketchfab.com/3d-models/a504090e516f44608e35160953b61fcd",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/mclaren-570s.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "mclaren/570s",
+    "playFile": "media/models/play/car144.glb",
+    "playBytes": 517088,
+    "playSha256": "8524485741393275ee547b49674827003fcaa1b02c5466e582d61051b504ab27"
+  },
+  {
+    "id": "CAR145",
+    "file": "media/models/car145.glb",
+    "bytes": 1232740,
+    "sha256": "1cb3e9aaf63bbb956f29f4d115e9275e3a95391fe485201dcd5783185acc9047",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "Mclaren MP4-12C Ultimate",
+      "author": "COOL601",
+      "authorUrl": "https://sketchfab.com/COOL601",
+      "url": "https://sketchfab.com/3d-models/none-80f19f7f5aac428985356987769538fe",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/mclaren-mp4-12c-ultimate.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "mclaren/12c",
+    "playFile": "media/models/play/car145.glb",
+    "playBytes": 489824,
+    "playSha256": "a1393a7d4aaf80a0e508ffdff080cec4353336cb2e147af07c817ded280d0211"
+  },
+  {
+    "id": "CAR146",
+    "file": "media/models/car146.glb",
+    "bytes": 954960,
+    "sha256": "6aee2ad31951633400d26f03038d0e53ab430f073c669803cd22d5895caefab2",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [
+      "body"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "Jaguar XJ220 1991",
+      "author": "Comrade1280",
+      "authorUrl": "https://sketchfab.com/comrade1280",
+      "url": "https://sketchfab.com/3d-models/none-d99bb7b0fc0e4e3c9553246679dd067f",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/jaguar-xj220.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls. Remove authored presentation ground, which otherwise reduces the car to a speck."
+    },
+    "catalogKey": "jaguar/xj220",
+    "playFile": "media/models/play/car146.glb",
+    "playBytes": 493404,
+    "playSha256": "ea3251e0cd3287756392154e8322d91571209efa68a3e867eb287d9d2225be89"
+  },
+  {
+    "id": "CAR147",
+    "file": "media/models/car147.glb",
+    "bytes": 2672352,
+    "sha256": "0bd8f0347a5ddc53da3aeabdd71fdd28689be7fb924ae26c23a4a77e7810b541",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "Aston Martin Valour 2024 | www.vecarz.com",
+      "author": "vecarz",
+      "authorUrl": "https://sketchfab.com/heynic",
+      "url": "https://sketchfab.com/3d-models/none-0c36c7adb6d742e9bc27444880eb2f02",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/aston-martin-valour.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "aston-martin/valour",
+    "playFile": "media/models/play/car147.glb",
+    "playBytes": 703808,
+    "playSha256": "0cea60ef28fda294174cbcb5bd14a454054ce61eb4d8c1e2462df48fe177ace5"
+  },
+  {
+    "id": "CAR149",
+    "file": "media/models/car149.glb",
+    "bytes": 1390680,
+    "sha256": "b8c5574bbddb72ac1d5448a8eda6ac670c1c0b2a9ed3537510c893e240aed8c4",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [
+      "por_taycan_paint"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "Porsche Taycan Turbo S (Project Cars 3)",
+      "author": "VuckyZ",
+      "authorUrl": "https://sketchfab.com/VuckyZ123",
+      "url": "https://sketchfab.com/3d-models/05d7951204e84686ba12625c66d7a8b7",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/porsche-taycan.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "porsche/taycan",
+    "playFile": "media/models/play/car149.glb",
+    "playBytes": 901184,
+    "playSha256": "c88b54664122fdd366c4b92a4dd8ea97b3db2390cb05e0d319c5dee57481f640"
+  },
+  {
+    "id": "CAR152",
+    "file": "media/models/car152.glb",
+    "bytes": 1130508,
+    "sha256": "0851b467f78f5567b39a1944e868ba8005aa426893cd8909ab7f4cfed0625715",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "Mitsubishi Lancer Evolution 6  | www.vecarz.com",
+      "author": "vecarz",
+      "authorUrl": "https://sketchfab.com/heynic",
+      "url": "https://sketchfab.com/3d-models/none-c3d5dcd8ff724bc88c46760d92fc5188",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/mitsubishi-lancer-evolution.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "mitsubishi/lancer-evolution",
+    "playFile": "media/models/play/car152.glb",
+    "playBytes": 584616,
+    "playSha256": "9e89c15a316ce9ebd94fc41fbe67fef289e31573d2bdab8d79cd3e1a3ad23189"
+  },
+  {
+    "id": "CAR153",
+    "file": "media/models/car153.glb",
+    "bytes": 212716,
+    "sha256": "03569635a5f8c8da89dc69d678c2fba80cd59507869e6424b70c1846092244d4",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [
+      "mat_19.001"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "hyundai veloster turbo",
+      "author": "amogusstrikesback2",
+      "authorUrl": "https://sketchfab.com/amogusstrikesback2",
+      "url": "https://sketchfab.com/3d-models/ab41362f67fe4904aaff7e62882b5aec",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/hyundai-veloster.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "hyundai/veloster",
+    "playFile": "media/models/play/car153.glb",
+    "playBytes": 161540,
+    "playSha256": "e80ba0f823ab3a8879b6700b861201b754945c10a9a3edb04cfa1578b1dd5284"
+  },
+  {
+    "id": "CAR155",
+    "file": "media/models/car155.glb",
+    "bytes": 462284,
+    "sha256": "d9a35df7494e6114fdbe66ee3923fd047770b9dfb3316a7452e8c7a1c2ba2d45",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [
+      "body"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "1965 Alfa Romeo Giulia Sprint",
+      "author": "dagtholander",
+      "authorUrl": "https://sketchfab.com/dagtholander",
+      "url": "https://sketchfab.com/3d-models/3b30a0277a7b45a58496c843e6588212",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/alfa-romeo-giulia.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls. Keep the assembled Giulia at the scene origin; remove the second exploded presentation copy."
+    },
+    "catalogKey": "alfa-romeo/giulia",
+    "playFile": "media/models/play/car155.glb",
+    "playBytes": 217352,
+    "playSha256": "46b5ee1952f2f97ca2cda4599fe2742064ef96f2518116e83ee02af0738c9c90"
+  },
+  {
+    "id": "CAR156",
+    "file": "media/models/car156.glb",
+    "bytes": 893456,
+    "sha256": "f481f7029397b6bdc39c38d6484fc5d75f8403910232be38d06ef9354dcc7c43",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [
+      "body"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "Lamborghini Urus 2018",
+      "author": "Kai Xiang",
+      "authorUrl": "https://sketchfab.com/kirikom9000",
+      "url": "https://sketchfab.com/3d-models/none-32964087f5d24c3e90482724ddfc2fef",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/lamborghini-urus.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "lamborghini/urus",
+    "playFile": "media/models/play/car156.glb",
+    "playBytes": 459572,
+    "playSha256": "495839cdd938fda0f5bef607a9feeedb3cf182ea6c1bb792a89891a06dd6ef5e"
+  },
+  {
+    "id": "CAR157",
+    "file": "media/models/car157.glb",
+    "bytes": 2524832,
+    "sha256": "cd7bdcfe8f8101c963007cdcbf9ffb410f2d82fbe3cd5195f09328851815fe07",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "Rolls-Royce Ghost",
+      "author": "Black Snow",
+      "authorUrl": "https://sketchfab.com/BlackSnow02",
+      "url": "https://sketchfab.com/3d-models/none-4a590f4afa094fa8b407a14db77a63a8",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/rolls-royce-ghost.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "rolls-royce/ghost",
+    "playFile": "media/models/play/car157.glb",
+    "playBytes": 591896,
+    "playSha256": "5e6a39d4e3d66d96dbfa3c86e0c4c91eba7d2158e3667a0dd0a428a8df90cb25"
+  },
+  {
+    "id": "CAR158",
+    "file": "media/models/car158.glb",
+    "bytes": 1065156,
+    "sha256": "9e0bc2be418dbd8e6b62d4430203be2e7d790a58ea4944b9ae3cfac75b142fdf",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [
+      "car_body_in"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "rollsroyce phantom",
+      "author": "Jaggu_wrld",
+      "authorUrl": "https://sketchfab.com/jagathkrishna148",
+      "url": "https://sketchfab.com/3d-models/1a2f117c8f1b4324b5a5dd70d38d396b",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/rolls-royce-phantom.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "rolls-royce/phantom",
+    "playFile": "media/models/play/car158.glb",
+    "playBytes": 485284,
+    "playSha256": "6fdf1a1f12573caa64a9618cf66b661862aa783c90a348caeba3f7a4ff6b0c8d"
+  },
+  {
+    "id": "CAR159",
+    "file": "media/models/car159.glb",
+    "bytes": 232940,
+    "sha256": "b95259e94b516ad61fec7205b559490795943cfb7eb147cc20e8a34c0067408e",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [
+      "material"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "Rolls Royce Cullinan",
+      "author": "NewViStudios",
+      "authorUrl": "https://sketchfab.com/newvistudios",
+      "url": "https://sketchfab.com/3d-models/61f16a1d5be2403abcdd8fa552f730f7",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/rolls-royce-cullinan.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "rolls-royce/cullinan",
+    "playFile": "media/models/play/car159.glb",
+    "playBytes": 133876,
+    "playSha256": "55d738a708edd1be27511ae96e18544b4d170c809a7b087a15e7f814701dbdcd"
+  },
+  {
+    "id": "CAR160",
+    "file": "media/models/car160.glb",
+    "bytes": 807088,
+    "sha256": "b85d5612f6cae9e6c0c7b47a832423aa5d004fb90c36bc2c4ef3a5fcb8bb4893",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [
+      "Scene_-_Root"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "2024 BYD Seal Performance AWD",
+      "author": "Nazh Design ✔",
+      "authorUrl": "https://sketchfab.com/NazhDesign",
+      "url": "https://sketchfab.com/3d-models/96ec5c34852f4c3090a755d4445f5e98",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/byd-seal.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "byd/seal",
+    "playFile": "media/models/play/car160.glb",
+    "playBytes": 339892,
+    "playSha256": "d81009a01ad2ad77a2f29770c5770117bb111927d0b25de56cd664d79b583fee"
+  },
+  {
+    "id": "CAR161",
+    "file": "media/models/car161.glb",
+    "bytes": 1058316,
+    "sha256": "1b12603a2814160d65bf56273e6743573cbfa11b0965f31b47b2141a19c1fcc3",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "Honda Civic Type R -98 (Free Asset)",
+      "author": "tiedtke",
+      "authorUrl": "https://sketchfab.com/tiedtke",
+      "url": "https://sketchfab.com/3d-models/none-b9604dd71c6546ec842702682019492a",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/honda-civic-type.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "honda/civic",
+    "playFile": "media/models/play/car161.glb",
+    "playBytes": 527876,
+    "playSha256": "67ab339dfa7f6f34b8221aa868d7d411df3400d0864afef28dd728a8b7c46039"
+  },
+  {
+    "id": "CAR162",
+    "file": "media/models/car162.glb",
+    "bytes": 315412,
+    "sha256": "5c30ce3c3f1c4e8f675972be52564b66b930abf599593d07be4d8e6692865c7f",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [
+      "material_0"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "Karmann Ghia Volkswagen",
+      "author": "alban",
+      "authorUrl": "https://sketchfab.com/alban",
+      "url": "https://sketchfab.com/3d-models/bd5f72f0da7449e5ae5ba250cdd128e9",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/volkswagen-karmann-ghia.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "volkswagen/karmann-ghia",
+    "playFile": "media/models/play/car162.glb",
+    "playBytes": 136984,
+    "playSha256": "5b2c4873c88ec144981eb194ffc81396034e7c33bf1ce9a4e46b1d483d746ca5"
+  },
+  {
+    "id": "CAR163",
+    "file": "media/models/car163.glb",
+    "bytes": 945672,
+    "sha256": "2402c9f9631020012344baa560767c9ffe333f62b8326a9cd623e11720241d8f",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [
+      "Meshesuntitleduniqueid1500011Mtl"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "Volkswagen Golf 8. GTI (A8)",
+      "author": "Mona x Supercars",
+      "authorUrl": "https://sketchfab.com/Car2022",
+      "url": "https://sketchfab.com/3d-models/e87d7c0f8937481db236529beb5ecab7",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/vw-golf.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "volkswagen/golf",
+    "playFile": "media/models/play/car163.glb",
+    "playBytes": 483264,
+    "playSha256": "793e9df5396a7938415b26c5e077e3cd06e84317b7a58a7e39190257c1c8c09c"
+  },
+  {
+    "id": "CAR164",
+    "file": "media/models/car164.glb",
+    "bytes": 727184,
+    "sha256": "269385ade0930f5d382199ec011b9c79fba25bd18a90967f106b3b643635bb4c",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "Mini Cooper S",
+      "author": "cenobyte",
+      "authorUrl": "https://sketchfab.com/cenobyte",
+      "url": "https://sketchfab.com/3d-models/b262744901a04cda823f17289d1a4847",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/mini-cooper.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls. Use alpha cutout for the combined body atlas instead of sorting overlapping translucent body panels."
+    },
+    "catalogKey": "mini/cooper",
+    "playFile": "media/models/play/car164.glb",
+    "playBytes": 335992,
+    "playSha256": "228fe76ac7f8ee84571bebe80058b676d76f447750b1da8f3ad6ca29ab442410"
+  },
+  {
+    "id": "CAR165",
+    "file": "media/models/car165.glb",
+    "bytes": 2051300,
+    "sha256": "7a89e1728aa489f537a25a2f63597e395acd73e3a64a11929dbe82a226c7c8bb",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [
+      "M_2022_Suzuki_Swift_Pearl_Ablaze_Red"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "Suzuki Swift",
+      "author": "Casacade Models",
+      "authorUrl": "https://sketchfab.com/CasacadeOperations",
+      "url": "https://sketchfab.com/3d-models/218c3c0c6afd4d0eb343bd50d8868fd0",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/suzuki-swift.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "suzuki/swift",
+    "playFile": "media/models/play/car165.glb",
+    "playBytes": 590636,
+    "playSha256": "f08af7cc766bb1aac35ba01fc742d0e1cce488fd2065d49d8597edebaf57d92c"
+  },
+  {
+    "id": "CAR166",
+    "file": "media/models/car166.glb",
+    "bytes": 55020,
+    "sha256": "9f49696a23d206c9f8d2388646a2f1c24d037790789ed8c80dc3360512fd4d7e",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [
+      "Vehicle"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "Vehicle - Peugeot 205",
+      "author": "Thcyrax",
+      "authorUrl": "https://sketchfab.com/thcyrax",
+      "url": "https://sketchfab.com/3d-models/527949cddab34ea4b3b334b9a137d1be",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/peugeot-205.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "peugeot/205",
+    "playFile": "media/models/play/car166.glb",
+    "playBytes": 20184,
+    "playSha256": "bab2d91bd104a8858bbeb27fb20a1e32286aa8f5ecd10648a53b11f352eaa241"
+  },
+  {
+    "id": "CAR168",
+    "file": "media/models/car168.glb",
+    "bytes": 346028,
+    "sha256": "0d8419fc10ac19ddaa834184b2a19ae1a77051ea8f7447b84bd2afe37b67d0db",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [
+      "Car_Paint"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "Subaru Impreza WRX STi 2004 Custom",
+      "author": "MAC ULT ARTS",
+      "authorUrl": "https://sketchfab.com/MACULTARTS",
+      "url": "https://sketchfab.com/3d-models/08296bc950364621b6174a3078bb19e0",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/subaru-impreza.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "subaru/impreza",
+    "playFile": "media/models/play/car168.glb",
+    "playBytes": 171332,
+    "playSha256": "6d94b7c9aa5dae1027b4325312b3924d0f9dd94deca1736c830db48f6bf90f2d"
+  },
+  {
+    "id": "CAR169",
+    "file": "media/models/car169.glb",
+    "bytes": 3133172,
+    "sha256": "61779eb846ac7dd66c49fadc9ad9e3d7efc09fe5ddbc9c6c5e08ea96fe11344e",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "Toyota Crown athlete s210",
+      "author": "Black Snow",
+      "authorUrl": "https://sketchfab.com/BlackSnow02",
+      "url": "https://sketchfab.com/3d-models/none-138a753d04dd4d8f8982d8f5583d212d",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/toyota-crown-athlete.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "toyota/crown",
+    "playFile": "media/models/play/car169.glb",
+    "playBytes": 759672,
+    "playSha256": "20c37d7e385e38946c88c021f8ae3c2eab3794d5cae0ec2c11f37746c3691745"
+  },
+  {
+    "id": "CAR170",
+    "file": "media/models/car170.glb",
+    "bytes": 1214712,
+    "sha256": "f3401174cd23432b27980f58f20b0387c825f968526171bb2e28d8ae27d23ee1",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [
+      "Charcoal"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "Dominic Toretto's 1970 Dodge Charger R/T FAST X",
+      "author": "Emmanual Robinson, Jr.",
+      "authorUrl": "https://sketchfab.com/3001105",
+      "url": "https://sketchfab.com/3d-models/0e2c80e2928d4b76b49914db5bbb47ca",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/dodge-charger.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls. Remove source wire edges (line primitives); retain the original solid road-car surfaces."
+    },
+    "catalogKey": "dodge/charger",
+    "playFile": "media/models/play/car170.glb",
+    "playBytes": 454472,
+    "playSha256": "f6e08eb4010d5da76e2b5c23daedd43c06271ee25c9a835996a76897d63b6ae9"
+  },
+  {
+    "id": "CAR171",
+    "file": "media/models/car171.glb",
+    "bytes": 1512884,
+    "sha256": "2fdd7457d7ef355d1ddcabbf3bd14b82d8758f12c6b775dd6dfa1aa98fbaa20d",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "Tesla 2018 Model 3",
+      "author": "Ameer Studio",
+      "authorUrl": "https://sketchfab.com/uchiha.321abc",
+      "url": "https://sketchfab.com/3d-models/none-5ef9b845aaf44203b6d04e2c677e444f",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/tesla-model.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "tesla/model-3",
+    "playFile": "media/models/play/car171.glb",
+    "playBytes": 524564,
+    "playSha256": "32e4a7467271acd43b2ca28115a62a8834fa518923864eda8dcd89f179afef59"
+  },
+  {
+    "id": "CAR172",
+    "file": "media/models/car172.glb",
+    "bytes": 1311656,
+    "sha256": "802271ac9c8e2ca6809d548dea0aea5a299a7af81afb4716332020495a87db72",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [
+      "BLACK_GLL"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "2021_ Cadillac_escalade_premium_luxury",
+      "author": "rexrain studio",
+      "authorUrl": "https://sketchfab.com/akamujoshua",
+      "url": "https://sketchfab.com/3d-models/d215f87bfd55479fa68683e545a0785b",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/cadillac-escalade.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "cadillac/escalade",
+    "playFile": "media/models/play/car172.glb",
+    "playBytes": 676436,
+    "playSha256": "c2e41d43eb93f770c133f9166022d3ed9b469aff66a3a033baa1ef16844b70c4"
+  },
+  {
+    "id": "CAR173",
+    "file": "media/models/car173.glb",
+    "bytes": 1262396,
+    "sha256": "550d4857a481f5c019416a02f4c31544e8782eb2ab1dfc2aae3499b82df211cb",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "1953 Buick Skylark Convertible",
+      "author": "everhard",
+      "authorUrl": "https://sketchfab.com/everhard",
+      "url": "https://sketchfab.com/3d-models/none-2c60afeb98c3492f8007ac509de7698b",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/buick-skylark-convertible.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "buick/skylark",
+    "playFile": "media/models/play/car173.glb",
+    "playBytes": 392796,
+    "playSha256": "cd66dc29717c724fa3e53f967b997550abf519b178f46796a0d792bcc2698c9f"
+  },
+  {
+    "id": "CAR174",
+    "file": "media/models/car174.glb",
+    "bytes": 1945132,
+    "sha256": "f4149ec0625630b0e90886f6dab26ae9159e46603a37727fedb6806538552a6b",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [
+      "PaintFl1Mtl"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "2006 Land Rover Range Rover Supercharged",
+      "author": "Randomness",
+      "authorUrl": "https://sketchfab.com/throwbackthursdaymodels",
+      "url": "https://sketchfab.com/3d-models/277cf51a9f95473c85580612651990fd",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/land-rover-range-rover.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "land-rover/range-rover",
+    "playFile": "media/models/play/car174.glb",
+    "playBytes": 1176340,
+    "playSha256": "06cc330d497ebb47c351fca3c8c5c4389124925ff0d4c854bbeb40907322479f"
+  },
+  {
+    "id": "CAR175",
+    "file": "media/models/car175.glb",
+    "bytes": 1571944,
+    "sha256": "0439a7d8c24107b52ad4eb5619a26ba25857d6ce67aed7f621177270d58ab545",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "HUMMER H2",
+      "author": "Peter_D",
+      "authorUrl": "https://sketchfab.com/better_peter",
+      "url": "https://sketchfab.com/3d-models/none-5cd3ea8eb94c4f5597cc086b2df40e58",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/hummer-h2.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "hummer/h2",
+    "playFile": "media/models/play/car175.glb",
+    "playBytes": 716560,
+    "playSha256": "86de4b5311750614d527f417971ed96885f45e96f21608c2a69a14937c8157c2"
+  },
+  {
+    "id": "CAR176",
+    "file": "media/models/car176.glb",
+    "bytes": 417796,
+    "sha256": "74bf63a21f52726fdc84e2afa324337c83b0cd2be291be7f3a6f3cece160e8cf",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [
+      "Vehicle_Exterior_mm_ext"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "[Real Racing 3] 2021 Audi RS3 Sportback",
+      "author": "VuckyZ",
+      "authorUrl": "https://sketchfab.com/VuckyZ123",
+      "url": "https://sketchfab.com/3d-models/19c892aa76a7435a994b001d726ffdcf",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/audi-rs3.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls. Retain the RS3 body; add four original simplified game wheels to the source that omits wheel geometry. Wheels are teaching geometry, not scanned OEM rims."
+    },
+    "catalogKey": "audi/rs3",
+    "playFile": "media/models/play/car176.glb",
+    "playBytes": 260240,
+    "playSha256": "0a426e500bdc7d15219ce5c305ccbe262931a9b011e838e95529093bbaf4bf86"
+  },
+  {
+    "id": "CAR177",
+    "file": "media/models/car177.glb",
+    "bytes": 1515520,
+    "sha256": "75d2c97f991364213e9d8690aed8969ce67d99d910f6033e1506cef514ae5a54",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [
+      "Part1Mtl"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "Lexus ES Hybrid",
+      "author": "Mona x Supercars",
+      "authorUrl": "https://sketchfab.com/Car2022",
+      "url": "https://sketchfab.com/3d-models/b4edfa2fd5cc48ada679352215e0105e",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/lexus-es.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "lexus/es",
+    "playFile": "media/models/play/car177.glb",
+    "playBytes": 1028344,
+    "playSha256": "a8063c4c67b8536af019c34ce26b5d353668c310facc61897b27ab66688129a9"
+  },
+  {
+    "id": "CAR178",
+    "file": "media/models/car178.glb",
+    "bytes": 2847968,
+    "sha256": "34c8f8cf6224d911f99c28a8f62c92f09a943b584e2f00a96006a32269f1907e",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [
+      "021_Ford_Bronco_Wildtrak_black"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "Ford Bronco",
+      "author": "Casacade Models",
+      "authorUrl": "https://sketchfab.com/CasacadeOperations",
+      "url": "https://sketchfab.com/3d-models/09ebc68dcb634807a9dace7404ce5e66",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/ford-bronco.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "ford/bronco",
+    "playFile": "media/models/play/car178.glb",
+    "playBytes": 447460,
+    "playSha256": "18635283b4a6117a9f4506a9d5c596ee7f237ede11de3e5d57402179c5946048"
+  },
+  {
+    "id": "CAR180",
+    "file": "media/models/car180.glb",
+    "bytes": 623832,
+    "sha256": "689f86fc96b7c7502a020c21a0cb14586dd45e03161ed6812ee8d6b48d759123",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [
+      "Body"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "Renault Megane Sedan",
+      "author": "Mona x Supercars",
+      "authorUrl": "https://sketchfab.com/Car2022",
+      "url": "https://sketchfab.com/3d-models/0c0d6c54a2424feb95447400a5c5e50e",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/renault-megane.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "renault/megane",
+    "playFile": "media/models/play/car180.glb",
+    "playBytes": 542580,
+    "playSha256": "9a3dc037b876fffbc3106fbdaf14969a700cf8f856a6dbca2cc9194ef3220c10"
+  },
+  {
+    "id": "CAR181",
+    "file": "media/models/car181.glb",
+    "bytes": 1424272,
+    "sha256": "f5cf1918908116f29940f23e24ccfbf4fd881da053e1402518e4a806bd55bcc5",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "Fiat Abarth 500",
+      "author": "Luquita",
+      "authorUrl": "https://sketchfab.com/speedmodel",
+      "url": "https://sketchfab.com/3d-models/none-b59a403dfa1d40318c1126e658f87c19",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/fiat-abarth-500.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "fiat/500",
+    "playFile": "media/models/play/car181.glb",
+    "playBytes": 783140,
+    "playSha256": "b1c7c215d2ab4872428a6b94365b6ecf42a8f1f99c3eac7fcacfa64ee2f3ec71"
+  },
+  {
+    "id": "CAR182",
+    "file": "media/models/car182.glb",
+    "bytes": 4732968,
+    "sha256": "bc027bbb9d54a4b2a486064408667308926e536b79d4ffbe2329764d7c2bcbf8",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [
+      "Color_M08"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "2020 BMW X5 M Competition",
+      "author": "David_Holiday",
+      "authorUrl": "https://sketchfab.com/David_Holiday",
+      "url": "https://sketchfab.com/3d-models/9b211d525797457e988c903f67d0b753",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/bmw-x5.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "bmw/x5",
+    "playFile": "media/models/play/car182.glb",
+    "playBytes": 495304,
+    "playSha256": "2fbb96afb1a5b548830dc65505de61b4e97dfb413c594125adbb6216c155f202"
+  },
+  {
+    "id": "CAR183",
+    "file": "media/models/car183.glb",
+    "bytes": 2120884,
+    "sha256": "bc90a1ac2394be24edef83f4a21f45156b2ebb7f6ce25aa21f4d333ccd575af4",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [
+      "carPaint_int_0",
+      "carPaint_int_1"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "2017 Alfa Romeo Stelvio Quadrifoglio",
+      "author": "tonielpro520",
+      "authorUrl": "https://sketchfab.com/tonielpro520",
+      "url": "https://sketchfab.com/3d-models/b6e382aee4a44fb3b1222d7191470640",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/alfa-romeo-stelvio.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "alfa-romeo/stelvio",
+    "playFile": "media/models/play/car183.glb",
+    "playBytes": 1471920,
+    "playSha256": "28ea32c9246eb08103fc9b331a933333eba8f2b0653ae561afeb08f1347c11e6"
+  },
+  {
+    "id": "CAR08",
+    "file": "media/models/car08.glb",
+    "bytes": 1084472,
+    "sha256": "00a73a38a82e3c73b936e661812f767cfb1782f13ab18b3852a706446239efe9",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [
+      "Coloured"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "Aston Martin Vantage Roadster | www.vecarz.com",
+      "author": "vecarz",
+      "authorUrl": "https://sketchfab.com/heynic",
+      "url": "https://sketchfab.com/3d-models/dbdd5aadc1d64df289f65fc0f6da3c07",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/aston-martin-vantage.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "aston-martin/vantage",
+    "playFile": "media/models/play/car08.glb",
+    "playBytes": 633252,
+    "playSha256": "26f1e52ee54a3b283514bbdbc7ae4cd2e7e821eba9112101d7f6f09ead64504e"
+  },
+  {
+    "id": "CAR09",
+    "file": "media/models/car09.glb",
+    "bytes": 2255972,
+    "sha256": "20bf0d987ad02f3f7ecd1b28b2cbd0a9ae9128f2f881476f945e2806c6641538",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "2019 Chevrolet Corvette C8 Stingray",
+      "author": "Hari Prasath R",
+      "authorUrl": "https://sketchfab.com/Haris3D",
+      "url": "https://sketchfab.com/3d-models/none-790c40ccff6843eab0b7b4bd18421ff8",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/chevrolet-corvette-c8.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "chevrolet/corvette",
+    "playFile": "media/models/play/car09.glb",
+    "playBytes": 939900,
+    "playSha256": "5f3f46eaa2938d8bb233c3ad739b28f9348db90d77697e22ab2c17497a7d70c7"
+  },
+  {
+    "id": "CAR07",
+    "file": "media/models/car07.glb",
+    "bytes": 1424920,
+    "sha256": "bca3b74d33fbce627dd95e66080a9b4a0b0c75597abbc9c2c5eeb29bbd2032e9",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "2020 Koenigsegg Jesko",
+      "author": "Ddiaz Design",
+      "authorUrl": "https://sketchfab.com/ddiaz-design",
+      "url": "https://sketchfab.com/3d-models/none-c657f51fb0db43e38fea172dfa385287",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/koenigsegg-jesko.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "koenigsegg/jesko",
+    "playFile": "media/models/play/car07.glb",
+    "playBytes": 645936,
+    "playSha256": "5b4278fbc06a99259c4b8b61dc827f0548e84592506e6317e79175763de52c35"
+  },
+  {
+    "id": "CAR18",
+    "file": "media/models/car18.glb",
+    "bytes": 3452264,
+    "sha256": "04b099d58507998424fd0db070498534a6f06cb4f368566754982226378c8949",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "BMW M2",
+      "author": "Manuel Contento",
+      "authorUrl": "https://sketchfab.com/manuelcontento",
+      "url": "https://sketchfab.com/3d-models/none-394feedd0a0742c595917c7b0f6edcad",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/bmw-m2.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls. Remove the separate pPlane23 presentation ground; retain the complete BMW M2."
+    },
+    "catalogKey": "bmw/m2",
+    "playFile": "media/models/play/car18.glb",
+    "playBytes": 1205500,
+    "playSha256": "912f717e549656e1e7649706e5c99f10cd460c2038e0226f1c97fac8558243f4"
+  },
+  {
+    "id": "CAR21",
+    "file": "media/models/car21.glb",
+    "bytes": 2279904,
+    "sha256": "e81a587d96005c89a7880a24c26a172fdb91fe5859f7badaa0f057bc826683e7",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "Porsche 718 Cayman GT4 2020 | www.vecarz.com",
+      "author": "vecarz",
+      "authorUrl": "https://sketchfab.com/heynic",
+      "url": "https://sketchfab.com/3d-models/none-0b210ff1ee3e4f75acf3fd31e6b1b298",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/porsche-718-cayman.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "porsche/718-cayman",
+    "playFile": "media/models/play/car21.glb",
+    "playBytes": 608436,
+    "playSha256": "03ccbdeb723fbfff6e3672ab4ce302a09c603489c6704504cad7515923e1873d"
+  },
+  {
+    "id": "CAR185",
+    "file": "media/models/car185.glb",
+    "bytes": 1588448,
+    "sha256": "f7a054cfa0fc51265693e097a0aefa09037b7fbee1dcaab34e692acc64235bf3",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [
+      "paint"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "Fiat 850 Spider",
+      "author": "Lucas Soler",
+      "authorUrl": "https://sketchfab.com/lucassoler",
+      "url": "https://sketchfab.com/3d-models/none-8ea03b3cbb9f439ea82a68ddbeb5f6ae",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/fiat-850-spider.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "fiat/850",
+    "playFile": "media/models/play/car185.glb",
+    "playBytes": 831868,
+    "playSha256": "ede7bb9c6f59f50cfe1ed084f7d0fdef8843ffb28d3903eef30d7b06c42f5256"
+  },
+  {
+    "id": "CAR186",
+    "file": "media/models/car186.glb",
+    "bytes": 830612,
+    "sha256": "27ec626b1160d2aaf57003c7d8191bb1647009ec1d2ba4b2e95e4079bb8c048b",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [
+      "car_color"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "Audi A7 Sportback 2018",
+      "author": "KiW",
+      "authorUrl": "https://sketchfab.com/QlER5",
+      "url": "https://sketchfab.com/3d-models/95700e5a98904b3591c6a03a4b67787b",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/audi-a7.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "audi/a7",
+    "playFile": "media/models/play/car186.glb",
+    "playBytes": 422448,
+    "playSha256": "67ce92b1e64de3a701da663636e2edc5b26d61615d651510898d8866b8b5e035"
+  },
+  {
+    "id": "CAR187",
+    "file": "media/models/car187.glb",
+    "bytes": 417972,
+    "sha256": "a24ce737dfe56a38377af0b3afacdca8f7cb3c3aeaed0e17c4f04e221bcab9c5",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [
+      "wire_170177195"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "BMW Serie 1",
+      "author": "3DDomino",
+      "authorUrl": "https://sketchfab.com/3DDomino",
+      "url": "https://sketchfab.com/3d-models/fddf543ea68245309379bf7336aaa7a3",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/bmw-serie-1.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls. Reset the exporter presentation quaternion so the original BMW body stands upright."
+    },
+    "catalogKey": "bmw/1-series",
+    "playFile": "media/models/play/car187.glb",
+    "playBytes": 197732,
+    "playSha256": "7d25c1e71fee8526611241cf9385af1b72b4da9bcb90dbe24e9a5e69c498f00d"
+  },
+  {
+    "id": "CAR189",
+    "file": "media/models/car189.glb",
+    "bytes": 399556,
+    "sha256": "0b3570542840d2b3065f119a13f74d74f1b19e11e98de9ca61d2d935b2a743a6",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [
+      "Meshpart20Mtl"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "Jaguar XF",
+      "author": "Mona x Supercars",
+      "authorUrl": "https://sketchfab.com/Car2022",
+      "url": "https://sketchfab.com/3d-models/f27d0e569b7a44fc8786f1d914bc687d",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/jaguar-xf.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "jaguar/xf",
+    "playFile": "media/models/play/car189.glb",
+    "playBytes": 234032,
+    "playSha256": "892501da166ab089f0450f3145a7c728dbd00d05ddeaa9b60736b517ace62e22"
+  },
+  {
+    "id": "CAR190",
+    "file": "media/models/car190.glb",
+    "bytes": 1084100,
+    "sha256": "9b267cfeb72ae2539ca042c3ce14f3a88bf6c37ae575fe11824e9de0fecbdb38",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [
+      "kuzov",
+      "Kuzov.001"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "Porsche Macan - Kaban",
+      "author": "animanyarty",
+      "authorUrl": "https://sketchfab.com/animanyarty",
+      "url": "https://sketchfab.com/3d-models/5d57f6dcabe7473f91b160595a3eb0cc",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/porsche-macan.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "porsche/macan",
+    "playFile": "media/models/play/car190.glb",
+    "playBytes": 430252,
+    "playSha256": "1e1e60995e008a161898f694563c1664ace51b45cb403c41355c88872043cfc1"
+  },
+  {
+    "id": "CAR192",
+    "file": "media/models/car192.glb",
+    "bytes": 584012,
+    "sha256": "36aac1cc350b4eff13fe4ba8b5312b39142ff2f3f8e6acf1019d9891c448ef00",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [
+      "Scene_-_Root"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "2024 BYD Dolphin Premium Long Range",
+      "author": "Nazh Design ✔",
+      "authorUrl": "https://sketchfab.com/NazhDesign",
+      "url": "https://sketchfab.com/3d-models/8d30880667524cf3abb9e3e66c5299b5",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/byd-dolphin.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "byd/dolphin",
+    "playFile": "media/models/play/car192.glb",
+    "playBytes": 262968,
+    "playSha256": "2e3278d240e1f5e5bb659129787b9e8adaeed978c6f3416588407a59376b6c48"
+  },
+  {
+    "id": "CAR193",
+    "file": "media/models/car193.glb",
+    "bytes": 591688,
+    "sha256": "20542bf9348ff795b61c27a26ee18b4583000945c2c173d2b45aee98e3af590b",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [
+      "Material.001"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "maserati levante axtr edition",
+      "author": "amogusstrikesback2",
+      "authorUrl": "https://sketchfab.com/amogusstrikesback2",
+      "url": "https://sketchfab.com/3d-models/bc38f72b3ac14acc9e435c99d18abf0c",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/maserati-levante.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "maserati/levante",
+    "playFile": "media/models/play/car193.glb",
+    "playBytes": 309568,
+    "playSha256": "e5a979b802c0a1732050296eb354b03c605ee078c0d6ab47300813d389d73f30"
+  },
+  {
+    "id": "CAR194",
+    "file": "media/models/car194.glb",
+    "bytes": 1371280,
+    "sha256": "fabf647d89c5257123daea019a3e06604020c66446b234c56a5ebe0dc6d49dde",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "Mercedes 190E EVO 1982 3D Model Free",
+      "author": "Betier Models",
+      "authorUrl": "https://sketchfab.com/betier",
+      "url": "https://sketchfab.com/3d-models/none-15e5576f4b724f2db357165caed3492b",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/mercedes-benz-190e-evo.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "mercedes-benz/190-e",
+    "playFile": "media/models/play/car194.glb",
+    "playBytes": 465680,
+    "playSha256": "88f7cad8897354439eeccba59772dae346d7d64528e92a851712155f8d7b80f6"
+  },
+  {
+    "id": "CAR195",
+    "file": "media/models/car195.glb",
+    "bytes": 1431264,
+    "sha256": "d4b2024992804270645bbea75d3b741a504bcdc065002fb11661f3c50e1cf6f4",
+    "preservePaint": true,
+    "color": "#d8b764",
+    "rotationY": 0,
+    "paintMaterials": [
+      "black_1"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "2011 Hyundai i30 FD",
+      "author": "D3NK",
+      "authorUrl": "https://sketchfab.com/leeyunhe902",
+      "url": "https://sketchfab.com/3d-models/036a13aefc3f48c5ba996aa2361b429e",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/hyundai-i30.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "hyundai/i30",
+    "playFile": "media/models/play/car195.glb",
+    "playBytes": 449968,
+    "playSha256": "2a19219fbe05d84d2f16ec4c7acf1185279ae2f6b3bbff7821a288a627afb73c"
   }
 ]

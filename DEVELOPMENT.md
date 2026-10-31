@@ -48,11 +48,11 @@ Python 音频处理测试需要 FFmpeg。浏览器模拟结果不代表真机实
 - `scripts/`：校验、素材处理和通用发布工具。
 - `tests/`：单元、发布工具和浏览器测试。
 
-立体模型生成源为 `src/three/vehicle.ts`，运行 `npx tsx scripts/export-vehicles.ts` 可导出30个完整GLB并更新哈希清单。模型是原创简化游戏造型，不是图片生成工具直接返回的精确品牌模型。WebGL不可用时由同一几何生成可旋转SVG投影。
+车型扩充按 `docs/CATALOG_WORKFLOW.md` 执行：先核对真实量产车型及系列别名，再核对独立 GLB 的作者、许可和实际外观。当前 101 款立体车使用登记来源的独立模型；GPT Image 负责车辆插画，不直接输出这些 GLB。
 
-默认车辆观察使用30套独立生成的六视图，左右拨动切换离散角度；生产记录见 `content/car-turnarounds-production.json`。使用 `node scripts/prepare-car-turnarounds.mjs <本机生成记录目录>` 处理3×2源图，导出180张WebP并登记哈希。输入生成记录中的绝对路径不写入公开来源清单。
+新增目录插画的图集、提示词、图帧及哈希记录在 `content/catalog-illustrations.json`。`node scripts/prepare-catalog-illustrations.mjs <本机图集索引.json>` 将经过检查的 GPT 图集裁成透明 WebP。玩法继续使用从同车型模型渲染的侧视、俯视图及登记轮位，避免插画换图后点击位置失准。
 
-玩法使用30款玩具风格侧视、俯视图。`node scripts/prepare-toy-cars.mjs <本机图集索引.json>` 处理6张五车图集及可选的单车修正，清理透明噪点、导出60张WebP并按彩色轮毂和轮胎轮廓登记轮位；图帧与来源需要人工检查。输入索引的绝对路径不写入公开来源。生产提示词、来源和轮位记录见 `content/play-cars-production.json`。旧照片与按钮交互的浏览器脚本保留于 `tests/legacy-ui-v5/` 供历史回溯，当前回归位于 `tests/e2e/`。
+历史 30 款 GPT 六角度图与玩具侧视/俯视图的生成记录分别保留在 `content/car-turnarounds-production.json`、`content/play-cars-production.json`。来源索引中的本机绝对路径不进入公开记录。
 
 素材来源与署名保留在 `content/photo-sources.json`、`content/photo-view-sources.json` 等清单中。素材的许可范围需分别核对；声音听审与分发依据仍待确认。
 

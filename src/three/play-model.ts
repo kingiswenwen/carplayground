@@ -1,7 +1,8 @@
 import * as T from 'three';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
 import {MeshoptDecoder} from 'three/addons/libs/meshopt_decoder.module.js';
-import {separateWheelMeshes} from './wheel-meshes';
+import {separateWheelMeshes,isWheelMesh} from './wheel-meshes';
+import {isVehicleLampName} from './part-names';
 import {assetUrl} from '../domain/content';
 import {vehicleModel} from '../domain/vehicle-models';
 import {fitModel,disposeModel,removeModelNodes} from './model';
@@ -27,10 +28,9 @@ export async function loadPlayVehicle(carId:string,signal:AbortSignal):Promise<P
   const materials=Array.isArray(object.material)?object.material:[object.material];
   for(const material of materials){if(!(material instanceof T.MeshStandardMaterial))continue;
    if(spec.paintMaterials.includes(material.name)){if(!spec.preservePaint)material.color.set(spec.color);material.roughness=Math.max(.25,material.roughness);material.metalness=Math.min(.6,material.metalness);paint.push(material);}
-   if(spec.lampMaterials.includes(material.name)||/head.?light|head.?lamp/i.test(material.name))lights.push(material);
+   if(spec.lampMaterials.includes(material.name)||isVehicleLampName(material.name))lights.push(material);
   }
-  const box=new T.Box3().setFromObject(object,true),s=box.getSize(new T.Vector3()),center=box.getCenter(new T.Vector3());
-  if(/wheel|tire|tyre|pneu|rim/i.test(object.name+' '+materials.map(m=>m.name).join(' '))&&s.x<1.65&&s.y<1.65&&s.y>.15&&center.y<1)wheels.push(object);
+  if(isWheelMesh(object))wheels.push(object);
  });
  return{root,wheels,paint:[...new Set(paint)],lights:[...new Set(lights)],bounds};
 }

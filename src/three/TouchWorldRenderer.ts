@@ -6,6 +6,7 @@ import type {TouchBoard,BoardSnapshot} from '../game/TouchBoard';
 import {vehicleModel} from '../domain/vehicle-models';
 import {loadPlayVehicle,type PlayVehicle} from './play-model';
 import {disposeModel} from './model';
+import {isVehicleLampName} from './part-names';
 
 type Item=TouchBoard['items'][number];
 type Actor={group:T.Group;model?:T.Group;sourceCar?:string;wheels:T.Group[];x:number;z:number;yaw:number;scale:number;bounds?:T.Box3;light?:(T.MeshStandardMaterial|T.MeshLambertMaterial)[]};
@@ -54,6 +55,7 @@ export class TouchWorldRenderer{
  private needsRender=true;
  private complete=false;
  private washKey='';
+ private washGantry?:T.Group;
  private assemblyWidth=0;
  private state:BoardSnapshot;
  private reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -81,10 +83,11 @@ export class TouchWorldRenderer{
  setOrbit(enabled:boolean){this.orbit=enabled;this.controls.enabled=enabled;this.needsRender=true;this.cancel();}
  setPaused(value:boolean){this.paused=value;this.controls.enabled=this.orbit&&!value;if(value)this.cancel();}
  resetCamera(){const length=this.board.height*UNIT,portrait=this.host.clientWidth<this.host.clientHeight;this.camera.position.set(portrait?0:10,Math.max(19,length*1.2),Math.max(18,length*1.15));this.camera.lookAt(0,0,0);this.controls.target.set(0,0,0);this.controls.update();this.resize();}
- private resize=()=>{if(this.disposed)return;const w=Math.max(1,this.host.clientWidth),h=Math.max(1,this.host.clientHeight);this.renderer.setSize(w,h,false);this.camera.aspect=w/h;const depth=this.board.height*UNIT;const distance=Math.max(depth*1.9,22/this.camera.aspect/Math.tan(37*Math.PI/360)/2)*1.12;const direction=this.camera.position.clone().sub(this.controls.target).normalize();this.camera.position.copy(this.controls.target).addScaledVector(direction,distance);this.camera.updateProjectionMatrix();if(this.activity==='T04'&&this.actors.size)this.fitAssemblyCamera();this.needsRender=true;};
- private fitAssemblyCamera(){
+ private resize=()=>{if(this.disposed)return;const w=Math.max(1,this.host.clientWidth),h=Math.max(1,this.host.clientHeight);this.renderer.setSize(w,h,false);this.camera.aspect=w/h;const depth=this.board.height*UNIT;const distance=Math.max(depth*1.9,22/this.camera.aspect/Math.tan(37*Math.PI/360)/2)*1.12;const direction=this.camera.position.clone().sub(this.controls.target).normalize();this.camera.position.copy(this.controls.target).addScaledVector(direction,distance);this.camera.updateProjectionMatrix();if(['T04','E02','T01','H03'].includes(this.activity)&&this.actors.size)this.fitContentCamera();this.needsRender=true;};
+ private fitContentCamera(){
   const depth=this.board.height*UNIT,bounds=new T.Box3(new T.Vector3(-11,-.5,-depth/2-1),new T.Vector3(11,0,depth/2+1));
   for(const actor of this.actors.values())if(actor.group.visible)bounds.expandByObject(actor.group,true);
+  if(this.washGantry)bounds.expandByObject(this.washGantry,true);
   const direction=this.camera.position.clone().sub(this.controls.target).normalize(),center=bounds.getCenter(new T.Vector3());
   this.controls.target.copy(center);let distance=this.camera.position.distanceTo(center);
   for(let attempt=0;attempt<30;attempt++){
@@ -99,7 +102,7 @@ export class TouchWorldRenderer{
   const ids=new Set([this.carId,...this.board.items.filter(i=>i.kind==='car'&&i.carId&&vehicleModel(i.carId)).map(i=>i.carId!)]);
   const timer=setTimeout(()=>{this.abort.abort();this.reportFailure('model timeout');},30000);
   try{await Promise.all([...ids].map(async id=>{const model=await loadPlayVehicle(id,this.abort.signal);if(this.disposed){disposeModel(model.root);return;}this.templates.set(id,model);}));
-   if(this.disposed)return;this.sync();this.renderer.render(this.scene,this.camera);this.sync();this.ready=true;this.renderer.domElement.dataset.ready='true';this.renderer.domElement.dataset.modelCount=String(this.templates.size);this.changed(true);
+   if(this.disposed)return;this.sync();if(['E02','T01'].includes(this.activity))this.fitContentCamera();this.renderer.render(this.scene,this.camera);this.sync();this.ready=true;this.renderer.domElement.dataset.ready='true';this.renderer.domElement.dataset.modelCount=String(this.templates.size);this.changed(true);
   }finally{clearTimeout(timer);}
  }
  private world(x:number,y:number){return new T.Vector3((x-500)*UNIT,0,(y-this.board.height/2)*UNIT);}
@@ -140,15 +143,41 @@ export class TouchWorldRenderer{
   const p=actor.group.worldToLocal(hit.point.clone()),name=(hit.object.name+' '+(Array.isArray((hit.object as T.Mesh).material)?((hit.object as T.Mesh).material as T.Material[])[hit.face?.materialIndex||0]?.name:((hit.object as T.Mesh).material as T.Material)?.name)).toLowerCase();
   const bounds=this.templates.get(actor.sourceCar!)!.bounds,size=bounds.getSize(new T.Vector3()),center=bounds.getCenter(new T.Vector3()),x=(p.x-center.x)/size.x,y=(p.y-bounds.min.y)/size.y,z=Math.abs(p.z-center.z)/size.z;
   const wheel=actor.wheels.some(w=>{let node:T.Object3D|null=hit.object;while(node){if(node===w)return true;node=node.parent;}return false;});
-  if(wheel||/wheel|tire|tyre|rim/.test(name)&&y<.5||!actor.wheels.length&&Math.abs(x)>.22&&Math.abs(x)<.43&&y>.02&&y<.4&&z>.27)return 'wheel' as const;
-  if(/head.?light|head.?lamp/.test(name)||x>.36&&y>.12&&y<.58)return 'light' as const;
+  if(wheel)return 'wheel' as const;
+  if(isVehicleLampName(name))return 'light' as const;
+  if(Math.abs(x)>.22&&Math.abs(x)<.43&&y>.02&&y<.4&&z>.27)return 'wheel' as const;
+  if(x>.36&&y>.12&&y<.58)return 'light' as const;
   if(Math.abs(x)<.25&&y>.18&&y<.64&&z>.32)return 'door' as const;
   return undefined;
  }
  private partScreens(){
   const actor=this.actors.get('parts-car');if(!actor)return undefined;actor.group.updateWorldMatrix(true,true);const cameraKey=[...this.camera.matrixWorld.elements,...this.camera.projectionMatrix.elements,...actor.group.matrixWorld.elements].map(n=>n.toFixed(4)).join(',');if(actor.group.userData.partCamera===cameraKey&&actor.group.userData.partScreens)return actor.group.userData.partScreens;
   actor.group.updateWorldMatrix(true,true);const bounds=new T.Box3().setFromObject(actor.model!,true),screen=this.screenBounds(bounds),points:Record<string,{x:number;y:number}>={},scores:Record<string,number>={};
-  const ray=new T.Raycaster();for(let y=0;y<16;y++)for(let x=0;x<28;x++){const p={x:screen.min.x+(screen.max.x-screen.min.x)*(x+.5)/28,y:screen.min.y+(screen.max.y-screen.min.y)*(y+.5)/16};ray.setFromCamera(new T.Vector2(p.x*2-1,1-p.y*2),this.camera);const hit=ray.intersectObject(actor.model!,true).find(h=>this.visibleParents(h.object));if(!hit)continue;const part=this.partAt(actor,hit);const key=part||'other',local=actor.group.worldToLocal(hit.point.clone()),bounds=this.templates.get(actor.sourceCar!)!.bounds,size=bounds.getSize(new T.Vector3()),center=bounds.getCenter(new T.Vector3()),normalized=new T.Vector3((local.x-center.x)/size.x,(local.y-bounds.min.y)/size.y,Math.abs(local.z-center.z)/size.z),ideal=part==='wheel'?new T.Vector3(.3,.23,.43):part==='light'?new T.Vector3(.44,.32,.35):part==='door'?new T.Vector3(0,.4,.45):new T.Vector3(0,.85,.15),score=normalized.distanceToSquared(ideal);if(scores[key]===undefined||score<scores[key]){scores[key]=score;points[key]=p;}}
+  const ray=new T.Raycaster(),shape=this.templates.get(actor.sourceCar!)!.bounds,size=shape.getSize(new T.Vector3()),center=shape.getCenter(new T.Vector3());
+  const consider=(p:{x:number;y:number})=>{
+   if(p.x<0||p.x>1||p.y<0||p.y>1)return;
+   ray.setFromCamera(new T.Vector2(p.x*2-1,1-p.y*2),this.camera);
+   const hit=ray.intersectObject(actor.model!,true).find(h=>this.visibleParents(h.object));if(!hit)return;
+   const part=this.partAt(actor,hit),key=part||'other',local=actor.group.worldToLocal(hit.point.clone());
+   const normalized=new T.Vector3((local.x-center.x)/size.x,(local.y-shape.min.y)/size.y,Math.abs(local.z-center.z)/size.z);
+   const ideal=part==='wheel'?new T.Vector3(.3,.23,.43):part==='light'?new T.Vector3(.44,.32,.35):part==='door'?new T.Vector3(0,.4,.45):new T.Vector3(0,.85,.15),score=normalized.distanceToSquared(ideal);
+   if(scores[key]===undefined||score<scores[key]){scores[key]=score;points[key]=p;}
+  };
+  const surface=(x:number,y:number,z:number)=>consider(this.project(actor.group.localToWorld(new T.Vector3(center.x+x*size.x,shape.min.y+y*size.y,center.z+z*size.z))));
+  // Verify projected surface candidates against the real mesh. Most vehicles need
+  // a few dozen rays; scanning every triangle hundreds of times can stall a phone.
+  surface(0,.9,0);
+  for(const z of [-.48,.48]){
+   for(const x of [-.32,.32])for(const y of [.15,.25,.35])surface(x,y,z);
+   for(const x of [-.1,0,.1])for(const y of [.36,.5])surface(x,y,z);
+   for(const x of [-.44,.44])for(const y of [.23,.4])surface(x,y,z*.7);
+  }
+  if(!points.wheel||!points.light||!points.door){
+   scan:for(let y=0;y<12;y++)for(let x=0;x<20;x++){
+    consider({x:screen.min.x+(screen.max.x-screen.min.x)*(x+.5)/20,y:screen.min.y+(screen.max.y-screen.min.y)*(y+.5)/12});
+    if(points.wheel&&points.light&&points.door&&points.other)break scan;
+   }
+  }
   actor.group.userData.partCamera=cameraKey;actor.group.userData.partScreens=points;return points;
  }
  private activatePart(actor:Actor,part:'wheel'|'door'|'light',point:T.Vector3){
@@ -253,7 +282,7 @@ export class TouchWorldRenderer{
   const floor=block(22,.5,depth+2,road?'#aec796':'#d9c399');floor.position.y=-.35;this.scenery.add(floor);
   if(road){const surface=block(19.5,.06,depth*.85,colors.road);surface.position.y=-.06;this.scenery.add(surface);for(let x=-9;x<10;x+=1.3)add(this.scenery,block(.65,.025,.09,'#f9edc7'),x,.015,0);}
   if(['P01','S01'].includes(this.activity)){for(let i=0;i<35;i++)add(this.scenery,ball(.13,'#b29b75'),-9+(i%14)*1.35,.09,depth*.15+Math.floor(i/14)*.4);}
-  if(this.activity==='H03'){for(const x of [-9,9])add(this.scenery,block(.4,6,.4,'#75aaa8'),x,3,-depth*.25);add(this.scenery,block(18.4,.4,.4,'#75aaa8'),0,6,-depth*.25);for(let x=-8;x<=8;x+=2)add(this.scenery,block(.15,.6,.15,'#c4ecf4'),x,5.5,-depth*.25);}
+  if(this.activity==='H03'){this.washGantry=new T.Group();this.scenery.add(this.washGantry);for(const x of [-9,9])add(this.washGantry,block(.4,6,.4,'#75aaa8'),x,3,-depth*.25);add(this.washGantry,block(18.4,.4,.4,'#75aaa8'),0,6,-depth*.25);for(let x=-8;x<=8;x+=2)add(this.washGantry,block(.15,.6,.15,'#c4ecf4'),x,5.5,-depth*.25);}
   if(this.activity==='T02'){add(this.scenery,block(7.8,.16,depth*.8,'#83c8dc'),0,-.1,-1);for(const x of [-4.1,4.1])add(this.scenery,block(.15,.2,depth*.8,'#e1dfbb'),x,.04,-1);}
   for(const x of [-10.3,10.3]){add(this.scenery,block(.15,.35,depth+1,'#91aa87'),x,0);}
  }
@@ -278,10 +307,10 @@ export class TouchWorldRenderer{
    }
    actor.x=position.x;actor.z=position.z;
   }
-  if(this.activity==='T04'){const width=this.board.items.find(i=>i.id==='body')?.w||0;if(width!==this.assemblyWidth){this.assemblyWidth=width;this.fitAssemblyCamera();}}
+  if(this.activity==='T04'){const width=this.board.items.find(i=>i.id==='body')?.w||0;if(width!==this.assemblyWidth){this.assemblyWidth=width;this.fitContentCamera();}}
   if(this.activity==='H03'){
    const key=`${this.state.wash.clean}-${this.state.wash.waiting}`;
-   if(key!==this.washKey){this.washKey=key;const previous=this.actors.get('wash-car');if(previous)this.retired.add(previous.group);const id=this.state.wash.clean===1&&!this.state.wash.waiting?'CAR11':this.carId;const actor=this.vehicle({id:'wash-car',carId:id,w:820});actor.group.position.copy(this.world(500,this.board.height*.4));this.actors.set('wash-car',actor);this.createDirt(actor);}
+   if(key!==this.washKey){this.washKey=key;const previous=this.actors.get('wash-car');if(previous)this.retired.add(previous.group);const id=this.state.wash.clean===1&&!this.state.wash.waiting?'CAR11':this.carId;const actor=this.vehicle({id:'wash-car',carId:id,w:820});actor.group.position.copy(this.world(500,this.board.height*.4));this.actors.set('wash-car',actor);if(this.washGantry)this.washGantry.scale.y=Math.max(1,(new T.Box3().setFromObject(actor.model!,true).max.y+1)/6);this.fitContentCamera();this.createDirt(actor);}
    seen.add('wash-car');
   }
   for(const[id,actor]of this.actors)if(!seen.has(id)){this.retired.add(actor.group);this.actors.delete(id);}
@@ -313,8 +342,32 @@ export class TouchWorldRenderer{
  private createDirt(actor:Actor){
   for(const child of [...this.dirt.children])this.retired.add(child);this.dirtPoints=[];
   if(this.state.wash.waiting||this.state.completed)return;
-  const box=new T.Box3().setFromObject(actor.group),size=box.getSize(new T.Vector3());this.scene.updateMatrixWorld(true);
-  for(let i=0;i<48;i++){const x=box.min.x+size.x*(.06+(i%12)/13),z=box.min.z+size.z*(.1+Math.floor(i/12)/4.5);const ray=new T.Raycaster(new T.Vector3(x,box.max.y+1,z),new T.Vector3(0,-1,0));const hit=ray.intersectObject(actor.group,true)[0];if(!hit)continue;const toward=hit.point.clone().sub(this.camera.position);const visible=new T.Raycaster(this.camera.position,toward.normalize()).intersectObject(actor.group,true)[0];if(!visible||visible.point.distanceTo(hit.point)>.18)continue;const dirt=ball(.09+(.05*(i%3)),i%2?'#89684b':'#b08a5b');dirt.scale.y=.35;dirt.position.copy(hit.point).addScaledVector(hit.face?.normal||new T.Vector3(0,1,0),.035);this.dirt.add(dirt);this.dirtPoints.push(dirt);}
+  this.scene.updateMatrixWorld(true);
+  const box=new T.Box3().setFromObject(actor.model!,true),size=box.getSize(new T.Vector3());
+  const blockers=[...this.actors.values()].map(actor=>actor.group).concat(this.scenery);
+  const deposit=(hit:T.Intersection,index:number)=>{
+   const toward=hit.point.clone().sub(this.camera.position).normalize();
+   const visible=new T.Raycaster(this.camera.position,toward).intersectObjects(blockers,true).find(hit=>this.visibleParents(hit.object));
+   if(!visible||visible.point.distanceTo(hit.point)>.18)return;
+   const normal=(hit.face?.normal.clone()||new T.Vector3(0,1,0)).applyNormalMatrix(new T.Matrix3().getNormalMatrix(hit.object.matrixWorld));
+   if(normal.dot(this.camera.position.clone().sub(hit.point))<0)normal.negate();
+   const dirt=ball(.22+(.065*(index%3)),index%2?'#89684b':'#b08a5b');dirt.scale.y=.35;dirt.position.copy(hit.point).addScaledVector(normal,.035);this.dirt.add(dirt);this.dirtPoints.push(dirt);
+  };
+  for(let i=0;i<48;i++){
+   const x=box.min.x+size.x*(.06+(i%12)/13),z=box.min.z+size.z*(.1+Math.floor(i/12)/4.5);
+   const hit=new T.Raycaster(new T.Vector3(x,box.max.y+1,z),new T.Vector3(0,-1,0)).intersectObject(actor.model!,true)[0];
+   if(hit)deposit(hit,i);
+  }
+  // A very narrow or open body can miss the overhead grid. Seed an actual
+  // visible surface instead of leaving an unfinishable, apparently clean car.
+  if(!this.dirtPoints.length){
+   const screen=this.screenBounds(box),ray=new T.Raycaster();
+   for(let y=0;y<5&&!this.dirtPoints.length;y++)for(let x=0;x<5&&!this.dirtPoints.length;x++){
+    ray.setFromCamera(new T.Vector2((screen.min.x+(screen.max.x-screen.min.x)*(x+.5)/5)*2-1,1-(screen.min.y+(screen.max.y-screen.min.y)*(y+.5)/5)*2),this.camera);
+    const hit=ray.intersectObject(actor.model!,true)[0];if(hit)deposit(hit,0);
+   }
+  }
+
  }
  private scrub(point:T.Vector3){
   this.needsRender=true;

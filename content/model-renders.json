@@ -4728,5 +4728,4188 @@
         "sha256": "fcdf69eef16590118229d576065052c77a4ef14a29d94cc71b71c887fe16bde2"
       }
     ]
+  },
+  {
+    "id": "CAR140",
+    "assets": [
+      {
+        "id": "render-CAR140-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car140-side.webp",
+        "sha256": "dded75f9234033e4be7bf8f8d24b3100373a652cbbc2e8a640647fb797aa4d89",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR140. Randomness; CC BY 4.0. https://sketchfab.com/3d-models/none-e83da098149746b5a3ba6f1661645b09"
+      },
+      {
+        "id": "render-CAR140-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car140-top.webp",
+        "sha256": "939639254053395c109d542226916d5ce12dd0547435a5608e83a466577e95c9",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR140. Randomness; CC BY 4.0. https://sketchfab.com/3d-models/none-e83da098149746b5a3ba6f1661645b09"
+      },
+      {
+        "id": "render-CAR140-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car140-front-left.webp",
+        "sha256": "4eaa48e223d59e3faba09e6f7c97cf3e196cb3b5510f982197d6c0f9128aff14",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR140. Randomness; CC BY 4.0. https://sketchfab.com/3d-models/none-e83da098149746b5a3ba6f1661645b09"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car140-side.webp.json",
+        "sha256": "d63d97e929f83fc202b5c0f6146246d71c1cb08b7f037965a56df9f8876f638c"
+      },
+      {
+        "path": "media/rendered-cars/car140-top.webp.json",
+        "sha256": "cc88ceff99f66338259b0d474e54e30c81a376a66d428d75f3dec7256d4f9374"
+      },
+      {
+        "path": "media/rendered-cars/car140-front-left.webp.json",
+        "sha256": "1e6ad4f7e10d6e5d414e86aa46a0bbfa5048e4d17736f79b07c80dd8eacd6f1a"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.25,
+        "y": 0.77,
+        "r": 0.09
+      },
+      {
+        "x": 0.75,
+        "y": 0.77,
+        "r": 0.09
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5466947131287444
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6082574140632353
+      },
+      "wheel": {
+        "x": 0.25,
+        "y": 0.77
+      }
+    },
+    "bounds": [
+      4.65,
+      1.2217855097070296,
+      2.084680794689357
+    ],
+    "triangles": 67600,
+    "sourceModelSha256": "a322affd82cfa947c3ec6c51d3460d563585e2394cd3949cbd1a1abe0410b04a"
+  },
+  {
+    "id": "CAR141",
+    "assets": [
+      {
+        "id": "render-CAR141-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car141-side.webp",
+        "sha256": "82f0e758f0e38e819c696d8bcd9c69a3a283dad8a0a4f35ce8098f005aa4156d",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR141. Ddiaz Design; CC BY 4.0. https://sketchfab.com/3d-models/cbc0c13c0fb54fc8bbfa79a9ff99e3aa"
+      },
+      {
+        "id": "render-CAR141-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car141-top.webp",
+        "sha256": "59d1a90c5e57c800df45cc149411b5ace4a0345f9d62fc95899e7b1fddf451d1",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR141. Ddiaz Design; CC BY 4.0. https://sketchfab.com/3d-models/cbc0c13c0fb54fc8bbfa79a9ff99e3aa"
+      },
+      {
+        "id": "render-CAR141-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car141-front-left.webp",
+        "sha256": "e7326e508f26bc976e102a08edea71ffcb6cb781325547447472cc45d553e123",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR141. Ddiaz Design; CC BY 4.0. https://sketchfab.com/3d-models/cbc0c13c0fb54fc8bbfa79a9ff99e3aa"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car141-side.webp.json",
+        "sha256": "8bec6a6484534666a0726bf93a3438830d389c254c66dd8e2f526d7cbe39c237"
+      },
+      {
+        "path": "media/rendered-cars/car141-top.webp.json",
+        "sha256": "0dd765f090e592fc128586c051fcb7de1734350f0f44e7a644b50a6e5691b6cc"
+      },
+      {
+        "path": "media/rendered-cars/car141-front-left.webp.json",
+        "sha256": "6e69d3aee0f0aeac2c301c6eb1affe6fd834cd475adaa25bd948907ced472c60"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.23218609092607378,
+        "y": 0.593983600596541,
+        "r": 0.08153728063616483
+      },
+      {
+        "x": 0.7533833957972702,
+        "y": 0.657470950342352,
+        "r": 0.08846121194820204
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5474678384107946
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6118990486274456
+      },
+      "wheel": {
+        "x": 0.23218609092607378,
+        "y": 0.593983600596541
+      }
+    },
+    "bounds": [
+      4.65,
+      1.273880518275126,
+      2.103263954588458
+    ],
+    "triangles": 84268,
+    "sourceModelSha256": "18f51a4159d278dae3079ee4a6483847bbfccf2ba9ca3d61e970db22bb745403"
+  },
+  {
+    "id": "CAR143",
+    "assets": [
+      {
+        "id": "render-CAR143-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car143-side.webp",
+        "sha256": "0f6ad3876f3982db958ba1653666dfe20cae93bf6fb83f4c69de861b102e6b30",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR143. vecarz; CC BY 4.0. https://sketchfab.com/3d-models/none-adae2edc721e4ce7b31c1d06a581e30a"
+      },
+      {
+        "id": "render-CAR143-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car143-top.webp",
+        "sha256": "179f9a0b10945bdc8a74f2894f1c3ef4b98a80c87150effe31ddf85e8c5cfb75",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR143. vecarz; CC BY 4.0. https://sketchfab.com/3d-models/none-adae2edc721e4ce7b31c1d06a581e30a"
+      },
+      {
+        "id": "render-CAR143-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car143-front-left.webp",
+        "sha256": "db664e879c5fc7719f5b19445fd2a080ae1dba85b3a9fac66dc51e0d0f11492a",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR143. vecarz; CC BY 4.0. https://sketchfab.com/3d-models/none-adae2edc721e4ce7b31c1d06a581e30a"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car143-side.webp.json",
+        "sha256": "7969b052102e32b33842f0f45d42e227e3ed0f4caab677b9e08947c9081cb6b9"
+      },
+      {
+        "path": "media/rendered-cars/car143-top.webp.json",
+        "sha256": "f86cd2bad79cececdea367001d965266546ab5bff153dc8ea92765aac5788109"
+      },
+      {
+        "path": "media/rendered-cars/car143-front-left.webp.json",
+        "sha256": "cd9b4263d1e222a3d1d1244e3f9657a64e08392ee8e335b3d2baeb3d3a181449"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.2095266007714855,
+        "y": 0.6338894881116797,
+        "r": 0.12
+      },
+      {
+        "x": 0.7383973171870029,
+        "y": 0.5885014731187997,
+        "r": 0.12
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5480377675194248
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6080933188731446
+      },
+      "wheel": {
+        "x": 0.2095266007714855,
+        "y": 0.6338894881116797
+      }
+    },
+    "bounds": [
+      4.65,
+      1.2004428642603804,
+      2.172883419107028
+    ],
+    "triangles": 93286,
+    "sourceModelSha256": "494bd37e943fff060e16b9a4c7e110a74c8343d6c08fea4659d7e4101bc893b6"
+  },
+  {
+    "id": "CAR144",
+    "assets": [
+      {
+        "id": "render-CAR144-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car144-side.webp",
+        "sha256": "94a25b9b9efcd076410883e04a5c3852fbe44b4b098f2ab12337077aad559c9c",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR144. Ddiaz Design; CC BY 4.0. https://sketchfab.com/3d-models/a504090e516f44608e35160953b61fcd"
+      },
+      {
+        "id": "render-CAR144-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car144-top.webp",
+        "sha256": "04d9d71a2b02ccf719eb17b5d13d16bb25297a2b714ac38b7d1cb52bc6402fa2",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR144. Ddiaz Design; CC BY 4.0. https://sketchfab.com/3d-models/a504090e516f44608e35160953b61fcd"
+      },
+      {
+        "id": "render-CAR144-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car144-front-left.webp",
+        "sha256": "38fe1db896b1f4feb0340738f7e8809c4ff0d030f7daaf62522564435c672eab",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR144. Ddiaz Design; CC BY 4.0. https://sketchfab.com/3d-models/a504090e516f44608e35160953b61fcd"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car144-side.webp.json",
+        "sha256": "dafd6799e418a144ad1267e413fa98b1e12bda5ad77aab33402ec8e6665fb9ec"
+      },
+      {
+        "path": "media/rendered-cars/car144-top.webp.json",
+        "sha256": "d3b737391d019e2d149062bc6b6dba789496b7c1ab2a1fb5a6d5c95542536811"
+      },
+      {
+        "path": "media/rendered-cars/car144-front-left.webp.json",
+        "sha256": "8f4a987911519a1798ec0a4f37823c14e7ed17ca993140b40711e05111775318"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.20242108343046505,
+        "y": 0.58381695052754,
+        "r": 0.12
+      },
+      {
+        "x": 0.7400558724051081,
+        "y": 0.5854096406884186,
+        "r": 0.09663839965951476
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.548646926012134
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6111815189688273
+      },
+      "wheel": {
+        "x": 0.20242108343046505,
+        "y": 0.58381695052754
+      }
+    },
+    "bounds": [
+      4.65,
+      1.2452614206832016,
+      2.1856393964546172
+    ],
+    "triangles": 38058,
+    "sourceModelSha256": "8af8f869359ba3190963036147ff95c83a8ea47562ceb0b92d9c63ca98025c26"
+  },
+  {
+    "id": "CAR145",
+    "assets": [
+      {
+        "id": "render-CAR145-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car145-side.webp",
+        "sha256": "02ff073bddfb593ff8a5e109a67c949a17809fe3549821d3c5215d1b09427001",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR145. COOL601; CC BY 4.0. https://sketchfab.com/3d-models/none-80f19f7f5aac428985356987769538fe"
+      },
+      {
+        "id": "render-CAR145-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car145-top.webp",
+        "sha256": "1f0676b725feb81d0ce620630d859d6e5b90956452933e101da0992264a8258a",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR145. COOL601; CC BY 4.0. https://sketchfab.com/3d-models/none-80f19f7f5aac428985356987769538fe"
+      },
+      {
+        "id": "render-CAR145-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car145-front-left.webp",
+        "sha256": "7c26482709a19c2bf7bcd47a2c9cea177b38ce3f43f0627053e96ff43b939ee1",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR145. COOL601; CC BY 4.0. https://sketchfab.com/3d-models/none-80f19f7f5aac428985356987769538fe"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car145-side.webp.json",
+        "sha256": "f30b0ac2e46e2e2294c2d38a878380920050fe43ca9e05e76b1e2c3d502cb069"
+      },
+      {
+        "path": "media/rendered-cars/car145-top.webp.json",
+        "sha256": "29b4838d3965b465ed60ba941345a9c32df88318d9f6fb4e3217ad71aca2349e"
+      },
+      {
+        "path": "media/rendered-cars/car145-front-left.webp.json",
+        "sha256": "33331eb56d74548e9ac4a39e3fd61252d047ebe7238b5090e766c1edf68dbb31"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.20500057383074577,
+        "y": 0.6538374672764831,
+        "r": 0.12
+      },
+      {
+        "x": 0.7384176100281759,
+        "y": 0.5978825168905738,
+        "r": 0.12
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.548858885341058
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6118359085491039
+      },
+      "wheel": {
+        "x": 0.20500057383074577,
+        "y": 0.6538374672764831
+      }
+    },
+    "bounds": [
+      4.65,
+      1.2536159327616239,
+      2.1936980429907353
+    ],
+    "triangles": 87597,
+    "sourceModelSha256": "1cb3e9aaf63bbb956f29f4d115e9275e3a95391fe485201dcd5783185acc9047"
+  },
+  {
+    "id": "CAR146",
+    "assets": [
+      {
+        "id": "render-CAR146-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car146-side.webp",
+        "sha256": "93e454a77f516ca792813ff544887719796f31ea703bbb507a1dc06319a4ae18",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR146. Comrade1280; CC BY 4.0. https://sketchfab.com/3d-models/none-d99bb7b0fc0e4e3c9553246679dd067f"
+      },
+      {
+        "id": "render-CAR146-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car146-top.webp",
+        "sha256": "0a73f48dfa124accd4f2bcbf2fe1c1f4c4d7aa95457259764a1cf9683690cf3a",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR146. Comrade1280; CC BY 4.0. https://sketchfab.com/3d-models/none-d99bb7b0fc0e4e3c9553246679dd067f"
+      },
+      {
+        "id": "render-CAR146-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car146-front-left.webp",
+        "sha256": "a5ffef719f9b6be98962ff6347b9eef4cd372d4ff5f5dd49478a95afb0f75d9c",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR146. Comrade1280; CC BY 4.0. https://sketchfab.com/3d-models/none-d99bb7b0fc0e4e3c9553246679dd067f"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car146-side.webp.json",
+        "sha256": "2e013e9bd5ec8aa7f3509fb82b1a73ea34ec320d63c440dd6c3ef5e8525bf553"
+      },
+      {
+        "path": "media/rendered-cars/car146-top.webp.json",
+        "sha256": "e35d32604219c0d18902a68f67055b341826940466a585ce8a235b3989e7150a"
+      },
+      {
+        "path": "media/rendered-cars/car146-front-left.webp.json",
+        "sha256": "e27b5872b27a78892aaa514281d9af3d636d35bf42f8065bced55052c29d4162"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.25,
+        "y": 0.77,
+        "r": 0.09
+      },
+      {
+        "x": 0.75,
+        "y": 0.77,
+        "r": 0.09
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5469445942724355
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.5998410767820117
+      },
+      "wheel": {
+        "x": 0.25,
+        "y": 0.77
+      }
+    },
+    "bounds": [
+      4.65,
+      1.0733094048552372,
+      2.1733438849049924
+    ],
+    "triangles": 19416,
+    "sourceModelSha256": "6aee2ad31951633400d26f03038d0e53ab430f073c669803cd22d5895caefab2"
+  },
+  {
+    "id": "CAR147",
+    "assets": [
+      {
+        "id": "render-CAR147-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car147-side.webp",
+        "sha256": "61f72114d5703c901a6ef869a642279a0eded5940fc86d63dfc719553a44f07a",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR147. vecarz; CC BY 4.0. https://sketchfab.com/3d-models/none-0c36c7adb6d742e9bc27444880eb2f02"
+      },
+      {
+        "id": "render-CAR147-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car147-top.webp",
+        "sha256": "068a8aa718917944123a720b04b389103ec5cd7204b6e71a9a8cdff78d4fd496",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR147. vecarz; CC BY 4.0. https://sketchfab.com/3d-models/none-0c36c7adb6d742e9bc27444880eb2f02"
+      },
+      {
+        "id": "render-CAR147-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car147-front-left.webp",
+        "sha256": "f37ae582a799538283338599ef82355ee67c59aeee8263ef393455574ca2d9d8",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR147. vecarz; CC BY 4.0. https://sketchfab.com/3d-models/none-0c36c7adb6d742e9bc27444880eb2f02"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car147-side.webp.json",
+        "sha256": "6b79e2c87d57d0d1d647e7e733be1459ca3bee5c9ef6ae6a3990b3e5485f6253"
+      },
+      {
+        "path": "media/rendered-cars/car147-top.webp.json",
+        "sha256": "291a1642e6a8615a962225834570ce3487d9707e4f4b5d5af41da7554de4408f"
+      },
+      {
+        "path": "media/rendered-cars/car147-front-left.webp.json",
+        "sha256": "cbca97814e43eeb2b81b944868e626547ee739fd10a188945b9c9987df9d3741"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.2292840619984277,
+        "y": 0.6474399476036159,
+        "r": 0.12
+      },
+      {
+        "x": 0.7640180218992427,
+        "y": 0.5943147596553469,
+        "r": 0.12
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5488943854175391
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6136940467680654
+      },
+      "wheel": {
+        "x": 0.2292840619984277,
+        "y": 0.6474399476036159
+      }
+    },
+    "bounds": [
+      4.65,
+      1.2851461971599394,
+      2.179982244875834
+    ],
+    "triangles": 82090,
+    "sourceModelSha256": "0bd8f0347a5ddc53da3aeabdd71fdd28689be7fb924ae26c23a4a77e7810b541"
+  },
+  {
+    "id": "CAR149",
+    "assets": [
+      {
+        "id": "render-CAR149-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car149-side.webp",
+        "sha256": "69a2fb87bef3f64f45781aef2e77fb524c4d9afd1e40d7a0603ab73cd4bf50be",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR149. VuckyZ; CC BY 4.0. https://sketchfab.com/3d-models/05d7951204e84686ba12625c66d7a8b7"
+      },
+      {
+        "id": "render-CAR149-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car149-top.webp",
+        "sha256": "5b6eff5737b3787640dba9d1e4b8a2e448a157341c16e95b398c1c14b7984dff",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR149. VuckyZ; CC BY 4.0. https://sketchfab.com/3d-models/05d7951204e84686ba12625c66d7a8b7"
+      },
+      {
+        "id": "render-CAR149-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car149-front-left.webp",
+        "sha256": "3cc5f7253027f17027e84e427ebfdec235cf0b8c8eda6c8dc1c12bc798c791c8",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR149. VuckyZ; CC BY 4.0. https://sketchfab.com/3d-models/05d7951204e84686ba12625c66d7a8b7"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car149-side.webp.json",
+        "sha256": "a047f0585436293e3fd597aec029bdbfbf37f343a6309914c14c50be4f144803"
+      },
+      {
+        "path": "media/rendered-cars/car149-top.webp.json",
+        "sha256": "4a74fbe42358d98b7dd4f745c0cbf468e8762d5357133e486fd21341cb55cc47"
+      },
+      {
+        "path": "media/rendered-cars/car149-front-left.webp.json",
+        "sha256": "64bbfb5744ca86659bc0d8dfd57fad6643b2b3de46ced15ffb406f78383db2d6"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.25,
+        "y": 0.77,
+        "r": 0.09
+      },
+      {
+        "x": 0.75,
+        "y": 0.77,
+        "r": 0.09
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5459384952540325
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6118283764780593
+      },
+      "wheel": {
+        "x": 0.25,
+        "y": 0.77
+      }
+    },
+    "bounds": [
+      4.65,
+      1.2937457451987395,
+      2.005046036745915
+    ],
+    "triangles": 70631,
+    "sourceModelSha256": "b8c5574bbddb72ac1d5448a8eda6ac670c1c0b2a9ed3537510c893e240aed8c4"
+  },
+  {
+    "id": "CAR152",
+    "assets": [
+      {
+        "id": "render-CAR152-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car152-side.webp",
+        "sha256": "c899073693915d3617c15760d6c3aea561186b7d65ffa776c783227ee5af45c5",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR152. vecarz; CC BY 4.0. https://sketchfab.com/3d-models/none-c3d5dcd8ff724bc88c46760d92fc5188"
+      },
+      {
+        "id": "render-CAR152-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car152-top.webp",
+        "sha256": "61fb27bc9485e9b1699ca9e80801350478d2a0511f1ad49e56ac121a8ff1f908",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR152. vecarz; CC BY 4.0. https://sketchfab.com/3d-models/none-c3d5dcd8ff724bc88c46760d92fc5188"
+      },
+      {
+        "id": "render-CAR152-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car152-front-left.webp",
+        "sha256": "a130a5c2d52283a865aa809ec68fa6dd6cc9c9afb0bdda6dad59d4b383c854f9",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR152. vecarz; CC BY 4.0. https://sketchfab.com/3d-models/none-c3d5dcd8ff724bc88c46760d92fc5188"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car152-side.webp.json",
+        "sha256": "a6f0e3fbf461ade216a5c0f22b6bc1693fd643872f3236802bc27890a8cd9a81"
+      },
+      {
+        "path": "media/rendered-cars/car152-top.webp.json",
+        "sha256": "6f8b391417f582a4ac3bdaf2c43d30e7c308c4a9a5859f7b1154ad3cfae3da88"
+      },
+      {
+        "path": "media/rendered-cars/car152-front-left.webp.json",
+        "sha256": "508e6a3d346923662ce73cc62410abd36b47f07db6dad03d6fe06d7220b5ecb9"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.2431335634270867,
+        "y": 0.7150712339385682,
+        "r": 0.11171218095885344
+      },
+      {
+        "x": 0.7677363811840329,
+        "y": 0.6593612847226156,
+        "r": 0.1117121809588534
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5489095593891423
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6288074982023492
+      },
+      "wheel": {
+        "x": 0.2431335634270867,
+        "y": 0.7150712339385682
+      }
+    },
+    "bounds": [
+      4.65,
+      1.5453737965030938,
+      2.050744402111463
+    ],
+    "triangles": 54296,
+    "sourceModelSha256": "0851b467f78f5567b39a1944e868ba8005aa426893cd8909ab7f4cfed0625715"
+  },
+  {
+    "id": "CAR153",
+    "assets": [
+      {
+        "id": "render-CAR153-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car153-side.webp",
+        "sha256": "7fb4144ce2c59930e7862e5d2d6fb394aa89420bce48d3771b6ca6323ce4832d",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR153. amogusstrikesback2; CC BY 4.0. https://sketchfab.com/3d-models/ab41362f67fe4904aaff7e62882b5aec"
+      },
+      {
+        "id": "render-CAR153-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car153-top.webp",
+        "sha256": "d58e3f38fe52e0e097eecf031f00fb2546328a9de2dcc1666f6718e949302ac3",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR153. amogusstrikesback2; CC BY 4.0. https://sketchfab.com/3d-models/ab41362f67fe4904aaff7e62882b5aec"
+      },
+      {
+        "id": "render-CAR153-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car153-front-left.webp",
+        "sha256": "1b5b87db81c2f10424bc456098ed8656d450ce746c84e93fd55d75b484813317",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR153. amogusstrikesback2; CC BY 4.0. https://sketchfab.com/3d-models/ab41362f67fe4904aaff7e62882b5aec"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car153-side.webp.json",
+        "sha256": "c532b5713dd94724ada3f4aeb3f4a4ea98ba98d26e9422062ac67665a1bd55d5"
+      },
+      {
+        "path": "media/rendered-cars/car153-top.webp.json",
+        "sha256": "17fd157d762d892d446418bfe15055694a8b7c755d4cf62266965cce08d0f8c5"
+      },
+      {
+        "path": "media/rendered-cars/car153-front-left.webp.json",
+        "sha256": "c9323468dcb23ecd01c9d7d184d43c37fd0d1a94eda2c0c269f02d80ccab072b"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.25,
+        "y": 0.77,
+        "r": 0.09
+      },
+      {
+        "x": 0.75,
+        "y": 0.77,
+        "r": 0.09
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5513896881066991
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6332791603168784
+      },
+      "wheel": {
+        "x": 0.25,
+        "y": 0.77
+      }
+    },
+    "bounds": [
+      4.65,
+      1.5882397098976142,
+      2.1724833148306586
+    ],
+    "triangles": 6979,
+    "sourceModelSha256": "03569635a5f8c8da89dc69d678c2fba80cd59507869e6424b70c1846092244d4"
+  },
+  {
+    "id": "CAR155",
+    "assets": [
+      {
+        "id": "render-CAR155-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car155-side.webp",
+        "sha256": "65653f94c90cd545099ccc4e5fdd2d4ab25fa1397c27bb8f5d8b478a03486ac2",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR155. dagtholander; CC BY 4.0. https://sketchfab.com/3d-models/3b30a0277a7b45a58496c843e6588212"
+      },
+      {
+        "id": "render-CAR155-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car155-top.webp",
+        "sha256": "21c98f8ec467c7077d399525b78bb64a3d1b0d1b790e1bf18e39e74633174cce",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR155. dagtholander; CC BY 4.0. https://sketchfab.com/3d-models/3b30a0277a7b45a58496c843e6588212"
+      },
+      {
+        "id": "render-CAR155-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car155-front-left.webp",
+        "sha256": "057ae0e1dc708c92acc2cb1cc08027d3ef87930773ea0fe35048b31f2a757910",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR155. dagtholander; CC BY 4.0. https://sketchfab.com/3d-models/3b30a0277a7b45a58496c843e6588212"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car155-side.webp.json",
+        "sha256": "b671c2599d092e9671d7424c551aab75c42ed5465dd3f7af324efd74886bccb0"
+      },
+      {
+        "path": "media/rendered-cars/car155-top.webp.json",
+        "sha256": "e11f9449b1db4d2500b41679ed5fbc3bef4eb8d323e9c9bb8f4dd4b4750948d6"
+      },
+      {
+        "path": "media/rendered-cars/car155-front-left.webp.json",
+        "sha256": "c2967ce169797a1eb9d5065f2fd9dfd86af5616495bebe6fde06e2ed4351b9c3"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.2633280307524479,
+        "y": 0.6896441814440042,
+        "r": 0.12
+      },
+      {
+        "x": 0.8122933055705568,
+        "y": 0.636946025909646,
+        "r": 0.12
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5470581641936887
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6253278320811925
+      },
+      "wheel": {
+        "x": 0.2633280307524479,
+        "y": 0.6896441814440042
+      }
+    },
+    "bounds": [
+      4.65,
+      1.5109345470753155,
+      1.9610874323625895
+    ],
+    "triangles": 27033,
+    "sourceModelSha256": "d9a35df7494e6114fdbe66ee3923fd047770b9dfb3316a7452e8c7a1c2ba2d45"
+  },
+  {
+    "id": "CAR156",
+    "assets": [
+      {
+        "id": "render-CAR156-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car156-side.webp",
+        "sha256": "85b2e0ec7d8a93df2a3f438f584b6b1c894b63a338c18cac2e042caa50b01d5b",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR156. Kai Xiang; CC BY 4.0. https://sketchfab.com/3d-models/none-32964087f5d24c3e90482724ddfc2fef"
+      },
+      {
+        "id": "render-CAR156-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car156-top.webp",
+        "sha256": "fb4fd6e9e793b3f2aabe51771fe9ca0281bcbcfea22c3d1e1f4fd535ba6025e1",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR156. Kai Xiang; CC BY 4.0. https://sketchfab.com/3d-models/none-32964087f5d24c3e90482724ddfc2fef"
+      },
+      {
+        "id": "render-CAR156-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car156-front-left.webp",
+        "sha256": "2ed876a7e617aac81d64d174727e4c4cda9b392bbfe041ec31751dd869ab2697",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR156. Kai Xiang; CC BY 4.0. https://sketchfab.com/3d-models/none-32964087f5d24c3e90482724ddfc2fef"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car156-side.webp.json",
+        "sha256": "fb4ec4a42a09fe6a7ab64c614791c46d319b80bb4b529e0798c075be3be80480"
+      },
+      {
+        "path": "media/rendered-cars/car156-top.webp.json",
+        "sha256": "e1ff2128187e88c234a18ad27b3e0c5c3060a677c04c5c995d3941cf64a896af"
+      },
+      {
+        "path": "media/rendered-cars/car156-front-left.webp.json",
+        "sha256": "277ebebc6afd97aeac091835389c5af0bffd3fd3f7d24e26b9efdc16ef1591fc"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.23523973902697287,
+        "y": 0.6394174069449577,
+        "r": 0.12
+      },
+      {
+        "x": 0.7719205540966411,
+        "y": 0.6938904795357635,
+        "r": 0.12
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5485983608782151
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6260269768610969
+      },
+      "wheel": {
+        "x": 0.23523973902697287,
+        "y": 0.6394174069449577
+      }
+    },
+    "bounds": [
+      4.65,
+      1.501749611451435,
+      2.054591752624648
+    ],
+    "triangles": 78763,
+    "sourceModelSha256": "f481f7029397b6bdc39c38d6484fc5d75f8403910232be38d06ef9354dcc7c43"
+  },
+  {
+    "id": "CAR157",
+    "assets": [
+      {
+        "id": "render-CAR157-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car157-side.webp",
+        "sha256": "8e701cf8032cb1b6b5269aab76e92f7c1218e6e68891876d56a33eeea1c30d7f",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR157. Black Snow; CC BY 4.0. https://sketchfab.com/3d-models/none-4a590f4afa094fa8b407a14db77a63a8"
+      },
+      {
+        "id": "render-CAR157-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car157-top.webp",
+        "sha256": "970cfe13af6111ee3e28af949bfc2676c906d6d2d6b557a1237550cd63606520",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR157. Black Snow; CC BY 4.0. https://sketchfab.com/3d-models/none-4a590f4afa094fa8b407a14db77a63a8"
+      },
+      {
+        "id": "render-CAR157-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car157-front-left.webp",
+        "sha256": "8a345fbb16e53eb52231d632787ff472b26e74beda588059b248146b90abe781",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR157. Black Snow; CC BY 4.0. https://sketchfab.com/3d-models/none-4a590f4afa094fa8b407a14db77a63a8"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car157-side.webp.json",
+        "sha256": "c8570c9a693a1f75411256fa34e60dbe64d6da5e7110e343121d09c442e604bc"
+      },
+      {
+        "path": "media/rendered-cars/car157-top.webp.json",
+        "sha256": "715d0a46c2bdc922804cba97977db34e3c49128acd7fffcafe06075dd4bc33be"
+      },
+      {
+        "path": "media/rendered-cars/car157-front-left.webp.json",
+        "sha256": "30882d6e18ead5c1e26f4defd8b389050c9a66d21419699db1b49e9cf8b1a06a"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.24642125559001987,
+        "y": 0.6648030530121576,
+        "r": 0.065
+      },
+      {
+        "x": 0.8024577571326066,
+        "y": 0.6165063917429052,
+        "r": 0.12
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5427014939706613
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6111326628217306
+      },
+      "wheel": {
+        "x": 0.24642125559001987,
+        "y": 0.6648030530121576
+      }
+    },
+    "bounds": [
+      4.65,
+      1.3263814364174789,
+      1.801863887778816
+    ],
+    "triangles": 276799,
+    "sourceModelSha256": "cd7bdcfe8f8101c963007cdcbf9ffb410f2d82fbe3cd5195f09328851815fe07"
+  },
+  {
+    "id": "CAR158",
+    "assets": [
+      {
+        "id": "render-CAR158-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car158-side.webp",
+        "sha256": "a37ef3cae6d6c119a3b2ace072f5568a533e20ae1bce2ba2c81807c6e6228c3a",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR158. Jaggu_wrld; CC BY 4.0. https://sketchfab.com/3d-models/1a2f117c8f1b4324b5a5dd70d38d396b"
+      },
+      {
+        "id": "render-CAR158-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car158-top.webp",
+        "sha256": "49081217fe9b39757589a1efa2ebd27055757917e180173d948482a0d16c47f3",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR158. Jaggu_wrld; CC BY 4.0. https://sketchfab.com/3d-models/1a2f117c8f1b4324b5a5dd70d38d396b"
+      },
+      {
+        "id": "render-CAR158-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car158-front-left.webp",
+        "sha256": "d2476997b52219f686550b50ed616d36e99932d139649c3a726ec5b4741adf50",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR158. Jaggu_wrld; CC BY 4.0. https://sketchfab.com/3d-models/1a2f117c8f1b4324b5a5dd70d38d396b"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car158-side.webp.json",
+        "sha256": "98a5a71c8ee9bb9314e42b937479d44e43ac1bacf880cfc79cff14f4ed56a516"
+      },
+      {
+        "path": "media/rendered-cars/car158-top.webp.json",
+        "sha256": "eb4b078ed245b40a76b13e0eb778e9eb9a1dc982822338f80ab0458210cb3c98"
+      },
+      {
+        "path": "media/rendered-cars/car158-front-left.webp.json",
+        "sha256": "4edfcdb1671f89914b2092fd6dab6a3ea26a3a7761268d1cae50014badd804dd"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.2639452479406149,
+        "y": 0.6725725573168064,
+        "r": 0.12
+      },
+      {
+        "x": 0.8193344558150834,
+        "y": 0.6250137794304303,
+        "r": 0.12
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5404432590584154
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6090769616554123
+      },
+      "wheel": {
+        "x": 0.2639452479406149,
+        "y": 0.6725725573168064
+      }
+    },
+    "bounds": [
+      4.65,
+      1.3220886876548925,
+      1.6736477887614474
+    ],
+    "triangles": 94008,
+    "sourceModelSha256": "9e0bc2be418dbd8e6b62d4430203be2e7d790a58ea4944b9ae3cfac75b142fdf"
+  },
+  {
+    "id": "CAR159",
+    "assets": [
+      {
+        "id": "render-CAR159-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car159-side.webp",
+        "sha256": "ffda41a984dcfb6386a1909aa80773ac301a1d9df5ccbc466634782da7d8360f",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR159. NewViStudios; CC BY 4.0. https://sketchfab.com/3d-models/61f16a1d5be2403abcdd8fa552f730f7"
+      },
+      {
+        "id": "render-CAR159-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car159-top.webp",
+        "sha256": "85f38486a33589c26ed2e71734dfc9de8e07aa0c76091df3a3e30dc9a6a1573e",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR159. NewViStudios; CC BY 4.0. https://sketchfab.com/3d-models/61f16a1d5be2403abcdd8fa552f730f7"
+      },
+      {
+        "id": "render-CAR159-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car159-front-left.webp",
+        "sha256": "2cb2760d5895d163a1ad5c9056023c9ee50bdb6431085fb670102dc2d6e35b4d",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR159. NewViStudios; CC BY 4.0. https://sketchfab.com/3d-models/61f16a1d5be2403abcdd8fa552f730f7"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car159-side.webp.json",
+        "sha256": "7b78b41b734769c085e4aff0dbd06ae8792910fd2bed9cecdf2106741e047eae"
+      },
+      {
+        "path": "media/rendered-cars/car159-top.webp.json",
+        "sha256": "fdbd6b3a6d9f16caa4a97d0ffa48ef15d0936c4265a33a9af8a2e5c1a0f6cc04"
+      },
+      {
+        "path": "media/rendered-cars/car159-front-left.webp.json",
+        "sha256": "5bfc402801acf93accc520392aa34d0285509d32fe9d864d388331ad16b052a4"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.24306875045571202,
+        "y": 0.7186289294881754,
+        "r": 0.12
+      },
+      {
+        "x": 0.8003080232529145,
+        "y": 0.6686598524373952,
+        "r": 0.12
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5461470897804532
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6283383290198057
+      },
+      "wheel": {
+        "x": 0.24306875045571202,
+        "y": 0.7186289294881754
+      }
+    },
+    "bounds": [
+      4.65,
+      1.5753715801296777,
+      1.876274779895186
+    ],
+    "triangles": 5189,
+    "sourceModelSha256": "b95259e94b516ad61fec7205b559490795943cfb7eb147cc20e8a34c0067408e"
+  },
+  {
+    "id": "CAR160",
+    "assets": [
+      {
+        "id": "render-CAR160-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car160-side.webp",
+        "sha256": "1a515878540ef400520b9c0cebe190ab7cd0bdbb6d2861ff37e6e82e27ce1f20",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR160. Nazh Design ✔; CC BY 4.0. https://sketchfab.com/3d-models/96ec5c34852f4c3090a755d4445f5e98"
+      },
+      {
+        "id": "render-CAR160-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car160-top.webp",
+        "sha256": "fafcd31eea412d037d85903901ab722fb45a7fecc0580fa6b6418ab5e1e5b7b3",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR160. Nazh Design ✔; CC BY 4.0. https://sketchfab.com/3d-models/96ec5c34852f4c3090a755d4445f5e98"
+      },
+      {
+        "id": "render-CAR160-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car160-front-left.webp",
+        "sha256": "380b975c554c2f6d1c8691eed55380f59f7ec51c34a2fedee46102285bb58e2f",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR160. Nazh Design ✔; CC BY 4.0. https://sketchfab.com/3d-models/96ec5c34852f4c3090a755d4445f5e98"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car160-side.webp.json",
+        "sha256": "431ddad8e6bbe0581a5d7f5f4d63eb6c1b8528deb71dfe15776098732d6fc008"
+      },
+      {
+        "path": "media/rendered-cars/car160-top.webp.json",
+        "sha256": "938845890d4dcbbe56aab71b396778711ef36a173719b1796ee2345cd288f19a"
+      },
+      {
+        "path": "media/rendered-cars/car160-front-left.webp.json",
+        "sha256": "de2050c02b6e40b8a09b4eedd4e936d03cfa229582fc14059d7649f3ec019741"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.25,
+        "y": 0.77,
+        "r": 0.09
+      },
+      {
+        "x": 0.75,
+        "y": 0.77,
+        "r": 0.09
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5484928504990364
+      },
+      "light": {
+        "x": 0.9318181818181819,
+        "y": 0.6223335206372178
+      },
+      "wheel": {
+        "x": 0.25,
+        "y": 0.77
+      }
+    },
+    "bounds": [
+      4.650000000000002,
+      1.4395580707235704,
+      2.0795966624122983
+    ],
+    "triangles": 87483,
+    "sourceModelSha256": "b85d5612f6cae9e6c0c7b47a832423aa5d004fb90c36bc2c4ef3a5fcb8bb4893"
+  },
+  {
+    "id": "CAR161",
+    "assets": [
+      {
+        "id": "render-CAR161-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car161-side.webp",
+        "sha256": "253eef734347194c2c58d1b6ea660b3923a9373a7a0cc5f43d58c117f96512d0",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR161. tiedtke; CC BY 4.0. https://sketchfab.com/3d-models/none-b9604dd71c6546ec842702682019492a"
+      },
+      {
+        "id": "render-CAR161-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car161-top.webp",
+        "sha256": "6ae3de83cae3a63bfa033558debc2a556638f2973d9c39018b9c1213730c3f1c",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR161. tiedtke; CC BY 4.0. https://sketchfab.com/3d-models/none-b9604dd71c6546ec842702682019492a"
+      },
+      {
+        "id": "render-CAR161-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car161-front-left.webp",
+        "sha256": "ee9b2f3a0e048ba34e9cba2a23b838ff89d7deca939f7656a6afd8d0e160091f",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR161. tiedtke; CC BY 4.0. https://sketchfab.com/3d-models/none-b9604dd71c6546ec842702682019492a"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car161-side.webp.json",
+        "sha256": "12e421ffe39574b2f24a9b8488608a19863c416277c7ed638926f45fc13b132c"
+      },
+      {
+        "path": "media/rendered-cars/car161-top.webp.json",
+        "sha256": "4f84242b1956039efa4ca95b02dd024707a84a2ab406f7ffdacbb54f540890f0"
+      },
+      {
+        "path": "media/rendered-cars/car161-front-left.webp.json",
+        "sha256": "18e47f2c07aa76f44f512baad5ef7b24da7baf040655ac5f1296fe5153f2baf7"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.19345215422547585,
+        "y": 0.7079002789191264,
+        "r": 0.12
+      },
+      {
+        "x": 0.7662597916017229,
+        "y": 0.6506622190661999,
+        "r": 0.12
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5507111595636237
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.628186341184087
+      },
+      "wheel": {
+        "x": 0.19345215422547585,
+        "y": 0.7079002789191264
+      }
+    },
+    "bounds": [
+      4.65,
+      1.5098336354065718,
+      2.172516530253292
+    ],
+    "triangles": 101780,
+    "sourceModelSha256": "1b12603a2814160d65bf56273e6743573cbfa11b0965f31b47b2141a19c1fcc3"
+  },
+  {
+    "id": "CAR162",
+    "assets": [
+      {
+        "id": "render-CAR162-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car162-side.webp",
+        "sha256": "8fc6cf776d40cc6cf0124b7af943e5a78012b5e39f1622fe324fc2f62e3bea4d",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR162. alban; CC BY 4.0. https://sketchfab.com/3d-models/bd5f72f0da7449e5ae5ba250cdd128e9"
+      },
+      {
+        "id": "render-CAR162-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car162-top.webp",
+        "sha256": "368981318915ffbec7bec7fa478254370b87d5abeb0e62b5be4c60521c5cf917",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR162. alban; CC BY 4.0. https://sketchfab.com/3d-models/bd5f72f0da7449e5ae5ba250cdd128e9"
+      },
+      {
+        "id": "render-CAR162-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car162-front-left.webp",
+        "sha256": "173c4a6ecc4c9930664cf8ca3f31abbc9df92016d0044722d25417a5832c226f",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR162. alban; CC BY 4.0. https://sketchfab.com/3d-models/bd5f72f0da7449e5ae5ba250cdd128e9"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car162-side.webp.json",
+        "sha256": "1cd8d04a7b57328a52395b61f03c15a901ef575ac98cc5f8f0d63576f58e80b3"
+      },
+      {
+        "path": "media/rendered-cars/car162-top.webp.json",
+        "sha256": "620a9865a83b85d37378941f58c1dbe8bfa004333865ac897067a49f6e516784"
+      },
+      {
+        "path": "media/rendered-cars/car162-front-left.webp.json",
+        "sha256": "5ec59f246e7680cde55daa76e4c179148ed91fb57115580a073ad6914477b6ec"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.25,
+        "y": 0.77,
+        "r": 0.09
+      },
+      {
+        "x": 0.75,
+        "y": 0.77,
+        "r": 0.09
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5805175426879234
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6572172408807097
+      },
+      "wheel": {
+        "x": 0.25,
+        "y": 0.77
+      }
+    },
+    "bounds": [
+      4.65,
+      1.5991958372753077,
+      3.8484862819299903
+    ],
+    "triangles": 30553,
+    "sourceModelSha256": "5c30ce3c3f1c4e8f675972be52564b66b930abf599593d07be4d8e6692865c7f"
+  },
+  {
+    "id": "CAR163",
+    "assets": [
+      {
+        "id": "render-CAR163-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car163-side.webp",
+        "sha256": "6741087fc20cc71dfb4fbcad6e68a02bed3a186ba6820c1a7a93d862047682a8",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR163. Mona x Supercars; CC BY 4.0. https://sketchfab.com/3d-models/e87d7c0f8937481db236529beb5ecab7"
+      },
+      {
+        "id": "render-CAR163-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car163-top.webp",
+        "sha256": "4d0ea9f121b915eb235fd81d50cb5173cea0773b2f74573d39a5b5fa00b00de2",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR163. Mona x Supercars; CC BY 4.0. https://sketchfab.com/3d-models/e87d7c0f8937481db236529beb5ecab7"
+      },
+      {
+        "id": "render-CAR163-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car163-front-left.webp",
+        "sha256": "ccd63020e913b329c031adfa5380170b07c49d821fbf9cd938436cfdc8fb71a7",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR163. Mona x Supercars; CC BY 4.0. https://sketchfab.com/3d-models/e87d7c0f8937481db236529beb5ecab7"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car163-side.webp.json",
+        "sha256": "7f83cfb971a25f2ed2b4f84ca985b6908abecd87b34427ffe1fb5a985bb43e88"
+      },
+      {
+        "path": "media/rendered-cars/car163-top.webp.json",
+        "sha256": "0e312c0c8db0bfe589afae9c6aeafbe2319cab482202e48bc8ec6d0d7d27ba92"
+      },
+      {
+        "path": "media/rendered-cars/car163-front-left.webp.json",
+        "sha256": "fb2728faa8c60287556a5954089a8ecbf77b219893f23f6b7de12020f228c470"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.25,
+        "y": 0.77,
+        "r": 0.09
+      },
+      {
+        "x": 0.75,
+        "y": 0.77,
+        "r": 0.09
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5534688636843358
+      },
+      "light": {
+        "x": 0.9318181818181819,
+        "y": 0.6354503501646945
+      },
+      "wheel": {
+        "x": 0.25,
+        "y": 0.77
+      }
+    },
+    "bounds": [
+      4.649999999999999,
+      1.5969910305922177,
+      2.2881334628972594
+    ],
+    "triangles": 51755,
+    "sourceModelSha256": "2402c9f9631020012344baa560767c9ffe333f62b8326a9cd623e11720241d8f"
+  },
+  {
+    "id": "CAR164",
+    "assets": [
+      {
+        "id": "render-CAR164-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car164-side.webp",
+        "sha256": "738e6111bb40c42a5772ed59c6c373615acfd2072c2d1494befc8c7e0fd99e74",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR164. cenobyte; CC BY 4.0. https://sketchfab.com/3d-models/b262744901a04cda823f17289d1a4847"
+      },
+      {
+        "id": "render-CAR164-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car164-top.webp",
+        "sha256": "1f42ed061d3ccfe8486a108c41bcb67cd86a936080ddb506b806f2b3bf95efd1",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR164. cenobyte; CC BY 4.0. https://sketchfab.com/3d-models/b262744901a04cda823f17289d1a4847"
+      },
+      {
+        "id": "render-CAR164-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car164-front-left.webp",
+        "sha256": "a77fc51761af60e6608228855e2e7a960c9517b00e00ac6e9dfc2ffa68cda46d",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR164. cenobyte; CC BY 4.0. https://sketchfab.com/3d-models/b262744901a04cda823f17289d1a4847"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car164-side.webp.json",
+        "sha256": "09b3532f2961b39290322087e1b5521decfb83cd5d1f6418bc4e82efaf624fa5"
+      },
+      {
+        "path": "media/rendered-cars/car164-top.webp.json",
+        "sha256": "f100e27b2ee3b84b4301cf4dee0c6b18ffecf55f1d1dd4bc17551bfceb28efb1"
+      },
+      {
+        "path": "media/rendered-cars/car164-front-left.webp.json",
+        "sha256": "3aa6561828dc5b03ce0baf8c3dfbbd67d2de1bf4e78829ef834729868a8d473a"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.253214036209388,
+        "y": 0.8085722453090194,
+        "r": 0.09124433046608431
+      },
+      {
+        "x": 0.7659808875016288,
+        "y": 0.8063164511363001,
+        "r": 0.08015589317724449
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5509097862407432
+      },
+      "light": {
+        "x": 0.8605175609798745,
+        "y": 0.653409453060993
+      },
+      "wheel": {
+        "x": 0.253214036209388,
+        "y": 0.8085722453090194
+      }
+    },
+    "bounds": [
+      4.65,
+      2.3257673290094143,
+      2.357250759577598
+    ],
+    "triangles": 15545,
+    "sourceModelSha256": "269385ade0930f5d382199ec011b9c79fba25bd18a90967f106b3b643635bb4c"
+  },
+  {
+    "id": "CAR165",
+    "assets": [
+      {
+        "id": "render-CAR165-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car165-side.webp",
+        "sha256": "bb07cfac28029d6201f2425fd6654899c2fa1e721cd0298fa1d7a5efea448391",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR165. Casacade Models; CC BY 4.0. https://sketchfab.com/3d-models/218c3c0c6afd4d0eb343bd50d8868fd0"
+      },
+      {
+        "id": "render-CAR165-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car165-top.webp",
+        "sha256": "41486b734cab5b8a5adea1b8011160a267d2a46b71b8abb393bb0a29e3704f0b",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR165. Casacade Models; CC BY 4.0. https://sketchfab.com/3d-models/218c3c0c6afd4d0eb343bd50d8868fd0"
+      },
+      {
+        "id": "render-CAR165-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car165-front-left.webp",
+        "sha256": "36ee7f58bf23f867ff4a78075bdcecad2a3fd31bc90d9d2b52bde37f3d910406",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR165. Casacade Models; CC BY 4.0. https://sketchfab.com/3d-models/218c3c0c6afd4d0eb343bd50d8868fd0"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car165-side.webp.json",
+        "sha256": "a8903e1bc7fd5db1e5fda3a62873715df5657e6b848189d9a0b4708326569294"
+      },
+      {
+        "path": "media/rendered-cars/car165-top.webp.json",
+        "sha256": "d9304d681dedb9535d659fb0a8b4857f9d48b33f8aef727a56e07bcc0c74e95c"
+      },
+      {
+        "path": "media/rendered-cars/car165-front-left.webp.json",
+        "sha256": "8e662d9059f74d9006fcb691084e0aff832461f211a512d8fb3ad0d128178134"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.19262550891944036,
+        "y": 0.7502476922651318,
+        "r": 0.065
+      },
+      {
+        "x": 0.7809916191368221,
+        "y": 0.7309854479918838,
+        "r": 0.065
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5545369546812865
+      },
+      "light": {
+        "x": 0.9225374033736919,
+        "y": 0.6552986032904426
+      },
+      "wheel": {
+        "x": 0.19262550891944036,
+        "y": 0.7502476922651318
+      }
+    },
+    "bounds": [
+      4.65,
+      1.9665600560083991,
+      2.234157502117613
+    ],
+    "triangles": 160670,
+    "sourceModelSha256": "7a89e1728aa489f537a25a2f63597e395acd73e3a64a11929dbe82a226c7c8bb"
+  },
+  {
+    "id": "CAR166",
+    "assets": [
+      {
+        "id": "render-CAR166-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car166-side.webp",
+        "sha256": "5d4674dc1cc35595d217942a1b7d705e712e46e45d2da6a5ccea79e54b0e9cf4",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR166. Thcyrax; CC BY 4.0. https://sketchfab.com/3d-models/527949cddab34ea4b3b334b9a137d1be"
+      },
+      {
+        "id": "render-CAR166-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car166-top.webp",
+        "sha256": "d0c0cbd167a8dfe49d0fc0cdcd737c2ae571d672d0d9fd2325daa2a35478d436",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR166. Thcyrax; CC BY 4.0. https://sketchfab.com/3d-models/527949cddab34ea4b3b334b9a137d1be"
+      },
+      {
+        "id": "render-CAR166-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car166-front-left.webp",
+        "sha256": "8b00e18a9707ebea528aea5344a5304780100626e79a0d241bff72812c56ea3d",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR166. Thcyrax; CC BY 4.0. https://sketchfab.com/3d-models/527949cddab34ea4b3b334b9a137d1be"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car166-side.webp.json",
+        "sha256": "f2bc3a9e294cb7e13e699f2e895d19c96691f8d522c21165c3749d1175b43bda"
+      },
+      {
+        "path": "media/rendered-cars/car166-top.webp.json",
+        "sha256": "10f67c795dd8392ff2922983014d4ef5e8b7197a95c7c4f8c049a68a731fa7a5"
+      },
+      {
+        "path": "media/rendered-cars/car166-front-left.webp.json",
+        "sha256": "8ccbc3a409f9d4d6504781e346fc5622c9209ee742c6548567d39a6f41deece7"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.25,
+        "y": 0.77,
+        "r": 0.09
+      },
+      {
+        "x": 0.75,
+        "y": 0.77,
+        "r": 0.09
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5570655508212892
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.648816132894348
+      },
+      "wheel": {
+        "x": 0.25,
+        "y": 0.77
+      }
+    },
+    "bounds": [
+      4.65,
+      1.7777289492074906,
+      2.405392606703183
+    ],
+    "triangles": 2592,
+    "sourceModelSha256": "9f49696a23d206c9f8d2388646a2f1c24d037790789ed8c80dc3360512fd4d7e"
+  },
+  {
+    "id": "CAR168",
+    "assets": [
+      {
+        "id": "render-CAR168-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car168-side.webp",
+        "sha256": "ff607c937636a7a7fd5cd8849a266d65c31b38e019ff30f741ec5f111ec697c4",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR168. MAC ULT ARTS; CC BY 4.0. https://sketchfab.com/3d-models/08296bc950364621b6174a3078bb19e0"
+      },
+      {
+        "id": "render-CAR168-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car168-top.webp",
+        "sha256": "1f61af3cd274ecc12055ee37f3e299980aaecb1dcc93e6b8b9da819438a9b6d0",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR168. MAC ULT ARTS; CC BY 4.0. https://sketchfab.com/3d-models/08296bc950364621b6174a3078bb19e0"
+      },
+      {
+        "id": "render-CAR168-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car168-front-left.webp",
+        "sha256": "09034e251f1795f48c756b4a07996994fefae974bf64f72303c489c7047df4a6",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR168. MAC ULT ARTS; CC BY 4.0. https://sketchfab.com/3d-models/08296bc950364621b6174a3078bb19e0"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car168-side.webp.json",
+        "sha256": "c0032f26306963137efa3a3be2d39ca57d741a3a3440d22a236187cea874e5fb"
+      },
+      {
+        "path": "media/rendered-cars/car168-top.webp.json",
+        "sha256": "10dc80a577e66d1788d7d0686178ce2ae9e013536b9966d3b148572362a79fda"
+      },
+      {
+        "path": "media/rendered-cars/car168-front-left.webp.json",
+        "sha256": "b3bd998dc222ffbcb3abd21e26c04d79b407fb84207cac63b31622739c57542d"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.2293752336463576,
+        "y": 0.7143919454286098,
+        "r": 0.11364703781834552
+      },
+      {
+        "x": 0.7378439612157655,
+        "y": 0.7143307922035239,
+        "r": 0.12
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5493784840308966
+      },
+      "light": {
+        "x": 0.9318181818181819,
+        "y": 0.6263917379936217
+      },
+      "wheel": {
+        "x": 0.2293752336463576,
+        "y": 0.7143919454286098
+      }
+    },
+    "bounds": [
+      4.650000000000002,
+      1.4972806788731081,
+      2.1018608533478256
+    ],
+    "triangles": 44117,
+    "sourceModelSha256": "0d8419fc10ac19ddaa834184b2a19ae1a77051ea8f7447b84bd2afe37b67d0db"
+  },
+  {
+    "id": "CAR169",
+    "assets": [
+      {
+        "id": "render-CAR169-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car169-side.webp",
+        "sha256": "e4327e07fd0dc0b3ba0b0e1c2577d6403f02e239f7fa0d4d344895897504804b",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR169. Black Snow; CC BY 4.0. https://sketchfab.com/3d-models/none-138a753d04dd4d8f8982d8f5583d212d"
+      },
+      {
+        "id": "render-CAR169-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car169-top.webp",
+        "sha256": "89fc5c5f5031d4b5ebbce9876763b7add0b83a74d727309cddc8c05b4ccdfc6c",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR169. Black Snow; CC BY 4.0. https://sketchfab.com/3d-models/none-138a753d04dd4d8f8982d8f5583d212d"
+      },
+      {
+        "id": "render-CAR169-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car169-front-left.webp",
+        "sha256": "42d5e03c934a09b36604af3ff57d29d387eca5169fabc4f306270f0fa1b3a590",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR169. Black Snow; CC BY 4.0. https://sketchfab.com/3d-models/none-138a753d04dd4d8f8982d8f5583d212d"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car169-side.webp.json",
+        "sha256": "a66cbd1905a475a9050124b78d79849bb7fca79afdc6f742c70495546d999eec"
+      },
+      {
+        "path": "media/rendered-cars/car169-top.webp.json",
+        "sha256": "bf898bb4e7869f6f68928fff64b8839437a4c28f6686b9a7948f8de932f39346"
+      },
+      {
+        "path": "media/rendered-cars/car169-front-left.webp.json",
+        "sha256": "b3254c14d5d293666d3a697b058faf65b437d331f7a14794ae66c3087153c678"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.26327274143660623,
+        "y": 0.6707363032986082,
+        "r": 0.12
+      },
+      {
+        "x": 0.9287129566436338,
+        "y": 0.59935846703791,
+        "r": 0.0943675591622293
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5447359409194419
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6142949401576492
+      },
+      "wheel": {
+        "x": 0.26327274143660623,
+        "y": 0.6707363032986082
+      }
+    },
+    "bounds": [
+      4.65,
+      1.3528279091748676,
+      1.906084383583704
+    ],
+    "triangles": 293503,
+    "sourceModelSha256": "61779eb846ac7dd66c49fadc9ad9e3d7efc09fe5ddbc9c6c5e08ea96fe11344e"
+  },
+  {
+    "id": "CAR170",
+    "assets": [
+      {
+        "id": "render-CAR170-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car170-side.webp",
+        "sha256": "3d5ada9df5148e9c511ff9984a2a42d0258c246a0ebf139e2e551b139910f715",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR170. Emmanual Robinson, Jr.; CC BY 4.0. https://sketchfab.com/3d-models/0e2c80e2928d4b76b49914db5bbb47ca"
+      },
+      {
+        "id": "render-CAR170-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car170-top.webp",
+        "sha256": "3cc93373248731c944f77a1d2d3af3ef6896a0a84c1438e946668a940e3dd1e2",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR170. Emmanual Robinson, Jr.; CC BY 4.0. https://sketchfab.com/3d-models/0e2c80e2928d4b76b49914db5bbb47ca"
+      },
+      {
+        "id": "render-CAR170-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car170-front-left.webp",
+        "sha256": "9ba4dbccc7f93bf72ec73a903fa8660dc6b5fdd497fc058a050b1f271dc778eb",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR170. Emmanual Robinson, Jr.; CC BY 4.0. https://sketchfab.com/3d-models/0e2c80e2928d4b76b49914db5bbb47ca"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car170-side.webp.json",
+        "sha256": "82c777a67268d7a3e641a24ffebac44e9a5dfaa6bb96a3bb3291e9ddcf0ba86c"
+      },
+      {
+        "path": "media/rendered-cars/car170-top.webp.json",
+        "sha256": "7438c4375dc9140e859feaa545073c35ffdbb4ed274fc6a1aedce91443bd92b4"
+      },
+      {
+        "path": "media/rendered-cars/car170-front-left.webp.json",
+        "sha256": "78c5016172e3612a6adfaf30665eb6881b705b21586e20f49ef80e3711689997"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.25,
+        "y": 0.77,
+        "r": 0.09
+      },
+      {
+        "x": 0.75,
+        "y": 0.77,
+        "r": 0.09
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5409195421346783
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6048429095914029
+      },
+      "wheel": {
+        "x": 0.25,
+        "y": 0.77
+      }
+    },
+    "bounds": [
+      4.65,
+      1.2425611085341293,
+      1.7409062554800172
+    ],
+    "triangles": 178425,
+    "sourceModelSha256": "f3401174cd23432b27980f58f20b0387c825f968526171bb2e28d8ae27d23ee1"
+  },
+  {
+    "id": "CAR171",
+    "assets": [
+      {
+        "id": "render-CAR171-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car171-side.webp",
+        "sha256": "0f2ad86ed17d27f3473e79314b04650553ed6ce9771f20504525f6ca61e8af9d",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR171. Ameer Studio; CC BY 4.0. https://sketchfab.com/3d-models/none-5ef9b845aaf44203b6d04e2c677e444f"
+      },
+      {
+        "id": "render-CAR171-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car171-top.webp",
+        "sha256": "48db899ed4f028d524e3f9bc90472ce928ff0d3d37ace9b9824cb3b93e9dc969",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR171. Ameer Studio; CC BY 4.0. https://sketchfab.com/3d-models/none-5ef9b845aaf44203b6d04e2c677e444f"
+      },
+      {
+        "id": "render-CAR171-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car171-front-left.webp",
+        "sha256": "32f80e564aae34efd903a8c23a71c8622860ba28c4d98d4ff8f330c8536c3d80",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR171. Ameer Studio; CC BY 4.0. https://sketchfab.com/3d-models/none-5ef9b845aaf44203b6d04e2c677e444f"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car171-side.webp.json",
+        "sha256": "72dc964a7a79f4484352ccc32d7600f63a5c2e74e85b458cd6df6a47f6cc8560"
+      },
+      {
+        "path": "media/rendered-cars/car171-top.webp.json",
+        "sha256": "e7672083378c48437f816914700d47c575b9e56effcd6a0bebe9e51c56bd1c86"
+      },
+      {
+        "path": "media/rendered-cars/car171-front-left.webp.json",
+        "sha256": "eec8542a852daff3c02a73c4cfe993802e78029e35ccd180e0edb2e33408c76f"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.10217819047569976,
+        "y": 0.6310548306792465,
+        "r": 0.10992770649715874
+      },
+      {
+        "x": 0.8819856460927302,
+        "y": 0.5941154040227113,
+        "r": 0.12
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5495855066460777
+      },
+      "light": {
+        "x": 0.9318181818181819,
+        "y": 0.6206204962472304
+      },
+      "wheel": {
+        "x": 0.10217819047569976,
+        "y": 0.6310548306792465
+      }
+    },
+    "bounds": [
+      4.650000000000001,
+      1.3949760077871345,
+      2.164964106848066
+    ],
+    "triangles": 105755,
+    "sourceModelSha256": "2fdd7457d7ef355d1ddcabbf3bd14b82d8758f12c6b775dd6dfa1aa98fbaa20d"
+  },
+  {
+    "id": "CAR172",
+    "assets": [
+      {
+        "id": "render-CAR172-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car172-side.webp",
+        "sha256": "7f06ef394bb30a15d041533bca6aa54530c16cfeff56764dc96430929fcbfc2e",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR172. rexrain studio; CC BY 4.0. https://sketchfab.com/3d-models/d215f87bfd55479fa68683e545a0785b"
+      },
+      {
+        "id": "render-CAR172-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car172-top.webp",
+        "sha256": "f864aaecd34b2dc2e043f0729bc73c69ea7c302374d3853192c42246f0dafbd0",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR172. rexrain studio; CC BY 4.0. https://sketchfab.com/3d-models/d215f87bfd55479fa68683e545a0785b"
+      },
+      {
+        "id": "render-CAR172-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car172-front-left.webp",
+        "sha256": "885e6d28f7fa093cae82a33fbd1ebf1f377b6ecb4bbf44b4616194830b302064",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR172. rexrain studio; CC BY 4.0. https://sketchfab.com/3d-models/d215f87bfd55479fa68683e545a0785b"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car172-side.webp.json",
+        "sha256": "756691bd44ae2cb89b0c89f77b5eb99fac4db2a92c27eaafd3b9ad88491f4f3b"
+      },
+      {
+        "path": "media/rendered-cars/car172-top.webp.json",
+        "sha256": "6a44e7418b03dcb4f9d6f12e030bd29208878545f6aee6ef812b3054a16237e3"
+      },
+      {
+        "path": "media/rendered-cars/car172-front-left.webp.json",
+        "sha256": "da0275b2ac4ec64ee41a1089b2aad18cb5ac606fb11493d3526d7bb76de37a4b"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.2694770833685719,
+        "y": 0.7384434519078317,
+        "r": 0.12
+      },
+      {
+        "x": 0.7873179003461834,
+        "y": 0.6868912108538465,
+        "r": 0.12
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5503177387474731
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6390417389187842
+      },
+      "wheel": {
+        "x": 0.2694770833685719,
+        "y": 0.7384434519078317
+      }
+    },
+    "bounds": [
+      4.65,
+      1.7023187126343817,
+      2.05356275358271
+    ],
+    "triangles": 123036,
+    "sourceModelSha256": "802271ac9c8e2ca6809d548dea0aea5a299a7af81afb4716332020495a87db72"
+  },
+  {
+    "id": "CAR173",
+    "assets": [
+      {
+        "id": "render-CAR173-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car173-side.webp",
+        "sha256": "bfbfeb1c87e42209f162285e5523d29e1f55a0bda29d34af2c6e948363fd90df",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR173. everhard; CC BY 4.0. https://sketchfab.com/3d-models/none-2c60afeb98c3492f8007ac509de7698b"
+      },
+      {
+        "id": "render-CAR173-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car173-top.webp",
+        "sha256": "fb1fce78eba728aff970b9dc93fbff9eebaf1d5d212f6be40eb4e2feaad514b0",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR173. everhard; CC BY 4.0. https://sketchfab.com/3d-models/none-2c60afeb98c3492f8007ac509de7698b"
+      },
+      {
+        "id": "render-CAR173-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car173-front-left.webp",
+        "sha256": "687a7c82bd5eeee4d3edbbf369f788ca23c5f15d3844136b6ca39756991bddc7",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR173. everhard; CC BY 4.0. https://sketchfab.com/3d-models/none-2c60afeb98c3492f8007ac509de7698b"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car173-side.webp.json",
+        "sha256": "3aa95b0aae119edfb42125a92a08e64c9ad4f6ad4f81afc3039b8a8e748af130"
+      },
+      {
+        "path": "media/rendered-cars/car173-top.webp.json",
+        "sha256": "c7614bd0ce93e6a1313367b56afe862e5d54ac8359a6db384eb70395228cfd9b"
+      },
+      {
+        "path": "media/rendered-cars/car173-front-left.webp.json",
+        "sha256": "4bf1f2c3f056db6ea36b71c09b13b09f94c1bc4bec562ca33996eb46296ba885"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.25,
+        "y": 0.77,
+        "r": 0.09
+      },
+      {
+        "x": 0.75,
+        "y": 0.77,
+        "r": 0.09
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.542921140429881
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6084340013681605
+      },
+      "wheel": {
+        "x": 0.25,
+        "y": 0.77
+      }
+    },
+    "bounds": [
+      4.65,
+      1.2768498039737306,
+      1.8393093661305584
+    ],
+    "triangles": 113245,
+    "sourceModelSha256": "550d4857a481f5c019416a02f4c31544e8782eb2ab1dfc2aae3499b82df211cb"
+  },
+  {
+    "id": "CAR174",
+    "assets": [
+      {
+        "id": "render-CAR174-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car174-side.webp",
+        "sha256": "35cf3db012aaac0b20e01b59af4398ed63d5171db2dce03570c4df28533e76db",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR174. Randomness; CC BY 4.0. https://sketchfab.com/3d-models/277cf51a9f95473c85580612651990fd"
+      },
+      {
+        "id": "render-CAR174-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car174-top.webp",
+        "sha256": "db0d34023439cff3e584c5c56ca8a0a24c59cca2fd500e31cde061081e4214be",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR174. Randomness; CC BY 4.0. https://sketchfab.com/3d-models/277cf51a9f95473c85580612651990fd"
+      },
+      {
+        "id": "render-CAR174-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car174-front-left.webp",
+        "sha256": "b1100bb1db369ad404c3cb4bcb3efd6e56a054f46d8a06badd6174204ef9a096",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR174. Randomness; CC BY 4.0. https://sketchfab.com/3d-models/277cf51a9f95473c85580612651990fd"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car174-side.webp.json",
+        "sha256": "32796bb11a88e87ce54076b51c1604cdbc4af44b3260cca491dd4b48b0ab50c0"
+      },
+      {
+        "path": "media/rendered-cars/car174-top.webp.json",
+        "sha256": "840d10636d9dc2180bafebb9aac5868fd20255be1dd3793403cd5c96547b8483"
+      },
+      {
+        "path": "media/rendered-cars/car174-front-left.webp.json",
+        "sha256": "041e48bcfdc734e2ee8adbff37112d1732c7c6a57cbdb41d4026a42508e0e59f"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.20511638638590707,
+        "y": 0.7583195911353975,
+        "r": 0.12
+      },
+      {
+        "x": 0.7302270990769253,
+        "y": 0.7043110030992924,
+        "r": 0.12
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5512136866186885
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6470302318618503
+      },
+      "wheel": {
+        "x": 0.20511638638590707,
+        "y": 0.7583195911353975
+      }
+    },
+    "bounds": [
+      4.65,
+      1.827626104323877,
+      2.0426299747668093
+    ],
+    "triangles": 144289,
+    "sourceModelSha256": "f4149ec0625630b0e90886f6dab26ae9159e46603a37727fedb6806538552a6b"
+  },
+  {
+    "id": "CAR175",
+    "assets": [
+      {
+        "id": "render-CAR175-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car175-side.webp",
+        "sha256": "fa6de89dfd7485ebc08f1ecc5d634c1d00bdf3420dd7bb60e7d5242a5a86d884",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR175. Peter_D; CC BY 4.0. https://sketchfab.com/3d-models/none-5cd3ea8eb94c4f5597cc086b2df40e58"
+      },
+      {
+        "id": "render-CAR175-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car175-top.webp",
+        "sha256": "eb28b25567e5221c8d87c2ced261e6e8260600937f30b87b107e66e8f154a465",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR175. Peter_D; CC BY 4.0. https://sketchfab.com/3d-models/none-5cd3ea8eb94c4f5597cc086b2df40e58"
+      },
+      {
+        "id": "render-CAR175-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car175-front-left.webp",
+        "sha256": "46824b1aa2905d93470795eaccec54127c79805b0f30c1ef0bd4ddbc3a6121b3",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR175. Peter_D; CC BY 4.0. https://sketchfab.com/3d-models/none-5cd3ea8eb94c4f5597cc086b2df40e58"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car175-side.webp.json",
+        "sha256": "6cfb9225e11c65b0c4968bd978f38f1bcaf4015158e8d033529157025a889e5b"
+      },
+      {
+        "path": "media/rendered-cars/car175-top.webp.json",
+        "sha256": "9c2a35597aebd636546b5c1bbc08e45629b61cb5208b536b857aaae8f2296b6e"
+      },
+      {
+        "path": "media/rendered-cars/car175-front-left.webp.json",
+        "sha256": "2629d8fe074aa1073deae2f385035ec7fb5eec3eb1b086e2761c5284c236b8cb"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.25,
+        "y": 0.77,
+        "r": 0.09
+      },
+      {
+        "x": 0.75,
+        "y": 0.77,
+        "r": 0.09
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5546796390206374
+      },
+      "light": {
+        "x": 0.8765798907211921,
+        "y": 0.6553729180505213
+      },
+      "wheel": {
+        "x": 0.25,
+        "y": 0.77
+      }
+    },
+    "bounds": [
+      4.65,
+      2.2057704068899113,
+      2.5166508987701044
+    ],
+    "triangles": 43920,
+    "sourceModelSha256": "0439a7d8c24107b52ad4eb5619a26ba25857d6ce67aed7f621177270d58ab545"
+  },
+  {
+    "id": "CAR176",
+    "assets": [
+      {
+        "id": "render-CAR176-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car176-side.webp",
+        "sha256": "4fa0095795a76c58f2e0748db8beaf3df31eb6d36a2dbace44229e568a79d4e4",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR176. VuckyZ; CC BY 4.0. https://sketchfab.com/3d-models/19c892aa76a7435a994b001d726ffdcf"
+      },
+      {
+        "id": "render-CAR176-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car176-top.webp",
+        "sha256": "42f522fb82f13989a25bb9041a5bbfab21309dcbda2df5e3eec8b9fcae43ee16",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR176. VuckyZ; CC BY 4.0. https://sketchfab.com/3d-models/19c892aa76a7435a994b001d726ffdcf"
+      },
+      {
+        "id": "render-CAR176-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car176-front-left.webp",
+        "sha256": "3e41533383a799ed5823c6af621510c6e15c9e8e3b37c60f69c8dcee2f3729a9",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR176. VuckyZ; CC BY 4.0. https://sketchfab.com/3d-models/19c892aa76a7435a994b001d726ffdcf"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car176-side.webp.json",
+        "sha256": "d08dd214991e7947f9d6d5bbf421d5e60f540b8803ebbd5acc5af9432dc71beb"
+      },
+      {
+        "path": "media/rendered-cars/car176-top.webp.json",
+        "sha256": "6fd522350bc37fb94721da5bdc20a3913b017a990e473790ca532ab3fb6aebb8"
+      },
+      {
+        "path": "media/rendered-cars/car176-front-left.webp.json",
+        "sha256": "e1365794da4324bb50e97c69a1660a77bdb5094bb9c3d47ba9a2c2e4fe7514c6"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.22866928487581462,
+        "y": 0.7336830657344056,
+        "r": 0.12
+      },
+      {
+        "x": 0.7708583434163374,
+        "y": 0.6703561655936339,
+        "r": 0.10041109180783044
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5510905450896659
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6376432934650498
+      },
+      "wheel": {
+        "x": 0.22866928487581462,
+        "y": 0.7336830657344056
+      }
+    },
+    "bounds": [
+      4.65,
+      1.6675668628841631,
+      2.1155509310096323
+    ],
+    "triangles": 16336,
+    "sourceModelSha256": "74bf63a21f52726fdc84e2afa324337c83b0cd2be291be7f3a6f3cece160e8cf"
+  },
+  {
+    "id": "CAR177",
+    "assets": [
+      {
+        "id": "render-CAR177-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car177-side.webp",
+        "sha256": "61cac369c3ed0f7543fc5a57ab2c36ad691a69aa6cbe9d83f6f92f81d2f56e29",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR177. Mona x Supercars; CC BY 4.0. https://sketchfab.com/3d-models/b4edfa2fd5cc48ada679352215e0105e"
+      },
+      {
+        "id": "render-CAR177-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car177-top.webp",
+        "sha256": "233a083e8a89dc003a0b28cacd3152112bf96613f368d4f35bb9071f590ceb20",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR177. Mona x Supercars; CC BY 4.0. https://sketchfab.com/3d-models/b4edfa2fd5cc48ada679352215e0105e"
+      },
+      {
+        "id": "render-CAR177-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car177-front-left.webp",
+        "sha256": "00baa8c89b406981df8ff461a20d6be9fff2b7736b8e9c52a75396648bca949a",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR177. Mona x Supercars; CC BY 4.0. https://sketchfab.com/3d-models/b4edfa2fd5cc48ada679352215e0105e"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car177-side.webp.json",
+        "sha256": "e6ceda35d414e6f0e2ede4437e1f7fd2d5b084362fbd54bcc73681158c2dbf71"
+      },
+      {
+        "path": "media/rendered-cars/car177-top.webp.json",
+        "sha256": "12cfb1c1df18d7caa36bdc6482e279512a1e1d291ce03b8d1103547db1662414"
+      },
+      {
+        "path": "media/rendered-cars/car177-front-left.webp.json",
+        "sha256": "22be05709c8ed84ac14da13d1a13ac9b4522d3686ab62a81a9f1c60c9cdd6ff0"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.25,
+        "y": 0.77,
+        "r": 0.09
+      },
+      {
+        "x": 0.75,
+        "y": 0.77,
+        "r": 0.09
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.545860943382936
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6163177745073415
+      },
+      "wheel": {
+        "x": 0.25,
+        "y": 0.77
+      }
+    },
+    "bounds": [
+      4.65,
+      1.3721766895624552,
+      1.9613536814559291
+    ],
+    "triangles": 76708,
+    "sourceModelSha256": "75d2c97f991364213e9d8690aed8969ce67d99d910f6033e1506cef514ae5a54"
+  },
+  {
+    "id": "CAR178",
+    "assets": [
+      {
+        "id": "render-CAR178-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car178-side.webp",
+        "sha256": "58dadf69c1ff0bd85511bd322d45016f62e237ba53db08c725af7c13937be829",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR178. Casacade Models; CC BY 4.0. https://sketchfab.com/3d-models/09ebc68dcb634807a9dace7404ce5e66"
+      },
+      {
+        "id": "render-CAR178-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car178-top.webp",
+        "sha256": "33ff3be04b0eec38090f439989120043c18e338c6345ec42a56bf861eb92bd31",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR178. Casacade Models; CC BY 4.0. https://sketchfab.com/3d-models/09ebc68dcb634807a9dace7404ce5e66"
+      },
+      {
+        "id": "render-CAR178-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car178-front-left.webp",
+        "sha256": "52324b24e5aeaa06728f538b25f212d64e221575ee664e69573c207ba404676a",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR178. Casacade Models; CC BY 4.0. https://sketchfab.com/3d-models/09ebc68dcb634807a9dace7404ce5e66"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car178-side.webp.json",
+        "sha256": "4caf5cb16dc3d345d2298a681a10e11f4897df6e2216dc148dd25e5daf8c9b6a"
+      },
+      {
+        "path": "media/rendered-cars/car178-top.webp.json",
+        "sha256": "2fb78f45b0d5336666ed72269bd158cf8707e62f0cae2e9fcfa5aa61953ecb1f"
+      },
+      {
+        "path": "media/rendered-cars/car178-front-left.webp.json",
+        "sha256": "70e4d9924bfeb7bcc7cb580a960f1703c73e38d771196a7861a782f98f3dc32c"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.25,
+        "y": 0.77,
+        "r": 0.09
+      },
+      {
+        "x": 0.75,
+        "y": 0.77,
+        "r": 0.09
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5531094893062936
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6529213279820296
+      },
+      "wheel": {
+        "x": 0.25,
+        "y": 0.77
+      }
+    },
+    "bounds": [
+      4.65,
+      1.9030072126475785,
+      2.1143795528479914
+    ],
+    "triangles": 304490,
+    "sourceModelSha256": "34c8f8cf6224d911f99c28a8f62c92f09a943b584e2f00a96006a32269f1907e"
+  },
+  {
+    "id": "CAR180",
+    "assets": [
+      {
+        "id": "render-CAR180-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car180-side.webp",
+        "sha256": "6a61ce5885f02a58ea0a866b5038860430fd766fd3d702d15d02c327305b8948",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR180. Mona x Supercars; CC BY 4.0. https://sketchfab.com/3d-models/0c0d6c54a2424feb95447400a5c5e50e"
+      },
+      {
+        "id": "render-CAR180-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car180-top.webp",
+        "sha256": "f23325691b137d34bcb9d6671c088dcb3aa9d195fcc8ba1ce1fb25c66a69c935",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR180. Mona x Supercars; CC BY 4.0. https://sketchfab.com/3d-models/0c0d6c54a2424feb95447400a5c5e50e"
+      },
+      {
+        "id": "render-CAR180-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car180-front-left.webp",
+        "sha256": "5e96abe575369d8af5a2e02cdcf1b078a192b6492459430b1394449db26ab42d",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR180. Mona x Supercars; CC BY 4.0. https://sketchfab.com/3d-models/0c0d6c54a2424feb95447400a5c5e50e"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car180-side.webp.json",
+        "sha256": "ae8a2f69773635d479d5e02a47a20a21e31e09ad307651434da7e99f5c611669"
+      },
+      {
+        "path": "media/rendered-cars/car180-top.webp.json",
+        "sha256": "7a5bf6a07012888b89609e87e35f782938c09085db230cfb4f1467e60477dc2a"
+      },
+      {
+        "path": "media/rendered-cars/car180-front-left.webp.json",
+        "sha256": "b91a0f77e2908b2a45df0926b78a7b45bc8ee7240c1f1115c1687448d87cd072"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.25,
+        "y": 0.77,
+        "r": 0.09
+      },
+      {
+        "x": 0.75,
+        "y": 0.77,
+        "r": 0.09
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5527178808611116
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6454599457510877
+      },
+      "wheel": {
+        "x": 0.25,
+        "y": 0.77
+      }
+    },
+    "bounds": [
+      4.65,
+      1.7798303857847648,
+      2.1533613520423764
+    ],
+    "triangles": 115178,
+    "sourceModelSha256": "689f86fc96b7c7502a020c21a0cb14586dd45e03161ed6812ee8d6b48d759123"
+  },
+  {
+    "id": "CAR181",
+    "assets": [
+      {
+        "id": "render-CAR181-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car181-side.webp",
+        "sha256": "1517de1f28ca6e8a36bbb4009935d716a5eeabb6f121ac976f4080c19fbb8d14",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR181. Luquita; CC BY 4.0. https://sketchfab.com/3d-models/none-b59a403dfa1d40318c1126e658f87c19"
+      },
+      {
+        "id": "render-CAR181-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car181-top.webp",
+        "sha256": "40986ab25f8bd0e9b333deabd47bf0bbc2665bff1be8db67255051c24e627a34",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR181. Luquita; CC BY 4.0. https://sketchfab.com/3d-models/none-b59a403dfa1d40318c1126e658f87c19"
+      },
+      {
+        "id": "render-CAR181-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car181-front-left.webp",
+        "sha256": "aa3343304bebee4c36462065f0979d90fe5af75390203cc24b3a268464fba887",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR181. Luquita; CC BY 4.0. https://sketchfab.com/3d-models/none-b59a403dfa1d40318c1126e658f87c19"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car181-side.webp.json",
+        "sha256": "0b412bdabfc5327e85a241274f0a778a82d222196d13ee5c5c6f591a37b2a3fc"
+      },
+      {
+        "path": "media/rendered-cars/car181-top.webp.json",
+        "sha256": "904a2b79d554a91e72009c35d71e40cd1dda1ea70fbd554dbf9c7070ccd7f182"
+      },
+      {
+        "path": "media/rendered-cars/car181-front-left.webp.json",
+        "sha256": "ba5509a5d332e1b020e5df899c2b1aa8f7bec61997a55dc935b1128e0b8d0c12"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.2423936079897459,
+        "y": 0.7594861443908021,
+        "r": 0.11014273698191816
+      },
+      {
+        "x": 0.7156955717200165,
+        "y": 0.8104770027455753,
+        "r": 0.11014273698191816
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5511903234024379
+      },
+      "light": {
+        "x": 0.8575801848921906,
+        "y": 0.6535555661660424
+      },
+      "wheel": {
+        "x": 0.2423936079897459,
+        "y": 0.7594861443908021
+      }
+    },
+    "bounds": [
+      4.65,
+      2.3432428169692425,
+      2.3969864514282175
+    ],
+    "triangles": 73187,
+    "sourceModelSha256": "f5cf1918908116f29940f23e24ccfbf4fd881da053e1402518e4a806bd55bcc5"
+  },
+  {
+    "id": "CAR182",
+    "assets": [
+      {
+        "id": "render-CAR182-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car182-side.webp",
+        "sha256": "1a38ef61f1b88aaab94e750ff41a4bd2fcb0782298d70156e229b7e11bf99b0a",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR182. David_Holiday; CC BY 4.0. https://sketchfab.com/3d-models/9b211d525797457e988c903f67d0b753"
+      },
+      {
+        "id": "render-CAR182-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car182-top.webp",
+        "sha256": "65566b1d8b7399df690e0550b615fd76b2edbe223d9b39eb29235f377fb39459",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR182. David_Holiday; CC BY 4.0. https://sketchfab.com/3d-models/9b211d525797457e988c903f67d0b753"
+      },
+      {
+        "id": "render-CAR182-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car182-front-left.webp",
+        "sha256": "bd628d7fbb11faccbfad8bf0d4f8390acd87c4d8d2cd353f77bf8431924e237a",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR182. David_Holiday; CC BY 4.0. https://sketchfab.com/3d-models/9b211d525797457e988c903f67d0b753"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car182-side.webp.json",
+        "sha256": "e7d6721df600c089be13afd1304c3471fd0af371e2c12acd19c92bf6c83e45e7"
+      },
+      {
+        "path": "media/rendered-cars/car182-top.webp.json",
+        "sha256": "063f57b4280351cf13987fe20f940abab09ff28f4e1fb7842d3d09fd72359b49"
+      },
+      {
+        "path": "media/rendered-cars/car182-front-left.webp.json",
+        "sha256": "ad8e96ea141d98df60e9b0dcba95cdb3b310f042ce0ccd88435a500b484aeb8a"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.2143400809896855,
+        "y": 0.7104138246570052,
+        "r": 0.065
+      },
+      {
+        "x": 0.8183562540030025,
+        "y": 0.648948247022317,
+        "r": 0.065
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5520954307957472
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6386937377796487
+      },
+      "wheel": {
+        "x": 0.2143400809896855,
+        "y": 0.7104138246570052
+      }
+    },
+    "bounds": [
+      4.65,
+      1.6718151960894945,
+      2.171436400790387
+    ],
+    "triangles": 294473,
+    "sourceModelSha256": "bc027bbb9d54a4b2a486064408667308926e536b79d4ffbe2329764d7c2bcbf8"
+  },
+  {
+    "id": "CAR183",
+    "assets": [
+      {
+        "id": "render-CAR183-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car183-side.webp",
+        "sha256": "fbf811aa6267885b89d4615671e6bbca3da2da7376a97a568f5320b220e2dac8",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR183. tonielpro520; CC BY 4.0. https://sketchfab.com/3d-models/b6e382aee4a44fb3b1222d7191470640"
+      },
+      {
+        "id": "render-CAR183-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car183-top.webp",
+        "sha256": "b0b43b3d23c3f4b9fb20ff8d3b22d115179beb5580f3a074626b8a5531d97982",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR183. tonielpro520; CC BY 4.0. https://sketchfab.com/3d-models/b6e382aee4a44fb3b1222d7191470640"
+      },
+      {
+        "id": "render-CAR183-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car183-front-left.webp",
+        "sha256": "eb4af7b2ab3e27d840e28c3db75e9761820961646200aa4638959e4cdf8cfe3b",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR183. tonielpro520; CC BY 4.0. https://sketchfab.com/3d-models/b6e382aee4a44fb3b1222d7191470640"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car183-side.webp.json",
+        "sha256": "b15f676463ccd7dd4c1a8002b8dc2f47c4c697b3fbe9b3ba6612fb3ee7aa6f7f"
+      },
+      {
+        "path": "media/rendered-cars/car183-top.webp.json",
+        "sha256": "36f8324f2909ebffc6e7ffc90c7843eb89a14ad28d14ead5ebe165631999e983"
+      },
+      {
+        "path": "media/rendered-cars/car183-front-left.webp.json",
+        "sha256": "87284d80729468c91a38e3c73d75bcea57045e94480194fd0ff267b61dd386a4"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.25,
+        "y": 0.77,
+        "r": 0.09
+      },
+      {
+        "x": 0.75,
+        "y": 0.77,
+        "r": 0.09
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5518764496948422
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.637306202083959
+      },
+      "wheel": {
+        "x": 0.25,
+        "y": 0.77
+      }
+    },
+    "bounds": [
+      4.65,
+      1.6509238234212722,
+      2.1692408345308216
+    ],
+    "triangles": 84029,
+    "sourceModelSha256": "bc90a1ac2394be24edef83f4a21f45156b2ebb7f6ce25aa21f4d333ccd575af4"
+  },
+  {
+    "id": "CAR08",
+    "assets": [
+      {
+        "id": "render-CAR08-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car08-side.webp",
+        "sha256": "48289573dd31530e7ff8f28024a1dc1e5fd3215838b42a2b0d7753d9c3d8dcb5",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR08. vecarz; CC BY 4.0. https://sketchfab.com/3d-models/dbdd5aadc1d64df289f65fc0f6da3c07"
+      },
+      {
+        "id": "render-CAR08-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car08-top.webp",
+        "sha256": "34d683ea8ea3b2d5245eaef8895b4f56e09f7fb95fc0a7dbc1ac0bff5e16dc46",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR08. vecarz; CC BY 4.0. https://sketchfab.com/3d-models/dbdd5aadc1d64df289f65fc0f6da3c07"
+      },
+      {
+        "id": "render-CAR08-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car08-front-left.webp",
+        "sha256": "0f97373d949de638c212f0a1c8faf7b3b363d34aa711a263b0e5011285428448",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR08. vecarz; CC BY 4.0. https://sketchfab.com/3d-models/dbdd5aadc1d64df289f65fc0f6da3c07"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car08-side.webp.json",
+        "sha256": "2160de7ace54bcb5cde74ec1205992a37972b5eceb843fdc721b2b5daac3c84b"
+      },
+      {
+        "path": "media/rendered-cars/car08-top.webp.json",
+        "sha256": "198b80fcd1a00970ce591257eb6a18a7865439f97b6ed912574b037cbd34d605"
+      },
+      {
+        "path": "media/rendered-cars/car08-front-left.webp.json",
+        "sha256": "df6c712d9e4f9c7c55d0250896558e055ed2b8ff5d0c4a8a1f8fadd2a4f69693"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.2189800778627729,
+        "y": 0.653222641996614,
+        "r": 0.12
+      },
+      {
+        "x": 0.7639909754800625,
+        "y": 0.5933296401635029,
+        "r": 0.12
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5499126735861095
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6165938941468845
+      },
+      "wheel": {
+        "x": 0.2189800778627729,
+        "y": 0.653222641996614
+      }
+    },
+    "bounds": [
+      4.65,
+      1.32107890050251,
+      2.220799221532163
+    ],
+    "triangles": 86429,
+    "sourceModelSha256": "00a73a38a82e3c73b936e661812f767cfb1782f13ab18b3852a706446239efe9"
+  },
+  {
+    "id": "CAR09",
+    "assets": [
+      {
+        "id": "render-CAR09-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car09-side.webp",
+        "sha256": "1ff047038afe0cd0c0bbc77449269da28a7bb76fd3cfdf37b242aed96691e122",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR09. Hari Prasath R; CC BY 4.0. https://sketchfab.com/3d-models/none-790c40ccff6843eab0b7b4bd18421ff8"
+      },
+      {
+        "id": "render-CAR09-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car09-top.webp",
+        "sha256": "4505c6847a764195318d097af4baebf9e1fe7fe2789816e3138b169f3332b6e9",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR09. Hari Prasath R; CC BY 4.0. https://sketchfab.com/3d-models/none-790c40ccff6843eab0b7b4bd18421ff8"
+      },
+      {
+        "id": "render-CAR09-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car09-front-left.webp",
+        "sha256": "852af0ff65dec04b7f4a7b78e271e423c1e45dea8cb24224ab26c38737904134",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR09. Hari Prasath R; CC BY 4.0. https://sketchfab.com/3d-models/none-790c40ccff6843eab0b7b4bd18421ff8"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car09-side.webp.json",
+        "sha256": "4f03a3bcc0672d3a7ec7fce2e4627e8630fa90541b7f15b66c2e88358e0082fd"
+      },
+      {
+        "path": "media/rendered-cars/car09-top.webp.json",
+        "sha256": "40f830fbf9d248a33d6e6d875cd7fe08a14241e28642d076e326e8994b485a58"
+      },
+      {
+        "path": "media/rendered-cars/car09-front-left.webp.json",
+        "sha256": "5bbef008d63f5681a44917df4103df021c77354af629a2d1a9632b2b525a41ac"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.24863422609458036,
+        "y": 0.5894332479737374,
+        "r": 0.12
+      },
+      {
+        "x": 0.7823745772214732,
+        "y": 0.5824007764554906,
+        "r": 0.12
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5476063570780084
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6073041736145464
+      },
+      "wheel": {
+        "x": 0.24863422609458036,
+        "y": 0.5894332479737374
+      }
+    },
+    "bounds": [
+      4.65,
+      1.192791512416877,
+      2.1518048072206
+    ],
+    "triangles": 140818,
+    "sourceModelSha256": "20bf0d987ad02f3f7ecd1b28b2cbd0a9ae9128f2f881476f945e2806c6641538"
+  },
+  {
+    "id": "CAR07",
+    "assets": [
+      {
+        "id": "render-CAR07-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car07-side.webp",
+        "sha256": "4f1ade4da814b1761fbc5f81425d9505786a7f9fdb01d6c5708dfe9051486f20",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR07. Ddiaz Design; CC BY 4.0. https://sketchfab.com/3d-models/none-c657f51fb0db43e38fea172dfa385287"
+      },
+      {
+        "id": "render-CAR07-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car07-top.webp",
+        "sha256": "39010b5c55cf943ec34caf6c0e713f54d7e5f1af7c8594b2468d8a33e54c0735",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR07. Ddiaz Design; CC BY 4.0. https://sketchfab.com/3d-models/none-c657f51fb0db43e38fea172dfa385287"
+      },
+      {
+        "id": "render-CAR07-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car07-front-left.webp",
+        "sha256": "ba590b3049689c0766e6a7d1f912585a59c5c66c9221b7bcab2c2ffb198053bd",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR07. Ddiaz Design; CC BY 4.0. https://sketchfab.com/3d-models/none-c657f51fb0db43e38fea172dfa385287"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car07-side.webp.json",
+        "sha256": "2f45b54c968a4bc0f1d29f7174027b7f9842080a894aa638ed23ad9a9f1c6760"
+      },
+      {
+        "path": "media/rendered-cars/car07-top.webp.json",
+        "sha256": "8e01f37af74feaadcc68d6ac7af5ff18582c633f97dc97475e649893941b16ca"
+      },
+      {
+        "path": "media/rendered-cars/car07-front-left.webp.json",
+        "sha256": "2495a0ae9172e90fae536c3deb8285aa64c61d80dc0cfb8cf2c51f474fab5481"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.22216887975776556,
+        "y": 0.635007275537838,
+        "r": 0.12
+      },
+      {
+        "x": 0.7553485991926647,
+        "y": 0.6463480840818949,
+        "r": 0.12
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5493844923112493
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6118921619701057
+      },
+      "wheel": {
+        "x": 0.22216887975776556,
+        "y": 0.635007275537838
+      }
+    },
+    "bounds": [
+      4.65,
+      1.2473394411743013,
+      2.2271783157799776
+    ],
+    "triangles": 51948,
+    "sourceModelSha256": "bca3b74d33fbce627dd95e66080a9b4a0b0c75597abbc9c2c5eeb29bbd2032e9"
+  },
+  {
+    "id": "CAR18",
+    "assets": [
+      {
+        "id": "render-CAR18-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car18-side.webp",
+        "sha256": "717ed5d1bdf97d9fc61d81cd66eba0d035423a05603a59d1ce010442bdd84b27",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR18. Manuel Contento; CC BY 4.0. https://sketchfab.com/3d-models/none-394feedd0a0742c595917c7b0f6edcad"
+      },
+      {
+        "id": "render-CAR18-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car18-top.webp",
+        "sha256": "d1d3f63ee189caf30147f2711a1fcc3c96be677ee7b71820c8418fd271440de9",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR18. Manuel Contento; CC BY 4.0. https://sketchfab.com/3d-models/none-394feedd0a0742c595917c7b0f6edcad"
+      },
+      {
+        "id": "render-CAR18-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car18-front-left.webp",
+        "sha256": "e15b836ad1116e0556c0fc0aac81baf63ee30ef310836a4c092ca131dd677274",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR18. Manuel Contento; CC BY 4.0. https://sketchfab.com/3d-models/none-394feedd0a0742c595917c7b0f6edcad"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car18-side.webp.json",
+        "sha256": "18b0e6bef61ecd8844725dbcbd17ae78b0444577f038ee83e6506195c7f005f0"
+      },
+      {
+        "path": "media/rendered-cars/car18-top.webp.json",
+        "sha256": "86f4566e077d5518910561c333c11d63ef3a1b8058312c90b10695fef71156d5"
+      },
+      {
+        "path": "media/rendered-cars/car18-front-left.webp.json",
+        "sha256": "1455632d2be45fc7d8bd91751eaebb41db17399dd66431b4bcbc71421daefe35"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.24160919933853026,
+        "y": 0.6699446104207286,
+        "r": 0.12
+      },
+      {
+        "x": 0.7907190761026601,
+        "y": 0.6415810528757531,
+        "r": 0.12
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5491049774507083
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6255601641923554
+      },
+      "wheel": {
+        "x": 0.24160919933853026,
+        "y": 0.6699446104207286
+      }
+    },
+    "bounds": [
+      4.6499999999999995,
+      1.486721378949175,
+      2.0913516258591702
+    ],
+    "triangles": 114946,
+    "sourceModelSha256": "04b099d58507998424fd0db070498534a6f06cb4f368566754982226378c8949"
+  },
+  {
+    "id": "CAR21",
+    "assets": [
+      {
+        "id": "render-CAR21-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car21-side.webp",
+        "sha256": "ea9a8d02b07d4c081e4cf3ba24505af696e46f75bd437b7f9a8bb95a0c5ae3de",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR21. vecarz; CC BY 4.0. https://sketchfab.com/3d-models/none-0b210ff1ee3e4f75acf3fd31e6b1b298"
+      },
+      {
+        "id": "render-CAR21-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car21-top.webp",
+        "sha256": "968f6815477678d2e47b479a7b9406e202fc2f688414dd56c66cf75c07988a22",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR21. vecarz; CC BY 4.0. https://sketchfab.com/3d-models/none-0b210ff1ee3e4f75acf3fd31e6b1b298"
+      },
+      {
+        "id": "render-CAR21-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car21-front-left.webp",
+        "sha256": "18bd786aab816e81bf5b12b515958ac369ced1c1cee9b4d1971a699cf1308c82",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR21. vecarz; CC BY 4.0. https://sketchfab.com/3d-models/none-0b210ff1ee3e4f75acf3fd31e6b1b298"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car21-side.webp.json",
+        "sha256": "163f18277b98514d60b753169f6bd2d92c76585ca3eb1d5913be4acded7199da"
+      },
+      {
+        "path": "media/rendered-cars/car21-top.webp.json",
+        "sha256": "d3648b1d60c968f08a82e3239b334acfed9869cf0ed8adb04f8b67d88ecdc724"
+      },
+      {
+        "path": "media/rendered-cars/car21-front-left.webp.json",
+        "sha256": "822fecc5bf6fb0e3a84d24224147c377cb3429505dc7c440dfbca1445368b9bf"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.18341356185597207,
+        "y": 0.6046807863484099,
+        "r": 0.065
+      },
+      {
+        "x": 0.7446660202465285,
+        "y": 0.5980641248490784,
+        "r": 0.065
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5476990338015052
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6157623885317876
+      },
+      "wheel": {
+        "x": 0.18341356185597207,
+        "y": 0.6046807863484099
+      }
+    },
+    "bounds": [
+      4.65,
+      1.3372668594923725,
+      2.0849171381646707
+    ],
+    "triangles": 83473,
+    "sourceModelSha256": "e81a587d96005c89a7880a24c26a172fdb91fe5859f7badaa0f057bc826683e7"
+  },
+  {
+    "id": "CAR185",
+    "assets": [
+      {
+        "id": "render-CAR185-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car185-side.webp",
+        "sha256": "42bef66db7ba1423bce0d305224629e3d80fac2cf24e51757c76736c8432f295",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR185. Lucas Soler; CC BY 4.0. https://sketchfab.com/3d-models/none-8ea03b3cbb9f439ea82a68ddbeb5f6ae"
+      },
+      {
+        "id": "render-CAR185-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car185-top.webp",
+        "sha256": "2a75e5cd9d2f6c2ac8d6b2fa07ae30d8c607cddd8e0874bbfee557c992ef9568",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR185. Lucas Soler; CC BY 4.0. https://sketchfab.com/3d-models/none-8ea03b3cbb9f439ea82a68ddbeb5f6ae"
+      },
+      {
+        "id": "render-CAR185-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car185-front-left.webp",
+        "sha256": "618876724c328717e2357d7a377560e077709460461e45944c1099610bbecf72",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR185. Lucas Soler; CC BY 4.0. https://sketchfab.com/3d-models/none-8ea03b3cbb9f439ea82a68ddbeb5f6ae"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car185-side.webp.json",
+        "sha256": "7edd08b9798f5bdd4104599465fe9e693e024b1f75eead97c163aba335823331"
+      },
+      {
+        "path": "media/rendered-cars/car185-top.webp.json",
+        "sha256": "eb9afbe16092c38b5500c395fd3eb73d41bd4ac3a4ff9293ee1172c8fc512cd6"
+      },
+      {
+        "path": "media/rendered-cars/car185-front-left.webp.json",
+        "sha256": "36b8a8e65a95787558f70df439c73a0544f0d3388c86711abcec56f1284e1e5f"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.25,
+        "y": 0.77,
+        "r": 0.09
+      },
+      {
+        "x": 0.75,
+        "y": 0.77,
+        "r": 0.09
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5435305667435409
+      },
+      "light": {
+        "x": 0.9318181818181819,
+        "y": 0.615710686120451
+      },
+      "wheel": {
+        "x": 0.25,
+        "y": 0.77
+      }
+    },
+    "bounds": [
+      4.650000000000001,
+      1.3938411314116608,
+      1.8159944186303245
+    ],
+    "triangles": 66673,
+    "sourceModelSha256": "f7a054cfa0fc51265693e097a0aefa09037b7fbee1dcaab34e692acc64235bf3"
+  },
+  {
+    "id": "CAR186",
+    "assets": [
+      {
+        "id": "render-CAR186-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car186-side.webp",
+        "sha256": "02bbf492b6f2eeb6e348f66ca6a89348868e6a2b593740b8baa19debbae38d2a",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR186. KiW; CC BY 4.0. https://sketchfab.com/3d-models/95700e5a98904b3591c6a03a4b67787b"
+      },
+      {
+        "id": "render-CAR186-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car186-top.webp",
+        "sha256": "68aa2ab642c0998daa45bf4e7f9d877ecf9793a759517657433efe2c3183d1ad",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR186. KiW; CC BY 4.0. https://sketchfab.com/3d-models/95700e5a98904b3591c6a03a4b67787b"
+      },
+      {
+        "id": "render-CAR186-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car186-front-left.webp",
+        "sha256": "0dd4c471c138bba0be22d7a9b008067e943ac1a4fda7d8c2a3c7787816d4acfd",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR186. KiW; CC BY 4.0. https://sketchfab.com/3d-models/95700e5a98904b3591c6a03a4b67787b"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car186-side.webp.json",
+        "sha256": "e20394ae35e74d1723a2c57c0708c6acc5a9c9b776fc7099409ec1b2b1114353"
+      },
+      {
+        "path": "media/rendered-cars/car186-top.webp.json",
+        "sha256": "aae6d9e8aa738db1e44d3822a886bca241dc3748456379efdfcd52475f61f99a"
+      },
+      {
+        "path": "media/rendered-cars/car186-front-left.webp.json",
+        "sha256": "225297b1fa4dc907831806da2bfd71625b5f7bdfef67bdd9032335852e0e0632"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.25,
+        "y": 0.77,
+        "r": 0.09
+      },
+      {
+        "x": 0.75,
+        "y": 0.77,
+        "r": 0.09
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5460280502644127
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6149983525152701
+      },
+      "wheel": {
+        "x": 0.25,
+        "y": 0.77
+      }
+    },
+    "bounds": [
+      4.65,
+      1.347136569262825,
+      1.9835204202010874
+    ],
+    "triangles": 116327,
+    "sourceModelSha256": "27ec626b1160d2aaf57003c7d8191bb1647009ec1d2ba4b2e95e4079bb8c048b"
+  },
+  {
+    "id": "CAR187",
+    "assets": [
+      {
+        "id": "render-CAR187-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car187-side.webp",
+        "sha256": "d074d37cee8ae091c5f994257e67e39573ef79ca396e0c770d5d44678205319e",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR187. 3DDomino; CC BY 4.0. https://sketchfab.com/3d-models/fddf543ea68245309379bf7336aaa7a3"
+      },
+      {
+        "id": "render-CAR187-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car187-top.webp",
+        "sha256": "d6e9bc5702edade7adae60c581d896fe8cbaf805e708362cdc9115054ef7219e",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR187. 3DDomino; CC BY 4.0. https://sketchfab.com/3d-models/fddf543ea68245309379bf7336aaa7a3"
+      },
+      {
+        "id": "render-CAR187-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car187-front-left.webp",
+        "sha256": "9fc4ab3f6c29a73432ea16c3e0a2b407baafc90fc1e3afea520555d1f912bbe4",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR187. 3DDomino; CC BY 4.0. https://sketchfab.com/3d-models/fddf543ea68245309379bf7336aaa7a3"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car187-side.webp.json",
+        "sha256": "3e81b4f8e67eaab366a7e18dc6af71012d183c10e4cb94fad6effe356d9534a2"
+      },
+      {
+        "path": "media/rendered-cars/car187-top.webp.json",
+        "sha256": "64abef63a5cb2b067e497e351a26abcd7e9b2843a6a5d63ea15704defac547e6"
+      },
+      {
+        "path": "media/rendered-cars/car187-front-left.webp.json",
+        "sha256": "91a0d78d39ed1b75fade6f542a0d90086d52b3ac1625ad820cf061f76af571a4"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.25,
+        "y": 0.77,
+        "r": 0.09
+      },
+      {
+        "x": 0.75,
+        "y": 0.77,
+        "r": 0.09
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5511028165334704
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6328367006564035
+      },
+      "wheel": {
+        "x": 0.25,
+        "y": 0.77
+      }
+    },
+    "bounds": [
+      4.65,
+      1.5845699165941238,
+      2.157757805108799
+    ],
+    "triangles": 73379,
+    "sourceModelSha256": "a24ce737dfe56a38377af0b3afacdca8f7cb3c3aeaed0e17c4f04e221bcab9c5"
+  },
+  {
+    "id": "CAR189",
+    "assets": [
+      {
+        "id": "render-CAR189-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car189-side.webp",
+        "sha256": "9490db71680c0ff35db4a3b914d715176378ed8f9eec30c1e9ecd85dac7c3752",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR189. Mona x Supercars; CC BY 4.0. https://sketchfab.com/3d-models/f27d0e569b7a44fc8786f1d914bc687d"
+      },
+      {
+        "id": "render-CAR189-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car189-top.webp",
+        "sha256": "f7e1c1177500cedde3677456083b3ec07bd29e3e71223f50df84a96600ed93e9",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR189. Mona x Supercars; CC BY 4.0. https://sketchfab.com/3d-models/f27d0e569b7a44fc8786f1d914bc687d"
+      },
+      {
+        "id": "render-CAR189-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car189-front-left.webp",
+        "sha256": "68cb94c17f74153145545bb5a16044bb93f871b21324e4e5ad36364df9de45a1",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR189. Mona x Supercars; CC BY 4.0. https://sketchfab.com/3d-models/f27d0e569b7a44fc8786f1d914bc687d"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car189-side.webp.json",
+        "sha256": "105da81846ae2b6e67abf538fb1f7fb63e3addd2132a8808d5f2f76f9d471a9f"
+      },
+      {
+        "path": "media/rendered-cars/car189-top.webp.json",
+        "sha256": "aa2f0daecded24bdcbadd13df20259d7ef3ecceb06599330f84ffca361be0172"
+      },
+      {
+        "path": "media/rendered-cars/car189-front-left.webp.json",
+        "sha256": "38a55f3bbf49a82203735e7557e5024545fec0eaf4d34508ca808dfbe80e65cf"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.25,
+        "y": 0.77,
+        "r": 0.09
+      },
+      {
+        "x": 0.75,
+        "y": 0.77,
+        "r": 0.09
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5453338642139778
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6174376966554146
+      },
+      "wheel": {
+        "x": 0.25,
+        "y": 0.77
+      }
+    },
+    "bounds": [
+      4.65,
+      1.3987414729838268,
+      1.917644276253548
+    ],
+    "triangles": 19586,
+    "sourceModelSha256": "0b3570542840d2b3065f119a13f74d74f1b19e11e98de9ca61d2d935b2a743a6"
+  },
+  {
+    "id": "CAR190",
+    "assets": [
+      {
+        "id": "render-CAR190-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car190-side.webp",
+        "sha256": "e498f3d0102885c811bdbb5bd230993248aaeb7b908ba14ac8522729a65ff657",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR190. animanyarty; CC BY 4.0. https://sketchfab.com/3d-models/5d57f6dcabe7473f91b160595a3eb0cc"
+      },
+      {
+        "id": "render-CAR190-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car190-top.webp",
+        "sha256": "c7c4755f6582a0de06e142575a3b85b129687208ced089124b6c60aa6c650125",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR190. animanyarty; CC BY 4.0. https://sketchfab.com/3d-models/5d57f6dcabe7473f91b160595a3eb0cc"
+      },
+      {
+        "id": "render-CAR190-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car190-front-left.webp",
+        "sha256": "cd5ab1eca4155db6bfe9464c53e1a21ad545bf4b8bf984de230b5cbab0c55c1b",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR190. animanyarty; CC BY 4.0. https://sketchfab.com/3d-models/5d57f6dcabe7473f91b160595a3eb0cc"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car190-side.webp.json",
+        "sha256": "1dbdc87f84d60160116c263b8750582baf6307e65e935dd2fe5f8ad7ac345f7c"
+      },
+      {
+        "path": "media/rendered-cars/car190-top.webp.json",
+        "sha256": "095c47d44f2b88684e695dfda990ca95061d7db6441ca125cfe6a31d2d08fe75"
+      },
+      {
+        "path": "media/rendered-cars/car190-front-left.webp.json",
+        "sha256": "4ddc2a34a348ce44127ee40dc39d29136fe23b8355478eeacbbdf34c9a3ee711"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.25,
+        "y": 0.77,
+        "r": 0.09
+      },
+      {
+        "x": 0.75,
+        "y": 0.77,
+        "r": 0.09
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5554817017810086
+      },
+      "light": {
+        "x": 0.8380623893291068,
+        "y": 0.655790659071548
+      },
+      "wheel": {
+        "x": 0.25,
+        "y": 0.77
+      }
+    },
+    "bounds": [
+      4.65,
+      2.4521587283679582,
+      2.864994455812338
+    ],
+    "triangles": 100172,
+    "sourceModelSha256": "9b267cfeb72ae2539ca042c3ce14f3a88bf6c37ae575fe11824e9de0fecbdb38"
+  },
+  {
+    "id": "CAR192",
+    "assets": [
+      {
+        "id": "render-CAR192-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car192-side.webp",
+        "sha256": "4b219799a7aae91028286835770fc18378b0457b622f57971dcd79994c4b1e7a",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR192. Nazh Design ✔; CC BY 4.0. https://sketchfab.com/3d-models/8d30880667524cf3abb9e3e66c5299b5"
+      },
+      {
+        "id": "render-CAR192-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car192-top.webp",
+        "sha256": "849709c41bc8b1fd99b8ecf40d1efc6a10e7cdd4e40d7845df7047b2210f65a4",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR192. Nazh Design ✔; CC BY 4.0. https://sketchfab.com/3d-models/8d30880667524cf3abb9e3e66c5299b5"
+      },
+      {
+        "id": "render-CAR192-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car192-front-left.webp",
+        "sha256": "3041c1a91a88db3bdf6eb9d7472535b85fc240c954f9b317e84813a8910fbecb",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR192. Nazh Design ✔; CC BY 4.0. https://sketchfab.com/3d-models/8d30880667524cf3abb9e3e66c5299b5"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car192-side.webp.json",
+        "sha256": "42f7ff39b113a753eaca2773716b91c23c3ad03d8312c531640c91c2308f4631"
+      },
+      {
+        "path": "media/rendered-cars/car192-top.webp.json",
+        "sha256": "c24c92b99ec1c510c3a138e3131aeec66e157d350e45f9d0d4f7add6912513bf"
+      },
+      {
+        "path": "media/rendered-cars/car192-front-left.webp.json",
+        "sha256": "243e69dbdb9c3ecfab4cf59056ba251d0014297aa5f71a9c780c4f8de818c5d6"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.25,
+        "y": 0.77,
+        "r": 0.09
+      },
+      {
+        "x": 0.75,
+        "y": 0.77,
+        "r": 0.09
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5567184163439777
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6501221061967447
+      },
+      "wheel": {
+        "x": 0.25,
+        "y": 0.77
+      }
+    },
+    "bounds": [
+      4.65,
+      1.8050191255590113,
+      2.3717082795541504
+    ],
+    "triangles": 69993,
+    "sourceModelSha256": "36aac1cc350b4eff13fe4ba8b5312b39142ff2f3f8e6acf1019d9891c448ef00"
+  },
+  {
+    "id": "CAR193",
+    "assets": [
+      {
+        "id": "render-CAR193-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car193-side.webp",
+        "sha256": "cca0e0c3590870effd0be9b7dbfa19484f0bcecfb746b587104f54a9d79e1818",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR193. amogusstrikesback2; CC BY 4.0. https://sketchfab.com/3d-models/bc38f72b3ac14acc9e435c99d18abf0c"
+      },
+      {
+        "id": "render-CAR193-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car193-top.webp",
+        "sha256": "1ca9c5be69e15abf55b421eff1b4387e2a3256dbdbce6c3294a2ac8e1a567027",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR193. amogusstrikesback2; CC BY 4.0. https://sketchfab.com/3d-models/bc38f72b3ac14acc9e435c99d18abf0c"
+      },
+      {
+        "id": "render-CAR193-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car193-front-left.webp",
+        "sha256": "6bebf4fab471827a573c559aa1ea713ea1f00e8dfc51d4e9b2a767bcb2a7ef13",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR193. amogusstrikesback2; CC BY 4.0. https://sketchfab.com/3d-models/bc38f72b3ac14acc9e435c99d18abf0c"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car193-side.webp.json",
+        "sha256": "ae019353eca65008d9bc9272b86d2463ed65354879bdee082d6be1844c168289"
+      },
+      {
+        "path": "media/rendered-cars/car193-top.webp.json",
+        "sha256": "00cc37b2ad8b7b941f6519deac3c1f2b2050b1c846d0564afb91d2b58399c924"
+      },
+      {
+        "path": "media/rendered-cars/car193-front-left.webp.json",
+        "sha256": "873a849166274e9593c09d5dae07fde1f2341847c079cf43c3fe5b74b141f31c"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.19820689060385815,
+        "y": 0.670182414532033,
+        "r": 0.0997134361083251
+      },
+      {
+        "x": 0.6479274847723985,
+        "y": 0.6208214017817404,
+        "r": 0.12
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5398962140676167
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6070345931474571
+      },
+      "wheel": {
+        "x": 0.19820689060385815,
+        "y": 0.670182414532033
+      }
+    },
+    "bounds": [
+      4.65,
+      1.294435747106297,
+      1.6558946666407564
+    ],
+    "triangles": 26531,
+    "sourceModelSha256": "20542bf9348ff795b61c27a26ee18b4583000945c2c173d2b45aee98e3af590b"
+  },
+  {
+    "id": "CAR194",
+    "assets": [
+      {
+        "id": "render-CAR194-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car194-side.webp",
+        "sha256": "f7f730349975811e7787014a46d34b109b0129c39d702e98634fe1f19f4abea7",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR194. Betier Models; CC BY 4.0. https://sketchfab.com/3d-models/none-15e5576f4b724f2db357165caed3492b"
+      },
+      {
+        "id": "render-CAR194-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car194-top.webp",
+        "sha256": "1a3ff125e1180e5dcec98867f6033ffd35eddc0e5d685ed30c24235d0690aca1",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR194. Betier Models; CC BY 4.0. https://sketchfab.com/3d-models/none-15e5576f4b724f2db357165caed3492b"
+      },
+      {
+        "id": "render-CAR194-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car194-front-left.webp",
+        "sha256": "95c5e53b886a1ad434aa71dd08ed620a546f59ab95612b939e1efe7cacca3588",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR194. Betier Models; CC BY 4.0. https://sketchfab.com/3d-models/none-15e5576f4b724f2db357165caed3492b"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car194-side.webp.json",
+        "sha256": "dc20a098f7236f0f205229a7a0ef46b74410496f2514d4eef1eebed2913404fe"
+      },
+      {
+        "path": "media/rendered-cars/car194-top.webp.json",
+        "sha256": "346911f74a6381fb270886e642b9e2629ccdae8e0437aa95eccc1e905614cce6"
+      },
+      {
+        "path": "media/rendered-cars/car194-front-left.webp.json",
+        "sha256": "c11a781ce717bd0619da108e984ee3de0303ee2d0d053219b885ee63fd742cf1"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.25301333595833375,
+        "y": 0.6703160874100189,
+        "r": 0.10818668720722904
+      },
+      {
+        "x": 0.8278476460566866,
+        "y": 0.7156553817601033,
+        "r": 0.065
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5480072442095991
+      },
+      "light": {
+        "x": 0.9318181818181819,
+        "y": 0.6296877556540356
+      },
+      "wheel": {
+        "x": 0.25301333595833375,
+        "y": 0.6703160874100189
+      }
+    },
+    "bounds": [
+      4.649999999999999,
+      1.572981538584032,
+      1.9848520446373819
+    ],
+    "triangles": 89516,
+    "sourceModelSha256": "fabf647d89c5257123daea019a3e06604020c66446b234c56a5ebe0dc6d49dde"
+  },
+  {
+    "id": "CAR195",
+    "recipe": "solid-surfaces-v1",
+    "assets": [
+      {
+        "id": "render-CAR195-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car195-side.webp",
+        "sha256": "24fb79846b03f4ab58171670b8d7d2e0d191a76dc1c0f82aff184c63f0340470",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR195. D3NK; CC BY 4.0. https://sketchfab.com/3d-models/036a13aefc3f48c5ba996aa2361b429e"
+      },
+      {
+        "id": "render-CAR195-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car195-top.webp",
+        "sha256": "14dc7729dc9e224c2801b89ba85bf9549fa91dc721a8c4ce1b5d4c8fa9f4f5d9",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR195. D3NK; CC BY 4.0. https://sketchfab.com/3d-models/036a13aefc3f48c5ba996aa2361b429e"
+      },
+      {
+        "id": "render-CAR195-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car195-front-left.webp",
+        "sha256": "cfb9306b22ddcf5e8e368bed5dce0fb67a06c2a10fd90d3afd0d8ad2df85f1a2",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR195. D3NK; CC BY 4.0. https://sketchfab.com/3d-models/036a13aefc3f48c5ba996aa2361b429e"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car195-side.webp.json",
+        "sha256": "6e1dd6036bc8b1d223dec5f6f2639e42290e4f3091ce346f92268fbb6a675fff"
+      },
+      {
+        "path": "media/rendered-cars/car195-top.webp.json",
+        "sha256": "a6b443df65be822bc2cd8c389abcebbdcccd1776fd5c8e64dbff4d25bccd6ee7"
+      },
+      {
+        "path": "media/rendered-cars/car195-front-left.webp.json",
+        "sha256": "1b583b283d4e56e46c31b92d7e5875977055e69110001db599eef68d82f37371"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.25,
+        "y": 0.77,
+        "r": 0.09
+      },
+      {
+        "x": 0.75,
+        "y": 0.77,
+        "r": 0.09
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5500227482064255
+      },
+      "light": {
+        "x": 0.9318181818181819,
+        "y": 0.6308033124512102
+      },
+      "wheel": {
+        "x": 0.25,
+        "y": 0.77
+      }
+    },
+    "bounds": [
+      4.650000000000002,
+      1.564419822635879,
+      2.1054831037116104
+    ],
+    "triangles": 96174,
+    "sourceModelSha256": "d4b2024992804270645bbea75d3b741a504bcdc065002fb11661f3c50e1cf6f4"
   }
 ]

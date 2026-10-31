@@ -1,0 +1,1014 @@
+[
+  {
+    "id": "CAR140",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Create a production asset sheet for a children's real-car exploration game, using REAL existing road-production car models with accurate distinctive body shapes. Transparent background. EXACT grid 2 columns x 4 rows with generous fully transparent gutters, no overlap, no text labels, no floor, no shadows outside the silhouettes. Each row is ONE particular real vehicle, shown twice: left cell strict full side profile facing RIGHT, right cell strict overhead TOP view with nose pointing RIGHT. All eight cars completely visible and centered in their cells. Row1: classic 1984 Ferrari 288 GTO, red, pop-up headlight housings, flared fenders, black roofline accents. Row2: 2020 Ferrari Roma coupe, elegant long-nose silver, slim slit headlights, smooth fastback roof. Row3: 2013 Ferrari LaFerrari road car, red with black glass roof, mid-engine hypercar silhouette with sculpted side intakes. Row4: 2013 McLaren P1 road car, orange with black roof, flowing rear haunches and sculpted side intakes. Consistent high quality toy-like 3D illustration style, recognizable faithful car proportions, readable black rubber tires and silver circular wheel hubs, side-view wheels fully visible. No fictional parts, no race modifications, no cartoons with faces. High resolution portrait sheet, all rows same height and both columns equal width. This is a game illustration inspired by real cars, not a photograph or an engineering model.",
+    "generatedFile": "exec-287f3895-6265-4258-9825-085ff10e4532.png",
+    "sheetSha256": "a0ac42e522daa1a7d48269a0793770d673b94860d8f30dbb02607fc3a8c1de25",
+    "atlasFrame": {
+      "index": 0,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 0,
+        "top": 0,
+        "width": 544,
+        "height": 384
+      }
+    },
+    "asset": "illustration-CAR140-side",
+    "sha256": "c4a0a10228f783267ae8e0511284181536ddba2b1c8d8491c205adbca01a0cee",
+    "reference": "https://www.ferrari.com/en-EN/auto/gto"
+  },
+  {
+    "id": "CAR141",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Create a production asset sheet for a children's real-car exploration game, using REAL existing road-production car models with accurate distinctive body shapes. Transparent background. EXACT grid 2 columns x 4 rows with generous fully transparent gutters, no overlap, no text labels, no floor, no shadows outside the silhouettes. Each row is ONE particular real vehicle, shown twice: left cell strict full side profile facing RIGHT, right cell strict overhead TOP view with nose pointing RIGHT. All eight cars completely visible and centered in their cells. Row1: classic 1984 Ferrari 288 GTO, red, pop-up headlight housings, flared fenders, black roofline accents. Row2: 2020 Ferrari Roma coupe, elegant long-nose silver, slim slit headlights, smooth fastback roof. Row3: 2013 Ferrari LaFerrari road car, red with black glass roof, mid-engine hypercar silhouette with sculpted side intakes. Row4: 2013 McLaren P1 road car, orange with black roof, flowing rear haunches and sculpted side intakes. Consistent high quality toy-like 3D illustration style, recognizable faithful car proportions, readable black rubber tires and silver circular wheel hubs, side-view wheels fully visible. No fictional parts, no race modifications, no cartoons with faces. High resolution portrait sheet, all rows same height and both columns equal width. This is a game illustration inspired by real cars, not a photograph or an engineering model.",
+    "generatedFile": "exec-287f3895-6265-4258-9825-085ff10e4532.png",
+    "sheetSha256": "a0ac42e522daa1a7d48269a0793770d673b94860d8f30dbb02607fc3a8c1de25",
+    "atlasFrame": {
+      "index": 2,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 0,
+        "top": 384,
+        "width": 544,
+        "height": 384
+      }
+    },
+    "asset": "illustration-CAR141-side",
+    "sha256": "d7c445247a0eb230718e9453aa971ba668a77a1c36573e8a344af2cdd3f625d5",
+    "reference": "https://www.ferrari.com/en-EN/auto/ferrari-roma"
+  },
+  {
+    "id": "CAR143",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Create a production asset sheet for a children's real-car exploration game, using REAL existing road-production car models with accurate distinctive body shapes. Transparent background. EXACT grid 2 columns x 4 rows with generous fully transparent gutters, no overlap, no text labels, no floor, no shadows outside the silhouettes. Each row is ONE particular real vehicle, shown twice: left cell strict full side profile facing RIGHT, right cell strict overhead TOP view with nose pointing RIGHT. All eight cars completely visible and centered in their cells. Row1: classic 1984 Ferrari 288 GTO, red, pop-up headlight housings, flared fenders, black roofline accents. Row2: 2020 Ferrari Roma coupe, elegant long-nose silver, slim slit headlights, smooth fastback roof. Row3: 2013 Ferrari LaFerrari road car, red with black glass roof, mid-engine hypercar silhouette with sculpted side intakes. Row4: 2013 McLaren P1 road car, orange with black roof, flowing rear haunches and sculpted side intakes. Consistent high quality toy-like 3D illustration style, recognizable faithful car proportions, readable black rubber tires and silver circular wheel hubs, side-view wheels fully visible. No fictional parts, no race modifications, no cartoons with faces. High resolution portrait sheet, all rows same height and both columns equal width. This is a game illustration inspired by real cars, not a photograph or an engineering model.",
+    "generatedFile": "exec-287f3895-6265-4258-9825-085ff10e4532.png",
+    "sheetSha256": "a0ac42e522daa1a7d48269a0793770d673b94860d8f30dbb02607fc3a8c1de25",
+    "atlasFrame": {
+      "index": 6,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 0,
+        "top": 1152,
+        "width": 544,
+        "height": 384
+      }
+    },
+    "asset": "illustration-CAR143-side",
+    "sha256": "4f4e288ecf4eb57d03f71b7bdf6415a03ed3470dac0e5284eb3ed844a6803415",
+    "reference": "https://cars.mclaren.com/us_en/legacy/mclaren-p1"
+  },
+  {
+    "id": "CAR144",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Production sprite sheet for a children's real-car exploration game. EXACT 2-column by 4-row grid, EIGHT separate vehicles, one per cell. Fully transparent background, no floor shadows, no labels or text. Each vehicle a strict full SIDE PROFILE facing RIGHT, all four extremes fully visible with at least 10% transparent padding INSIDE each cell; generous transparent gutters. Crisp high-quality toy-like 3D illustration, realistic recognizable road-car proportions, black rubber tires, detailed silver wheel hubs. No fictional features or racing livery. Row1 left: orange 2018 McLaren 570S Spider, roof down. Row1 right: silver 2012 McLaren MP4-12C coupe. Row2 left: silver 1993 Jaguar XJ220, very long low body. Row2 right: green 2024 Aston Martin Valour, squared muscular nose, round headlights. Row3 left: silver 2004 Porsche Carrera GT roadster. Row3 right: pale blue 2021 Porsche Taycan Turbo S, four-door electric sedan. Row4 left: dark blue 2021 Porsche Panamera Sport Turismo, long five-door sport wagon. Row4 right: blue first-generation 2016 Subaru BRZ coupe. Faithfully distinguish all eight real models. No frame, no contact sheet background. Transparent output. Landscape cars, portrait sheet.",
+    "generatedFile": "exec-4afdaf19-90da-488e-a8ea-23b02a745f49.png",
+    "sheetSha256": "a937ea09c9028655cba906412b2a7359eb88ce52b55e03ef2b6888ff8f67e81c",
+    "atlasFrame": {
+      "index": 0,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 0,
+        "top": 0,
+        "width": 512,
+        "height": 384
+      }
+    },
+    "asset": "illustration-CAR144-side",
+    "sha256": "05431790ff2258a855d8d56c620193391053cdd630f725d7d131a049cc249c7d",
+    "reference": "https://cars.mclaren.com/es_es/legacy/570s-spider"
+  },
+  {
+    "id": "CAR145",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Production sprite sheet for a children's real-car exploration game. EXACT 2-column by 4-row grid, EIGHT separate vehicles, one per cell. Fully transparent background, no floor shadows, no labels or text. Each vehicle a strict full SIDE PROFILE facing RIGHT, all four extremes fully visible with at least 10% transparent padding INSIDE each cell; generous transparent gutters. Crisp high-quality toy-like 3D illustration, realistic recognizable road-car proportions, black rubber tires, detailed silver wheel hubs. No fictional features or racing livery. Row1 left: orange 2018 McLaren 570S Spider, roof down. Row1 right: silver 2012 McLaren MP4-12C coupe. Row2 left: silver 1993 Jaguar XJ220, very long low body. Row2 right: green 2024 Aston Martin Valour, squared muscular nose, round headlights. Row3 left: silver 2004 Porsche Carrera GT roadster. Row3 right: pale blue 2021 Porsche Taycan Turbo S, four-door electric sedan. Row4 left: dark blue 2021 Porsche Panamera Sport Turismo, long five-door sport wagon. Row4 right: blue first-generation 2016 Subaru BRZ coupe. Faithfully distinguish all eight real models. No frame, no contact sheet background. Transparent output. Landscape cars, portrait sheet.",
+    "generatedFile": "exec-4afdaf19-90da-488e-a8ea-23b02a745f49.png",
+    "sheetSha256": "a937ea09c9028655cba906412b2a7359eb88ce52b55e03ef2b6888ff8f67e81c",
+    "atlasFrame": {
+      "index": 1,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 512,
+        "top": 0,
+        "width": 512,
+        "height": 384
+      }
+    },
+    "asset": "illustration-CAR145-side",
+    "sha256": "4ae65dd9ee2855d0e65fc47231e376b64d953218470a1d64fb199bf3d581688b",
+    "reference": "https://cars.mclaren.com/gl_en/legacy/12c"
+  },
+  {
+    "id": "CAR146",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Production sprite sheet for a children's real-car exploration game. EXACT 2-column by 4-row grid, EIGHT separate vehicles, one per cell. Fully transparent background, no floor shadows, no labels or text. Each vehicle a strict full SIDE PROFILE facing RIGHT, all four extremes fully visible with at least 10% transparent padding INSIDE each cell; generous transparent gutters. Crisp high-quality toy-like 3D illustration, realistic recognizable road-car proportions, black rubber tires, detailed silver wheel hubs. No fictional features or racing livery. Row1 left: orange 2018 McLaren 570S Spider, roof down. Row1 right: silver 2012 McLaren MP4-12C coupe. Row2 left: silver 1993 Jaguar XJ220, very long low body. Row2 right: green 2024 Aston Martin Valour, squared muscular nose, round headlights. Row3 left: silver 2004 Porsche Carrera GT roadster. Row3 right: pale blue 2021 Porsche Taycan Turbo S, four-door electric sedan. Row4 left: dark blue 2021 Porsche Panamera Sport Turismo, long five-door sport wagon. Row4 right: blue first-generation 2016 Subaru BRZ coupe. Faithfully distinguish all eight real models. No frame, no contact sheet background. Transparent output. Landscape cars, portrait sheet.",
+    "generatedFile": "exec-4afdaf19-90da-488e-a8ea-23b02a745f49.png",
+    "sheetSha256": "a937ea09c9028655cba906412b2a7359eb88ce52b55e03ef2b6888ff8f67e81c",
+    "atlasFrame": {
+      "index": 2,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 0,
+        "top": 384,
+        "width": 512,
+        "height": 384
+      }
+    },
+    "asset": "illustration-CAR146-side",
+    "sha256": "cf6a110ac12e0d19eab837f0391b8c8be72bfeaee4a59866448f365769192acd",
+    "reference": "https://www.jaguarheritage.com/vehicle-collection/1992-jaguar-xj220-production-car/"
+  },
+  {
+    "id": "CAR147",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Production sprite sheet for a children's real-car exploration game. EXACT 2-column by 4-row grid, EIGHT separate vehicles, one per cell. Fully transparent background, no floor shadows, no labels or text. Each vehicle a strict full SIDE PROFILE facing RIGHT, all four extremes fully visible with at least 10% transparent padding INSIDE each cell; generous transparent gutters. Crisp high-quality toy-like 3D illustration, realistic recognizable road-car proportions, black rubber tires, detailed silver wheel hubs. No fictional features or racing livery. Row1 left: orange 2018 McLaren 570S Spider, roof down. Row1 right: silver 2012 McLaren MP4-12C coupe. Row2 left: silver 1993 Jaguar XJ220, very long low body. Row2 right: green 2024 Aston Martin Valour, squared muscular nose, round headlights. Row3 left: silver 2004 Porsche Carrera GT roadster. Row3 right: pale blue 2021 Porsche Taycan Turbo S, four-door electric sedan. Row4 left: dark blue 2021 Porsche Panamera Sport Turismo, long five-door sport wagon. Row4 right: blue first-generation 2016 Subaru BRZ coupe. Faithfully distinguish all eight real models. No frame, no contact sheet background. Transparent output. Landscape cars, portrait sheet.",
+    "generatedFile": "exec-4afdaf19-90da-488e-a8ea-23b02a745f49.png",
+    "sheetSha256": "a937ea09c9028655cba906412b2a7359eb88ce52b55e03ef2b6888ff8f67e81c",
+    "atlasFrame": {
+      "index": 3,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 512,
+        "top": 384,
+        "width": 512,
+        "height": 384
+      }
+    },
+    "asset": "illustration-CAR147-side",
+    "sha256": "69052d72e7ddb033222c9af579bfa24336965ff937202f21e32f7a34c0c6b246",
+    "reference": "https://media.astonmartin.com/valour-a-spectacular-celebration-of-110-years-of-history/?lang=eng"
+  },
+  {
+    "id": "CAR149",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Production sprite sheet for a children's real-car exploration game. EXACT 2-column by 4-row grid, EIGHT separate vehicles, one per cell. Fully transparent background, no floor shadows, no labels or text. Each vehicle a strict full SIDE PROFILE facing RIGHT, all four extremes fully visible with at least 10% transparent padding INSIDE each cell; generous transparent gutters. Crisp high-quality toy-like 3D illustration, realistic recognizable road-car proportions, black rubber tires, detailed silver wheel hubs. No fictional features or racing livery. Row1 left: orange 2018 McLaren 570S Spider, roof down. Row1 right: silver 2012 McLaren MP4-12C coupe. Row2 left: silver 1993 Jaguar XJ220, very long low body. Row2 right: green 2024 Aston Martin Valour, squared muscular nose, round headlights. Row3 left: silver 2004 Porsche Carrera GT roadster. Row3 right: pale blue 2021 Porsche Taycan Turbo S, four-door electric sedan. Row4 left: dark blue 2021 Porsche Panamera Sport Turismo, long five-door sport wagon. Row4 right: blue first-generation 2016 Subaru BRZ coupe. Faithfully distinguish all eight real models. No frame, no contact sheet background. Transparent output. Landscape cars, portrait sheet.",
+    "generatedFile": "exec-4afdaf19-90da-488e-a8ea-23b02a745f49.png",
+    "sheetSha256": "a937ea09c9028655cba906412b2a7359eb88ce52b55e03ef2b6888ff8f67e81c",
+    "atlasFrame": {
+      "index": 5,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 512,
+        "top": 768,
+        "width": 512,
+        "height": 384
+      }
+    },
+    "asset": "illustration-CAR149-side",
+    "sha256": "89d9499b48d9cb2a7af8eacc2c0c6c94225f3a5efc4fb22d520f32f36616a11e",
+    "reference": "https://www.porsche.com/international/models/taycan/"
+  },
+  {
+    "id": "CAR152",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Production transparent sprite sheet of EIGHT REAL road cars for a children's car exploration game. EXACT 2 columns x 4 rows, one whole car per cell in row-major order. Strict SIDE PROFILE facing RIGHT. Recognizable faithful model-specific proportions and details, polished toy-like 3D illustration, black rubber tires, silver hubs. ALL cars fit fully inside their own cell with 10% transparent padding and transparent gutters. Fully transparent background, no text, labels, floor, shadows outside cars, faces or fictional parts. In order left-to-right then top-to-bottom: 1 red 1999 Mitsubishi Lancer Evolution VI road sedan; 2 yellow 2019 Hyundai Veloster Turbo coupe (three doors); 3 orange classic 1971 Datsun 240Z fastback; 4 red classic 1965 Alfa Romeo Giulia Sprint GT coupe; 5 yellow 2018 Lamborghini Urus SUV; 6 silver Rolls-Royce Ghost luxury sedan; 7 black Rolls-Royce Phantom luxury sedan; 8 pearl white Rolls-Royce Cullinan SUV. Clearly distinguish compact sports cars and tall SUVs. No sport modifications.",
+    "generatedFile": "exec-ed56f9d1-cbd2-44b9-a74f-8b7cd5d805a6.png",
+    "sheetSha256": "81a9e959f0df9c1f3dfabcd3d54cd93eeb09be0aa4300ce3e23d70c4c1b423c3",
+    "atlasFrame": {
+      "index": 0,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 0,
+        "top": 0,
+        "width": 768,
+        "height": 256
+      }
+    },
+    "asset": "illustration-CAR152-side",
+    "sha256": "e19503dd2de9d0add1b8df1522298fce8b21402ce9bb8d5ce15a5452decb1b11",
+    "reference": "https://www.mitsubishi-motors.com/en/company/history/car/"
+  },
+  {
+    "id": "CAR153",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Production transparent sprite sheet of EIGHT REAL road cars for a children's car exploration game. EXACT 2 columns x 4 rows, one whole car per cell in row-major order. Strict SIDE PROFILE facing RIGHT. Recognizable faithful model-specific proportions and details, polished toy-like 3D illustration, black rubber tires, silver hubs. ALL cars fit fully inside their own cell with 10% transparent padding and transparent gutters. Fully transparent background, no text, labels, floor, shadows outside cars, faces or fictional parts. In order left-to-right then top-to-bottom: 1 red 1999 Mitsubishi Lancer Evolution VI road sedan; 2 yellow 2019 Hyundai Veloster Turbo coupe (three doors); 3 orange classic 1971 Datsun 240Z fastback; 4 red classic 1965 Alfa Romeo Giulia Sprint GT coupe; 5 yellow 2018 Lamborghini Urus SUV; 6 silver Rolls-Royce Ghost luxury sedan; 7 black Rolls-Royce Phantom luxury sedan; 8 pearl white Rolls-Royce Cullinan SUV. Clearly distinguish compact sports cars and tall SUVs. No sport modifications.",
+    "generatedFile": "exec-ed56f9d1-cbd2-44b9-a74f-8b7cd5d805a6.png",
+    "sheetSha256": "81a9e959f0df9c1f3dfabcd3d54cd93eeb09be0aa4300ce3e23d70c4c1b423c3",
+    "atlasFrame": {
+      "index": 1,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 768,
+        "top": 0,
+        "width": 768,
+        "height": 256
+      }
+    },
+    "asset": "illustration-CAR153-side",
+    "sha256": "e4e746dc96240f9da426d897d1c5676c2d900b10b5cae98b9766479e492bb665",
+    "reference": "https://www.hyundainews.com/en-us/models/hyundai-veloster-2021-veloster"
+  },
+  {
+    "id": "CAR155",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Production transparent sprite sheet of EIGHT REAL road cars for a children's car exploration game. EXACT 2 columns x 4 rows, one whole car per cell in row-major order. Strict SIDE PROFILE facing RIGHT. Recognizable faithful model-specific proportions and details, polished toy-like 3D illustration, black rubber tires, silver hubs. ALL cars fit fully inside their own cell with 10% transparent padding and transparent gutters. Fully transparent background, no text, labels, floor, shadows outside cars, faces or fictional parts. In order left-to-right then top-to-bottom: 1 red 1999 Mitsubishi Lancer Evolution VI road sedan; 2 yellow 2019 Hyundai Veloster Turbo coupe (three doors); 3 orange classic 1971 Datsun 240Z fastback; 4 red classic 1965 Alfa Romeo Giulia Sprint GT coupe; 5 yellow 2018 Lamborghini Urus SUV; 6 silver Rolls-Royce Ghost luxury sedan; 7 black Rolls-Royce Phantom luxury sedan; 8 pearl white Rolls-Royce Cullinan SUV. Clearly distinguish compact sports cars and tall SUVs. No sport modifications.",
+    "generatedFile": "exec-ed56f9d1-cbd2-44b9-a74f-8b7cd5d805a6.png",
+    "sheetSha256": "81a9e959f0df9c1f3dfabcd3d54cd93eeb09be0aa4300ce3e23d70c4c1b423c3",
+    "atlasFrame": {
+      "index": 3,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 768,
+        "top": 256,
+        "width": 768,
+        "height": 256
+      }
+    },
+    "asset": "illustration-CAR155-side",
+    "sha256": "6181960cb11ca6dd9737df6763d10cf9f161f2f17862b569db67ee7c62e15ae0",
+    "reference": "https://www.alfaromeo.com/end-of-series/giulia-gta-e-gtam"
+  },
+  {
+    "id": "CAR156",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Production transparent sprite sheet of EIGHT REAL road cars for a children's car exploration game. EXACT 2 columns x 4 rows, one whole car per cell in row-major order. Strict SIDE PROFILE facing RIGHT. Recognizable faithful model-specific proportions and details, polished toy-like 3D illustration, black rubber tires, silver hubs. ALL cars fit fully inside their own cell with 10% transparent padding and transparent gutters. Fully transparent background, no text, labels, floor, shadows outside cars, faces or fictional parts. In order left-to-right then top-to-bottom: 1 red 1999 Mitsubishi Lancer Evolution VI road sedan; 2 yellow 2019 Hyundai Veloster Turbo coupe (three doors); 3 orange classic 1971 Datsun 240Z fastback; 4 red classic 1965 Alfa Romeo Giulia Sprint GT coupe; 5 yellow 2018 Lamborghini Urus SUV; 6 silver Rolls-Royce Ghost luxury sedan; 7 black Rolls-Royce Phantom luxury sedan; 8 pearl white Rolls-Royce Cullinan SUV. Clearly distinguish compact sports cars and tall SUVs. No sport modifications.",
+    "generatedFile": "exec-ed56f9d1-cbd2-44b9-a74f-8b7cd5d805a6.png",
+    "sheetSha256": "81a9e959f0df9c1f3dfabcd3d54cd93eeb09be0aa4300ce3e23d70c4c1b423c3",
+    "atlasFrame": {
+      "index": 4,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 0,
+        "top": 512,
+        "width": 768,
+        "height": 256
+      }
+    },
+    "asset": "illustration-CAR156-side",
+    "sha256": "bff547aa81742f8c4aecc308c49d44ba7f8e4d893d314784bc370b897642e08d",
+    "reference": "https://www.lamborghini.com/en-en/models/urus"
+  },
+  {
+    "id": "CAR157",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Production transparent sprite sheet of EIGHT REAL road cars for a children's car exploration game. EXACT 2 columns x 4 rows, one whole car per cell in row-major order. Strict SIDE PROFILE facing RIGHT. Recognizable faithful model-specific proportions and details, polished toy-like 3D illustration, black rubber tires, silver hubs. ALL cars fit fully inside their own cell with 10% transparent padding and transparent gutters. Fully transparent background, no text, labels, floor, shadows outside cars, faces or fictional parts. In order left-to-right then top-to-bottom: 1 red 1999 Mitsubishi Lancer Evolution VI road sedan; 2 yellow 2019 Hyundai Veloster Turbo coupe (three doors); 3 orange classic 1971 Datsun 240Z fastback; 4 red classic 1965 Alfa Romeo Giulia Sprint GT coupe; 5 yellow 2018 Lamborghini Urus SUV; 6 silver Rolls-Royce Ghost luxury sedan; 7 black Rolls-Royce Phantom luxury sedan; 8 pearl white Rolls-Royce Cullinan SUV. Clearly distinguish compact sports cars and tall SUVs. No sport modifications.",
+    "generatedFile": "exec-ed56f9d1-cbd2-44b9-a74f-8b7cd5d805a6.png",
+    "sheetSha256": "81a9e959f0df9c1f3dfabcd3d54cd93eeb09be0aa4300ce3e23d70c4c1b423c3",
+    "atlasFrame": {
+      "index": 5,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 768,
+        "top": 512,
+        "width": 768,
+        "height": 256
+      }
+    },
+    "asset": "illustration-CAR157-side",
+    "sha256": "b3bc1e3bc9d7d3deae69e08c2d901a180ef836433a3d911cac04e7cddd6097d9",
+    "reference": "https://www.rolls-roycemotorcars.com/en_GB/showroom/ghost.html"
+  },
+  {
+    "id": "CAR158",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Production transparent sprite sheet of EIGHT REAL road cars for a children's car exploration game. EXACT 2 columns x 4 rows, one whole car per cell in row-major order. Strict SIDE PROFILE facing RIGHT. Recognizable faithful model-specific proportions and details, polished toy-like 3D illustration, black rubber tires, silver hubs. ALL cars fit fully inside their own cell with 10% transparent padding and transparent gutters. Fully transparent background, no text, labels, floor, shadows outside cars, faces or fictional parts. In order left-to-right then top-to-bottom: 1 red 1999 Mitsubishi Lancer Evolution VI road sedan; 2 yellow 2019 Hyundai Veloster Turbo coupe (three doors); 3 orange classic 1971 Datsun 240Z fastback; 4 red classic 1965 Alfa Romeo Giulia Sprint GT coupe; 5 yellow 2018 Lamborghini Urus SUV; 6 silver Rolls-Royce Ghost luxury sedan; 7 black Rolls-Royce Phantom luxury sedan; 8 pearl white Rolls-Royce Cullinan SUV. Clearly distinguish compact sports cars and tall SUVs. No sport modifications.",
+    "generatedFile": "exec-ed56f9d1-cbd2-44b9-a74f-8b7cd5d805a6.png",
+    "sheetSha256": "81a9e959f0df9c1f3dfabcd3d54cd93eeb09be0aa4300ce3e23d70c4c1b423c3",
+    "atlasFrame": {
+      "index": 6,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 0,
+        "top": 768,
+        "width": 768,
+        "height": 256
+      }
+    },
+    "asset": "illustration-CAR158-side",
+    "sha256": "69d8e5abca3ff2e82e91b5dcf9c408dc90a0bb41bb1645e432e6c2fb7fdcd8fb",
+    "reference": "https://www.rolls-roycemotorcars.com/en_GB/showroom/phantom.html"
+  },
+  {
+    "id": "CAR159",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Production transparent sprite sheet of EIGHT REAL road cars for a children's car exploration game. EXACT 2 columns x 4 rows, one whole car per cell in row-major order. Strict SIDE PROFILE facing RIGHT. Recognizable faithful model-specific proportions and details, polished toy-like 3D illustration, black rubber tires, silver hubs. ALL cars fit fully inside their own cell with 10% transparent padding and transparent gutters. Fully transparent background, no text, labels, floor, shadows outside cars, faces or fictional parts. In order left-to-right then top-to-bottom: 1 red 1999 Mitsubishi Lancer Evolution VI road sedan; 2 yellow 2019 Hyundai Veloster Turbo coupe (three doors); 3 orange classic 1971 Datsun 240Z fastback; 4 red classic 1965 Alfa Romeo Giulia Sprint GT coupe; 5 yellow 2018 Lamborghini Urus SUV; 6 silver Rolls-Royce Ghost luxury sedan; 7 black Rolls-Royce Phantom luxury sedan; 8 pearl white Rolls-Royce Cullinan SUV. Clearly distinguish compact sports cars and tall SUVs. No sport modifications.",
+    "generatedFile": "exec-ed56f9d1-cbd2-44b9-a74f-8b7cd5d805a6.png",
+    "sheetSha256": "81a9e959f0df9c1f3dfabcd3d54cd93eeb09be0aa4300ce3e23d70c4c1b423c3",
+    "atlasFrame": {
+      "index": 7,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 768,
+        "top": 768,
+        "width": 768,
+        "height": 256
+      }
+    },
+    "asset": "illustration-CAR159-side",
+    "sha256": "70806091e3ab05f669082db303ff2adc4cb0d56b8fa7bdbf41d8502bd049eba9",
+    "reference": "https://www.rolls-roycemotorcars.com/en_GB/showroom/cullinan.html"
+  },
+  {
+    "id": "CAR160",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Production transparent sprite sheet of EIGHT REAL road cars for a children's car exploration game. EXACT 2 columns x 4 rows, one whole car per cell in row-major order. Strict SIDE PROFILE facing RIGHT. Recognizable faithful model-specific proportions and details, polished toy-like 3D illustration, black rubber tires, silver hubs. ALL cars fit fully inside their own cell with 10% transparent padding and transparent gutters. Fully transparent background, no text, labels, floor, shadows outside cars, faces or fictional parts. In order left-to-right then top-to-bottom: 1 pale blue 2024 BYD Seal electric sedan; 2 white 1998 Honda Civic Type R EK9 three-door hatchback; 3 cream classic Volkswagen Karmann Ghia coupe; 4 red 2021 Volkswagen Golf GTI Mk8 hatchback; 5 British racing green 2005 Mini Cooper S three-door hatchback with white roof; 6 red 2018 Suzuki Swift five-door hatchback; 7 grey classic 1990 Peugeot 205 three-door hatchback; 8 blue 2003 Volvo S60 R sedan. Carefully preserve recognizable roof lines, door counts, front and rear architecture of each real model.",
+    "generatedFile": "exec-0c37de0f-af37-4e3e-910b-80aacc14f53c.png",
+    "sheetSha256": "5949b7d3bdac1f25ecb0a1f183546ebab142c1fd574de689f6e06d7166727f52",
+    "atlasFrame": {
+      "index": 0,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 0,
+        "top": 0,
+        "width": 611,
+        "height": 321
+      }
+    },
+    "asset": "illustration-CAR160-side",
+    "sha256": "e5fb871e0ae5d21778511d7a0a69b6f54716ebdf62a63f5cf50c22e99862f6bc",
+    "reference": "https://www.byd.com/eu/electric-cars/seal"
+  },
+  {
+    "id": "CAR161",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Production transparent sprite sheet of EIGHT REAL road cars for a children's car exploration game. EXACT 2 columns x 4 rows, one whole car per cell in row-major order. Strict SIDE PROFILE facing RIGHT. Recognizable faithful model-specific proportions and details, polished toy-like 3D illustration, black rubber tires, silver hubs. ALL cars fit fully inside their own cell with 10% transparent padding and transparent gutters. Fully transparent background, no text, labels, floor, shadows outside cars, faces or fictional parts. In order left-to-right then top-to-bottom: 1 pale blue 2024 BYD Seal electric sedan; 2 white 1998 Honda Civic Type R EK9 three-door hatchback; 3 cream classic Volkswagen Karmann Ghia coupe; 4 red 2021 Volkswagen Golf GTI Mk8 hatchback; 5 British racing green 2005 Mini Cooper S three-door hatchback with white roof; 6 red 2018 Suzuki Swift five-door hatchback; 7 grey classic 1990 Peugeot 205 three-door hatchback; 8 blue 2003 Volvo S60 R sedan. Carefully preserve recognizable roof lines, door counts, front and rear architecture of each real model.",
+    "generatedFile": "exec-0c37de0f-af37-4e3e-910b-80aacc14f53c.png",
+    "sheetSha256": "5949b7d3bdac1f25ecb0a1f183546ebab142c1fd574de689f6e06d7166727f52",
+    "atlasFrame": {
+      "index": 1,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 611,
+        "top": 0,
+        "width": 611,
+        "height": 321
+      }
+    },
+    "asset": "illustration-CAR161-side",
+    "sha256": "56aebf59a2fc9afbbe85b126beb65ee06c14f60ea18d26c5a56ec3e19cd09597",
+    "reference": "https://global.honda/en/stories/048.html"
+  },
+  {
+    "id": "CAR162",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Production transparent sprite sheet of EIGHT REAL road cars for a children's car exploration game. EXACT 2 columns x 4 rows, one whole car per cell in row-major order. Strict SIDE PROFILE facing RIGHT. Recognizable faithful model-specific proportions and details, polished toy-like 3D illustration, black rubber tires, silver hubs. ALL cars fit fully inside their own cell with 10% transparent padding and transparent gutters. Fully transparent background, no text, labels, floor, shadows outside cars, faces or fictional parts. In order left-to-right then top-to-bottom: 1 pale blue 2024 BYD Seal electric sedan; 2 white 1998 Honda Civic Type R EK9 three-door hatchback; 3 cream classic Volkswagen Karmann Ghia coupe; 4 red 2021 Volkswagen Golf GTI Mk8 hatchback; 5 British racing green 2005 Mini Cooper S three-door hatchback with white roof; 6 red 2018 Suzuki Swift five-door hatchback; 7 grey classic 1990 Peugeot 205 three-door hatchback; 8 blue 2003 Volvo S60 R sedan. Carefully preserve recognizable roof lines, door counts, front and rear architecture of each real model.",
+    "generatedFile": "exec-0c37de0f-af37-4e3e-910b-80aacc14f53c.png",
+    "sheetSha256": "5949b7d3bdac1f25ecb0a1f183546ebab142c1fd574de689f6e06d7166727f52",
+    "atlasFrame": {
+      "index": 2,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 0,
+        "top": 321,
+        "width": 611,
+        "height": 322
+      }
+    },
+    "asset": "illustration-CAR162-side",
+    "sha256": "b0b69a5b0cdde8867e499a06b7cb277f0149808dac495d4a21d381bde00fc19e",
+    "reference": "https://www.volkswagen-newsroom.com/en/vehicle-data-karmann-ghia-type-14-coupe-profile-19631"
+  },
+  {
+    "id": "CAR163",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Production transparent sprite sheet of EIGHT REAL road cars for a children's car exploration game. EXACT 2 columns x 4 rows, one whole car per cell in row-major order. Strict SIDE PROFILE facing RIGHT. Recognizable faithful model-specific proportions and details, polished toy-like 3D illustration, black rubber tires, silver hubs. ALL cars fit fully inside their own cell with 10% transparent padding and transparent gutters. Fully transparent background, no text, labels, floor, shadows outside cars, faces or fictional parts. In order left-to-right then top-to-bottom: 1 pale blue 2024 BYD Seal electric sedan; 2 white 1998 Honda Civic Type R EK9 three-door hatchback; 3 cream classic Volkswagen Karmann Ghia coupe; 4 red 2021 Volkswagen Golf GTI Mk8 hatchback; 5 British racing green 2005 Mini Cooper S three-door hatchback with white roof; 6 red 2018 Suzuki Swift five-door hatchback; 7 grey classic 1990 Peugeot 205 three-door hatchback; 8 blue 2003 Volvo S60 R sedan. Carefully preserve recognizable roof lines, door counts, front and rear architecture of each real model.",
+    "generatedFile": "exec-0c37de0f-af37-4e3e-910b-80aacc14f53c.png",
+    "sheetSha256": "5949b7d3bdac1f25ecb0a1f183546ebab142c1fd574de689f6e06d7166727f52",
+    "atlasFrame": {
+      "index": 3,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 611,
+        "top": 321,
+        "width": 611,
+        "height": 322
+      }
+    },
+    "asset": "illustration-CAR163-side",
+    "sha256": "9c6fa79cbe3c8a464fd2213b1ddedc89969e1754c02aa1797923446f9787d9d8",
+    "reference": "https://www.volkswagen-newsroom.com/en/the-new-golf-gti-edition-50-international-media-drive-20143/the-history-of-the-golf-gti-in-detail-20156"
+  },
+  {
+    "id": "CAR164",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Production transparent sprite sheet of EIGHT REAL road cars for a children's car exploration game. EXACT 2 columns x 4 rows, one whole car per cell in row-major order. Strict SIDE PROFILE facing RIGHT. Recognizable faithful model-specific proportions and details, polished toy-like 3D illustration, black rubber tires, silver hubs. ALL cars fit fully inside their own cell with 10% transparent padding and transparent gutters. Fully transparent background, no text, labels, floor, shadows outside cars, faces or fictional parts. In order left-to-right then top-to-bottom: 1 pale blue 2024 BYD Seal electric sedan; 2 white 1998 Honda Civic Type R EK9 three-door hatchback; 3 cream classic Volkswagen Karmann Ghia coupe; 4 red 2021 Volkswagen Golf GTI Mk8 hatchback; 5 British racing green 2005 Mini Cooper S three-door hatchback with white roof; 6 red 2018 Suzuki Swift five-door hatchback; 7 grey classic 1990 Peugeot 205 three-door hatchback; 8 blue 2003 Volvo S60 R sedan. Carefully preserve recognizable roof lines, door counts, front and rear architecture of each real model.",
+    "generatedFile": "exec-0c37de0f-af37-4e3e-910b-80aacc14f53c.png",
+    "sheetSha256": "5949b7d3bdac1f25ecb0a1f183546ebab142c1fd574de689f6e06d7166727f52",
+    "atlasFrame": {
+      "index": 4,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 0,
+        "top": 643,
+        "width": 611,
+        "height": 322
+      }
+    },
+    "asset": "illustration-CAR164-side",
+    "sha256": "24f796a38aa5dd83c2e32e116e15a3654876430531dc63c97c791a1b78ec434a",
+    "reference": "https://www.mini.com/en_MS/home/heritage/the-definitive-list-of-mini-special-editions_test.html"
+  },
+  {
+    "id": "CAR165",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Production transparent sprite sheet of EIGHT REAL road cars for a children's car exploration game. EXACT 2 columns x 4 rows, one whole car per cell in row-major order. Strict SIDE PROFILE facing RIGHT. Recognizable faithful model-specific proportions and details, polished toy-like 3D illustration, black rubber tires, silver hubs. ALL cars fit fully inside their own cell with 10% transparent padding and transparent gutters. Fully transparent background, no text, labels, floor, shadows outside cars, faces or fictional parts. In order left-to-right then top-to-bottom: 1 pale blue 2024 BYD Seal electric sedan; 2 white 1998 Honda Civic Type R EK9 three-door hatchback; 3 cream classic Volkswagen Karmann Ghia coupe; 4 red 2021 Volkswagen Golf GTI Mk8 hatchback; 5 British racing green 2005 Mini Cooper S three-door hatchback with white roof; 6 red 2018 Suzuki Swift five-door hatchback; 7 grey classic 1990 Peugeot 205 three-door hatchback; 8 blue 2003 Volvo S60 R sedan. Carefully preserve recognizable roof lines, door counts, front and rear architecture of each real model.",
+    "generatedFile": "exec-0c37de0f-af37-4e3e-910b-80aacc14f53c.png",
+    "sheetSha256": "5949b7d3bdac1f25ecb0a1f183546ebab142c1fd574de689f6e06d7166727f52",
+    "atlasFrame": {
+      "index": 5,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 611,
+        "top": 643,
+        "width": 611,
+        "height": 322
+      }
+    },
+    "asset": "illustration-CAR165-side",
+    "sha256": "31aae5ee6f297e0e50b0dc3bb9c43decd52446ebdc0ca16737b36b58e91fc171",
+    "reference": "https://www.globalsuzuki.com/automobile/lineup/swift/"
+  },
+  {
+    "id": "CAR166",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Production transparent sprite sheet of EIGHT REAL road cars for a children's car exploration game. EXACT 2 columns x 4 rows, one whole car per cell in row-major order. Strict SIDE PROFILE facing RIGHT. Recognizable faithful model-specific proportions and details, polished toy-like 3D illustration, black rubber tires, silver hubs. ALL cars fit fully inside their own cell with 10% transparent padding and transparent gutters. Fully transparent background, no text, labels, floor, shadows outside cars, faces or fictional parts. In order left-to-right then top-to-bottom: 1 pale blue 2024 BYD Seal electric sedan; 2 white 1998 Honda Civic Type R EK9 three-door hatchback; 3 cream classic Volkswagen Karmann Ghia coupe; 4 red 2021 Volkswagen Golf GTI Mk8 hatchback; 5 British racing green 2005 Mini Cooper S three-door hatchback with white roof; 6 red 2018 Suzuki Swift five-door hatchback; 7 grey classic 1990 Peugeot 205 three-door hatchback; 8 blue 2003 Volvo S60 R sedan. Carefully preserve recognizable roof lines, door counts, front and rear architecture of each real model.",
+    "generatedFile": "exec-0c37de0f-af37-4e3e-910b-80aacc14f53c.png",
+    "sheetSha256": "5949b7d3bdac1f25ecb0a1f183546ebab142c1fd574de689f6e06d7166727f52",
+    "atlasFrame": {
+      "index": 6,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 0,
+        "top": 965,
+        "width": 611,
+        "height": 322
+      }
+    },
+    "asset": "illustration-CAR166-side",
+    "sha256": "1d86aa63e1e32cf6ce175b4f1c5e2c96a31c596a5038c0c11f55e1004730611a",
+    "reference": "https://www.media.stellantis.com/em-en/peugeot/press/the-peugeot-205-is-turning-40-an-alluring-sacred-number"
+  },
+  {
+    "id": "CAR168",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Transparent production sprite atlas for a real-car children's exploration game. EXACT 2-column x 4-row grid, EIGHT separate REAL cars, one per cell. Strict SIDE PROFILE facing RIGHT. Each complete car fully contained inside its cell with generous transparent gutters; no clipping or overlap. High quality polished 3D game illustration, faithful recognizable proportions, wheels and body design of the specified road production models, black rubber tires and detailed silver hubs. Fully transparent background with CLEAN alpha edges, no colored fringes, floor shadows, text, badges, faces or fictional features. In row-major order: 1 blue 2004 Subaru Impreza WRX STI sedan with gold wheels; 2 pearl white 2013 Toyota Crown Athlete S210 luxury sedan; 3 black classic 1970 Dodge Charger R/T coupe with normal road-car hood; 4 red 2018 Tesla Model 3 electric sedan; 5 black 2021 Cadillac Escalade SUV; 6 light blue 1953 Buick Skylark convertible with roof down; 7 dark green 2006 Land Rover Range Rover SUV; 8 yellow Hummer H2 SUV. Distinct sizes and body shapes, all faithfully based on real models.",
+    "generatedFile": "exec-5f726d85-2aea-45d6-86db-f076a0e16f6b.png",
+    "sheetSha256": "75b1217491e12f7d7668236e56beda9a3738e038313793bf0c029d1daa3e27e2",
+    "atlasFrame": {
+      "index": 0,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 0,
+        "top": 0,
+        "width": 768,
+        "height": 256
+      }
+    },
+    "asset": "illustration-CAR168-side",
+    "sha256": "d41c1948e75651ab7c02655e3c13cb3c951ac3416dd2d55b9bdbe42dcfc6e23a",
+    "reference": "https://www.subaru.com/vehicles/impreza.html"
+  },
+  {
+    "id": "CAR169",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Transparent production sprite atlas for a real-car children's exploration game. EXACT 2-column x 4-row grid, EIGHT separate REAL cars, one per cell. Strict SIDE PROFILE facing RIGHT. Each complete car fully contained inside its cell with generous transparent gutters; no clipping or overlap. High quality polished 3D game illustration, faithful recognizable proportions, wheels and body design of the specified road production models, black rubber tires and detailed silver hubs. Fully transparent background with CLEAN alpha edges, no colored fringes, floor shadows, text, badges, faces or fictional features. In row-major order: 1 blue 2004 Subaru Impreza WRX STI sedan with gold wheels; 2 pearl white 2013 Toyota Crown Athlete S210 luxury sedan; 3 black classic 1970 Dodge Charger R/T coupe with normal road-car hood; 4 red 2018 Tesla Model 3 electric sedan; 5 black 2021 Cadillac Escalade SUV; 6 light blue 1953 Buick Skylark convertible with roof down; 7 dark green 2006 Land Rover Range Rover SUV; 8 yellow Hummer H2 SUV. Distinct sizes and body shapes, all faithfully based on real models.",
+    "generatedFile": "exec-5f726d85-2aea-45d6-86db-f076a0e16f6b.png",
+    "sheetSha256": "75b1217491e12f7d7668236e56beda9a3738e038313793bf0c029d1daa3e27e2",
+    "atlasFrame": {
+      "index": 1,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 768,
+        "top": 0,
+        "width": 768,
+        "height": 256
+      }
+    },
+    "asset": "illustration-CAR169-side",
+    "sha256": "fdec789feaf55dad6a8e2db4254ae31ef1345adcfcf6bc68799f73ff8b02aacb",
+    "reference": "https://global.toyota/en/newsroom/toyota/"
+  },
+  {
+    "id": "CAR170",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Transparent production sprite atlas for a real-car children's exploration game. EXACT 2-column x 4-row grid, EIGHT separate REAL cars, one per cell. Strict SIDE PROFILE facing RIGHT. Each complete car fully contained inside its cell with generous transparent gutters; no clipping or overlap. High quality polished 3D game illustration, faithful recognizable proportions, wheels and body design of the specified road production models, black rubber tires and detailed silver hubs. Fully transparent background with CLEAN alpha edges, no colored fringes, floor shadows, text, badges, faces or fictional features. In row-major order: 1 blue 2004 Subaru Impreza WRX STI sedan with gold wheels; 2 pearl white 2013 Toyota Crown Athlete S210 luxury sedan; 3 black classic 1970 Dodge Charger R/T coupe with normal road-car hood; 4 red 2018 Tesla Model 3 electric sedan; 5 black 2021 Cadillac Escalade SUV; 6 light blue 1953 Buick Skylark convertible with roof down; 7 dark green 2006 Land Rover Range Rover SUV; 8 yellow Hummer H2 SUV. Distinct sizes and body shapes, all faithfully based on real models.",
+    "generatedFile": "exec-5f726d85-2aea-45d6-86db-f076a0e16f6b.png",
+    "sheetSha256": "75b1217491e12f7d7668236e56beda9a3738e038313793bf0c029d1daa3e27e2",
+    "atlasFrame": {
+      "index": 2,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 0,
+        "top": 256,
+        "width": 768,
+        "height": 256
+      }
+    },
+    "asset": "illustration-CAR170-side",
+    "sha256": "98bdc2f4ce60b1efdc1b56812c7e68b7d371b8987a07f692692f3583ce022c53",
+    "reference": "https://www.dodge.com/charger.html"
+  },
+  {
+    "id": "CAR171",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Transparent production sprite atlas for a real-car children's exploration game. EXACT 2-column x 4-row grid, EIGHT separate REAL cars, one per cell. Strict SIDE PROFILE facing RIGHT. Each complete car fully contained inside its cell with generous transparent gutters; no clipping or overlap. High quality polished 3D game illustration, faithful recognizable proportions, wheels and body design of the specified road production models, black rubber tires and detailed silver hubs. Fully transparent background with CLEAN alpha edges, no colored fringes, floor shadows, text, badges, faces or fictional features. In row-major order: 1 blue 2004 Subaru Impreza WRX STI sedan with gold wheels; 2 pearl white 2013 Toyota Crown Athlete S210 luxury sedan; 3 black classic 1970 Dodge Charger R/T coupe with normal road-car hood; 4 red 2018 Tesla Model 3 electric sedan; 5 black 2021 Cadillac Escalade SUV; 6 light blue 1953 Buick Skylark convertible with roof down; 7 dark green 2006 Land Rover Range Rover SUV; 8 yellow Hummer H2 SUV. Distinct sizes and body shapes, all faithfully based on real models.",
+    "generatedFile": "exec-5f726d85-2aea-45d6-86db-f076a0e16f6b.png",
+    "sheetSha256": "75b1217491e12f7d7668236e56beda9a3738e038313793bf0c029d1daa3e27e2",
+    "atlasFrame": {
+      "index": 3,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 768,
+        "top": 256,
+        "width": 768,
+        "height": 256
+      }
+    },
+    "asset": "illustration-CAR171-side",
+    "sha256": "0f0bb9ef38ac93dd213bd5f85062651f218927b4c132d0b3819b00622748e62c",
+    "reference": "https://www.tesla.com/model3"
+  },
+  {
+    "id": "CAR172",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Transparent production sprite atlas for a real-car children's exploration game. EXACT 2-column x 4-row grid, EIGHT separate REAL cars, one per cell. Strict SIDE PROFILE facing RIGHT. Each complete car fully contained inside its cell with generous transparent gutters; no clipping or overlap. High quality polished 3D game illustration, faithful recognizable proportions, wheels and body design of the specified road production models, black rubber tires and detailed silver hubs. Fully transparent background with CLEAN alpha edges, no colored fringes, floor shadows, text, badges, faces or fictional features. In row-major order: 1 blue 2004 Subaru Impreza WRX STI sedan with gold wheels; 2 pearl white 2013 Toyota Crown Athlete S210 luxury sedan; 3 black classic 1970 Dodge Charger R/T coupe with normal road-car hood; 4 red 2018 Tesla Model 3 electric sedan; 5 black 2021 Cadillac Escalade SUV; 6 light blue 1953 Buick Skylark convertible with roof down; 7 dark green 2006 Land Rover Range Rover SUV; 8 yellow Hummer H2 SUV. Distinct sizes and body shapes, all faithfully based on real models.",
+    "generatedFile": "exec-5f726d85-2aea-45d6-86db-f076a0e16f6b.png",
+    "sheetSha256": "75b1217491e12f7d7668236e56beda9a3738e038313793bf0c029d1daa3e27e2",
+    "atlasFrame": {
+      "index": 4,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 0,
+        "top": 512,
+        "width": 768,
+        "height": 256
+      }
+    },
+    "asset": "illustration-CAR172-side",
+    "sha256": "c471a394e5e8b24a9a33a61f230502af15e781a4d55c16d02c612b2a9c4c06be",
+    "reference": "https://www.cadillac.com/suvs/escalade"
+  },
+  {
+    "id": "CAR173",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Transparent production sprite atlas for a real-car children's exploration game. EXACT 2-column x 4-row grid, EIGHT separate REAL cars, one per cell. Strict SIDE PROFILE facing RIGHT. Each complete car fully contained inside its cell with generous transparent gutters; no clipping or overlap. High quality polished 3D game illustration, faithful recognizable proportions, wheels and body design of the specified road production models, black rubber tires and detailed silver hubs. Fully transparent background with CLEAN alpha edges, no colored fringes, floor shadows, text, badges, faces or fictional features. In row-major order: 1 blue 2004 Subaru Impreza WRX STI sedan with gold wheels; 2 pearl white 2013 Toyota Crown Athlete S210 luxury sedan; 3 black classic 1970 Dodge Charger R/T coupe with normal road-car hood; 4 red 2018 Tesla Model 3 electric sedan; 5 black 2021 Cadillac Escalade SUV; 6 light blue 1953 Buick Skylark convertible with roof down; 7 dark green 2006 Land Rover Range Rover SUV; 8 yellow Hummer H2 SUV. Distinct sizes and body shapes, all faithfully based on real models.",
+    "generatedFile": "exec-5f726d85-2aea-45d6-86db-f076a0e16f6b.png",
+    "sheetSha256": "75b1217491e12f7d7668236e56beda9a3738e038313793bf0c029d1daa3e27e2",
+    "atlasFrame": {
+      "index": 5,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 768,
+        "top": 512,
+        "width": 768,
+        "height": 256
+      }
+    },
+    "asset": "illustration-CAR173-side",
+    "sha256": "1c061eaec673463daeed475463f0562feff0015e845fa7b4f541cced2e0081cb",
+    "reference": "https://www.gm.com/heritage/archive/vehicle-information-kits"
+  },
+  {
+    "id": "CAR174",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Transparent production sprite atlas for a real-car children's exploration game. EXACT 2-column x 4-row grid, EIGHT separate REAL cars, one per cell. Strict SIDE PROFILE facing RIGHT. Each complete car fully contained inside its cell with generous transparent gutters; no clipping or overlap. High quality polished 3D game illustration, faithful recognizable proportions, wheels and body design of the specified road production models, black rubber tires and detailed silver hubs. Fully transparent background with CLEAN alpha edges, no colored fringes, floor shadows, text, badges, faces or fictional features. In row-major order: 1 blue 2004 Subaru Impreza WRX STI sedan with gold wheels; 2 pearl white 2013 Toyota Crown Athlete S210 luxury sedan; 3 black classic 1970 Dodge Charger R/T coupe with normal road-car hood; 4 red 2018 Tesla Model 3 electric sedan; 5 black 2021 Cadillac Escalade SUV; 6 light blue 1953 Buick Skylark convertible with roof down; 7 dark green 2006 Land Rover Range Rover SUV; 8 yellow Hummer H2 SUV. Distinct sizes and body shapes, all faithfully based on real models.",
+    "generatedFile": "exec-5f726d85-2aea-45d6-86db-f076a0e16f6b.png",
+    "sheetSha256": "75b1217491e12f7d7668236e56beda9a3738e038313793bf0c029d1daa3e27e2",
+    "atlasFrame": {
+      "index": 6,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 0,
+        "top": 768,
+        "width": 768,
+        "height": 256
+      }
+    },
+    "asset": "illustration-CAR174-side",
+    "sha256": "e8890af90bf0aaf330096865e4e455cb3523206d81cb712bed3770adc4939a6b",
+    "reference": "https://www.rangerover.com/en-gb/range-rover/index.html"
+  },
+  {
+    "id": "CAR175",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Transparent production sprite atlas for a real-car children's exploration game. EXACT 2-column x 4-row grid, EIGHT separate REAL cars, one per cell. Strict SIDE PROFILE facing RIGHT. Each complete car fully contained inside its cell with generous transparent gutters; no clipping or overlap. High quality polished 3D game illustration, faithful recognizable proportions, wheels and body design of the specified road production models, black rubber tires and detailed silver hubs. Fully transparent background with CLEAN alpha edges, no colored fringes, floor shadows, text, badges, faces or fictional features. In row-major order: 1 blue 2004 Subaru Impreza WRX STI sedan with gold wheels; 2 pearl white 2013 Toyota Crown Athlete S210 luxury sedan; 3 black classic 1970 Dodge Charger R/T coupe with normal road-car hood; 4 red 2018 Tesla Model 3 electric sedan; 5 black 2021 Cadillac Escalade SUV; 6 light blue 1953 Buick Skylark convertible with roof down; 7 dark green 2006 Land Rover Range Rover SUV; 8 yellow Hummer H2 SUV. Distinct sizes and body shapes, all faithfully based on real models.",
+    "generatedFile": "exec-5f726d85-2aea-45d6-86db-f076a0e16f6b.png",
+    "sheetSha256": "75b1217491e12f7d7668236e56beda9a3738e038313793bf0c029d1daa3e27e2",
+    "atlasFrame": {
+      "index": 7,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 768,
+        "top": 768,
+        "width": 768,
+        "height": 256
+      }
+    },
+    "asset": "illustration-CAR175-side",
+    "sha256": "d5a0bcfb3221a4792747d11c4b4bfefaf4ac8c3e3fd773e88eb9e5828768e947",
+    "reference": "https://www.gm.com/heritage/archive/vehicle-information-kits"
+  },
+  {
+    "id": "CAR176",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Transparent production sprite atlas for a real-car children's exploration game. EXACT 2-column x 4-row grid, EIGHT separate REAL cars, one per cell. Strict SIDE PROFILE facing RIGHT. Each complete car fully contained inside its cell with generous transparent gutters; no clipping or overlap. High quality polished 3D game illustration, faithful recognizable proportions, wheels and body design of the specified road production models, black rubber tires and detailed silver hubs. Fully transparent background with CLEAN alpha edges, no colored fringes, floor shadows, text, badges, faces or fictional features. In row-major order: 1 green 2021 Audi RS3 Sportback five-door hatch; 2 silver 2019 Lexus ES Hybrid sedan; 3 orange 2021 Ford Bronco two-door SUV; 4 silver 2008 Mercedes-Benz SL65 AMG R230 roadster, roof closed; 5 dark blue 2017 Renault Megane four-door sedan; 6 white 2010 Fiat Abarth 500 three-door hatch; 7 blue 2020 BMW X5 M Competition SUV; 8 red 2017 Alfa Romeo Stelvio Quadrifoglio SUV. Faithfully distinguish the eight model-specific silhouettes.",
+    "generatedFile": "exec-a016dea9-814e-4646-b1a4-3b229a0bdafb.png",
+    "sheetSha256": "fe1ee76185b105897580fc8516fa5fbc84eb9f99290bac00afffdc4988c3830e",
+    "atlasFrame": {
+      "index": 0,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 0,
+        "top": 0,
+        "width": 768,
+        "height": 256
+      }
+    },
+    "asset": "illustration-CAR176-side",
+    "sha256": "220f09f10b1f25e09f15533d0bd71bdb1393176409c76b31eaf01fee57686b25",
+    "reference": "https://www.audi.com/en/media-releases/a-feast-for-the-senses-upgrade-for-the-audi-rs-3-16140"
+  },
+  {
+    "id": "CAR177",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Transparent production sprite atlas for a real-car children's exploration game. EXACT 2-column x 4-row grid, EIGHT separate REAL cars, one per cell. Strict SIDE PROFILE facing RIGHT. Each complete car fully contained inside its cell with generous transparent gutters; no clipping or overlap. High quality polished 3D game illustration, faithful recognizable proportions, wheels and body design of the specified road production models, black rubber tires and detailed silver hubs. Fully transparent background with CLEAN alpha edges, no colored fringes, floor shadows, text, badges, faces or fictional features. In row-major order: 1 green 2021 Audi RS3 Sportback five-door hatch; 2 silver 2019 Lexus ES Hybrid sedan; 3 orange 2021 Ford Bronco two-door SUV; 4 silver 2008 Mercedes-Benz SL65 AMG R230 roadster, roof closed; 5 dark blue 2017 Renault Megane four-door sedan; 6 white 2010 Fiat Abarth 500 three-door hatch; 7 blue 2020 BMW X5 M Competition SUV; 8 red 2017 Alfa Romeo Stelvio Quadrifoglio SUV. Faithfully distinguish the eight model-specific silhouettes.",
+    "generatedFile": "exec-a016dea9-814e-4646-b1a4-3b229a0bdafb.png",
+    "sheetSha256": "fe1ee76185b105897580fc8516fa5fbc84eb9f99290bac00afffdc4988c3830e",
+    "atlasFrame": {
+      "index": 1,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 768,
+        "top": 0,
+        "width": 768,
+        "height": 256
+      }
+    },
+    "asset": "illustration-CAR177-side",
+    "sha256": "46bd814a8ac5269cae24a2b8e6b4fd5b0f6f8b287b172ef83aa715a802e473ec",
+    "reference": "https://www.lexus.com/models/ES"
+  },
+  {
+    "id": "CAR178",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Transparent production sprite atlas for a real-car children's exploration game. EXACT 2-column x 4-row grid, EIGHT separate REAL cars, one per cell. Strict SIDE PROFILE facing RIGHT. Each complete car fully contained inside its cell with generous transparent gutters; no clipping or overlap. High quality polished 3D game illustration, faithful recognizable proportions, wheels and body design of the specified road production models, black rubber tires and detailed silver hubs. Fully transparent background with CLEAN alpha edges, no colored fringes, floor shadows, text, badges, faces or fictional features. In row-major order: 1 green 2021 Audi RS3 Sportback five-door hatch; 2 silver 2019 Lexus ES Hybrid sedan; 3 orange 2021 Ford Bronco two-door SUV; 4 silver 2008 Mercedes-Benz SL65 AMG R230 roadster, roof closed; 5 dark blue 2017 Renault Megane four-door sedan; 6 white 2010 Fiat Abarth 500 three-door hatch; 7 blue 2020 BMW X5 M Competition SUV; 8 red 2017 Alfa Romeo Stelvio Quadrifoglio SUV. Faithfully distinguish the eight model-specific silhouettes.",
+    "generatedFile": "exec-a016dea9-814e-4646-b1a4-3b229a0bdafb.png",
+    "sheetSha256": "fe1ee76185b105897580fc8516fa5fbc84eb9f99290bac00afffdc4988c3830e",
+    "atlasFrame": {
+      "index": 2,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 0,
+        "top": 256,
+        "width": 768,
+        "height": 256
+      }
+    },
+    "asset": "illustration-CAR178-side",
+    "sha256": "784ce477f9a33feaa352f25a8678059bae22231350666d05321adecdd85cfbdf",
+    "reference": "https://www.ford.com/suvs/bronco/"
+  },
+  {
+    "id": "CAR180",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Transparent production sprite atlas for a real-car children's exploration game. EXACT 2-column x 4-row grid, EIGHT separate REAL cars, one per cell. Strict SIDE PROFILE facing RIGHT. Each complete car fully contained inside its cell with generous transparent gutters; no clipping or overlap. High quality polished 3D game illustration, faithful recognizable proportions, wheels and body design of the specified road production models, black rubber tires and detailed silver hubs. Fully transparent background with CLEAN alpha edges, no colored fringes, floor shadows, text, badges, faces or fictional features. In row-major order: 1 green 2021 Audi RS3 Sportback five-door hatch; 2 silver 2019 Lexus ES Hybrid sedan; 3 orange 2021 Ford Bronco two-door SUV; 4 silver 2008 Mercedes-Benz SL65 AMG R230 roadster, roof closed; 5 dark blue 2017 Renault Megane four-door sedan; 6 white 2010 Fiat Abarth 500 three-door hatch; 7 blue 2020 BMW X5 M Competition SUV; 8 red 2017 Alfa Romeo Stelvio Quadrifoglio SUV. Faithfully distinguish the eight model-specific silhouettes.",
+    "generatedFile": "exec-a016dea9-814e-4646-b1a4-3b229a0bdafb.png",
+    "sheetSha256": "fe1ee76185b105897580fc8516fa5fbc84eb9f99290bac00afffdc4988c3830e",
+    "atlasFrame": {
+      "index": 4,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 0,
+        "top": 512,
+        "width": 768,
+        "height": 256
+      }
+    },
+    "asset": "illustration-CAR180-side",
+    "sha256": "489c1fb5226efe1cb8e2fc8a01aa87388e26f6ce74b11f02a28315cf96a44790",
+    "reference": "https://www.renaultgroup.com/en/group/locations/bursa-plant-oyak/"
+  },
+  {
+    "id": "CAR181",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Transparent production sprite atlas for a real-car children's exploration game. EXACT 2-column x 4-row grid, EIGHT separate REAL cars, one per cell. Strict SIDE PROFILE facing RIGHT. Each complete car fully contained inside its cell with generous transparent gutters; no clipping or overlap. High quality polished 3D game illustration, faithful recognizable proportions, wheels and body design of the specified road production models, black rubber tires and detailed silver hubs. Fully transparent background with CLEAN alpha edges, no colored fringes, floor shadows, text, badges, faces or fictional features. In row-major order: 1 green 2021 Audi RS3 Sportback five-door hatch; 2 silver 2019 Lexus ES Hybrid sedan; 3 orange 2021 Ford Bronco two-door SUV; 4 silver 2008 Mercedes-Benz SL65 AMG R230 roadster, roof closed; 5 dark blue 2017 Renault Megane four-door sedan; 6 white 2010 Fiat Abarth 500 three-door hatch; 7 blue 2020 BMW X5 M Competition SUV; 8 red 2017 Alfa Romeo Stelvio Quadrifoglio SUV. Faithfully distinguish the eight model-specific silhouettes.",
+    "generatedFile": "exec-a016dea9-814e-4646-b1a4-3b229a0bdafb.png",
+    "sheetSha256": "fe1ee76185b105897580fc8516fa5fbc84eb9f99290bac00afffdc4988c3830e",
+    "atlasFrame": {
+      "index": 5,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 768,
+        "top": 512,
+        "width": 768,
+        "height": 256
+      }
+    },
+    "asset": "illustration-CAR181-side",
+    "sha256": "4a7b72c967074b0fe38c23b31bdcd965b2f8f2644e39968fb58d6a0cfbddaece",
+    "reference": "https://www.media.stellantis.com/de-de/abarth/press/neuer-500-abarth-deutschlandstart-am-19-juli-offizielle-premiere-des-kult-modells-mit-live-act-in-munchen"
+  },
+  {
+    "id": "CAR182",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Transparent production sprite atlas for a real-car children's exploration game. EXACT 2-column x 4-row grid, EIGHT separate REAL cars, one per cell. Strict SIDE PROFILE facing RIGHT. Each complete car fully contained inside its cell with generous transparent gutters; no clipping or overlap. High quality polished 3D game illustration, faithful recognizable proportions, wheels and body design of the specified road production models, black rubber tires and detailed silver hubs. Fully transparent background with CLEAN alpha edges, no colored fringes, floor shadows, text, badges, faces or fictional features. In row-major order: 1 green 2021 Audi RS3 Sportback five-door hatch; 2 silver 2019 Lexus ES Hybrid sedan; 3 orange 2021 Ford Bronco two-door SUV; 4 silver 2008 Mercedes-Benz SL65 AMG R230 roadster, roof closed; 5 dark blue 2017 Renault Megane four-door sedan; 6 white 2010 Fiat Abarth 500 three-door hatch; 7 blue 2020 BMW X5 M Competition SUV; 8 red 2017 Alfa Romeo Stelvio Quadrifoglio SUV. Faithfully distinguish the eight model-specific silhouettes.",
+    "generatedFile": "exec-a016dea9-814e-4646-b1a4-3b229a0bdafb.png",
+    "sheetSha256": "fe1ee76185b105897580fc8516fa5fbc84eb9f99290bac00afffdc4988c3830e",
+    "atlasFrame": {
+      "index": 6,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 0,
+        "top": 768,
+        "width": 768,
+        "height": 256
+      }
+    },
+    "asset": "illustration-CAR182-side",
+    "sha256": "5a9923fbbdfc8614ac5d3a2dbd272b5904a534f995fc7a1a7fc7cc40e65d4b82",
+    "reference": "https://www.bmw-m.com/en/all-models/overview-m-and-m-performance/bmw-x5-m/2023/bmw-x5-m.html"
+  },
+  {
+    "id": "CAR183",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Transparent production sprite atlas for a real-car children's exploration game. EXACT 2-column x 4-row grid, EIGHT separate REAL cars, one per cell. Strict SIDE PROFILE facing RIGHT. Each complete car fully contained inside its cell with generous transparent gutters; no clipping or overlap. High quality polished 3D game illustration, faithful recognizable proportions, wheels and body design of the specified road production models, black rubber tires and detailed silver hubs. Fully transparent background with CLEAN alpha edges, no colored fringes, floor shadows, text, badges, faces or fictional features. In row-major order: 1 green 2021 Audi RS3 Sportback five-door hatch; 2 silver 2019 Lexus ES Hybrid sedan; 3 orange 2021 Ford Bronco two-door SUV; 4 silver 2008 Mercedes-Benz SL65 AMG R230 roadster, roof closed; 5 dark blue 2017 Renault Megane four-door sedan; 6 white 2010 Fiat Abarth 500 three-door hatch; 7 blue 2020 BMW X5 M Competition SUV; 8 red 2017 Alfa Romeo Stelvio Quadrifoglio SUV. Faithfully distinguish the eight model-specific silhouettes.",
+    "generatedFile": "exec-a016dea9-814e-4646-b1a4-3b229a0bdafb.png",
+    "sheetSha256": "fe1ee76185b105897580fc8516fa5fbc84eb9f99290bac00afffdc4988c3830e",
+    "atlasFrame": {
+      "index": 7,
+      "columns": 2,
+      "rows": 4,
+      "bounds": {
+        "left": 768,
+        "top": 768,
+        "width": 768,
+        "height": 256
+      }
+    },
+    "asset": "illustration-CAR183-side",
+    "sha256": "81ed69b012fa79dfca6e089787e47c59c37bd47a3c570b7919f4a8410a899dd1",
+    "reference": "https://www.media.stellantis.com/uk-en/alfa-romeo/press/statement-from-a-stellantis-spokesperson"
+  },
+  {
+    "id": "CAR185",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Transparent production sprite atlas, EXACT 2x2 grid with FOUR REAL road production cars, one complete car per cell, all strict SIDE PROFILE facing RIGHT. Row1 left: orange 2003 Nissan 350Z coupe, stock body, black windows, silver wheels. Row1 right: red classic 1967 Fiat 850 Spider convertible with roof down. Row2 left: pearl white 2018 Audi A7 Sportback five-door fastback. Row2 right: blue 2006 BMW 1 Series E87 five-door hatchback. Faithful recognizable model-specific proportions and details. Polished high quality toy-like 3D game illustration for a children's real-car game. Completely transparent background, CLEAN alpha edges, no fringes, text, floor, faces or extra objects. Very generous transparent gutters and padding around every car. No wheel or bumper may cross a cell boundary.",
+    "generatedFile": "exec-c046d89c-21a6-4b5a-96db-be7ddb2cc53e.png",
+    "sheetSha256": "26fb0e961766d935838923b4612c170cbee1367c4c885fc22b87170759e8b021",
+    "atlasFrame": {
+      "index": 1,
+      "columns": 2,
+      "rows": 2,
+      "bounds": {
+        "left": 887,
+        "top": 0,
+        "width": 887,
+        "height": 443
+      }
+    },
+    "asset": "illustration-CAR185-side",
+    "sha256": "5b2554bed4b5844f2334bd82112bf51c00e6dcdf265c18ebb07652c186546906",
+    "reference": "https://www.media.stellantis.com/es-es/fiat/press/decadas-de-veranos-de-ensueno-con-los-descapotables-fiat"
+  },
+  {
+    "id": "CAR186",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Transparent production sprite atlas, EXACT 2x2 grid with FOUR REAL road production cars, one complete car per cell, all strict SIDE PROFILE facing RIGHT. Row1 left: orange 2003 Nissan 350Z coupe, stock body, black windows, silver wheels. Row1 right: red classic 1967 Fiat 850 Spider convertible with roof down. Row2 left: pearl white 2018 Audi A7 Sportback five-door fastback. Row2 right: blue 2006 BMW 1 Series E87 five-door hatchback. Faithful recognizable model-specific proportions and details. Polished high quality toy-like 3D game illustration for a children's real-car game. Completely transparent background, CLEAN alpha edges, no fringes, text, floor, faces or extra objects. Very generous transparent gutters and padding around every car. No wheel or bumper may cross a cell boundary.",
+    "generatedFile": "exec-c046d89c-21a6-4b5a-96db-be7ddb2cc53e.png",
+    "sheetSha256": "26fb0e961766d935838923b4612c170cbee1367c4c885fc22b87170759e8b021",
+    "atlasFrame": {
+      "index": 2,
+      "columns": 2,
+      "rows": 2,
+      "bounds": {
+        "left": 0,
+        "top": 443,
+        "width": 887,
+        "height": 444
+      }
+    },
+    "asset": "illustration-CAR186-side",
+    "sha256": "85aa78362f8ab65c43756909e4d57c39c8171f04c386b813ec8960913b57f6bf",
+    "reference": "https://www.audi.com/en/audi-a7-sportback-47"
+  },
+  {
+    "id": "CAR187",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Transparent production sprite atlas, EXACT 2x2 grid with FOUR REAL road production cars, one complete car per cell, all strict SIDE PROFILE facing RIGHT. Row1 left: orange 2003 Nissan 350Z coupe, stock body, black windows, silver wheels. Row1 right: red classic 1967 Fiat 850 Spider convertible with roof down. Row2 left: pearl white 2018 Audi A7 Sportback five-door fastback. Row2 right: blue 2006 BMW 1 Series E87 five-door hatchback. Faithful recognizable model-specific proportions and details. Polished high quality toy-like 3D game illustration for a children's real-car game. Completely transparent background, CLEAN alpha edges, no fringes, text, floor, faces or extra objects. Very generous transparent gutters and padding around every car. No wheel or bumper may cross a cell boundary.",
+    "generatedFile": "exec-c046d89c-21a6-4b5a-96db-be7ddb2cc53e.png",
+    "sheetSha256": "26fb0e961766d935838923b4612c170cbee1367c4c885fc22b87170759e8b021",
+    "atlasFrame": {
+      "index": 3,
+      "columns": 2,
+      "rows": 2,
+      "bounds": {
+        "left": 887,
+        "top": 443,
+        "width": 887,
+        "height": 444
+      }
+    },
+    "asset": "illustration-CAR187-side",
+    "sha256": "01125e131699fa0543b55c435185df4ecee393566a5353fc8961649ddc3044f1",
+    "reference": "https://www.press.bmwgroup.com/asia/article/attachment/T0442858EN/617355"
+  },
+  {
+    "id": "CAR189",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "A transparent game asset sheet with EXACTLY TWO different real road cars, stacked in TWO ROWS, ONE COLUMN. Top row: silver 2022 Porsche Cayenne Turbo GT coupe SUV, accurate sloping coupe SUV roof, large black grille and yellow brake calipers. Bottom row: British racing green 2016 Jaguar XF four-door luxury sedan, accurate elegant long sedan proportions, slim headlights. Both cars strict complete SIDE PROFILE facing RIGHT. Each car occupies its own row with generous transparent padding all around and a fully transparent gutter between rows. Faithful recognizable real model shapes. High quality polished toy-like 3D illustrations for a children's real-car game. Clean transparency, no colored fringes, no floor, no shadows outside silhouette, no labels, no words, no logos, no faces or invented body parts. All wheels and bumpers completely visible. No clipping.",
+    "generatedFile": "exec-de15daae-53e9-4da0-873e-382e5ce75298.png",
+    "sheetSha256": "3798b5f2afa6674df92c841e77b8852d3aba1597cf6ebd0c247650af5a5c1498",
+    "atlasFrame": {
+      "index": 1,
+      "columns": 1,
+      "rows": 2,
+      "bounds": {
+        "left": 0,
+        "top": 631,
+        "width": 1246,
+        "height": 632
+      }
+    },
+    "asset": "illustration-CAR189-side",
+    "sha256": "a6799d61a17b6cd851f6abd2986949975d46c5e1bc6f14a6078f2757520c5cc5",
+    "reference": "https://macedonia.jaguar.com/jaguar-range/xf/overview"
+  },
+  {
+    "id": "CAR190",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Production car illustration asset sheet on a completely transparent background. EXACTLY THREE separate real road production cars in ONE COLUMN and THREE ROWS, one complete vehicle per row. All strict SIDE PROFILE facing RIGHT. Top: blue 2019 Porsche Macan compact SUV, recognizable sloped rear roof, black grille, silver wheels. Middle: British racing green 2015 Jaguar XE four-door sport sedan, recognizable short rear deck and long bonnet, silver wheels. Bottom: light purple and cream two-tone 2024 BYD Dolphin five-door electric hatchback, recognizable compact body and short hood, silver and black wheels. Faithfully use real model-specific proportions, door counts, wheelbase and body shapes. Polished high quality toy-like 3D illustrations for a children's car exploration game. Generous transparent margins and gutters, no clipping, no floor or shadows outside cars. Clean alpha edges, no colored fringes, no text or labels, no cartoon faces, no invented modifications or extra cars.",
+    "generatedFile": "exec-93caff70-502c-4b0c-a649-64a559552f6c.png",
+    "sheetSha256": "fdc799f99f245e845e0be400501b29449d681b6656c0804d61dcd79096d6c3ba",
+    "atlasFrame": {
+      "index": 0,
+      "columns": 1,
+      "rows": 3,
+      "bounds": {
+        "left": 0,
+        "top": 0,
+        "width": 1225,
+        "height": 428
+      }
+    },
+    "asset": "illustration-CAR190-side",
+    "sha256": "42ce2a57a23a9ac9d212a903aab334e33a5e904f28c0745a01678940c08ae8bf",
+    "reference": "https://newsroom.porsche.com/en/products/porsche-macan-2018-compact-suv-start-production-china-expansion-leipzig-design-body-shop-paint-shop-assembly-line-16016.html"
+  },
+  {
+    "id": "CAR192",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Production car illustration asset sheet on a completely transparent background. EXACTLY THREE separate real road production cars in ONE COLUMN and THREE ROWS, one complete vehicle per row. All strict SIDE PROFILE facing RIGHT. Top: blue 2019 Porsche Macan compact SUV, recognizable sloped rear roof, black grille, silver wheels. Middle: British racing green 2015 Jaguar XE four-door sport sedan, recognizable short rear deck and long bonnet, silver wheels. Bottom: light purple and cream two-tone 2024 BYD Dolphin five-door electric hatchback, recognizable compact body and short hood, silver and black wheels. Faithfully use real model-specific proportions, door counts, wheelbase and body shapes. Polished high quality toy-like 3D illustrations for a children's car exploration game. Generous transparent margins and gutters, no clipping, no floor or shadows outside cars. Clean alpha edges, no colored fringes, no text or labels, no cartoon faces, no invented modifications or extra cars.",
+    "generatedFile": "exec-93caff70-502c-4b0c-a649-64a559552f6c.png",
+    "sheetSha256": "fdc799f99f245e845e0be400501b29449d681b6656c0804d61dcd79096d6c3ba",
+    "atlasFrame": {
+      "index": 2,
+      "columns": 1,
+      "rows": 3,
+      "bounds": {
+        "left": 0,
+        "top": 856,
+        "width": 1225,
+        "height": 428
+      }
+    },
+    "asset": "illustration-CAR192-side",
+    "sha256": "4df19d41a94f7d8bb818bd093183a6c693ff12ada9588130e741a18df13117ea",
+    "reference": "https://www.byd.com/eu/electric-cars/dolphin"
+  },
+  {
+    "id": "CAR193",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Transparent production game asset sheet with exactly TWO real road cars in ONE COLUMN and TWO ROWS, one full vehicle per row, both strict SIDE PROFILE facing RIGHT. Top row: blue 2017 Maserati Levante SUV, recognizable sloping roof, signature triple side vents behind front wheel, elegant long hood, silver wheels. Bottom row: dark metallic grey 1990 Mercedes-Benz 190 E 2.5-16 Evolution II ROAD car, W201 four-door sedan, squared body, rectangular headlights, flared wheel arches and the actual factory tall rear wing, silver multi-spoke wheels; no racing stickers. Faithful recognizable real-model proportions, door counts, silhouette and wheelbase. Polished high quality toy-like 3D illustration for a children's car exploration game. Fully transparent background, clean alpha edges, generous padding and transparent gutter. No labels, words, faces, scenery or shadows outside cars. Every bumper and wheel fully inside its own row. No fictional parts.",
+    "generatedFile": "exec-5307503e-81be-4264-8f9b-3cac796a975e.png",
+    "sheetSha256": "49ee32e86428f1d20b256672aefcfc113d7432a70b386eb449843020f6f5132f",
+    "atlasFrame": {
+      "index": 0,
+      "columns": 1,
+      "rows": 2,
+      "bounds": {
+        "left": 0,
+        "top": 0,
+        "width": 1536,
+        "height": 512
+      }
+    },
+    "asset": "illustration-CAR193-side",
+    "sha256": "35e622851af0f33c16b8e51a9d14b8d88c333f34049b2c0fddd0aeca310ec95c",
+    "reference": "https://www.maserati.com/content/dam/maserati/international/catalogues/th/Maserati_Levante_Digital_Flyer_EN.pdf"
+  },
+  {
+    "id": "CAR194",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "Transparent production game asset sheet with exactly TWO real road cars in ONE COLUMN and TWO ROWS, one full vehicle per row, both strict SIDE PROFILE facing RIGHT. Top row: blue 2017 Maserati Levante SUV, recognizable sloping roof, signature triple side vents behind front wheel, elegant long hood, silver wheels. Bottom row: dark metallic grey 1990 Mercedes-Benz 190 E 2.5-16 Evolution II ROAD car, W201 four-door sedan, squared body, rectangular headlights, flared wheel arches and the actual factory tall rear wing, silver multi-spoke wheels; no racing stickers. Faithful recognizable real-model proportions, door counts, silhouette and wheelbase. Polished high quality toy-like 3D illustration for a children's car exploration game. Fully transparent background, clean alpha edges, generous padding and transparent gutter. No labels, words, faces, scenery or shadows outside cars. Every bumper and wheel fully inside its own row. No fictional parts.",
+    "generatedFile": "exec-5307503e-81be-4264-8f9b-3cac796a975e.png",
+    "sheetSha256": "49ee32e86428f1d20b256672aefcfc113d7432a70b386eb449843020f6f5132f",
+    "atlasFrame": {
+      "index": 1,
+      "columns": 1,
+      "rows": 2,
+      "bounds": {
+        "left": 0,
+        "top": 512,
+        "width": 1536,
+        "height": 512
+      }
+    },
+    "asset": "illustration-CAR194-side",
+    "sha256": "de1ed35119309ddc6a4c54721ed8c652a6c7ae0481524ad3470925a3c033438d",
+    "reference": "https://media.mercedes-benz.com/en/article/25dd00e4-5ef9-4c2f-b12c-55169f795d4d"
+  },
+  {
+    "id": "CAR195",
+    "tool": "Built-in GPT Image",
+    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
+    "prompt": "One complete REAL 2011 Hyundai i30 FD first-generation facelift five-door hatchback, strict full SIDE PROFILE facing RIGHT. Pale blue paint, black window glass, black rubber tires and silver alloy wheels. Faithful recognizable first-generation i30 FD proportions: compact rounded five-door hatchback, curved swept headlights, upright rear hatch, distinctive vertical rear lamp housings, short hood and modest roof spoiler. Stock road car, no tuning, no race parts or fake features. High quality polished toy-like 3D game illustration for a children's real-car exploration game. The whole car and both visible side wheels fully inside the canvas with generous transparent padding. Completely transparent background with clean alpha edges. No floor, no external shadow, no labels, no words, no faces, no extra cars. Wide landscape composition.",
+    "generatedFile": "exec-6c8d863a-0ecc-4af7-8484-272cde2031f0.png",
+    "sheetSha256": "31d9fed5892c8c8d3d5cf909a395f3d4408b234866940b818ce5298c0c101033",
+    "atlasFrame": {
+      "index": 0,
+      "columns": 1,
+      "rows": 1,
+      "bounds": {
+        "left": 0,
+        "top": 0,
+        "width": 1774,
+        "height": 887
+      }
+    },
+    "asset": "illustration-CAR195-side",
+    "sha256": "92557bc568a2e87a73a8e8356d386810d847fa4acf8294a273eddec81b9b9bef",
+    "reference": "https://www.hyundai.com/worldwide/en/footer/corporate/vehicle-history/2000/i30"
+  }
+]

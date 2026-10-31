@@ -49,6 +49,15 @@ class PublicSourceTest(unittest.TestCase):
         self.assertNotIn(value.decode(), str(reasons))
         self.assertIn('cloud resource identity', boundary.problems('config.txt', b'qcs:' + b':cos:region:uid/example'))
 
+    def test_website_home_path_is_not_a_local_filesystem_path(self):
+        website = b'https://www.mini.com/en_MS/' + b'home/heritage/model.html'
+        self.assertEqual(boundary.problems('references.json', website), [])
+        local = b'/' + b'home/example/private/model.glb'
+        self.assertIn('personal filesystem path', boundary.problems('references.json', website + b' "' + local + b'"'))
+        self.assertIn('personal filesystem path', boundary.problems('references.json', b'file://' + local))
+        token = b'AKID' + b'x' * 24
+        self.assertIn('private key or access token', boundary.problems('references.json', website + b'?token=' + token))
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -2,7 +2,7 @@ import * as T from 'three';
 
 export function disposeModel(root:T.Object3D){
  const geometries=new Set<T.BufferGeometry>(),materials=new Set<T.Material>(),textures=new Set<T.Texture>();
- root.traverse(object=>{if(object instanceof T.Mesh){geometries.add(object.geometry);for(const material of Array.isArray(object.material)?object.material:[object.material]){materials.add(material);for(const value of Object.values(material))if(value instanceof T.Texture)textures.add(value);}}});
+ root.traverse(object=>{if(object instanceof T.Mesh||object instanceof T.Line||object instanceof T.Points){geometries.add(object.geometry);for(const material of Array.isArray(object.material)?object.material:[object.material]){materials.add(material);for(const value of Object.values(material))if(value instanceof T.Texture)textures.add(value);}}});
  textures.forEach(t=>{t.dispose();const image=t.image;if(typeof ImageBitmap!=='undefined'&&image instanceof ImageBitmap)image.close();});materials.forEach(m=>m.dispose());geometries.forEach(g=>g.dispose());
 }
 
