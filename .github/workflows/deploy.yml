@@ -90,7 +90,7 @@ jobs:
     needs: check
     if: github.repository == 'kingiswenwen/carplayground' && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
     runs-on: ubuntu-24.04
-    timeout-minutes: 40
+    timeout-minutes: 60
     environment:
       name: production
     concurrency:
@@ -150,7 +150,7 @@ jobs:
           trap 'rm -f "$credentials"' EXIT
           python scripts/github-oidc-credentials.py "$credentials"
           python scripts/deploy-tencent-release.py ".release-artifacts/$RELEASE_ID" \
-            --execute --publish --auto-current-index --authorized-review \
+            --execute --publish --auto-current-index --authorized-review --workers 32 \
             --credentials-file "$credentials"
           python scripts/check-deployed-release.py ".release-artifacts/$RELEASE_ID"
       - name: Remove private deployment configuration
