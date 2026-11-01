@@ -1,169 +1,37 @@
-name: Check and deploy CarPlayground
-
+name: Diagnose public CDN entry
 on:
-  push:
-    branches: [main, dev]
-  pull_request:
-    branches: [main, dev]
   workflow_dispatch:
-
 permissions:
   contents: read
-
 jobs:
-  check:
-    name: Test and build
+  probe:
+    name: Read public CDN entry
     runs-on: ubuntu-24.04
-    timeout-minutes: 60
-    outputs:
-      release_id: ${{ steps.package.outputs.release_id }}
-      artifact_name: ${{ steps.package.outputs.artifact_name }}
+    timeout-minutes: 5
     steps:
-      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
-        with:
-          fetch-depth: 0
-          persist-credentials: false
-      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
-        with:
-          node-version-file: .nvmrc
-          cache: npm
-          registry-url: https://registry.npmjs.org
-      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
-        with:
-          python-version: '3.12'
-      - name: Install locked dependencies
-        timeout-minutes: 5
-        run: npm ci --registry=https://registry.npmjs.org --no-audit --fund=false --loglevel=info --fetch-timeout=30000 --fetch-retries=2
-      - name: Check public source boundary
-        run: python scripts/check-public-source.py --history HEAD
-      - run: npm test && npm run test:release
-      - name: Use Ubuntu archive for dependency downloads
-        run: |
-          for source in /etc/apt/apt-mirrors.txt /etc/apt/sources.list /etc/apt/sources.list.d/*.sources; do
-            if [ -f "$source" ]; then
-              sudo sed -i -e 's|http://azure.archive.ubuntu.com/ubuntu|https://archive.ubuntu.com/ubuntu|g' -e 's|https://azure.archive.ubuntu.com/ubuntu|https://archive.ubuntu.com/ubuntu|g' "$source"
-            fi
-          done
-      - name: Install audio test processor
-        timeout-minutes: 5
-        run: sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 update && sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 install -y --no-install-recommends ffmpeg
-      - run: python -m unittest discover -s tests -p 'test_*.py'
-      - name: Prepare immutable release
-        id: package
+      - name: Read public endpoints without credentials or network overrides
         shell: bash
         run: |
-          release_id="app-$(node -p "require('./package.json').version")-${GITHUB_SHA:0:12}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
-          npm run release:prepare -- --id "$release_id" --kind review
-          echo "release_id=$release_id" >> "$GITHUB_OUTPUT"
-          echo "artifact_name=release-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}" >> "$GITHUB_OUTPUT"
-      - run: npx playwright install --with-deps chromium firefox
-      - name: Test built website browser flows
-        shell: bash
-        env:
-          PLAYWRIGHT_BASE_URL: http://127.0.0.1:5194
-          RELEASE_ID: ${{ steps.package.outputs.release_id }}
-        run: |
-          node scripts/preview-release.mjs ".release-artifacts/$RELEASE_ID" 5194 &
-          preview_pid=$!
-          trap 'kill "$preview_pid"' EXIT
-          for attempt in {1..30}; do
-            if curl --fail --silent "$PLAYWRIGHT_BASE_URL/" > /dev/null; then break; fi
-            sleep 1
-          done
-          npx playwright test --project=chromium --workers=2
-          npx playwright test tests/e2e/responsive-ui.spec.ts tests/e2e/direct-touch.spec.ts tests/e2e/play-guidance.spec.ts --project=firefox --workers=2 --grep '三段故事和控件适配|车型分页和家长说明|推车松手|两路同推|洗车依次'
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
-        with:
-          name: ${{ steps.package.outputs.artifact_name }}
-          path: .release-artifacts/${{ steps.package.outputs.release_id }}/
-          if-no-files-found: error
-          retention-days: 30
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
-        if: failure()
-        with:
-          name: browser-failure-${{ github.run_id }}-${{ github.run_attempt }}
-          path: test-results/
-          retention-days: 7
-
-  deploy:
-    name: Deploy COS and verify CDN
-    needs: check
-    if: github.repository == 'kingiswenwen/carplayground' && github.ref == 'refs/heads/main' && github.event_name != 'pull_request'
-    runs-on: ubuntu-24.04
-    timeout-minutes: 60
-    environment:
-      name: production
-    concurrency:
-      group: carplayground-production
-      cancel-in-progress: false
-    permissions:
-      contents: read
-      id-token: write
-    steps:
-      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
-        with:
-          persist-credentials: false
-      - name: Reject superseded runs before cloud access
-        shell: bash
-        run: test "$(git ls-remote origin refs/heads/main | cut -f1)" = "$GITHUB_SHA"
-      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
-        with:
-          node-version-file: .nvmrc
-      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
-        with:
-          python-version: '3.12'
-      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
-        with:
-          name: ${{ needs.check.outputs.artifact_name }}
-          path: .release-artifacts/${{ needs.check.outputs.release_id }}
-      - run: python -m pip install -r deployment/requirements.txt
-      - name: Load private deployment configuration
-        shell: bash
-        env:
-          CLOUD_CONFIG: ${{ secrets.CARPLAYGROUND_CLOUD_CONFIG }}
-          OIDC_CONFIG: ${{ secrets.CARPLAYGROUND_OIDC_CONFIG }}
-          AUTOMATION_CONFIG: ${{ secrets.CARPLAYGROUND_AUTOMATION_CONFIG }}
-        run: |
-          python - <<'PY'
-          import json, os
-          from pathlib import Path
-          folder = Path(os.environ['RUNNER_TEMP']) / 'carplayground-deployment'
-          folder.mkdir(mode=0o700)
-          for name, variable in [('tencent-cloud', 'CLOUD_CONFIG'), ('tencent-oidc', 'OIDC_CONFIG'), ('automation', 'AUTOMATION_CONFIG')]:
-              config = json.loads(os.environ[variable])
-              for value in config.values():
-                  if isinstance(value, str) and value:
-                      escaped = value.replace('%', '%25').replace('\r', '%0D').replace('\n', '%0A')
-                      print('::add-mask::' + escaped)
-              file = folder / (name + '.json')
-              with os.fdopen(os.open(file, os.O_WRONLY | os.O_CREAT | os.O_EXCL, 0o600), 'w') as output:
-                  json.dump(config, output)
-          with open(os.environ['GITHUB_ENV'], 'a') as output:
-              output.write('CARPLAYGROUND_DEPLOYMENT_DIR=' + str(folder) + '\n')
+          python3 -u - <<'PY'
+          import urllib.request, urllib.error, json, socket, re
+          host = 'carplayground.wynsunny.cn'
+          print('Public DNS:', sorted({row[4][0] for row in socket.getaddrinfo(host, 443)}))
+          urls = ['https://' + host + '/', 'https://' + host + '/index.html',
+                  'https://' + host + '/releases/app-0.14.0-473706b4c3e0-41235842444-1/assets/index-0gOUg19L.js']
+          for url in urls:
+              try:
+                  response = urllib.request.urlopen(url, timeout=35)
+              except urllib.error.HTTPError as error:
+                  response = error
+              except Exception as error:
+                  print(json.dumps({'url': url, 'errorType': type(error).__name__}))
+                  continue
+              with response:
+                  data = response.read()
+                  print(json.dumps({'url': url, 'status': response.status, 'bytes': len(data),
+                      'finalUrl': response.url,
+                      'headers': {k: v for k, v in response.headers.items() if k.lower() in
+                          ['server', 'cache-control', 'date', 'x-cache-lookup', 'x-nws-log-uuid', 'age']},
+                      'release': re.findall(rb'/releases/([^/]+)/assets/', data[:12000])[0].decode()
+                          if re.search(rb'/releases/([^/]+)/assets/', data[:12000]) else None}))
           PY
-      - name: Deploy using short-lived project identity
-        shell: bash
-        env:
-          RELEASE_ID: ${{ needs.check.outputs.release_id }}
-        run: |
-          credentials="$RUNNER_TEMP/carplayground-credentials.json"
-          trap 'rm -f "$credentials"' EXIT
-          python scripts/github-oidc-credentials.py "$credentials"
-          python scripts/deploy-tencent-release.py ".release-artifacts/$RELEASE_ID" \
-            --execute --publish --auto-current-index --authorized-review --workers 32 \
-            --credentials-file "$credentials"
-          python scripts/check-deployed-release.py ".release-artifacts/$RELEASE_ID"
-      - name: Remove private deployment configuration
-        if: always()
-        shell: bash
-        run: rm -rf "$RUNNER_TEMP/carplayground-deployment"
-      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
-        if: always()
-        with:
-          name: deployment-receipt-${{ github.run_id }}-${{ github.run_attempt }}
-          include-hidden-files: true
-          path: |
-            .release-artifacts/deployment-*/receipt.json
-            .release-artifacts/public-delivery-check.json
-          if-no-files-found: error
-          retention-days: 90
