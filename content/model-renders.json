@@ -8913,5 +8913,425 @@
     ],
     "triangles": 96174,
     "sourceModelSha256": "d4b2024992804270645bbea75d3b741a504bcdc065002fb11661f3c50e1cf6f4"
+  },
+  {
+    "id": "CAR14",
+    "recipe": "solid-surfaces-v1",
+    "settingsSha256": "8d543676a09d606f2561e8e77a56616dbc6e16f31a88fcba62c551239a7cd570",
+    "assets": [
+      {
+        "id": "render-CAR14-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car14-side.webp",
+        "sha256": "581f5bad1ea0791d9612b5dd6439a0f33e3b2003bfb8a63d14a4fc2ec51ab20a",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR14. Mpgs.studio3DModels; CC BY 4.0. https://sketchfab.com/3d-models/toyota-supra-3d-model-free-41b83cfb912b4eab9af19a802bcf5ffc"
+      },
+      {
+        "id": "render-CAR14-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car14-top.webp",
+        "sha256": "827a5bab057bc1f2fb7bbf13c4e33f5842013ae349f3d8b5195db65ee156774b",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR14. Mpgs.studio3DModels; CC BY 4.0. https://sketchfab.com/3d-models/toyota-supra-3d-model-free-41b83cfb912b4eab9af19a802bcf5ffc"
+      },
+      {
+        "id": "render-CAR14-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car14-front-left.webp",
+        "sha256": "9ee59d43d48cb7247049e334eb9d63fae1772203f6d923ef5b7aedc30d7cb921",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR14. Mpgs.studio3DModels; CC BY 4.0. https://sketchfab.com/3d-models/toyota-supra-3d-model-free-41b83cfb912b4eab9af19a802bcf5ffc"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car14-side.webp.json",
+        "sha256": "0eb9c3e21ab79aa6eb3f1e07909fdd441b752576475ee568b9d3229c24d45a01"
+      },
+      {
+        "path": "media/rendered-cars/car14-top.webp.json",
+        "sha256": "4b2ba8d0c1ef3fd19650a18b50054a6fdf21974137b56adf55d8a851cf5c399f"
+      },
+      {
+        "path": "media/rendered-cars/car14-front-left.webp.json",
+        "sha256": "891f35b8280a04e15f289e966a5fa83e1725f629dac67982245e45dcd26ce07a"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.2383406364041219,
+        "y": 0.6746055760326833,
+        "r": 0.12
+      },
+      {
+        "x": 0.7532765805268782,
+        "y": 0.6451902012800966,
+        "r": 0.12
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5489098991223181
+      },
+      "light": {
+        "x": 0.9318181818181819,
+        "y": 0.619036142340396
+      },
+      "wheel": {
+        "x": 0.2383406364041219,
+        "y": 0.6746055760326833
+      }
+    },
+    "bounds": [
+      4.650000000000001,
+      1.3769879528514044,
+      2.13495693591693
+    ],
+    "triangles": 251938,
+    "sourceModelSha256": "484387b6d6bacff3bcb2679f2d98bd8dac5dba7ebd4925b59f3f67c8ecef71bd"
+  },
+  {
+    "id": "CAR15",
+    "recipe": "solid-surfaces-v1",
+    "settingsSha256": "e31d5d9e84b3ce51dc300fbcbe4364877aad685b21275cb63f9abb70f0306b71",
+    "assets": [
+      {
+        "id": "render-CAR15-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car15-side.webp",
+        "sha256": "d954895a423a59f6b169971abd37c21b5938a9e6d7ee3aab5a0db0fa4d1b2236",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR15. Mona x Supercars; CC BY 4.0. https://sketchfab.com/3d-models/toyota-gr86-zn8-4919d14eba9640599e838230e8e5ed74"
+      },
+      {
+        "id": "render-CAR15-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car15-top.webp",
+        "sha256": "5c95e52fcf16e74e3069f0197670476f5b0dcf70a92a6ccf9c220f9f6387245f",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR15. Mona x Supercars; CC BY 4.0. https://sketchfab.com/3d-models/toyota-gr86-zn8-4919d14eba9640599e838230e8e5ed74"
+      },
+      {
+        "id": "render-CAR15-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car15-front-left.webp",
+        "sha256": "939e962fe050ad23353da782a2f5a746040d5daf574f60273293cbaf626d5b63",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR15. Mona x Supercars; CC BY 4.0. https://sketchfab.com/3d-models/toyota-gr86-zn8-4919d14eba9640599e838230e8e5ed74"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car15-side.webp.json",
+        "sha256": "6c816102f7589635e8aa0a566610ae6dbb522de6548626bc63d84150615328e4"
+      },
+      {
+        "path": "media/rendered-cars/car15-top.webp.json",
+        "sha256": "3cab99503b381519ea135d34a1f5b790eee43feb9fbcf1155508419ae360bef8"
+      },
+      {
+        "path": "media/rendered-cars/car15-front-left.webp.json",
+        "sha256": "a71a856c453a400322f89bbcd7ab95176bfd00e0ede2e917cf3e03d1a1e16460"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.22066346729346342,
+        "y": 0.6263310261305312,
+        "r": 0.11626434950431504
+      },
+      {
+        "x": 0.7724666544009916,
+        "y": 0.6900169642570259,
+        "r": 0.11610825625460487
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5506408581755438
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6227607549618676
+      },
+      "wheel": {
+        "x": 0.22066346729346342,
+        "y": 0.6263310261305312
+      }
+    },
+    "bounds": [
+      4.65,
+      1.4173084452311786,
+      2.214720795189524
+    ],
+    "triangles": 104591,
+    "sourceModelSha256": "e0e5fc331c993332509441bd8b12906781a090c6f8a2254fcc31c064e4bd5ea0"
+  },
+  {
+    "id": "CAR22",
+    "recipe": "solid-surfaces-v1",
+    "settingsSha256": "c7413b9bf35a7f537af2d1c256d80a693362271118c0ea6ef05e6daa3115cfa1",
+    "assets": [
+      {
+        "id": "render-CAR22-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car22-side.webp",
+        "sha256": "fa4638e83010c4e40cd715ce183b256efd017595eed1dfe6e728e647dbbffc2b",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR22. Ddiaz Design; CC BY 4.0. https://sketchfab.com/3d-models/2023-mclaren-artura-d393abd807f04d62b96b1bd82119b5d4"
+      },
+      {
+        "id": "render-CAR22-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car22-top.webp",
+        "sha256": "e10043c9c00a07b01f25828362fe570e0100aeac8a0b825f98d7a9d7cf3f2f23",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR22. Ddiaz Design; CC BY 4.0. https://sketchfab.com/3d-models/2023-mclaren-artura-d393abd807f04d62b96b1bd82119b5d4"
+      },
+      {
+        "id": "render-CAR22-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car22-front-left.webp",
+        "sha256": "67f8133838efa5b9b3a8449969deef44062c0fc2f8747478cfcedfbc0dd2c494",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR22. Ddiaz Design; CC BY 4.0. https://sketchfab.com/3d-models/2023-mclaren-artura-d393abd807f04d62b96b1bd82119b5d4"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car22-side.webp.json",
+        "sha256": "6422190f58b74b659255d5999d81260e0dbf08f77ea31731b1592e9ff0424c8c"
+      },
+      {
+        "path": "media/rendered-cars/car22-top.webp.json",
+        "sha256": "fd0df1c7c4081ac3dd852f38f3e83ff5c3a91f047f5635e2991d2057d88bec83"
+      },
+      {
+        "path": "media/rendered-cars/car22-front-left.webp.json",
+        "sha256": "592000019c3303351a99fafd3b369fc2dd4096e4509365afbf93040f4de2a794"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.1860296293225347,
+        "y": 0.5676040476963625,
+        "r": 0.065
+      },
+      {
+        "x": 0.7348216522663242,
+        "y": 0.6577393644981664,
+        "r": 0.11464492338244481
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.547567858204542
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6091396519347421
+      },
+      "wheel": {
+        "x": 0.1860296293225347,
+        "y": 0.5676040476963625
+      }
+    },
+    "bounds": [
+      4.65,
+      1.2249514256867586,
+      2.1335024031596097
+    ],
+    "triangles": 106204,
+    "sourceModelSha256": "c7842abb94f5b7314a5057c0d4884e182a96d994204ce9f3fb792d16392f0c49"
+  },
+  {
+    "id": "CAR23",
+    "recipe": "solid-surfaces-v1",
+    "settingsSha256": "494a2d87fb2793b2ad4206bc15646963746deed32b283edc7369666c3416f38a",
+    "assets": [
+      {
+        "id": "render-CAR23-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car23-side.webp",
+        "sha256": "8e31d284f9bf5c6a6ba3c403a5c32d0db152b6fae78176a45cddfc6371c74882",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR23. BRO; CC BY 4.0. https://sketchfab.com/3d-models/a9f3c4fc83cf43ad95b303738e8588b3"
+      },
+      {
+        "id": "render-CAR23-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car23-top.webp",
+        "sha256": "a57fa480bd66a9af5e095fe820c1e71a78c6f526df19ae3bf4d0f772300e7a06",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR23. BRO; CC BY 4.0. https://sketchfab.com/3d-models/a9f3c4fc83cf43ad95b303738e8588b3"
+      },
+      {
+        "id": "render-CAR23-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car23-front-left.webp",
+        "sha256": "b447afffa079f13042da19a2efa25cc4628d33ba92e2ea95046fbd2db9fa1385",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR23. BRO; CC BY 4.0. https://sketchfab.com/3d-models/a9f3c4fc83cf43ad95b303738e8588b3"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car23-side.webp.json",
+        "sha256": "06e64f7c18241965fc5a397ccd0a9f333e3998b1e215cdfd5f58f8bc27dde80e"
+      },
+      {
+        "path": "media/rendered-cars/car23-top.webp.json",
+        "sha256": "2897193f0929e140ca7ac1648436fc6abf646d4f0a7ef03e72a656917e8b3196"
+      },
+      {
+        "path": "media/rendered-cars/car23-front-left.webp.json",
+        "sha256": "bc1d22be9552a53a701533cbd90d59e4eb4bdb435f1a12343b18421b12003598"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.2061539121257679,
+        "y": 0.6420633530433226,
+        "r": 0.12
+      },
+      {
+        "x": 0.736579376327115,
+        "y": 0.5881802533196039,
+        "r": 0.12
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5482800159283505
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6101714353108086
+      },
+      "wheel": {
+        "x": 0.2061539121257679,
+        "y": 0.6420633530433226
+      }
+    },
+    "bounds": [
+      4.65,
+      1.2329136499685553,
+      2.1706324446113685
+    ],
+    "triangles": 197358,
+    "sourceModelSha256": "c589a8f5d410418ff993e3f412fe406b23d307a69cee0549fa3c2406a25cfe3a"
+  },
+  {
+    "id": "CAR26",
+    "recipe": "solid-surfaces-v1",
+    "settingsSha256": "1e9b6341d19b6ff9fedd79f41300145ab0d7a54c27da8d32296f7cdd7debf1fb",
+    "assets": [
+      {
+        "id": "render-CAR26-side",
+        "kind": "image",
+        "path": "media/rendered-cars/car26-side.webp",
+        "sha256": "44e5b6d763ed26e046c99bd460d09b6e5e4e6895ebc460141713cc8a64cdfce8",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR26. royjang; CC BY 4.0. https://sketchfab.com/3d-models/jaguar-f-type-4dde0628c79c479eb6b71d82248afaa4"
+      },
+      {
+        "id": "render-CAR26-top",
+        "kind": "image",
+        "path": "media/rendered-cars/car26-top.webp",
+        "sha256": "1bf5ac68a1b4dcc6365efa26c78b3e99e97dd6dfe904cb0e7c3d71275f9f4627",
+        "status": "approved",
+        "width": 1000,
+        "height": 450,
+        "source": "Rendered from the independently credited model CAR26. royjang; CC BY 4.0. https://sketchfab.com/3d-models/jaguar-f-type-4dde0628c79c479eb6b71d82248afaa4"
+      },
+      {
+        "id": "render-CAR26-front-left",
+        "kind": "image",
+        "path": "media/rendered-cars/car26-front-left.webp",
+        "sha256": "a9b77598908689f4fef649f4b9406f7bfa25127d8bde2e87d75a99fc1522c4f5",
+        "status": "approved",
+        "width": 800,
+        "height": 480,
+        "source": "Rendered from the independently credited model CAR26. royjang; CC BY 4.0. https://sketchfab.com/3d-models/jaguar-f-type-4dde0628c79c479eb6b71d82248afaa4"
+      }
+    ],
+    "origins": [
+      {
+        "path": "media/rendered-cars/car26-side.webp.json",
+        "sha256": "6804653b8f9e2c8d73d1f276ed893d1a7cfced7aef571f12b4f4ed543c7f1e0b"
+      },
+      {
+        "path": "media/rendered-cars/car26-top.webp.json",
+        "sha256": "9c39b367d3190f9e111a179deb273bf642c1190ce8df25382c23097222aed90e"
+      },
+      {
+        "path": "media/rendered-cars/car26-front-left.webp.json",
+        "sha256": "312fd5901bad81ee26f4dd3a0ebdc35907816bd87c6f257e33829874ca60a3f6"
+      }
+    ],
+    "wheels": [
+      {
+        "x": 0.23260717327513353,
+        "y": 0.6670820687436539,
+        "r": 0.12
+      },
+      {
+        "x": 0.7655901515997541,
+        "y": 0.6089414165658168,
+        "r": 0.12
+      }
+    ],
+    "points": {
+      "door": {
+        "x": 0.5,
+        "y": 0.5490673143550582
+      },
+      "light": {
+        "x": 0.9318181818181818,
+        "y": 0.6198791169263783
+      },
+      "wheel": {
+        "x": 0.23260717327513353,
+        "y": 0.6670820687436539
+      }
+    },
+    "bounds": [
+      4.65,
+      1.389344112312857,
+      2.137866059195664
+    ],
+    "triangles": 33069,
+    "sourceModelSha256": "8588bc6c01c50c6b4c1261edb17b37511a1f4f87d12edf0e742e4567bac40a1c"
   }
 ]

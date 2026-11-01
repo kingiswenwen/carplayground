@@ -41,7 +41,7 @@ export class VehicleRenderer{
   const gl=renderer.getContext(),debug=gl.getExtension('WEBGL_debug_renderer_info');
   const software=!!debug&&/swiftshader|llvmpipe|software/i.test(gl.getParameter(debug.UNMASKED_RENDERER_WEBGL));
   // Keep the authored materials, but reduce fill work when no hardware GPU is available.
-  renderer.setPixelRatio(Math.min(devicePixelRatio,software?.65:1.5));canvas.dataset.quality=software?'simple':'full';renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=.9;
+  renderer.setPixelRatio(Math.min(devicePixelRatio,software?1:1.5));canvas.dataset.quality=software?'simple':'full';renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=.9;
   renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFShadowMap;renderer.shadowMap.autoUpdate=false;
   this.scene.environmentIntensity=.6;
   this.scene.add(new T.HemisphereLight('#eaf5ff','#c6bba8',.8));

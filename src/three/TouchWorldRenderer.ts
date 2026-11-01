@@ -89,11 +89,17 @@ export class TouchWorldRenderer{
   for(const actor of this.actors.values())if(actor.group.visible)bounds.expandByObject(actor.group,true);
   if(this.washGantry)bounds.expandByObject(this.washGantry,true);
   const direction=this.camera.position.clone().sub(this.controls.target).normalize(),center=bounds.getCenter(new T.Vector3());
-  this.controls.target.copy(center);let distance=this.camera.position.distanceTo(center);
-  for(let attempt=0;attempt<30;attempt++){
+  this.controls.target.copy(center);
+  const fits=(distance:number)=>{
    this.camera.position.copy(center).addScaledVector(direction,distance);this.camera.lookAt(center);this.camera.updateMatrixWorld(true);
-   const projected=this.screenBounds(bounds);if(projected.min.x>=.07&&projected.min.y>=.07&&projected.max.x<=.93&&projected.max.y<=.93)break;distance*=1.08;
-  }
+   const projected=this.screenBounds(bounds);return projected.min.x>=.07&&projected.min.y>=.07&&projected.max.x<=.93&&projected.max.y<=.93;
+  };
+  // Fit in both directions. Starting at the previous distance only moved the
+  // camera farther away, leaving a tiny car after portrait layout or resizing.
+  let near=Math.max(this.controls.minDistance,bounds.getSize(new T.Vector3()).length()/2+this.camera.near),far=Math.max(near,65);
+  for(let attempt=0;attempt<20&&!fits(far);attempt++)far*=1.2;
+  for(let attempt=0;attempt<16;attempt++){const middle=(near+far)/2;if(fits(middle))far=middle;else near=middle;}
+  this.controls.maxDistance=Math.max(65,far*2);fits(far);
   this.controls.update();this.needsRender=true;
  }
  private actorBounds(actor:Actor){actor.group.updateWorldMatrix(true,false);return actor.bounds!.clone().applyMatrix4(actor.group.matrixWorld);}

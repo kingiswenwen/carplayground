@@ -52,3 +52,16 @@ test('新增Countach装配后整车保持入镜，实际轮组插槽支持窄屏
  for(const id of ['wheel-0','wheel-1']){s=await snapshot(page);await drag(page,s.actors.find((a:{id:string})=>a.id===id).screen,s.targetScreens.find((t:{id:string})=>t.id===id).screen);}
  await expect(page.locator('.touch-play')).toHaveAttribute('data-completed','true');
 });
+
+test('手机洗车镜头靠近可操作车身，横竖屏往返不会越变越小',async({page})=>{
+ test.setTimeout(90000);await page.setViewportSize({width:390,height:844});await open(page,'H03','CAR14');
+ const width=async()=>{const state=await snapshot(page),bounds=state?.actors.find((actor:{id:string})=>actor.id==='wash-car')?.screenBounds;return bounds?bounds.max.x-bounds.min.x:0;};
+ await expect.poll(width).toBeGreaterThan(.5);const original=await width();
+ for(let round=0;round<2;round++){
+  await page.setViewportSize({width:844,height:390});
+  await expect(world(page)).toHaveAttribute('data-ready','true',{timeout:45000});
+  await page.setViewportSize({width:390,height:844});
+  await expect(world(page)).toHaveAttribute('data-ready','true',{timeout:45000});
+  await expect.poll(width).toBeGreaterThan(original*.95);
+ }
+});

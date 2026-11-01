@@ -38,7 +38,7 @@ for(const car of ['CAR65','CAR171','CAR05','CAR119','CAR170','CAR177','CAR187','
 
 test.describe('独立车身材质的实际颜色',()=>{
  test.use({viewport:{width:1000,height:760}});
- for(const car of ['CAR159','CAR141'])test(`${car} 车型查看器试颜色确实改变车身`,async({page})=>{
+ for(const car of ['CAR159','CAR141','CAR14','CAR15','CAR22','CAR23','CAR26'])test(`${car} 车型查看器试颜色确实改变车身`,async({page})=>{
   test.setTimeout(60000);await page.goto(`/#/cars/${car}`);
   const canvas=page.locator('canvas.vehicle-webgl');await expect(canvas).toHaveAttribute('data-ready','true',{timeout:45000});
   await page.getByRole('button',{name:'立体车试红色',exact:true}).click();
@@ -48,7 +48,7 @@ test.describe('独立车身材质的实际颜色',()=>{
   for(let i=0;i<red.length;i+=4)if(red[i]>90&&red[i]>red[i+1]*1.35&&red[i]>red[i+2]*1.35){painted++;const channels=[white[i],white[i+1],white[i+2]];if(Math.min(...channels)>110&&Math.max(...channels)-Math.min(...channels)<50)changed++;}
   expect(painted).toBeGreaterThan(1000);expect(changed/painted).toBeGreaterThan(.5);
  });
- for(const car of ['CAR66','CAR116','CAR120','CAR141','CAR159','CAR172','CAR182','CAR08','CAR195','CAR29','CAR190'])test(`${car} E01 三维车身显示红白颜色并完成触摸玩法`,async({page})=>{
+ for(const car of ['CAR66','CAR116','CAR120','CAR141','CAR159','CAR172','CAR182','CAR08','CAR195','CAR29','CAR190','CAR14','CAR15','CAR22','CAR23','CAR26'])test(`${car} E01 三维车身显示红白颜色并完成触摸玩法`,async({page})=>{
   test.setTimeout(60000);await page.goto(`/#/play/E01?car=${car}`);
   const canvas=page.locator('canvas.touch-world-canvas');
   await expect(canvas).toHaveAttribute('data-ready','true');

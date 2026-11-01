@@ -1,6 +1,6 @@
 # 真实车型与素材扩充流程
 
-0.14.0 登记 112 个真实量产车型系列，其中 101 个有独立 GLB，11 个保留图像玩法。不同年款、配置、车漆、改装和地区别名不增加车型系列计数。品牌发源地不代表具体车辆的生产地点。
+0.15.0 登记 112 个真实量产车型系列，其中 106 个有独立 GLB，6 个保留图像玩法。不同年款、配置、车漆、改装和地区别名不增加车型系列计数。品牌发源地不代表具体车辆的生产地点。
 
 ## 每辆车的流程
 
@@ -23,14 +23,9 @@
 | --- | --- |
 | CAR02 | Ferrari 296 GTB |
 | CAR04 | McLaren 750S |
-| CAR14 | Toyota GR Supra |
-| CAR15 | Toyota GR86 |
 | CAR16 | Nissan Z |
 | CAR17 | Mazda MX-5 RF |
 | CAR20 | Ferrari F8 Tributo |
-| CAR22 | McLaren Artura |
-| CAR23 | Maserati MC20 |
 | CAR25 | Alpine A110 |
-| CAR26 | Jaguar F-Type |
 
 补齐需要与对应车型匹配、能取得并登记来源的 GLB。GPT Image 生成的车图不能直接充当可旋转、可拆装的三维几何。

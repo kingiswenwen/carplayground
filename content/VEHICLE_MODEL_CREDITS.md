@@ -1,6 +1,6 @@
 # 立体车型来源与许可
 
-101 个独立模型，按真实车型系列去重。模型是作者制作的游戏外观，不是厂商工程数据；图片生成记录另见 catalog-illustrations.json。
+106 个独立模型，按真实车型系列去重。模型是作者制作的游戏外观，不是厂商工程数据；图片生成记录另见 catalog-illustrations.json。
 
 ## CAR01 · 兰博基尼 Revuelto
 
@@ -505,4 +505,29 @@ Authored proportions and textures retained; bounded-error mesh simplification, W
 ## CAR195 · 现代 i30
 
 [2011 Hyundai i30 FD](https://sketchfab.com/3d-models/036a13aefc3f48c5ba996aa2361b429e) · [D3NK](https://sketchfab.com/leeyunhe902) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
+Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
+
+## CAR14 · 丰田 GR Supra
+
+[Toyota Supra 3D model FREE](https://sketchfab.com/3d-models/toyota-supra-3d-model-free-41b83cfb912b4eab9af19a802bcf5ffc) · [Mpgs.studio3DModels](https://sketchfab.com/mpgs.studio) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
+Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
+
+## CAR15 · 丰田 GR86
+
+[Toyota GR86 ZN8](https://sketchfab.com/3d-models/toyota-gr86-zn8-4919d14eba9640599e838230e8e5ed74) · [Mona x Supercars](https://sketchfab.com/Car2022) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
+Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls. Deterministically restored from the credited WebSim runtime derivative: interleaved mesh buffers, original PNG textures and material assignments retained; Z-up converted to Y-up. WebSim simplification and aftermarket ADVAN Racing RS wheel textures credited to Kazutoshi Mods; this is an author-modified ZN8, not a factory specification.
+
+## CAR22 · 迈凯伦 Artura
+
+[2023 McLaren Artura](https://sketchfab.com/3d-models/2023-mclaren-artura-d393abd807f04d62b96b1bd82119b5d4) · [Ddiaz Design](https://sketchfab.com/ddiaz-design) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
+Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
+
+## CAR23 · 玛莎拉蒂 MC20
+
+[Maserati MC20](https://sketchfab.com/3d-models/a9f3c4fc83cf43ad95b303738e8588b3) · [BRO](https://sketchfab.com/musawork786) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
+Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls. Original Sketchfab page is currently unavailable; CC BY 4.0 author/source attribution is preserved in the original GLB asset metadata and pinned mirror component header.
+
+## CAR26 · 捷豹 F-Type
+
+[Jaguar F-Type](https://sketchfab.com/3d-models/jaguar-f-type-4dde0628c79c479eb6b71d82248afaa4) · [royjang](https://sketchfab.com/royjang) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
 Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
