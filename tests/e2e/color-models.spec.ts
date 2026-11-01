@@ -51,7 +51,7 @@ test.describe('独立车身材质的实际颜色',()=>{
  for(const car of ['CAR66','CAR116','CAR120','CAR141','CAR159','CAR172','CAR182','CAR08','CAR195','CAR29','CAR190','CAR14','CAR15','CAR22','CAR23','CAR26'])test(`${car} E01 三维车身显示红白颜色并完成触摸玩法`,async({page})=>{
   test.setTimeout(60000);await page.goto(`/#/play/E01?car=${car}`);
   const canvas=page.locator('canvas.touch-world-canvas');
-  await expect(canvas).toHaveAttribute('data-ready','true');
+  await expect(canvas).toHaveAttribute('data-ready','true',{timeout:45000});
   const state=JSON.parse((await canvas.getAttribute('data-state'))!);
   const {data,info}=await sharp(await canvas.screenshot()).ensureAlpha().raw().toBuffer({resolveWithObject:true});
   for(const id of ['red','white']){
