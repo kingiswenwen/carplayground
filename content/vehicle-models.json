@@ -2847,5 +2847,151 @@
     "playFile": "media/models/play/car195.glb",
     "playBytes": 449968,
     "playSha256": "2a19219fbe05d84d2f16ec4c7acf1185279ae2f6b3bbff7821a288a627afb73c"
+  },
+  {
+    "id": "CAR14",
+    "file": "media/models/car14.glb",
+    "bytes": 2480204,
+    "sha256": "484387b6d6bacff3bcb2679f2d98bd8dac5dba7ebd4925b59f3f67c8ecef71bd",
+    "preservePaint": true,
+    "color": "#f4f0e4",
+    "rotationY": 3.141592653589793,
+    "paintMaterials": [
+      "body.012"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "Toyota Supra 3D model FREE",
+      "author": "Mpgs.studio3DModels",
+      "authorUrl": "https://sketchfab.com/mpgs.studio",
+      "url": "https://sketchfab.com/3d-models/toyota-supra-3d-model-free-41b83cfb912b4eab9af19a802bcf5ffc",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/ReloadDesigner/Car-Viewer-Test/tree/3c61e52a5243d730705ecffebebf91c5f9d012fa/public/models/toyota/Supra/gr_supra",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "toyota/supra",
+    "playFile": "media/models/play/car14.glb",
+    "playBytes": 409060,
+    "playSha256": "69bcb47578959af4751652d52e6722c4415c4219ad9cff0e5f649dfd1c0ec131"
+  },
+  {
+    "id": "CAR15",
+    "file": "media/models/car15.glb",
+    "bytes": 1565960,
+    "sha256": "e0e5fc331c993332509441bd8b12906781a090c6f8a2254fcc31c064e4bd5ea0",
+    "preservePaint": true,
+    "color": "#c02b31",
+    "rotationY": 0,
+    "paintMaterials": [
+      "Paint1Mtl"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "Toyota GR86 ZN8",
+      "author": "Mona x Supercars",
+      "authorUrl": "https://sketchfab.com/Car2022",
+      "url": "https://sketchfab.com/3d-models/toyota-gr86-zn8-4919d14eba9640599e838230e8e5ed74",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/prozac0401/WebSim/blob/83d77cd2021ae512c4fd5784842c6cac2418e01d/evolving_vehicles_2/assets/models/gr86-runtime.js",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls. Deterministically restored from the credited WebSim runtime derivative: interleaved mesh buffers, original PNG textures and material assignments retained; Z-up converted to Y-up. WebSim simplification and aftermarket ADVAN Racing RS wheel textures credited to Kazutoshi Mods; this is an author-modified ZN8, not a factory specification."
+    },
+    "catalogKey": "toyota/86",
+    "playFile": "media/models/play/car15.glb",
+    "playBytes": 715140,
+    "playSha256": "43e66c873a790d9b54a24fb3ce55e6aac3ebc806eaef60f917a2eec0ddf9de49"
+  },
+  {
+    "id": "CAR22",
+    "file": "media/models/car22.glb",
+    "bytes": 2883288,
+    "sha256": "c7842abb94f5b7314a5057c0d4884e182a96d994204ce9f3fb792d16392f0c49",
+    "preservePaint": true,
+    "color": "#92b73a",
+    "rotationY": 0,
+    "paintMaterials": [
+      "McLaren_ArturaRewardRecycled_2022Paint_Material"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "2023 McLaren Artura",
+      "author": "Ddiaz Design",
+      "authorUrl": "https://sketchfab.com/ddiaz-design",
+      "url": "https://sketchfab.com/3d-models/2023-mclaren-artura-d393abd807f04d62b96b1bd82119b5d4",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/Andregomes07/blah/blob/915a2a7c4e22e8e154b8afa5082470704c849662/blah/wwwroot/models/2023_mclaren_artura.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "mclaren/artura",
+    "playFile": "media/models/play/car22.glb",
+    "playBytes": 785748,
+    "playSha256": "a6c6f17a423c7aa084ace0849ff2a6b624b86bb8dae2d316c6b0de2de2957aed"
+  },
+  {
+    "id": "CAR23",
+    "file": "media/models/car23.glb",
+    "bytes": 3434260,
+    "sha256": "c589a8f5d410418ff993e3f412fe406b23d307a69cee0549fa3c2406a25cfe3a",
+    "preservePaint": true,
+    "color": "#f5f3e9",
+    "rotationY": 0,
+    "paintMaterials": [
+      "2022_Maserati_MC20_Bianco"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "Maserati MC20",
+      "author": "BRO",
+      "authorUrl": "https://sketchfab.com/musawork786",
+      "url": "https://sketchfab.com/3d-models/a9f3c4fc83cf43ad95b303738e8588b3",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://github.com/longtv2222/3D-Car-Viewer/blob/24a6d9f7c095d71d6c389bfc6c8fd0068d090aba/prototype/public/maserati_mc20.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls. Original Sketchfab page is currently unavailable; CC BY 4.0 author/source attribution is preserved in the original GLB asset metadata and pinned mirror component header."
+    },
+    "catalogKey": "maserati/mc20",
+    "playFile": "media/models/play/car23.glb",
+    "playBytes": 536508,
+    "playSha256": "255c014d0be848b0647fb6c843e4d4c94de27cb4e0ae54845f450465eecedf15"
+  },
+  {
+    "id": "CAR26",
+    "file": "media/models/car26.glb",
+    "bytes": 334060,
+    "sha256": "8588bc6c01c50c6b4c1261edb17b37511a1f4f87d12edf0e742e4567bac40a1c",
+    "preservePaint": true,
+    "color": "#eeeae0",
+    "rotationY": 0,
+    "paintMaterials": [
+      "carpaint",
+      "carpaint_ncl1_1"
+    ],
+    "lampMaterials": [],
+    "excludedNodes": [],
+    "recalculateNormals": false,
+    "source": {
+      "title": "Jaguar F-Type",
+      "author": "royjang",
+      "authorUrl": "https://sketchfab.com/royjang",
+      "url": "https://sketchfab.com/3d-models/jaguar-f-type-4dde0628c79c479eb6b71d82248afaa4",
+      "license": "CC BY 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+      "mirror": "https://huggingface.co/datasets/allenai/objaverse/blob/main/glbs/000-036/4dde0628c79c479eb6b71d82248afaa4.glb",
+      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    "catalogKey": "jaguar/f-type",
+    "playFile": "media/models/play/car26.glb",
+    "playBytes": 161852,
+    "playSha256": "e93a7f18585985fcdc57b9dde6093beac01738d8dc0f8a9af62708341a2e6a6d"
   }
 ]

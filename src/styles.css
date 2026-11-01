@@ -55,3 +55,4 @@
 .car-roundabout:has(.vehicle-views[data-mode=model]) .car-voice{top:12px;bottom:auto}
 
 .parent-page-title p,.parent-page-title .eyebrow{color:#50624b}
+.release-identity{overflow-wrap:anywhere}

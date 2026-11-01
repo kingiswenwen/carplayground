@@ -1,7 +1,7 @@
 {
-  "id": "r19-world-catalog-0.14.0",
+  "id": "r20-model-completion-0.15.0",
   "schemaVersion": 2,
-  "appVersion": "0.14.0",
+  "appVersion": "0.15.0",
   "car": {
     "id": "CAR01",
     "brand": "Lamborghini",
@@ -14071,6 +14071,236 @@
       "width": 1000,
       "height": 450,
       "source": "Built-in GPT Image illustration inspired by the real Hyundai i30. https://www.hyundai.com/worldwide/en/footer/corporate/vehicle-history/2000/i30. Game illustration; not a photograph, scan or engineering model."
+    },
+    {
+      "id": "model-CAR14",
+      "kind": "model",
+      "path": "media/models/car14.glb",
+      "sha256": "484387b6d6bacff3bcb2679f2d98bd8dac5dba7ebd4925b59f3f67c8ecef71bd",
+      "status": "approved",
+      "source": "Toyota Supra 3D model FREE; Mpgs.studio3DModels; CC BY 4.0. https://sketchfab.com/3d-models/toyota-supra-3d-model-free-41b83cfb912b4eab9af19a802bcf5ffc. Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    {
+      "id": "render-CAR14-side",
+      "kind": "image",
+      "path": "media/rendered-cars/car14-side.webp",
+      "sha256": "581f5bad1ea0791d9612b5dd6439a0f33e3b2003bfb8a63d14a4fc2ec51ab20a",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Rendered from the independently credited model CAR14. Mpgs.studio3DModels; CC BY 4.0. https://sketchfab.com/3d-models/toyota-supra-3d-model-free-41b83cfb912b4eab9af19a802bcf5ffc"
+    },
+    {
+      "id": "render-CAR14-top",
+      "kind": "image",
+      "path": "media/rendered-cars/car14-top.webp",
+      "sha256": "827a5bab057bc1f2fb7bbf13c4e33f5842013ae349f3d8b5195db65ee156774b",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Rendered from the independently credited model CAR14. Mpgs.studio3DModels; CC BY 4.0. https://sketchfab.com/3d-models/toyota-supra-3d-model-free-41b83cfb912b4eab9af19a802bcf5ffc"
+    },
+    {
+      "id": "render-CAR14-front-left",
+      "kind": "image",
+      "path": "media/rendered-cars/car14-front-left.webp",
+      "sha256": "9ee59d43d48cb7247049e334eb9d63fae1772203f6d923ef5b7aedc30d7cb921",
+      "status": "approved",
+      "width": 800,
+      "height": 480,
+      "source": "Rendered from the independently credited model CAR14. Mpgs.studio3DModels; CC BY 4.0. https://sketchfab.com/3d-models/toyota-supra-3d-model-free-41b83cfb912b4eab9af19a802bcf5ffc"
+    },
+    {
+      "id": "model-CAR15",
+      "kind": "model",
+      "path": "media/models/car15.glb",
+      "sha256": "e0e5fc331c993332509441bd8b12906781a090c6f8a2254fcc31c064e4bd5ea0",
+      "status": "approved",
+      "source": "Toyota GR86 ZN8; Mona x Supercars; CC BY 4.0. https://sketchfab.com/3d-models/toyota-gr86-zn8-4919d14eba9640599e838230e8e5ed74. Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls. Deterministically restored from the credited WebSim runtime derivative: interleaved mesh buffers, original PNG textures and material assignments retained; Z-up converted to Y-up. WebSim simplification and aftermarket ADVAN Racing RS wheel textures credited to Kazutoshi Mods; this is an author-modified ZN8, not a factory specification."
+    },
+    {
+      "id": "render-CAR15-side",
+      "kind": "image",
+      "path": "media/rendered-cars/car15-side.webp",
+      "sha256": "d954895a423a59f6b169971abd37c21b5938a9e6d7ee3aab5a0db0fa4d1b2236",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Rendered from the independently credited model CAR15. Mona x Supercars; CC BY 4.0. https://sketchfab.com/3d-models/toyota-gr86-zn8-4919d14eba9640599e838230e8e5ed74"
+    },
+    {
+      "id": "render-CAR15-top",
+      "kind": "image",
+      "path": "media/rendered-cars/car15-top.webp",
+      "sha256": "5c95e52fcf16e74e3069f0197670476f5b0dcf70a92a6ccf9c220f9f6387245f",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Rendered from the independently credited model CAR15. Mona x Supercars; CC BY 4.0. https://sketchfab.com/3d-models/toyota-gr86-zn8-4919d14eba9640599e838230e8e5ed74"
+    },
+    {
+      "id": "render-CAR15-front-left",
+      "kind": "image",
+      "path": "media/rendered-cars/car15-front-left.webp",
+      "sha256": "939e962fe050ad23353da782a2f5a746040d5daf574f60273293cbaf626d5b63",
+      "status": "approved",
+      "width": 800,
+      "height": 480,
+      "source": "Rendered from the independently credited model CAR15. Mona x Supercars; CC BY 4.0. https://sketchfab.com/3d-models/toyota-gr86-zn8-4919d14eba9640599e838230e8e5ed74"
+    },
+    {
+      "id": "model-CAR22",
+      "kind": "model",
+      "path": "media/models/car22.glb",
+      "sha256": "c7842abb94f5b7314a5057c0d4884e182a96d994204ce9f3fb792d16392f0c49",
+      "status": "approved",
+      "source": "2023 McLaren Artura; Ddiaz Design; CC BY 4.0. https://sketchfab.com/3d-models/2023-mclaren-artura-d393abd807f04d62b96b1bd82119b5d4. Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    {
+      "id": "render-CAR22-side",
+      "kind": "image",
+      "path": "media/rendered-cars/car22-side.webp",
+      "sha256": "fa4638e83010c4e40cd715ce183b256efd017595eed1dfe6e728e647dbbffc2b",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Rendered from the independently credited model CAR22. Ddiaz Design; CC BY 4.0. https://sketchfab.com/3d-models/2023-mclaren-artura-d393abd807f04d62b96b1bd82119b5d4"
+    },
+    {
+      "id": "render-CAR22-top",
+      "kind": "image",
+      "path": "media/rendered-cars/car22-top.webp",
+      "sha256": "e10043c9c00a07b01f25828362fe570e0100aeac8a0b825f98d7a9d7cf3f2f23",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Rendered from the independently credited model CAR22. Ddiaz Design; CC BY 4.0. https://sketchfab.com/3d-models/2023-mclaren-artura-d393abd807f04d62b96b1bd82119b5d4"
+    },
+    {
+      "id": "render-CAR22-front-left",
+      "kind": "image",
+      "path": "media/rendered-cars/car22-front-left.webp",
+      "sha256": "67f8133838efa5b9b3a8449969deef44062c0fc2f8747478cfcedfbc0dd2c494",
+      "status": "approved",
+      "width": 800,
+      "height": 480,
+      "source": "Rendered from the independently credited model CAR22. Ddiaz Design; CC BY 4.0. https://sketchfab.com/3d-models/2023-mclaren-artura-d393abd807f04d62b96b1bd82119b5d4"
+    },
+    {
+      "id": "model-CAR23",
+      "kind": "model",
+      "path": "media/models/car23.glb",
+      "sha256": "c589a8f5d410418ff993e3f412fe406b23d307a69cee0549fa3c2406a25cfe3a",
+      "status": "approved",
+      "source": "Maserati MC20; BRO; CC BY 4.0. https://sketchfab.com/3d-models/a9f3c4fc83cf43ad95b303738e8588b3. Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls. Original Sketchfab page is currently unavailable; CC BY 4.0 author/source attribution is preserved in the original GLB asset metadata and pinned mirror component header."
+    },
+    {
+      "id": "render-CAR23-side",
+      "kind": "image",
+      "path": "media/rendered-cars/car23-side.webp",
+      "sha256": "8e31d284f9bf5c6a6ba3c403a5c32d0db152b6fae78176a45cddfc6371c74882",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Rendered from the independently credited model CAR23. BRO; CC BY 4.0. https://sketchfab.com/3d-models/a9f3c4fc83cf43ad95b303738e8588b3"
+    },
+    {
+      "id": "render-CAR23-top",
+      "kind": "image",
+      "path": "media/rendered-cars/car23-top.webp",
+      "sha256": "a57fa480bd66a9af5e095fe820c1e71a78c6f526df19ae3bf4d0f772300e7a06",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Rendered from the independently credited model CAR23. BRO; CC BY 4.0. https://sketchfab.com/3d-models/a9f3c4fc83cf43ad95b303738e8588b3"
+    },
+    {
+      "id": "render-CAR23-front-left",
+      "kind": "image",
+      "path": "media/rendered-cars/car23-front-left.webp",
+      "sha256": "b447afffa079f13042da19a2efa25cc4628d33ba92e2ea95046fbd2db9fa1385",
+      "status": "approved",
+      "width": 800,
+      "height": 480,
+      "source": "Rendered from the independently credited model CAR23. BRO; CC BY 4.0. https://sketchfab.com/3d-models/a9f3c4fc83cf43ad95b303738e8588b3"
+    },
+    {
+      "id": "model-CAR26",
+      "kind": "model",
+      "path": "media/models/car26.glb",
+      "sha256": "8588bc6c01c50c6b4c1261edb17b37511a1f4f87d12edf0e742e4567bac40a1c",
+      "status": "approved",
+      "source": "Jaguar F-Type; royjang; CC BY 4.0. https://sketchfab.com/3d-models/jaguar-f-type-4dde0628c79c479eb6b71d82248afaa4. Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
+    },
+    {
+      "id": "render-CAR26-side",
+      "kind": "image",
+      "path": "media/rendered-cars/car26-side.webp",
+      "sha256": "44e5b6d763ed26e046c99bd460d09b6e5e4e6895ebc460141713cc8a64cdfce8",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Rendered from the independently credited model CAR26. royjang; CC BY 4.0. https://sketchfab.com/3d-models/jaguar-f-type-4dde0628c79c479eb6b71d82248afaa4"
+    },
+    {
+      "id": "render-CAR26-top",
+      "kind": "image",
+      "path": "media/rendered-cars/car26-top.webp",
+      "sha256": "1bf5ac68a1b4dcc6365efa26c78b3e99e97dd6dfe904cb0e7c3d71275f9f4627",
+      "status": "approved",
+      "width": 1000,
+      "height": 450,
+      "source": "Rendered from the independently credited model CAR26. royjang; CC BY 4.0. https://sketchfab.com/3d-models/jaguar-f-type-4dde0628c79c479eb6b71d82248afaa4"
+    },
+    {
+      "id": "render-CAR26-front-left",
+      "kind": "image",
+      "path": "media/rendered-cars/car26-front-left.webp",
+      "sha256": "a9b77598908689f4fef649f4b9406f7bfa25127d8bde2e87d75a99fc1522c4f5",
+      "status": "approved",
+      "width": 800,
+      "height": 480,
+      "source": "Rendered from the independently credited model CAR26. royjang; CC BY 4.0. https://sketchfab.com/3d-models/jaguar-f-type-4dde0628c79c479eb6b71d82248afaa4"
+    },
+    {
+      "id": "model-play-CAR14",
+      "kind": "model",
+      "path": "media/models/play/car14.glb",
+      "sha256": "69bcb47578959af4751652d52e6722c4415c4219ad9cff0e5f649dfd1c0ec131",
+      "status": "approved",
+      "source": "Gameplay LOD derived from https://sketchfab.com/3d-models/toyota-supra-3d-model-free-41b83cfb912b4eab9af19a802bcf5ffc; solid surfaces retained, exporter wire overlays removed, compatible static meshes batched, bounded-error simplification, 512px WebP textures and meshopt compression. CC BY 4.0; Mpgs.studio3DModels."
+    },
+    {
+      "id": "model-play-CAR15",
+      "kind": "model",
+      "path": "media/models/play/car15.glb",
+      "sha256": "43e66c873a790d9b54a24fb3ce55e6aac3ebc806eaef60f917a2eec0ddf9de49",
+      "status": "approved",
+      "source": "Gameplay LOD derived from https://sketchfab.com/3d-models/toyota-gr86-zn8-4919d14eba9640599e838230e8e5ed74; solid surfaces retained, exporter wire overlays removed, compatible static meshes batched, bounded-error simplification, 512px WebP textures and meshopt compression. CC BY 4.0; Mona x Supercars."
+    },
+    {
+      "id": "model-play-CAR22",
+      "kind": "model",
+      "path": "media/models/play/car22.glb",
+      "sha256": "a6c6f17a423c7aa084ace0849ff2a6b624b86bb8dae2d316c6b0de2de2957aed",
+      "status": "approved",
+      "source": "Gameplay LOD derived from https://sketchfab.com/3d-models/2023-mclaren-artura-d393abd807f04d62b96b1bd82119b5d4; solid surfaces retained, exporter wire overlays removed, compatible static meshes batched, bounded-error simplification, 512px WebP textures and meshopt compression. CC BY 4.0; Ddiaz Design."
+    },
+    {
+      "id": "model-play-CAR23",
+      "kind": "model",
+      "path": "media/models/play/car23.glb",
+      "sha256": "255c014d0be848b0647fb6c843e4d4c94de27cb4e0ae54845f450465eecedf15",
+      "status": "approved",
+      "source": "Gameplay LOD derived from https://sketchfab.com/3d-models/a9f3c4fc83cf43ad95b303738e8588b3; solid surfaces retained, exporter wire overlays removed, compatible static meshes batched, bounded-error simplification, 512px WebP textures and meshopt compression. CC BY 4.0; BRO."
+    },
+    {
+      "id": "model-play-CAR26",
+      "kind": "model",
+      "path": "media/models/play/car26.glb",
+      "sha256": "e93a7f18585985fcdc57b9dde6093beac01738d8dc0f8a9af62708341a2e6a6d",
+      "status": "approved",
+      "source": "Gameplay LOD derived from https://sketchfab.com/3d-models/jaguar-f-type-4dde0628c79c479eb6b71d82248afaa4; solid surfaces retained, exporter wire overlays removed, compatible static meshes batched, bounded-error simplification, 512px WebP textures and meshopt compression. CC BY 4.0; royjang."
     }
   ],
   "scenes": [

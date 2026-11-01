@@ -1008,5 +1008,55 @@
     "bytes": 449968,
     "targetTriangles": 35000,
     "maxRelativeError": 0.005
+  },
+  {
+    "id": "CAR14",
+    "sourceModelSha256": "484387b6d6bacff3bcb2679f2d98bd8dac5dba7ebd4925b59f3f67c8ecef71bd",
+    "playSha256": "69bcb47578959af4751652d52e6722c4415c4219ad9cff0e5f649dfd1c0ec131",
+    "inputTriangles": 250000,
+    "outputTriangles": 38932,
+    "bytes": 409060,
+    "targetTriangles": 35000,
+    "maxRelativeError": 0.005
+  },
+  {
+    "id": "CAR15",
+    "sourceModelSha256": "e0e5fc331c993332509441bd8b12906781a090c6f8a2254fcc31c064e4bd5ea0",
+    "playSha256": "43e66c873a790d9b54a24fb3ce55e6aac3ebc806eaef60f917a2eec0ddf9de49",
+    "inputTriangles": 97431,
+    "outputTriangles": 30314,
+    "bytes": 715140,
+    "targetTriangles": 35000,
+    "maxRelativeError": 0.005
+  },
+  {
+    "id": "CAR22",
+    "sourceModelSha256": "c7842abb94f5b7314a5057c0d4884e182a96d994204ce9f3fb792d16392f0c49",
+    "playSha256": "a6c6f17a423c7aa084ace0849ff2a6b624b86bb8dae2d316c6b0de2de2957aed",
+    "inputTriangles": 104510,
+    "outputTriangles": 31397,
+    "bytes": 785748,
+    "targetTriangles": 35000,
+    "maxRelativeError": 0.005
+  },
+  {
+    "id": "CAR23",
+    "sourceModelSha256": "c589a8f5d410418ff993e3f412fe406b23d307a69cee0549fa3c2406a25cfe3a",
+    "playSha256": "255c014d0be848b0647fb6c843e4d4c94de27cb4e0ae54845f450465eecedf15",
+    "inputTriangles": 185694,
+    "outputTriangles": 33930,
+    "bytes": 536508,
+    "targetTriangles": 35000,
+    "maxRelativeError": 0.005
+  },
+  {
+    "id": "CAR26",
+    "sourceModelSha256": "8588bc6c01c50c6b4c1261edb17b37511a1f4f87d12edf0e742e4567bac40a1c",
+    "playSha256": "e93a7f18585985fcdc57b9dde6093beac01738d8dc0f8a9af62708341a2e6a6d",
+    "inputTriangles": 32609,
+    "outputTriangles": 10160,
+    "bytes": 161852,
+    "targetTriangles": 35000,
+    "maxRelativeError": 0.005
   }
 ]
