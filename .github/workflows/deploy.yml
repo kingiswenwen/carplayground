@@ -13,9 +13,20 @@ jobs:
         shell: bash
         run: |
           python3 -u - <<'PY'
-          import urllib.request, urllib.error, json, socket, re
+          import urllib.request, urllib.error, json, socket, re, subprocess
           host = 'carplayground.wynsunny.cn'
           print('Public DNS:', sorted({row[4][0] for row in socket.getaddrinfo(host, 443)}))
+          print('Public canonical DNS:', socket.gethostbyname_ex(host))
+          tls = subprocess.run(['openssl', 's_client', '-connect', host + ':443', '-servername', host,
+              '-verify_hostname', host, '-verify_return_error', '-showcerts'], input='', text=True,
+              stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=20)
+          print('TLS verification exit:', tls.returncode)
+          print('TLS verification:', '\n'.join(line for line in tls.stderr.splitlines() if 'verify' in line or 'Verification' in line))
+          certificate = re.search(r'-----BEGIN CERTIFICATE-----.*?-----END CERTIFICATE-----', tls.stdout, re.S)
+          if certificate:
+              info = subprocess.run(['openssl', 'x509', '-noout', '-subject', '-issuer', '-dates', '-ext',
+                  'subjectAltName'], input=certificate.group(0), text=True, capture_output=True, timeout=10)
+              print('Public certificate:', info.stdout)
           urls = ['https://' + host + '/', 'https://' + host + '/index.html',
                   'https://' + host + '/releases/app-0.14.0-473706b4c3e0-41235842444-1/assets/index-0gOUg19L.js']
           for url in urls:
