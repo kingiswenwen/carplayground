@@ -24,7 +24,7 @@ jobs:
               except urllib.error.HTTPError as error:
                   response = error
               except Exception as error:
-                  print(json.dumps({'url': url, 'errorType': type(error).__name__}))
+                  print(json.dumps({'url': url, 'errorType': type(error).__name__, 'reasonType': type(getattr(error, 'reason', None)).__name__, 'reason': str(getattr(error, 'reason', error))}))
                   continue
               with response:
                   data = response.read()
