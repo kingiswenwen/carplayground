@@ -1,6 +1,6 @@
 import {z}from'zod';
 import{activityIds,content,historicalCarIds}from'../domain/content';
-import{db,defaultSettings}from'./storage';
+import{db,defaultSettings,storageStatus}from'./storage';
 import{resetPendingResultsAfter}from'./pending-session-results';
 const iso=z.string().datetime();const id=z.string().min(1).max(100);
 const carId=z.enum(historicalCarIds as [string,...string[]]);
@@ -15,7 +15,7 @@ export function download(data:Blob,filename:string){const url=URL.createObjectUR
 export const downloadBackup=(backup:Backup)=>download(new Blob([JSON.stringify(backup,null,2)],{type:'application/json'}),`carplayground-backup-${backup.exportedAt.slice(0,10)}.json`);
 export async function replaceBackup(input:Backup,beforeReplace?:(current:Backup)=>void){
  const next=backupSchema.parse(input);
- return resetPendingResultsAfter(()=>db.transaction('rw',[...tables(),db.recovery],async()=>{
+ const previous=await resetPendingResultsAfter(()=>db.transaction('rw',[...tables(),db.recovery],async()=>{
   // Keep the snapshot and replacement under one write transaction. Otherwise
   // another writer can commit between the snapshot and clearing the tables.
   const current=await makeBackup();
@@ -34,6 +34,7 @@ export async function replaceBackup(input:Backup,beforeReplace?:(current:Backup)
   await db.observations.bulkPut(next.observations);
   return current;
  }));
+ storageStatus.reset();return previous;
 }
-export async function clearLocalData(){await resetPendingResultsAfter(()=>db.transaction('rw',[...tables(),db.recovery],async()=>{for(const table of [...tables(),db.recovery])await table.clear();}));}
+export async function clearLocalData(){await resetPendingResultsAfter(()=>db.transaction('rw',[...tables(),db.recovery],async()=>{for(const table of [...tables(),db.recovery])await table.clear();}));storageStatus.reset();}
 export function domainSummary(sessions:{activityId:string}[]){return content.activities.reduce((map,a)=>{map[a.domain]=(map[a.domain]||0)+sessions.filter(s=>s.activityId===a.id).length;return map;},{}as Record<string,number>);}

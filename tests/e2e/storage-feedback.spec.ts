@@ -20,11 +20,36 @@ test('故事保存失败不会声称已经保存，可重试并在刷新后恢�
   await page.getByRole('button', {name: '重试保存进度', exact: true}).click();
   await expect(page.getByRole('status')).toContainText('这段故事已经记在这台设备');
   await expect(page.getByRole('button', {name: '故事的小脚印已记下'})).toBeVisible();
+  await page.evaluate(() => {location.hash='/parent';});
+  await expect(page.getByRole('heading', {name:'体验设置'})).toBeVisible();
+  await expect(page.locator('.storage-warning')).toHaveCount(0);
   // A real reload must recover the committed final frame. Read succeeds even
   // though the injected write failure is enabled again by the init script.
   await page.goto('/#/stories/ST01');
   await page.reload();
   await expect(page.locator('.picture-story')).toHaveAttribute('data-frame','3');
+});
+
+test('故事恢复后仍保留其他未成功保存的设置警告，重试设置才解除', async ({page}) => {
+  await page.addInitScript(() => {
+    Reflect.set(window,'__failStoryWrite',true);Reflect.set(window,'__failSettingsWrite',true);
+    const put=IDBObjectStore.prototype.put;
+    IDBObjectStore.prototype.put=function(...args:Parameters<typeof put>){
+      if(this.name==='storyProgress'&&Reflect.get(window,'__failStoryWrite')||this.name==='settings'&&Reflect.get(window,'__failSettingsWrite'))throw new DOMException('Temporary failure','QuotaExceededError');
+      return put.apply(this,args);
+    };
+  });
+  await page.goto('/#/stories/ST01');
+  await expect(page.getByRole('button',{name:'重试保存进度',exact:true})).toBeVisible();
+  await page.getByRole('button',{name:'开启声音',exact:true}).click();
+  await page.evaluate(() => Reflect.set(window,'__failStoryWrite',false));
+  await page.getByRole('button',{name:'重试保存进度',exact:true}).click();
+  await expect(page.getByRole('button',{name:'重试保存进度',exact:true})).toHaveCount(0);
+  await page.evaluate(() => {location.hash='/parent';});
+  await expect(page.locator('.storage-warning')).toBeVisible();
+  await page.evaluate(() => Reflect.set(window,'__failSettingsWrite',false));
+  await page.getByRole('checkbox',{name:/声音引导/}).uncheck();
+  await expect(page.locator('.storage-warning')).toHaveCount(0);
 });
 
 test('加载中的语音关闭后不恢复旧请求，重新开启仍可播放', async ({page}) => {

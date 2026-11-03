@@ -8,6 +8,48 @@ let cancelSpeech: (() => void) | undefined;
 let error = '';
 const listeners = new Set<() => void>();
 function report(message: string) { error = message; listeners.forEach(fn => fn()); }
+async function playSequence(ids:string[],requested=false) {
+  audio.stop();
+  if ((!enabled&&!requested)||document.hidden) return;
+  const token=generation;
+  if(requested)Howler.volume(1);
+  for(const id of ids){
+    if(token!==generation||(!enabled&&!requested))return;
+    const success=await new Promise<boolean>(resolve=>{
+      const settle=(success:boolean)=>{if(settleCurrent===settle)settleCurrent=undefined;resolve(success);};
+      settleCurrent=settle;
+      const clip=new Howl({src:[assetUrl(id)],volume:.85,preload:true,
+        onend:()=>settle(true),onstop:()=>settle(false),
+        onloaderror:()=>{if(token===generation)report('声音还没到，点“重听”再试一次。');settle(false);},
+        onplayerror:()=>{if(token===generation)report('声音暂时没播放，点“重听”再试一次。');settle(false);},
+      });
+      current=clip;
+      void Howler.ctx?.resume().catch(()=>{if(token!==generation)return;report('声音暂时没播放，点“重听”再试一次。');settle(false);});
+      clip.play();
+    });
+    if(token!==generation)return;
+    const clip=current;current=undefined;clip?.unload();
+    if(!success)break;
+  }
+}
+function speak(text:string,fallback:string[],preferClips=false,requested=false){
+  audio.stop();
+  if((!enabled&&!requested)||document.hidden)return;
+  // Explicit listening is one-off; automatic speech still honors saved mute.
+  const synth=typeof window==='undefined'?undefined:window.speechSynthesis;
+  const voice=!preferClips&&synth?.getVoices().find(v=>v.localService&&/^zh[-_]/i.test(v.lang));
+  if(!synth||!voice||typeof SpeechSynthesisUtterance==='undefined'){void playSequence(fallback,requested);return;}
+  const token=generation,utterance=new SpeechSynthesisUtterance(text);
+  utterance.voice=voice;utterance.lang=voice.lang;utterance.rate=.88;utterance.volume=.85;
+  let timer:ReturnType<typeof setTimeout>;
+  const fail=()=>{if(token===generation)void playSequence(fallback,requested);};
+  utterance.onstart=()=>clearTimeout(timer);
+  utterance.onend=()=>{clearTimeout(timer);if(token===generation)cancelSpeech=undefined;};
+  utterance.onerror=fail;
+  cancelSpeech=()=>{clearTimeout(timer);synth.cancel();};
+  timer=setTimeout(fail,2000);
+  try{synth.speak(utterance);}catch{fail();}
+}
 export const audio = {
   subscribe(fn: () => void) { listeners.add(fn); return () => { listeners.delete(fn); }; },
   getError: () => error,
@@ -32,56 +74,9 @@ export const audio = {
     current = undefined;
     clip?.stop(); clip?.unload(); report('');
   },
-  feedback(text: string, fallback: string[], preferClips = false) {
-    this.stop();
-    if (!enabled || document.hidden) return;
-    // Only an installed local Chinese voice may read these fixed game phrases.
-    // Devices without one keep the bundled clips; no speech service is called.
-    const synth = typeof window === 'undefined' ? undefined : window.speechSynthesis;
-    const voice = !preferClips && synth?.getVoices().find(v => v.localService && /^zh[-_]/i.test(v.lang));
-    if (!synth || !voice || typeof SpeechSynthesisUtterance === 'undefined') {void this.play(...fallback); return;}
-    const token = generation, utterance = new SpeechSynthesisUtterance(text);
-    utterance.voice = voice; utterance.lang = voice.lang; utterance.rate = .88; utterance.volume = .85;
-    let timer: ReturnType<typeof setTimeout>;
-    const fail = () => {if (token === generation) void this.play(...fallback);};
-    utterance.onstart = () => clearTimeout(timer);
-    utterance.onend = () => {clearTimeout(timer);if (token === generation) cancelSpeech = undefined;};
-    utterance.onerror = fail;
-    cancelSpeech = () => {clearTimeout(timer);synth.cancel();};
-    timer = setTimeout(fail, 2000);
-    try {synth.speak(utterance);} catch {fail();}
-  },
-  async play(...ids: string[]) {
-    this.stop();
-    if (!enabled || document.hidden) return;
-    const token = generation;
-    report('');
-    for (const id of ids) {
-      if (token !== generation || !enabled) return;
-      const success = await new Promise<boolean>(resolve => {
-        const settle = (success: boolean) => {
-          if (settleCurrent === settle) settleCurrent = undefined;
-          resolve(success);
-        };
-        settleCurrent = settle;
-        const clip = new Howl({ src: [assetUrl(id)], volume: 0.85, preload: true,
-          onend: () => settle(true), onstop: () => settle(false),
-          onloaderror: () => { if (token === generation) report('声音还没到，点“重听”再试一次。'); settle(false); },
-          onplayerror: () => { if (token === generation) report('声音暂时没播放，点“重听”再试一次。'); settle(false); },
-        });
-        current = clip;
-        void Howler.ctx?.resume().catch(() => {
-          if (token !== generation) return;
-          report('声音暂时没播放，点“重听”再试一次。');
-          settle(false);
-        });
-        clip.play();
-      });
-      if (token !== generation) return;
-      const clip = current;
-      current = undefined;
-      clip?.unload();
-      if (!success) break;
-    }
-  },
+  feedback(text:string,fallback:string[],preferClips=false){speak(text,fallback,preferClips);},
+  announce(text:string,fallback:string[],preferClips=false){speak(text,fallback,preferClips,true);},
+  prepareRequested(){const token=generation;Howler.volume(1);void Howler.ctx?.resume().catch(()=>{if(token===generation)report('声音暂时没播放，点“重听”再试一次。');});},
+  play(...ids:string[]){return playSequence(ids);},
+  playRequested(...ids:string[]){return playSequence(ids,true);},
 };

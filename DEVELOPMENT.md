@@ -48,7 +48,7 @@ Python 音频处理测试需要 FFmpeg。浏览器模拟结果不代表真机实
 - `scripts/`：校验、素材处理和通用发布工具。
 - `tests/`：单元、发布工具和浏览器测试。
 
-车型扩充按 `docs/CATALOG_WORKFLOW.md` 执行：先核对真实量产车型及系列别名，再核对独立 GLB 的作者、许可和实际外观。当前 101 款立体车使用登记来源的独立模型；GPT Image 负责车辆插画，不直接输出这些 GLB。
+车型扩充按 `docs/CATALOG_WORKFLOW.md` 执行：先核对真实量产车型及系列别名，再核对独立 GLB 的作者、许可和实际外观。当前 106 款立体车使用登记来源的独立模型；GPT Image 负责车辆插画，不直接输出这些 GLB。
 
 新增目录插画的图集、提示词、图帧及哈希记录在 `content/catalog-illustrations.json`。`node scripts/prepare-catalog-illustrations.mjs <本机图集索引.json>` 将经过检查的 GPT 图集裁成透明 WebP。玩法继续使用从同车型模型渲染的侧视、俯视图及登记轮位，避免插画换图后点击位置失准。
 
