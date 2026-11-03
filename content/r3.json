@@ -1,7 +1,7 @@
 {
-  "id": "r20-model-completion-0.15.0",
+  "id": "r21-playability-0.15.1",
   "schemaVersion": 2,
-  "appVersion": "0.15.0",
+  "appVersion": "0.15.1",
   "car": {
     "id": "CAR01",
     "brand": "Lamborghini",

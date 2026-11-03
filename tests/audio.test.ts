@@ -95,3 +95,32 @@ it('不使用远程中文声音，缺少本地声音或语音出错时退回现�
  expect(harness.clips).toHaveLength(2);expect(harness.clips[1].options.src).toEqual([expect.stringContaining('phrase-go')]);
  harness.clips[1].options.onend?.(2);await Promise.resolve();
 });
+
+it('主动点听可以播放一遍，随后自动引导仍保持静音', async () => {
+ audio.setEnabled(false);
+ await audio.play('wheel');expect(harness.clips).toHaveLength(0);
+ const requested=audio.playRequested('wheel','door');
+ expect(harness.clips).toHaveLength(1);
+ harness.clips[0].options.onend?.(1);await new Promise(resolve=>setTimeout(resolve,0));
+ expect(harness.clips).toHaveLength(2);
+ harness.clips[1].options.onend?.(2);await requested;
+ await audio.play('seat');expect(harness.clips).toHaveLength(2);
+});
+
+it('主动点听加载期间取消后，迟到声音不能恢复播放或继续队列', async () => {
+ audio.setEnabled(false);
+ const requested=audio.playRequested('wheel','door');const clip=harness.clips[0];
+ audio.stop();clip.options.onend?.(1);clip.options.onloaderror?.(1,'late failure');
+ await requested;
+ expect(harness.clips).toHaveLength(1);expect(clip.unload).toHaveBeenCalledOnce();expect(audio.getError()).toBe('');
+});
+
+it('静音时主动听车名使用本地语音，后续自动反馈仍静音', () => {
+ const utterances:{text:string;onstart?:()=>void}[]=[];
+ const synth={getVoices:()=>[{lang:'zh-CN',localService:true}],speak:vi.fn(u=>utterances.push(u)),cancel:vi.fn()};
+ vi.stubGlobal('window',{speechSynthesis:synth});vi.stubGlobal('SpeechSynthesisUtterance',class{constructor(public text:string){}});
+ audio.setEnabled(false);audio.announce('丰田 GR Supra',[]);utterances[0].onstart?.();
+ expect(utterances[0].text).toBe('丰田 GR Supra');
+ audio.feedback('小车停稳啦。',['parking-success']);
+ expect(utterances).toHaveLength(1);expect(harness.clips).toHaveLength(0);
+});

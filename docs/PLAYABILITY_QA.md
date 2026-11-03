@@ -20,6 +20,14 @@ npx playwright test tests/e2e/world-all-modes.spec.ts --project=chromium --worke
 
 触摸拖动通过 Chromium 输入协议发送；结果属于浏览器模拟验证，不能替代 Android、iPhone 或 iPad 真机测试。
 
+## 操作反馈与恢复回归
+
+```sh
+npx playwright test tests/e2e/flat-keyboard.spec.ts tests/e2e/audio-requested.spec.ts tests/e2e/showroom-garage-feedback.spec.ts tests/e2e/storage-feedback.spec.ts --project=chromium --workers=1
+```
+
+检查参考车、主动选择平面及 WebGL 回退后的键盘部件探索与双车擦洗；每次按键触发实际命中或擦洗，不直接设为完成。主动点听不修改静音偏好，离开页面仍取消声音。手机选车须显示新预览并保留焦点、遵循减少动画设置；作品导出失败可见且能重试。存储恢复只解除已成功重试的操作警告，无关的读取或另一项成功保存不能隐藏仍失败的写入。
+
 ## 交互与横屏回归
 
 ```sh

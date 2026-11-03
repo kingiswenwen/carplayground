@@ -20,7 +20,7 @@ export function useLearningSession(activity: ActivityDefinition, settings: Setti
   const ended = useRef(false), alive = useRef(true), hints = useRef(0), isPaused = useRef(document.hidden);
   const elapsed = useRef(0), last = useRef(performance.now()), start = useRef<Promise<boolean>>(Promise.resolve(false));
   const result = useRef<SessionResult>(undefined), saving = useRef(false);
-  const replay = () => {if (!isPaused.current) void audio.play(activity.instructionAudio);};
+  const replay = () => {if (!isPaused.current) void audio.playRequested(activity.instructionAudio);};
 
   useEffect(() => {
     let cancelled = false, started = false;
@@ -28,7 +28,7 @@ export function useLearningSession(activity: ActivityDefinition, settings: Setti
     queueMicrotask(() => {
       if (cancelled) return;
       started = true;
-      start.current = safely(async () => {await db.sessions.put(initial); return true;}, false);
+      start.current = safely(async () => {await db.sessions.put(initial); return true;}, false, `session:${id}`);
       if (hasPendingResults()) void retrySave();
     });
     const hide = () => {
@@ -38,14 +38,14 @@ export function useLearningSession(activity: ActivityDefinition, settings: Setti
       }
     };
     document.addEventListener('visibilitychange', hide);
-    if (autoInstruction) replay();
+    if (autoInstruction&&!isPaused.current) void audio.play(activity.instructionAudio);
     return () => {
       cancelled = true; alive.current = false;
       document.removeEventListener('visibilitychange', hide); audio.stop();
       const duration = elapsed.current + (isPaused.current ? 0 : performance.now() - last.current);
       // A queued completion owns its terminal state. Leaving must not turn a
       // failed completion into a misleading exit record.
-      if (started && !ended.current) void start.current.then(() => safely(() => finishSession(id, 'exited', hints.current, duration), false));
+      if (started && !ended.current) void start.current.then(() => safely(() => finishSession(id, 'exited', hints.current, duration), false, `session:${id}`));
     };
     // Entry metadata belongs to this immutable attempt, including StrictMode setup.
   }, [id]);
@@ -79,7 +79,7 @@ export function useLearningSession(activity: ActivityDefinition, settings: Setti
     return safely(async () => {
       await db.observations.put({id, activityId: activity.id, text: text.trim().slice(0, 500), createdAt: new Date().toISOString()});
       return true;
-    }, false);
+    }, false, `observation:${id}`);
   };
   return {id, done, paused, message, setMessage, completion, replay, finish, hint, resume, observe, recordStatus, retrySave};
 }

@@ -40,7 +40,7 @@ export function TouchPlay({id,carId,settings,backHref='#/explore',continueHref}:
     if(!creation.current)return;
     const snapshot=structuredClone(creation.current),savingRevision=revision.current;setCreationStatus('saving');
     writeChain.current=writeChain.current.then(async()=>{
-      const saved=await safely(async()=>{await db.creations.put(snapshot);return true;},false);
+      const saved=await safely(async()=>{await db.creations.put(snapshot);return true;},false,`creation:${snapshot.id}`);
       if(creation.current?.id===snapshot.id&&savingRevision===revision.current)setCreationStatus(saved?'saved':'error');
     });
   };
@@ -74,7 +74,7 @@ export function TouchPlay({id,carId,settings,backHref='#/explore',continueHref}:
   },[session.paused,portrait,attempt,guideStep]);
   useEffect(()=>()=>{
     if(writeTimer.current)clearTimeout(writeTimer.current);
-    if(creation.current){const snapshot=structuredClone(creation.current);void writeChain.current.then(()=>safely(()=>db.creations.put(snapshot),undefined));}
+    if(creation.current){const snapshot=structuredClone(creation.current);void writeChain.current.then(()=>safely(()=>db.creations.put(snapshot),undefined,`creation:${snapshot.id}`));}
     audio.stop();
   },[]);
   useEffect(()=>{
@@ -105,12 +105,12 @@ export function TouchPlay({id,carId,settings,backHref='#/explore',continueHref}:
         {threeAvailable&&<button className="touch-icon" aria-label={three?'使用平面简化玩法':'打开立体玩法'} aria-pressed={three} onClick={()=>{setThreeFailed(false);setFlat(three);}}><Box/></button>}
         {id==='P01'&&typeof window.DeviceOrientationEvent!=='undefined'&&<button className="touch-icon" aria-label={sensor?'关闭倾斜操控':'启用倾斜操控'} aria-pressed={sensor} onClick={()=>void tilt()}><Smartphone/></button>}
         <button className="touch-icon help-demonstration" aria-label="看看怎么玩" aria-expanded={guideStep!==null} disabled={!active||state.completed||(three&&!worldReady)} onClick={()=>{if(guideStep!==null){guide(null);return;}guide(0);session.hint();}}><PlaySymbol name="hand"/><Play className="help-play" fill="currentColor"/></button>
-        <button className="touch-icon" aria-label="重听玩法" disabled={session.paused} onClick={()=>{void audio.play(activity.instructionAudio);}}><Volume2/></button>
+        <button className="touch-icon" aria-label="重听玩法" disabled={session.paused} onClick={()=>{void audio.playRequested(activity.instructionAudio);}}><Volume2/></button>
         <button className="touch-icon" aria-label="重新玩" onClick={()=>window.dispatchEvent(new Event('restart-activity'))}><RotateCcw/></button>
       </div>
     </div>
     <div className="touch-canvas-wrap">
-      <canvas ref={canvas} className="touch-canvas" data-presentation={three?'three':'flat'} aria-hidden={three} aria-label={`${activity.title}互动场景，直接拖动物体；键盘方向键移动，回车放下，Escape取消，左右方括号选择物体`} role="application" tabIndex={three?-1:0}
+      <canvas ref={canvas} className="touch-canvas" data-presentation={three?'three':'flat'} aria-hidden={three} aria-label={`${activity.title}互动场景，${['E02','T01'].includes(id)?'回车或空格逐个探索车轮、车门和车灯':id==='H03'?'回车或空格逐处擦洗车身，第一辆洗净后再按一次换车':'直接拖动物体；键盘方向键移动，回车放下，Escape取消，左右方括号选择物体'}`} role="application" tabIndex={three?-1:0}
         data-state={JSON.stringify(state)}
         onPointerDown={event=>{if(!active)return;if(guideStep!==null)guide(null);event.currentTarget.setPointerCapture(event.pointerId);board.current?.down(event.pointerId,point(event),inputTime(event));}}
         onPointerMove={event=>{if(active)board.current?.move(event.pointerId,point(event),inputTime(event));}}
@@ -132,7 +132,7 @@ export function TouchPlay({id,carId,settings,backHref='#/explore',continueHref}:
       {continueHref&&state.completed&&<a className="touch-icon" aria-label="继续故事" href={continueHref}><ArrowRight/></a>}
     </div>
     {state.completed&&!continueHref&&<div className="next-invitation" role="region" aria-label="小车接下来想去哪里">
-      {session.completion&&<button className="completion-replay" aria-label="重听这次发现" onClick={()=>audio.feedback(session.completion!.text,session.completion!.sounds,session.completion!.preferClips)}><PlaySymbol name={session.completion.symbol}/><Volume2/><span className="sr-only">{session.completion.text}</span></button>}
+      {session.completion&&<button className="completion-replay" aria-label="重听这次发现" onClick={()=>audio.announce(session.completion!.text,session.completion!.sounds,session.completion!.preferClips)}><PlaySymbol name={session.completion.symbol}/><Volume2/><span className="sr-only">{session.completion.text}</span></button>}
       <span className="invitation-trail" aria-hidden="true"/>
       <a href={next.href} className="next-destination" aria-label={next.label}><PlayPicture id={next.picture} carId={carId}/><ArrowRight aria-hidden="true"/></a>
     </div>}

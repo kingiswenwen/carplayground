@@ -1,5 +1,5 @@
 import {activeCar,rememberCar} from '../domain/active-car';
-import {useEffect,useState} from 'react';
+import {useEffect,useLayoutEffect,useRef,useState} from 'react';
 import {VehicleViews} from '../components/VehicleViews';
 import {ArrowLeft,ArrowRight,Box,Camera,Heart,Volume2,Download,RotateCcw,Search} from 'lucide-react';
 import {CarImage} from '../components/CarImage';
@@ -18,17 +18,25 @@ export function ActivityLinks({ids,carId,domain,scene}:{ids?:string[];carId?:str
 }
 function Model({carId}:{carId:string}){return <VehicleViews carId={carId}/>;}
 function useCarNameVoice(){const[available,setAvailable]=useState(()=>!!window.speechSynthesis?.getVoices().some(v=>v.localService&&/^zh[-_]/i.test(v.lang)));useEffect(()=>{const update=()=>setAvailable(!!window.speechSynthesis?.getVoices().some(v=>v.localService&&/^zh[-_]/i.test(v.lang)));window.speechSynthesis?.addEventListener('voiceschanged',update);return()=>window.speechSynthesis?.removeEventListener('voiceschanged',update);},[]);return available;}
-function sayCar(car:typeof content.cars[number]){if(car.audio==='car-name-local')audio.feedback(car.name,[]);else void audio.play(car.audio);}
+function sayCar(car:typeof content.cars[number]){if(car.audio==='car-name-local')audio.announce(car.name,[]);else void audio.playRequested(car.audio);}
 export function Showroom(_props:{welcome:boolean;begin:(sound:boolean)=>void}){
  const localNameVoice=useCarNameVoice();
  const[index,setIndex]=useState(Math.max(0,content.cars.findIndex(c=>c.id===activeCar()&&vehicleModel(c.id))));
+ const preview=useRef<HTMLDivElement>(null),revealPreview=useRef(false);
+ useLayoutEffect(()=>{
+  if(!revealPreview.current)return;
+  revealPreview.current=false;
+  const stage=preview.current;if(!stage)return;
+  const bounds=stage.getBoundingClientRect();
+  if(bounds.top<0||bounds.bottom>window.innerHeight)stage.scrollIntoView({block:'start',inline:'nearest',behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
+ },[index]);
  const[brand,setBrand]=useState('all'),[origin,setOrigin]=useState('all'),[query,setQuery]=useState(''),[page,setPage]=useState(0),[references,setReferences]=useState(false);const car=content.cars[index];
  const available=content.cars.filter(c=>references?!vehicleModel(c.id):!!vehicleModel(c.id));
  const brands=[...new Set(available.map(c=>c.brand))],countries=[...new Set(available.map(c=>brandOrigin(c.brand)).filter(Boolean))];
  const filtered=filterCatalogue(available,{brand,origin,query});const pages=Math.max(1,Math.ceil(filtered.length/8)),current=Math.min(page,pages-1);
  const clearFilters=()=>{setBrand('all');setOrigin('all');setQuery('');setPage(0);};
- const choose=(id:string)=>{const next=content.cars.findIndex(c=>c.id===id);setIndex(next);rememberCar(id);};
- return <div className="picture-showroom"><div className="car-roundabout"><Model carId={car.id}/><a className="picture-button car-heart" aria-label={`走近看看 ${car.name}`} href={`#/cars/${car.id}`}><PlaySymbol name="smile"/></a><button className="picture-button car-voice" aria-label={car.audio==='car-name-local'&&!localNameVoice?'本机未提供这辆车的名称声音':'听车名'} disabled={car.audio==='car-name-local'&&!localNameVoice} onClick={()=>sayCar(car)}><Volume2/></button></div>
+ const choose=(id:string)=>{const next=content.cars.findIndex(c=>c.id===id);if(next===index)return;revealPreview.current=true;setIndex(next);rememberCar(id);};
+ return <div className="picture-showroom"><div className="car-roundabout" ref={preview}><Model carId={car.id}/><a className="picture-button car-heart" aria-label={`走近看看 ${car.name}`} href={`#/cars/${car.id}`}><PlaySymbol name="smile"/></a><button className="picture-button car-voice" aria-label={car.audio==='car-name-local'&&!localNameVoice?'本机未提供这辆车的名称声音':'听车名'} disabled={car.audio==='car-name-local'&&!localNameVoice} onClick={()=>sayCar(car)}><Volume2/></button></div>
  <section className="garage-picker" aria-label="挑选跑车"><div className="garage-picker-bar"><span className="garage-count">{references?<Camera aria-hidden="true"/>:<Box aria-hidden="true"/>}{references?`${content.cars.length-vehicleModels.length} 款真实车型 · 模型待补`:`${vehicleModels.length} 款立体车 · ${content.cars.length} 款真实车型`}</span></div>
  <div className="garage-filters">
   <label className="garage-search"><Search aria-hidden="true"/><span className="sr-only">查找车型或品牌</span><input type="search" aria-label="查找车型或品牌" placeholder="找车型或品牌" value={query} onChange={e=>{setQuery(e.target.value);setPage(0);}}/></label>
@@ -44,14 +52,22 @@ export function Showroom(_props:{welcome:boolean;begin:(sound:boolean)=>void}){
 }
 export function Detail({carId,favorite,favoriteBusy=false,favoriteError,toggleFavorite}:{carId:string;favorite:boolean;favoriteBusy?:boolean;favoriteError?:string;toggleFavorite:()=>void}){
  const localNameVoice=useCarNameVoice();
- const car=getCar(carId)!;useEffect(()=>{void safely(()=>db.recent.put({carId,at:new Date().toISOString()}),undefined);},[carId]);
+ const car=getCar(carId)!;useEffect(()=>{void safely(()=>db.recent.put({carId,at:new Date().toISOString()}),undefined,`recent:${carId}`);},[carId]);
  return <div className="picture-detail"><div className="car-roundabout detail-stage"><Model carId={carId}/><a className="picture-button car-prev" href="#/cars" aria-label="换一辆汽车"><ArrowLeft/></a><button className={`picture-button favorite-button car-heart ${favorite?'saved':''}`} onClick={toggleFavorite} disabled={favoriteBusy} aria-label={favoriteBusy?'正在保存…':favorite?'已放进车库':'我喜欢这辆车'} aria-pressed={favorite}><Heart fill={favorite?'currentColor':'none'}/></button><button className="picture-button car-voice" aria-label={car.audio==='car-name-local'&&!localNameVoice?'本机未提供这辆车的名称声音':'听车名'} disabled={car.audio==='car-name-local'&&!localNameVoice} onClick={()=>sayCar(car)}><Volume2/></button></div>
  {favoriteError&&<div className="activity-feedback pictorial-error" role="status"><button className="picture-button" aria-label="重试收藏" onClick={toggleFavorite}><RotateCcw/></button><span className="sr-only">{favoriteError}</span></div>}
  <ActivityLinks carId={carId} ids={['H03','M01','T04']}/></div>;
 }
 export function Garage({favorites:storedFavorites}:{favorites:string[]}){
  const favorites=selectableCarIds(storedFavorites);
- const[creations,setCreations]=useState<Creation[]>([]);const[error,setError]=useState('');useEffect(()=>{void safely(()=>db.creations.orderBy('createdAt').reverse().toArray(),[]).then(setCreations);},[]);
+ const[creations,setCreations]=useState<Creation[]>([]);const[exports,setExports]=useState<Record<string,'busy'|'error'|'ready'>>({});const exportLocks=useRef(new Set<string>());
+ useEffect(()=>{void safely(()=>db.creations.orderBy('createdAt').reverse().toArray(),[],'creations:read').then(setCreations);},[]);
+ const downloadCreation=async(creation:Creation)=>{
+  if(exportLocks.current.has(creation.id))return;
+  exportLocks.current.add(creation.id);setExports(current=>({...current,[creation.id]:'busy'}));
+  try{await exportArtwork(creation);setExports(current=>({...current,[creation.id]:'ready'}));}
+  catch{setExports(current=>({...current,[creation.id]:'error'}));}
+  finally{exportLocks.current.delete(creation.id);}
+ };
  return <div className="picture-garage"><div className="garage-roof" aria-hidden="true"><PlaySymbol name="garage"/><PlaySymbol name="heart"/></div><div className="favorite-grid">{(favorites.length?favorites:content.cars.slice(0,3).map(c=>c.id)).map(id=><a className={favorites.length?'garage-car':'garage-invitation'} key={id} href={`#/cars/${id}`} aria-label={`看看 ${getCar(id)?.name}`}><CarImage carId={id}/>{!favorites.length&&<Heart aria-hidden="true"/>}</a>)}</div>
- <section className="garage-art" aria-label="我的作品">{creations.length?<div className="creation-grid">{creations.map(c=><div className="creation-card" key={c.id}><ArtworkView creation={c}/><button className="picture-button" aria-label="下载图片" onClick={async()=>{try{await exportArtwork(c);}catch{setError('图片暂时无法导出，作品仍保存在车库。');}}}><Download/></button></div>)}</div>:<ActivityLinks ids={['A01','A02']}/>}</section>{error&&<span className="sr-only" role="status">{error}</span>}</div>;
+ <section className="garage-art" aria-label="我的作品">{creations.length?<div className="creation-grid">{creations.map(c=><div className="creation-card" key={c.id} aria-busy={exports[c.id]==='busy'}><ArtworkView creation={c}/><button className="picture-button" aria-label={exports[c.id]==='busy'?'正在准备图片':exports[c.id]==='error'?'重试下载图片':'下载图片'} disabled={exports[c.id]==='busy'} onClick={()=>void downloadCreation(c)}>{exports[c.id]==='error'?<RotateCcw/>:<Download/>}</button>{exports[c.id]&&<p className="artwork-export-status" role="status">{exports[c.id]==='busy'?'正在准备图片…':exports[c.id]==='error'?'图片暂时无法导出，作品仍保存在车库。请点重试按钮再试一次。':'图片已准备好下载，作品仍保存在车库。'}</p>}</div>)}</div>:<ActivityLinks ids={['A01','A02']}/>}</section></div>;
 }

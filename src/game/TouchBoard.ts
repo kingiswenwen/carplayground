@@ -482,6 +482,37 @@ export class TouchBoard {
     this.grab=null;this.velocity=0;this.notify();
   }
   keyboard(key:string){
+    if(!this.ready||this.destroyed||this.guideStep!==null)return;
+    if(['Enter',' '].includes(key)&&this.mode==='parts'){
+      if(this.complete||this.grab)return;
+      const car=getCar(this.options.carId)!;
+      const point=partRegions(car,this.items[0]).find(p=>!this.seen.has(p.id)&&hitPart(car,this.items[0],p)===p.id);
+      // Use the same authored hit region and pointer action as a direct tap.
+      if(point)this.down(-1,point,performance.now());
+      return;
+    }
+    if(['Enter',' '].includes(key)&&this.mode==='wash'){
+      if(this.complete||this.grab)return;
+      const now=performance.now();
+      if(this.washReady){
+        // Handover is a separate key press, just as tapping the waiting car.
+        const next=this.items.find(i=>i.id==='next-car');
+        if(next)this.down(-1,next,now);
+        return;
+      }
+      const data=this.mask?.getContext('2d',{willReadFrequently:true})?.getImageData(0,0,1000,450).data;
+      if(!data)return;
+      let dirty=-1;
+      for(let i=3;i<data.length;i+=64)if(data[i]>50){dirty=(i-3)/4;break;}
+      if(dirty<0)return;
+      const x=dirty%1000,y=Math.floor(dirty/1000),rect=this.carRect();
+      const point=(pixelX:number)=>({x:rect.x-rect.w/2+pixelX/1000*rect.w,y:rect.y-rect.h/2+y/450*rect.h});
+      const from=point(Math.max(0,x-45)),to=point(Math.min(999,x+45));
+      // One genuine dirt-mask stroke per activation. Existing coverage and
+      // two-car completion rules decide progress; no synthetic completion.
+      this.down(-1,from,now);this.move(-1,to,now+100);this.up(-1,to,now+100);
+      return;
+    }
     const candidates=this.items.filter(i=>!i.placed);
     if(key==='['||key===']'){
       this.cancel();const index=this.selected?candidates.indexOf(this.selected):-1;

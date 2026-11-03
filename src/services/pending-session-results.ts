@@ -12,7 +12,7 @@ export function retryPendingResults(): Promise<boolean> {
   const run = async () => {
     for (const [id, item] of pending) {
       const started = await item.started;
-      if (await safely(() => saveSessionResult(item.result, !started), false)) pending.delete(id);
+      if (await safely(() => saveSessionResult(item.result, !started), false, `session:${id}`)) pending.delete(id);
     }
     return pending.size === 0;
   };

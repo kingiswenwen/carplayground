@@ -68,7 +68,7 @@ export function Activity({ id, settings }: { id: CoreActivityId; settings: Setti
     queueMicrotask(() => {
       if (disposed) return;
       started = true;
-      startPromise.current = safely(async () => {await db.sessions.put(initial); return true;}, false);
+      startPromise.current = safely(async () => {await db.sessions.put(initial); return true;}, false, `session:${sessionId}`);
     });
     const visibility = () => {
       audio.stop();
@@ -82,7 +82,7 @@ export function Activity({ id, settings }: { id: CoreActivityId; settings: Setti
     return () => {
       disposed = true; active.current = false; document.removeEventListener('visibilitychange', visibility); audio.stop();
       const duration = elapsed.current + (pausedRef.current ? 0 : performance.now() - lastActive.current);
-      if (started && !completedRef.current) void startPromise.current.then(() => safely(() => finishSession(sessionId, 'exited', hints.current, duration), false));
+      if (started && !completedRef.current) void startPromise.current.then(() => safely(() => finishSession(sessionId, 'exited', hints.current, duration), false, `session:${sessionId}`));
     };
     // A new route/restart owns a new session; settings are frozen at entry.
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -91,7 +91,7 @@ export function Activity({ id, settings }: { id: CoreActivityId; settings: Setti
     if (!active.current || pausedRef.current || !result.current || saving.current) return;
     saving.current = true; setRecordStatus('saving');
     const snapshot = result.current, started = await startPromise.current;
-    const saved = await safely(() => saveSessionResult(snapshot, !started), false);
+    const saved = await safely(() => saveSessionResult(snapshot, !started), false, `session:${sessionId}`);
     saving.current = false;
     if (active.current) setRecordStatus(saved ? 'saved' : 'error');
   };
