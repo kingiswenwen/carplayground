@@ -11,6 +11,7 @@ async function rows(page:Page,table:string){
 for(const reducedMotion of ['reduce','no-preference'] as const)test.describe(`phone ${reducedMotion}`,()=>{
  test.use({viewport:{width:390,height:844},reducedMotion});
  test('选车后看见新模型，保留键盘焦点并尊重减少动画设置 @smoke',async({page})=>{
+  test.setTimeout(90000);
   await page.addInitScript(()=>{
    const scroll=Element.prototype.scrollIntoView;
    Reflect.set(window,'__previewScrolls',[]);
@@ -36,6 +37,12 @@ for(const reducedMotion of ['reduce','no-preference'] as const)test.describe(`ph
   expect((await page.locator('.car-roundabout').boundingBox())!.y+360).toBeLessThan(0);
   await tile.press('Enter');
   await expect(page.locator('.vehicle-views')).toHaveAttribute('data-car','CAR07');
+  // The selected prop can change before a cold software renderer produces its
+  // first frame. Wait for the real model, keeping selection during loading covered.
+  const renderStarted=Date.now();
+  await expect(page.locator('.vehicle-model-surface canvas')).toHaveAttribute('data-car','CAR07',{timeout:45000});
+  await expect(page.locator('.vehicle-model-surface canvas')).toHaveAttribute('data-ready','true');
+  console.info('Selected preview first frame',reducedMotion,Date.now()-renderStarted);
   await expect(tile).toBeFocused();
   await expect.poll(()=>page.evaluate(()=>Reflect.get(window,'__lateLayoutApplied'))).toBe(true);
   // Report the actual overflow in CI while keeping the same 1px tolerance.
