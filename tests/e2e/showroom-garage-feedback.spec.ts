@@ -38,9 +38,11 @@ for(const reducedMotion of ['reduce','no-preference'] as const)test.describe(`ph
   await expect(page.locator('.vehicle-views')).toHaveAttribute('data-car','CAR07');
   await expect(tile).toBeFocused();
   await expect.poll(()=>page.evaluate(()=>Reflect.get(window,'__lateLayoutApplied'))).toBe(true);
-  await expect.poll(async()=>{const box=(await page.locator('.car-roundabout').boundingBox())!;return box.y>=-1&&box.y+box.height<=845;}).toBe(true);
+  // Report the actual overflow in CI while keeping the same 1px tolerance.
+  await expect.poll(async()=>{const box=(await page.locator('.car-roundabout').boundingBox())!;return Math.max(-box.y,box.y+box.height-844);}).toBeLessThanOrEqual(1);
   const scrolls=await page.evaluate(()=>Reflect.get(window,'__previewScrolls') as ScrollIntoViewOptions[]);
   expect(scrolls).toHaveLength(1);
+  expect(scrolls[0].block).toBe('center');
   expect(scrolls[0].behavior).toBe(reducedMotion==='reduce'?'instant':'smooth');
   await tile.scrollIntoViewIfNeeded();
   const scrollY=await page.evaluate(()=>window.scrollY);
