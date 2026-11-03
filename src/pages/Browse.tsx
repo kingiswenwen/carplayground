@@ -26,9 +26,14 @@ export function Showroom(_props:{welcome:boolean;begin:(sound:boolean)=>void}){
  useLayoutEffect(()=>{
   if(!revealPreview.current)return;
   revealPreview.current=false;
-  const stage=preview.current;if(!stage)return;
-  const bounds=stage.getBoundingClientRect();
-  if(bounds.top<0||bounds.bottom>window.innerHeight)stage.scrollIntoView({block:'start',inline:'nearest',behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
+  // Let the key action and child layout effects finish before scrolling. Leave
+  // room for small late toolbar/font layout changes instead of clipping the top.
+  const frame=requestAnimationFrame(()=>{
+   const stage=preview.current;if(!stage)return;
+   const bounds=stage.getBoundingClientRect();
+   if(bounds.top<0||bounds.bottom>window.innerHeight)stage.scrollIntoView({block:'start',inline:'nearest',behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
+  });
+  return()=>cancelAnimationFrame(frame);
  },[index]);
  const[brand,setBrand]=useState('all'),[origin,setOrigin]=useState('all'),[query,setQuery]=useState(''),[page,setPage]=useState(0),[references,setReferences]=useState(false);const car=content.cars[index];
  const available=content.cars.filter(c=>references?!vehicleModel(c.id):!!vehicleModel(c.id));
@@ -36,7 +41,7 @@ export function Showroom(_props:{welcome:boolean;begin:(sound:boolean)=>void}){
  const filtered=filterCatalogue(available,{brand,origin,query});const pages=Math.max(1,Math.ceil(filtered.length/8)),current=Math.min(page,pages-1);
  const clearFilters=()=>{setBrand('all');setOrigin('all');setQuery('');setPage(0);};
  const choose=(id:string)=>{const next=content.cars.findIndex(c=>c.id===id);if(next===index)return;revealPreview.current=true;setIndex(next);rememberCar(id);};
- return <div className="picture-showroom"><div className="car-roundabout" ref={preview}><Model carId={car.id}/><a className="picture-button car-heart" aria-label={`走近看看 ${car.name}`} href={`#/cars/${car.id}`}><PlaySymbol name="smile"/></a><button className="picture-button car-voice" aria-label={car.audio==='car-name-local'&&!localNameVoice?'本机未提供这辆车的名称声音':'听车名'} disabled={car.audio==='car-name-local'&&!localNameVoice} onClick={()=>sayCar(car)}><Volume2/></button></div>
+ return <div className="picture-showroom"><div className="car-roundabout" ref={preview} style={{scrollMarginTop:12}}><Model carId={car.id}/><a className="picture-button car-heart" aria-label={`走近看看 ${car.name}`} href={`#/cars/${car.id}`}><PlaySymbol name="smile"/></a><button className="picture-button car-voice" aria-label={car.audio==='car-name-local'&&!localNameVoice?'本机未提供这辆车的名称声音':'听车名'} disabled={car.audio==='car-name-local'&&!localNameVoice} onClick={()=>sayCar(car)}><Volume2/></button></div>
  <section className="garage-picker" aria-label="挑选跑车"><div className="garage-picker-bar"><span className="garage-count">{references?<Camera aria-hidden="true"/>:<Box aria-hidden="true"/>}{references?`${content.cars.length-vehicleModels.length} 款真实车型 · 模型待补`:`${vehicleModels.length} 款立体车 · ${content.cars.length} 款真实车型`}</span></div>
  <div className="garage-filters">
   <label className="garage-search"><Search aria-hidden="true"/><span className="sr-only">查找车型或品牌</span><input type="search" aria-label="查找车型或品牌" placeholder="找车型或品牌" value={query} onChange={e=>{setQuery(e.target.value);setPage(0);}}/></label>

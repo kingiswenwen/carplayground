@@ -14,8 +14,19 @@ for(const reducedMotion of ['reduce','no-preference'] as const)test.describe(`ph
   await page.addInitScript(()=>{
    const scroll=Element.prototype.scrollIntoView;
    Reflect.set(window,'__previewScrolls',[]);
+   Reflect.set(window,'__lateLayoutApplied',false);
    Element.prototype.scrollIntoView=function(options){
-    if(this.classList.contains('car-roundabout'))Reflect.get(window,'__previewScrolls').push(options);
+    if(this.classList.contains('car-roundabout')){
+     Reflect.get(window,'__previewScrolls').push(options);
+     // Reproduce a small late layout change after selection, as can happen
+     // when toolbar/font metrics settle after the initial scroll position.
+     requestAnimationFrame(()=>{
+      document.documentElement.style.overflowAnchor='none';
+      const header=document.querySelector<HTMLElement>('.site-header')!;
+      header.style.height=`${header.getBoundingClientRect().height-4}px`;
+      Reflect.set(window,'__lateLayoutApplied',true);
+     });
+    }
     scroll.call(this,options);
    };
   });
@@ -26,6 +37,7 @@ for(const reducedMotion of ['reduce','no-preference'] as const)test.describe(`ph
   await tile.press('Enter');
   await expect(page.locator('.vehicle-views')).toHaveAttribute('data-car','CAR07');
   await expect(tile).toBeFocused();
+  await expect.poll(()=>page.evaluate(()=>Reflect.get(window,'__lateLayoutApplied'))).toBe(true);
   await expect.poll(async()=>{const box=(await page.locator('.car-roundabout').boundingBox())!;return box.y>=-1&&box.y+box.height<=845;}).toBe(true);
   const scrolls=await page.evaluate(()=>Reflect.get(window,'__previewScrolls') as ScrollIntoViewOptions[]);
   expect(scrolls).toHaveLength(1);
