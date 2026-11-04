@@ -62,6 +62,8 @@ Python 音频处理测试需要 FFmpeg。浏览器模拟结果不代表真机实
 
 实际部署配置、云资源标识、连接说明和运维回执只保存在私有环境中。自动部署从 GitHub 的 `production` Environment Secrets 读取配置；本地部署可通过 `CARPLAYGROUND_DEPLOYMENT_DIR` 指向仓库外的私有配置目录。公开代码不包含真实目标配置。
 
+首次加载只启动当前路由的原生模块请求；可选页面、备份校验和图片导出按需加载。`scripts/startup-imports.ts` 根据实际构建产物生成当前页的并行导入列表，不启用会影响部分 WebKit 失败重试的 `modulepreload`。完整内容 schema 位于 `src/domain/content-schema.ts`，由 `npm run validate` 在每次构建前执行，文件哈希检查保持不变；用户导入的备份继续在浏览器中校验。立体引擎准备期间先展示同车型预览，只有实际渲染后才标记模型就绪。
+
 统一绘制图形位于 `src/visual/play-symbols.ts`，React与Canvas共用，不依赖平台Emoji字体。`src/domain/play-journey.ts` 提供覆盖26项活动的可选下一站邀请；故事上下文仍走原故事下一幕，完成记录与儿童掌握程度分开。
 
 ## 模型交付

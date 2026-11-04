@@ -11,7 +11,6 @@ import {brandOrigin,filterCatalogue} from '../domain/catalog';
 import {audio} from '../services/audio';
 import {db,safely,type Creation} from '../services/storage';
 import {ArtworkView} from './Studio';
-import {exportArtwork} from '../services/artwork';
 export function ActivityLinks({ids,carId,domain,scene}:{ids?:string[];carId?:string;domain?:string;scene?:string}){
  const chosen=carId||activeCar();const list=content.activities.filter(a=>(!ids||ids.includes(a.id))&&(!domain||a.domain===domain)&&(!scene||a.scene===scene)&&a.carIds.includes(chosen)).sort((a,b)=>ids?ids.indexOf(a.id)-ids.indexOf(b.id):0);
  return <div className="activity-links picture-activities">{list.map(item=><a href={`#/play/${item.id}?car=${chosen}`} className={`activity-link picture-activity play-${item.id}`} key={item.id} aria-label={item.title}><PlayPicture id={item.id} carId={chosen}/></a>)}</div>;
@@ -69,7 +68,7 @@ export function Garage({favorites:storedFavorites}:{favorites:string[]}){
  const downloadCreation=async(creation:Creation)=>{
   if(exportLocks.current.has(creation.id))return;
   exportLocks.current.add(creation.id);setExports(current=>({...current,[creation.id]:'busy'}));
-  try{await exportArtwork(creation);setExports(current=>({...current,[creation.id]:'ready'}));}
+  try{const {exportArtwork}=await import('../services/artwork');await exportArtwork(creation);setExports(current=>({...current,[creation.id]:'ready'}));}
   catch{setExports(current=>({...current,[creation.id]:'error'}));}
   finally{exportLocks.current.delete(creation.id);}
  };

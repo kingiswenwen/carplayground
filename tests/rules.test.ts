@@ -1,7 +1,7 @@
+import {releaseSchema} from '../src/domain/content-schema';
 import 'fake-indexeddb/auto';
 import { afterAll, describe, expect, it } from 'vitest';
 import release from '../content/r3.json';
-import { releaseSchema } from '../src/domain/content';
 import { colorOptions, createParking, parkingComplete, parkedCount, placeCar } from '../src/domain/parking';
 import { db, finishSession, type SessionRecord } from '../src/services/storage';
 

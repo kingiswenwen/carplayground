@@ -1,3 +1,5 @@
+import {download} from './download';
+export {download} from './download';
 import {z}from'zod';
 import{activityIds,content,historicalCarIds}from'../domain/content';
 import{db,defaultSettings,storageStatus}from'./storage';
@@ -11,7 +13,6 @@ export type Backup=z.infer<typeof backupSchema>;
 const tables=()=>[db.profiles,db.settings,db.favorites,db.recent,db.sessions,db.storyProgress,db.creations,db.observations];
 export async function makeBackup():Promise<Backup>{return db.transaction('r',tables(),async()=>backupSchema.parse({formatVersion:1,exportedAt:new Date().toISOString(),profile:await db.profiles.get('default')||{id:'default',nickname:''},settings:await db.settings.get('default')||defaultSettings,favorites:await db.favorites.toArray(),recent:await db.recent.toArray(),sessions:await db.sessions.toArray(),storyProgress:await db.storyProgress.toArray(),creations:await db.creations.toArray(),observations:await db.observations.toArray()}));}
 export function parseBackup(text:string){if(new TextEncoder().encode(text).length>10*1024*1024)throw Error('文件超过 10 MB，请选择较小的备份。');let raw:unknown;try{raw=JSON.parse(text);}catch{throw Error('这不是有效的 JSON 备份。');}const result=backupSchema.safeParse(raw);if(!result.success)throw Error('备份版本或内容格式不支持，当前记录没有改变。');return result.data;}
-export function download(data:Blob,filename:string){const url=URL.createObjectURL(data);const link=document.createElement('a');link.href=url;link.download=filename;link.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
 export const downloadBackup=(backup:Backup)=>download(new Blob([JSON.stringify(backup,null,2)],{type:'application/json'}),`carplayground-backup-${backup.exportedAt.slice(0,10)}.json`);
 export async function replaceBackup(input:Backup,beforeReplace?:(current:Backup)=>void){
  const next=backupSchema.parse(input);

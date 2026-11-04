@@ -2,6 +2,7 @@ import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import phaserPackage from 'phaser/package.json' with { type: 'json' };
 import { patchPhaserVisibility } from './scripts/phaser-visibility.ts';
+import {startupImports} from './scripts/startup-imports.ts';
 const phaserVisibility = {
   name: 'phaser-owned-visibility-v1',
   transform(code: string, id: string) {
@@ -11,7 +12,7 @@ const phaserVisibility = {
   },
 };
 export default defineConfig({
-  plugins: [react(), { ...phaserVisibility, enforce: 'pre' }], base: './',
+  plugins: [react(), { ...phaserVisibility, enforce: 'pre' },startupImports()], base: './',
   // Apply the same ownership fix while retaining fast prebundled dev loading.
   optimizeDeps: { rolldownOptions: { plugins: [phaserVisibility] } },
   // Some WebKit versions retain a failed modulepreload resource even across a

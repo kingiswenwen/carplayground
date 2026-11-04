@@ -1,5 +1,6 @@
+import {releaseSchema} from '../src/domain/content-schema';
 import {describe,it,expect} from 'vitest';
-import {content,releaseSchema,getCar,historicalCarIds,selectableCarIds,getDisplayCar} from '../src/domain/content';
+import {content,getCar,historicalCarIds,selectableCarIds,getDisplayCar} from '../src/domain/content';
 import identities from '../content/vehicle-identities.json';
 import {vehicleModels} from '../src/domain/vehicle-models';
 describe('production model catalogue identity',()=>{

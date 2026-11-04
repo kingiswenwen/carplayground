@@ -1,7 +1,7 @@
 import { assetUrl, getCar, type ActivityId } from '../domain/content';
 import { clamp, coast, distance, flickVelocity, inside, type Point, type Rect } from '../domain/direct-play';
 import {roadConnected,type RoadShape} from '../domain/learning';
-import {paintMark} from '../services/artwork';
+import {paintMark} from '../visual/paint-mark';
 import {drawPlaySymbol,loadPlaySymbols} from '../visual/play-symbols';
 import type {Mark} from '../services/storage';
 import {loadImage} from '../services/load-image';
