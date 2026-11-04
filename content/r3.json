@@ -1,7 +1,7 @@
 {
-  "id": "r21-playability-0.15.1",
+  "id": "r22-retained-models-0.15.2",
   "schemaVersion": 2,
-  "appVersion": "0.15.1",
+  "appVersion": "0.15.2",
   "car": {
     "id": "CAR01",
     "brand": "Lamborghini",
@@ -11,7 +11,7 @@
     "reference": "https://www.lamborghini.com/en-en/models/revuelto-models/revuelto",
     "images": {
       "white": "play-CAR15-side",
-      "red": "play-CAR02-side",
+      "red": "render-CAR140-side",
       "blue": "play-CAR11-side"
     },
     "hotspots": [
@@ -53,9 +53,7 @@
       "completeAudio": "color-success",
       "carIds": [
         "CAR01",
-        "CAR02",
         "CAR03",
-        "CAR04",
         "CAR05",
         "CAR06",
         "CAR07",
@@ -66,16 +64,12 @@
         "CAR12",
         "CAR14",
         "CAR15",
-        "CAR16",
-        "CAR17",
         "CAR18",
         "CAR19",
-        "CAR20",
         "CAR21",
         "CAR22",
         "CAR23",
         "CAR24",
-        "CAR25",
         "CAR26",
         "CAR29",
         "CAR30",
@@ -183,9 +177,7 @@
       "completeAudio": "wheel",
       "carIds": [
         "CAR01",
-        "CAR02",
         "CAR03",
-        "CAR04",
         "CAR05",
         "CAR06",
         "CAR07",
@@ -196,16 +188,12 @@
         "CAR12",
         "CAR14",
         "CAR15",
-        "CAR16",
-        "CAR17",
         "CAR18",
         "CAR19",
-        "CAR20",
         "CAR21",
         "CAR22",
         "CAR23",
         "CAR24",
-        "CAR25",
         "CAR26",
         "CAR29",
         "CAR30",
@@ -313,9 +301,7 @@
       "completeAudio": "phrase-stop",
       "carIds": [
         "CAR01",
-        "CAR02",
         "CAR03",
-        "CAR04",
         "CAR05",
         "CAR06",
         "CAR07",
@@ -326,16 +312,12 @@
         "CAR12",
         "CAR14",
         "CAR15",
-        "CAR16",
-        "CAR17",
         "CAR18",
         "CAR19",
-        "CAR20",
         "CAR21",
         "CAR22",
         "CAR23",
         "CAR24",
-        "CAR25",
         "CAR26",
         "CAR29",
         "CAR30",
@@ -443,9 +425,7 @@
       "completeAudio": "parking-success",
       "carIds": [
         "CAR01",
-        "CAR02",
         "CAR03",
-        "CAR04",
         "CAR05",
         "CAR06",
         "CAR07",
@@ -456,16 +436,12 @@
         "CAR12",
         "CAR14",
         "CAR15",
-        "CAR16",
-        "CAR17",
         "CAR18",
         "CAR19",
-        "CAR20",
         "CAR21",
         "CAR22",
         "CAR23",
         "CAR24",
-        "CAR25",
         "CAR26",
         "CAR29",
         "CAR30",
@@ -573,9 +549,7 @@
       "completeAudio": "parking-success",
       "carIds": [
         "CAR01",
-        "CAR02",
         "CAR03",
-        "CAR04",
         "CAR05",
         "CAR06",
         "CAR07",
@@ -586,16 +560,12 @@
         "CAR12",
         "CAR14",
         "CAR15",
-        "CAR16",
-        "CAR17",
         "CAR18",
         "CAR19",
-        "CAR20",
         "CAR21",
         "CAR22",
         "CAR23",
         "CAR24",
-        "CAR25",
         "CAR26",
         "CAR29",
         "CAR30",
@@ -703,9 +673,7 @@
       "completeAudio": "parking-success",
       "carIds": [
         "CAR01",
-        "CAR02",
         "CAR03",
-        "CAR04",
         "CAR05",
         "CAR06",
         "CAR07",
@@ -716,16 +684,12 @@
         "CAR12",
         "CAR14",
         "CAR15",
-        "CAR16",
-        "CAR17",
         "CAR18",
         "CAR19",
-        "CAR20",
         "CAR21",
         "CAR22",
         "CAR23",
         "CAR24",
-        "CAR25",
         "CAR26",
         "CAR29",
         "CAR30",
@@ -833,9 +797,7 @@
       "completeAudio": "red",
       "carIds": [
         "CAR01",
-        "CAR02",
         "CAR03",
-        "CAR04",
         "CAR05",
         "CAR06",
         "CAR07",
@@ -846,16 +808,12 @@
         "CAR12",
         "CAR14",
         "CAR15",
-        "CAR16",
-        "CAR17",
         "CAR18",
         "CAR19",
-        "CAR20",
         "CAR21",
         "CAR22",
         "CAR23",
         "CAR24",
-        "CAR25",
         "CAR26",
         "CAR29",
         "CAR30",
@@ -963,9 +921,7 @@
       "completeAudio": "phrase-look",
       "carIds": [
         "CAR01",
-        "CAR02",
         "CAR03",
-        "CAR04",
         "CAR05",
         "CAR06",
         "CAR07",
@@ -976,16 +932,12 @@
         "CAR12",
         "CAR14",
         "CAR15",
-        "CAR16",
-        "CAR17",
         "CAR18",
         "CAR19",
-        "CAR20",
         "CAR21",
         "CAR22",
         "CAR23",
         "CAR24",
-        "CAR25",
         "CAR26",
         "CAR29",
         "CAR30",
@@ -1093,9 +1045,7 @@
       "completeAudio": "sequence-go",
       "carIds": [
         "CAR01",
-        "CAR02",
         "CAR03",
-        "CAR04",
         "CAR05",
         "CAR06",
         "CAR07",
@@ -1106,16 +1056,12 @@
         "CAR12",
         "CAR14",
         "CAR15",
-        "CAR16",
-        "CAR17",
         "CAR18",
         "CAR19",
-        "CAR20",
         "CAR21",
         "CAR22",
         "CAR23",
         "CAR24",
-        "CAR25",
         "CAR26",
         "CAR29",
         "CAR30",
@@ -1223,9 +1169,7 @@
       "completeAudio": "hint-C03",
       "carIds": [
         "CAR01",
-        "CAR02",
         "CAR03",
-        "CAR04",
         "CAR05",
         "CAR06",
         "CAR07",
@@ -1236,16 +1180,12 @@
         "CAR12",
         "CAR14",
         "CAR15",
-        "CAR16",
-        "CAR17",
         "CAR18",
         "CAR19",
-        "CAR20",
         "CAR21",
         "CAR22",
         "CAR23",
         "CAR24",
-        "CAR25",
         "CAR26",
         "CAR29",
         "CAR30",
@@ -1353,9 +1293,7 @@
       "completeAudio": "hint-S01",
       "carIds": [
         "CAR01",
-        "CAR02",
         "CAR03",
-        "CAR04",
         "CAR05",
         "CAR06",
         "CAR07",
@@ -1366,16 +1304,12 @@
         "CAR12",
         "CAR14",
         "CAR15",
-        "CAR16",
-        "CAR17",
         "CAR18",
         "CAR19",
-        "CAR20",
         "CAR21",
         "CAR22",
         "CAR23",
         "CAR24",
-        "CAR25",
         "CAR26",
         "CAR29",
         "CAR30",
@@ -1483,9 +1417,7 @@
       "completeAudio": "light",
       "carIds": [
         "CAR01",
-        "CAR02",
         "CAR03",
-        "CAR04",
         "CAR05",
         "CAR06",
         "CAR07",
@@ -1496,16 +1428,12 @@
         "CAR12",
         "CAR14",
         "CAR15",
-        "CAR16",
-        "CAR17",
         "CAR18",
         "CAR19",
-        "CAR20",
         "CAR21",
         "CAR22",
         "CAR23",
         "CAR24",
-        "CAR25",
         "CAR26",
         "CAR29",
         "CAR30",
@@ -1613,9 +1541,7 @@
       "completeAudio": "rain",
       "carIds": [
         "CAR01",
-        "CAR02",
         "CAR03",
-        "CAR04",
         "CAR05",
         "CAR06",
         "CAR07",
@@ -1626,16 +1552,12 @@
         "CAR12",
         "CAR14",
         "CAR15",
-        "CAR16",
-        "CAR17",
         "CAR18",
         "CAR19",
-        "CAR20",
         "CAR21",
         "CAR22",
         "CAR23",
         "CAR24",
-        "CAR25",
         "CAR26",
         "CAR29",
         "CAR30",
@@ -1743,9 +1665,7 @@
       "completeAudio": "zh-wheel",
       "carIds": [
         "CAR01",
-        "CAR02",
         "CAR03",
-        "CAR04",
         "CAR05",
         "CAR06",
         "CAR07",
@@ -1756,16 +1676,12 @@
         "CAR12",
         "CAR14",
         "CAR15",
-        "CAR16",
-        "CAR17",
         "CAR18",
         "CAR19",
-        "CAR20",
         "CAR21",
         "CAR22",
         "CAR23",
         "CAR24",
-        "CAR25",
         "CAR26",
         "CAR29",
         "CAR30",
@@ -1873,9 +1789,7 @@
       "completeAudio": "phrase-go",
       "carIds": [
         "CAR01",
-        "CAR02",
         "CAR03",
-        "CAR04",
         "CAR05",
         "CAR06",
         "CAR07",
@@ -1886,16 +1800,12 @@
         "CAR12",
         "CAR14",
         "CAR15",
-        "CAR16",
-        "CAR17",
         "CAR18",
         "CAR19",
-        "CAR20",
         "CAR21",
         "CAR22",
         "CAR23",
         "CAR24",
-        "CAR25",
         "CAR26",
         "CAR29",
         "CAR30",
@@ -2003,9 +1913,7 @@
       "completeAudio": "phrase-go",
       "carIds": [
         "CAR01",
-        "CAR02",
         "CAR03",
-        "CAR04",
         "CAR05",
         "CAR06",
         "CAR07",
@@ -2016,16 +1924,12 @@
         "CAR12",
         "CAR14",
         "CAR15",
-        "CAR16",
-        "CAR17",
         "CAR18",
         "CAR19",
-        "CAR20",
         "CAR21",
         "CAR22",
         "CAR23",
         "CAR24",
-        "CAR25",
         "CAR26",
         "CAR29",
         "CAR30",
@@ -2133,9 +2037,7 @@
       "completeAudio": "phrase-look",
       "carIds": [
         "CAR01",
-        "CAR02",
         "CAR03",
-        "CAR04",
         "CAR05",
         "CAR06",
         "CAR07",
@@ -2146,16 +2048,12 @@
         "CAR12",
         "CAR14",
         "CAR15",
-        "CAR16",
-        "CAR17",
         "CAR18",
         "CAR19",
-        "CAR20",
         "CAR21",
         "CAR22",
         "CAR23",
         "CAR24",
-        "CAR25",
         "CAR26",
         "CAR29",
         "CAR30",
@@ -2263,9 +2161,7 @@
       "completeAudio": "help-please",
       "carIds": [
         "CAR01",
-        "CAR02",
         "CAR03",
-        "CAR04",
         "CAR05",
         "CAR06",
         "CAR07",
@@ -2276,16 +2172,12 @@
         "CAR12",
         "CAR14",
         "CAR15",
-        "CAR16",
-        "CAR17",
         "CAR18",
         "CAR19",
-        "CAR20",
         "CAR21",
         "CAR22",
         "CAR23",
         "CAR24",
-        "CAR25",
         "CAR26",
         "CAR29",
         "CAR30",
@@ -2393,9 +2285,7 @@
       "completeAudio": "water",
       "carIds": [
         "CAR01",
-        "CAR02",
         "CAR03",
-        "CAR04",
         "CAR05",
         "CAR06",
         "CAR07",
@@ -2406,16 +2296,12 @@
         "CAR12",
         "CAR14",
         "CAR15",
-        "CAR16",
-        "CAR17",
         "CAR18",
         "CAR19",
-        "CAR20",
         "CAR21",
         "CAR22",
         "CAR23",
         "CAR24",
-        "CAR25",
         "CAR26",
         "CAR29",
         "CAR30",
@@ -2523,9 +2409,7 @@
       "completeAudio": "hint-A01",
       "carIds": [
         "CAR01",
-        "CAR02",
         "CAR03",
-        "CAR04",
         "CAR05",
         "CAR06",
         "CAR07",
@@ -2536,16 +2420,12 @@
         "CAR12",
         "CAR14",
         "CAR15",
-        "CAR16",
-        "CAR17",
         "CAR18",
         "CAR19",
-        "CAR20",
         "CAR21",
         "CAR22",
         "CAR23",
         "CAR24",
-        "CAR25",
         "CAR26",
         "CAR29",
         "CAR30",
@@ -2653,9 +2533,7 @@
       "completeAudio": "hint-A02",
       "carIds": [
         "CAR01",
-        "CAR02",
         "CAR03",
-        "CAR04",
         "CAR05",
         "CAR06",
         "CAR07",
@@ -2666,16 +2544,12 @@
         "CAR12",
         "CAR14",
         "CAR15",
-        "CAR16",
-        "CAR17",
         "CAR18",
         "CAR19",
-        "CAR20",
         "CAR21",
         "CAR22",
         "CAR23",
         "CAR24",
-        "CAR25",
         "CAR26",
         "CAR29",
         "CAR30",
@@ -2783,9 +2657,7 @@
       "completeAudio": "sequence-go",
       "carIds": [
         "CAR01",
-        "CAR02",
         "CAR03",
-        "CAR04",
         "CAR05",
         "CAR06",
         "CAR07",
@@ -2796,16 +2668,12 @@
         "CAR12",
         "CAR14",
         "CAR15",
-        "CAR16",
-        "CAR17",
         "CAR18",
         "CAR19",
-        "CAR20",
         "CAR21",
         "CAR22",
         "CAR23",
         "CAR24",
-        "CAR25",
         "CAR26",
         "CAR29",
         "CAR30",
@@ -2913,9 +2781,7 @@
       "completeAudio": "help-please",
       "carIds": [
         "CAR01",
-        "CAR02",
         "CAR03",
-        "CAR04",
         "CAR05",
         "CAR06",
         "CAR07",
@@ -2926,16 +2792,12 @@
         "CAR12",
         "CAR14",
         "CAR15",
-        "CAR16",
-        "CAR17",
         "CAR18",
         "CAR19",
-        "CAR20",
         "CAR21",
         "CAR22",
         "CAR23",
         "CAR24",
-        "CAR25",
         "CAR26",
         "CAR29",
         "CAR30",
@@ -3043,9 +2905,7 @@
       "completeAudio": "parking-success",
       "carIds": [
         "CAR01",
-        "CAR02",
         "CAR03",
-        "CAR04",
         "CAR05",
         "CAR06",
         "CAR07",
@@ -3056,16 +2916,12 @@
         "CAR12",
         "CAR14",
         "CAR15",
-        "CAR16",
-        "CAR17",
         "CAR18",
         "CAR19",
-        "CAR20",
         "CAR21",
         "CAR22",
         "CAR23",
         "CAR24",
-        "CAR25",
         "CAR26",
         "CAR29",
         "CAR30",
@@ -3173,9 +3029,7 @@
       "completeAudio": "physics-why-surface",
       "carIds": [
         "CAR01",
-        "CAR02",
         "CAR03",
-        "CAR04",
         "CAR05",
         "CAR06",
         "CAR07",
@@ -3186,16 +3040,12 @@
         "CAR12",
         "CAR14",
         "CAR15",
-        "CAR16",
-        "CAR17",
         "CAR18",
         "CAR19",
-        "CAR20",
         "CAR21",
         "CAR22",
         "CAR23",
         "CAR24",
-        "CAR25",
         "CAR26",
         "CAR29",
         "CAR30",
@@ -3303,9 +3153,7 @@
       "completeAudio": "phrase-go",
       "carIds": [
         "CAR01",
-        "CAR02",
         "CAR03",
-        "CAR04",
         "CAR05",
         "CAR06",
         "CAR07",
@@ -3316,16 +3164,12 @@
         "CAR12",
         "CAR14",
         "CAR15",
-        "CAR16",
-        "CAR17",
         "CAR18",
         "CAR19",
-        "CAR20",
         "CAR21",
         "CAR22",
         "CAR23",
         "CAR24",
-        "CAR25",
         "CAR26",
         "CAR29",
         "CAR30",
@@ -3734,16 +3578,8 @@
       "text": "兰博基尼 Revuelto",
       "locale": "zh-CN"
     },
-    "name-CAR02": {
-      "text": "法拉利 296 GTB",
-      "locale": "zh-CN"
-    },
     "name-CAR03": {
       "text": "保时捷 911 GT3 RS",
-      "locale": "zh-CN"
-    },
-    "name-CAR04": {
-      "text": "迈凯伦 750S",
       "locale": "zh-CN"
     },
     "name-CAR05": {
@@ -4840,30 +4676,12 @@
       "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
-      "id": "name-CAR02",
-      "path": "media/name-CAR02.mp3",
-      "kind": "audio",
-      "status": "approved",
-      "sha256": "c1593287b9a054ffd4eaf2fd3685532d67fd8b35afdd93db8a4fba071c0cda4d",
-      "duration": 2.788333,
-      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
-    },
-    {
       "id": "name-CAR03",
       "path": "media/name-CAR03.mp3",
       "kind": "audio",
       "status": "approved",
       "sha256": "840e6a0b73f2fc6c3e1117ce2bbba4f4e2bd85a1fa0dc9a72ca865fe5759b9b4",
       "duration": 3.220958,
-      "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
-    },
-    {
-      "id": "name-CAR04",
-      "path": "media/name-CAR04.mp3",
-      "kind": "audio",
-      "status": "approved",
-      "sha256": "5f58a27815f93dfaeed544e2ff981e71c9a50956ae0669d13b2abc11477afb97",
-      "duration": 2.185958,
       "source": "Edge TTS Xiaoxiao/Jenny -12%; endpoint/level processing in content/audio-processing.json when present; local review only, distribution rights unverified."
     },
     {
@@ -5607,26 +5425,6 @@
       "source": "GPT Image; reference-led Revuelto atlas; see production provenance"
     },
     {
-      "id": "play-CAR02-side",
-      "kind": "image",
-      "path": "media/play-cars/toy-car02-side.webp",
-      "sha256": "35c71e91c8d08c0d1abae4037660e7c682208a311b98dd846b0ac92a7ec331f6",
-      "status": "approved",
-      "width": 1000,
-      "height": 450,
-      "source": "Built-in GPT Image: red Ferrari 296 GTB-inspired toy interpretation; atlas exec-1dbded83-09c5-4f1e-ae5f-c6f7134a85b9.png, row 2, side view. Not a photograph or an engineering reference."
-    },
-    {
-      "id": "play-CAR02-top",
-      "kind": "image",
-      "path": "media/play-cars/toy-car02-top.webp",
-      "sha256": "f1c13d14fe59949c83bb3329ea90ed08b46be782529eda0ce537d063166fe729",
-      "status": "approved",
-      "width": 1000,
-      "height": 450,
-      "source": "Built-in GPT Image: red Ferrari 296 GTB-inspired toy interpretation; atlas exec-1dbded83-09c5-4f1e-ae5f-c6f7134a85b9.png, row 2, top view. Not a photograph or an engineering reference."
-    },
-    {
       "id": "play-CAR03-side",
       "kind": "image",
       "path": "media/play-cars/toy-car03-side.webp",
@@ -5645,26 +5443,6 @@
       "width": 1000,
       "height": 450,
       "source": "Built-in GPT Image: mint green with black aero Porsche 911 GT3 RS-inspired toy interpretation; atlas exec-1dbded83-09c5-4f1e-ae5f-c6f7134a85b9.png, row 3, top view. Not a photograph or an engineering reference."
-    },
-    {
-      "id": "play-CAR04-side",
-      "kind": "image",
-      "path": "media/play-cars/toy-car04-side.webp",
-      "sha256": "76d6e36321afd427ec79c4592e640b291fe7ea5b05fed67af95d984046364461",
-      "status": "approved",
-      "width": 1000,
-      "height": 450,
-      "source": "Built-in GPT Image: tangerine orange McLaren 750S-inspired toy interpretation; atlas exec-1dbded83-09c5-4f1e-ae5f-c6f7134a85b9.png, row 4, side view. Not a photograph or an engineering reference."
-    },
-    {
-      "id": "play-CAR04-top",
-      "kind": "image",
-      "path": "media/play-cars/toy-car04-top.webp",
-      "sha256": "7f95ce89c10abdddfa5bd86bcca672a795c49be365b970040fdb95c5f66ea78d",
-      "status": "approved",
-      "width": 1000,
-      "height": 450,
-      "source": "Built-in GPT Image: tangerine orange McLaren 750S-inspired toy interpretation; atlas exec-1dbded83-09c5-4f1e-ae5f-c6f7134a85b9.png, row 4, top view. Not a photograph or an engineering reference."
     },
     {
       "id": "play-CAR05-side",
@@ -5887,46 +5665,6 @@
       "source": "Built-in GPT Image: pearl white Toyota GR86-inspired toy interpretation; atlas exec-4468f621-c68d-4320-9da6-5cb7db4a88f5.png, row 5, top view. Not a photograph or an engineering reference."
     },
     {
-      "id": "play-CAR16-side",
-      "kind": "image",
-      "path": "media/play-cars/toy-car16-side.webp",
-      "sha256": "d09c36db655c85d392afa2c63bd4a3dd3cfdef25ec41dc585d9671c5e19e684d",
-      "status": "approved",
-      "width": 1000,
-      "height": 450,
-      "source": "Built-in GPT Image: golden yellow Nissan Z-inspired toy interpretation; atlas exec-b237f91c-50ef-4a22-946d-78cf558b1936.png, row 1, side view. Not a photograph or an engineering reference."
-    },
-    {
-      "id": "play-CAR16-top",
-      "kind": "image",
-      "path": "media/play-cars/toy-car16-top.webp",
-      "sha256": "347cad1dc35c004657c592554c7acc9e45c07190be103f000ca2123344b53323",
-      "status": "approved",
-      "width": 1000,
-      "height": 450,
-      "source": "Built-in GPT Image: golden yellow Nissan Z-inspired toy interpretation; atlas exec-b237f91c-50ef-4a22-946d-78cf558b1936.png, row 1, top view. Not a photograph or an engineering reference."
-    },
-    {
-      "id": "play-CAR17-side",
-      "kind": "image",
-      "path": "media/play-cars/toy-car17-side.webp",
-      "sha256": "16f7c7c9fc1153387342e7809abc6857f671f3f1b3e862d5e278b529fb737a12",
-      "status": "approved",
-      "width": 1000,
-      "height": 450,
-      "source": "Built-in GPT Image: burnt orange Mazda MX-5 RF-inspired toy interpretation; atlas exec-b237f91c-50ef-4a22-946d-78cf558b1936.png, row 2, side view. Not a photograph or an engineering reference."
-    },
-    {
-      "id": "play-CAR17-top",
-      "kind": "image",
-      "path": "media/play-cars/toy-car17-top.webp",
-      "sha256": "487af2bfa6c4d1f4ac91de2ca3a3cccd3e5a38e0eab11b0df9e4f5666484a006",
-      "status": "approved",
-      "width": 1000,
-      "height": 450,
-      "source": "Built-in GPT Image: burnt orange Mazda MX-5 RF-inspired toy interpretation; atlas exec-b237f91c-50ef-4a22-946d-78cf558b1936.png, row 2, top view. Not a photograph or an engineering reference."
-    },
-    {
       "id": "play-CAR18-side",
       "kind": "image",
       "path": "media/play-cars/toy-car18-side.webp",
@@ -5965,26 +5703,6 @@
       "width": 1000,
       "height": 450,
       "source": "Built-in GPT Image: violet purple Lamborghini Huracán-inspired toy interpretation; atlas exec-b237f91c-50ef-4a22-946d-78cf558b1936.png, row 4, top view. Not a photograph or an engineering reference."
-    },
-    {
-      "id": "play-CAR20-side",
-      "kind": "image",
-      "path": "media/play-cars/toy-car20-side.webp",
-      "sha256": "96b79f106152450814faf9474f74041f0fc20370b64fb1f6782a2a27f3bebe2e",
-      "status": "approved",
-      "width": 1000,
-      "height": 450,
-      "source": "Built-in GPT Image: Ferrari red Ferrari F8 Tributo-inspired toy interpretation; atlas exec-b237f91c-50ef-4a22-946d-78cf558b1936.png, row 5, side view. Not a photograph or an engineering reference."
-    },
-    {
-      "id": "play-CAR20-top",
-      "kind": "image",
-      "path": "media/play-cars/toy-car20-top.webp",
-      "sha256": "31b1fee27afa556daa24f7c9207fb815daed13d675055a473c855bc76e95f488",
-      "status": "approved",
-      "width": 1000,
-      "height": 450,
-      "source": "Built-in GPT Image: Ferrari red Ferrari F8 Tributo-inspired toy interpretation; atlas exec-b237f91c-50ef-4a22-946d-78cf558b1936.png, row 5, top view. Not a photograph or an engineering reference."
     },
     {
       "id": "play-CAR21-side",
@@ -6065,26 +5783,6 @@
       "width": 1000,
       "height": 450,
       "source": "Built-in GPT Image: emerald green Lotus Emira-inspired toy interpretation; atlas exec-173642e1-413f-4130-96ba-fada77e2ead7.png, row 4, top view. Not a photograph or an engineering reference."
-    },
-    {
-      "id": "play-CAR25-side",
-      "kind": "image",
-      "path": "media/play-cars/toy-car25-side.webp",
-      "sha256": "4bd33ed3d7521d4b709a76a119e40b937d2876d784686c339b6a93f8a15e4c3c",
-      "status": "approved",
-      "width": 1000,
-      "height": 450,
-      "source": "Built-in GPT Image: French blue Alpine A110-inspired toy interpretation; atlas exec-d80cdb31-4563-464e-a770-3897a958771b.png, row 1, side view. Not a photograph or an engineering reference."
-    },
-    {
-      "id": "play-CAR25-top",
-      "kind": "image",
-      "path": "media/play-cars/toy-car25-top.webp",
-      "sha256": "998692a8ef7a2c3012a2596511c8795a241c2b2bf9d27fd61fcfaf60312415d2",
-      "status": "approved",
-      "width": 1000,
-      "height": 450,
-      "source": "Built-in GPT Image: French blue Alpine A110-inspired toy interpretation; atlas exec-d80cdb31-4563-464e-a770-3897a958771b.png, row 1, top view. Not a photograph or an engineering reference."
     },
     {
       "id": "play-CAR26-side",
@@ -6277,66 +5975,6 @@
       "source": "GPT Image; reference-led Revuelto atlas; see production provenance"
     },
     {
-      "id": "orbit-CAR02-front-left",
-      "kind": "image",
-      "path": "media/car-turnarounds/car02-front-left.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "981a1de77f5eea51672a55a119ce9e179f54ea600ff87c243c398bb8170dab56",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR02-front",
-      "kind": "image",
-      "path": "media/car-turnarounds/car02-front.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "76f93a8f85aac22ff6597e94862d12c81cc64f5295fa061570f232f925eb554f",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR02-front-right",
-      "kind": "image",
-      "path": "media/car-turnarounds/car02-front-right.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "09f92fb1c5ca6c39d4ed03954429c36cadf476ba1ebfb873f44f90a67dcabdc2",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR02-left",
-      "kind": "image",
-      "path": "media/car-turnarounds/car02-left.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "71e165af522f885b055dbbe54a57ce17603e4831ea95576fbdce5145cb832983",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR02-rear",
-      "kind": "image",
-      "path": "media/car-turnarounds/car02-rear.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "9903225654b7b85f92acdbe358c088e55bfc5b0211f2d726e9f0040b96ef7790",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR02-right",
-      "kind": "image",
-      "path": "media/car-turnarounds/car02-right.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "cbbacd4a2608c19fe1a9bb35a4d5b31fd4bcad70a9d4f84fde9cfb00d50cbd75",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
       "id": "orbit-CAR03-front-left",
       "kind": "image",
       "path": "media/car-turnarounds/car03-front-left.webp",
@@ -6393,66 +6031,6 @@
       "width": 800,
       "height": 480,
       "sha256": "066a43ca4c567d9ede9702f54a7c41a12720d82fc4a151b62179e165ced8a572",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR04-front-left",
-      "kind": "image",
-      "path": "media/car-turnarounds/car04-front-left.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "21445b061fc1071eab24afacdc74ccb08636f71740b50ad4df9b0921c9d85227",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR04-front",
-      "kind": "image",
-      "path": "media/car-turnarounds/car04-front.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "df7b9c3a72273313aad567f8cb6a26b3832deaf1a9e6a74232504ea9eef614b8",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR04-front-right",
-      "kind": "image",
-      "path": "media/car-turnarounds/car04-front-right.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "d26683044093988f09765e41804313ebc997e4ca9f9ec1175b6c3b12fa534acc",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR04-left",
-      "kind": "image",
-      "path": "media/car-turnarounds/car04-left.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "7c972933db72c241aa0961d6216f104f756c29bb63ad33f5c7ba5e94505d0f66",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR04-rear",
-      "kind": "image",
-      "path": "media/car-turnarounds/car04-rear.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "991c21211c86f41af9ec33e69de4b3a47c0d5c42b09651d2d147bb6ececa9ecc",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR04-right",
-      "kind": "image",
-      "path": "media/car-turnarounds/car04-right.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "f7135b29b609cf51bc3a7158ebcfe3571211d9977ee6e3ad8a7cb1cb0a5fcd86",
       "status": "approved",
       "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
     },
@@ -7117,126 +6695,6 @@
       "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
     },
     {
-      "id": "orbit-CAR16-front-left",
-      "kind": "image",
-      "path": "media/car-turnarounds/car16-front-left.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "cd944ae66587cda24d2ec5d407fe672ac3e2d26461edbff47d0af4d11646f191",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR16-front",
-      "kind": "image",
-      "path": "media/car-turnarounds/car16-front.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "acd7c0bc748caf244e4b6c946466c7c613e9de215acf13b1bd9551be5036a123",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR16-front-right",
-      "kind": "image",
-      "path": "media/car-turnarounds/car16-front-right.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "b7c619eb1c2483e63f666d4f5ec0fd654880bbd29c2200fbb9a8ff077d117a12",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR16-left",
-      "kind": "image",
-      "path": "media/car-turnarounds/car16-left.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "f188d044885b1835e335163632bf205a9caec9778d8236bc0c73bd0cd74dc7d1",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR16-rear",
-      "kind": "image",
-      "path": "media/car-turnarounds/car16-rear.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "0c766341b04f5e23b4648ab1c82f6105ae4ea48f0ed97e04ccf00880acb814d5",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR16-right",
-      "kind": "image",
-      "path": "media/car-turnarounds/car16-right.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "13f67b9dff8a443d1c470c30b1f4e36043a81551b61dbdb3d25002573cf55f82",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR17-front-left",
-      "kind": "image",
-      "path": "media/car-turnarounds/car17-front-left.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "950a3eb0d0dc3b57ea26ba2312f619df9bd059dcedb5f274f337011ea6ff35ef",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR17-front",
-      "kind": "image",
-      "path": "media/car-turnarounds/car17-front.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "72dfe5f74b157a6eb90373fd479f42a95929657ed0446662ac195305a852ca26",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR17-front-right",
-      "kind": "image",
-      "path": "media/car-turnarounds/car17-front-right.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "295ab1f18e7cf6f47c58187fcc7fd767f2187d736b19b744e8a8459e4c346d26",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR17-left",
-      "kind": "image",
-      "path": "media/car-turnarounds/car17-left.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "dd1a86c93e2ec600670cc5c127a8b05263c013a41cec18aee4ab125e4d1f93ae",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR17-rear",
-      "kind": "image",
-      "path": "media/car-turnarounds/car17-rear.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "a53de4e16768b85605830244261612ba793e81ff2b181e5020bd7e4f77bcaab9",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR17-right",
-      "kind": "image",
-      "path": "media/car-turnarounds/car17-right.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "efdc99e1935813386945a880646fe2ddaeefc85fe8baf914b43de9763cbcbd55",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
       "id": "orbit-CAR18-front-left",
       "kind": "image",
       "path": "media/car-turnarounds/car18-front-left.webp",
@@ -7353,66 +6811,6 @@
       "width": 800,
       "height": 480,
       "sha256": "46d1823b5c4653cdc797ce9964134a333c1a7f3ef93bad240a3a5f5dc9660557",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR20-front-left",
-      "kind": "image",
-      "path": "media/car-turnarounds/car20-front-left.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "39de5e18e2cec216aab188a137415abd7a47d780565234c2b939b0fd3b49dcd8",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR20-front",
-      "kind": "image",
-      "path": "media/car-turnarounds/car20-front.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "f806102f093f34106cb03e8cd71e6a1089f94fdd6b378477d8b2e91995a7ecf9",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR20-front-right",
-      "kind": "image",
-      "path": "media/car-turnarounds/car20-front-right.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "8b739970ca5dd96ae654c264e2197040f15eceec116696f48118b6ba3b20f890",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR20-left",
-      "kind": "image",
-      "path": "media/car-turnarounds/car20-left.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "4813c9f742329c4415ce04f785130bdc223285f82fe8a15a17ddfc8fd7cec4be",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR20-rear",
-      "kind": "image",
-      "path": "media/car-turnarounds/car20-rear.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "737c6d283d7359a44ccdf957e20bb88da441144a4b1654997a16288c7a6f547b",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR20-right",
-      "kind": "image",
-      "path": "media/car-turnarounds/car20-right.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "423458bcc03f1553660e73c2e05025399018ace9f02c08df2bb65ab447ffca31",
       "status": "approved",
       "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
     },
@@ -7653,66 +7051,6 @@
       "width": 800,
       "height": 480,
       "sha256": "557451aa64565f6a0cda9cca5984b9515d8885f4e2f9ddc7997b11f3b16b8585",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR25-front-left",
-      "kind": "image",
-      "path": "media/car-turnarounds/car25-front-left.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "e6a601b56b8c44d1bc7ac995d6308c44f3298c13234221c734b414e6ff6295bf",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR25-front",
-      "kind": "image",
-      "path": "media/car-turnarounds/car25-front.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "5b7c14f2204f9e9cf75e851d1fbb684bcf7684b944cdb90e08bd7a2e22961e31",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR25-front-right",
-      "kind": "image",
-      "path": "media/car-turnarounds/car25-front-right.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "f03fc114fcccddaf3d387008fc7ecf996b0444b46e8fdb7f1ab893aaf5c361b3",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR25-left",
-      "kind": "image",
-      "path": "media/car-turnarounds/car25-left.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "6fe6fafac94574e920beeaf31c6ee32669ef5a38d8974e4cfaa15f8490b7ed99",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR25-rear",
-      "kind": "image",
-      "path": "media/car-turnarounds/car25-rear.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "fe4ba8befbe8e0da92d156b64c3744abe954312cace6bdbca078ca4468c0b956",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR25-right",
-      "kind": "image",
-      "path": "media/car-turnarounds/car25-right.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "de82b92442ee0939f84345567b9bf45ad8ab0d3439228e942daeb48cc5dae42b",
       "status": "approved",
       "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
     },
@@ -10559,16 +9897,6 @@
       "source": "Rendered from the independently credited model CAR69. Lexyc16; CC BY 4.0. https://sketchfab.com/3d-models/none-f2a917a924734a89a020e7f970e55e7c"
     },
     {
-      "id": "render-CAR70-side",
-      "kind": "image",
-      "path": "media/rendered-cars/car70-side.webp",
-      "sha256": "51ca55d8fd8ccdd34eb1d8607da7104f3a9c5b18275c1849eed6e87c6efd182d",
-      "status": "approved",
-      "width": 1000,
-      "height": 450,
-      "source": "Rendered from the independently credited model CAR70. Lexyc16; CC BY 4.0. https://sketchfab.com/3d-models/none-db9a5f7ae9d84a0fb01cac96afe3e69c"
-    },
-    {
       "id": "render-CAR73-side",
       "kind": "image",
       "path": "media/rendered-cars/car73-side.webp",
@@ -10647,16 +9975,6 @@
       "width": 1000,
       "height": 450,
       "source": "Rendered from the independently credited model CAR82. autoNgraphic; CC BY 4.0. https://sketchfab.com/3d-models/none-18348c1698f74d9db1497a791bd21a2f"
-    },
-    {
-      "id": "render-CAR83-side",
-      "kind": "image",
-      "path": "media/rendered-cars/car83-side.webp",
-      "sha256": "64fae439d0d3bfef7c41ebbe1d16705aa5ae9af20f28bb843cdf7da64839bea6",
-      "status": "approved",
-      "width": 1000,
-      "height": 450,
-      "source": "Rendered from the independently credited model CAR83. Black Snow; CC BY 4.0. https://sketchfab.com/3d-models/none-c881a7e4285c42c2b359abf525fa7c95"
     },
     {
       "id": "render-CAR84-side",
@@ -10857,26 +10175,6 @@
       "width": 1000,
       "height": 450,
       "source": "Rendered from the independently credited model CAR127. Tiaan.Pretorius; CC BY 4.0. https://sketchfab.com/3d-models/none-a8821371a98a4ccbad0beee12fd4f3e9"
-    },
-    {
-      "id": "render-CAR130-side",
-      "kind": "image",
-      "path": "media/rendered-cars/car130-side.webp",
-      "sha256": "44b00c3e3f3e47176a73a8da509b55169874fc4eaf029faccf3ea5708f5f5a61",
-      "status": "approved",
-      "width": 1000,
-      "height": 450,
-      "source": "Rendered from the independently credited model CAR130. felipegall; CC BY 4.0. https://sketchfab.com/3d-models/none-b52a72137cb14ee5917443b369817670"
-    },
-    {
-      "id": "render-CAR131-side",
-      "kind": "image",
-      "path": "media/rendered-cars/car131-side.webp",
-      "sha256": "0fcb822b5b7015d10f3daa417bf01df1bc4e3ed26325df693cd37a2dc9ad11e3",
-      "status": "approved",
-      "width": 1000,
-      "height": 450,
-      "source": "Rendered from the independently credited model CAR131. Martin Trafas; CC BY 4.0. https://sketchfab.com/3d-models/none-0789ab2ece9442de94b3c41595e0ecbd"
     },
     {
       "id": "render-CAR132-side",
@@ -14509,190 +13807,6 @@
       "productionStatus": "production"
     },
     {
-      "id": "CAR02",
-      "name": "法拉利 296 GTB",
-      "zhBrand": "法拉利",
-      "brand": "Ferrari",
-      "model": "296 GTB",
-      "edition": "真实量产车型的游戏外观",
-      "color": "red",
-      "reference": "https://www.ferrari.com/en-EN/auto/296-gtb",
-      "status": "reviewed",
-      "image": "play-CAR02-side",
-      "audio": "name-CAR02",
-      "observation": "摸摸玩具车轮，看看车灯，带它去乐园动动手。",
-      "credit": {
-        "id": "CAR02",
-        "title": "File:2023 Ferrari 296 GTB.jpg",
-        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/2023_Ferrari_296_GTB.jpg/1280px-2023_Ferrari_296_GTB.jpg",
-        "page": "https://commons.wikimedia.org/wiki/File:2023_Ferrari_296_GTB.jpg",
-        "author": "Calreyn88",
-        "license": "CC BY-SA 4.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-        "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
-      },
-      "displayImage": "play-CAR02-side",
-      "views": [
-        {
-          "id": "front-left",
-          "image": "orbit-CAR02-front-left",
-          "label": "左前方",
-          "caption": "GPT生成的同车多角度游戏外观；离散视图，不是连续三维扫描。",
-          "credit": {
-            "author": "CarPlayground / GPT Image",
-            "license": "Original AI-generated game illustration",
-            "licenseUrl": "https://openai.com/policies/terms-of-use/",
-            "sourceUrl": "https://github.com/kingiswenwen/carplayground"
-          }
-        },
-        {
-          "id": "front",
-          "image": "orbit-CAR02-front",
-          "label": "正前方",
-          "caption": "GPT生成的同车多角度游戏外观；离散视图，不是连续三维扫描。",
-          "credit": {
-            "author": "CarPlayground / GPT Image",
-            "license": "Original AI-generated game illustration",
-            "licenseUrl": "https://openai.com/policies/terms-of-use/",
-            "sourceUrl": "https://github.com/kingiswenwen/carplayground"
-          }
-        },
-        {
-          "id": "front-right",
-          "image": "orbit-CAR02-front-right",
-          "label": "右前方",
-          "caption": "GPT生成的同车多角度游戏外观；离散视图，不是连续三维扫描。",
-          "credit": {
-            "author": "CarPlayground / GPT Image",
-            "license": "Original AI-generated game illustration",
-            "licenseUrl": "https://openai.com/policies/terms-of-use/",
-            "sourceUrl": "https://github.com/kingiswenwen/carplayground"
-          }
-        },
-        {
-          "id": "left",
-          "image": "orbit-CAR02-left",
-          "label": "左侧",
-          "caption": "GPT生成的同车多角度游戏外观；离散视图，不是连续三维扫描。",
-          "credit": {
-            "author": "CarPlayground / GPT Image",
-            "license": "Original AI-generated game illustration",
-            "licenseUrl": "https://openai.com/policies/terms-of-use/",
-            "sourceUrl": "https://github.com/kingiswenwen/carplayground"
-          }
-        },
-        {
-          "id": "rear",
-          "image": "orbit-CAR02-rear",
-          "label": "正后方",
-          "caption": "GPT生成的同车多角度游戏外观；离散视图，不是连续三维扫描。",
-          "credit": {
-            "author": "CarPlayground / GPT Image",
-            "license": "Original AI-generated game illustration",
-            "licenseUrl": "https://openai.com/policies/terms-of-use/",
-            "sourceUrl": "https://github.com/kingiswenwen/carplayground"
-          }
-        },
-        {
-          "id": "right",
-          "image": "orbit-CAR02-right",
-          "label": "右侧",
-          "caption": "GPT生成的同车多角度游戏外观；离散视图，不是连续三维扫描。",
-          "credit": {
-            "author": "CarPlayground / GPT Image",
-            "license": "Original AI-generated game illustration",
-            "licenseUrl": "https://openai.com/policies/terms-of-use/",
-            "sourceUrl": "https://github.com/kingiswenwen/carplayground"
-          }
-        }
-      ],
-      "hotspots": [
-        {
-          "id": "wheel",
-          "zh": "车轮",
-          "x": 0.7499348534201954,
-          "y": 0.6599372662564845
-        },
-        {
-          "id": "door",
-          "zh": "车门",
-          "x": 0.51,
-          "y": 0.56
-        },
-        {
-          "id": "light",
-          "zh": "车灯",
-          "x": 0.9,
-          "y": 0.46
-        }
-      ],
-      "showcaseImage": "play-CAR02-side",
-      "showcaseHotspots": [
-        {
-          "id": "wheel",
-          "zh": "车轮",
-          "x": 0.7499348534201954,
-          "y": 0.6599372662564845
-        },
-        {
-          "id": "door",
-          "zh": "车门",
-          "x": 0.51,
-          "y": 0.56
-        },
-        {
-          "id": "light",
-          "zh": "车灯",
-          "x": 0.9,
-          "y": 0.46
-        }
-      ],
-      "game": {
-        "side": "play-CAR02-side",
-        "top": "play-CAR02-top",
-        "wheels": [
-          {
-            "x": 0.20949333333333334,
-            "y": 0.6477851851851851,
-            "r": 0.09549666666666667
-          },
-          {
-            "x": 0.7499348534201954,
-            "y": 0.6599372662564845,
-            "r": 0.09302823018458196
-          }
-        ],
-        "orbit": [
-          {
-            "id": "front-left",
-            "image": "orbit-CAR02-front-left"
-          },
-          {
-            "id": "front",
-            "image": "orbit-CAR02-front"
-          },
-          {
-            "id": "front-right",
-            "image": "orbit-CAR02-front-right"
-          },
-          {
-            "id": "left",
-            "image": "orbit-CAR02-left"
-          },
-          {
-            "id": "rear",
-            "image": "orbit-CAR02-rear"
-          },
-          {
-            "id": "right",
-            "image": "orbit-CAR02-right"
-          }
-        ]
-      },
-      "catalogKey": "ferrari/296-gtb",
-      "productionStatus": "production"
-    },
-    {
       "id": "CAR03",
       "name": "保时捷 911 GT3 RS",
       "zhBrand": "保时捷",
@@ -14875,190 +13989,6 @@
       },
       "catalogKey": "porsche/911",
       "productionStatus": "production"
-    },
-    {
-      "id": "CAR04",
-      "name": "迈凯伦 750S",
-      "zhBrand": "迈凯伦",
-      "brand": "McLaren",
-      "model": "750S",
-      "edition": "真实量产车型的游戏外观",
-      "color": "tangerine orange",
-      "reference": "https://cars.mclaren.com/en/750s",
-      "status": "reviewed",
-      "image": "play-CAR04-side",
-      "audio": "name-CAR04",
-      "observation": "摸摸玩具车轮，看看车灯，带它去乐园动动手。",
-      "credit": {
-        "id": "CAR04",
-        "title": "File:2023 McLaren 750S 1.jpg",
-        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/2023_McLaren_750S_1.jpg/1280px-2023_McLaren_750S_1.jpg",
-        "page": "https://commons.wikimedia.org/wiki/File:2023_McLaren_750S_1.jpg",
-        "author": "Calreyn88",
-        "license": "CC0",
-        "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
-        "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
-      },
-      "views": [
-        {
-          "id": "front-left",
-          "image": "orbit-CAR04-front-left",
-          "label": "左前方",
-          "caption": "GPT生成的同车多角度游戏外观；离散视图，不是连续三维扫描。",
-          "credit": {
-            "author": "CarPlayground / GPT Image",
-            "license": "Original AI-generated game illustration",
-            "licenseUrl": "https://openai.com/policies/terms-of-use/",
-            "sourceUrl": "https://github.com/kingiswenwen/carplayground"
-          }
-        },
-        {
-          "id": "front",
-          "image": "orbit-CAR04-front",
-          "label": "正前方",
-          "caption": "GPT生成的同车多角度游戏外观；离散视图，不是连续三维扫描。",
-          "credit": {
-            "author": "CarPlayground / GPT Image",
-            "license": "Original AI-generated game illustration",
-            "licenseUrl": "https://openai.com/policies/terms-of-use/",
-            "sourceUrl": "https://github.com/kingiswenwen/carplayground"
-          }
-        },
-        {
-          "id": "front-right",
-          "image": "orbit-CAR04-front-right",
-          "label": "右前方",
-          "caption": "GPT生成的同车多角度游戏外观；离散视图，不是连续三维扫描。",
-          "credit": {
-            "author": "CarPlayground / GPT Image",
-            "license": "Original AI-generated game illustration",
-            "licenseUrl": "https://openai.com/policies/terms-of-use/",
-            "sourceUrl": "https://github.com/kingiswenwen/carplayground"
-          }
-        },
-        {
-          "id": "left",
-          "image": "orbit-CAR04-left",
-          "label": "左侧",
-          "caption": "GPT生成的同车多角度游戏外观；离散视图，不是连续三维扫描。",
-          "credit": {
-            "author": "CarPlayground / GPT Image",
-            "license": "Original AI-generated game illustration",
-            "licenseUrl": "https://openai.com/policies/terms-of-use/",
-            "sourceUrl": "https://github.com/kingiswenwen/carplayground"
-          }
-        },
-        {
-          "id": "rear",
-          "image": "orbit-CAR04-rear",
-          "label": "正后方",
-          "caption": "GPT生成的同车多角度游戏外观；离散视图，不是连续三维扫描。",
-          "credit": {
-            "author": "CarPlayground / GPT Image",
-            "license": "Original AI-generated game illustration",
-            "licenseUrl": "https://openai.com/policies/terms-of-use/",
-            "sourceUrl": "https://github.com/kingiswenwen/carplayground"
-          }
-        },
-        {
-          "id": "right",
-          "image": "orbit-CAR04-right",
-          "label": "右侧",
-          "caption": "GPT生成的同车多角度游戏外观；离散视图，不是连续三维扫描。",
-          "credit": {
-            "author": "CarPlayground / GPT Image",
-            "license": "Original AI-generated game illustration",
-            "licenseUrl": "https://openai.com/policies/terms-of-use/",
-            "sourceUrl": "https://github.com/kingiswenwen/carplayground"
-          }
-        }
-      ],
-      "hotspots": [
-        {
-          "id": "wheel",
-          "zh": "车轮",
-          "x": 0.7540430672268909,
-          "y": 0.6687698412698412
-        },
-        {
-          "id": "door",
-          "zh": "车门",
-          "x": 0.51,
-          "y": 0.56
-        },
-        {
-          "id": "light",
-          "zh": "车灯",
-          "x": 0.9,
-          "y": 0.46
-        }
-      ],
-      "showcaseImage": "play-CAR04-side",
-      "showcaseHotspots": [
-        {
-          "id": "wheel",
-          "zh": "车轮",
-          "x": 0.7540430672268909,
-          "y": 0.6687698412698412
-        },
-        {
-          "id": "door",
-          "zh": "车门",
-          "x": 0.51,
-          "y": 0.56
-        },
-        {
-          "id": "light",
-          "zh": "车灯",
-          "x": 0.9,
-          "y": 0.46
-        }
-      ],
-      "game": {
-        "side": "play-CAR04-side",
-        "top": "play-CAR04-top",
-        "wheels": [
-          {
-            "x": 0.21541321499013807,
-            "y": 0.647784352399737,
-            "r": 0.09649704142011836
-          },
-          {
-            "x": 0.7540430672268909,
-            "y": 0.6687698412698412,
-            "r": 0.09105357142857144
-          }
-        ],
-        "orbit": [
-          {
-            "id": "front-left",
-            "image": "orbit-CAR04-front-left"
-          },
-          {
-            "id": "front",
-            "image": "orbit-CAR04-front"
-          },
-          {
-            "id": "front-right",
-            "image": "orbit-CAR04-front-right"
-          },
-          {
-            "id": "left",
-            "image": "orbit-CAR04-left"
-          },
-          {
-            "id": "rear",
-            "image": "orbit-CAR04-rear"
-          },
-          {
-            "id": "right",
-            "image": "orbit-CAR04-right"
-          }
-        ]
-      },
-      "catalogKey": "mclaren/750s",
-      "productionStatus": "production",
-      "displayImage": "play-CAR04-side"
     },
     {
       "id": "CAR05",
@@ -16712,374 +15642,6 @@
       "productionStatus": "production"
     },
     {
-      "id": "CAR16",
-      "name": "日产 Z",
-      "zhBrand": "日产",
-      "brand": "Nissan",
-      "model": "Z",
-      "edition": "真实量产车型的游戏外观",
-      "color": "golden yellow",
-      "reference": "https://www.nissanusa.com/vehicles/sports-cars/nissan-z.html",
-      "status": "reviewed",
-      "image": "play-CAR16-side",
-      "audio": "car",
-      "observation": "摸摸玩具车轮，看看车灯，带它去乐园动动手。",
-      "credit": {
-        "id": "CAR02",
-        "title": "File:2023 Ferrari 296 GTB.jpg",
-        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/2023_Ferrari_296_GTB.jpg/1280px-2023_Ferrari_296_GTB.jpg",
-        "page": "https://commons.wikimedia.org/wiki/File:2023_Ferrari_296_GTB.jpg",
-        "author": "Calreyn88",
-        "license": "CC BY-SA 4.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-        "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
-      },
-      "displayImage": "play-CAR16-side",
-      "views": [
-        {
-          "id": "front-left",
-          "image": "orbit-CAR16-front-left",
-          "label": "左前方",
-          "caption": "GPT生成的同车多角度游戏外观；离散视图，不是连续三维扫描。",
-          "credit": {
-            "author": "CarPlayground / GPT Image",
-            "license": "Original AI-generated game illustration",
-            "licenseUrl": "https://openai.com/policies/terms-of-use/",
-            "sourceUrl": "https://github.com/kingiswenwen/carplayground"
-          }
-        },
-        {
-          "id": "front",
-          "image": "orbit-CAR16-front",
-          "label": "正前方",
-          "caption": "GPT生成的同车多角度游戏外观；离散视图，不是连续三维扫描。",
-          "credit": {
-            "author": "CarPlayground / GPT Image",
-            "license": "Original AI-generated game illustration",
-            "licenseUrl": "https://openai.com/policies/terms-of-use/",
-            "sourceUrl": "https://github.com/kingiswenwen/carplayground"
-          }
-        },
-        {
-          "id": "front-right",
-          "image": "orbit-CAR16-front-right",
-          "label": "右前方",
-          "caption": "GPT生成的同车多角度游戏外观；离散视图，不是连续三维扫描。",
-          "credit": {
-            "author": "CarPlayground / GPT Image",
-            "license": "Original AI-generated game illustration",
-            "licenseUrl": "https://openai.com/policies/terms-of-use/",
-            "sourceUrl": "https://github.com/kingiswenwen/carplayground"
-          }
-        },
-        {
-          "id": "left",
-          "image": "orbit-CAR16-left",
-          "label": "左侧",
-          "caption": "GPT生成的同车多角度游戏外观；离散视图，不是连续三维扫描。",
-          "credit": {
-            "author": "CarPlayground / GPT Image",
-            "license": "Original AI-generated game illustration",
-            "licenseUrl": "https://openai.com/policies/terms-of-use/",
-            "sourceUrl": "https://github.com/kingiswenwen/carplayground"
-          }
-        },
-        {
-          "id": "rear",
-          "image": "orbit-CAR16-rear",
-          "label": "正后方",
-          "caption": "GPT生成的同车多角度游戏外观；离散视图，不是连续三维扫描。",
-          "credit": {
-            "author": "CarPlayground / GPT Image",
-            "license": "Original AI-generated game illustration",
-            "licenseUrl": "https://openai.com/policies/terms-of-use/",
-            "sourceUrl": "https://github.com/kingiswenwen/carplayground"
-          }
-        },
-        {
-          "id": "right",
-          "image": "orbit-CAR16-right",
-          "label": "右侧",
-          "caption": "GPT生成的同车多角度游戏外观；离散视图，不是连续三维扫描。",
-          "credit": {
-            "author": "CarPlayground / GPT Image",
-            "license": "Original AI-generated game illustration",
-            "licenseUrl": "https://openai.com/policies/terms-of-use/",
-            "sourceUrl": "https://github.com/kingiswenwen/carplayground"
-          }
-        }
-      ],
-      "hotspots": [
-        {
-          "id": "wheel",
-          "zh": "车轮",
-          "x": 0.7643978388998035,
-          "y": 0.67652914210871
-        },
-        {
-          "id": "door",
-          "zh": "车门",
-          "x": 0.51,
-          "y": 0.56
-        },
-        {
-          "id": "light",
-          "zh": "车灯",
-          "x": 0.9,
-          "y": 0.46
-        }
-      ],
-      "showcaseImage": "play-CAR16-side",
-      "showcaseHotspots": [
-        {
-          "id": "wheel",
-          "zh": "车轮",
-          "x": 0.7643978388998035,
-          "y": 0.67652914210871
-        },
-        {
-          "id": "door",
-          "zh": "车门",
-          "x": 0.51,
-          "y": 0.56
-        },
-        {
-          "id": "light",
-          "zh": "车灯",
-          "x": 0.9,
-          "y": 0.46
-        }
-      ],
-      "game": {
-        "side": "play-CAR16-side",
-        "top": "play-CAR16-top",
-        "wheels": [
-          {
-            "x": 0.21830526315789472,
-            "y": 0.6579610136452242,
-            "r": 0.09691754385964912
-          },
-          {
-            "x": 0.7643978388998035,
-            "y": 0.67652914210871,
-            "r": 0.09056188605108054
-          }
-        ],
-        "orbit": [
-          {
-            "id": "front-left",
-            "image": "orbit-CAR16-front-left"
-          },
-          {
-            "id": "front",
-            "image": "orbit-CAR16-front"
-          },
-          {
-            "id": "front-right",
-            "image": "orbit-CAR16-front-right"
-          },
-          {
-            "id": "left",
-            "image": "orbit-CAR16-left"
-          },
-          {
-            "id": "rear",
-            "image": "orbit-CAR16-rear"
-          },
-          {
-            "id": "right",
-            "image": "orbit-CAR16-right"
-          }
-        ]
-      },
-      "catalogKey": "nissan/z",
-      "productionStatus": "production"
-    },
-    {
-      "id": "CAR17",
-      "name": "马自达 MX-5 RF",
-      "zhBrand": "马自达",
-      "brand": "Mazda",
-      "model": "MX-5 RF",
-      "edition": "真实量产车型的游戏外观",
-      "color": "burnt orange",
-      "reference": "https://www.mazdausa.com/vehicles/mx-5-miata-rf",
-      "status": "reviewed",
-      "image": "play-CAR17-side",
-      "audio": "car",
-      "observation": "摸摸玩具车轮，看看车灯，带它去乐园动动手。",
-      "credit": {
-        "id": "CAR02",
-        "title": "File:2023 Ferrari 296 GTB.jpg",
-        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/2023_Ferrari_296_GTB.jpg/1280px-2023_Ferrari_296_GTB.jpg",
-        "page": "https://commons.wikimedia.org/wiki/File:2023_Ferrari_296_GTB.jpg",
-        "author": "Calreyn88",
-        "license": "CC BY-SA 4.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-        "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
-      },
-      "displayImage": "play-CAR17-side",
-      "views": [
-        {
-          "id": "front-left",
-          "image": "orbit-CAR17-front-left",
-          "label": "左前方",
-          "caption": "GPT生成的同车多角度游戏外观；离散视图，不是连续三维扫描。",
-          "credit": {
-            "author": "CarPlayground / GPT Image",
-            "license": "Original AI-generated game illustration",
-            "licenseUrl": "https://openai.com/policies/terms-of-use/",
-            "sourceUrl": "https://github.com/kingiswenwen/carplayground"
-          }
-        },
-        {
-          "id": "front",
-          "image": "orbit-CAR17-front",
-          "label": "正前方",
-          "caption": "GPT生成的同车多角度游戏外观；离散视图，不是连续三维扫描。",
-          "credit": {
-            "author": "CarPlayground / GPT Image",
-            "license": "Original AI-generated game illustration",
-            "licenseUrl": "https://openai.com/policies/terms-of-use/",
-            "sourceUrl": "https://github.com/kingiswenwen/carplayground"
-          }
-        },
-        {
-          "id": "front-right",
-          "image": "orbit-CAR17-front-right",
-          "label": "右前方",
-          "caption": "GPT生成的同车多角度游戏外观；离散视图，不是连续三维扫描。",
-          "credit": {
-            "author": "CarPlayground / GPT Image",
-            "license": "Original AI-generated game illustration",
-            "licenseUrl": "https://openai.com/policies/terms-of-use/",
-            "sourceUrl": "https://github.com/kingiswenwen/carplayground"
-          }
-        },
-        {
-          "id": "left",
-          "image": "orbit-CAR17-left",
-          "label": "左侧",
-          "caption": "GPT生成的同车多角度游戏外观；离散视图，不是连续三维扫描。",
-          "credit": {
-            "author": "CarPlayground / GPT Image",
-            "license": "Original AI-generated game illustration",
-            "licenseUrl": "https://openai.com/policies/terms-of-use/",
-            "sourceUrl": "https://github.com/kingiswenwen/carplayground"
-          }
-        },
-        {
-          "id": "rear",
-          "image": "orbit-CAR17-rear",
-          "label": "正后方",
-          "caption": "GPT生成的同车多角度游戏外观；离散视图，不是连续三维扫描。",
-          "credit": {
-            "author": "CarPlayground / GPT Image",
-            "license": "Original AI-generated game illustration",
-            "licenseUrl": "https://openai.com/policies/terms-of-use/",
-            "sourceUrl": "https://github.com/kingiswenwen/carplayground"
-          }
-        },
-        {
-          "id": "right",
-          "image": "orbit-CAR17-right",
-          "label": "右侧",
-          "caption": "GPT生成的同车多角度游戏外观；离散视图，不是连续三维扫描。",
-          "credit": {
-            "author": "CarPlayground / GPT Image",
-            "license": "Original AI-generated game illustration",
-            "licenseUrl": "https://openai.com/policies/terms-of-use/",
-            "sourceUrl": "https://github.com/kingiswenwen/carplayground"
-          }
-        }
-      ],
-      "hotspots": [
-        {
-          "id": "wheel",
-          "zh": "车轮",
-          "x": 0.7735042333019756,
-          "y": 0.6877579178425839
-        },
-        {
-          "id": "door",
-          "zh": "车门",
-          "x": 0.51,
-          "y": 0.56
-        },
-        {
-          "id": "light",
-          "zh": "车灯",
-          "x": 0.9,
-          "y": 0.46
-        }
-      ],
-      "showcaseImage": "play-CAR17-side",
-      "showcaseHotspots": [
-        {
-          "id": "wheel",
-          "zh": "车轮",
-          "x": 0.7735042333019756,
-          "y": 0.6877579178425839
-        },
-        {
-          "id": "door",
-          "zh": "车门",
-          "x": 0.51,
-          "y": 0.56
-        },
-        {
-          "id": "light",
-          "zh": "车灯",
-          "x": 0.9,
-          "y": 0.46
-        }
-      ],
-      "game": {
-        "side": "play-CAR17-side",
-        "top": "play-CAR17-top",
-        "wheels": [
-          {
-            "x": 0.22664292155094679,
-            "y": 0.6848832782286344,
-            "r": 0.09580252479711453
-          },
-          {
-            "x": 0.7735042333019756,
-            "y": 0.6877579178425839,
-            "r": 0.09450893697083723
-          }
-        ],
-        "orbit": [
-          {
-            "id": "front-left",
-            "image": "orbit-CAR17-front-left"
-          },
-          {
-            "id": "front",
-            "image": "orbit-CAR17-front"
-          },
-          {
-            "id": "front-right",
-            "image": "orbit-CAR17-front-right"
-          },
-          {
-            "id": "left",
-            "image": "orbit-CAR17-left"
-          },
-          {
-            "id": "rear",
-            "image": "orbit-CAR17-rear"
-          },
-          {
-            "id": "right",
-            "image": "orbit-CAR17-right"
-          }
-        ]
-      },
-      "catalogKey": "mazda/mx-5",
-      "productionStatus": "production"
-    },
-    {
       "id": "CAR18",
       "name": "宝马 M2",
       "zhBrand": "宝马",
@@ -17382,190 +15944,6 @@
         ]
       },
       "catalogKey": "lamborghini/hurac-n",
-      "productionStatus": "production"
-    },
-    {
-      "id": "CAR20",
-      "name": "法拉利 F8 Tributo",
-      "zhBrand": "法拉利",
-      "brand": "Ferrari",
-      "model": "F8 Tributo",
-      "edition": "真实量产车型的游戏外观",
-      "color": "Ferrari red",
-      "reference": "https://www.ferrari.com/en-EN/auto/f8-tributo",
-      "status": "reviewed",
-      "image": "play-CAR20-side",
-      "audio": "car",
-      "observation": "摸摸玩具车轮，看看车灯，带它去乐园动动手。",
-      "credit": {
-        "id": "CAR02",
-        "title": "File:2023 Ferrari 296 GTB.jpg",
-        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/2023_Ferrari_296_GTB.jpg/1280px-2023_Ferrari_296_GTB.jpg",
-        "page": "https://commons.wikimedia.org/wiki/File:2023_Ferrari_296_GTB.jpg",
-        "author": "Calreyn88",
-        "license": "CC BY-SA 4.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-        "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
-      },
-      "displayImage": "play-CAR20-side",
-      "views": [
-        {
-          "id": "front-left",
-          "image": "orbit-CAR20-front-left",
-          "label": "左前方",
-          "caption": "GPT生成的同车多角度游戏外观；离散视图，不是连续三维扫描。",
-          "credit": {
-            "author": "CarPlayground / GPT Image",
-            "license": "Original AI-generated game illustration",
-            "licenseUrl": "https://openai.com/policies/terms-of-use/",
-            "sourceUrl": "https://github.com/kingiswenwen/carplayground"
-          }
-        },
-        {
-          "id": "front",
-          "image": "orbit-CAR20-front",
-          "label": "正前方",
-          "caption": "GPT生成的同车多角度游戏外观；离散视图，不是连续三维扫描。",
-          "credit": {
-            "author": "CarPlayground / GPT Image",
-            "license": "Original AI-generated game illustration",
-            "licenseUrl": "https://openai.com/policies/terms-of-use/",
-            "sourceUrl": "https://github.com/kingiswenwen/carplayground"
-          }
-        },
-        {
-          "id": "front-right",
-          "image": "orbit-CAR20-front-right",
-          "label": "右前方",
-          "caption": "GPT生成的同车多角度游戏外观；离散视图，不是连续三维扫描。",
-          "credit": {
-            "author": "CarPlayground / GPT Image",
-            "license": "Original AI-generated game illustration",
-            "licenseUrl": "https://openai.com/policies/terms-of-use/",
-            "sourceUrl": "https://github.com/kingiswenwen/carplayground"
-          }
-        },
-        {
-          "id": "left",
-          "image": "orbit-CAR20-left",
-          "label": "左侧",
-          "caption": "GPT生成的同车多角度游戏外观；离散视图，不是连续三维扫描。",
-          "credit": {
-            "author": "CarPlayground / GPT Image",
-            "license": "Original AI-generated game illustration",
-            "licenseUrl": "https://openai.com/policies/terms-of-use/",
-            "sourceUrl": "https://github.com/kingiswenwen/carplayground"
-          }
-        },
-        {
-          "id": "rear",
-          "image": "orbit-CAR20-rear",
-          "label": "正后方",
-          "caption": "GPT生成的同车多角度游戏外观；离散视图，不是连续三维扫描。",
-          "credit": {
-            "author": "CarPlayground / GPT Image",
-            "license": "Original AI-generated game illustration",
-            "licenseUrl": "https://openai.com/policies/terms-of-use/",
-            "sourceUrl": "https://github.com/kingiswenwen/carplayground"
-          }
-        },
-        {
-          "id": "right",
-          "image": "orbit-CAR20-right",
-          "label": "右侧",
-          "caption": "GPT生成的同车多角度游戏外观；离散视图，不是连续三维扫描。",
-          "credit": {
-            "author": "CarPlayground / GPT Image",
-            "license": "Original AI-generated game illustration",
-            "licenseUrl": "https://openai.com/policies/terms-of-use/",
-            "sourceUrl": "https://github.com/kingiswenwen/carplayground"
-          }
-        }
-      ],
-      "hotspots": [
-        {
-          "id": "wheel",
-          "zh": "车轮",
-          "x": 0.7454791252485089,
-          "y": 0.6499624475370003
-        },
-        {
-          "id": "door",
-          "zh": "车门",
-          "x": 0.51,
-          "y": 0.56
-        },
-        {
-          "id": "light",
-          "zh": "车灯",
-          "x": 0.9,
-          "y": 0.46
-        }
-      ],
-      "showcaseImage": "play-CAR20-side",
-      "showcaseHotspots": [
-        {
-          "id": "wheel",
-          "zh": "车轮",
-          "x": 0.7454791252485089,
-          "y": 0.6499624475370003
-        },
-        {
-          "id": "door",
-          "zh": "车门",
-          "x": 0.51,
-          "y": 0.56
-        },
-        {
-          "id": "light",
-          "zh": "车灯",
-          "x": 0.9,
-          "y": 0.46
-        }
-      ],
-      "game": {
-        "side": "play-CAR20-side",
-        "top": "play-CAR20-top",
-        "wheels": [
-          {
-            "x": 0.2142289156626506,
-            "y": 0.6393203583565029,
-            "r": 0.09730583873957369
-          },
-          {
-            "x": 0.7454791252485089,
-            "y": 0.6499624475370003,
-            "r": 0.0905168986083499
-          }
-        ],
-        "orbit": [
-          {
-            "id": "front-left",
-            "image": "orbit-CAR20-front-left"
-          },
-          {
-            "id": "front",
-            "image": "orbit-CAR20-front"
-          },
-          {
-            "id": "front-right",
-            "image": "orbit-CAR20-front-right"
-          },
-          {
-            "id": "left",
-            "image": "orbit-CAR20-left"
-          },
-          {
-            "id": "rear",
-            "image": "orbit-CAR20-rear"
-          },
-          {
-            "id": "right",
-            "image": "orbit-CAR20-right"
-          }
-        ]
-      },
-      "catalogKey": "ferrari/f8-tributo",
       "productionStatus": "production"
     },
     {
@@ -18239,190 +16617,6 @@
         ]
       },
       "catalogKey": "lotus/emira",
-      "productionStatus": "production"
-    },
-    {
-      "id": "CAR25",
-      "name": "阿尔派 A110",
-      "zhBrand": "阿尔派",
-      "brand": "Alpine",
-      "model": "A110",
-      "edition": "真实量产车型的游戏外观",
-      "color": "French blue",
-      "reference": "https://www.alpinecars.com/en/model/a110.html",
-      "status": "reviewed",
-      "image": "play-CAR25-side",
-      "audio": "car",
-      "observation": "摸摸玩具车轮，看看车灯，带它去乐园动动手。",
-      "credit": {
-        "id": "CAR02",
-        "title": "File:2023 Ferrari 296 GTB.jpg",
-        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/2023_Ferrari_296_GTB.jpg/1280px-2023_Ferrari_296_GTB.jpg",
-        "page": "https://commons.wikimedia.org/wiki/File:2023_Ferrari_296_GTB.jpg",
-        "author": "Calreyn88",
-        "license": "CC BY-SA 4.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-        "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
-      },
-      "displayImage": "play-CAR25-side",
-      "views": [
-        {
-          "id": "front-left",
-          "image": "orbit-CAR25-front-left",
-          "label": "左前方",
-          "caption": "GPT生成的同车多角度游戏外观；离散视图，不是连续三维扫描。",
-          "credit": {
-            "author": "CarPlayground / GPT Image",
-            "license": "Original AI-generated game illustration",
-            "licenseUrl": "https://openai.com/policies/terms-of-use/",
-            "sourceUrl": "https://github.com/kingiswenwen/carplayground"
-          }
-        },
-        {
-          "id": "front",
-          "image": "orbit-CAR25-front",
-          "label": "正前方",
-          "caption": "GPT生成的同车多角度游戏外观；离散视图，不是连续三维扫描。",
-          "credit": {
-            "author": "CarPlayground / GPT Image",
-            "license": "Original AI-generated game illustration",
-            "licenseUrl": "https://openai.com/policies/terms-of-use/",
-            "sourceUrl": "https://github.com/kingiswenwen/carplayground"
-          }
-        },
-        {
-          "id": "front-right",
-          "image": "orbit-CAR25-front-right",
-          "label": "右前方",
-          "caption": "GPT生成的同车多角度游戏外观；离散视图，不是连续三维扫描。",
-          "credit": {
-            "author": "CarPlayground / GPT Image",
-            "license": "Original AI-generated game illustration",
-            "licenseUrl": "https://openai.com/policies/terms-of-use/",
-            "sourceUrl": "https://github.com/kingiswenwen/carplayground"
-          }
-        },
-        {
-          "id": "left",
-          "image": "orbit-CAR25-left",
-          "label": "左侧",
-          "caption": "GPT生成的同车多角度游戏外观；离散视图，不是连续三维扫描。",
-          "credit": {
-            "author": "CarPlayground / GPT Image",
-            "license": "Original AI-generated game illustration",
-            "licenseUrl": "https://openai.com/policies/terms-of-use/",
-            "sourceUrl": "https://github.com/kingiswenwen/carplayground"
-          }
-        },
-        {
-          "id": "rear",
-          "image": "orbit-CAR25-rear",
-          "label": "正后方",
-          "caption": "GPT生成的同车多角度游戏外观；离散视图，不是连续三维扫描。",
-          "credit": {
-            "author": "CarPlayground / GPT Image",
-            "license": "Original AI-generated game illustration",
-            "licenseUrl": "https://openai.com/policies/terms-of-use/",
-            "sourceUrl": "https://github.com/kingiswenwen/carplayground"
-          }
-        },
-        {
-          "id": "right",
-          "image": "orbit-CAR25-right",
-          "label": "右侧",
-          "caption": "GPT生成的同车多角度游戏外观；离散视图，不是连续三维扫描。",
-          "credit": {
-            "author": "CarPlayground / GPT Image",
-            "license": "Original AI-generated game illustration",
-            "licenseUrl": "https://openai.com/policies/terms-of-use/",
-            "sourceUrl": "https://github.com/kingiswenwen/carplayground"
-          }
-        }
-      ],
-      "hotspots": [
-        {
-          "id": "wheel",
-          "zh": "车轮",
-          "x": 0.767439226519337,
-          "y": 0.6792306118272968
-        },
-        {
-          "id": "door",
-          "zh": "车门",
-          "x": 0.51,
-          "y": 0.56
-        },
-        {
-          "id": "light",
-          "zh": "车灯",
-          "x": 0.9,
-          "y": 0.49
-        }
-      ],
-      "showcaseImage": "play-CAR25-side",
-      "showcaseHotspots": [
-        {
-          "id": "wheel",
-          "zh": "车轮",
-          "x": 0.767439226519337,
-          "y": 0.6792306118272968
-        },
-        {
-          "id": "door",
-          "zh": "车门",
-          "x": 0.51,
-          "y": 0.56
-        },
-        {
-          "id": "light",
-          "zh": "车灯",
-          "x": 0.9,
-          "y": 0.49
-        }
-      ],
-      "game": {
-        "side": "play-CAR25-side",
-        "top": "play-CAR25-top",
-        "wheels": [
-          {
-            "x": 0.22614140558848433,
-            "y": 0.6723435882961708,
-            "r": 0.10044538526672313
-          },
-          {
-            "x": 0.767439226519337,
-            "y": 0.6792306118272968,
-            "r": 0.0973462246777164
-          }
-        ],
-        "orbit": [
-          {
-            "id": "front-left",
-            "image": "orbit-CAR25-front-left"
-          },
-          {
-            "id": "front",
-            "image": "orbit-CAR25-front"
-          },
-          {
-            "id": "front-right",
-            "image": "orbit-CAR25-front-right"
-          },
-          {
-            "id": "left",
-            "image": "orbit-CAR25-left"
-          },
-          {
-            "id": "rear",
-            "image": "orbit-CAR25-rear"
-          },
-          {
-            "id": "right",
-            "image": "orbit-CAR25-right"
-          }
-        ]
-      },
-      "catalogKey": "alpine/a110",
       "productionStatus": "production"
     },
     {

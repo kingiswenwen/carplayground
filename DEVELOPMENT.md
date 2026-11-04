@@ -52,7 +52,7 @@ Python 音频处理测试需要 FFmpeg。浏览器模拟结果不代表真机实
 
 新增目录插画的图集、提示词、图帧及哈希记录在 `content/catalog-illustrations.json`。`node scripts/prepare-catalog-illustrations.mjs <本机图集索引.json>` 将经过检查的 GPT 图集裁成透明 WebP。玩法继续使用从同车型模型渲染的侧视、俯视图及登记轮位，避免插画换图后点击位置失准。
 
-历史 30 款 GPT 六角度图与玩具侧视/俯视图的生成记录分别保留在 `content/car-turnarounds-production.json`、`content/play-cars-production.json`。来源索引中的本机绝对路径不进入公开记录。
+保留的 24 款 GPT 六角度图与玩具侧视/俯视图的生成记录分别保留在 `content/car-turnarounds-production.json`、`content/play-cars-production.json`。来源索引中的本机绝对路径不进入公开记录。
 
 素材来源与署名保留在 `content/photo-sources.json`、`content/photo-view-sources.json` 等清单中。素材的许可范围需分别核对；声音听审与分发依据仍待确认。
 

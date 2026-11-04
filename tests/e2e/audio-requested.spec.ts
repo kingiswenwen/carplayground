@@ -22,7 +22,7 @@ test('静音时主动重听玩法能播放，离开后自动引导仍静音',asy
  await page.getByRole('link',{name:'回到乐园',exact:true}).click();
  await expect.poll(()=>playing(page)).toBe(0);
  const count=requests;
- await page.evaluate(()=>{location.hash='/play/E02?car=CAR02&view=2d';});
+ await page.evaluate(()=>{location.hash='/play/E02?car=CAR03&view=2d';});
  await expect.poll(async()=>(await touchState(page)).ready).toBe(true);
  expect(await playing(page)).toBe(0);expect(requests).toBe(count);
 });

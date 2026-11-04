@@ -28,9 +28,9 @@ test('比较玩法取消拖动后两路都回到原位 @smoke',async({page})=>{
 
 test('玩法图片超时提供重试，恢复后可以继续 @smoke',async({page})=>{
  test.setTimeout(45000);let release!:()=>void;const held=new Promise<void>(resolve=>{release=resolve;});let blocked=true;
- await page.route('**/play-cars/toy-car02-side.webp*',async route=>{if(blocked)await held;await route.continue();});
+ await page.route('**/play-cars/toy-car03-side.webp*',async route=>{if(blocked)await held;await route.continue();});
  try{
-  await page.goto('/#/play/M01?car=CAR02',{waitUntil:'domcontentloaded'});
+  await page.goto('/#/play/M01?car=CAR03&view=2d',{waitUntil:'domcontentloaded'});
   await expect(page.getByRole('button',{name:'重新加载游戏跑车'})).toBeVisible({timeout:16000});
   blocked=false;release();await page.getByRole('button',{name:'重新加载游戏跑车'}).click();
   await expect.poll(async()=>(await touchState(page)).ready).toBe(true);

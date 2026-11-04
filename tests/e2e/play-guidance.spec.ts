@@ -6,7 +6,7 @@ const snapshot=async(page:Page)=>JSON.parse((await touchCanvas(page).getAttribut
 async function tap(page:Page,p:{x:number;y:number}){const at=await touchPosition(page,p);await page.mouse.click(at.x,at.y);}
 async function tapItem(page:Page,id:string){await tap(page,(await touchState(page)).items.find(i=>i.id===id)!);}
 test('颜色分类不随自选黄车而变错，错放会演示正确目标 @smoke',async({page})=>{
- await openTouch(page,'L03','CAR01');expect((await snapshot(page)).items[0].carId).toBe('CAR02');await expect.poll(async()=>await touchCanvas(page).evaluate(c=>(c as HTMLCanvasElement).height)).toBe(680);
+ await openTouch(page,'L03','CAR01');expect((await snapshot(page)).items[0].carId).toBe('CAR140');await expect.poll(async()=>await touchCanvas(page).evaluate(c=>(c as HTMLCanvasElement).height)).toBe(680);
  await dropTouch(page,'car-0','bay-1');expect((await touchState(page)).progress).toBe(0);expect((await snapshot(page)).hint).toBe(true);
  await expect.poll(async()=>(await touchState(page)).items[0].x).toBe(180);
  for(let i=0;i<3;i++)await dropTouch(page,`car-${i}`,`bay-${i}`);await completedTouch(page);
@@ -14,7 +14,7 @@ test('颜色分类不随自选黄车而变错，错放会演示正确目标 @smo
 test('空白触碰不消耗示范，车顶不触发车灯，实际车灯和车轮才响应 @smoke',async({page})=>{
  await openTouch(page,'E02');await tap(page,{x:20,y:20});expect((await snapshot(page)).hint).toBe(true);
  await tap(page,{x:500,y:200});expect((await snapshot(page)).parts).toEqual([]);
- const H=await touchCanvas(page).evaluate(c=>(c as HTMLCanvasElement).height),car=content.cars.find(c=>c.id==='CAR02')!;
+ const H=await touchCanvas(page).evaluate(c=>(c as HTMLCanvasElement).height),car=content.cars.find(c=>c.id==='CAR03')!;
  for(const p of car.hotspots)await tap(page,{x:50+p.x*900,y:H*.49-202.5+p.y*405});await completedTouch(page);expect((await snapshot(page)).parts.sort()).toEqual(['door','light','wheel']);
 });
 test('装车可点选点放且两个相同车轮可以交换，错放后仍能恢复 @smoke',async({page})=>{

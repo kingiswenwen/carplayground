@@ -23,7 +23,7 @@ test('收藏写入和取消失败保留已确认状态，重试刷新与车库�
       });
     }
   });
-  await page.goto('/#/cars/CAR02');
+  await page.goto('/#/cars/CAR07');
   await page.getByRole('button', {name: '我喜欢这辆车', exact: true}).click();
   await expect(page.locator('.activity-feedback')).toContainText('这次收藏没有保存');
   await expect(page.getByRole('button', {name: '我喜欢这辆车', exact: true})).toHaveAttribute('aria-pressed', 'false');
@@ -40,7 +40,7 @@ test('收藏写入和取消失败保留已确认状态，重试刷新与车库�
   expect(await rows(page, 'favorites')).toHaveLength(1);
   await page.getByRole('link', {name: '我的车库', exact: true}).click();
   await expect(page.locator('.garage-car')).toHaveCount(1);
-  await page.goto('/#/cars/CAR02');
+  await page.goto('/#/cars/CAR07');
   await page.evaluate(() => Reflect.set(window, '__failFavorite', false));
   await page.getByRole('button', {name: '已放进车库', exact: true}).click();
   await expect(page.getByRole('button', {name: '我喜欢这辆车', exact: true})).toHaveAttribute('aria-pressed', 'false');
@@ -51,7 +51,7 @@ test('收藏写入和取消失败保留已确认状态，重试刷新与车库�
 });
 
 test('收藏排队时切换车型，两辆车的确认结果都保留且不能重复提交 @smoke', async ({page}) => {
-  await page.goto('/#/cars/CAR02');
+  await page.goto('/#/cars/CAR07');
   await expect(page.getByRole('button', {name: '我喜欢这辆车', exact: true})).toBeVisible();
   await page.evaluate(() => new Promise<void>((resolve, reject) => {
     const request = indexedDB.open('carplayground-local-v1');
@@ -80,7 +80,7 @@ test('收藏排队时切换车型，两辆车的确认结果都保留且不能�
   await expect(page.getByRole('button', {name: '已放进车库', exact: true})).toBeVisible();
   await page.getByRole('link', {name: '我的车库', exact: true}).click();
   await expect(page.locator('.garage-car')).toHaveCount(2);
-  expect((await rows(page, 'favorites')).map(record => record.carId).sort()).toEqual(['CAR02', 'CAR03']);
+  expect((await rows(page, 'favorites')).map(record => record.carId).sort()).toEqual(['CAR03', 'CAR07']);
   await page.reload();
   await expect(page.locator('.garage-car')).toHaveCount(2);
 });

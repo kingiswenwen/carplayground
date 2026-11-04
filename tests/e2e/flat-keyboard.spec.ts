@@ -5,7 +5,7 @@ import fs from 'node:fs';
 const cars=JSON.parse(fs.readFileSync('content/r3.json','utf8')).cars as {id:string;hotspots:{id:string;x:number;y:number}[]}[];
 const state=async(page:Page)=>JSON.parse((await touchCanvas(page).getAttribute('data-state'))!);
 const variants=[
- {name:'缺少模型的参考车',car:'CAR02',query:'',webgl:false},
+ {name:'保留车型主动选择平面',car:'CAR03',query:'&view=2d',webgl:false},
  {name:'有模型车辆主动选择平面',car:'CAR01',query:'&view=2d',webgl:false},
  {name:'WebGL 不可用后的平面回退',car:'CAR01',query:'',webgl:true},
 ];
@@ -69,7 +69,7 @@ for(const variant of variants){
 
 test('平面部件可以交替点击和按键，已发现的车门不重复计算 @smoke',async({page})=>{
  await open(page,'E02');
- const door=cars.find(c=>c.id==='CAR02')!.hotspots.find(p=>p.id==='door')!;
+ const door=cars.find(c=>c.id==='CAR03')!.hotspots.find(p=>p.id==='door')!;
  const height=await touchCanvas(page).evaluate(c=>(c as HTMLCanvasElement).height);
  const p=await touchPosition(page,{x:50+door.x*900,y:height*.49-202.5+door.y*405});
  await page.mouse.click(p.x,p.y);expect((await state(page)).parts).toEqual(['door']);
@@ -111,9 +111,9 @@ for(const id of ['E02','H03'])test(`${id} 演示和暂停期间不消耗按键�
 
 for(const id of ['E02','H03'])test(`${id} 图片尚未准备好时按键不会提前记录探索 @smoke`,async({page})=>{
  let release!:()=>void,held=false;const ready=new Promise<void>(resolve=>{release=resolve;});
- await page.route('**/play-cars/toy-car02-side.webp*',async route=>{held=true;await ready;await route.continue();});
+ await page.route('**/play-cars/toy-car03-side.webp*',async route=>{held=true;await ready;await route.continue();});
  try{
-  await page.goto(`/#/play/${id}?car=CAR02`);await expect(touchCanvas(page)).toBeVisible();
+  await page.goto(`/#/play/${id}?car=CAR03&view=2d`);await expect(touchCanvas(page)).toBeVisible();
   await expect.poll(()=>held).toBe(true);expect((await state(page)).ready).toBe(false);
   await touchCanvas(page).press('Enter');await touchCanvas(page).press('Space');
   expect((await state(page)).progress).toBe(0);expect((await state(page)).parts).toEqual([]);

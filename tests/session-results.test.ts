@@ -1,7 +1,7 @@
 import 'fake-indexeddb/auto';
 import {afterAll, beforeEach, expect, it} from 'vitest';
 import {db, finishSession, saveSessionResult, type SessionRecord, type SessionResult} from '../src/services/storage';
-const initial: SessionRecord = {id: 'retry-attempt', activityId: 'C01', activityVersion: 1, contentReleaseId: 'test-release', carIds: ['CAR02'], difficulty: 'gentle', locale: 'zh-CN', audioEnabled: false, startedAt: '2026-10-21T01:00:00.000Z', state: 'playing', hints: 0, durationMs: 0};
+const initial: SessionRecord = {id: 'retry-attempt', activityId: 'C01', activityVersion: 1, contentReleaseId: 'test-release', carIds: ['CAR03'], difficulty: 'gentle', locale: 'zh-CN', audioEnabled: false, startedAt: '2026-10-21T01:00:00.000Z', state: 'playing', hints: 0, durationMs: 0};
 const result: SessionResult = {...initial, state: 'participated', endedAt: '2026-10-21T01:00:03.000Z', hints: 2, durationMs: 2400, summary: '原来的表达'};
 beforeEach(() => db.sessions.clear());
 afterAll(() => db.delete());

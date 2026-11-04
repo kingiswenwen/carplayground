@@ -1,15 +1,5 @@
 [
   {
-    "id": "CAR02",
-    "title": "File:2023 Ferrari 296 GTB.jpg",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/2023_Ferrari_296_GTB.jpg/1280px-2023_Ferrari_296_GTB.jpg",
-    "page": "https://commons.wikimedia.org/wiki/File:2023_Ferrari_296_GTB.jpg",
-    "author": "Calreyn88",
-    "license": "CC BY-SA 4.0",
-    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
-  },
-  {
     "id": "CAR03",
     "title": "File:2023 Porsche 911 GT3 RS.jpg",
     "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/2023_Porsche_911_GT3_RS.jpg/1280px-2023_Porsche_911_GT3_RS.jpg",
@@ -17,16 +7,6 @@
     "author": "Calreyn88",
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-    "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
-  },
-  {
-    "id": "CAR04",
-    "title": "File:2023 McLaren 750S 1.jpg",
-    "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/19/2023_McLaren_750S_1.jpg/1280px-2023_McLaren_750S_1.jpg",
-    "page": "https://commons.wikimedia.org/wiki/File:2023_McLaren_750S_1.jpg",
-    "author": "Calreyn88",
-    "license": "CC0",
-    "licenseUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
     "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
   },
   {

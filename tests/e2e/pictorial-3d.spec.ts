@@ -1,3 +1,5 @@
+import fs from 'node:fs';
+const turnarounds=JSON.parse(fs.readFileSync('content/car-turnarounds-production.json','utf8')) as {id:string}[];
 import {test,expect,type Page} from '@playwright/test';
 test('发布包模型分块损坏会回到同车图片，重试后恢复原模型 @smoke',async({page})=>{
  test.skip(!process.env.PLAYWRIGHT_BASE_URL,'分块交付用于构建后的发布包');test.setTimeout(90000);
@@ -30,10 +32,10 @@ test('WebGL不可用时回到同车型六角度图，不再显示通用车身 @s
  await page.goto('/#/cars/CAR01');await expect(page.locator('.vehicle-views')).toHaveAttribute('data-mode','pictures');await expect(page.locator('.vehicle-angle')).toHaveAttribute('data-ready','true',{timeout:30000});
  await page.getByRole('button',{name:'看后一个角度'}).click();await expect(page.locator('.vehicle-views')).toHaveAttribute('data-view','front');await expect(page.locator('.svg-vehicle')).toHaveCount(0);
 });
-test('没有对应模型的车保留外观图，切回已核对车型可继续立体观察 @smoke',async({page})=>{
+test('已移除车型的旧链接回到入口，保留车型可继续立体观察 @smoke',async({page})=>{
  test.setTimeout(120000);
  await page.goto('/#/cars');await expect(page.locator('.vehicle-webgl')).toHaveAttribute('data-ready','true',{timeout:30000});
- await page.goto('/#/cars/CAR02');await expect(page.locator('.vehicle-views')).toHaveAttribute('data-mode','pictures');await expect(page.getByRole('button',{name:'打开车型立体模型'})).toHaveCount(0);
+ await page.goto('/#/cars/CAR02');await expect(page.getByRole('link',{name:'回到乐园',exact:true})).toBeVisible();await expect(page.locator('.vehicle-views')).toHaveCount(0);
  await page.goto('/#/cars/CAR03');await expect(page.locator('.vehicle-webgl')).toHaveAttribute('data-car','CAR03',{timeout:30000});
 });
 test('模型网络失败后仍能看车，重试能恢复对应模型 @smoke',async({page})=>{
@@ -41,9 +43,9 @@ test('模型网络失败后仍能看车，重试能恢复对应模型 @smoke',as
  await page.route('**/models/car01.glb*',route=>route.abort());await page.goto('/#/cars/CAR01');await expect(page.locator('.vehicle-views')).toHaveAttribute('data-mode','pictures');
  await page.unroute('**/models/car01.glb*');await page.getByRole('button',{name:'打开车型立体模型'}).click();await expect(page.locator('.vehicle-webgl')).toHaveAttribute('data-source','reviewed-gltf',{timeout:30000});
 });
-test('保留的180张生成角度图可读取，图片查看可键盘拨动 @photos',async({page,request})=>{
+test('保留的生成角度图可读取，图片查看可键盘拨动 @photos',async({page,request})=>{
  test.setTimeout(120000);
- await page.goto('/#/cars/CAR02');await expect(page.locator('.vehicle-angle')).toHaveAttribute('data-ready','true');const image=await page.locator('.vehicle-angle').getAttribute('src'),base=image!.slice(0,image!.lastIndexOf('/')+1);
- for(let i=1;i<=30;i++)for(const angle of ['front-left','front','front-right','left','rear','right']){const id='car'+String(i).padStart(2,'0'),r=await request.get(`${base}${id}-${angle}.webp`);expect(r.ok()).toBe(true);expect(r.headers()['content-type']).toContain('image');}
- await page.goto('/#/cars/CAR02');const viewer=page.locator('.vehicle-views'),control=page.getByRole('application',{name:'跑车多角度外观，左右拨动看前后和两侧'});for(const angle of ['front-left','front','front-right','right','rear','left']){await expect(viewer).toHaveAttribute('data-view',angle);await control.press('ArrowRight');}
+ await page.goto('/#/cars/CAR03');await page.getByRole('button',{name:'回到多角度外观图',exact:true}).click();await expect(page.locator('.vehicle-angle')).toHaveAttribute('data-ready','true');const image=await page.locator('.vehicle-angle').getAttribute('src'),base=image!.slice(0,image!.lastIndexOf('/')+1);
+ for(const car of turnarounds)for(const angle of ['front-left','front','front-right','left','rear','right']){const id=car.id.toLowerCase(),r=await request.get(`${base}${id}-${angle}.webp`);expect(r.ok()).toBe(true);expect(r.headers()['content-type']).toContain('image');}
+ await page.goto('/#/cars/CAR03');const viewer=page.locator('.vehicle-views');await expect(viewer).toBeVisible();if(await viewer.getAttribute('data-mode')==='model')await page.getByRole('button',{name:'回到多角度外观图',exact:true}).click();const control=page.getByRole('application',{name:'跑车多角度外观，左右拨动看前后和两侧'});for(const angle of ['front-left','front','front-right','right','rear','left']){await expect(viewer).toHaveAttribute('data-view',angle);await control.press('ArrowRight');}
 });
