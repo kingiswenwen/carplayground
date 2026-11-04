@@ -1033,19 +1033,6 @@
       "sourceContentReleaseId": "r3-scenic-20261017.1"
     },
     {
-      "id": "name-CAR02",
-      "inputSha256": "7e4e2dfb32cb9e8510f04544e7fe5509a22de482d61640afd9bd3872e89a775e",
-      "trimStartSeconds": 0.0874,
-      "trimEndSeconds": 2.8757,
-      "gainDb": -0.7,
-      "targetIntegratedLufs": -20,
-      "peakCeilingDbtp": -3,
-      "listeningStatus": "not-reviewed",
-      "outputSha256": "c1593287b9a054ffd4eaf2fd3685532d67fd8b35afdd93db8a4fba071c0cda4d",
-      "sourceCommit": "0bd0d39",
-      "sourceContentReleaseId": "r3-scenic-20261017.1"
-    },
-    {
       "id": "name-CAR03",
       "inputSha256": "0a64a0dae68543fcd0cbc6dcec80811ee31e2a52cbbe0c5f6b113ebfbe5cfbf2",
       "trimStartSeconds": 0.0929,
@@ -1055,19 +1042,6 @@
       "peakCeilingDbtp": -3,
       "listeningStatus": "not-reviewed",
       "outputSha256": "840e6a0b73f2fc6c3e1117ce2bbba4f4e2bd85a1fa0dc9a72ca865fe5759b9b4",
-      "sourceCommit": "0bd0d39",
-      "sourceContentReleaseId": "r3-scenic-20261017.1"
-    },
-    {
-      "id": "name-CAR04",
-      "inputSha256": "2cf4518ec8193b7f27dd5a54ac9e0fd89c920a270877a68e50651f0c957309e8",
-      "trimStartSeconds": 0.0856,
-      "trimEndSeconds": 2.2706,
-      "gainDb": 0.0,
-      "targetIntegratedLufs": -20,
-      "peakCeilingDbtp": -3,
-      "listeningStatus": "not-reviewed",
-      "outputSha256": "5f58a27815f93dfaeed544e2ff981e71c9a50956ae0669d13b2abc11477afb97",
       "sourceCommit": "0bd0d39",
       "sourceContentReleaseId": "r3-scenic-20261017.1"
     },

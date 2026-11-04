@@ -14,7 +14,7 @@ type GuideCue={start:Point;end:Point;item?:Item;action:'drag'|'push'|'tap'|'turn
 export type BoardSnapshot = { ready: boolean; progress: number; completed: boolean; moving: boolean; hint:boolean;recovering:boolean;selected:string|null;signalGreen:boolean;road:{level:number;shapes:RoadShape[];locked:number[];won:boolean};comparison:{smooth:number;rough:number}[];wash:{clean:number;waiting:boolean};parts:string[]; items: {id:string;x:number;y:number;placed:boolean;carId?:string}[]; targets: Target[] };
 export type BoardOptions = { id: ActivityId; carId: string; portrait: boolean; attempt?:number; finish: (summary:string,sounds?:string[])=>void; feedback:(message:string)=>void; changed:(state:BoardSnapshot)=>void; speak?:(...ids:string[])=>void; paint?:(points:Mark[],background?:string)=>void };
 const SKY='#d9f1f6', GRASS='#d9e9bc', ASPHALT='#718388', CREAM='#fff9e9';
-const carForColor = { red:'CAR02',blue:'CAR11',white:'CAR15' };
+const carForColor = { red:'CAR140',blue:'CAR11',white:'CAR15' };
 
 export class TouchBoard {
   readonly width = 1000;
@@ -150,7 +150,7 @@ export class TouchBoard {
       const count=this.mode==='parking'?2:3;
       for(let i=0;i<count;i++){
         const x=count===2?280+i*440:180+i*320;
-        this.item(`car-${i}`,'car',x,H*.22,count===2?280:250,115,{carId:this.mode==='sorting'?['CAR02','CAR11','CAR15'][i]:i===0?carId:i===1?'CAR11':'CAR15',color:['#d65b44','#4e9cce','#faf8e9'][i]});
+        this.item(`car-${i}`,'car',x,H*.22,count===2?280:250,115,{carId:this.mode==='sorting'?['CAR140','CAR11','CAR15'][i]:i===0?carId:i===1?'CAR11':'CAR15',color:['#d65b44','#4e9cce','#faf8e9'][i]});
         this.target(`bay-${i}`,x,H*.65,count===2?310:270,150,{color:this.mode==='sorting'?['#d65b44','#4e9cce','#faf8e9'][i]:undefined,accepts:this.mode==='sorting'?[`car-${i}`]:undefined});
       }
       if(this.mode==='spaces'&&this.options.id==='M03'){
@@ -166,10 +166,10 @@ export class TouchBoard {
     }else if(this.mode==='pattern'){
       for(let i=0;i<6;i++){
         const x=180+(i%3)*320,y=H*(i<3?.27:.52);
-        if(i<4)this.item(`pattern-${i}`,'car',x,y,240,110,{carId:i%2?'CAR11':'CAR02',placed:true});
+        if(i<4)this.item(`pattern-${i}`,'car',x,y,240,110,{carId:i%2?'CAR11':'CAR140',placed:true});
         else this.target(`pattern-${i}`,x,y,250,130,{accepts:[i%2?'blue':'red']});
       }
-      this.item('red','car',300,H*.83,260,120,{carId:'CAR02'});this.item('blue','car',700,H*.83,260,120,{carId:'CAR11'});
+      this.item('red','car',300,H*.83,260,120,{carId:'CAR140'});this.item('blue','car',700,H*.83,260,120,{carId:'CAR11'});
     }else if(this.mode==='sequence'){
       ['🎒','belt','🏁'].forEach((glyph,i)=>{
         this.target(`step-${i}`,180+i*320,H*.33,230,200,{accepts:[`step-${i}`],glyph:String(i+1)});

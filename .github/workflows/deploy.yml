@@ -70,6 +70,8 @@ jobs:
             if curl --fail --silent "$PLAYWRIGHT_BASE_URL/" > /dev/null; then break; fi
             sleep 1
           done
+          # Fail early on persistence/page-load timing before the full suite.
+          npx playwright test tests/e2e/core-records-favorites.spec.ts --project=chromium --workers=1
           # Check the mobile scroll regression repeatedly before the full suite.
           npx playwright test tests/e2e/showroom-garage-feedback.spec.ts --project=chromium --workers=2 --grep '选车后看见新模型' --repeat-each=3
           npx playwright test --project=chromium --workers=2

@@ -6,7 +6,7 @@ const modelIds=new Set((JSON.parse(fs.readFileSync('content/vehicle-models.json'
 type State={ready:boolean;completed:boolean;progress:number;moving:boolean;items:{id:string;x:number;y:number;placed:boolean}[];targets:{id:string;x:number;y:number;occupied?:boolean}[]};
 const canvas=(page:Page)=>page.locator('canvas.touch-canvas');
 const state=async(page:Page):Promise<State>=>JSON.parse((await canvas(page).getAttribute('data-state'))!);
-async function open(page:Page,id:string,car='CAR02'){
+async function open(page:Page,id:string,car='CAR03'){
  await page.goto(`/#/play/${id}?car=${car}&view=2d`);await expect(canvas(page)).toBeVisible();await expect.poll(async()=>(await state(page)).ready).toBe(true);
 }
 async function position(page:Page,p:{x:number;y:number}){
@@ -29,7 +29,7 @@ test('立体车库支持品牌筛选、八辆分页与对应模型默认打开 @
  await expect(page.locator('.car-gallery-card')).toHaveCount(Math.min(8,ferraris.length));
  await expect(page.locator('.car-gallery-card .garage-car-name')).toHaveText(ferraris.slice(0,8).map(car=>car.model));
  await page.goto('/#/cars/CAR135');await expect(page.locator('.vehicle-webgl[data-ready=true]')).toHaveAttribute('data-car','CAR135',{timeout:45000});
- await page.goto('/#/cars/CAR02');await expect(page.locator('.vehicle-angle')).toBeVisible();await expect(page.getByRole('button',{name:'打开车型立体模型',exact:true})).toHaveCount(0);
+ await page.goto('/#/cars/CAR03');await page.getByRole('button',{name:'回到多角度外观图',exact:true}).click();await expect(page.locator('.vehicle-angle')).toBeVisible();await expect(page.getByRole('button',{name:'打开车型立体模型',exact:true})).toBeVisible();
 });
 test('所有26个玩法均进入直接操作场景，无必读文字选择器 @smoke',async({page})=>{
  test.setTimeout(90000);const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
@@ -106,8 +106,9 @@ test('部件探索、出发停止和形状滚动均由触碰物体完成',async(
  for(const id of ['S01']){await open(page,id);await flickTouch(page,(await state(page)).items[0],{x:500,y:340});await complete(page);}
 });
 test('新车图失败时不接受空图操作，重试后可继续 @smoke',async({page})=>{
- let fail=true;await page.route('**/play-cars/*car02-side.webp',route=>fail?route.abort():route.continue());
- await page.goto('/#/play/M01?car=CAR02');await expect(page.getByRole('button',{name:'重新加载游戏跑车'})).toBeVisible();expect((await state(page)).ready).toBe(false);
+ let fail=true,intercepted=false;await page.route('**/play-cars/*car03-side.webp',route=>{intercepted=true;return fail?route.abort():route.continue();});
+ await page.goto('/#/play/M01?car=CAR03&view=2d');await expect(page.getByRole('button',{name:'重新加载游戏跑车'})).toBeVisible();expect((await state(page)).ready).toBe(false);
+ expect(intercepted).toBe(true);
  fail=false;await page.getByRole('button',{name:'重新加载游戏跑车'}).click();await expect.poll(async()=>(await state(page)).ready).toBe(true);await drop(page,'car-0','bay-0');await drop(page,'car-1','bay-1');await complete(page);
 });
 test('切后台暂停后物体不漂移，返回须恢复操作 @smoke',async({page})=>{

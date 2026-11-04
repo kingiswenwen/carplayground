@@ -38,8 +38,8 @@ class AudioProductionTest(unittest.TestCase):
 
     def test_full_plan_has_all_speech_and_explicit_unassumed_quota(self):
         plan = tts.make_plan(self.content, self.config, list(self.content['speech']))
-        self.assertEqual(plan['clips'], 162)
-        self.assertGreaterEqual(plan['characters'], 2340)
+        self.assertEqual(plan['clips'], 160)
+        self.assertEqual(plan['characters'], 2323)
         self.assertFalse(plan['freeQuotaAssumed'])
         self.assertFalse(plan['applicationMediaReplaced'])
         car = next(line for line in plan['lines'] if line['id'] == 'name-CAR03')

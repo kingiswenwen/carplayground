@@ -10,28 +10,12 @@
       "reference": "https://www.lamborghini.com/en-en/models/revuelto-models/revuelto"
     },
     {
-      "id": "CAR02",
-      "brand": "Ferrari",
-      "model": "296 GTB",
-      "catalogKey": "ferrari/296-gtb",
-      "productionStatus": "production",
-      "reference": "https://www.ferrari.com/en-EN/auto/296-gtb"
-    },
-    {
       "id": "CAR03",
       "brand": "Porsche",
       "model": "911 GT3 RS",
       "catalogKey": "porsche/911",
       "productionStatus": "production",
       "reference": "https://www.porsche.com/international/models/911/911-gt3-rs/911-gt3-rs/"
-    },
-    {
-      "id": "CAR04",
-      "brand": "McLaren",
-      "model": "750S",
-      "catalogKey": "mclaren/750s",
-      "productionStatus": "production",
-      "reference": "https://cars.mclaren.com/en/750s"
     },
     {
       "id": "CAR05",
@@ -114,22 +98,6 @@
       "reference": "https://www.toyota.com/gr86/"
     },
     {
-      "id": "CAR16",
-      "brand": "Nissan",
-      "model": "Z",
-      "catalogKey": "nissan/z",
-      "productionStatus": "production",
-      "reference": "https://www.nissanusa.com/vehicles/sports-cars/nissan-z.html"
-    },
-    {
-      "id": "CAR17",
-      "brand": "Mazda",
-      "model": "MX-5 RF",
-      "catalogKey": "mazda/mx-5",
-      "productionStatus": "production",
-      "reference": "https://www.mazdausa.com/vehicles/mx-5-miata-rf"
-    },
-    {
       "id": "CAR18",
       "brand": "BMW",
       "model": "M2",
@@ -144,14 +112,6 @@
       "catalogKey": "lamborghini/hurac-n",
       "productionStatus": "production",
       "reference": "https://www.lamborghini.com/en-en/history"
-    },
-    {
-      "id": "CAR20",
-      "brand": "Ferrari",
-      "model": "F8 Tributo",
-      "catalogKey": "ferrari/f8-tributo",
-      "productionStatus": "production",
-      "reference": "https://www.ferrari.com/en-EN/auto/f8-tributo"
     },
     {
       "id": "CAR21",
@@ -184,14 +144,6 @@
       "catalogKey": "lotus/emira",
       "productionStatus": "production",
       "reference": "https://www.lotuscars.com/en-GB/emira"
-    },
-    {
-      "id": "CAR25",
-      "brand": "Alpine",
-      "model": "A110",
-      "catalogKey": "alpine/a110",
-      "productionStatus": "production",
-      "reference": "https://www.alpinecars.com/en/model/a110.html"
     },
     {
       "id": "CAR26",
@@ -1010,8 +962,8 @@
     {
       "id": "CAR70",
       "name": "日产 Proto",
-      "replacement": "CAR16",
-      "reason": "duplicate-family"
+      "replacement": null,
+      "reason": "removed-by-user-family"
     },
     {
       "id": "CAR73",
@@ -1064,8 +1016,8 @@
     {
       "id": "CAR83",
       "name": "日产 350z Rocket",
-      "replacement": "CAR16",
-      "reason": "duplicate-family"
+      "replacement": null,
+      "reason": "removed-by-user-family"
     },
     {
       "id": "CAR84",
@@ -1190,14 +1142,14 @@
     {
       "id": "CAR130",
       "name": "达特桑 Gaijin 240Z",
-      "replacement": "CAR16",
-      "reason": "duplicate-family"
+      "replacement": null,
+      "reason": "removed-by-user-family"
     },
     {
       "id": "CAR131",
       "name": "达特桑 280Z",
-      "replacement": "CAR16",
-      "reason": "duplicate-family"
+      "replacement": null,
+      "reason": "removed-by-user-family"
     },
     {
       "id": "CAR132",
@@ -1216,6 +1168,42 @@
       "name": "宝马 635 CSi (E24)",
       "replacement": "CAR108",
       "reason": "source-mesh-identifies-m635csi-m6-duplicate-family"
+    },
+    {
+      "id": "CAR02",
+      "name": "法拉利 296 GTB",
+      "replacement": null,
+      "reason": "removed-by-user-unmodeled"
+    },
+    {
+      "id": "CAR04",
+      "name": "迈凯伦 750S",
+      "replacement": null,
+      "reason": "removed-by-user-unmodeled"
+    },
+    {
+      "id": "CAR16",
+      "name": "日产 Z",
+      "replacement": null,
+      "reason": "removed-by-user-unmodeled"
+    },
+    {
+      "id": "CAR17",
+      "name": "马自达 MX-5 RF",
+      "replacement": null,
+      "reason": "removed-by-user-unmodeled"
+    },
+    {
+      "id": "CAR20",
+      "name": "法拉利 F8 Tributo",
+      "replacement": null,
+      "reason": "removed-by-user-unmodeled"
+    },
+    {
+      "id": "CAR25",
+      "name": "阿尔派 A110",
+      "replacement": null,
+      "reason": "removed-by-user-unmodeled"
     }
   ]
 }
