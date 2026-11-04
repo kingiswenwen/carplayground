@@ -12,6 +12,9 @@ async function rows(page: Page, table: string) {
 }
 
 test('收藏写入和取消失败保留已确认状态，重试刷新与车库一致 @smoke', async ({page}) => {
+  // This persistence journey reloads the 3D detail page three times. Keep the
+  // storage and layout assertions while allowing the shared CI renderer to load.
+  test.setTimeout(60_000);
   await page.setViewportSize({width: 390, height: 844});
   await page.addInitScript(() => {
     Reflect.set(window, '__failFavorite', true);
@@ -47,7 +50,7 @@ test('收藏写入和取消失败保留已确认状态，重试刷新与车库�
   await page.reload();
   await expect(page.getByRole('button', {name: '我喜欢这辆车', exact: true})).toBeVisible();
   expect(await rows(page, 'favorites')).toHaveLength(0);
-  await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+  await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), {timeout: 15_000}).toBe(true);
 });
 
 test('收藏排队时切换车型，两辆车的确认结果都保留且不能重复提交 @smoke', async ({page}) => {
