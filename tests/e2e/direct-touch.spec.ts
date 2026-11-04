@@ -106,8 +106,9 @@ test('部件探索、出发停止和形状滚动均由触碰物体完成',async(
  for(const id of ['S01']){await open(page,id);await flickTouch(page,(await state(page)).items[0],{x:500,y:340});await complete(page);}
 });
 test('新车图失败时不接受空图操作，重试后可继续 @smoke',async({page})=>{
- let fail=true;await page.route('**/play-cars/*car02-side.webp',route=>fail?route.abort():route.continue());
+ let fail=true,intercepted=false;await page.route('**/play-cars/*car03-side.webp',route=>{intercepted=true;return fail?route.abort():route.continue();});
  await page.goto('/#/play/M01?car=CAR03&view=2d');await expect(page.getByRole('button',{name:'重新加载游戏跑车'})).toBeVisible();expect((await state(page)).ready).toBe(false);
+ expect(intercepted).toBe(true);
  fail=false;await page.getByRole('button',{name:'重新加载游戏跑车'}).click();await expect.poll(async()=>(await state(page)).ready).toBe(true);await drop(page,'car-0','bay-0');await drop(page,'car-1','bay-1');await complete(page);
 });
 test('切后台暂停后物体不漂移，返回须恢复操作 @smoke',async({page})=>{
