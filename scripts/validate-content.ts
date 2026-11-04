@@ -2,7 +2,9 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import sharp from 'sharp';
-import { content } from '../src/domain/content';
+import releaseData from '../content/r3.json';
+import {releaseSchema} from '../src/domain/content-schema';
+const content=releaseSchema.parse(releaseData);
 import {assertIllustrationSubject} from './illustration-alpha';
 
 const publicRoot = path.resolve('public');

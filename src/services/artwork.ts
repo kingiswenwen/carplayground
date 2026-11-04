@@ -1,6 +1,6 @@
+import {paintMark} from '../visual/paint-mark';
 import{vehicleModel}from'../domain/vehicle-models';
-import{assetUrl,getDisplayCar,content}from'../domain/content';import type{Creation,Mark}from'./storage';import{download}from'./backup';import sources from'../../content/photo-sources.json';
-export function paintMark(ctx:CanvasRenderingContext2D,mark:Mark,width:number,height:number){const x=mark.x*width,y=mark.y*height;ctx.save();ctx.translate(x,y);ctx.fillStyle=mark.color;ctx.strokeStyle=mark.color;ctx.lineWidth=5;ctx.beginPath();if(mark.shape==='star'){for(let i=0;i<10;i++){const angle=i*Math.PI/5-Math.PI/2,r=i%2?10:24;const px=Math.cos(angle)*r,py=Math.sin(angle)*r;i?ctx.lineTo(px,py):ctx.moveTo(px,py);}ctx.closePath();ctx.fill();}else if(mark.shape==='leaf'){ctx.ellipse(0,0,12,25,Math.PI/4,0,Math.PI*2);ctx.fill();}else if(mark.shape==='stripe'){for(let i=-2;i<=2;i++)ctx.fillRect(i*10-3,-27,5,54);}else if(mark.shape==='zigzag'){ctx.moveTo(-26,-20);ctx.lineTo(0,-8);ctx.lineTo(-20,6);ctx.lineTo(24,24);ctx.stroke();}else{ctx.arc(0,0,mark.shape==='sun'?21:15,0,Math.PI*2);ctx.fill();if(mark.shape==='sun')for(let i=0;i<8;i++){ctx.rotate(Math.PI/4);ctx.fillRect(26,-2,8,4);}}ctx.restore();}
+import{assetUrl,getDisplayCar,content}from'../domain/content';import type{Creation}from'./storage';import{download}from'./download';import sources from'../../content/photo-sources.json';
 export async function exportArtwork(creation:Creation){
  const canvas=document.createElement('canvas');canvas.width=1200;canvas.height=800;
  const ctx=canvas.getContext('2d');if(!ctx)throw Error('这台浏览器暂时不能导出图片，作品仍保存在车库。');
