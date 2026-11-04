@@ -70,6 +70,8 @@ jobs:
             if curl --fail --silent "$PLAYWRIGHT_BASE_URL/" > /dev/null; then break; fi
             sleep 1
           done
+          # Check the mobile scroll regression repeatedly before the full suite.
+          npx playwright test tests/e2e/showroom-garage-feedback.spec.ts --project=chromium --workers=2 --grep '选车后看见新模型' --repeat-each=3
           npx playwright test --project=chromium --workers=2
           npx playwright test tests/e2e/responsive-ui.spec.ts tests/e2e/direct-touch.spec.ts tests/e2e/play-guidance.spec.ts --project=firefox --workers=2 --grep '三段故事和控件适配|车型分页和家长说明|推车松手|两路同推|洗车依次'
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4

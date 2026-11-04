@@ -11,11 +11,23 @@ async function rows(page:Page,table:string){
 for(const reducedMotion of ['reduce','no-preference'] as const)test.describe(`phone ${reducedMotion}`,()=>{
  test.use({viewport:{width:390,height:844},reducedMotion});
  test('选车后看见新模型，保留键盘焦点并尊重减少动画设置 @smoke',async({page})=>{
+  test.setTimeout(90000);
   await page.addInitScript(()=>{
    const scroll=Element.prototype.scrollIntoView;
    Reflect.set(window,'__previewScrolls',[]);
+   Reflect.set(window,'__lateLayoutApplied',false);
    Element.prototype.scrollIntoView=function(options){
-    if(this.classList.contains('car-roundabout'))Reflect.get(window,'__previewScrolls').push(options);
+    if(this.classList.contains('car-roundabout')){
+     Reflect.get(window,'__previewScrolls').push(options);
+     // Reproduce a small late layout change after selection, as can happen
+     // when toolbar/font metrics settle after the initial scroll position.
+     requestAnimationFrame(()=>{
+      document.documentElement.style.overflowAnchor='none';
+      const header=document.querySelector<HTMLElement>('.site-header')!;
+      header.style.height=`${header.getBoundingClientRect().height-4}px`;
+      Reflect.set(window,'__lateLayoutApplied',true);
+     });
+    }
     scroll.call(this,options);
    };
   });
@@ -25,10 +37,19 @@ for(const reducedMotion of ['reduce','no-preference'] as const)test.describe(`ph
   expect((await page.locator('.car-roundabout').boundingBox())!.y+360).toBeLessThan(0);
   await tile.press('Enter');
   await expect(page.locator('.vehicle-views')).toHaveAttribute('data-car','CAR07');
+  // The selected prop can change before a cold software renderer produces its
+  // first frame. Wait for the real model, keeping selection during loading covered.
+  const renderStarted=Date.now();
+  await expect(page.locator('.vehicle-model-surface canvas')).toHaveAttribute('data-car','CAR07',{timeout:45000});
+  await expect(page.locator('.vehicle-model-surface canvas')).toHaveAttribute('data-ready','true');
+  console.info('Selected preview first frame',reducedMotion,Date.now()-renderStarted);
   await expect(tile).toBeFocused();
-  await expect.poll(async()=>{const box=(await page.locator('.car-roundabout').boundingBox())!;return box.y>=-1&&box.y+box.height<=845;}).toBe(true);
+  await expect.poll(()=>page.evaluate(()=>Reflect.get(window,'__lateLayoutApplied'))).toBe(true);
+  // Report the actual overflow in CI while keeping the same 1px tolerance.
+  await expect.poll(async()=>{const box=(await page.locator('.car-roundabout').boundingBox())!;return Math.max(-box.y,box.y+box.height-844);}).toBeLessThanOrEqual(1);
   const scrolls=await page.evaluate(()=>Reflect.get(window,'__previewScrolls') as ScrollIntoViewOptions[]);
   expect(scrolls).toHaveLength(1);
+  expect(scrolls[0].block).toBe('center');
   expect(scrolls[0].behavior).toBe(reducedMotion==='reduce'?'instant':'smooth');
   await tile.scrollIntoViewIfNeeded();
   const scrollY=await page.evaluate(()=>window.scrollY);
