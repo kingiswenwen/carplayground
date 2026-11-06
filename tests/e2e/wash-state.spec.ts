@@ -12,6 +12,9 @@ test('局部洗车在横竖屏、反复2D/3D与WebGL失败回退保持同一污�
   const initial=await state(page);expect(initial.dirt.length).toBeGreaterThan(8);
   await tap(page,initial.dirt[Math.floor(initial.dirt.length/2)]);
   await expect.poll(async()=>(await flat(page)).progress).toBeGreaterThan(0);
+  // Board state can commit before the next Three frame publishes its snapshot.
+  // Wait for that real rendered population before retaining the resize baseline.
+  await page.waitForFunction(count=>{const value=JSON.parse(document.querySelector('canvas.touch-world-canvas')?.getAttribute('data-state')||'{}');return Array.isArray(value.washPatchIds)&&value.washPatchIds.length<count;},initial.dirt.length,{timeout:5000});
   const partial=await state(page),progress=(await flat(page)).progress,ids=partial.washPatchIds.slice().sort((a:number,b:number)=>a-b);
   expect(progress).toBeLessThan(.5);expect(partial.wash.clean).toBe(0);expect(ids.length).toBeLessThan(initial.dirt.length);
   for(const viewport of [{width:390,height:844},{width:844,height:390},{width:1000,height:760}]){
