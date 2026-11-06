@@ -1,7 +1,8 @@
 import Dexie, { type Table } from 'dexie';
 import type { ActivityId } from '../domain/content';
-export type Settings={id:'default';sound:boolean;difficulty:'gentle'|'explore';simple:boolean};
-export type SessionRecord={id:string;activityId:ActivityId;activityVersion:number;contentReleaseId:string;carIds:string[];difficulty:string;locale:'zh-CN';audioEnabled:boolean;startedAt:string;endedAt?:string;state:'playing'|'completed'|'participated'|'exited';hints:number;durationMs:number;summary?:string};
+import type {ContentLevel} from '../domain/play-level';
+export type Settings={id:'default';sound:boolean;difficulty:'gentle'|'explore';contentLevel?:ContentLevel;simple:boolean};
+export type SessionRecord={id:string;activityId:ActivityId;activityVersion:number;contentReleaseId:string;carIds:string[];difficulty:string;contentLevel?:ContentLevel;locale:'zh-CN';audioEnabled:boolean;startedAt:string;endedAt?:string;state:'playing'|'completed'|'participated'|'exited';hints:number;durationMs:number;summary?:string};
 export type Mark={x:number;y:number;color:string;shape:'star'|'leaf'|'sun'|'circle'|'stripe'|'zigzag'};
 export type Creation={id:string;kind:'poster'|'tracks';carId:string;background:string;caption:string;marks:Mark[];createdAt:string;version:1};
 export type Observation={id:string;activityId:ActivityId;text:string;createdAt:string};
@@ -13,7 +14,7 @@ class PlaygroundDB extends Dexie{
  constructor(){super('carplayground-local-v1');this.version(1).stores({settings:'id',favorites:'carId',sessions:'id,activityId,state,startedAt',recent:'carId'});this.version(2).stores({settings:'id',favorites:'carId',sessions:'id,activityId,state,startedAt',recent:'carId',profiles:'id',storyProgress:'storyId',creations:'id,createdAt,kind',observations:'id,activityId,createdAt',recovery:'id'});}
 }
 export const db=new PlaygroundDB();
-export const defaultSettings:Settings={id:'default',sound:false,difficulty:'gentle',simple:false};
+export const defaultSettings:Settings={id:'default',sound:false,difficulty:'gentle',contentLevel:'discover',simple:false};
 const failures=new Set<string>(),attempts=new Map<string,number>(),listeners=new Set<()=>void>();
 let unscopedFailure=false,sequence=0;
 const failed=()=>unscopedFailure||failures.size>0;

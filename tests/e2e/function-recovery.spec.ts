@@ -43,7 +43,7 @@ test('玩法页面模块失败有恢复入口，重新打开保留原玩法 @smo
  await page.route('**/*',route=>blocked&&route.request().resourceType()==='script'&&/TouchPlay[.-]/.test(route.request().url())?route.abort():route.continue());
  await page.getByRole('link',{name:'小车回家',exact:true}).click();
  await expect(page.getByRole('button',{name:'重新打开当前页面'})).toBeVisible();
- await page.screenshot({path:'.private/e2e-evidence/module-recovery.png'});
+ await page.screenshot({path:test.info().outputPath('e2e-evidence/module-recovery.png')});
  blocked=false;await page.getByRole('button',{name:'重新打开当前页面'}).click();
  await expect.poll(async()=>(await touchState(page)).ready).toBe(true);
  await expect(page.locator('.touch-play')).toHaveAttribute('data-activity','M01');

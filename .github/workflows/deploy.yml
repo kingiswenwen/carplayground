@@ -57,6 +57,20 @@ jobs:
           echo "release_id=$release_id" >> "$GITHUB_OUTPUT"
           echo "artifact_name=release-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}" >> "$GITHUB_OUTPUT"
       - run: npx playwright install --with-deps chromium firefox
+      - name: Verify isolated development preview
+        shell: bash
+        env:
+          DEV_SECURITY_E2E: '1'
+          PLAYWRIGHT_BASE_URL: http://127.0.0.1:5195
+        run: |
+          npm run dev -- --host 127.0.0.1 --port 5195 --strictPort &
+          dev_pid=$!
+          trap 'kill "$dev_pid"' EXIT
+          for attempt in {1..30}; do
+            if curl --fail --silent "$PLAYWRIGHT_BASE_URL/" > /dev/null; then break; fi
+            sleep 1
+          done
+          npx playwright test tests/e2e/dev-security.spec.ts --project=chromium --workers=1
       - name: Test built website browser flows
         shell: bash
         env:
@@ -76,6 +90,8 @@ jobs:
           npx playwright test tests/e2e/showroom-garage-feedback.spec.ts --project=chromium --workers=2 --grep '选车后看见新模型' --repeat-each=3
           npx playwright test --project=chromium --workers=2
           npx playwright test tests/e2e/responsive-ui.spec.ts tests/e2e/direct-touch.spec.ts tests/e2e/play-guidance.spec.ts --project=firefox --workers=2 --grep '三段故事和控件适配|车型分页和家长说明|推车松手|两路同推|洗车依次'
+          # Exercise new content levels and state continuity in a second engine.
+          npx playwright test tests/e2e/difficulty.spec.ts tests/e2e/content-level.spec.ts tests/e2e/wash-state.spec.ts tests/e2e/tracks-continuity.spec.ts --project=firefox --workers=1
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: ${{ steps.package.outputs.artifact_name }}

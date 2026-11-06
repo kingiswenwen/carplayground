@@ -10,7 +10,7 @@ test('立体停车直接拖独立网格入位，能切换镜头而不丢进度 @
  await expect.poll(async()=>(await snapshot(page)).items.find((a:{id:string})=>a.id==='car-0').placed).toBe(true);
  await page.getByRole('button',{name:'转动看看立体场景'}).click();await page.getByRole('button',{name:'回到触碰玩法'}).click();
  s=await snapshot(page);await drag(page,s.actors.find((a:{id:string})=>a.id==='car-1').screen,s.targetScreens[1].screen);
- await expect(page.locator('.touch-play')).toHaveAttribute('data-completed','true');await page.screenshot({path:'.private/r14-3d-world/parking-3d.png'});
+ await expect(page.locator('.touch-play')).toHaveAttribute('data-completed','true');await page.screenshot({path:test.info().outputPath('r14-3d-world/parking-3d.png')});
 });
 test('立体洗车指针擦除车身污渍，键盘可逐处擦洗并轮流换车 @smoke',async({page})=>{
  test.setTimeout(180000);await open(page,'H03');const b=(await world(page).boundingBox())!;

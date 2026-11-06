@@ -17,12 +17,12 @@ async function drop(page:Page,id:string,target:string){
   await input.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
  }finally{await input.detach();}
 }
-for(const car of ['CAR65','CAR171','CAR05','CAR119','CAR170','CAR177','CAR187','CAR192','CAR129','CAR42','CAR118','CAR160','CAR162','CAR166'])for(const mode of ['E01','M04','L03'])test(`${car} ${mode} 不可换色车型使用正确颜色车图并完成触摸玩法`,async({page})=>{
+for(const car of ['CAR65','CAR171','CAR05','CAR119','CAR170','CAR177','CAR187','CAR192','CAR129','CAR42','CAR118','CAR160','CAR162','CAR166'])for(const mode of ['E01','M04','L03'])test(`${car} ${mode} 不可换色车型使用正确颜色车图并完成触摸玩法`,async({page},testInfo)=>{
  test.setTimeout(60000);await page.goto(`/#/play/${mode}?car=${car}`);
  await expect(touchCanvas(page)).toBeVisible();await expect.poll(async()=>(await touchState(page)).ready).toBe(true);
  await expect(page.locator('canvas.touch-world-canvas')).toHaveCount(0);
  await expect(page.getByRole('button',{name:'打开立体玩法',exact:true})).toHaveCount(0);
- await page.screenshot({path:`.private/catalog-expansion/color-${car}-${mode}.png`});
+ await page.screenshot({path:testInfo.outputPath(`color-${car}-${mode}.png`)});
  if(mode==='E01'){
   const colours=await touchCanvas(page).evaluate(canvas=>{
    const c=canvas as HTMLCanvasElement,ctx=c.getContext('2d')!,state=JSON.parse(c.dataset.state!);

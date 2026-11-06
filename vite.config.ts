@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react';
 import phaserPackage from 'phaser/package.json' with { type: 'json' };
 import { patchPhaserVisibility } from './scripts/phaser-visibility.ts';
 import {startupImports} from './scripts/startup-imports.ts';
+import {devSecurity, privateWatchIgnored} from './scripts/dev-security.ts';
 const phaserVisibility = {
   name: 'phaser-owned-visibility-v1',
   transform(code: string, id: string) {
@@ -12,7 +13,13 @@ const phaserVisibility = {
   },
 };
 export default defineConfig({
-  plugins: [react(), { ...phaserVisibility, enforce: 'pre' },startupImports()], base: './',
+  plugins: [devSecurity(), react(), { ...phaserVisibility, enforce: 'pre' },startupImports()], base: './',
+  server: {
+    host: '127.0.0.1',
+    fs: { strict: true, allow: ['.'], deny: ['.env', '.env.*', '**/*.{pem,key}', '**/.git/**', '**/.private/**', '**/docs/**'] },
+    watch: { ignored: privateWatchIgnored },
+  },
+  preview: { host: '127.0.0.1' },
   // Apply the same ownership fix while retaining fast prebundled dev loading.
   optimizeDeps: { rolldownOptions: { plugins: [phaserVisibility] } },
   // Some WebKit versions retain a failed modulepreload resource even across a

@@ -9,6 +9,7 @@ import { TouchBoard, type BoardSnapshot } from '../game/TouchBoard';
 import { useLearningSession } from '../hooks/useLearningSession';
 import { db, safely, type Creation, type Settings, type Mark } from '../services/storage';
 import { audio } from '../services/audio';
+import {stageGoal} from '../domain/play-level';
 import {vehicleModel} from '../domain/vehicle-models';
 const TouchWorld3D=lazy(()=>import('../three/TouchWorld3D').then(m=>({default:m.TouchWorld3D})));
 
@@ -58,7 +59,7 @@ export function TouchPlay({id,carId,settings,backHref='#/explore',continueHref}:
     let alive=true;
     if(!canvas.current)return;
     setState(empty);setError('');setGuideStep(null);
-    const next=new TouchBoard(canvas.current,{id,carId,portrait,attempt,
+    const next=new TouchBoard(canvas.current,{id,carId,portrait,attempt,difficulty:session.difficulty,contentLevel:session.contentLevel,
       speak:(...sounds)=>{if(!callbacks.current.paused)void audio.play(...sounds);},finish:(summary,sounds)=>callbacks.current.finish(summary,sounds),feedback:text=>callbacks.current.setMessage(text),
       changed:value=>{if(alive)setState(value);},paint:(points,background)=>{if(alive)paint(points,background);}});
     board.current=next;
@@ -97,7 +98,7 @@ export function TouchPlay({id,carId,settings,backHref='#/explore',continueHref}:
   };
   const inputTime=(event:PointerEvent<HTMLCanvasElement>)=>event.timeStamp>1e12?event.timeStamp-performance.timeOrigin:event.timeStamp;
   const active=!session.paused&&state.ready&&!error;
-  return <div className="touch-play" data-activity={id} data-completed={state.completed}>
+  return <div className="touch-play" data-activity={id} data-content-level={session.contentLevel} data-completed={state.completed}>
     <div className="touch-toolbar">
       <a className="touch-icon" href={backHref} aria-label="回到乐园"><ArrowLeft/></a>
       <a className="touch-title" href={`#/cars/${carId}`} aria-label="旋转看看这辆车"><PlayPicture id={id} carId={carId}/></a>
@@ -105,12 +106,12 @@ export function TouchPlay({id,carId,settings,backHref='#/explore',continueHref}:
         {threeAvailable&&<button className="touch-icon" aria-label={three?'使用平面简化玩法':'打开立体玩法'} aria-pressed={three} onClick={()=>{setThreeFailed(false);setFlat(three);}}><Box/></button>}
         {id==='P01'&&typeof window.DeviceOrientationEvent!=='undefined'&&<button className="touch-icon" aria-label={sensor?'关闭倾斜操控':'启用倾斜操控'} aria-pressed={sensor} onClick={()=>void tilt()}><Smartphone/></button>}
         <button className="touch-icon help-demonstration" aria-label="看看怎么玩" aria-expanded={guideStep!==null} disabled={!active||state.completed||(three&&!worldReady)} onClick={()=>{if(guideStep!==null){guide(null);return;}guide(0);session.hint();}}><PlaySymbol name="hand"/><Play className="help-play" fill="currentColor"/></button>
-        <button className="touch-icon" aria-label="重听玩法" disabled={session.paused} onClick={()=>{void audio.playRequested(activity.instructionAudio);}}><Volume2/></button>
+        <button className="touch-icon" aria-label="重听玩法" disabled={session.paused} onClick={session.replay}><Volume2/></button>
         <button className="touch-icon" aria-label="重新玩" onClick={()=>window.dispatchEvent(new Event('restart-activity'))}><RotateCcw/></button>
       </div>
     </div>
     <div className="touch-canvas-wrap">
-      <canvas ref={canvas} className="touch-canvas" data-presentation={three?'three':'flat'} aria-hidden={three} aria-label={`${activity.title}互动场景，${['E02','T01'].includes(id)?'回车或空格逐个探索车轮、车门和车灯':id==='H03'?'回车或空格逐处擦洗车身，第一辆洗净后再按一次换车':'直接拖动物体；键盘方向键移动，回车放下，Escape取消，左右方括号选择物体'}`} role="application" tabIndex={three?-1:0}
+      <canvas ref={canvas} className="touch-canvas" data-presentation={three?'three':'flat'} aria-hidden={three} aria-label={`${activity.title}互动场景，${['E02','T01'].includes(id)?(session.contentLevel==='starter'?'回车或空格找车轮':'回车或空格逐个探索车轮、车门和车灯'):id==='H03'?'回车或空格逐处擦洗车身，第一辆洗净后再按一次换车':'直接拖动物体；键盘方向键移动，回车放下，Escape取消，左右方括号选择物体'}`} role="application" tabIndex={three?-1:0}
         data-state={JSON.stringify(state)}
         onPointerDown={event=>{if(!active)return;if(guideStep!==null)guide(null);event.currentTarget.setPointerCapture(event.pointerId);board.current?.down(event.pointerId,point(event),inputTime(event));}}
         onPointerMove={event=>{if(active)board.current?.move(event.pointerId,point(event),inputTime(event));}}
@@ -139,6 +140,6 @@ export function TouchPlay({id,carId,settings,backHref='#/explore',continueHref}:
     <span className="sr-only" role="status" aria-live="polite">{session.message}</span>
     {(session.recordStatus==='error'||creationStatus==='error')&&<div className="pictorial-error" role="status"><span className="sr-only">这次记录暂时没保存。</span><button className="picture-button" aria-label="重试保存" onClick={()=>{void session.retrySave();writeCreation();}}><RotateCcw/></button></div>}
     {sensorMessage&&<span className="sr-only" role="status">{sensorMessage}</span>}
-    <details className="touch-adult"><summary role="button" aria-label="给一起玩的家长"><Users/></summary><p>{activity.goal}</p>{activity.mode==='open'&&<p>这里只记录参与探索，不自动评价表达能力或学习掌握程度。</p>}<p>{activity.extension}</p><p>直接触碰画面中的物体开始。需要时点手掌播放按钮，按三幅图查看当前这一步的示范；演示不替孩子操作，也不计入完成记录。拖动不方便时，可以点选物件再点轮廓。车辆使用各自登记来源的立体模型和游戏预览；运动和装配使用教学示意，不代表车型真实性能或维修步骤。</p><p>会话：{session.recordStatus==='saved'?'已保存在本机':session.recordStatus==='saving'?'正在保存':'探索中'}{creationStatus==='saved'?'；作品已保存':''}</p><label>家长观察（可选）<textarea aria-label="家长观察（可选）" maxLength={500} value={note} onChange={event=>setNote(event.target.value)}/></label><button disabled={noteBusy} onClick={async()=>{setNoteBusy(true);const saved=await session.observe(note);setNoteBusy(false);setNoteMessage(saved?'观察已保存在本机':'观察暂时没保存，文字仍在，可以重试');}}>保存观察</button>{noteMessage&&<p role="status">{noteMessage}</p>}</details>
+    <details className="touch-adult"><summary role="button" aria-label="给一起玩的家长"><Users/></summary><p>{stageGoal(id,session.contentLevel)||activity.goal}</p>{activity.mode==='open'&&<p>这里只记录参与探索，不自动评价表达能力或学习掌握程度。</p>}<p>{activity.extension}</p><p>直接触碰画面中的物体开始。需要时点手掌播放按钮，按三幅图查看当前这一步的示范；演示不替孩子操作，也不计入完成记录。拖动不方便时，可以点选物件再点轮廓。车辆使用各自登记来源的立体模型和游戏预览；运动和装配使用教学示意，不代表车型真实性能或维修步骤。</p><p>会话：{session.recordStatus==='saved'?'已保存在本机':session.recordStatus==='saving'?'正在保存':'探索中'}{creationStatus==='saved'?'；作品已保存':''}</p><label>家长观察（可选）<textarea aria-label="家长观察（可选）" maxLength={500} value={note} onChange={event=>setNote(event.target.value)}/></label><button disabled={noteBusy} onClick={async()=>{setNoteBusy(true);const saved=await session.observe(note);setNoteBusy(false);setNoteMessage(saved?'观察已保存在本机':'观察暂时没保存，文字仍在，可以重试');}}>保存观察</button>{noteMessage&&<p role="status">{noteMessage}</p>}</details>
   </div>;
 }

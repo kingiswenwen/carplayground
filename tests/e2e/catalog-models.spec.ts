@@ -6,7 +6,7 @@ test.use({viewport:{width:1000,height:760}});
 for(const model of models)test(`${model.id} ${model.catalogKey} 独立模型与部件操作`,async({page})=>{
  test.setTimeout(65000);await page.goto(`/#/play/E02?car=${model.id}`);const canvas=page.locator('canvas.touch-world-canvas');await expect(canvas).toHaveAttribute('data-ready','true',{timeout:45000});
  const snapshot=async()=>JSON.parse((await canvas.getAttribute('data-state'))!);let s=await snapshot();expect(s.actors.find((a:any)=>a.id==='parts-car').sourceCar).toBe(model.id);expect(s.triangles).toBeGreaterThan(100);
- await page.screenshot({path:`.private/r15-catalog-play-audit/model-check/${model.id}.png`});
+ await page.screenshot({path:test.info().outputPath(`r15-catalog-play-audit/model-check/${model.id}.png`)});
  for(const part of ['wheel','light','door']){s=await snapshot();expect(s.partScreens?.[part],`${model.id} visible ${part}`).toBeTruthy();const p=s.partScreens[part],b=(await canvas.boundingBox())!;await page.mouse.click(b.x+p.x*b.width,b.y+p.y*b.height);await expect.poll(async()=>(await snapshot()).parts.includes(part),{timeout:20000}).toBe(true);}
  await expect(page.locator('.touch-play')).toHaveAttribute('data-completed','true');
 });
@@ -27,7 +27,7 @@ for(const model of models)test(`${model.id} ${model.catalogKey} 手机立体装�
  }
  await expect(page.locator('.touch-play')).toHaveAttribute('data-completed','true');
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
- await page.screenshot({path:`.private/catalog-expansion/assembly/${model.id}.png`});
+ await page.screenshot({path:test.info().outputPath(`catalog-expansion/assembly/${model.id}.png`)});
 });
 });
 

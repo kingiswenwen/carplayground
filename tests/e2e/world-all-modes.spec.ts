@@ -29,8 +29,8 @@ const ids=['E01','E02','E03','M01','M02','M03','M04','C01','C02','C03','S01','S0
 for(const viewport of [{name:'desktop',width:1000,height:760},{name:'tablet',width:768,height:1024},{name:'phone',width:390,height:844}])test.describe(viewport.name,()=>{
 test.use({viewport:{width:viewport.width,height:viewport.height},hasTouch:viewport.name!=='desktop'});
 for(const id of ids)test(`${id} 立体场景完整实际操作 @worldmatrix`,async({page},info)=>{
- const evidence=`.private/playability-audit/${info.project.name}/${viewport.name}/${id}`;
- test.setTimeout(150000);const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));await open(page,id);await page.screenshot({path:`${evidence}-start.png`});
+ const evidence=`playability-audit/${info.project.name}/${viewport.name}/${id}`;
+ test.setTimeout(150000);const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));await open(page,id);await page.screenshot({path:test.info().outputPath(`${evidence}-start.png`)});
  if(['M01','M02','M03','L03'].includes(id)){const n=id==='M01'?2:3;for(let i=0;i<n;i++){if(id==='M02'&&i===2)await drop(page,'extra-bay','bay-2');await drop(page,`car-${i}`,`bay-${i}`);}}
  else if(id==='E01'){await drop(page,'blue','color-home');expect((await snap(page)).progress).toBe(0);for(const c of ['red','blue','white'])await drop(page,c,'color-home');}
  else if(id==='M04'){await drop(page,'red','pattern-4');await drop(page,'blue','pattern-5');}
@@ -50,7 +50,7 @@ for(const id of ids)test(`${id} 立体场景完整实际操作 @worldmatrix`,asy
  else if(id==='T03'){for(const [level,actions]of [[0,[['road-1',1]]],[1,[['road-1',2]]],[2,[['road-1',1],['road-2',2],['road-5',1]]]] as const){for(const [road,n] of actions)for(let i=0;i<n;i++){const before=(await snap(page)).road.shapes[Number(road.slice(5))];await click(page,road);await expect.poll(async()=>(await snap(page)).road.shapes[Number(road.slice(5))]).not.toBe(before);}await expect.poll(async()=>(await snap(page)).road.won,{timeout:25000}).toBe(true);if(level<2){await click(page,'next-road');await expect.poll(async()=>(await snap(page)).road.level).toBe(level+1);await expect.poll(async()=>(await snap(page)).road.won).toBe(false);}}}
  else if(id==='H03'){for(let car=0;car<2;car++){for(let n=0;n<30;n++){const s=await snap(page);if(s.wash.clean>car)break;const a=await at(page,s.dirt[0]),before=s.dirt.length;await tap(page,a);await expect.poll(async()=>{const next=await snap(page);return next.wash.clean>car||next.dirt.length<before;}).toBe(true);}await expect.poll(async()=>(await snap(page)).wash.clean).toBe(car+1);if(car===0){await click(page,'next-car');await expect.poll(async()=>(await snap(page)).wash.waiting).toBe(false);await expect.poll(async()=>(await snap(page)).dirt.length).toBeGreaterThan(0);}}}
  else if(['E02','T01'].includes(id)){const initial=await snap(page);expect(initial.partScreens.other).toBeTruthy();const roof=await at(page,initial.partScreens.other);await tap(page,roof);expect((await snap(page)).parts).toEqual([]);for(const part of ['wheel','door','light']){const s=await snap(page);const point=s.partScreens?.[part];expect(point,`visible ${part} hit point`).toBeTruthy();const a=await at(page,point);await tap(page,a);} }
- await done(page);if(id==='P01'){const result=(await snap(page)).comparison.at(-1);expect(result.smooth).toBeGreaterThan(result.rough);expect(result.rough).toBeGreaterThan(0);}expect(errors).toEqual([]);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await page.screenshot({path:`${evidence}-done.png`});
+ await done(page);if(id==='P01'){const result=(await snap(page)).comparison.at(-1);expect(result.smooth).toBeGreaterThan(result.rough);expect(result.rough).toBeGreaterThan(0);}expect(errors).toEqual([]);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await page.screenshot({path:test.info().outputPath(`${evidence}-done.png`)});
 });
 });
 

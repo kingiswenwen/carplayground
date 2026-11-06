@@ -1,6 +1,7 @@
 import {useEffect, useRef, useState} from 'react';
 import {content, type ActivityDefinition} from '../domain/content';
 import {newSessionId} from '../domain/session-id';
+import {normalizeContentLevel,starterCompletion,starterInstruction} from '../domain/play-level';
 import {nextCompletionFeedback,type PlayFeedback} from '../domain/play-feedback';
 import {audio} from '../services/audio';
 import {db, finishSession, safely, type SessionRecord, type SessionResult, type Settings} from '../services/storage';
@@ -9,7 +10,7 @@ import {hasPendingResults, queueSessionResult, retryPendingResults} from '../ser
 
 export function useLearningSession(activity: ActivityDefinition, settings: Settings, carId: string, autoInstruction = true) {
   const [initial] = useState<SessionRecord>(() => ({id: newSessionId(), activityId: activity.id, activityVersion: activity.version,
-    contentReleaseId: content.id, carIds: [carId], difficulty: settings.difficulty, locale: 'zh-CN', audioEnabled: settings.sound,
+    contentReleaseId: content.id, carIds: [carId], difficulty: settings.difficulty, contentLevel:normalizeContentLevel(settings.contentLevel), locale: 'zh-CN', audioEnabled: settings.sound,
     startedAt: new Date().toISOString(), state: 'playing', hints: 0, durationMs: 0}));
   const id = initial.id;
   const [done, setDone] = useState(false);
@@ -20,7 +21,8 @@ export function useLearningSession(activity: ActivityDefinition, settings: Setti
   const ended = useRef(false), alive = useRef(true), hints = useRef(0), isPaused = useRef(document.hidden);
   const elapsed = useRef(0), last = useRef(performance.now()), start = useRef<Promise<boolean>>(Promise.resolve(false));
   const result = useRef<SessionResult>(undefined), saving = useRef(false);
-  const replay = () => {if (!isPaused.current) void audio.playRequested(activity.instructionAudio);};
+  const instruction=starterInstruction(activity.id,initial.contentLevel)||activity.instructionAudio;
+  const replay = () => {if (!isPaused.current) void audio.playRequested(instruction);};
 
   useEffect(() => {
     let cancelled = false, started = false;
@@ -38,7 +40,7 @@ export function useLearningSession(activity: ActivityDefinition, settings: Setti
       }
     };
     document.addEventListener('visibilitychange', hide);
-    if (autoInstruction&&!isPaused.current) void audio.play(activity.instructionAudio);
+    if (autoInstruction&&!isPaused.current) void audio.play(instruction);
     return () => {
       cancelled = true; alive.current = false;
       document.removeEventListener('visibilitychange', hide); audio.stop();
@@ -66,6 +68,8 @@ export function useLearningSession(activity: ActivityDefinition, settings: Setti
     queueSessionResult(result.current, start.current);
     void retrySave();
     const feedback=nextCompletionFeedback(activity.id);
+    const stagedText=starterCompletion(activity.id,initial.contentLevel);
+    if(stagedText){feedback.text=stagedText;feedback.sounds=[starterInstruction(activity.id,initial.contentLevel)!];feedback.preferClips=true;}
     const contextual=sounds?.filter(id=>id!=='expression-done'&&id!=='discovery-done');
     if(contextual?.length){feedback.sounds=contextual;feedback.preferClips=true;}
     setCompletion(feedback);setMessage(feedback.text);
@@ -81,5 +85,5 @@ export function useLearningSession(activity: ActivityDefinition, settings: Setti
       return true;
     }, false, `observation:${id}`);
   };
-  return {id, done, paused, message, setMessage, completion, replay, finish, hint, resume, observe, recordStatus, retrySave};
+  return {id, difficulty:initial.difficulty as Settings['difficulty'], contentLevel:normalizeContentLevel(initial.contentLevel), done, paused, message, setMessage, completion, replay, finish, hint, resume, observe, recordStatus, retrySave};
 }
