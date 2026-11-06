@@ -9,7 +9,12 @@ test.skip(process.env.DEV_SECURITY_E2E !== '1', 'Development-only HTTP/HMR suite
 test('dev serves the real app, source, optimized /@fs deps and media with HMR connected @smoke', async ({ page, request }) => {
   const failed: string[] = [];
   const sockets: string[] = [];
-  page.on('response', response => { if (response.status() >= 400) failed.push(new URL(response.url()).pathname); });
+  let optimizedReact = '';
+  page.on('response', response => {
+    const url = new URL(response.url());
+    if (response.status() >= 400) failed.push(url.pathname);
+    if (response.status() === 200 && url.pathname.endsWith('/node_modules/.vite/deps/react.js')) optimizedReact = response.url();
+  });
   page.on('websocket', socket => { socket.on('framereceived', event => sockets.push(String(event.payload))); });
   await page.goto('/#/parent');
   await expect(page.getByRole('combobox', { name: '操作难度' })).toBeVisible();
@@ -17,7 +22,10 @@ test('dev serves the real app, source, optimized /@fs deps and media with HMR co
   for (const url of ['/src/main.tsx', '/src/services/backup.ts', '/content/r3.json', '/package.json', '/@vite/client']) {
     expect((await request.get(url)).status(), url).toBe(200);
   }
-  const dependency = '/@fs' + path.join(process.cwd(), 'node_modules/.vite/deps/react.js').replaceAll('\\', '/');
+  await expect.poll(() => optimizedReact).not.toBe('');
+  // Preserve the dependency version the real browser loaded. A bare optimized
+  // URL can correctly return Vite's 504 Outdated Optimize Dep on a cold CI run.
+  const dependency = '/@fs' + path.join(process.cwd(), 'node_modules/.vite/deps/react.js').replaceAll('\\', '/') + new URL(optimizedReact).search;
   expect((await request.get(dependency)).status()).toBe(200);
   const media = '/media/scenes/showroom-v3.webp';
   const image = await request.get(media);
