@@ -78,6 +78,8 @@ Python 音频处理测试需要 FFmpeg。浏览器模拟结果不代表真机实
 
 不能独立换漆的车型，在 E01/M04/L03 主动使用颜色准确的平面车图；其他活动仍可使用其独立 GLB。`tests/e2e/color-models.spec.ts` 检查实际颜色像素和触摸完成，不以内部字段代替视觉正确性；其截图使用 `testInfo.outputPath`，可用 Playwright `--output` 为每批保存独立证据。
 
+车型查看器识别为软件GPU时，保留同一真实网格和登记贴图，但使用0.65像素比、不烘焙昂贵演播室环境、不绘制实时阴影、不持续计算拖动惯性；硬件GPU原路径不变。控件的 `change` 必须标记重绘，因为事件内的 `update()` 可能先消费变化，不能仅凭下一帧 `update()` 的返回值决定是否画出输入结果。组件使用 layout cleanup 在DOM移除前销毁控件，确保文档级监听器从原事件根解除。Chromium专用CDP回归覆盖玩法20轮、查看器10轮的监听器稳定，不等于GPU内存或真机验收。
+
 构建产物位于 `dist/`。可选公开素材路径见 `.env.example`；`VITE_` 变量会进入网页，不能放凭据。
 
 实际部署配置、云资源标识、连接说明和运维回执只保存在私有环境中。自动部署从 GitHub 的 `production` Environment Secrets 读取配置；本地部署可通过 `CARPLAYGROUND_DEPLOYMENT_DIR` 指向仓库外的私有配置目录。公开代码不包含真实目标配置。

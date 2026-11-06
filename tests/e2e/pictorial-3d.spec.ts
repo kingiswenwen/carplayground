@@ -20,8 +20,13 @@ test('直接拖动立体车可看到前后左右，键盘和重新选车也能�
  test.setTimeout(120000);
  await page.goto('/#/cars/CAR01');const canvas=page.locator('.vehicle-webgl:visible');await expect(canvas).toHaveAttribute('data-ready','true',{timeout:30000});
  if(await page.locator('.vehicle-webgl').count()){await canvas.click();await expect(canvas).toHaveAttribute('data-lights','on');await canvas.click();await expect(canvas).toHaveAttribute('data-lights','off');}
- const start=Number(await canvas.getAttribute('data-yaw'));const box=(await canvas.boundingBox())!;await page.mouse.move(box.x+box.width*.4,box.y+box.height*.5);await page.mouse.down();await page.mouse.move(box.x+box.width*.8,box.y+box.height*.5,{steps:4});await page.mouse.up();await expect.poll(async()=>Math.abs(Number(await canvas.getAttribute('data-yaw'))-start)).toBeGreaterThan(1);
- await canvas.focus();const before=Number(await canvas.getAttribute('data-yaw'));await canvas.press('ArrowLeft');await expect.poll(async()=>Number(await canvas.getAttribute('data-yaw'))).not.toBe(before);
+ // Prove keyboard rotation from a static view, independently of drag inertia.
+ // Native locator assertions avoid traced Node/CDP getter polling overhead.
+ await canvas.focus();const beforeLeft=(await canvas.getAttribute('data-yaw'))!;await canvas.press('ArrowLeft');await expect(canvas).not.toHaveAttribute('data-yaw',beforeLeft);
+ const beforeRight=(await canvas.getAttribute('data-yaw'))!;await canvas.press('ArrowRight');await expect(canvas).not.toHaveAttribute('data-yaw',beforeRight);
+ const start=Number(await canvas.getAttribute('data-yaw'));const box=(await canvas.boundingBox())!;await page.mouse.move(box.x+box.width*.4,box.y+box.height*.5);await page.mouse.down();await page.mouse.move(box.x+box.width*.8,box.y+box.height*.5,{steps:4});await page.mouse.up();
+ await page.waitForFunction(from=>{const value=Number(document.querySelector('canvas.vehicle-webgl')?.getAttribute('data-yaw'));return Number.isFinite(value)&&Math.abs(Math.atan2(Math.sin(value-from),Math.cos(value-from)))>1;},start,{timeout:5000});
+ const afterDrag=(await canvas.getAttribute('data-yaw'))!;await canvas.press('ArrowLeft');await expect(canvas).not.toHaveAttribute('data-yaw',afterDrag);
 });
 test('离开立体查看后能重新选车并打开对应模型 @smoke',async({page})=>{
  test.setTimeout(120000);await page.goto('/#/cars/CAR01');await expect(page.locator('.vehicle-webgl')).toHaveAttribute('data-ready','true',{timeout:30000});
