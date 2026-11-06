@@ -12,7 +12,7 @@ for(const width of [320,768,1440])test(`世界车库在 ${width}px 可搜索、�
  await expect(cards.locator('img')).toHaveAttribute('src',/catalog-illustrations\/car160-side\.webp/);
  await cards.first().click();await expect(page.locator('.vehicle-webgl[data-car=CAR160]')).toHaveAttribute('data-ready','true',{timeout:45000});
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
- await page.screenshot({path:`.private/catalog-expansion/world-catalog-${width}.png`,fullPage:true});
+ await page.screenshot({path:test.info().outputPath(`catalog-expansion/world-catalog-${width}.png`),fullPage:true});
  await query.fill('不存在的车型');await expect(cards).toHaveCount(0);await expect(page.locator('.garage-empty')).toBeVisible();
  await expect(page.getByRole('button',{name:'下一组跑车'})).toHaveCount(0);
  await page.getByRole('button',{name:'清除筛选',exact:true}).click();await expect(cards).toHaveCount(8);

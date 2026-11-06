@@ -1,4 +1,4 @@
-import {useEffect,useRef,useState} from 'react';
+import {useEffect,useLayoutEffect,useRef,useState} from 'react';
 import {CircleDashed,Hand,MoveHorizontal} from 'lucide-react';
 import {VehicleRenderer} from './VehicleRenderer';
 import {vehicleModel} from '../domain/vehicle-models';
@@ -9,7 +9,8 @@ export function VehicleStage({carId,onTouch,onUnavailable,onReady}:{carId:string
  const [paint,setPaint]=useState<string|null>(null);
  const paints=[{name:'红色',color:'#df4145'},{name:'橙色',color:'#f08b2c'},{name:'黄色',color:'#ffc928'},{name:'绿色',color:'#30c562'},{name:'蓝色',color:'#3798e8'},{name:'紫色',color:'#8657d6'},{name:'白色',color:'#f0efdf'}];
  const callbacks=useRef({onTouch,onUnavailable,onReady});callbacks.current={onTouch,onUnavailable,onReady};
- useEffect(()=>{
+ // OrbitControls resolves its listener root from the still-attached canvas.
+ useLayoutEffect(()=>{
   try{stage.current=new VehicleRenderer(host.current!,()=>{setReady(true);callbacks.current.onReady?.();},()=>{setTouched(true);callbacks.current.onTouch?.();},()=>callbacks.current.onUnavailable());}
   catch{callbacks.current.onUnavailable();}
   return()=>{stage.current?.dispose();stage.current=null;};

@@ -35,14 +35,16 @@ export class VehicleRenderer{
  private down:{id:number;x:number;y:number}|null=null;
  private pointers=new Set<number>();
  private lights=false;
+ private software=false;
  constructor(private box:HTMLDivElement,private onReady:()=>void,private onTouch:()=>void,private onUnavailable:()=>void){
   this.renderer=new T.WebGLRenderer({antialias:true,alpha:true,powerPreference:'low-power'});
   const renderer=this.renderer,canvas=renderer.domElement;
   const gl=renderer.getContext(),debug=gl.getExtension('WEBGL_debug_renderer_info');
   const software=!!debug&&/swiftshader|llvmpipe|software/i.test(gl.getParameter(debug.UNMASKED_RENDERER_WEBGL));
-  // Keep the authored materials, but reduce fill work when no hardware GPU is available.
-  renderer.setPixelRatio(Math.min(devicePixelRatio,software?1:1.5));canvas.dataset.quality=software?'simple':'full';renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=.9;
-  renderer.shadowMap.enabled=true;renderer.shadowMap.type=T.PCFShadowMap;renderer.shadowMap.autoUpdate=false;
+  // Keep the real mesh and authored textures. Software GPUs use a lighter
+  // studio and input-driven frames instead of spending seconds on inertia.
+  this.software=software;renderer.setPixelRatio(Math.min(devicePixelRatio,software?.65:1.5));canvas.dataset.quality=software?'simple':'full';renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=.9;
+  renderer.shadowMap.enabled=!software;renderer.shadowMap.type=T.PCFShadowMap;renderer.shadowMap.autoUpdate=false;
   this.scene.environmentIntensity=.6;
   this.scene.add(new T.HemisphereLight('#eaf5ff','#c6bba8',.8));
   const sun=new T.DirectionalLight('#fff7eb',1.6);sun.position.set(3,7,4);sun.castShadow=true;sun.shadow.mapSize.set(512,512);
@@ -50,11 +52,12 @@ export class VehicleRenderer{
   const fill=new T.DirectionalLight('#e0edff',.65);fill.position.set(-4,3,-5);this.scene.add(fill);
   this.floor.rotation.x=-Math.PI/2;this.floor.position.y=-.008;this.floor.receiveShadow=true;this.scene.add(this.floor);
   canvas.className='vehicle-webgl';canvas.setAttribute('aria-label','立体跑车，拖动旋转看前后左右，双指缩放');canvas.setAttribute('role','application');canvas.tabIndex=0;box.append(canvas);
-  this.camera.position.set(5,2.5,6);this.controls=new OrbitControls(this.camera,canvas);this.controls.enablePan=false;this.controls.enableDamping=true;this.controls.dampingFactor=.12;
+  this.camera.position.set(5,2.5,6);this.controls=new OrbitControls(this.camera,canvas);this.controls.enablePan=false;this.controls.enableDamping=!software;this.controls.dampingFactor=.12;this.controls.addEventListener('change',this.invalidate);
   this.controls.minZoom=.8;this.controls.maxZoom=2;this.controls.minPolarAngle=.12;this.controls.maxPolarAngle=Math.PI*.48;this.controls.rotateSpeed=.65;
   canvas.addEventListener('pointerdown',this.start);canvas.addEventListener('pointerup',this.end,true);canvas.addEventListener('pointercancel',this.cancel);canvas.addEventListener('lostpointercapture',this.cancel);canvas.addEventListener('keydown',this.key);canvas.addEventListener('webglcontextlost',this.lost);
   this.observer=new ResizeObserver(this.resize);this.observer.observe(box);this.resize();this.frame=requestAnimationFrame(this.render);
  }
+ private invalidate=()=>{this.needsRender=true;};
  private resize=()=>{
   if(this.disposed)return;const w=Math.max(1,this.box.clientWidth),h=Math.max(1,this.box.clientHeight);this.renderer.setSize(w,h,false);
   if(this.bounds)frameModel(this.camera,this.bounds,w/h);this.needsRender=true;
@@ -88,7 +91,7 @@ export class VehicleRenderer{
    }});
    this.bounds=fitModel(this.root,spec.rotationY);this.scene.add(this.root);
    const offset=this.camera.position.clone().sub(this.controls.target);this.controls.target.copy(this.bounds.getCenter(new T.Vector3()));this.camera.position.copy(this.controls.target).add(offset);this.controls.update();
-   if(!this.environment){const room=new RoomEnvironment(),pmrem=new T.PMREMGenerator(this.renderer);try{this.environment=pmrem.fromScene(room,.04,.1,100,{size:64});this.scene.environment=this.environment.texture;}finally{room.dispose();pmrem.dispose();}}
+   if(!this.software&&!this.environment){const room=new RoomEnvironment(),pmrem=new T.PMREMGenerator(this.renderer);try{this.environment=pmrem.fromScene(room,.04,.1,100,{size:64});this.scene.environment=this.environment.texture;}finally{room.dispose();pmrem.dispose();}}
    this.renderer.shadowMap.needsUpdate=true;this.resize();
   }catch(error){if(this.disposed||epoch!==this.epoch)return;console.warn('车辆模型未能打开',error);this.fail();}
  }
@@ -122,7 +125,7 @@ export class VehicleRenderer{
   this.frame=requestAnimationFrame(this.render);
  };
  dispose(){
-  if(this.disposed)return;this.disposed=true;++this.epoch;cancelAnimationFrame(this.frame);this.observer.disconnect();this.controls.dispose();this.clearCar();
+  if(this.disposed)return;this.disposed=true;++this.epoch;cancelAnimationFrame(this.frame);this.observer.disconnect();this.controls.removeEventListener('change',this.invalidate);this.controls.dispose();this.clearCar();
   const canvas=this.renderer.domElement;canvas.removeEventListener('pointerdown',this.start);canvas.removeEventListener('pointerup',this.end,true);canvas.removeEventListener('pointercancel',this.cancel);canvas.removeEventListener('lostpointercapture',this.cancel);canvas.removeEventListener('keydown',this.key);canvas.removeEventListener('webglcontextlost',this.lost);
   this.environment?.dispose();this.floor.geometry.dispose();this.floor.material.dispose();canvas.remove();this.renderer.dispose();this.renderer.forceContextLoss();
  }

@@ -57,6 +57,23 @@ jobs:
           echo "release_id=$release_id" >> "$GITHUB_OUTPUT"
           echo "artifact_name=release-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}" >> "$GITHUB_OUTPUT"
       - run: npx playwright install --with-deps chromium firefox
+      - name: Install Firefox software WebGL display
+        timeout-minutes: 5
+        run: sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 install -y --no-install-recommends libgl1-mesa-dri libegl1 libglx-mesa0 mesa-utils xvfb xauth
+      - name: Verify isolated development preview
+        shell: bash
+        env:
+          DEV_SECURITY_E2E: '1'
+          PLAYWRIGHT_BASE_URL: http://127.0.0.1:5195
+        run: |
+          npm run dev -- --host 127.0.0.1 --port 5195 --strictPort &
+          dev_pid=$!
+          trap 'kill "$dev_pid"' EXIT
+          for attempt in {1..30}; do
+            if curl --fail --silent "$PLAYWRIGHT_BASE_URL/" > /dev/null; then break; fi
+            sleep 1
+          done
+          npx playwright test tests/e2e/dev-security.spec.ts --project=chromium --workers=1
       - name: Test built website browser flows
         shell: bash
         env:
@@ -70,12 +87,21 @@ jobs:
             if curl --fail --silent "$PLAYWRIGHT_BASE_URL/" > /dev/null; then break; fi
             sleep 1
           done
+          # Fail before the long Chromium suite if the runner cannot render real
+          # Firefox WebGL2/Three frames. This is software GL, not device coverage.
+          # Scope opt-in to these commands; the legacy Firefox 2D run stays headless.
+          LIBGL_ALWAYS_SOFTWARE=1 xvfb-run -a -s '-screen 0 1920x1200x24' glxinfo -B
+          PLAYWRIGHT_FIREFOX_SOFTWARE_WEBGL=1 LIBGL_ALWAYS_SOFTWARE=1 xvfb-run -a -s '-screen 0 1920x1200x24' \
+            npx playwright test tests/e2e/firefox-webgl-environment.spec.ts --project=firefox --workers=1 --max-failures=1 --output=test-results/firefox-webgl-probe
+          # Fail-fast does not reduce successful coverage: all 19 tests must pass.
+          PLAYWRIGHT_FIREFOX_SOFTWARE_WEBGL=1 LIBGL_ALWAYS_SOFTWARE=1 xvfb-run -a -s '-screen 0 1920x1200x24' \
+            npx playwright test tests/e2e/difficulty.spec.ts tests/e2e/content-level.spec.ts tests/e2e/wash-state.spec.ts tests/e2e/tracks-continuity.spec.ts --project=firefox --workers=1 --max-failures=1 --output=test-results/firefox-strict
           # Fail early on persistence/page-load timing before the full suite.
-          npx playwright test tests/e2e/core-records-favorites.spec.ts --project=chromium --workers=1
+          npx playwright test tests/e2e/core-records-favorites.spec.ts --project=chromium --workers=1 --output=test-results/chromium-core
           # Check the mobile scroll regression repeatedly before the full suite.
-          npx playwright test tests/e2e/showroom-garage-feedback.spec.ts --project=chromium --workers=2 --grep '选车后看见新模型' --repeat-each=3
-          npx playwright test --project=chromium --workers=2
-          npx playwright test tests/e2e/responsive-ui.spec.ts tests/e2e/direct-touch.spec.ts tests/e2e/play-guidance.spec.ts --project=firefox --workers=2 --grep '三段故事和控件适配|车型分页和家长说明|推车松手|两路同推|洗车依次'
+          npx playwright test tests/e2e/showroom-garage-feedback.spec.ts --project=chromium --workers=2 --grep '选车后看见新模型' --repeat-each=3 --output=test-results/chromium-scroll
+          npx playwright test --project=chromium --workers=2 --output=test-results/chromium-full
+          npx playwright test tests/e2e/responsive-ui.spec.ts tests/e2e/direct-touch.spec.ts tests/e2e/play-guidance.spec.ts --project=firefox --workers=2 --grep '三段故事和控件适配|车型分页和家长说明|推车松手|两路同推|洗车依次' --output=test-results/firefox-headless-2d
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: ${{ steps.package.outputs.artifact_name }}

@@ -5,19 +5,26 @@ import {paintMark} from '../visual/paint-mark';
 import {drawPlaySymbol,loadPlaySymbols} from '../visual/play-symbols';
 import type {Mark} from '../services/storage';
 import {loadImage} from '../services/load-image';
-import {hitPart,partRegions,rotateRoad,roadLessons} from '../domain/play-guidance';
+import {partRegions,rotateRoad,roadLessons} from '../domain/play-guidance';
+import {hitDifficultyPart,playDifficulty,type PlayDifficulty} from '../domain/play-difficulty';
+import {playLevel,normalizeContentLevel,type ContentLevel} from '../domain/play-level';
+import {WashState,type WashSurfacePoint} from '../domain/wash-state';
 
 type Item = Rect & { id: string; kind: 'car'|'body'|'wheel'|'prop'|'plank'|'road'|'bay'|'shape'; glyph?: string; color?: string; carId?: string; home: Point; placed?: boolean; target?: string; turn?: number; dock?: string };
 type Target = Rect & { id: string; glyph?: string; color?: string; accepts?: string[]; occupied?: boolean; enabled?: boolean };
 type Grab = { id: number; item?: Item; start: Point; offset: Point; samples: (Point & {t:number})[]; origin?: Point; washing?: boolean; dock?:string; wasPlaced?:boolean; companions?:{item:Item;origin:Point}[] };
 type GuideCue={start:Point;end:Point;item?:Item;action:'drag'|'push'|'tap'|'turn'|'wipe';subject:string};
 export type BoardSnapshot = { ready: boolean; progress: number; completed: boolean; moving: boolean; hint:boolean;recovering:boolean;selected:string|null;signalGreen:boolean;road:{level:number;shapes:RoadShape[];locked:number[];won:boolean};comparison:{smooth:number;rough:number}[];wash:{clean:number;waiting:boolean};parts:string[]; items: {id:string;x:number;y:number;placed:boolean;carId?:string}[]; targets: Target[] };
-export type BoardOptions = { id: ActivityId; carId: string; portrait: boolean; attempt?:number; finish: (summary:string,sounds?:string[])=>void; feedback:(message:string)=>void; changed:(state:BoardSnapshot)=>void; speak?:(...ids:string[])=>void; paint?:(points:Mark[],background?:string)=>void };
+export type BoardOptions = { id: ActivityId; carId: string; portrait: boolean; difficulty?:PlayDifficulty; contentLevel?:ContentLevel; attempt?:number; finish: (summary:string,sounds?:string[])=>void; feedback:(message:string)=>void; changed:(state:BoardSnapshot)=>void; speak?:(...ids:string[])=>void; paint?:(points:Mark[],background?:string)=>void };
 const SKY='#d9f1f6', GRASS='#d9e9bc', ASPHALT='#718388', CREAM='#fff9e9';
 const carForColor = { red:'CAR140',blue:'CAR11',white:'CAR15' };
 
 export class TouchBoard {
   readonly width = 1000;
+  get difficulty(){return playDifficulty(this.options.difficulty);}
+  get contentLevel(){return normalizeContentLevel(this.options.contentLevel);}
+  get level(){return playLevel(this.contentLevel);}
+  private requiredParts(){return partRegions(getCar(this.options.carId)!,this.items[0]).filter(p=>(this.level.parts as readonly string[]).includes(p.id));}
   height: number;
   items: Item[] = [];
   targets: Target[] = [];
@@ -25,8 +32,8 @@ export class TouchBoard {
   private images = new Map<string, HTMLImageElement>();
   private grab: Grab | null = null;
   private mask: HTMLCanvasElement | null = null;
-  private dirtyOriginal = 0;
-  private alpha: Uint8ClampedArray | null = null;
+  private washState:WashState|null=null;
+  private artRevision=0;
   private velocity = 0;
   private rolling = 0;
   private complete = false;
@@ -62,7 +69,7 @@ export class TouchBoard {
   private roadJourney: Point[]=[];
   private roadStep=0;
   private assemblyTravel=0;
-  private lastDirtCheck=0;
+
   private guideStep:number|null=null;
   private guideTime=0;
   private guideBase=document.createElement('canvas');
@@ -147,11 +154,11 @@ export class TouchBoard {
         this.item(`wheel-${i}`,'wheel',310+i*380,H*.83,155,155,{});
       });
     }else if(['parking','spaces','sorting'].includes(this.mode)){
-      const count=this.mode==='parking'?2:3;
+      const count=this.mode==='parking'?this.level.parkingCars:3;
       for(let i=0;i<count;i++){
-        const x=count===2?280+i*440:180+i*320;
-        this.item(`car-${i}`,'car',x,H*.22,count===2?280:250,115,{carId:this.mode==='sorting'?['CAR140','CAR11','CAR15'][i]:i===0?carId:i===1?'CAR11':'CAR15',color:['#d65b44','#4e9cce','#faf8e9'][i]});
-        this.target(`bay-${i}`,x,H*.65,count===2?310:270,150,{color:this.mode==='sorting'?['#d65b44','#4e9cce','#faf8e9'][i]:undefined,accepts:this.mode==='sorting'?[`car-${i}`]:undefined});
+        const x=count===1?500:count===2?280+i*440:180+i*320;
+        this.item(`car-${i}`,'car',x,H*.22,count<=2?280:250,115,{carId:this.mode==='sorting'?['CAR140','CAR11','CAR15'][i]:i===0?carId:i===1?'CAR11':'CAR15',color:['#d65b44','#4e9cce','#faf8e9'][i]});
+        this.target(`bay-${i}`,x,H*.65,count<=2?310:270,150,{color:this.mode==='sorting'?['#d65b44','#4e9cce','#faf8e9'][i]:undefined,accepts:this.mode==='sorting'?[`car-${i}`]:undefined});
       }
       if(this.mode==='spaces'&&this.options.id==='M03'){
         this.target('bay-3',820,H*.88,270,150);
@@ -162,7 +169,7 @@ export class TouchBoard {
       }
     }else if(this.mode==='color'){
       this.target('color-home',500,H*.35,350,230,{color:'#cf5648',accepts:['red']});
-      (['red','blue','white']as const).forEach((color,i)=>this.item(color,'car',190+i*310,H*.77,270,130,{carId:carForColor[color],color}));
+      this.level.colors.forEach((color,i)=>this.item(color,'car',this.level.colors.length===2?300+i*400:190+i*310,H*.77,270,130,{carId:carForColor[color],color}));
     }else if(this.mode==='pattern'){
       for(let i=0;i<6;i++){
         const x=180+(i%3)*320,y=H*(i<3?.27:.52);
@@ -229,7 +236,7 @@ export class TouchBoard {
     return true;
   }
   private dropTarget(item:Item){
-    return this.targets.filter(t=>this.compatible(item,t)&&inside(item,t,30)).sort((a,b)=>distance(item,a)-distance(item,b))[0];
+    return this.targets.filter(t=>this.compatible(item,t)&&inside(item,t,30*this.difficulty.placementScale)).sort((a,b)=>distance(item,a)-distance(item,b))[0];
   }
   canPlace(itemId:string,targetId:string){
     const item=this.items.find(i=>i.id===itemId),target=this.targets.find(t=>t.id===targetId);
@@ -253,7 +260,7 @@ export class TouchBoard {
       item=this.items.find(i=>i.id==='next-car');action='tap';
     }
     if(this.mode==='parts'){
-      const regions=partRegions(getCar(this.options.carId)!,this.items[0]),part=regions.find(p=>!this.seen.has(p.id))||regions[0];
+      const regions=this.requiredParts(),part=regions.find(p=>!this.seen.has(p.id))||regions[0];
       return{start:part,end:part,action:'tap',subject:({wheel:'车轮',light:'车灯',door:'车门'}as const)[part.id]};
     }
     const target=item&&this.targets.find(t=>this.compatible(item!,t));
@@ -305,16 +312,21 @@ export class TouchBoard {
     const image=this.images.get(`${this.washIndex===1&&this.mode==='wash'?'CAR11':this.options.carId}/side`)!;
     const canvas=document.createElement('canvas');canvas.width=1000;canvas.height=450;
     const c=canvas.getContext('2d',{willReadFrequently:true})!;c.drawImage(image,0,0,1000,450);
-    this.alpha=c.getImageData(0,0,1000,450).data.slice();
-    c.clearRect(0,0,1000,450);c.globalAlpha=.88;
-    for(let i=0;i<110;i++){c.fillStyle=i%2?'#a98a59':'#725b42';c.beginPath();c.ellipse((i*137)%1000,(i*79)%450,17+i%26,10+i%17,.3,0,Math.PI*2);c.fill();}
-    c.globalAlpha=1;c.globalCompositeOperation='destination-in';c.drawImage(image,0,0,1000,450);c.globalCompositeOperation='source-over';
-    this.mask=canvas;this.dirtyOriginal=this.countDirt();
+    const alpha=c.getImageData(0,0,1000,450).data;
+    const points=Array.from({length:110},(_,id)=>({id,x:(id*137)%1000,y:(id*79)%450,rx:17+id%26,ry:10+id%17})).filter(p=>alpha[(Math.floor(p.y)*1000+Math.floor(p.x))*4+3]>50);
+    // A new car owns a fresh population; view changes never call this method.
+    this.washState=new WashState(points);this.mask=canvas;this.drawDirt();
   }
-  private countDirt(){
-    if(!this.mask)return 0;const data=this.mask.getContext('2d',{willReadFrequently:true})!.getImageData(0,0,1000,450).data;
-    let count=0;for(let i=3;i<data.length;i+=64)if(data[i]>50)count++;return count;
+  private drawDirt(){
+    if(!this.mask||!this.washState)return;
+    const c=this.mask.getContext('2d')!;c.clearRect(0,0,1000,450);c.globalAlpha=.88;
+    for(const p of this.washState.patches)if(!p.clean){c.fillStyle=p.id%2?'#a98a59':'#725b42';c.beginPath();c.ellipse(p.x,p.y,p.rx,p.ry,.3,0,Math.PI*2);c.fill();}
+    c.globalAlpha=1;c.globalCompositeOperation='destination-in';c.drawImage(this.images.get(`${this.washIndex===1?'CAR11':this.options.carId}/side`)!,0,0,1000,450);c.globalCompositeOperation='source-over';
   }
+  get washPatches(){return this.washState?.patches||[];}
+  get washLayout(){return this.washState?.layout;}
+  setWashLayout(points:WashSurfacePoint[]){this.washState?.setLayout(points);}
+  get washRevision(){return this.washState?.revision||0;}
   private createBody(){
     const image=this.images.get(`${this.washIndex===1&&this.mode==='wash'?'CAR11':this.options.carId}/side`)!;
     const canvas=document.createElement('canvas');canvas.width=1000;canvas.height=450;
@@ -326,38 +338,35 @@ export class TouchBoard {
   }
   private finish(summary:string,sounds?:string[]){if(this.complete)return;this.complete=true;this.completedAt=this.time;this.progress=1;this.selected=null;this.options.finish(summary,sounds);this.notify();}
   private scrub(from:Point,to:Point){
-    if(!this.mask||!this.alpha)return;
-    const r=this.carRect(), c=this.mask.getContext('2d')!;
-    c.globalCompositeOperation='destination-out';c.lineWidth=this.washedTool==='water'?100:130;c.lineCap='round';
+    if(!this.washState||this.washReady||this.complete)return;
+    const r=this.carRect(),radius=(this.washedTool==='water'?50:65)*this.difficulty.washScale;
     const transform=(p:Point)=>({x:(p.x-r.x+r.w/2)/r.w*1000,y:(p.y-r.y+r.h/2)/r.h*450});
-    const a=transform(from),b=transform(to);c.beginPath();c.moveTo(a.x,a.y);c.lineTo(b.x,b.y);c.stroke();
-    if(performance.now()-this.lastDirtCheck>100)this.updateDirt();
+    if(this.washState.wipe(transform(from),transform(to),radius)){this.drawDirt();this.updateDirt();}
   }
   private updateDirt(){
-    this.lastDirtCheck=performance.now();if(this.washReady||this.complete)return;
-    const washed=1-this.countDirt()/Math.max(1,this.dirtyOriginal);this.progress=(this.cleanCars+washed)/2;
+    if(this.washReady||this.complete)return;
+    const washed=this.washState?.coverage||0;this.progress=(this.cleanCars+washed)/2;
     if(washed>.91){this.mask?.getContext('2d')!.clearRect(0,0,1000,450);this.cleanCars++;this.progress=this.cleanCars/2;this.washReady=true;
       if(this.cleanCars===2)this.finish('轮流为两辆车擦净车身，第一辆离开后下一辆才进入');
       else this.items.find(i=>i.id==='next-car')!.placed=false;
     }this.notify();
   }
-  // The 3D view measures coverage on the actual dirt surface, not image pixels.
-  washSurface(coverage:number){
-    if(this.mode!=='wash'||!this.ready||this.washReady||this.complete)return;
-    const washed=clamp(coverage,0,1);this.progress=(this.cleanCars+washed)/2;
-    if(washed>.91){this.mask?.getContext('2d')?.clearRect(0,0,1000,450);this.cleanCars++;this.progress=this.cleanCars/2;this.washReady=true;
-      if(this.cleanCars===2)this.finish('在立体车身上逐处擦除污渍，两辆车轮流进入洗车位');
-      else this.items.find(i=>i.id==='next-car')!.placed=false;
-    }this.notify();
+  // Renderer submits stable patch identities, never its own coverage denominator.
+  washSurface(ids:readonly number[],carIndex:number){
+    if(this.mode!=='wash'||!this.ready||this.washReady||this.complete||carIndex!==this.washIndex)return;
+    if(this.washState?.clean(ids)){this.drawDirt();this.updateDirt();}
   }
   touchPart(part:'wheel'|'door'|'light',wheelRotates=true,lightIlluminates=true){
-    if(this.mode!=='parts'||!this.ready)return;
-    this.seen.add(part);this.partPulses.set(part,this.time);this.options.speak?.(part);this.progress=this.seen.size/3;
+    if(this.mode!=='parts'||!this.ready||this.complete)return;
+    this.partPulses.set(part,this.time);this.options.speak?.(part);
+    if(!(this.level.parts as readonly string[]).includes(part)){this.options.feedback('先找找车轮在哪里。');this.showHint();return;}
+    this.seen.add(part);this.progress=this.seen.size/this.level.parts.length;
     this.options.feedback({wheel:wheelRotates?'wheel · 车轮转起来了':'wheel · 看看车轮的位置',light:lightIlluminates?'light · 车灯亮起来了':'light · 看看车灯的位置',door:'door · 看看车门的位置'}[part]);
-    if(this.seen.size===3)this.finish('直接触碰立体车轮、车灯与车门，观察对应部件反馈',[part,'discovery-done']);
+    if(this.level.parts.every(p=>this.seen.has(p)))this.finish(this.contentLevel==='starter'?'触碰真实车轮，观察车轮的位置与反馈':'直接触碰车轮、车灯与车门，观察对应部件反馈',[part,'discovery-done']);
     this.notify();
   }
   get artwork(){return this.paintPoints;}
+  get artworkRevision(){return this.artRevision;}
   get selectedItem(){return this.grab?.item?.id||this.selected?.id||null;}
   down(id:number,p:Point,now:number){
     if(!this.ready||this.grab)return;
@@ -367,11 +376,10 @@ export class TouchBoard {
     const item=[...this.items].reverse().find(i=>!(i.kind==='bay'&&i.placed)&&(!i.placed||['story','paint','motion','shadow','assembly','rolling','parking','spaces','sorting'].includes(this.mode))&&!(i.id==='my-car'&&this.options.id==='A01')&&inside(p,i,this.pickupPadding(i)));
     if(this.mode==='wash'&&!this.washReady&&!this.complete&&inside(p,this.carRect())){this.grab={id,start:p,offset:{x:0,y:0},samples:[],washing:true};this.scrub(p,p);return;}
     if(this.mode==='parts'){
-      const part=hitPart(getCar(this.options.carId)!,this.items[0],p);
+      const part=hitDifficultyPart(getCar(this.options.carId)!,this.items[0],p,this.options.difficulty);
       if(!part){this.showHint();return;}
-      this.seen.add(part);this.partPulses.set(part,this.time);this.options.speak?.(part);this.progress=this.seen.size/3;this.rolling=part==='wheel'?3:0;
-      this.options.feedback({wheel:'wheel · 车轮转起来了',light:'light · 车灯亮起来了',door:'door · 看看车门的位置'}[part]);
-      if(this.seen.size===3)this.finish('触摸对应实物部件，观察车轮、车灯和车门反馈',[part,'discovery-done']);this.notify();return;
+      this.rolling=part==='wheel'?3:0;
+      this.touchPart(part);return;
     }
     if(item?.id.startsWith('ink-')){this.ink=item.color!;this.notify();return;}
     if(item?.id==='paper'){const colors=['#eef1d6','#f4ddcc','#d9eaf2'];this.paper=colors[(colors.indexOf(this.paper)+1)%colors.length];this.saveArt();this.notify();return;}
@@ -409,7 +417,7 @@ export class TouchBoard {
     grab.samples.push({x:item.x,y:item.y,t:now});grab.samples=grab.samples.filter(s=>now-s.t<180);
     if(this.mode==='shadow'){this.seen.add(item.x<400?'left':item.x>600?'right':'middle');if(this.seen.has('left')&&this.seen.has('right'))this.finish('直接移动光源，观察两侧的影子变化');}
     if(this.mode==='paint'&&this.options.id==='A02'&&item.kind==='car'){
-      const last=this.paintPoints.at(-1);if(!last||distance(last,item)>15){this.paintPoints.push({x:item.x/1000,y:item.y/this.height,color:this.ink,shape:'stripe'});if(this.paintPoints.length>95)this.paintPoints.shift();this.saveArt();}
+      const last=this.paintPoints.at(-1);if(!last||distance({x:last.x*1000,y:last.y*this.height},item)>15){this.paintPoints.push({x:item.x/1000,y:item.y/this.height,color:this.ink,shape:'stripe'});if(this.paintPoints.length>95)this.paintPoints.shift();this.artRevision++;this.saveArt();}
     }
     this.notify();
   }
@@ -456,9 +464,9 @@ export class TouchBoard {
       item.placed=true;this.progress=this.items.filter(i=>i.placed&&i.kind!=='bay').length/Math.max(1,this.targets.length);
       this.selected=null;this.options.feedback('');
       if(this.mode==='color'){
-        this.seen.add(item.id);this.progress=this.seen.size/3;item.x=180+(this.seen.size-1)*320;item.y=this.height*.12;item.w=200;item.h=90;const next=['red','blue','white'][this.seen.size];
+        this.seen.add(item.id);this.progress=this.seen.size/this.level.colors.length;item.x=180+(this.seen.size-1)*320;item.y=this.height*.12;item.w=200;item.h=90;const next=this.level.colors[this.seen.size];
         this.arrivals.set(item.id,{from:landingFrom,at:this.time});this.pulses.push({x:target.x,y:target.y,at:this.time});
-        if(next){target.occupied=false;target.accepts=[next];target.color=({red:'#cf5648',blue:'#4e9cce',white:'#faf8e9'}as Record<string,string>)[next];this.options.speak?.(item.id,'color-'+next);}else this.finish('触碰听颜色词，并依次按红、蓝、白的可见颜色配对；完成不代表已掌握英语',[item.id,'color-success']);this.notify();return;
+        if(next){target.occupied=false;target.accepts=[next];target.color=({red:'#cf5648',blue:'#4e9cce',white:'#faf8e9'}as Record<string,string>)[next];this.options.speak?.(item.id,'color-'+next);}else this.finish(this.contentLevel==='starter'?'触碰听颜色词，完成红、蓝两色的可见颜色配对；完成不代表已掌握英语':'触碰听颜色词，并依次按红、蓝、白的可见颜色配对；完成不代表已掌握英语',[item.id,'color-success']);this.notify();return;
       }
       if(this.mode==='sequence')this.options.speak?.(['sequence-pack','sequence-belt','sequence-go'][this.targets.indexOf(target)]);
       if(this.mode==='visit')this.options.speak?.(['place-park','place-library','place-museum'][this.targets.indexOf(target)]);
@@ -470,7 +478,7 @@ export class TouchBoard {
       }
       const all=this.mode==='trip'?this.items.every(i=>i.placed):this.mode==='visit'?true:this.mode==='packing'?this.seen.has('pack-0')&&this.seen.has('pack-1'):['parking','spaces','sorting'].includes(this.mode)?this.items.filter(i=>i.kind==='car').every(i=>i.placed):this.targets.every(t=>t.occupied);
       this.arrivals.set(item.id,{from:landingFrom,at:this.time});this.pulses.push({x:target.x,y:target.y,at:this.time});
-      if(all)this.finish(`直接操作完成 ${this.options.id}：物体实际到达目标位置`,this.mode==='visit'?[['place-park','place-library','place-museum'][this.targets.indexOf(target)]]:this.mode==='sequence'?['sequence-go']:this.mode==='help'?['help-please']:undefined);
+      if(all)this.finish(this.mode==='parking'?`直接操作完成 M01：${this.level.parkingCars===1?'一':'两'}辆小车实际停进车位`:`直接操作完成 ${this.options.id}：物体实际到达目标位置`,this.mode==='visit'?[['place-park','place-library','place-museum'][this.targets.indexOf(target)]]:this.mode==='sequence'?['sequence-go']:this.mode==='help'?['help-please']:undefined);
     }else{this.reject(item,grab);}
     this.notify();
   }
@@ -486,7 +494,7 @@ export class TouchBoard {
     if(['Enter',' '].includes(key)&&this.mode==='parts'){
       if(this.complete||this.grab)return;
       const car=getCar(this.options.carId)!;
-      const point=partRegions(car,this.items[0]).find(p=>!this.seen.has(p.id)&&hitPart(car,this.items[0],p)===p.id);
+      const point=this.requiredParts().find(p=>!this.seen.has(p.id)&&hitDifficultyPart(car,this.items[0],p,this.options.difficulty)===p.id);
       // Use the same authored hit region and pointer action as a direct tap.
       if(point)this.down(-1,point,performance.now());
       return;
@@ -500,12 +508,8 @@ export class TouchBoard {
         if(next)this.down(-1,next,now);
         return;
       }
-      const data=this.mask?.getContext('2d',{willReadFrequently:true})?.getImageData(0,0,1000,450).data;
-      if(!data)return;
-      let dirty=-1;
-      for(let i=3;i<data.length;i+=64)if(data[i]>50){dirty=(i-3)/4;break;}
-      if(dirty<0)return;
-      const x=dirty%1000,y=Math.floor(dirty/1000),rect=this.carRect();
+      const dirty=this.washPatches.find(p=>!p.clean);if(!dirty)return;
+      const {x,y}=dirty,rect=this.carRect();
       const point=(pixelX:number)=>({x:rect.x-rect.w/2+pixelX/1000*rect.w,y:rect.y-rect.h/2+y/450*rect.h});
       const from=point(Math.max(0,x-45)),to=point(Math.min(999,x+45));
       // One genuine dirt-mask stroke per activation. Existing coverage and
@@ -678,7 +682,7 @@ export class TouchBoard {
       const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches,phase=reduced?0:Math.min(1,(this.time%3)/1.8);
       let cue=this.mode==='wash'&&!this.washReady?{x:420+(reduced?0:Math.sin(this.time*2)*140),y:H*.4}:first&&destination?{x:first.x+(destination.x-first.x)*phase,y:first.y+(destination.y-first.y)*phase}:first||{x:500,y:H*.5};
       if(first&&(['motion','rolling'].includes(this.mode)||this.mode==='traffic'&&this.signalGreen))cue={x:first.x+(reduced?0:phase*140),y:first.y};
-      if(this.mode==='parts'){const regions=partRegions(getCar(this.options.carId)!,this.items[0]);cue=regions.find(p=>!this.seen.has(p.id))||regions[0];}
+      if(this.mode==='parts'){const regions=this.requiredParts();cue=regions.find(p=>!this.seen.has(p.id))||regions[0];}
       if(destination){c.strokeStyle='#e5a34d';c.lineWidth=8;c.globalAlpha=.7;this.round({...destination,w:destination.w+15,h:destination.h+15},25);c.stroke();c.globalAlpha=1;}
       this.glyph('👆',cue.x+25,cue.y+35,70);
     }

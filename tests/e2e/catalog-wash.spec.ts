@@ -23,5 +23,5 @@ for(const model of models)test(`${model.id} ${model.catalogKey} 手机立体洗�
  }
  await expect(page.locator('.touch-play')).toHaveAttribute('data-completed','true');
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
- await page.screenshot({path:`.private/catalog-expansion/wash/${model.id}.png`});
+ await page.screenshot({path:test.info().outputPath(`catalog-expansion/wash/${model.id}.png`)});
 });
