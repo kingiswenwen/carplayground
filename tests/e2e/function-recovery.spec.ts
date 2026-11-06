@@ -1,5 +1,5 @@
 import {test,expect} from '@playwright/test';
-import {openTouch,touchCanvas,touchState,touchPosition} from './touch-helpers';
+import {openTouch,touchCanvas,touchState,touchPosition,localRows} from './touch-helpers';
 
 test('无关车型图片失败不阻塞停车 @smoke',async({page})=>{
  await page.route('**/play-cars/toy-car15-*',route=>route.abort());
@@ -49,11 +49,17 @@ test('玩法页面模块失败有恢复入口，重新打开保留原玩法 @smo
  await expect(page.locator('.touch-play')).toHaveAttribute('data-activity','M01');
 });
 
-// The direct-touch engine has fixed scene contents and always supports tap/drop.
-test('家长设置不提供未接入玩法的难度与点选开关 @smoke',async({page})=>{
+// Only settings that drive the current engine are shown; tap/drop needs no mode.
+test('家长设置仅提供已接入的难度和内容阶段，点选无需开关 @smoke',async({page})=>{
  await page.goto('/#/parent');
  await expect(page.getByRole('heading',{name:'体验设置'})).toBeVisible();
- await expect(page.getByRole('combobox')).toHaveCount(0);
+ await expect(page.getByRole('combobox')).toHaveCount(2);
+ const precision=page.getByRole('combobox',{name:'操作难度'}),content=page.getByRole('combobox',{name:'内容阶段'});
+ await expect(precision).toHaveValue('gentle');await expect(content).toHaveValue('discover');
+ await precision.selectOption('explore');await content.selectOption('starter');
+ await expect.poll(async()=>{const saved=(await localRows(page,'settings'))[0];return {difficulty:saved?.difficulty,contentLevel:saved?.contentLevel};}).toEqual({difficulty:'explore',contentLevel:'starter'});
+ await page.reload();await expect(precision).toHaveValue('explore');await expect(content).toHaveValue('starter');
  await expect(page.getByText('停车与装配可直接拖动',{exact:false})).toBeVisible();
  await expect(page.getByRole('checkbox',{name:/声音引导/})).toBeVisible();
+ await expect(page.getByRole('checkbox')).toHaveCount(1);
 });

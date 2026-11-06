@@ -1,4 +1,4 @@
-import {useEffect,useRef,useState} from 'react';
+import {useEffect,useLayoutEffect,useRef,useState} from 'react';
 import {CircleDashed,Rotate3D,Hand,Scan} from 'lucide-react';
 import type {TouchBoard,BoardSnapshot} from '../game/TouchBoard';
 import {TouchWorldRenderer} from './TouchWorldRenderer';
@@ -8,7 +8,8 @@ export function TouchWorld3D({board,carId,id,state,paused,onUnavailable,onPrevie
  const height=board.height;
  const orbitMode=useRef(false);
  const callback=useRef(onUnavailable);callback.current=onUnavailable;
- useEffect(()=>{
+ // Dispose controls before React detaches their canvas from its event root.
+ useLayoutEffect(()=>{
   setReady(false);onReadyChange?.(false);let alive=true;
   try{world.current=new TouchWorldRenderer(host.current!,board,carId,id,state,value=>{if(alive){setReady(value);onReadyChange?.(value);}},()=>{if(alive)callback.current();});world.current.setOrbit(orbitMode.current);world.current.setPaused(paused);onPreview?.((...args)=>world.current?.guidePreview(...args));}catch(error){console.warn('立体场景初始化失败',error);callback.current();}
   return()=>{alive=false;world.current?.dispose();world.current=null;onPreview?.(null);onReadyChange?.(false);};
