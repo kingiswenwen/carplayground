@@ -1,8 +1,9 @@
+import {vehiclePreview} from '../domain/vehicle-preview';
 import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from 'react';
 import { RefreshCw } from 'lucide-react';
 import { assetUrl, content, getDisplayCar, type Color, type Part } from '../domain/content';
 
-type Props = { presentation?: 'object' | 'showcase'; lazy?: boolean; carId?: string; color?: Color; hotspots?: boolean; active?: Part; onPart?: (part: Part) => void; marker?: { x: number; y: number }; priority?: boolean; onReadyChange?: (ready: boolean) => void };
+type Props = { presentation?: 'object' | 'showcase' | 'catalogue'; lazy?: boolean; carId?: string; color?: Color; hotspots?: boolean; active?: Part; onPart?: (part: Part) => void; marker?: { x: number; y: number }; priority?: boolean; onReadyChange?: (ready: boolean) => void };
 export function CarImage({ presentation = 'object', lazy = false, carId = 'CAR01', color = 'white', hotspots = false, active, onPart, marker, priority, onReadyChange }: Props) {
   const [status, setStatus] = useState<'loading' | 'ready' | 'error'>('loading');
   const [retry, setRetry] = useState(0);
@@ -22,15 +23,15 @@ export function CarImage({ presentation = 'object', lazy = false, carId = 'CAR01
   useEffect(() => { readyCallback.current?.(status === 'ready'); }, [status, retry]);
   const car = getDisplayCar(carId) || content.cars[0];
   const showcase = presentation === 'showcase';
-  const illustration = !hotspots && car.illustrationImage;
-  const imageId = illustration || car.game?.side || (showcase ? car.showcaseImage : car.id === 'CAR01' ? content.car.images[color] : car.displayImage || car.image);
+  const illustration = presentation !== 'catalogue' && !hotspots && car.illustrationImage;
+  const imageId = (presentation === 'catalogue' && vehiclePreview(carId)) || illustration || car.game?.side || (showcase ? car.showcaseImage : car.id === 'CAR01' ? content.car.images[color] : car.displayImage || car.image);
   useLayoutEffect(() => { const element=imageElement.current;setStatus(element?.complete ? (element.naturalWidth>0 ? 'ready' : 'error') : 'loading');setRetry(0); }, [imageId]);
   const image = content.assets.find(a => a.id === imageId)!;
   const points = car.game ? car.hotspots : showcase ? car.showcaseHotspots : car.hotspots;
   const showPoints = hotspots && status === 'ready';
   return <div ref={holder} className={`car-image ${status} ${showcase ? 'car-showcase' : car.id === 'CAR01' || car.displayImage ? '' : 'real-photo'} ${showPoints ? 'has-part-hotspots' : ''}`} style={{ aspectRatio: `${image.width}/${image.height}`, '--part-count': points.length } as CSSProperties}>
-    {visible && <img ref={imageElement} key={retry} src={assetUrl(imageId) + (retry ? `?retry=${retry}` : '')}
-      alt={`${car.name}，${illustration?'按真实车型生成的游戏插画':car.game?.side.startsWith('render-')?'独立立体模型预览':'游戏跑车'}`}
+    {visible && <img ref={imageElement} key={`${imageId}:${retry}`} src={assetUrl(imageId) + (retry ? `?retry=${retry}` : '')}
+      alt={`${car.name}，${presentation==='catalogue'?'同车型独立立体模型渲染图':illustration?'按真实车型生成的游戏插画':car.game?.side.startsWith('render-')?'独立立体模型预览':'游戏跑车'}`}
       width={image.width} height={image.height} draggable={false} loading={lazy ? 'lazy' : 'eager'} fetchPriority={priority ? 'high' : 'auto'}
       onLoad={() => setStatus('ready')} onError={() => setStatus('error')} />}
     {status === 'loading' && <span className="image-loading" aria-label="正在准备小车">🛞</span>}

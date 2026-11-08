@@ -1,0 +1,18 @@
+.garage-filters>.catalogue-select{display:flex;flex-direction:column;gap:6px;min-width:170px;flex:0 1 190px;font-size:14px}
+.catalogue-select-trigger{display:flex;align-items:center;justify-content:space-between;gap:16px;width:100%;min-height:48px;padding:10px 14px;border:1px solid #b8c7b0;border-radius:16px;background:#fffaf0;color:#365653;font-size:16px;text-align:left}
+.catalogue-select-trigger[aria-expanded=true]{border-color:#456c60;background:#edf2e3}
+.catalogue-select-trigger>span{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.catalogue-select-trigger:focus-visible{outline:3px solid #456c60;outline-offset:3px}
+.catalogue-select-popup{position:fixed;z-index:100;display:flex;flex-direction:column;gap:8px;padding:10px;border:1px solid #b8c7b0;border-radius:20px;background:#fffaf0;color:#365653;box-shadow:0 12px 30px #294b3d24}
+.catalogue-option-search{position:relative;display:flex;align-items:center;flex:none}
+.catalogue-option-search>svg{position:absolute;left:12px;pointer-events:none}
+.catalogue-option-search input{width:100%;min-height:44px;min-width:0;padding:10px 12px 10px 38px;border:1px solid #c6d1be;border-radius:12px;background:#f4f4e9;color:#365653;font:inherit;font-size:16px}
+.catalogue-option-search input::placeholder{color:#526f64;opacity:1}
+.catalogue-options{overflow-y:auto;min-height:0;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#9aaa90 #f1f1e4}
+.catalogue-options>[role=option]{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:46px;padding:10px 12px;border-radius:12px;text-align:left;color:#365653;background:transparent;font-size:16px;line-height:1.5}
+.catalogue-options>[role=option]:is(:hover,:focus-visible){background:#edf2df;outline:2px solid #456c60;outline-offset:-2px}
+.catalogue-options>[aria-selected=true]{background:#e3ebd4;font-weight:600}
+.catalogue-no-options{padding:16px 12px;font-size:15px;line-height:1.7;color:#526f64}
+.model-paints{width:max-content;max-width:100%;flex-wrap:wrap;justify-content:center}
+.model-paints button{flex:0 0 44px}
+@media(max-width:600px){.garage-filters>.catalogue-select{min-width:0;flex:1}.catalogue-select-trigger{gap:8px}}
