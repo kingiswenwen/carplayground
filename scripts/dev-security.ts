@@ -7,6 +7,7 @@ import type { Connect, Plugin } from 'vite';
 const contentFiles = new Set([
   'r3.json', 'vehicle-identities.json', 'retired-car-previews.json',
   'vehicle-models.json', 'photo-sources.json', 'photo-view-sources.json',
+  'viewer-paints.json', // Public, model-material selections for the viewer only.
 ]);
 const moduleExtension = /\.(?:[cm]?js|[cm]?ts|jsx|tsx|css|wasm)$/i;
 const dependencyExtension = /\.(?:[cm]?js|json|css|wasm|map)$/i;

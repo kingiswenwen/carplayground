@@ -1,3 +1,4 @@
+import {ViewerPaint} from './ViewerPaint';
 import * as T from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
@@ -23,7 +24,7 @@ export class VehicleRenderer{
  private removed:T.Object3D[]=[];
  private bounds?:T.Box3;
  private lamps=new Map<T.MeshStandardMaterial,{color:T.Color;intensity:number}>();
- private paint=new Set<T.MeshStandardMaterial>();
+ private paint?:ViewerPaint;
  private abort?:AbortController;
  private timer?:ReturnType<typeof setTimeout>;
  private epoch=0;
@@ -36,7 +37,7 @@ export class VehicleRenderer{
  private pointers=new Set<number>();
  private lights=false;
  private software=false;
- constructor(private box:HTMLDivElement,private onReady:()=>void,private onTouch:()=>void,private onUnavailable:()=>void){
+ constructor(private box:HTMLDivElement,private onReady:(carId:string)=>void,private onTouch:()=>void,private onUnavailable:()=>void){
   this.renderer=new T.WebGLRenderer({antialias:true,alpha:true,powerPreference:'low-power'});
   const renderer=this.renderer,canvas=renderer.domElement;
   const gl=renderer.getContext(),debug=gl.getExtension('WEBGL_debug_renderer_info');
@@ -63,12 +64,12 @@ export class VehicleRenderer{
   if(this.bounds)frameModel(this.camera,this.bounds,w/h);this.needsRender=true;
  };
  private clearCar(){
-  this.abort?.abort();clearTimeout(this.timer);this.bounds=undefined;this.lamps.clear();this.paint.clear();this.down=null;this.pointers.clear();
+  this.abort?.abort();clearTimeout(this.timer);this.bounds=undefined;this.lamps.clear();this.paint?.dispose();this.paint=undefined;this.down=null;this.pointers.clear();
   if(this.root){disposeModel(new T.Group().add(this.root,...this.removed));this.root=undefined;}this.removed=[];
  }
  async load(spec:VehicleModelSpec){
-  if(this.disposed)return;const epoch=++this.epoch;this.clearCar();this.first=true;this.carId=spec.id;this.lights=false;
-  const canvas=this.renderer.domElement;canvas.dataset.ready='false';delete canvas.dataset.car;delete canvas.dataset.lights;
+  if(this.disposed)return;const canvas=this.renderer.domElement;canvas.style.visibility='hidden';this.renderer.clear();const epoch=++this.epoch;this.clearCar();this.first=true;this.carId=spec.id;this.lights=false;
+  canvas.dataset.ready='false';delete canvas.dataset.car;delete canvas.dataset.lights;
   const abort=new AbortController();this.abort=abort;
   this.timer=setTimeout(()=>{if(epoch===this.epoch)this.fail();},30000);
   try{
@@ -84,19 +85,19 @@ export class VehicleRenderer{
     for(const material of Array.isArray(object.material)?object.material:[object.material]){if(!(material instanceof T.MeshStandardMaterial))continue;
      if(spec.paintMaterials.includes(material.name)){
       if(spec.recalculateNormals){const original=object.geometry;object.geometry=toCreasedNormals(original,Math.PI/4);if(original!==object.geometry)original.dispose();}
-      if(!spec.preservePaint)material.color.set(spec.color);material.roughness=.27;material.metalness=.55;this.paint.add(material);
+      if(!spec.preservePaint)material.color.set(spec.color);material.roughness=.27;material.metalness=.55;
      }
      if(spec.lampMaterials.includes(material.name)||isVehicleLampName(material.name))this.lamps.set(material,{color:material.emissive.clone(),intensity:material.emissiveIntensity});
     }
    }});
-   this.bounds=fitModel(this.root,spec.rotationY);this.scene.add(this.root);
+   this.bounds=fitModel(this.root,spec.rotationY);this.paint=new ViewerPaint(this.root,spec,this.bounds);this.scene.add(this.root);
    const offset=this.camera.position.clone().sub(this.controls.target);this.controls.target.copy(this.bounds.getCenter(new T.Vector3()));this.camera.position.copy(this.controls.target).add(offset);this.controls.update();
    if(!this.software&&!this.environment){const room=new RoomEnvironment(),pmrem=new T.PMREMGenerator(this.renderer);try{this.environment=pmrem.fromScene(room,.04,.1,100,{size:64});this.scene.environment=this.environment.texture;}finally{room.dispose();pmrem.dispose();}}
    this.renderer.shadowMap.needsUpdate=true;this.resize();
   }catch(error){if(this.disposed||epoch!==this.epoch)return;console.warn('车辆模型未能打开',error);this.fail();}
  }
  private fail(){if(this.disposed)return;this.dispose();this.onUnavailable();}
- setPaint(color:string){this.paint.forEach(material=>{material.color.set(color);if(material.map){material.map=null;material.needsUpdate=true;}});this.renderer.domElement.dataset.paint=color;this.needsRender=true;}
+ setPaint(color:string|null){this.paint?.setColor(color);this.renderer.domElement.dataset.paint=color||'original';this.needsRender=true;}
  private start=(event:PointerEvent)=>{this.pointers.add(event.pointerId);this.down=this.pointers.size===1?{id:event.pointerId,x:event.clientX,y:event.clientY}:null;this.onTouch();};
  private cancel=(event:PointerEvent)=>{this.pointers.delete(event.pointerId);this.down=null;};
  private end=(event:PointerEvent)=>{
@@ -119,8 +120,8 @@ export class VehicleRenderer{
    // Elevation can change during a drag. Refit without changing the user's zoom.
    frameModel(this.camera,this.bounds,Math.max(1,this.box.clientWidth)/Math.max(1,this.box.clientHeight));
    try{this.renderer.render(this.scene,this.camera);}catch{this.fail();return;}
-   const canvas=this.renderer.domElement;canvas.dataset.yaw=String(Math.atan2(this.camera.position.z-this.controls.target.z,this.camera.position.x-this.controls.target.x));canvas.dataset.car=this.carId;canvas.dataset.ready='true';canvas.dataset.source='reviewed-gltf';this.needsRender=false;
-   if(this.first){this.first=false;this.onReady();}
+   const canvas=this.renderer.domElement;canvas.dataset.yaw=String(Math.atan2(this.camera.position.z-this.controls.target.z,this.camera.position.x-this.controls.target.x));canvas.dataset.car=this.carId;canvas.dataset.ready='true';canvas.dataset.source='reviewed-gltf';canvas.style.visibility='';this.needsRender=false;
+   if(this.first){this.first=false;this.onReady(this.carId);}
   }}
   this.frame=requestAnimationFrame(this.render);
  };

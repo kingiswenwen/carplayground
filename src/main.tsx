@@ -20,3 +20,5 @@ class Recovery extends Component<{ children: ReactNode }, { failed: boolean }> {
 document.documentElement.dataset.appReleaseId = releaseInfo.appReleaseId;
 document.documentElement.dataset.contentReleaseId = releaseInfo.contentReleaseId;
 createRoot(document.getElementById('root')!).render(<StrictMode><Recovery><App /></Recovery></StrictMode>);
+
+import './styles/catalogue-select.css';

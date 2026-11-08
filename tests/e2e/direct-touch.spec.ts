@@ -25,7 +25,7 @@ test('立体车库支持品牌筛选、八辆分页与对应模型默认打开 @
  await page.goto('/#/cars');await expect(page.locator('.car-gallery-card')).toHaveCount(8);await expect(page.locator('.garage-count')).toContainText(String(modelIds.size));
  const first=await page.locator('.car-gallery-card').first().getAttribute('aria-label');await page.getByRole('button',{name:'下一组跑车'}).click();await expect(page.locator('.car-gallery-card').first()).not.toHaveAttribute('aria-label',first!);
  const ferraris=content.cars.filter(car=>car.brand==='Ferrari'&&modelIds.has(car.id));
- await page.getByRole('combobox',{name:'按汽车品牌筛选'}).selectOption('Ferrari');
+ await page.getByRole('combobox',{name:'按汽车品牌筛选'}).click();await page.getByRole('option',{name:'法拉利',exact:true}).click();
  await expect(page.locator('.car-gallery-card')).toHaveCount(Math.min(8,ferraris.length));
  await expect(page.locator('.car-gallery-card .garage-car-name')).toHaveText(ferraris.slice(0,8).map(car=>car.model));
  await page.goto('/#/cars/CAR135');await expect(page.locator('.vehicle-webgl[data-ready=true]')).toHaveAttribute('data-car','CAR135',{timeout:45000});

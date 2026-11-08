@@ -1,3 +1,4 @@
+import {vehiclePreview} from '../domain/vehicle-preview';
 import {lazy,Suspense,useEffect,useLayoutEffect,useRef,useState} from 'react';
 import {Box,Camera,CircleDashed,Hand,MoveHorizontal,RotateCcw,RotateCw} from 'lucide-react';
 import {assetUrl,getCar} from '../domain/content';
@@ -9,7 +10,7 @@ export function VehicleViews({carId}:{carId:string}){
  useLayoutEffect(()=>{setMode(vehicleModel(carId)?'model':'pictures');setFrame(0);setTouched(false);},[carId]);
  const img=useRef<HTMLImageElement>(null),down=useRef<{id:number;x:number;y:number}|null>(null);
  const ordered=views?[views[0],views[1],views[2],views[5],views[4],views[3]]:[{id:'side',image:car.game!.side},{id:'top',image:car.game!.top}];
- const view=ordered[frame%ordered.length],src=view?assetUrl(view.image):assetUrl(car.game!.side);
+ const view=ordered[frame%ordered.length],src=view?assetUrl(view.image):assetUrl(vehiclePreview(carId)||car.game!.side);
  const showingModel=mode==='model'&&modelAvailable;
  const modelUnavailable=()=>setMode('pictures');
  useLayoutEffect(()=>{setReady(!!img.current?.complete&&!!img.current?.naturalWidth);setError(false);},[src,attempt,showingModel]);
@@ -23,7 +24,7 @@ export function VehicleViews({carId}:{carId:string}){
    onPointerCancel={()=>{down.current=null;}} onLostPointerCapture={()=>{down.current=null;}}>
    <img key={src+'-'+attempt} ref={img} className="vehicle-angle" src={src+(attempt?`?retry=${attempt}`:'')} alt={`${car.name}游戏外观，${view.id}`} draggable={false} data-ready={ready} onLoad={()=>{setReady(true);setError(false);}} onError={()=>{setReady(false);setError(true);}}/>
    {!touched&&!error&&<span className="orbit-invitation" aria-hidden="true"><Hand/><MoveHorizontal/></span>}
-  </div>:<Suspense fallback={<div className="vehicle-stage" data-ready="false"><img className="vehicle-poster" src={assetUrl(car.game!.side)} alt="" fetchPriority="high"/><span className="stage-loading" aria-label="正在准备立体车"><CircleDashed/></span></div>}><Model carId={carId} onUnavailable={modelUnavailable} onReady={()=>setReady(true)}/></Suspense>}
+  </div>:<Suspense fallback={<div className="vehicle-stage" data-ready="false"><img key={carId} className="vehicle-poster" src={assetUrl(vehiclePreview(carId)||car.game!.side)} alt="" fetchPriority="high"/><span className="stage-loading" aria-label="正在准备立体车"><CircleDashed/></span></div>}><Model carId={carId} onUnavailable={modelUnavailable} onReady={()=>setReady(true)}/></Suspense>}
   {!modelAvailable&&<span className="viewer-reference"><Camera aria-hidden="true"/>参考图片 · 模型待补</span>}
   {modelAvailable&&<button className="picture-button viewer-mode" aria-label={showingModel?'回到多角度外观图':'打开车型立体模型'} onClick={()=>{setMode(showingModel?'pictures':'model');setTouched(true);}}>{showingModel?<Camera/>:<Box/>}</button>}
   {!showingModel&&!error&&<div className="view-turners"><button className="picture-button" aria-label="看前一个角度" onClick={()=>turn(-1)}><RotateCcw/></button><div className="view-dots" aria-hidden="true">{ordered.map((v,i)=><span className={i===frame?'selected':''} key={v.id}/>)}</div><button className="picture-button" aria-label="看后一个角度" onClick={()=>turn(1)}><RotateCw/></button></div>}

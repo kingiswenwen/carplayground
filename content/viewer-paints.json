@@ -1,0 +1,581 @@
+{
+  "CAR05": {
+    "materials": [
+      "Meshpart70Mtl"
+    ],
+    "mode": "body"
+  },
+  "CAR06": {
+    "materials": [
+      "PAG_HUAYRA_PAINT",
+      "PAG_HUAYRA_PAINT_2"
+    ],
+    "mode": "body"
+  },
+  "CAR19": {
+    "materials": [
+      "Material.005"
+    ],
+    "mode": "body"
+  },
+  "CAR24": {
+    "materials": [
+      "Coloured0021Mtl",
+      "Coloured0041Mtl",
+      "Paint0011Mtl",
+      "Paint0021Mtl",
+      "Paint1Mtl"
+    ],
+    "mode": "body"
+  },
+  "CAR30": {
+    "materials": [
+      "Material.002"
+    ],
+    "mode": "body"
+  },
+  "CAR31": {
+    "materials": [
+      "CARO"
+    ],
+    "mode": "body"
+  },
+  "CAR32": {
+    "materials": [
+      "CARROSSERIE"
+    ],
+    "mode": "body"
+  },
+  "CAR34": {
+    "materials": [
+      "gallardo_paint"
+    ],
+    "mode": "body"
+  },
+  "CAR39": {
+    "materials": [
+      "Carbon_R"
+    ],
+    "mode": "body"
+  },
+  "CAR42": {
+    "materials": [
+      "default"
+    ],
+    "mode": "masked",
+    "source": [
+      0.8490943972945714,
+      0.44309173088804366,
+      0.49892368224238337
+    ]
+  },
+  "CAR43": {
+    "materials": [
+      "material"
+    ],
+    "mode": "body"
+  },
+  "CAR45": {
+    "materials": [
+      "Body.002"
+    ],
+    "mode": "body"
+  },
+  "CAR48": {
+    "materials": [
+      "sennapaintmain",
+      "sennapaint"
+    ],
+    "mode": "body"
+  },
+  "CAR56": {
+    "materials": [
+      "P918_paint"
+    ],
+    "mode": "body"
+  },
+  "CAR61": {
+    "materials": [
+      "Material"
+    ],
+    "mode": "body"
+  },
+  "CAR62": {
+    "materials": [
+      "CSR2_Coloured",
+      "CSR2_CarPaint"
+    ],
+    "mode": "body"
+  },
+  "CAR63": {
+    "materials": [
+      "material"
+    ],
+    "mode": "body"
+  },
+  "CAR65": {
+    "materials": [
+      "body_color"
+    ],
+    "mode": "body"
+  },
+  "CAR67": {
+    "materials": [
+      "CAR.carros"
+    ],
+    "mode": "body"
+  },
+  "CAR72": {
+    "materials": [
+      "Material.001"
+    ],
+    "mode": "body"
+  },
+  "CAR75": {
+    "materials": [
+      "r35_paint"
+    ],
+    "mode": "body"
+  },
+  "CAR81": {
+    "materials": [
+      "remap180__prim_env_2_spec"
+    ],
+    "mode": "body"
+  },
+  "CAR100": {
+    "materials": [
+      "EXT_paint"
+    ],
+    "mode": "body"
+  },
+  "CAR105": {
+    "materials": [
+      "M4xNME_Paint",
+      "M4xNME_Paint2",
+      "M4xNME_Paint2.002"
+    ],
+    "mode": "body"
+  },
+  "CAR108": {
+    "materials": [
+      "f06d_body"
+    ],
+    "mode": "body"
+  },
+  "CAR111": {
+    "materials": [
+      "BMW_E30_M3_PAINT"
+    ],
+    "mode": "body"
+  },
+  "CAR118": {
+    "materials": [
+      "Car_Body",
+      "Paint",
+      "Painted_Metal"
+    ],
+    "mode": "body"
+  },
+  "CAR119": {
+    "materials": [
+      "Meshpart9Mtl",
+      "Paint6Mtl"
+    ],
+    "mode": "body"
+  },
+  "CAR129": {
+    "materials": [
+      "CARBON_FIBER"
+    ],
+    "mode": "body"
+  },
+  "CAR140": {
+    "materials": [
+      "Gto84headlightframer0031Mtl"
+    ],
+    "mode": "body"
+  },
+  "CAR145": {
+    "materials": [
+      "Paint.001"
+    ],
+    "mode": "body"
+  },
+  "CAR147": {
+    "materials": [
+      "aAstonMartin_Valour_2024Coloured_Material1",
+      "aAstonMartin_Valour_2024Paint_Material1"
+    ],
+    "mode": "body"
+  },
+  "CAR152": {
+    "materials": [
+      "material"
+    ],
+    "mode": "body"
+  },
+  "CAR157": {
+    "materials": [
+      "rrghost_paint",
+      "rrghost_paint_b"
+    ],
+    "mode": "body"
+  },
+  "CAR160": {
+    "materials": [
+      "Scene_-_Root"
+    ],
+    "mode": "masked",
+    "source": [
+      0.5785821172518618,
+      0.6222180078008211,
+      0.7417775970985729
+    ]
+  },
+  "CAR161": {
+    "materials": [
+      "Body_MAT"
+    ],
+    "mode": "body"
+  },
+  "CAR162": {
+    "materials": [
+      "material_0",
+      "material_1"
+    ],
+    "mode": "masked",
+    "source": [
+      1,
+      1,
+      1
+    ],
+    "protectedUV": {
+      "material_0": [
+        [
+          [
+            0.263021,
+            0.39974
+          ],
+          [
+            0.47526,
+            0.394531
+          ],
+          [
+            0.470052,
+            0.446615
+          ],
+          [
+            0.410156,
+            0.476562
+          ],
+          [
+            0.311198,
+            0.476562
+          ]
+        ],
+        [
+          [
+            0.701823,
+            0.39974
+          ],
+          [
+            0.763021,
+            0.404948
+          ],
+          [
+            0.761719,
+            0.442708
+          ],
+          [
+            0.721354,
+            0.494792
+          ],
+          [
+            0.677083,
+            0.49349
+          ],
+          [
+            0.678385,
+            0.457031
+          ]
+        ],
+        [
+          [
+            0.30599,
+            0.84375
+          ],
+          [
+            0.488281,
+            0.859375
+          ],
+          [
+            0.486979,
+            0.934896
+          ],
+          [
+            0.369792,
+            0.933594
+          ]
+        ],
+        [
+          [
+            0.184896,
+            0.925781
+          ],
+          [
+            0.261719,
+            0.873698
+          ],
+          [
+            0.35026,
+            0.908854
+          ],
+          [
+            0.356771,
+            0.950521
+          ],
+          [
+            0.302083,
+            0.972656
+          ],
+          [
+            0.207031,
+            0.96875
+          ]
+        ],
+        [
+          [
+            0.520833,
+            0.910156
+          ],
+          [
+            0.580729,
+            0.904948
+          ],
+          [
+            0.627604,
+            0.959635
+          ],
+          [
+            0.613281,
+            0.998698
+          ],
+          [
+            0.49349,
+            0.998698
+          ],
+          [
+            0.488281,
+            0.96875
+          ]
+        ],
+        [
+          [
+            0.195312,
+            0.421875
+          ],
+          [
+            0.248698,
+            0.421875
+          ],
+          [
+            0.273438,
+            0.472656
+          ],
+          [
+            0.223958,
+            0.485677
+          ]
+        ],
+        [
+          [
+            0.888021,
+            0.558594
+          ],
+          [
+            0.951823,
+            0.567708
+          ],
+          [
+            0.957031,
+            0.606771
+          ],
+          [
+            0.910156,
+            0.617188
+          ]
+        ]
+      ],
+      "material_1": [
+        [
+          [
+            0.65625,
+            0.296875
+          ],
+          [
+            0.74349,
+            0.273438
+          ],
+          [
+            0.769531,
+            0.3125
+          ],
+          [
+            0.759115,
+            0.35026
+          ],
+          [
+            0.703125,
+            0.367188
+          ],
+          [
+            0.652344,
+            0.334635
+          ]
+        ],
+        [
+          [
+            0.804688,
+            0.278646
+          ],
+          [
+            0.863281,
+            0.289062
+          ],
+          [
+            0.889323,
+            0.324219
+          ],
+          [
+            0.854167,
+            0.345052
+          ],
+          [
+            0.817708,
+            0.330729
+          ]
+        ]
+      ]
+    }
+  },
+  "CAR164": {
+    "materials": [
+      "material"
+    ],
+    "mode": "masked",
+    "source": [
+      1,
+      0,
+      0
+    ]
+  },
+  "CAR166": {
+    "materials": [
+      "Vehicle"
+    ],
+    "mode": "masked",
+    "mesh": "^Body_",
+    "source": [
+      1,
+      1,
+      1
+    ]
+  },
+  "CAR169": {
+    "materials": [
+      "s210_body"
+    ],
+    "mode": "body"
+  },
+  "CAR170": {
+    "materials": [
+      "Color_008_1"
+    ],
+    "mode": "body"
+  },
+  "CAR171": {
+    "materials": [
+      "primary",
+      "primary.001",
+      "primary.002",
+      "primary.004"
+    ],
+    "mode": "body"
+  },
+  "CAR173": {
+    "materials": [
+      "material_0",
+      "material_3"
+    ],
+    "mode": "body"
+  },
+  "CAR175": {
+    "materials": [
+      "mat_body"
+    ],
+    "mode": "body"
+  },
+  "CAR177": {
+    "materials": [
+      "Fb1Mtl",
+      "Mesh1Mtl",
+      "Part1Mtl"
+    ],
+    "mode": "body"
+  },
+  "CAR181": {
+    "materials": [
+      "CAR_Livrea"
+    ],
+    "mode": "body"
+  },
+  "CAR09": {
+    "materials": [
+      "Body_Color"
+    ],
+    "mode": "body"
+  },
+  "CAR07": {
+    "materials": [
+      "jeskoVehicle_Exterior_mm_ext1"
+    ],
+    "mode": "body"
+  },
+  "CAR18": {
+    "materials": [
+      "MAT_LIVERY"
+    ],
+    "mode": "body"
+  },
+  "CAR21": {
+    "materials": [
+      "Porsche_718CaymanGT4_2020Coloured_Material",
+      "Porsche_718CaymanGT4_2020Paint_Material"
+    ],
+    "mode": "body"
+  },
+  "CAR187": {
+    "materials": [
+      "01___Default"
+    ],
+    "mode": "body"
+  },
+  "CAR192": {
+    "materials": [
+      "Scene_-_Root"
+    ],
+    "mode": "masked",
+    "source": [
+      0.5142316618371906,
+      0.7493879723965559,
+      0.8741656689029486
+    ]
+  },
+  "CAR194": {
+    "materials": [
+      "Car_body_color"
+    ],
+    "mode": "body"
+  }
+}

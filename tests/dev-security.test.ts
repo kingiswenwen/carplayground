@@ -19,7 +19,7 @@ const forbidden = [
   '/src/%252e%252e/START_HERE.md', '/src/%5c..%5cSTART_HERE.md', '/src/main.ts%00',
   '/src/main.ts%3fraw', '/src/main.ts%23suffix', '/%zz', '/@id/__x00__private',
 ];
-const positive = ['/index.html', '/src/main.ts', '/src/services/backup.ts', '/package.json', '/content/r3.json',
+const positive = ['/index.html', '/src/main.ts', '/src/services/backup.ts', '/package.json', '/content/r3.json', '/content/viewer-paints.json',
   '/media/car.png', '/media/car.glb', '/media/car.glb.parts.json', '/references/view.png',
   '/node_modules/.vite/deps/react.js', '/node_modules/react/index.js'];
 
@@ -27,7 +27,7 @@ beforeAll(() => {
   fixture('index.html', '<html><body>safe page<script type="module" src="/src/main.ts"></script></body></html>');
   fixture('src/main.ts', 'export const value: number = 1; if(import.meta.hot) import.meta.hot.accept();');
   fixture('src/services/backup.ts', 'export const backup = true;');
-  fixture('package.json', '{"type":"module"}'); fixture('content/r3.json', '{}');
+  fixture('package.json', '{"type":"module"}'); fixture('content/r3.json', '{}'); fixture('content/viewer-paints.json', '{}');
   for (const relative of ['public/media/car.png', 'public/media/car.glb', 'public/media/car.glb.parts.json',
     'public/references/view.png', 'node_modules/.vite/deps/react.js', 'node_modules/react/index.js']) fixture(relative);
   // All negative files contain only invented canaries, never local private data.
