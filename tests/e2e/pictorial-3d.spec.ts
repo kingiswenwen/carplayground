@@ -33,9 +33,18 @@ test('离开立体查看后能重新选车并打开对应模型 @smoke',async({p
  await page.getByRole('link',{name:'看车',exact:true}).click();await page.getByRole('button',{name:/选择.*911 GT3 RS/}).click();await expect(page.locator('.vehicle-webgl:visible')).toHaveAttribute('data-car','CAR03',{timeout:30000});
 });
 test('WebGL不可用时回到同车型六角度图，不再显示通用车身 @smoke',async({page})=>{
- await page.addInitScript(()=>{const original=HTMLCanvasElement.prototype.getContext;Reflect.set(HTMLCanvasElement.prototype,'getContext',function(this:HTMLCanvasElement,type:string,...args:unknown[]){if(type.startsWith('webgl'))return null;return Reflect.apply(original,this,[type,...args]);});});
+ await page.addInitScript(()=>{const original=HTMLCanvasElement.prototype.getContext;Reflect.set(window,'__webglAttempts',0);Reflect.set(HTMLCanvasElement.prototype,'getContext',function(this:HTMLCanvasElement,type:string,...args:unknown[]){if(type.startsWith('webgl')){Reflect.set(window,'__webglAttempts',Reflect.get(window,'__webglAttempts')+1);return null;}return Reflect.apply(original,this,[type,...args]);});});
  await page.goto('/#/cars/CAR01');await expect(page.locator('.vehicle-views')).toHaveAttribute('data-mode','pictures');await expect(page.locator('.vehicle-angle')).toHaveAttribute('data-ready','true',{timeout:30000});
  await page.getByRole('button',{name:'看后一个角度'}).click();await expect(page.locator('.vehicle-views')).toHaveAttribute('data-view','front');await expect(page.locator('.svg-vehicle')).toHaveCount(0);
+ const attempts=await page.evaluate(()=>Reflect.get(window,'__webglAttempts') as number);
+ await page.getByRole('button',{name:'打开车型立体模型',exact:true}).click();
+ await expect.poll(()=>page.evaluate(()=>Reflect.get(window,'__webglAttempts') as number)).toBeGreaterThan(attempts);
+ await expect(page.locator('.vehicle-views')).toHaveAttribute('data-mode','pictures');
+ await page.getByRole('link',{name:'看车',exact:true}).click();
+ await page.getByRole('button',{name:/选择.*911 GT3 RS/}).click();
+ await expect(page.locator('.vehicle-views')).toHaveAttribute('data-car','CAR03');
+ await expect(page.locator('.vehicle-views')).toHaveAttribute('data-mode','pictures');
+ await expect(page.locator('.vehicle-angle')).toHaveAttribute('data-ready','true');
 });
 test('已移除车型的旧链接回到入口，保留车型可继续立体观察 @smoke',async({page})=>{
  test.setTimeout(120000);

@@ -98,6 +98,8 @@ jobs:
             npx playwright test tests/e2e/difficulty.spec.ts tests/e2e/content-level.spec.ts tests/e2e/wash-state.spec.ts tests/e2e/tracks-continuity.spec.ts --project=firefox --workers=1 --max-failures=1 --output=test-results/firefox-strict
           # Fail early on persistence/page-load timing before the full suite.
           npx playwright test tests/e2e/core-records-favorites.spec.ts --project=chromium --workers=1 --output=test-results/chromium-core
+          # A synchronous WebGL constructor failure must keep its image fallback.
+          npx playwright test tests/e2e/pictorial-3d.spec.ts --project=chromium --workers=1 --grep 'WebGL不可用时' --output=test-results/chromium-viewer-fallback
           # Check the mobile scroll regression repeatedly before the full suite.
           npx playwright test tests/e2e/showroom-garage-feedback.spec.ts --project=chromium --workers=2 --grep '选车后看见新模型' --repeat-each=3 --output=test-results/chromium-scroll
           npx playwright test --project=chromium --workers=2 --output=test-results/chromium-full
