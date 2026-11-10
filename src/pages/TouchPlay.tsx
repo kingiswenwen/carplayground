@@ -1,3 +1,4 @@
+import {activityPlace,teachingActions} from '../domain/town';
 import {PlayPicture} from '../components/PlayPicture';
 import {PlaySymbol} from '../components/PlaySymbol';
 import {PlayGuide} from '../components/PlayGuide';
@@ -98,7 +99,8 @@ export function TouchPlay({id,carId,settings,backHref='#/explore',continueHref}:
   };
   const inputTime=(event:PointerEvent<HTMLCanvasElement>)=>event.timeStamp>1e12?event.timeStamp-performance.timeOrigin:event.timeStamp;
   const active=!session.paused&&state.ready&&!error;
-  return <div className="touch-play" data-activity={id} data-content-level={session.contentLevel} data-completed={state.completed}>
+  return <div className={`touch-play town-play place-${activityPlace(id).id}`} data-activity={id} data-content-level={session.contentLevel} data-completed={state.completed}>
+    <div className="town-play-heading"><span>{activityPlace(id).name}</span><h1>{activity.title}</h1></div>
     <div className="touch-toolbar">
       <a className="touch-icon" href={backHref} aria-label="回到乐园"><ArrowLeft/></a>
       <a className="touch-title" href={`#/cars/${carId}`} aria-label="旋转看看这辆车"><PlayPicture id={id} carId={carId}/></a>
@@ -121,15 +123,15 @@ export function TouchPlay({id,carId,settings,backHref='#/explore',continueHref}:
         onKeyDown={event=>{if(active&&['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Enter',' ','Escape','[',']'].includes(event.key)){event.preventDefault();if(guideStep!==null)guide(null);board.current?.keyboard(event.key);}}}
       >直接拖动车、零件和场景里的物件。</canvas>
       {three&&state.ready&&board.current&&<Suspense fallback={<div className="world-preparing" role="status" aria-label="正在准备立体场景"><Box/></div>}><TouchWorld3D board={board.current} carId={carId} id={id} state={state} paused={session.paused||guideStep!==null} onUnavailable={()=>setThreeFailed(true)} onReadyChange={setWorldReady} onPreview={render=>{worldPreview.current=render;}}/></Suspense>}
-      {!state.ready&&!error&&<div className="touch-loading" role="status"><span>🛞</span></div>}
-      {error&&<div className="touch-loading" role="alert"><span aria-hidden="true">🛞</span><span className="sr-only">{error}</span><button className="touch-icon" aria-label="重新加载游戏跑车" onClick={()=>setAttempt(n=>n+1)}><RotateCcw/></button></div>}
+      {!state.ready&&!error&&<div className="touch-loading" role="status"><PlaySymbol name="wheel"/></div>}
+      {error&&<div className="touch-loading" role="alert"><PlaySymbol name="wheel"/><span className="sr-only">{error}</span><button className="touch-icon" aria-label="重新加载游戏跑车" onClick={()=>setAttempt(n=>n+1)}><RotateCcw/></button></div>}
       {session.paused&&<div className="pause-overlay"><Pause size={44}/><button className="touch-icon" aria-label="继续探索" onClick={session.resume}><Play/></button></div>}
     </div>
     {guideStep!==null&&board.current&&<PlayGuide board={board.current} step={guideStep} onStep={guide} close={()=>guide(null)} portrait={portrait} renderPreview={three?((...args)=>worldPreview.current?.(...args)):undefined}/>}
     <div className="touch-bottom">
-      <span aria-hidden="true"><Hand size={20}/></span>
+      <span className="town-action-cue"><Hand size={20}/><span>{id==='H03'?(state.completed?'两辆小车都洗好啦':state.wash.waiting?'洗好啦，点等待的小车交换':'擦擦泥点，另一辆先等一等'):teachingActions[id]}</span></span>
       <div className="touch-progress" aria-label="本次探索进度" role="progressbar" aria-valuenow={Math.round(state.progress*100)} aria-valuemin={0} aria-valuemax={100}><span style={{transform:`scaleX(${Math.min(1,state.progress)})`}}/></div>
-      {state.completed&&<Check aria-label="记录一次探索"/>}
+      {state.completed&&<span className="town-record-state"><Check aria-label="记录一次探索"/>{activity.mode==='open'?'记下一次参与':'记下这次发现'}</span>}
       {continueHref&&state.completed&&<a className="touch-icon" aria-label="继续故事" href={continueHref}><ArrowRight/></a>}
     </div>
     {state.completed&&!continueHref&&<div className="next-invitation" role="region" aria-label="小车接下来想去哪里">

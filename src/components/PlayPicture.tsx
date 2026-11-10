@@ -1,10 +1,12 @@
-import {assetUrl,getCar} from '../domain/content';
+import {useState} from 'react';
+import {content,assetUrl,getCar} from '../domain/content';
 import {PlaySymbol} from './PlaySymbol';
 
 const symbols:Record<string,[string,string]>={H03:['shower','sponge'],M01:['home','garage'],M02:['car','garage'],M03:['car','garage'],L03:['red','blue'],T04:['wheel','tool'],P01:['hand','arrow'],T02:['plank','bridge'],T03:['road','flag'],E01:['red','blue'],E02:['wheel','light'],T01:['wheel','tool'],E03:['stop','arrow'],M04:['red','blue'],S01:['ball','ice'],S02:['lamp','moon'],S03:['rain','umbrella'],L01:['bag','belt'],C02:['bag','flag'],H01:['tree','book'],H02:['friend','tool'],L02:['friend','heart'],C01:['heart','smile'],C03:['tree','star'],A01:['palette','star'],A02:['pencil','wheel']};
 const parking=['M01','M02','M03','L03'];
 export function PlayPicture({id,carId='CAR01'}:{id:string;carId?:string}){
  if(['world','cars','garage'].includes(id))return <span className={`play-picture nav-picture picture-${id}`} aria-hidden="true"><PlaySymbol name={id==='cars'?'car':id}/></span>;
+ if(content.assets.some(asset=>asset.id===`town-activity-${id}`))return <TownCover id={id}/>;
  const car=getCar(carId)||getCar('CAR01')!,parts=symbols[id]||['book','star'];
  const bay=parking.includes(id),wash=id==='H03',bridge=id==='T02',motion=['P01','E03','S01'].includes(id),assembly=id==='T04';
  return <span className={`play-picture illustrated-picture picture-${id}`} aria-hidden="true">
@@ -17,4 +19,9 @@ export function PlayPicture({id,carId='CAR01'}:{id:string;carId?:string}){
   <PlaySymbol name={parts[1]} className="picture-object object-two"/>
   {wash&&<span className="picture-scrub"><PlaySymbol name="sponge"/></span>}
  </span>;
+}
+
+function TownCover({id}:{id:string}){
+ const[failed,setFailed]=useState(false);
+ return <span className={`play-picture town-activity-cover picture-${id}`} aria-hidden="true">{failed?<PlaySymbol name={symbols[id]?.[0]||'car'} className="town-cover-fallback"/>:<img className="town-cover" src={assetUrl(`town-activity-${id}`)} alt="" loading="lazy" draggable={false} onError={()=>setFailed(true)}/>}<PlaySymbol name={symbols[id]?.[0]||'car'} className="town-cover-subject"/><PlaySymbol name="hand" className="town-cover-hand"/></span>;
 }

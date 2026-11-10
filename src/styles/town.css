@@ -1,0 +1,251 @@
+/* The town is a shared world. Gameplay geometry and teaching colours stay in the rule engine. */
+:root{--town-paper:#faf5e9;--town-ink:#294d42;--town-muted:#5d7063;--town-green:#3d6b52;--town-line:#dedecb;--town-sage:#dae6cd;--town-yellow:#f6d180;--town-coral:#d4876e;--town-radius:28px;--town-shadow:0 8px 24px #42583913}
+.town-shell{font-family:Town Sans,"Noto Sans CJK SC","PingFang SC",sans-serif;background:var(--town-paper);color:var(--town-ink);max-width:none}
+.town-shell ::selection{background:#f3d28a;color:#294d42}
+.town-shell input{caret-color:var(--town-green)}
+.town-shell *{scrollbar-color:#8fa28b #eee9db;scrollbar-width:thin}
+.town-shell :is(a,button,input,summary,select,textarea):focus-visible{outline:3px solid #a75c2f;outline-offset:5px}
+.town-shell main{max-width:1280px;padding:20px 36px 48px}
+.town-shell .site-header.child-dock{height:88px;padding:10px max(28px,calc((100vw - 1360px)/2));background:var(--town-paper);border-bottom:1px solid #dfdfcd;gap:24px}
+.town-shell .picture-button,.town-shell .touch-icon{box-shadow:0 3px 10px #354e3810;border:1px solid #e0e2ce;background:#fffdf5}
+.town-shell .picture-button:active,.town-shell .touch-icon:active{transform:translateY(2px);box-shadow:none}
+.town-shell .picture-home{width:auto;min-width:0;gap:10px;background:none;border:0;box-shadow:none;border-radius:12px}
+.town-shell .picture-home>.play-symbol{width:54px;height:54px}
+.town-brand-name{font-size:22px;font-weight:800;letter-spacing:1px;white-space:nowrap}
+.town-shell .child-dock .main-nav{gap:10px;width:auto;left:50%}
+.town-shell .child-dock .main-nav a{width:126px;height:58px;min-height:44px;flex-direction:row;gap:8px;background:transparent;opacity:1;border:1px solid transparent;border-radius:20px;box-shadow:none;padding:4px 12px}
+.town-shell .child-dock .main-nav a.active{background:#e6ecd7;border-color:#cfdbc0}
+.town-shell .child-dock .main-nav a:hover{background:#edf0df}
+.town-shell .child-dock .main-nav .play-picture{width:38px;height:40px;flex:none}
+.town-shell .child-dock .main-nav .play-symbol{width:38px;height:38px}
+.town-nav-label{font-size:15px;font-weight:700;white-space:nowrap}
+.town-shell .child-dock .parent-entry{opacity:1;width:46px;height:46px;min-width:46px;min-height:46px}
+.town-shell .child-dock .header-tools>.picture-button:first-child{width:46px;height:46px;min-width:46px}
+.town-shell .header-tools{gap:10px}
+.town-heading{display:flex;align-items:center;gap:18px;margin:14px 0 25px;min-width:0}
+.town-heading h1{font-size:clamp(26px,2.7vw,38px);line-height:1.4;letter-spacing:.02em;font-weight:800;text-wrap:balance}
+.town-heading p{font-size:15px;color:var(--town-muted);margin-top:7px;line-height:1.7}
+.town-heading>.picture-button{width:50px;height:50px;border-radius:18px}
+.town-car-invitation{display:flex;align-items:center;gap:12px;margin-left:auto;flex-shrink:0;min-height:60px;padding:6px 18px 6px 8px;background:#f0e7d1;border:1px solid #e6dbc1;border-radius:22px;font-size:14px;font-weight:700}
+.town-car-invitation img{width:100px;height:46px;object-fit:contain}
+.town-car-invitation>svg{width:18px}
+.town-art{display:block;position:relative;overflow:hidden;background:#eee7d4}
+.town-art>img{display:block;width:100%;height:100%;object-fit:cover}
+.town-art-recovery{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;gap:8px;background:#efe9d9;font-size:13px;padding:15px;text-align:center}
+.town-art-recovery button{width:44px;height:44px;flex:none;border-radius:50%;background:#fff9e9}
+.town-art-recovery svg{width:20px;height:20px}
+.town-map{position:relative;isolation:isolate;border-radius:38px;overflow:hidden;background:#f4e8cc;border:1px solid #eadfc4;box-shadow:var(--town-shadow)}
+.town-map-art{aspect-ratio:1.5;width:100%;background:#f4e8cc}
+.town-destinations{position:absolute;inset:0}
+.town-destination{position:absolute;left:var(--place-x);top:var(--place-y);transform:translate(-50%,-100%);background:transparent;width:36%;height:23%;display:flex;justify-content:center;align-items:flex-end;border-radius:32px}
+.town-destination:focus-visible{outline-offset:-3px!important;background:#fff6}
+.town-place-sign{display:flex;align-items:center;gap:10px;background:#fffbed;min-height:62px;border:1px solid #e0d8bc;border-radius:22px;padding:7px 14px;box-shadow:0 5px 14px #364b3525;transition:transform .18s}
+.town-place-sign>.play-symbol{width:38px;height:38px;flex:none}
+.town-place-sign>span{display:flex;flex-direction:column;gap:1px}
+.town-place-sign strong{font-weight:800;font-size:17px;line-height:1.5}
+.town-place-sign small{font-size:12px;color:#5d7058}
+.town-place-sign>svg{width:18px;height:18px;margin-left:5px}
+.town-destination:hover .town-place-sign{transform:translateY(-5px)}
+.town-mobile-building{display:none}
+.town-section-heading{display:flex;align-items:center;gap:14px;margin:34px 0 18px}
+.town-section-heading h2{font-size:24px;font-weight:800;letter-spacing:.03em}
+.town-section-heading>.play-symbol{width:38px;height:38px}
+.town-section-heading>svg{width:26px;height:26px;color:#8b6a51}
+.town-story-shelf{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.town-story-book{display:grid;grid-template-columns:1fr 24px;position:relative;overflow:hidden;border-radius:24px;background:#eee5d1;border:1px solid #e2d6be;box-shadow:0 6px 16px #46533710}
+.town-story-book>.town-art{grid-column:1/-1;aspect-ratio:1.9}
+.town-story-book>span:not(.town-art){padding:17px 0 19px 20px;display:flex;flex-direction:column;gap:5px}
+.town-story-book strong{font-size:19px;font-weight:800}
+.town-story-book small{font-size:12px;color:#586950}
+.town-story-book>svg{width:19px;align-self:center;justify-self:end;margin-right:16px}
+.book-1{background:#e3ebdd;border-color:#d4ddc6}.book-2{background:#eae3e9;border-color:#dcd1dc}
+.town-home-note{display:flex;justify-content:center;align-items:center;gap:12px;margin:40px auto 0;font-size:13px;color:#627158}
+.town-home-note>.play-symbol{width:28px;height:28px}
+.town-place-banner{position:relative;height:220px;border-radius:30px;overflow:hidden;margin-bottom:28px;background:#e6e8ce}
+.town-place-banner>.town-art{width:100%;height:100%}
+.town-place-banner>.town-art>img{object-position:50% 44%}
+.town-place-banner>.play-symbol{position:absolute;bottom:16px;right:20px;width:70px;height:70px;padding:12px;background:#fff9e9;border-radius:24px;box-shadow:0 4px 14px #36533720}
+.town-shell .picture-activities{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.town-shell .picture-activities .picture-activity{aspect-ratio:auto;border-radius:25px;background:#f0eadb;box-shadow:var(--town-shadow);border:1px solid #e2dbc6;position:relative}
+.town-shell .picture-activities .play-picture{height:auto;aspect-ratio:1.55;min-height:0;background:#ece8ce}
+.town-activity-caption{display:flex;flex-direction:column;position:relative;gap:5px;padding:16px 38px 17px 19px;background:#fffbed}
+.town-activity-caption strong{font-size:18px;font-weight:800;line-height:1.5}
+.town-activity-caption small{font-size:12px;color:#5c6d58;line-height:1.6}
+.town-activity-caption>svg{position:absolute;right:16px;top:20px;width:18px;height:18px}
+.town-shell .picture-activity:hover{transform:translateY(-3px)}
+.town-neighbours{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;margin:40px 0 0;padding-top:24px;border-top:1px solid var(--town-line)}
+.town-neighbours a{display:flex;align-items:center;gap:7px;font-size:13px;min-height:48px;padding:4px 10px;border-radius:15px}
+.town-neighbours a:hover{background:#e9ecd9}
+.town-neighbours .play-symbol{width:34px;height:34px}
+/* The showroom retains its existing renderer, seven paints, catalogue and recovery. */
+.town-shell .car-roundabout{background:#e5ebda;border-radius:32px;border:1px solid #d9dfcb;margin-bottom:28px;padding-bottom:82px;min-height:0}
+.town-shell .vehicle-views{height:clamp(320px,42svh,440px);border-radius:0;background:#e5ebda}
+.town-shell .vehicle-views .vehicle-stage{background:#e5ebda}
+.town-shell .car-roundabout .car-voice{bottom:auto;top:16px;left:16px}
+.town-shell .car-roundabout .car-heart{right:16px;top:16px}
+.town-car-caption{position:absolute;bottom:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 24px;background:#f4f1e4;border-top:1px solid #d9dfcb}
+.town-car-caption>strong{font-size:19px;font-weight:800}
+.town-primary-link{display:inline-flex;gap:10px;align-items:center;justify-content:center;min-height:48px;padding:9px 20px;border-radius:17px;background:#3d6b52;color:#fffdf2;font-size:15px;font-weight:700;white-space:nowrap}
+.town-primary-link svg{width:18px;height:18px}
+.town-shell .garage-picker{max-width:none;padding-bottom:28px;margin-bottom:32px;border-bottom:1px solid var(--town-line)}
+.town-shell .garage-count{font-size:13px;color:#586b56}
+.town-shell .car-gallery.car-ribbon.garage-paged{max-width:none;gap:16px}
+.town-shell .garage-paged .car-gallery-card{background:#f0eddf;border-radius:22px;border:2px solid #e2decc}
+.town-shell .garage-paged .car-gallery-card.selected{background:#e0e8ca;border-color:#6a855e}
+.town-shell .picture-detail .detail-stage{padding-bottom:0;border:1px solid #d9dfcb}
+.town-shell .picture-garage .favorite-grid{gap:20px}
+.town-shell .picture-garage :is(.garage-car,.garage-invitation){background:#e7ead7;border:1px solid #d9dfc7;border-radius:24px}
+.town-empty-copy{font-size:14px;line-height:1.8;color:#5e6d55;margin:0 0 20px;max-width:55ch}
+.town-shell .picture-garage .creation-card{background:#f0e6ce;border:1px solid #e1d2b6}
+/* The child manipulates the object; the caption is a small optional companion cue. */
+.town-play-heading{display:flex;align-items:center;justify-content:space-between;gap:16px;margin:3px 4px 7px}
+.town-play-heading>span{font-size:12px;color:#627159}
+.town-play-heading h1{font-size:19px;font-weight:800;line-height:1.4}
+.town-shell .touch-canvas-wrap{border:1px solid #d6deca;border-radius:30px;box-shadow:var(--town-shadow)}
+.town-shell .touch-toolbar{margin-top:0;margin-bottom:10px}
+.town-shell .touch-title{margin-right:auto;margin-left:12px}
+.town-shell .touch-icon{border-radius:18px}
+.town-shell .touch-bottom{flex-wrap:wrap;gap:12px;margin:14px 4px 0}
+.town-action-cue{display:flex;gap:9px;align-items:center;font-size:13px;font-weight:600;line-height:1.6}
+.town-action-cue>svg{flex:none;color:#5b7855}
+.town-record-state{display:flex;align-items:center;gap:5px;font-size:12px;color:#3d6b52}
+.town-shell .touch-progress{min-width:40px;height:6px;background:#dedfcb}
+.town-shell .touch-progress>span{background:#78a079}
+.town-shell .touch-adult{margin-top:22px}
+.town-shell .touch-adult summary{opacity:1;background:#e8e9da;border:1px solid #dcdfcc;min-width:46px;min-height:46px;border-radius:17px}
+.town-shell .touch-loading>.play-symbol{width:70px;height:70px}
+.town-shell .story-return{max-width:1080px;margin:0 auto 8px}
+.town-shell .story-return a{height:44px;width:44px;border:1px solid #dfdfcd}
+.town-shell .story-picture{border:1px solid #dedbc3;border-radius:30px;overflow:hidden;box-shadow:var(--town-shadow);margin:18px 0}
+.town-shell .picture-story .town-heading{margin-bottom:15px}
+.town-shell .picture-story-toolbar .picture-button{height:48px;width:48px;border-radius:17px}
+.town-story-caption{max-width:68ch;margin:0 auto 22px;text-align:center}
+.town-story-caption p{font-size:16px;line-height:1.85;color:#3f5849}
+.town-story-caption>span{display:inline-flex;gap:8px;align-items:center;min-height:44px;font-size:13px;color:#5d7054}
+.town-story-caption svg{width:17px;height:17px}
+.town-shell .story-progress{gap:12px}
+.town-shell .picture-story .story-progress .story-dot{height:44px;width:44px;min-width:44px;background:radial-gradient(circle,#c4ceb4 0 6px,transparent 7px)}
+.town-shell .picture-story .story-progress .story-dot[aria-current=step]{background:radial-gradient(circle,#4f7657 0 8px,transparent 9px)}
+.town-shell .story-hero-car{filter:drop-shadow(0 10px 5px #364e4029)}
+.town-story-environment{position:absolute;inset:0;width:100%;height:100%}
+.town-story-environment>img{object-fit:cover}
+.town-shell .story-prop{width:16%;height:24%;padding:10px;background:#fff9e8e8;border:1px solid #e2d6b9;border-radius:25px;top:9%}
+.town-shell .story-hero-car{top:52%;width:59%;left:20%}
+.town-shell .story-packing-props{background:#fff8e6ed;border:1px solid #e6d2ae;border-radius:24px;padding:8px;bottom:5%;height:19%}
+/* Parent information states the activity, evidence and scope without assessment claims. */
+.town-shell .parent-page-title{padding:16px 0 26px;margin-bottom:22px;border-bottom:1px solid var(--town-line)}
+.town-shell .parent-page-title h1{font-size:34px;font-weight:800;letter-spacing:.03em}
+.town-shell .parent-page-title p{font-size:15px;color:#586c53}
+.town-teaching-map{margin-bottom:36px}
+.town-teaching-map>h2{font-size:25px;font-weight:800;margin-bottom:12px}
+.town-teaching-map>p{font-size:15px;line-height:1.8;color:#596c54;max-width:65ch;margin-bottom:22px}
+.town-teaching-map>div{display:grid;grid-template-columns:1fr 1fr;gap:12px 24px}
+.town-teaching-map details{border-bottom:1px solid #d9ddc8}
+.town-teaching-map summary{display:flex;justify-content:space-between;gap:12px;align-items:center;min-height:64px;cursor:pointer;padding:8px 12px;list-style:none;border-radius:14px}
+.town-teaching-map summary::after{content:'+';font-size:22px;color:#5d7651}
+.town-teaching-map details[open] summary::after{content:'−'}
+.town-teaching-map summary strong{font-size:17px}
+.town-teaching-map summary span{font-size:13px;color:#5c7054;margin-left:auto}
+.town-teaching-map ul{list-style:none;padding:0;margin:0}
+.town-teaching-map li+li{border-top:1px solid #e2e2d1}
+.town-teaching-map li a{display:flex;align-items:center;gap:14px;padding:16px 8px}
+.town-teaching-map .play-picture{width:110px;height:80px;min-height:80px;flex:none;border-radius:16px;background:#e5e9d6}
+.town-teaching-map li strong{font-size:15px;display:block}
+.town-teaching-map li small{font-size:12px;color:#657454}
+.town-teaching-map li p{font-size:13px;line-height:1.7;color:#4d624c;margin-top:5px}
+.town-shell .parent-grid{gap:24px}
+.town-shell .parent-card{border:1px solid #e0ddc9;border-radius:26px;background:#fffbed;box-shadow:none;padding:28px}
+.town-shell .parent-card h2{font-size:22px;font-weight:800}
+.town-shell .parent-card p{font-size:14px;color:#50614c;line-height:1.9}
+.town-shell .setting-row small,.town-shell .record-numbers span,.town-shell .domain-summary>div,.town-shell .parent-card>small{color:#50614c}
+.town-shell .parent-card summary{min-height:44px}
+.town-shell .parent-card .setting-row{align-items:flex-start}
+.town-shell .domain-summary{gap:8px}
+.town-shell .domain-summary>div{font-size:12px;background:#eaf0dc}
+.town-shell .record-numbers{gap:28px}
+.town-shell .parent-message{background:#e4edd7;border:1px solid #cbdabc;color:#365239}
+@media(max-width:1000px){
+ .town-brand-name{font-size:18px}.town-shell .child-dock .main-nav a{width:104px}.town-shell .picture-home>.play-symbol{width:44px;height:44px}
+ .town-place-sign{min-height:54px;padding:6px 10px;gap:7px}.town-place-sign strong{font-size:15px}.town-place-sign>.play-symbol{width:30px;height:30px}
+ .town-car-invitation{padding-right:12px;gap:6px}.town-car-invitation img{width:78px}
+ .town-shell .picture-activities{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media(max-width:700px){
+ .town-shell main{padding:14px 18px 34px}.town-shell .site-header.child-dock{height:78px;padding:8px 14px;gap:5px}
+ .town-brand-name{display:none}.town-shell .picture-home>.play-symbol{width:42px;height:42px}
+ .town-shell .child-dock .main-nav{left:47%;gap:5px}
+ .town-shell .child-dock .main-nav a{width:64px!important;height:58px;min-height:58px;flex-direction:column;gap:0;padding:3px 4px;border-radius:16px}
+ .town-shell .child-dock .main-nav .play-picture{width:30px;height:30px}.town-shell .child-dock .main-nav .play-symbol{width:30px;height:30px}
+ .town-nav-label{font-size:10px;line-height:1.7}
+ .town-shell .header-tools{gap:5px}.town-shell .child-dock .parent-entry,.town-shell .child-dock .header-tools>.picture-button:first-child{width:44px;height:44px;min-width:44px;border-radius:15px}
+ .town-shell .header-tools svg{width:21px;height:21px}
+ .town-heading{gap:12px;flex-wrap:wrap;margin:10px 0 20px}.town-heading h1{font-size:27px}.town-heading p{font-size:13px;margin-top:6px}
+ .town-car-invitation{min-height:44px;padding:3px 12px 3px 5px;border-radius:16px;font-size:12px;gap:8px;margin:0}.town-car-invitation img{width:68px;height:35px}
+ .town-map{border:0;border-radius:0;background:transparent;box-shadow:none;overflow:visible}
+ .town-map-art{display:none}.town-destinations{position:static;display:grid;grid-template-columns:1fr;gap:20px}
+ .town-destination{position:relative;left:auto;top:auto;transform:none;width:100%;height:auto;display:block;border-radius:26px;overflow:hidden;background:#eee5ce;border:1px solid #e0d5ba;box-shadow:var(--town-shadow)}
+ .town-mobile-building{display:block;width:100%;height:auto;aspect-ratio:1.8}
+ .town-place-sign{box-shadow:none;border:0;border-radius:0;background:#fffbed;min-height:68px;padding:10px 17px;gap:13px;transition:none}
+ .town-place-sign>.play-symbol{width:42px;height:42px}.town-place-sign strong{font-size:19px}.town-place-sign small{font-size:12px}
+ .town-place-sign>svg{margin-left:auto;width:20px;height:20px}
+ .town-destination:hover .town-place-sign{transform:none}
+ .town-section-heading{margin:28px 0 16px}.town-section-heading h2{font-size:22px}
+ .town-story-shelf{grid-template-columns:1fr;gap:16px}.town-story-book{grid-template-columns:110px 1fr 30px;min-height:116px;border-radius:22px;align-items:center}
+ .town-story-book>.town-art{grid-column:auto;aspect-ratio:auto;height:100%;width:110px}
+ .town-story-book>span:not(.town-art){padding:15px 8px 15px 16px}.town-story-book strong{font-size:17px}.town-story-book small{font-size:11px;line-height:1.6}
+ .town-story-book>svg{margin-right:13px}.town-home-note{font-size:12px;line-height:1.8;align-items:flex-start;margin-top:28px}
+ .town-home-note>.play-symbol{flex:none}
+ .town-place-banner{height:170px;border-radius:24px;margin-bottom:20px}
+ .town-shell .picture-activities{gap:16px}.town-shell .picture-activities .picture-activity{border-radius:22px}.town-shell .picture-activities .play-picture{aspect-ratio:1.25}
+ .town-activity-caption{padding:12px 13px 15px;gap:4px;min-height:91px}.town-activity-caption strong{font-size:15px}.town-activity-caption small{font-size:11px}.town-activity-caption>svg{display:none}
+ .town-neighbours{gap:7px;margin-top:28px}.town-neighbours a{font-size:12px;padding:3px 5px}.town-neighbours .play-symbol{width:29px;height:29px}
+ .town-shell .car-roundabout{padding-bottom:76px;border-radius:25px;margin-bottom:20px}.town-shell .vehicle-views{height:310px}
+ .town-car-caption{padding:12px 15px;gap:8px}.town-car-caption>strong{font-size:14px;line-height:1.6;max-width:48%}
+ .town-primary-link{padding:8px 13px;font-size:13px;gap:7px;border-radius:15px}
+ .town-shell .car-roundabout .car-voice{top:12px;left:12px}.town-shell .car-roundabout .car-heart{top:12px;right:12px}
+ .town-shell .car-gallery.car-ribbon.garage-paged{gap:12px}.town-shell .garage-paged .car-gallery-card{border-radius:18px}
+ .town-shell .picture-detail .detail-stage{padding-bottom:0}.town-shell .picture-garage .favorite-grid{gap:14px}
+ .town-shell .touch-toolbar{gap:6px;flex-wrap:nowrap}.town-shell .touch-title{width:46px;height:42px;margin:0 auto 0 0}
+ .town-shell .touch-icon{min-width:44px;min-height:44px;border-radius:15px}.town-shell .touch-tools{gap:5px}
+ .town-shell .touch-icon svg{width:22px;height:22px}.town-shell .touch-canvas-wrap{border-radius:23px}
+ .town-play-heading{margin:1px 2px 9px;gap:8px}.town-play-heading h1{font-size:17px}.town-play-heading>span{font-size:11px}
+ .town-shell .touch-bottom{gap:8px}.town-action-cue{font-size:12px;gap:7px}.town-record-state{font-size:11px}
+ .town-shell .touch-progress{min-width:32px;flex-basis:38px}.town-shell .touch-play{padding:0}
+ .town-shell .picture-story .story-picture{aspect-ratio:1.18;border-radius:24px}
+ .town-shell .picture-story-toolbar{gap:10px}.town-shell .story-hero-car{width:76%;left:12%;top:55%}
+ .town-shell .story-prop{width:22%;height:22%;border-radius:18px;padding:6px}
+ .town-story-caption p{font-size:14px;line-height:1.9}.town-story-caption>span{font-size:12px}
+ .town-shell .story-return{margin-bottom:4px}
+ .town-shell .parent-page-title h1{font-size:27px}.town-shell .parent-page-title p{font-size:13px}
+ .town-teaching-map>h2{font-size:23px}.town-teaching-map>p{font-size:14px}.town-teaching-map>div{grid-template-columns:1fr;gap:4px}
+ .town-shell .parent-card{padding:22px 18px;border-radius:22px}.town-shell .parent-card p{font-size:13px}.town-shell .parent-card h2{font-size:20px}
+ .town-shell .parent-grid{gap:18px}.town-shell .record-numbers{gap:22px}
+}
+@media(max-width:360px){
+ .town-shell .site-header.child-dock{padding-inline:8px}.town-shell .picture-home>.play-symbol{width:34px;height:34px}
+ .town-shell .child-dock .main-nav{left:43%;gap:2px}.town-shell .child-dock .main-nav a{width:52px!important;padding-inline:1px}
+ .town-shell .header-tools{gap:2px}.town-shell main{padding-inline:12px}
+ .town-shell .touch-title{display:none}.town-shell .touch-toolbar{gap:4px}.town-shell .touch-tools{gap:4px}
+ .town-heading h1{font-size:25px}.town-activity-caption strong{font-size:14px}
+}
+@media(min-width:701px){.town-place.place-wash .picture-activities{grid-template-columns:repeat(2,minmax(0,1fr));max-width:850px;margin-inline:auto}}
+@media(max-height:500px) and (min-width:601px){
+ .town-shell .town-play-heading{display:none}.town-shell main.activity-main{padding:4px 18px 10px}
+ .town-shell .touch-play{width:min(100%,calc(147svh - 125px))}
+ .town-shell .touch-toolbar{margin-bottom:6px}.town-shell .touch-bottom{margin-top:6px}
+ .town-shell .town-action-cue>span,.town-shell .town-record-state{display:none}
+}
+@media(prefers-reduced-motion:reduce){.town-place-sign{transition:none}.town-destination:hover .town-place-sign{transform:none}}
+.town-story-rain{position:absolute;inset:0;background:repeating-linear-gradient(112deg,transparent 0 38px,#bddbe58c 39px 41px,transparent 42px 83px);pointer-events:none}
+.town-weather-transition{position:absolute;left:50%;top:8%;transform:translateX(-50%);padding:8px 16px;border-radius:15px;background:#fff5d6;color:#4c6044;font-size:14px;white-space:nowrap}
+.town-shell .site-header.child-dock{min-height:0}
+.town-shell .picture-activity>.play-picture>.town-cover{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#eee9d9}
+.town-story-car{position:absolute;bottom:5%;left:4%;display:flex;align-items:center;gap:5px;padding:5px 10px;background:#fff9eae8;border:1px solid #e0d5b7;border-radius:20px;height:65px;width:170px}
+.town-story-car>img{width:120px;height:50px;object-fit:contain}.town-story-car>.play-symbol{width:20px;height:20px}
+@media(max-width:700px){.town-story-car{height:48px;width:124px;padding:4px 8px;border-radius:16px}.town-story-car>img{width:82px;height:38px}.town-story-car>.play-symbol{width:18px;height:18px}}
+.town-activity-cover>.town-cover{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:#f5efdf}
+.town-cover-hand{position:absolute;right:5%;bottom:6%;width:14%;height:23%;padding:4px;border-radius:50%;background:#fffae8c9}
+.town-cover-fallback{position:absolute;inset:15%;height:70%;width:70%}
+.town-shell .touch-title .town-cover-hand,.town-shell .town-teaching-map .town-cover-hand{display:none}
+.town-cover-subject{position:absolute;left:5%;top:6%;width:16%;height:24%;padding:5px;background:#fff8e8df;border:1px solid #ded9bd;border-radius:15px}
+.town-shell .touch-title .town-cover-subject,.town-shell .town-teaching-map .town-cover-subject{display:none}

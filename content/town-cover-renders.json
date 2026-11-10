@@ -1,0 +1,545 @@
+[
+  {
+    "activityId": "E01",
+    "path": "media/town/activity-E01.webp",
+    "sha256": "1f3b7bd8c36d35f952e9c2acc81f657d3d0bd3fb00bba22b4fd1ebd96c02795d",
+    "carId": "CAR01",
+    "presentation": "three",
+    "gestures": [],
+    "goal": "观察颜色，理解 red / blue / white",
+    "mode": "closed",
+    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "viewport": {
+      "width": 1280,
+      "height": 1000
+    },
+    "captureScript": "scripts/capture-town-covers.mjs"
+  },
+  {
+    "activityId": "E02",
+    "path": "media/town/activity-E02.webp",
+    "sha256": "e0dcb1f923f41f085a4530227f3604a0dd6379533d8174e4586ec5d060ea8a51",
+    "carId": "CAR01",
+    "presentation": "three",
+    "gestures": [],
+    "goal": "点实物部件，观察车轮、车门和车灯的作用",
+    "mode": "closed",
+    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "viewport": {
+      "width": 1280,
+      "height": 1000
+    },
+    "captureScript": "scripts/capture-town-covers.mjs"
+  },
+  {
+    "activityId": "E03",
+    "path": "media/town/activity-E03.webp",
+    "sha256": "05aa18707b0df249a4dfe4806dd105a542d49722bd9d689325f6df6e3b2a55db",
+    "carId": "CAR01",
+    "presentation": "three",
+    "gestures": [],
+    "goal": "观察红绿灯与出发、停止的对应",
+    "mode": "closed",
+    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "viewport": {
+      "width": 1280,
+      "height": 1000
+    },
+    "captureScript": "scripts/capture-town-covers.mjs"
+  },
+  {
+    "activityId": "M01",
+    "path": "media/town/activity-M01.webp",
+    "sha256": "c67c22690ace9a54491c7c98977808c653b6bc2fc3194ddd3e23f4e927df5398",
+    "carId": "CAR01",
+    "presentation": "three",
+    "gestures": [],
+    "goal": "一辆车对应一个位置",
+    "mode": "closed",
+    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "viewport": {
+      "width": 1280,
+      "height": 1000
+    },
+    "captureScript": "scripts/capture-town-covers.mjs"
+  },
+  {
+    "activityId": "M02",
+    "path": "media/town/activity-M02.webp",
+    "sha256": "cfc5e6d5dff37e1ef815afb4fff9305ec307f01bc672ee621cbb968b543a2cfb",
+    "carId": "CAR01",
+    "presentation": "three",
+    "gestures": [],
+    "goal": "观察数量与分合",
+    "mode": "closed",
+    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "viewport": {
+      "width": 1280,
+      "height": 1000
+    },
+    "captureScript": "scripts/capture-town-covers.mjs"
+  },
+  {
+    "activityId": "M03",
+    "path": "media/town/activity-M03.webp",
+    "sha256": "632e59ebf1b5b30643446b87d0860d8b28886b15e682e4f5c77f3094f10c4f4d",
+    "carId": "CAR01",
+    "presentation": "three",
+    "gestures": [],
+    "goal": "三辆车配四个车位，观察停好后仍有空位",
+    "mode": "closed",
+    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "viewport": {
+      "width": 1280,
+      "height": 1000
+    },
+    "captureScript": "scripts/capture-town-covers.mjs"
+  },
+  {
+    "activityId": "M04",
+    "path": "media/town/activity-M04.webp",
+    "sha256": "edbf6e2a8504e53f992e4c10e01c08fa1de31bf3739d2bf729bc541f107cba3d",
+    "carId": "CAR01",
+    "presentation": "three",
+    "gestures": [],
+    "goal": "发现并延续重复规律",
+    "mode": "closed",
+    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "viewport": {
+      "width": 1280,
+      "height": 1000
+    },
+    "captureScript": "scripts/capture-town-covers.mjs"
+  },
+  {
+    "activityId": "C01",
+    "path": "media/town/activity-C01.webp",
+    "sha256": "f48fc9e66527260a7845c7850e27ada57a9089eb5f0272e0e0d4da749b4bce69",
+    "carId": "CAR01",
+    "presentation": "three",
+    "gestures": [],
+    "goal": "自由布景与可选亲子描述；只记录参与，不自动评判表达",
+    "mode": "open",
+    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "viewport": {
+      "width": 1280,
+      "height": 1000
+    },
+    "captureScript": "scripts/capture-town-covers.mjs"
+  },
+  {
+    "activityId": "C02",
+    "path": "media/town/activity-C02.webp",
+    "sha256": "adce70193d81b7f2424b5570cc7fb2a5e384f6e768d33d5b2a975b68cc261412",
+    "carId": "CAR01",
+    "presentation": "three",
+    "gestures": [],
+    "goal": "理解顺序并尝试讲述过程",
+    "mode": "closed",
+    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "viewport": {
+      "width": 1280,
+      "height": 1000
+    },
+    "captureScript": "scripts/capture-town-covers.mjs"
+  },
+  {
+    "activityId": "C03",
+    "path": "media/town/activity-C03.webp",
+    "sha256": "0fd6a1ab738cf79974742cea24b559110116dc91633a234bc31757370c88e899",
+    "carId": "CAR01",
+    "presentation": "flat",
+    "gestures": [
+      {
+        "id": "my-car",
+        "from": {
+          "x": 500,
+          "y": 367.20000000000005
+        },
+        "to": {
+          "x": 300,
+          "y": 380
+        },
+        "action": "real pointer drag"
+      },
+      {
+        "id": "stamp-0",
+        "from": {
+          "x": 200,
+          "y": 578
+        },
+        "to": {
+          "x": 770,
+          "y": 360
+        },
+        "action": "real pointer drag"
+      },
+      {
+        "id": "stamp-1",
+        "from": {
+          "x": 500,
+          "y": 578
+        },
+        "to": {
+          "x": 730,
+          "y": 130
+        },
+        "action": "real pointer drag"
+      },
+      {
+        "id": "stamp-2",
+        "from": {
+          "x": 800,
+          "y": 578
+        },
+        "to": {
+          "x": 220,
+          "y": 140
+        },
+        "action": "real pointer drag"
+      }
+    ],
+    "goal": "自由编排场景与可选讲述；不自动判断连贯表达",
+    "mode": "open",
+    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "viewport": {
+      "width": 1280,
+      "height": 1000
+    },
+    "captureScript": "scripts/capture-town-covers.mjs"
+  },
+  {
+    "activityId": "S01",
+    "path": "media/town/activity-S01.webp",
+    "sha256": "7ebad583d28266a22d4f65f063710ea9c407a90d0f28a0eada3996d2f6960c6a",
+    "carId": "CAR01",
+    "presentation": "three",
+    "gestures": [],
+    "goal": "先预测，再观察和比较",
+    "mode": "open",
+    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "viewport": {
+      "width": 1280,
+      "height": 1000
+    },
+    "captureScript": "scripts/capture-town-covers.mjs"
+  },
+  {
+    "activityId": "S02",
+    "path": "media/town/activity-S02.webp",
+    "sha256": "1128e436b723efaacfb60fb777fb1753cb17f025f0bef82de3c17f859e890477",
+    "carId": "CAR01",
+    "presentation": "three",
+    "gestures": [],
+    "goal": "改变光源位置，观察影子方向",
+    "mode": "open",
+    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "viewport": {
+      "width": 1280,
+      "height": 1000
+    },
+    "captureScript": "scripts/capture-town-covers.mjs"
+  },
+  {
+    "activityId": "S03",
+    "path": "media/town/activity-S03.webp",
+    "sha256": "4b779f8d039449ae8474692e054aea066fc8423313d6009db13d4da16788e6d6",
+    "carId": "CAR01",
+    "presentation": "three",
+    "gestures": [],
+    "goal": "根据下雨情境选雨伞和外套，观察防雨用途",
+    "mode": "closed",
+    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "viewport": {
+      "width": 1280,
+      "height": 1000
+    },
+    "captureScript": "scripts/capture-town-covers.mjs"
+  },
+  {
+    "activityId": "T01",
+    "path": "media/town/activity-T01.webp",
+    "sha256": "bd7e6f8fe3ce5d3b9aacc715c318ba6503b68302d8bc975fe4ffa41dd03cdd9a",
+    "carId": "CAR01",
+    "presentation": "three",
+    "gestures": [],
+    "goal": "触摸真实部件，观察轮转、灯亮和车门位置",
+    "mode": "closed",
+    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "viewport": {
+      "width": 1280,
+      "height": 1000
+    },
+    "captureScript": "scripts/capture-town-covers.mjs"
+  },
+  {
+    "activityId": "T02",
+    "path": "media/town/activity-T02.webp",
+    "sha256": "c5a8b6517207a40409ce8bfa7e7e663b4eb3dff8dbbd4ada057895680fc9e833",
+    "carId": "CAR01",
+    "presentation": "three",
+    "gestures": [],
+    "goal": "比较长度、尝试并调整方案",
+    "mode": "closed",
+    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "viewport": {
+      "width": 1280,
+      "height": 1000
+    },
+    "captureScript": "scripts/capture-town-covers.mjs"
+  },
+  {
+    "activityId": "T03",
+    "path": "media/town/activity-T03.webp",
+    "sha256": "7a2bd3228f0a5c10753b75d6b9de2d2e02e8a95dfc1e7ab160c89a967fe992aa",
+    "carId": "CAR01",
+    "presentation": "three",
+    "gestures": [],
+    "goal": "固定形状路块旋转连接，由直路到转弯再到完整路线",
+    "mode": "closed",
+    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "viewport": {
+      "width": 1280,
+      "height": 1000
+    },
+    "captureScript": "scripts/capture-town-covers.mjs"
+  },
+  {
+    "activityId": "H01",
+    "path": "media/town/activity-H01.webp",
+    "sha256": "14f7a7623aada5d75233c79c4c7ad392145462bd76b47eed7be4803ffea9f3f0",
+    "carId": "CAR01",
+    "presentation": "three",
+    "gestures": [],
+    "goal": "选择公园、图书馆和博物馆，观察不同场景物件",
+    "mode": "open",
+    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "viewport": {
+      "width": 1280,
+      "height": 1000
+    },
+    "captureScript": "scripts/capture-town-covers.mjs"
+  },
+  {
+    "activityId": "H02",
+    "path": "media/town/activity-H02.webp",
+    "sha256": "0d51effa6ecbceae63980900ae0b9b30d0825284eaf1fdb066f21e7752ae6100",
+    "carId": "CAR01",
+    "presentation": "three",
+    "gestures": [],
+    "goal": "为维修、清洁和搬运伙伴匹配合适工具，观察帮助用途",
+    "mode": "closed",
+    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "viewport": {
+      "width": 1280,
+      "height": 1000
+    },
+    "captureScript": "scripts/capture-town-covers.mjs"
+  },
+  {
+    "activityId": "H03",
+    "path": "media/town/activity-H03.webp",
+    "sha256": "a2976c50d146fc5e901470a9fbdfcc437c12d4785e0c31069f32ef25f2fd93e0",
+    "carId": "CAR01",
+    "presentation": "three",
+    "gestures": [],
+    "goal": "依次为两辆车清洗，前一辆洗好后交换",
+    "mode": "closed",
+    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "viewport": {
+      "width": 1280,
+      "height": 1000
+    },
+    "captureScript": "scripts/capture-town-covers.mjs"
+  },
+  {
+    "activityId": "A01",
+    "path": "media/town/activity-A01.webp",
+    "sha256": "e2ecf2727733c2527eeb1a00ab5c9eebb38b540ce18facfcca71c1e27a739c58",
+    "carId": "CAR01",
+    "presentation": "flat",
+    "gestures": [
+      {
+        "id": "stamp-0",
+        "from": {
+          "x": 200,
+          "y": 578
+        },
+        "to": {
+          "x": 800,
+          "y": 330
+        },
+        "action": "real pointer drag"
+      },
+      {
+        "id": "stamp-1",
+        "from": {
+          "x": 500,
+          "y": 578
+        },
+        "to": {
+          "x": 220,
+          "y": 170
+        },
+        "action": "real pointer drag"
+      },
+      {
+        "id": "stamp-2",
+        "from": {
+          "x": 800,
+          "y": 578
+        },
+        "to": {
+          "x": 760,
+          "y": 180
+        },
+        "action": "real pointer drag"
+      }
+    ],
+    "goal": "自由构图和配色，保存参与作品，不评判创作水平",
+    "mode": "open",
+    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "viewport": {
+      "width": 1280,
+      "height": 1000
+    },
+    "captureScript": "scripts/capture-town-covers.mjs"
+  },
+  {
+    "activityId": "A02",
+    "path": "media/town/activity-A02.webp",
+    "sha256": "d5ed8b7f3c6af1bad852164d2e6ad3ce71e82d41cd22610ef36b002bd399d783",
+    "carId": "CAR01",
+    "presentation": "flat",
+    "gestures": [
+      {
+        "id": "ink-1",
+        "action": "real pointer tap"
+      },
+      {
+        "id": "my-car",
+        "from": {
+          "x": 500,
+          "y": 367.20000000000005
+        },
+        "to": {
+          "x": 220,
+          "y": 440
+        },
+        "action": "real pointer drag"
+      },
+      {
+        "id": "my-car",
+        "from": {
+          "x": 300,
+          "y": 439.9999897268422
+        },
+        "to": {
+          "x": 760,
+          "y": 300
+        },
+        "action": "real pointer drag"
+      },
+      {
+        "id": "my-car",
+        "from": {
+          "x": 700,
+          "y": 299.9999897268422
+        },
+        "to": {
+          "x": 350,
+          "y": 510
+        },
+        "action": "real pointer drag"
+      }
+    ],
+    "goal": "推车留下轮印，观察重复和颜色，保存参与作品",
+    "mode": "open",
+    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "viewport": {
+      "width": 1280,
+      "height": 1000
+    },
+    "captureScript": "scripts/capture-town-covers.mjs"
+  },
+  {
+    "activityId": "L01",
+    "path": "media/town/activity-L01.webp",
+    "sha256": "242cd44c6a000103d2f63791ba03da330e6645ea1b158d4370b8e2e5aee671da",
+    "carId": "CAR01",
+    "presentation": "three",
+    "gestures": [],
+    "goal": "为晴天出游准备水和帽子，再模拟检查安全带",
+    "mode": "closed",
+    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "viewport": {
+      "width": 1280,
+      "height": 1000
+    },
+    "captureScript": "scripts/capture-town-covers.mjs"
+  },
+  {
+    "activityId": "L02",
+    "path": "media/town/activity-L02.webp",
+    "sha256": "d297c45a4fe513353eb945cff9f7ac4d83d4768342587de3334ad74a9128902f",
+    "carId": "CAR01",
+    "presentation": "three",
+    "gestures": [],
+    "goal": "在小车遇到困难的场景中尝试向同伴求助，记录参与不评判表达",
+    "mode": "open",
+    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "viewport": {
+      "width": 1280,
+      "height": 1000
+    },
+    "captureScript": "scripts/capture-town-covers.mjs"
+  },
+  {
+    "activityId": "L03",
+    "path": "media/town/activity-L03.webp",
+    "sha256": "4ab6ddd78caf84a7f0ee35d99467e836bc77d1f9bbaa49fa363cc7136e4bc86f",
+    "carId": "CAR01",
+    "presentation": "three",
+    "gestures": [],
+    "goal": "按可见车身颜色配对整理",
+    "mode": "closed",
+    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "viewport": {
+      "width": 1280,
+      "height": 1000
+    },
+    "captureScript": "scripts/capture-town-covers.mjs"
+  },
+  {
+    "activityId": "P01",
+    "path": "media/town/activity-P01.webp",
+    "sha256": "42bcc8ab3c237bb9832b6e48915419cb98f5d3336d52d341d3a22107223fa14d",
+    "carId": "CAR01",
+    "presentation": "three",
+    "gestures": [],
+    "goal": "同样车辆接受同一推动，比较光滑与粗糙路面的滑行距离；只记录探索",
+    "mode": "open",
+    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "viewport": {
+      "width": 1280,
+      "height": 1000
+    },
+    "captureScript": "scripts/capture-town-covers.mjs"
+  },
+  {
+    "activityId": "T04",
+    "path": "media/town/activity-T04.webp",
+    "sha256": "0ad367f5713ce9483b3dfe71e9db06b78c4f99dcfa1e0583ada0840a3156b99b",
+    "carId": "CAR01",
+    "presentation": "three",
+    "gestures": [],
+    "goal": "观察生成跑车的车身和两个车轮，拖装或点放完成",
+    "mode": "closed",
+    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "viewport": {
+      "width": 1280,
+      "height": 1000
+    },
+    "captureScript": "scripts/capture-town-covers.mjs"
+  }
+]

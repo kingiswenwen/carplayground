@@ -1,0 +1,245 @@
+[
+  {
+    "name": "home",
+    "route": "/explore",
+    "device": "desktop",
+    "width": 1440,
+    "height": 1000,
+    "path": "docs/town-preview/home-desktop.webp",
+    "overflow": false
+  },
+  {
+    "name": "showroom",
+    "route": "/cars",
+    "device": "desktop",
+    "width": 1440,
+    "height": 1000,
+    "path": "docs/town-preview/showroom-desktop.webp",
+    "overflow": false
+  },
+  {
+    "name": "wash",
+    "route": "/play/H03",
+    "device": "desktop",
+    "width": 1440,
+    "height": 1000,
+    "path": "docs/town-preview/wash-desktop.webp",
+    "overflow": false
+  },
+  {
+    "name": "parking",
+    "route": "/play/M03",
+    "device": "desktop",
+    "width": 1440,
+    "height": 1000,
+    "path": "docs/town-preview/parking-desktop.webp",
+    "overflow": false
+  },
+  {
+    "name": "bridge",
+    "route": "/play/T02",
+    "device": "desktop",
+    "width": 1440,
+    "height": 1000,
+    "path": "docs/town-preview/bridge-desktop.webp",
+    "overflow": false
+  },
+  {
+    "name": "studio",
+    "route": "/explore/studio",
+    "device": "desktop",
+    "width": 1440,
+    "height": 1000,
+    "path": "docs/town-preview/studio-desktop.webp",
+    "overflow": false
+  },
+  {
+    "name": "story",
+    "route": "/stories/ST02?step=1",
+    "device": "desktop",
+    "width": 1440,
+    "height": 1000,
+    "path": "docs/town-preview/story-desktop.webp",
+    "overflow": false
+  },
+  {
+    "name": "garage",
+    "route": "/garage",
+    "device": "desktop",
+    "width": 1440,
+    "height": 1000,
+    "path": "docs/town-preview/garage-desktop.webp",
+    "overflow": false
+  },
+  {
+    "name": "parent",
+    "route": "/parent",
+    "device": "desktop",
+    "width": 1440,
+    "height": 1000,
+    "path": "docs/town-preview/parent-desktop.webp",
+    "overflow": false
+  },
+  {
+    "name": "home",
+    "route": "/explore",
+    "device": "tablet",
+    "width": 768,
+    "height": 1024,
+    "path": "docs/town-preview/home-tablet.webp",
+    "overflow": false
+  },
+  {
+    "name": "showroom",
+    "route": "/cars",
+    "device": "tablet",
+    "width": 768,
+    "height": 1024,
+    "path": "docs/town-preview/showroom-tablet.webp",
+    "overflow": false
+  },
+  {
+    "name": "wash",
+    "route": "/play/H03",
+    "device": "tablet",
+    "width": 768,
+    "height": 1024,
+    "path": "docs/town-preview/wash-tablet.webp",
+    "overflow": false
+  },
+  {
+    "name": "parking",
+    "route": "/play/M03",
+    "device": "tablet",
+    "width": 768,
+    "height": 1024,
+    "path": "docs/town-preview/parking-tablet.webp",
+    "overflow": false
+  },
+  {
+    "name": "bridge",
+    "route": "/play/T02",
+    "device": "tablet",
+    "width": 768,
+    "height": 1024,
+    "path": "docs/town-preview/bridge-tablet.webp",
+    "overflow": false
+  },
+  {
+    "name": "studio",
+    "route": "/explore/studio",
+    "device": "tablet",
+    "width": 768,
+    "height": 1024,
+    "path": "docs/town-preview/studio-tablet.webp",
+    "overflow": false
+  },
+  {
+    "name": "story",
+    "route": "/stories/ST02?step=1",
+    "device": "tablet",
+    "width": 768,
+    "height": 1024,
+    "path": "docs/town-preview/story-tablet.webp",
+    "overflow": false
+  },
+  {
+    "name": "garage",
+    "route": "/garage",
+    "device": "tablet",
+    "width": 768,
+    "height": 1024,
+    "path": "docs/town-preview/garage-tablet.webp",
+    "overflow": false
+  },
+  {
+    "name": "parent",
+    "route": "/parent",
+    "device": "tablet",
+    "width": 768,
+    "height": 1024,
+    "path": "docs/town-preview/parent-tablet.webp",
+    "overflow": false
+  },
+  {
+    "name": "home",
+    "route": "/explore",
+    "device": "phone",
+    "width": 390,
+    "height": 844,
+    "path": "docs/town-preview/home-phone.webp",
+    "overflow": false
+  },
+  {
+    "name": "showroom",
+    "route": "/cars",
+    "device": "phone",
+    "width": 390,
+    "height": 844,
+    "path": "docs/town-preview/showroom-phone.webp",
+    "overflow": false
+  },
+  {
+    "name": "wash",
+    "route": "/play/H03",
+    "device": "phone",
+    "width": 390,
+    "height": 844,
+    "path": "docs/town-preview/wash-phone.webp",
+    "overflow": false
+  },
+  {
+    "name": "parking",
+    "route": "/play/M03",
+    "device": "phone",
+    "width": 390,
+    "height": 844,
+    "path": "docs/town-preview/parking-phone.webp",
+    "overflow": false
+  },
+  {
+    "name": "bridge",
+    "route": "/play/T02",
+    "device": "phone",
+    "width": 390,
+    "height": 844,
+    "path": "docs/town-preview/bridge-phone.webp",
+    "overflow": false
+  },
+  {
+    "name": "studio",
+    "route": "/explore/studio",
+    "device": "phone",
+    "width": 390,
+    "height": 844,
+    "path": "docs/town-preview/studio-phone.webp",
+    "overflow": false
+  },
+  {
+    "name": "story",
+    "route": "/stories/ST02?step=1",
+    "device": "phone",
+    "width": 390,
+    "height": 844,
+    "path": "docs/town-preview/story-phone.webp",
+    "overflow": false
+  },
+  {
+    "name": "garage",
+    "route": "/garage",
+    "device": "phone",
+    "width": 390,
+    "height": 844,
+    "path": "docs/town-preview/garage-phone.webp",
+    "overflow": false
+  },
+  {
+    "name": "parent",
+    "route": "/parent",
+    "device": "phone",
+    "width": 390,
+    "height": 844,
+    "path": "docs/town-preview/parent-phone.webp",
+    "overflow": false
+  }
+]

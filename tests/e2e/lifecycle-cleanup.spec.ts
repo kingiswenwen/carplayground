@@ -21,7 +21,7 @@ for(const [kind,rounds] of [['play',20],['viewer',10]] as const)test(`${kind} �
    await page.evaluate(route=>{location.hash=route;},kind==='play'?'/play/M01?car=CAR01':'/cars/CAR01');
    const canvas=page.locator(kind==='play'?'canvas.touch-world-canvas':'canvas.vehicle-webgl');
    await expect(canvas).toHaveAttribute('data-ready','true',{timeout:45000});
-   await page.getByRole('link',{name:'汽车游乐园首页',exact:true}).click();
+   await page.getByRole('link',{name:'汽车小镇首页',exact:true}).click();
    await expect(page.locator('div.picture-world')).toBeVisible();await expect(page.locator('canvas')).toHaveCount(0);
    // Warm once: app-global handlers may be installed on the first real gesture.
    if(!baseline)baseline=await counter.counts();

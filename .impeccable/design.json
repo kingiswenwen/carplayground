@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-11-10T10:40:26.845355+00:00",
+  "title": "Design System: 汽车小镇",
+  "extensions": {
+    "colorMeta": {
+      "town-green": {
+        "role": "primary",
+        "displayName": "小镇绿"
+      },
+      "town-paper": {
+        "role": "neutral",
+        "displayName": "奶油纸色"
+      },
+      "town-ink": {
+        "role": "neutral",
+        "displayName": "深绿文字"
+      }
+    },
+    "shadows": [
+      {
+        "name": "town",
+        "value": "0 8px 24px #42583913",
+        "purpose": "建筑地图和邀请的柔和面层深度。"
+      },
+      {
+        "name": "tool",
+        "value": "0 3px 10px #354e3810",
+        "purpose": "轻量图标工具。"
+      }
+    ],
+    "motion": [
+      {
+        "name": "sign-hover",
+        "value": "transform .18s",
+        "purpose": "地点路牌轻微上移；减少动画时取消。"
+      },
+      {
+        "name": "press",
+        "value": "translateY(2px)",
+        "purpose": "图标工具的按下反馈。"
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "medium",
+        "value": "1000px"
+      },
+      {
+        "name": "phone",
+        "value": "700px"
+      },
+      {
+        "name": "narrow-phone",
+        "value": "360px"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "主要动作链接",
+      "kind": "button",
+      "refersTo": "primary-link",
+      "description": "带爱车进入具体玩法。",
+      "html": "<a class=\"ds-primary\" href=\"#\">带它去洗车 →</a>",
+      "css": ".ds-primary{display:inline-flex;align-items:center;min-height:48px;padding:9px 20px;border-radius:17px;background:var(--town-green,#3d6b52);color:#fffdf2;font:700 15px sans-serif;text-decoration:none}.ds-primary:focus-visible{outline:3px solid #a75c2f;outline-offset:5px}.ds-primary:active{transform:translateY(2px)}"
+    },
+    {
+      "name": "图标工具",
+      "kind": "button",
+      "description": "返回、声音、帮助和重玩。",
+      "html": "<button class=\"ds-icon\" aria-label=\"返回\"><svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\"><path d=\"m12 5-7 7 7 7M5 12h14\"/></svg></button>",
+      "css": ".ds-icon{display:inline-grid;place-items:center;width:52px;height:52px;border:1px solid #e0e2ce;border-radius:18px;background:#fffdf5;color:var(--town-ink,#294d42);box-shadow:0 3px 10px #354e3810;cursor:pointer}.ds-icon:focus-visible{outline:3px solid #a75c2f;outline-offset:5px}.ds-icon:active{transform:translateY(2px);box-shadow:none}.ds-icon:disabled{opacity:.45;cursor:default}"
+    },
+    {
+      "name": "主要导航",
+      "kind": "nav",
+      "description": "物件图标和短标签；当前目的地保持淡绿底。",
+      "html": "<nav class=\"ds-nav\"><a href=\"#\" aria-current=\"page\">去探索</a><a href=\"#\">看车</a><a href=\"#\">我的车库</a></nav>",
+      "css": ".ds-nav{display:flex;gap:10px}.ds-nav a{display:grid;place-items:center;min-height:58px;padding:4px 12px;border:1px solid transparent;border-radius:20px;color:var(--town-ink,#294d42);font:700 15px sans-serif;text-decoration:none}.ds-nav a[aria-current]{background:#e6ecd7;border-color:#cfdbc0}.ds-nav a:hover{background:#edf0df}.ds-nav a:focus-visible{outline:3px solid #a75c2f;outline-offset:5px}"
+    },
+    {
+      "name": "活动邀请",
+      "kind": "card",
+      "refersTo": "activity-caption",
+      "description": "实际动作封面下方的标题、动作句和箭头。",
+      "html": "<a class=\"ds-activity\" href=\"#\"><strong>小车回家</strong><small>一辆小车，一个车位</small><span aria-hidden=\"true\">→</span></a>",
+      "css": ".ds-activity{display:flex;flex-direction:column;position:relative;gap:5px;padding:16px 38px 17px 19px;border:1px solid #e2dbc6;border-radius:25px;background:#fffbed;color:var(--town-ink,#294d42);text-decoration:none;font-family:sans-serif;box-shadow:0 8px 24px #42583913}.ds-activity strong{font-size:18px}.ds-activity small{font-size:12px;color:#5c6d58}.ds-activity span{position:absolute;right:16px;top:20px}.ds-activity:hover{transform:translateY(-3px)}.ds-activity:focus-visible{outline:3px solid #a75c2f;outline-offset:5px}"
+    },
+    {
+      "name": "教学地图分组",
+      "kind": "custom",
+      "description": "家长区展开地点内的教学说明。",
+      "html": "<details class=\"ds-teaching\"><summary>停车广场 <span>5项活动</span></summary><p>一一对应、数量关系、规律与整理。</p></details>",
+      "css": ".ds-teaching{border-bottom:1px solid #d9ddc8;color:var(--town-ink,#294d42);font-family:sans-serif}.ds-teaching summary{display:flex;justify-content:space-between;align-items:center;min-height:64px;padding:8px 12px;border-radius:14px;cursor:pointer;font-weight:700}.ds-teaching summary span{font-size:13px;color:#5c7054}.ds-teaching summary:focus-visible{outline:3px solid #a75c2f;outline-offset:5px}.ds-teaching p{padding:12px;font-size:14px;line-height:1.9}"
+    },
+    {
+      "name": "车型搜索",
+      "kind": "input",
+      "description": "可查车型与中英文品牌；带图标的48px搜索框。",
+      "html": "<label class=\"ds-search\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><circle cx=\"10\" cy=\"10\" r=\"6\"/><path d=\"m15 15 5 5\"/></svg><input type=\"search\" aria-label=\"查找车型或品牌\" placeholder=\"找车型或品牌\"></label>",
+      "css": ".ds-search{position:relative;display:block;color:#365653}.ds-search svg{position:absolute;left:14px;top:14px;pointer-events:none}.ds-search input{box-sizing:border-box;width:100%;min-width:0;min-height:48px;padding:10px 14px 10px 43px;border:1px solid #b8c7b0;border-radius:16px;background:#fffaf0;color:#365653;font:16px sans-serif;caret-color:var(--town-green,#3d6b52)}.ds-search input::placeholder{color:#526f64;opacity:1}.ds-search input:focus-visible{outline:3px solid #a75c2f;outline-offset:5px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "可以亲手探索的汽车小镇",
+    "overview": "圆润的微缩建筑、道路和道具构成孩子可辨认的世界。实际教学区域优先保证物体、目标轮廓、手势和现象可见。",
+    "keyCharacteristics": [
+      "建筑入口、物件图标和直接操作先于文字说明。",
+      "明确轮廓、柔和阴影、足够大的常用控件。",
+      "页面、地点、故事与玩法共用暖色底和低干扰工具。"
+    ],
+    "rules": [
+      {
+        "name": "The Teaching Colour Rule",
+        "body": "认颜色、规律和分类所用的红、蓝、白来自原教学内容。",
+        "section": "colors"
+      },
+      {
+        "name": "The Object First Rule",
+        "body": "标题和短句帮助陪玩者理解，孩子无需读懂文字才能选择建筑、抓取物体或进入故事活动。",
+        "section": "typography"
+      }
+    ],
+    "dos": [
+      "保持教学目标、操作对象、命中范围、示范和反馈共同校对。",
+      "复用登记车型与来源记录，保留同车图片回退和保存重试。"
+    ],
+    "donts": [
+      "用装饰图片的车位或道路替代实际规则引擎中的对象。",
+      "给开放表达与创作自动标注能力、得分或知识掌握。",
+      "让换视图、镜头调整或切屏重置孩子进行中的活动。"
+    ]
+  }
+}
