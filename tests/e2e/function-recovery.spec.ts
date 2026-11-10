@@ -38,7 +38,7 @@ test('玩法图片超时提供重试，恢复后可以继续 @smoke',async({page
 });
 
 test('玩法页面模块失败有恢复入口，重新打开保留原玩法 @smoke',async({page})=>{
- await page.goto('/#/explore');await expect(page.getByRole('link',{name:'小车回家',exact:true})).toBeVisible();
+ await page.goto('/#/explore');await page.getByRole('link',{name:'停车广场',exact:true}).click();await expect(page.getByRole('link',{name:'小车回家',exact:true})).toBeVisible();
  let blocked=true;
  await page.route('**/*',route=>blocked&&route.request().resourceType()==='script'&&/TouchPlay[.-]/.test(route.request().url())?route.abort():route.continue());
  await page.getByRole('link',{name:'小车回家',exact:true}).click();

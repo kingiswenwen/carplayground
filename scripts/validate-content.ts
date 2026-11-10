@@ -14,6 +14,7 @@ for (const asset of content.assets) {
   const bytes = await fs.readFile(filename);
   if (!bytes.length) throw new Error(`空素材 ${asset.id}`);
   if (createHash('sha256').update(bytes).digest('hex') !== asset.sha256) throw new Error(`哈希不匹配 ${asset.id}`);
+  if(asset.kind==='font'&&(path.extname(filename)!=='.woff'||bytes.toString('ascii',0,4)!=='wOFF'))throw new Error(`字体格式无效 ${asset.id}`);
   if (asset.kind === 'image') {
     const meta = await sharp(bytes).metadata();
     if (meta.width !== asset.width || meta.height !== asset.height) throw new Error(`图片尺寸不匹配 ${asset.id}`);

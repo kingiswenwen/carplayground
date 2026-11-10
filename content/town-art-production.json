@@ -1,0 +1,357 @@
+[
+  {
+    "tool": "Built-in GPT Image",
+    "sourceFile": "exec-b6740063-a4e9-437d-b863-b9b03fe5b0b1.png",
+    "sourceSha256": "548d894bdf0f93b04917bcae6d1397634338799bc464eb92f5364a0d1a642217",
+    "prompt": "Create a production-quality 3D miniature toy car town environment illustration for a Chinese preschool educational app, landscape 1536x1024. Beautiful restrained creamy warm ivory world, sage green lawns and trees, buttery yellow, muted coral and pale teal architectural details. Consistent orthographic isometric view from above at 35 degrees, sunlight upper left, soft contact shadows, tactile matte clay and painted wood, rounded beveled buildings, exquisitely crafted like a high-end miniature diorama. Entire composition is a connected small town, with winding warm gray roads with ivory lane markings, pedestrian crossings, green verges. SIX distinct large destinations well separated around a winding central road with spacious foreground: upper left a glass-fronted mint and yellow CAR SHOWROOM with a recognizable unbranded yellow sports car; upper right a coral-roofed PARKING GARAGE with exactly visible parking spaces and miniature cars; middle left a coral and ochre REPAIR WORKSHOP with a large wheel sign and workbench; middle right a teal arch-shaped BUBBLE CAR WASH with bubbles, one sports car being washed and a second waiting; lower left a PARK with river, small wooden bridge and two parallel flat road strips, trees and picnic; lower right a yellow ART STUDIO with lavender roof, easel and paintbrush. Charming tiny unbranded sports cars, quiet foliage. The road connects every destination. No people, no faces, NO WORDS, NO LETTERS, NO TEXT OR LOGOS, NO USER INTERFACE, NO LABELS. Leave space near buildings for HTML labels. Frame full town completely with margins on all edges. This is an actual environment art asset, not a webpage mockup.",
+    "outputs": [
+      {
+        "path": "media/town/town.webp",
+        "purpose": "desktop town map",
+        "sha256": "16e856667b588893c1d885767777c98819c3e606725ea5b87ce258123c0499a5",
+        "width": 1536,
+        "height": 1024
+      },
+      {
+        "path": "media/town/showroom.webp",
+        "purpose": "mobile destination and place banner",
+        "crop": [
+          60,
+          0,
+          620,
+          340
+        ],
+        "resize": [
+          720,
+          440
+        ],
+        "sha256": "1a565b1a7fe68577292a41118ad56068b83e914bb7e8e2a48e2218757743c3e8",
+        "width": 720,
+        "height": 440
+      },
+      {
+        "path": "media/town/parking.webp",
+        "purpose": "mobile destination and place banner",
+        "crop": [
+          900,
+          0,
+          635,
+          340
+        ],
+        "resize": [
+          720,
+          440
+        ],
+        "sha256": "70a0db23ca17a3d6eaea2a9b6a24b04b96d0e40814a2cd593d90eda6a1a985d9",
+        "width": 720,
+        "height": 440
+      },
+      {
+        "path": "media/town/workshop.webp",
+        "purpose": "mobile destination and place banner",
+        "crop": [
+          50,
+          280,
+          610,
+          335
+        ],
+        "resize": [
+          720,
+          440
+        ],
+        "sha256": "ab080c116f1a3e9a7fe258679b856cf62f1f262d5524f61cbfd7cd1fe99566a8",
+        "width": 720,
+        "height": 440
+      },
+      {
+        "path": "media/town/wash.webp",
+        "purpose": "mobile destination and place banner",
+        "crop": [
+          940,
+          300,
+          580,
+          320
+        ],
+        "resize": [
+          720,
+          440
+        ],
+        "sha256": "48979b83e95e7ab1dea2441c7d8709fc9a03e5457842c608ea99fe7fb50dadbd",
+        "width": 720,
+        "height": 440
+      },
+      {
+        "path": "media/town/park.webp",
+        "purpose": "mobile destination and place banner",
+        "crop": [
+          10,
+          605,
+          730,
+          405
+        ],
+        "resize": [
+          720,
+          440
+        ],
+        "sha256": "1aacdc72647d977ea92cf3282137ef589784c3c46b9a4d865f34b0df7fa8d8cb",
+        "width": 720,
+        "height": 440
+      },
+      {
+        "path": "media/town/studio.webp",
+        "purpose": "mobile destination and place banner",
+        "crop": [
+          925,
+          590,
+          600,
+          385
+        ],
+        "resize": [
+          720,
+          440
+        ],
+        "sha256": "48807864876a0f99c6c01d1e6b1924141051b0e88bb3de18966b8adeb9b8d8e2",
+        "width": 720,
+        "height": 440
+      }
+    ],
+    "teachingBoundary": "Decorative place art, never used as collision geometry or counted task objects."
+  },
+  {
+    "tool": "Built-in GPT Image",
+    "sourceFile": "exec-7e626be5-05c6-4352-9147-955c8dc84384.png",
+    "sourceSha256": "d6fe3a235ff7c76a1f9cc7c36747284b8ff9f2e5cb71e4466f2f1360f9375d9c",
+    "referencedImage": "exec-b6740063-a4e9-437d-b863-b9b03fe5b0b1.png",
+    "prompt": "Use the referenced miniature car town as the strict visual style reference: warm cream, sage, coral, teal, wood and clay, rounded volumes, soft sunlight upper left, consistent isometric/oblique perspective, premium preschool app illustration. Produce an edge-to-edge 2 by 2 storyboard asset sheet, four separate landscape 3:2 panels aligned on an exact grid with NO borders, NO gutters, NO text, NO lettering, no UI. Each quadrant is a complete scene independently, not a single image. Same style and level of detail in all four. Fill the entire image with the four panels; no blank outer margins. Specific events and objects are primary and should occupy most of each panel. No humans. Recognizable toy sports cars, not characters with eyes. Top left: Close view inside the glass mint car showroom, one yellow toy sports car, its round wheels, a bright headlight, friendly sun through windows. Top right: Parking courtyard, two wide adjacent ivory outlined parking bays, one yellow car and a blue car waiting to take turns parking. Bottom left: A quiet showroom discovery corner, one sports car up close with round wheel, headlamp and side door visible; two small hearts on display next to it. Bottom right: Art studio desk with a large cream poster sheet, yellow sports car picture, green leaf, yellow star and small easel, chunky pots of red blue and yellow paint and brushes, an inviting unfinished composition.",
+    "outputs": [
+      {
+        "path": "media/town/story-ST01-0.webp",
+        "frame": 0,
+        "crop": [
+          0,
+          0,
+          768,
+          512
+        ],
+        "purpose": "story event scene; original linked activity retained",
+        "sha256": "48819fa1300f7b31966881eea3ab719512d32d1599807201044c6159ca501204",
+        "width": 768,
+        "height": 512
+      },
+      {
+        "path": "media/town/story-ST01-1.webp",
+        "frame": 1,
+        "crop": [
+          768,
+          0,
+          768,
+          512
+        ],
+        "purpose": "story event scene; original linked activity retained",
+        "sha256": "10d09b3e13dfae8ce7f4a3ada54d171e3a31af29b681ad54ba439347d10995fb",
+        "width": 768,
+        "height": 512
+      },
+      {
+        "path": "media/town/story-ST01-2.webp",
+        "frame": 2,
+        "crop": [
+          0,
+          512,
+          768,
+          512
+        ],
+        "purpose": "story event scene; original linked activity retained",
+        "sha256": "46bf39b3e64ca34545eec79410f0511ae059ee05a18f33b565ef50d68c6d3c77",
+        "width": 768,
+        "height": 512
+      },
+      {
+        "path": "media/town/story-ST01-3.webp",
+        "frame": 3,
+        "crop": [
+          768,
+          512,
+          768,
+          512
+        ],
+        "purpose": "story event scene; original linked activity retained",
+        "sha256": "6e7dd58d0fdbe2188805f707f3ee9325dcc2d8eb6e06b5679d60f6a13f76f68c",
+        "width": 768,
+        "height": 512
+      },
+      {
+        "path": "media/town/story-ST01.webp",
+        "crop": [
+          0,
+          0,
+          768,
+          512
+        ],
+        "purpose": "story cover",
+        "sha256": "48819fa1300f7b31966881eea3ab719512d32d1599807201044c6159ca501204",
+        "width": 768,
+        "height": 512
+      }
+    ],
+    "teachingBoundary": "Story illustration is separate from playable targets; no activity rule is inferred from generated art."
+  },
+  {
+    "tool": "Built-in GPT Image",
+    "sourceFile": "exec-b6db29cf-9695-45fd-b121-52217e42b360.png",
+    "sourceSha256": "d304ca55956e527bc0ccb0812aeb0348fc6a68b007503c58c74e4c94d879f673",
+    "referencedImage": "exec-b6740063-a4e9-437d-b863-b9b03fe5b0b1.png",
+    "prompt": "Use the referenced miniature car town as the strict visual style reference: warm cream, sage, coral, teal, wood and clay, rounded volumes, soft sunlight upper left, consistent isometric/oblique perspective, premium preschool app illustration. Produce an edge-to-edge 2 by 2 storyboard asset sheet, four separate landscape 3:2 panels aligned on an exact grid with NO borders, NO gutters, NO text, NO lettering, no UI. Each quadrant is a complete scene independently, not a single image. Same style and level of detail in all four. Fill the entire image with the four panels; no blank outer margins. Specific events and objects are primary and should occupy most of each panel. No humans. Recognizable toy sports cars, not characters with eyes. Top left: View of a car town park in gentle rain, visibly overcast, raindrops and puddles, a yellow sports car under a small porch, clear umbrella and a raincoat hanging together, everything indicates rain. Top right: The rain has STOPPED, warm sunshine and blue sky, tiny water drops on leaves, an open small backpack on a bench with a water bottle and sun hat beside it, car seat with belt beside the yellow sports car. Clearly sunny departure with correct water and hat, not umbrella. Bottom left: Park entrance road with three separated road pieces leading toward a tree and picnic meadow, small toy yellow car waiting before the gap, bridge over a river visible at back, specific road building event. Bottom right: Peaceful AFTER RAIN park, sun and droplets on leaves, small yellow toy sports car under a big rounded tree, open calm space, picnic blanket and butterfly, story still open ended.",
+    "outputs": [
+      {
+        "path": "media/town/story-ST02-0.webp",
+        "frame": 0,
+        "crop": [
+          0,
+          0,
+          768,
+          512
+        ],
+        "purpose": "story event scene; original linked activity retained",
+        "sha256": "a70a83ba8c7ceae8c089c3afe85a2c47267f40cb9493d0734448e270be08e206",
+        "width": 768,
+        "height": 512
+      },
+      {
+        "path": "media/town/story-ST02-1.webp",
+        "frame": 1,
+        "crop": [
+          768,
+          0,
+          768,
+          512
+        ],
+        "purpose": "story event scene; original linked activity retained",
+        "sha256": "cbc5aaad14a76d12582ca9fac69ed1fcc8adba7b0c1356df51cf7372e183775d",
+        "width": 768,
+        "height": 512
+      },
+      {
+        "path": "media/town/story-ST02-2.webp",
+        "frame": 2,
+        "crop": [
+          0,
+          512,
+          768,
+          512
+        ],
+        "purpose": "story event scene; original linked activity retained",
+        "sha256": "021326be8525b896756079fa1bdd610346d114b709d9f7b705fd7cfba35d33fd",
+        "width": 768,
+        "height": 512
+      },
+      {
+        "path": "media/town/story-ST02-3.webp",
+        "frame": 3,
+        "crop": [
+          768,
+          512,
+          768,
+          512
+        ],
+        "purpose": "story event scene; original linked activity retained",
+        "sha256": "7277a3fb0162e54748135d4c1d1124f2f29705c093f4fee0cf8a3b3493d49674",
+        "width": 768,
+        "height": 512
+      },
+      {
+        "path": "media/town/story-ST02.webp",
+        "crop": [
+          0,
+          0,
+          768,
+          512
+        ],
+        "purpose": "story cover",
+        "sha256": "a70a83ba8c7ceae8c089c3afe85a2c47267f40cb9493d0734448e270be08e206",
+        "width": 768,
+        "height": 512
+      }
+    ],
+    "teachingBoundary": "Story illustration is separate from playable targets; no activity rule is inferred from generated art."
+  },
+  {
+    "tool": "Built-in GPT Image",
+    "sourceFile": "exec-84b56bab-7af2-449c-b583-6b9009d0d982.png",
+    "sourceSha256": "38b914132c907ad076ce60c27a4a1a86b9469df62227e0e05dca48a589790c6b",
+    "referencedImage": "exec-b6740063-a4e9-437d-b863-b9b03fe5b0b1.png",
+    "prompt": "Use the referenced miniature car town as the strict visual style reference: warm cream, sage, coral, teal, wood and clay, rounded volumes, soft sunlight upper left, consistent isometric/oblique perspective, premium preschool app illustration. Produce an edge-to-edge 2 by 2 storyboard asset sheet, four separate landscape 3:2 panels aligned on an exact grid with NO borders, NO gutters, NO text, NO lettering, no UI. Each quadrant is a complete scene independently, not a single image. Same style and level of detail in all four. Fill the entire image with the four panels; no blank outer margins. Specific events and objects are primary and should occupy most of each panel. No humans. Recognizable toy sports cars, not characters with eyes. Top left: Parking courtyard with exactly FOUR large outlined parking spaces and THREE toy cars, one yellow, one blue, one cream, a clear empty parking bay. Top right: A teal bubble car wash, ONE yellow toy sports car covered in some brown mud being washed with a big yellow sponge, a SECOND blue toy sports car WAITING outside on a separate dry waiting pad; only one wash station, clearly conveys taking turns. Bottom left: Small coral roof repair workshop, yellow sports car with loose wheel, a tool cart and a big friendly hand-wave picture card propped beside it suggesting asking for help, tools laid out concretely. Bottom right: Three small garage bays with clear RED, BLUE and WHITE painted door frames, red car inside red bay, blue car inside blue bay, white car inside white bay, organized at rest, evening warm light.",
+    "outputs": [
+      {
+        "path": "media/town/story-ST03-0.webp",
+        "frame": 0,
+        "crop": [
+          0,
+          0,
+          768,
+          512
+        ],
+        "purpose": "story event scene; original linked activity retained",
+        "sha256": "415b6a7e81cd7b861a7a3990c81fa4e8dfcba84cd5c15328fa4b5e115dd031b5",
+        "width": 768,
+        "height": 512
+      },
+      {
+        "path": "media/town/story-ST03-1.webp",
+        "frame": 1,
+        "crop": [
+          768,
+          0,
+          768,
+          512
+        ],
+        "purpose": "story event scene; original linked activity retained",
+        "sha256": "01561dd1725bb9b7ba890f21d4c45a899441ad6a1707993f315b5c8268631c42",
+        "width": 768,
+        "height": 512
+      },
+      {
+        "path": "media/town/story-ST03-2.webp",
+        "frame": 2,
+        "crop": [
+          0,
+          512,
+          768,
+          512
+        ],
+        "purpose": "story event scene; original linked activity retained",
+        "sha256": "3a0196bdd242c9912eb61ed47f4e0387d1c47ae43369fe89b4428b4860fd1120",
+        "width": 768,
+        "height": 512
+      },
+      {
+        "path": "media/town/story-ST03-3.webp",
+        "frame": 3,
+        "crop": [
+          768,
+          512,
+          768,
+          512
+        ],
+        "purpose": "story event scene; original linked activity retained",
+        "sha256": "bf995e0319e27c3d540e2596309f4fbe097925ee09ad4b518811d1e0504fa314",
+        "width": 768,
+        "height": 512
+      },
+      {
+        "path": "media/town/story-ST03.webp",
+        "crop": [
+          0,
+          0,
+          768,
+          512
+        ],
+        "purpose": "story cover",
+        "sha256": "415b6a7e81cd7b861a7a3990c81fa4e8dfcba84cd5c15328fa4b5e115dd031b5",
+        "width": 768,
+        "height": 512
+      }
+    ],
+    "teachingBoundary": "Story illustration is separate from playable targets; no activity rule is inferred from generated art."
+  }
+]

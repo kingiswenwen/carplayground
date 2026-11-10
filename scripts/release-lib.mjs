@@ -5,7 +5,7 @@ import { execFileSync } from 'node:child_process';
 import {verifyModelParts} from './model-delivery.mjs';
 
 export const sha256 = bytes => createHash('sha256').update(bytes).digest('hex');
-export const mimeType = filename => ({'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json; charset=utf-8','.webp':'image/webp','.mp3':'audio/mpeg','.png':'image/png','.svg':'image/svg+xml','.glb':'model/gltf-binary'}[path.extname(filename)] || 'application/octet-stream');
+export const mimeType = filename => ({'.html':'text/html; charset=utf-8','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json; charset=utf-8','.webp':'image/webp','.woff':'font/woff','.mp3':'audio/mpeg','.png':'image/png','.svg':'image/svg+xml','.glb':'model/gltf-binary'}[path.extname(filename)] || 'application/octet-stream');
 const deviceRequirements = new Set(['real-ipad', 'real-phone']);
 export function readinessSnapshot(readiness) {
   const outstanding = [], waived = [];
@@ -66,7 +66,7 @@ export async function verifyPackage(packageDirectory) {
   for(const id of [...appIds,...contentIds])if(!/^[a-zA-Z0-9][a-zA-Z0-9._-]{0,127}$/.test(id))throw Error('版本编号无效');
   if(new Set(appIds).size!==appIds.length)throw Error('保留版本编号重复');
   for(const filename of names){
-    const allowed=filename==='index.html'||appIds.some(id=>filename===`releases/${id}/index.html`||(filename.startsWith(`releases/${id}/assets/`)&&/\.(js|css)$/.test(filename)))||contentIds.some(id=>filename===`content/${id}/manifest.json`||(filename.startsWith(`media/${id}/`)&&/\.(webp|mp3|glb)$/.test(filename))||(filename.startsWith(`media/${id}/rendered-cars/`)&&/^car\d{2,3}-[\w-]+\.webp\.json$/.test(path.posix.basename(filename))&&names.includes(filename.slice(0,-5))));
+    const allowed=filename==='index.html'||appIds.some(id=>filename===`releases/${id}/index.html`||(filename.startsWith(`releases/${id}/assets/`)&&/\.(js|css)$/.test(filename)))||contentIds.some(id=>filename===`content/${id}/manifest.json`||(filename.startsWith(`media/${id}/`)&&/\.(webp|mp3|glb|woff)$/.test(filename))||(filename.startsWith(`media/${id}/rendered-cars/`)&&/^car\d{2,3}-[\w-]+\.webp\.json$/.test(path.posix.basename(filename))&&names.includes(filename.slice(0,-5))));
     const modelPart=contentIds.some(id=>filename.startsWith(`media/${id}/models/`)&&/^(?:car\d{2,3}\.glb\.(?:parts\.json|part-\d{3}\.bin))$/.test(path.posix.basename(filename)));
     if(!allowed&&!modelPart)throw Error(`发布包包含非网页交付文件：${filename}`);
   }

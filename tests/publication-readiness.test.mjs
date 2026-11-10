@@ -1,6 +1,6 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
-import {readinessSnapshot} from '../scripts/release-lib.mjs';
+import {readinessSnapshot, mimeType, headersFor} from '../scripts/release-lib.mjs';
 
 const waiver = {status: 'waived', waivedBy: 'user', waivedAt: '2026-10-21', note: '用户要求略过真机，按浏览器验证', evidence: 'private:device-scope-record'};
 test('用户设备豁免单独留证，不再阻塞；其他未完成条件仍保留', () => {
@@ -20,4 +20,11 @@ test('略过设备不授权略过声音、家庭、云端或备份条件', () =>
   for (const id of ['audio-listening', 'audio-distribution', 'family-observation', 'cloud-configuration', 'nas-backup']) {
     assert.throws(() => readinessSnapshot({requirements: {[id]: waiver}}), /不在设备豁免范围/);
   }
+});
+
+test('登记字体使用可解码的MIME与不可变媒体缓存',()=>{
+ const filename='media/r28-town-0.17.0/town/town-sans-regular.woff';
+ assert.equal(mimeType(filename),'font/woff');
+ assert.equal(headersFor(filename)['Cache-Control'],'public, max-age=31536000, immutable');
+ assert.equal(headersFor(filename)['X-Content-Type-Options'],'nosniff');
 });

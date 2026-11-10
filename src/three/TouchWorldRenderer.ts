@@ -1,4 +1,5 @@
 import * as T from 'three';
+import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {SVGLoader} from 'three/addons/loaders/SVGLoader.js';
 import {drawPlaySymbol,symbolSvg} from '../visual/play-symbols';
@@ -59,6 +60,7 @@ export class TouchWorldRenderer{
  private washKey='';
  private washGantry?:T.Group;
  private assemblyWidth=0;
+ private phoneFocusKey='';
  private state:BoardSnapshot;
  private reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
  paused=false;
@@ -66,7 +68,7 @@ export class TouchWorldRenderer{
   this.state=state;
   this.renderer=new T.WebGLRenderer({antialias:true,alpha:false,powerPreference:'low-power'});
   const gl=this.renderer.getContext(),debug=gl.getExtension('WEBGL_debug_renderer_info');const software=!!debug&&/swiftshader|llvmpipe|software/i.test(gl.getParameter(debug.UNMASKED_RENDERER_WEBGL));// Gameplay uses light diffuse surfaces; the showroom retains full PBR detail.
-  this.software=software;this.simpleMaterials=true;this.renderer.domElement.dataset.quality=software?'simple':'balanced';this.renderer.setPixelRatio(Math.min(devicePixelRatio,software?.65:1.25));this.renderer.setClearColor('#d9edf0');
+  this.software=software;this.simpleMaterials=true;this.renderer.domElement.dataset.quality=software?'simple':'balanced';this.renderer.setPixelRatio(Math.min(devicePixelRatio,software?.65:1.25));this.renderer.setClearColor('#f5efdf');
   this.renderer.outputColorSpace=T.SRGBColorSpace;this.renderer.toneMapping=T.ACESFilmicToneMapping;this.renderer.toneMappingExposure=1;
   this.renderer.shadowMap.enabled=false;
   const canvas=this.renderer.domElement;canvas.className='touch-world-canvas';canvas.tabIndex=0;canvas.setAttribute('role','application');canvas.setAttribute('aria-label',activity==='H03'?'立体洗车场景，直接擦洗车身；回车擦洗下一处，第一辆洗净后回车换车':'立体汽车互动场景，直接拖动车辆和物件；方向键移动，回车放下，方括号选择物体');canvas.dataset.ready='false';canvas.dataset.activity=activity;host.append(canvas);
@@ -85,11 +87,13 @@ export class TouchWorldRenderer{
  setOrbit(enabled:boolean){this.orbit=enabled;this.controls.enabled=enabled;this.needsRender=true;this.cancel();}
  setPaused(value:boolean){this.paused=value;this.controls.enabled=this.orbit&&!value;if(value)this.cancel();}
  resetCamera(){const length=this.board.height*UNIT,portrait=this.host.clientWidth<this.host.clientHeight;this.camera.position.set(portrait?0:10,Math.max(19,length*1.2),Math.max(18,length*1.15));this.camera.lookAt(0,0,0);this.controls.target.set(0,0,0);this.controls.update();this.resize();}
- private resize=()=>{if(this.disposed)return;const w=Math.max(1,this.host.clientWidth),h=Math.max(1,this.host.clientHeight);this.renderer.setSize(w,h,false);this.camera.aspect=w/h;const depth=this.board.height*UNIT;const distance=Math.max(depth*1.9,22/this.camera.aspect/Math.tan(37*Math.PI/360)/2)*1.12;const direction=this.camera.position.clone().sub(this.controls.target).normalize();this.camera.position.copy(this.controls.target).addScaledVector(direction,distance);this.camera.updateProjectionMatrix();if(['T04','E02','T01','H03'].includes(this.activity)&&this.actors.size)this.fitContentCamera();this.needsRender=true;};
+ private resize=()=>{if(this.disposed)return;const w=Math.max(1,this.host.clientWidth),h=Math.max(1,this.host.clientHeight);this.renderer.setSize(w,h,false);this.camera.aspect=w/h;const depth=this.board.height*UNIT;const distance=Math.max(depth*1.9,22/this.camera.aspect/Math.tan(37*Math.PI/360)/2)*1.12;const direction=this.camera.position.clone().sub(this.controls.target).normalize();this.camera.position.copy(this.controls.target).addScaledVector(direction,distance);this.camera.updateProjectionMatrix();if((['T04','E02','T01','H03'].includes(this.activity)||this.phoneFocus())&&this.actors.size)this.fitContentCamera();this.needsRender=true;};
+ private phoneFocus(){return this.host.clientWidth<this.host.clientHeight&&['M01','M02','M03','T02'].includes(this.activity);}
  private fitContentCamera(){
-  const depth=this.board.height*UNIT,bounds=new T.Box3(new T.Vector3(-11,-.5,-depth/2-1),new T.Vector3(11,0,depth/2+1));
+  const depth=this.board.height*UNIT,bounds=this.activity==='H03'||this.phoneFocus()?new T.Box3():new T.Box3(new T.Vector3(-11,-.5,-depth/2-1),new T.Vector3(11,0,depth/2+1));
   for(const actor of this.actors.values())if(actor.group.visible)bounds.expandByObject(actor.group,true);
   if(this.washGantry)bounds.expandByObject(this.washGantry,true);
+  if(this.phoneFocus()){for(const target of this.board.targets)if(target.enabled!==false)for(const x of [-.5,.5])for(const y of [-.5,.5])bounds.expandByPoint(this.world(target.x+target.w*x,target.y+target.h*y));bounds.expandByScalar(.2);}
   const direction=this.camera.position.clone().sub(this.controls.target).normalize(),center=bounds.getCenter(new T.Vector3());
   this.controls.target.copy(center);
   const fits=(distance:number)=>{
@@ -289,18 +293,53 @@ export class TouchWorldRenderer{
  private outline(parent:T.Object3D,w:number,d:number,color:string){for(const [x,z,a,b]of [[0,-d/2,w,.07],[0,d/2,w,.07],[-w/2,0,.07,d],[w/2,0,.07,d]])add(parent,block(a,.06,b,color),x,.045,z);}
  private buildScenery(){
   const depth=this.board.height*UNIT;const road=['M01','M02','M03','L03','P01','S01','E03','T03','H01'].includes(this.activity);
-  const floor=block(22,.5,depth+2,road?'#aec796':'#d9c399');floor.position.y=-.35;this.scenery.add(floor);
-  if(road){const surface=block(19.5,.06,depth*.85,colors.road);surface.position.y=-.06;this.scenery.add(surface);for(let x=-9;x<10;x+=1.3)add(this.scenery,block(.65,.025,.09,'#f9edc7'),x,.015,0);}
+  const rounded=(w:number,h:number,d:number,color:string)=>new T.Mesh(new RoundedBoxGeometry(w,h,d,2,Math.min(.16,w/4,h/4,d/4)),material(color));
+  const floor=rounded(22,.5,depth+2,road?'#c4d2a5':'#e7d8b4');floor.position.y=-.35;this.scenery.add(floor);
+  if(road){const surface=rounded(19.5,.06,depth*.85,'#83938b');surface.position.y=-.06;this.scenery.add(surface);for(let x=-9;x<10;x+=1.3)add(this.scenery,block(.65,.025,.09,'#f9edc7'),x,.015,0);}
   if(['P01','S01'].includes(this.activity)){for(let i=0;i<35;i++)add(this.scenery,ball(.13,'#b29b75'),-9+(i%14)*1.35,.09,depth*.15+Math.floor(i/14)*.4);}
-  if(this.activity==='H03'){this.washGantry=new T.Group();this.scenery.add(this.washGantry);for(const x of [-9,9])add(this.washGantry,block(.4,6,.4,'#75aaa8'),x,3,-depth*.25);add(this.washGantry,block(18.4,.4,.4,'#75aaa8'),0,6,-depth*.25);for(let x=-8;x<=8;x+=2)add(this.washGantry,block(.15,.6,.15,'#c4ecf4'),x,5.5,-depth*.25);}
+  if(this.activity==='H03'){this.washGantry=new T.Group();this.scenery.add(this.washGantry);for(const x of [-9,9])add(this.washGantry,rounded(.65,6,.65,'#84b5aa'),x,3,-depth*.25);add(this.washGantry,rounded(18.6,.65,.65,'#84b5aa'),0,6,-depth*.25);for(let x=-8;x<=8;x+=2)add(this.washGantry,block(.15,.6,.15,'#c4ecf4'),x,5.5,-depth*.25);}
   if(this.activity==='T02'){add(this.scenery,block(7.8,.16,depth*.8,'#83c8dc'),0,-.1,-1);for(const x of [-4.1,4.1])add(this.scenery,block(.15,.2,depth*.8,'#e1dfbb'),x,.04,-1);}
-  for(const x of [-10.3,10.3]){add(this.scenery,block(.15,.35,depth+1,'#91aa87'),x,0);}
+  for(const x of [-10.3,10.3]){add(this.scenery,rounded(.22,.35,depth+1,'#9baa86'),x,0);}
+  // Scenery stays outside the manipulation plane; it never changes task geometry.
+  // No added dynamic lights, shadow maps or continuous decoration on software GPUs.
+  for(const x of [-9.3,9.3]){
+   const tree=new T.Group();add(tree,rounded(.28,1.2,.28,'#ad8864'),0,.6);
+   add(tree,ball(.83,'#96b47d'),0,1.5);add(tree,ball(.58,'#afc18c'),.4,1.9);
+   add(this.scenery,tree,x,0,-depth*.48);
+   add(this.scenery,rounded(1.9,.16,1.3,'#dce0b8'),x,-.08,-depth*.48);
+  }
+  if(['T04','T01','H02','A01','A02','C01','C03','L02','C02'].includes(this.activity)){
+   add(this.scenery,rounded(17,.2,.45,'#c69e70'),0,.1,-depth*.48);
+  }
+  const back=-depth*.53;
+  if(['E01','E02','E03','C01'].includes(this.activity)){
+   // A low glazed showroom facade; the learning objects stay in front of it.
+   add(this.scenery,rounded(15,1.8,.35,'#b9cfc2'),0,.75,back);
+   add(this.scenery,rounded(13.8,1.25,.1,'#dbe7d4'),0,.8,back+.22);
+   for(const x of [-6,-3,0,3,6])add(this.scenery,rounded(.12,1.4,.14,'#8aa99d'),x,.85,back+.3);
+   add(this.scenery,rounded(15.5,.28,.8,'#edca7c'),0,1.8,back);
+  }else if(['T01','T02','T03','T04','H02','L02'].includes(this.activity)){
+   add(this.scenery,rounded(10,1.6,.25,'#dfbe89'),0,.75,back);
+   for(let n=0;n<8;n++)add(this.scenery,ball(.05,'#ae8c5d'),-4+n*1.15,1.1,back+.16);
+   add(this.scenery,rounded(11,.25,.75,'#d69474'),0,1.6,back);
+  }else if(['A01','A02','C02','C03'].includes(this.activity)){
+   for(const [n,color]of ['#c96b4f','#477da8','#6e9154'].entries()){
+    add(this.scenery,rounded(.5,.5,.5,color),-2+n*2,.3,back);
+    add(this.scenery,rounded(.09,.8,.09,'#b99062'),-2+n*2,.9,back);
+   }
+  }else if(['P01','S01','S03','L01','H01'].includes(this.activity)){
+   add(this.scenery,rounded(5,.2,.7,'#c9a777'),0,.6,back);
+   for(const x of [-1.8,1.8])add(this.scenery,rounded(.2,.65,.4,'#a5aa83'),x,.25,back);
+  }
+
  }
  private sync(){
   const seen=new Set<string>();
   for(const item of this.board.items){seen.add(item.id);let actor=this.actors.get(item.id);
    if(actor&&item.kind==='road'&&actor.group.userData.road!==this.state.road.shapes[item.turn!]){this.retired.add(actor.group);this.actors.delete(item.id);actor=undefined;}
-   if(!actor){actor=item.kind==='car'||item.kind==='body'?this.vehicle({...item,carId:item.carId||this.carId}):this.prop(item);this.actors.set(item.id,actor);if(item.kind==='road')actor.group.userData.road=this.state.road.shapes[item.turn!];}
+   if(actor&&item.kind==='plank'&&actor.group.userData.sizeKey!==`${item.w}/${item.h}`){this.retired.add(actor.group);this.actors.delete(item.id);actor=undefined;}
+   if(!actor){actor=item.kind==='car'||item.kind==='body'?this.vehicle({...item,carId:item.carId||this.carId}):this.prop(item);this.actors.set(item.id,actor);if(item.kind==='road')actor.group.userData.road=this.state.road.shapes[item.turn!];if(item.kind==='plank')actor.group.userData.sizeKey=`${item.w}/${item.h}`;}
+   if(['M01','M02','M03','T02'].includes(this.activity)&&actor.model){actor.scale=item.w*UNIT/4.65;actor.group.scale.setScalar(actor.scale);}
    const position=this.world(item.x,item.y),dx=position.x-actor.x,dz=position.z-actor.z,dist=Math.hypot(dx,dz),held=this.board.selectedItem===item.id;
    if(actor.model&&dist>.002&&dist<3){const target=Math.atan2(-dz,dx);if(this.activity!=='T04'&&!item.placed)actor.yaw+=Math.atan2(Math.sin(target-actor.yaw),Math.cos(target-actor.yaw))*.2;for(const wheel of actor.wheels)wheel.rotateOnAxis(wheel.userData.axis,dist/.3/Math.max(.1,actor.scale));}
    if(actor.model){actor.scale=item.w*UNIT/4.65;actor.group.scale.setScalar(actor.scale);}
@@ -326,7 +365,7 @@ export class TouchWorldRenderer{
   for(const[id,actor]of this.actors)if(!seen.has(id)){this.retired.add(actor.group);this.actors.delete(id);}
   const targetIds=new Set(this.board.targets.map(t=>t.id));
   for(const[id,group]of this.targets)if(!targetIds.has(id)){this.retired.add(group);this.targets.delete(id);}
-  for(const target of this.board.targets){let group=this.targets.get(target.id);if(!group){group=new T.Group();group.userData.target=target.id;
+  for(const target of this.board.targets){let group=this.targets.get(target.id);const sizeKey=`${target.w}/${target.h}`;if(group&&group.userData.sizeKey!==sizeKey){this.retired.add(group);this.targets.delete(target.id);group=undefined;}if(!group){group=new T.Group();group.userData.target=target.id;group.userData.sizeKey=sizeKey;
     if(this.activity==='T04'&&target.id.startsWith('wheel-')){const radius=target.w*UNIT*.43;const ring=new T.Mesh(new T.TorusGeometry(radius,.065,6,32),new T.MeshBasicMaterial({color:'#fff2be'}));group.add(ring);const hit=new T.Mesh(new T.BoxGeometry(radius*2.3,radius*2.3,.5),new T.MeshBasicMaterial({transparent:true,opacity:0,depthWrite:false,colorWrite:false}));group.add(hit);}
     else{this.outline(group,target.w*UNIT,target.h*UNIT,target.color||colors.cream);const fill=new T.Mesh(new T.PlaneGeometry(target.w*UNIT,target.h*UNIT),new T.MeshBasicMaterial({color:target.color||colors.cream,transparent:true,opacity:.15,depthWrite:false,side:T.DoubleSide}));fill.rotation.x=-Math.PI/2;fill.position.y=.025;fill.userData.destinationFill=true;group.add(fill);}
     group.userData.feedbackMeshes=group.children.filter(o=>o instanceof T.Mesh);
@@ -339,6 +378,8 @@ export class TouchWorldRenderer{
   }
   const chosen=this.actors.get(this.board.selectedItem||'');this.selection.visible=!!chosen&&!this.state.completed;
   if(chosen){const bounds=this.actorBounds(chosen),size=bounds.getSize(new T.Vector3());this.selection.position.copy(bounds.getCenter(new T.Vector3()));this.selection.position.y=.07;this.selection.scale.set(Math.max(.7,size.x*.62),Math.max(.6,size.z*.7),1);}
+  const phoneFocusKey=`${this.phoneFocus()}/${this.board.height}/${this.board.items[0]?.w}`;
+  if(['M01','M02','M03','T02'].includes(this.activity)&&phoneFocusKey!==this.phoneFocusKey){this.phoneFocusKey=phoneFocusKey;if(this.phoneFocus())this.fitContentCamera();}
   if(this.activity==='S02'){
    const car=this.actors.get('shadow-car'),lamp=this.actors.get('lamp');if(car&&lamp){if(!this.shadow){this.shadow=car.group.clone(true);this.shadow.traverse(o=>{delete o.userData.item;if(o instanceof T.Mesh)o.material=new T.MeshBasicMaterial({color:'#445b5f',transparent:true,opacity:.35,depthWrite:false});});this.scene.add(this.shadow);}
     this.shadow.position.copy(car.group.position).add(new T.Vector3((car.x-lamp.x)*.6,0,(car.z-lamp.z)*.2));this.shadow.position.y=.035;this.shadow.scale.set(car.scale*(1+Math.abs(car.x-lamp.x)*.04),.006,car.scale);this.shadow.rotation.y=car.yaw;}

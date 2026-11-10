@@ -1,3 +1,4 @@
+import {TownHeading} from '../components/Town';
 import {useEffect, useRef, useState} from 'react';
 import {ArrowLeft, ArrowRight, Volume2, RotateCcw, Check} from 'lucide-react';
 import {StoryScene} from '../components/StoryScene';
@@ -73,8 +74,10 @@ export function Story({storyId, initialFrame}: {storyId: string; initialFrame?: 
   if (!loaded) return <div className="pictorial-loading" role="status" aria-label="故事正在打开"><PlaySymbol name="book"/></div>;
   const current=story.frames[frame];
   return <div className="picture-story" data-frame={frame} data-story={storyId} data-save={saveState}>
+   <TownHeading title={story.title} description={`第 ${frame+1} 幕 · ${current.title}`}/>
    <div className="picture-story-toolbar"><a className="picture-button" href="#/explore" aria-label="回到探索"><ArrowLeft/></a><button className="picture-button" aria-label="听这一幕" onClick={()=>void audio.playRequested(current.audio)}><Volume2/></button><button className="picture-button" aria-label="从头听" disabled={saveState==='saving'} onClick={()=>void changeFrame(0,false,true)}><RotateCcw/></button></div>
    <a className={`story-picture scene-${story.scene} frame-${frame}`} aria-label={`一起玩：${content.activities.find(a=>a.id===current.activityId)?.title}`} href={`#/play/${current.activityId}?story=${storyId}&step=${frame}&car=${activeCar()}`}><StoryScene storyId={storyId} frame={frame} carId={activeCar()}/></a>
+   <div className="town-story-caption"><p>{current.text}</p><span>点画面，一起玩：{content.activities.find(a=>a.id===current.activityId)?.title}<ArrowRight aria-hidden="true"/></span></div>
    <div className="story-progress" aria-label="故事进度">{story.frames.map((item,i)=><button key={i} className="story-dot" aria-label={`第 ${i+1} 幕：${item.title}`} aria-current={frame===i?'step':undefined} disabled={saveState==='saving'} onClick={()=>void changeFrame(i)}/>)}</div>
    <div className="activity-controls"><button className="picture-button" aria-label="上一幕" disabled={frame===0||saveState==='saving'} onClick={()=>void changeFrame(frame-1)}><ArrowLeft/></button>{frame<3?<button className="picture-button" aria-label="跳过玩法，继续故事" disabled={saveState==='saving'} onClick={()=>void changeFrame(frame+1)}><ArrowRight/></button>:<button className="picture-button" aria-label={finished&&saveState==='saved'?'故事的小脚印已记下':'故事看完啦'} disabled={finished||saveState==='saving'} onClick={()=>void changeFrame(frame,true)}><Check/></button>}</div>
    {saveState==='failed'?<div className="activity-feedback pictorial-error"><span className="sr-only" role="status">故事进度暂时没能保存，仍可以继续看。可以再试一次记下小脚印。</span><button className="picture-button" aria-label="重试保存进度" onClick={()=>void changeFrame(frame,finished)}><RotateCcw/></button></div>:<span className="sr-only" role="status">{saveState==='saving'?'正在记下这一幕…':finished?'这段故事已经记在这台设备。':''}</span>}

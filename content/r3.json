@@ -1,7 +1,7 @@
 {
-  "id": "r27-showroom-0.16.1",
+  "id": "r28-town-0.17.0",
   "schemaVersion": 2,
-  "appVersion": "0.16.1",
+  "appVersion": "0.17.0",
   "car": {
     "id": "CAR01",
     "brand": "Lamborghini",
@@ -3140,7 +3140,7 @@
       "id": "T04",
       "version": 7,
       "title": "装好自己的跑车",
-      "subtitle": "真实汽车照片拼装",
+      "subtitle": "车身与车轮拼装",
       "domain": "动手思考",
       "scene": "workshop",
       "mode": "closed",
@@ -13599,6 +13599,502 @@
       "sha256": "e93a7f18585985fcdc57b9dde6093beac01738d8dc0f8a9af62708341a2e6a6d",
       "status": "approved",
       "source": "Gameplay LOD derived from https://sketchfab.com/3d-models/jaguar-f-type-4dde0628c79c479eb6b71d82248afaa4; solid surfaces retained, exporter wire overlays removed, compatible static meshes batched, bounded-error simplification, 512px WebP textures and meshopt compression. CC BY 4.0; royjang."
+    },
+    {
+      "id": "town-park",
+      "kind": "image",
+      "path": "media/town/park.webp",
+      "sha256": "1aacdc72647d977ea92cf3282137ef589784c3c46b9a4d865f34b0df7fa8d8cb",
+      "status": "approved",
+      "width": 720,
+      "height": 440,
+      "source": "GPT Image miniature town illustration; derived crop; content/town-art-production.json"
+    },
+    {
+      "id": "town-parking",
+      "kind": "image",
+      "path": "media/town/parking.webp",
+      "sha256": "70a0db23ca17a3d6eaea2a9b6a24b04b96d0e40814a2cd593d90eda6a1a985d9",
+      "status": "approved",
+      "width": 720,
+      "height": 440,
+      "source": "GPT Image miniature town illustration; derived crop; content/town-art-production.json"
+    },
+    {
+      "id": "town-showroom",
+      "kind": "image",
+      "path": "media/town/showroom.webp",
+      "sha256": "1a565b1a7fe68577292a41118ad56068b83e914bb7e8e2a48e2218757743c3e8",
+      "status": "approved",
+      "width": 720,
+      "height": 440,
+      "source": "GPT Image miniature town illustration; derived crop; content/town-art-production.json"
+    },
+    {
+      "id": "town-story-ST01",
+      "kind": "image",
+      "path": "media/town/story-ST01.webp",
+      "sha256": "48819fa1300f7b31966881eea3ab719512d32d1599807201044c6159ca501204",
+      "status": "approved",
+      "width": 768,
+      "height": 512,
+      "source": "GPT Image miniature town illustration; derived crop; content/town-art-production.json"
+    },
+    {
+      "id": "town-story-ST02",
+      "kind": "image",
+      "path": "media/town/story-ST02.webp",
+      "sha256": "a70a83ba8c7ceae8c089c3afe85a2c47267f40cb9493d0734448e270be08e206",
+      "status": "approved",
+      "width": 768,
+      "height": 512,
+      "source": "GPT Image miniature town illustration; derived crop; content/town-art-production.json"
+    },
+    {
+      "id": "town-story-ST03",
+      "kind": "image",
+      "path": "media/town/story-ST03.webp",
+      "sha256": "415b6a7e81cd7b861a7a3990c81fa4e8dfcba84cd5c15328fa4b5e115dd031b5",
+      "status": "approved",
+      "width": 768,
+      "height": 512,
+      "source": "GPT Image miniature town illustration; derived crop; content/town-art-production.json"
+    },
+    {
+      "id": "town-studio",
+      "kind": "image",
+      "path": "media/town/studio.webp",
+      "sha256": "48807864876a0f99c6c01d1e6b1924141051b0e88bb3de18966b8adeb9b8d8e2",
+      "status": "approved",
+      "width": 720,
+      "height": 440,
+      "source": "GPT Image miniature town illustration; derived crop; content/town-art-production.json"
+    },
+    {
+      "id": "town-town",
+      "kind": "image",
+      "path": "media/town/town.webp",
+      "sha256": "16e856667b588893c1d885767777c98819c3e606725ea5b87ce258123c0499a5",
+      "status": "approved",
+      "width": 1536,
+      "height": 1024,
+      "source": "GPT Image miniature town illustration; derived crop; content/town-art-production.json"
+    },
+    {
+      "id": "town-wash",
+      "kind": "image",
+      "path": "media/town/wash.webp",
+      "sha256": "48979b83e95e7ab1dea2441c7d8709fc9a03e5457842c608ea99fe7fb50dadbd",
+      "status": "approved",
+      "width": 720,
+      "height": 440,
+      "source": "GPT Image miniature town illustration; derived crop; content/town-art-production.json"
+    },
+    {
+      "id": "town-workshop",
+      "kind": "image",
+      "path": "media/town/workshop.webp",
+      "sha256": "ab080c116f1a3e9a7fe258679b856cf62f1f262d5524f61cbfd7cd1fe99566a8",
+      "status": "approved",
+      "width": 720,
+      "height": 440,
+      "source": "GPT Image miniature town illustration; derived crop; content/town-art-production.json"
+    },
+    {
+      "id": "town-story-ST01-0",
+      "kind": "image",
+      "path": "media/town/story-ST01-0.webp",
+      "sha256": "48819fa1300f7b31966881eea3ab719512d32d1599807201044c6159ca501204",
+      "status": "approved",
+      "width": 768,
+      "height": 512,
+      "source": "GPT Image story scene; exact quadrant of four-frame sheet; content/town-art-production.json"
+    },
+    {
+      "id": "town-story-ST01-1",
+      "kind": "image",
+      "path": "media/town/story-ST01-1.webp",
+      "sha256": "10d09b3e13dfae8ce7f4a3ada54d171e3a31af29b681ad54ba439347d10995fb",
+      "status": "approved",
+      "width": 768,
+      "height": 512,
+      "source": "GPT Image story scene; exact quadrant of four-frame sheet; content/town-art-production.json"
+    },
+    {
+      "id": "town-story-ST01-2",
+      "kind": "image",
+      "path": "media/town/story-ST01-2.webp",
+      "sha256": "46bf39b3e64ca34545eec79410f0511ae059ee05a18f33b565ef50d68c6d3c77",
+      "status": "approved",
+      "width": 768,
+      "height": 512,
+      "source": "GPT Image story scene; exact quadrant of four-frame sheet; content/town-art-production.json"
+    },
+    {
+      "id": "town-story-ST01-3",
+      "kind": "image",
+      "path": "media/town/story-ST01-3.webp",
+      "sha256": "6e7dd58d0fdbe2188805f707f3ee9325dcc2d8eb6e06b5679d60f6a13f76f68c",
+      "status": "approved",
+      "width": 768,
+      "height": 512,
+      "source": "GPT Image story scene; exact quadrant of four-frame sheet; content/town-art-production.json"
+    },
+    {
+      "id": "town-story-ST02-0",
+      "kind": "image",
+      "path": "media/town/story-ST02-0.webp",
+      "sha256": "a70a83ba8c7ceae8c089c3afe85a2c47267f40cb9493d0734448e270be08e206",
+      "status": "approved",
+      "width": 768,
+      "height": 512,
+      "source": "GPT Image story scene; exact quadrant of four-frame sheet; content/town-art-production.json"
+    },
+    {
+      "id": "town-story-ST02-1",
+      "kind": "image",
+      "path": "media/town/story-ST02-1.webp",
+      "sha256": "cbc5aaad14a76d12582ca9fac69ed1fcc8adba7b0c1356df51cf7372e183775d",
+      "status": "approved",
+      "width": 768,
+      "height": 512,
+      "source": "GPT Image story scene; exact quadrant of four-frame sheet; content/town-art-production.json"
+    },
+    {
+      "id": "town-story-ST02-2",
+      "kind": "image",
+      "path": "media/town/story-ST02-2.webp",
+      "sha256": "021326be8525b896756079fa1bdd610346d114b709d9f7b705fd7cfba35d33fd",
+      "status": "approved",
+      "width": 768,
+      "height": 512,
+      "source": "GPT Image story scene; exact quadrant of four-frame sheet; content/town-art-production.json"
+    },
+    {
+      "id": "town-story-ST02-3",
+      "kind": "image",
+      "path": "media/town/story-ST02-3.webp",
+      "sha256": "7277a3fb0162e54748135d4c1d1124f2f29705c093f4fee0cf8a3b3493d49674",
+      "status": "approved",
+      "width": 768,
+      "height": 512,
+      "source": "GPT Image story scene; exact quadrant of four-frame sheet; content/town-art-production.json"
+    },
+    {
+      "id": "town-story-ST03-0",
+      "kind": "image",
+      "path": "media/town/story-ST03-0.webp",
+      "sha256": "415b6a7e81cd7b861a7a3990c81fa4e8dfcba84cd5c15328fa4b5e115dd031b5",
+      "status": "approved",
+      "width": 768,
+      "height": 512,
+      "source": "GPT Image story scene; exact quadrant of four-frame sheet; content/town-art-production.json"
+    },
+    {
+      "id": "town-story-ST03-1",
+      "kind": "image",
+      "path": "media/town/story-ST03-1.webp",
+      "sha256": "01561dd1725bb9b7ba890f21d4c45a899441ad6a1707993f315b5c8268631c42",
+      "status": "approved",
+      "width": 768,
+      "height": 512,
+      "source": "GPT Image story scene; exact quadrant of four-frame sheet; content/town-art-production.json"
+    },
+    {
+      "id": "town-story-ST03-2",
+      "kind": "image",
+      "path": "media/town/story-ST03-2.webp",
+      "sha256": "3a0196bdd242c9912eb61ed47f4e0387d1c47ae43369fe89b4428b4860fd1120",
+      "status": "approved",
+      "width": 768,
+      "height": 512,
+      "source": "GPT Image story scene; exact quadrant of four-frame sheet; content/town-art-production.json"
+    },
+    {
+      "id": "town-story-ST03-3",
+      "kind": "image",
+      "path": "media/town/story-ST03-3.webp",
+      "sha256": "bf995e0319e27c3d540e2596309f4fbe097925ee09ad4b518811d1e0504fa314",
+      "status": "approved",
+      "width": 768,
+      "height": 512,
+      "source": "GPT Image story scene; exact quadrant of four-frame sheet; content/town-art-production.json"
+    },
+    {
+      "id": "town-font-regular",
+      "path": "media/town/town-sans-regular.woff",
+      "kind": "font",
+      "sha256": "02c3e524b413ef575ce3eb5d1c08a372605c73904cca30e9ae5cb59c01b54336",
+      "status": "approved",
+      "source": "Noto Sans CJK SC, SIL Open Font License 1.1, subset; docs/licenses/town-font-OFL.txt"
+    },
+    {
+      "id": "town-font-bold",
+      "path": "media/town/town-sans-bold.woff",
+      "kind": "font",
+      "sha256": "631a44e91ce7aab9a46d09688b94bc1ec580c159b60d3703f69546aa72e03e91",
+      "status": "approved",
+      "source": "Noto Sans CJK SC, SIL Open Font License 1.1, subset; docs/licenses/town-font-OFL.txt"
+    },
+    {
+      "id": "town-activity-E01",
+      "kind": "image",
+      "path": "media/town/activity-E01.webp",
+      "sha256": "1f3b7bd8c36d35f952e9c2acc81f657d3d0bd3fb00bba22b4fd1ebd96c02795d",
+      "status": "approved",
+      "width": 720,
+      "height": 490,
+      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+    },
+    {
+      "id": "town-activity-E02",
+      "kind": "image",
+      "path": "media/town/activity-E02.webp",
+      "sha256": "e0dcb1f923f41f085a4530227f3604a0dd6379533d8174e4586ec5d060ea8a51",
+      "status": "approved",
+      "width": 720,
+      "height": 490,
+      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+    },
+    {
+      "id": "town-activity-E03",
+      "kind": "image",
+      "path": "media/town/activity-E03.webp",
+      "sha256": "05aa18707b0df249a4dfe4806dd105a542d49722bd9d689325f6df6e3b2a55db",
+      "status": "approved",
+      "width": 720,
+      "height": 490,
+      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+    },
+    {
+      "id": "town-activity-M01",
+      "kind": "image",
+      "path": "media/town/activity-M01.webp",
+      "sha256": "c67c22690ace9a54491c7c98977808c653b6bc2fc3194ddd3e23f4e927df5398",
+      "status": "approved",
+      "width": 720,
+      "height": 490,
+      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+    },
+    {
+      "id": "town-activity-M02",
+      "kind": "image",
+      "path": "media/town/activity-M02.webp",
+      "sha256": "cfc5e6d5dff37e1ef815afb4fff9305ec307f01bc672ee621cbb968b543a2cfb",
+      "status": "approved",
+      "width": 720,
+      "height": 490,
+      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+    },
+    {
+      "id": "town-activity-M03",
+      "kind": "image",
+      "path": "media/town/activity-M03.webp",
+      "sha256": "632e59ebf1b5b30643446b87d0860d8b28886b15e682e4f5c77f3094f10c4f4d",
+      "status": "approved",
+      "width": 720,
+      "height": 490,
+      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+    },
+    {
+      "id": "town-activity-M04",
+      "kind": "image",
+      "path": "media/town/activity-M04.webp",
+      "sha256": "edbf6e2a8504e53f992e4c10e01c08fa1de31bf3739d2bf729bc541f107cba3d",
+      "status": "approved",
+      "width": 720,
+      "height": 490,
+      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+    },
+    {
+      "id": "town-activity-C01",
+      "kind": "image",
+      "path": "media/town/activity-C01.webp",
+      "sha256": "f48fc9e66527260a7845c7850e27ada57a9089eb5f0272e0e0d4da749b4bce69",
+      "status": "approved",
+      "width": 720,
+      "height": 490,
+      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+    },
+    {
+      "id": "town-activity-C02",
+      "kind": "image",
+      "path": "media/town/activity-C02.webp",
+      "sha256": "adce70193d81b7f2424b5570cc7fb2a5e384f6e768d33d5b2a975b68cc261412",
+      "status": "approved",
+      "width": 720,
+      "height": 490,
+      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+    },
+    {
+      "id": "town-activity-C03",
+      "kind": "image",
+      "path": "media/town/activity-C03.webp",
+      "sha256": "0fd6a1ab738cf79974742cea24b559110116dc91633a234bc31757370c88e899",
+      "status": "approved",
+      "width": 720,
+      "height": 490,
+      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+    },
+    {
+      "id": "town-activity-S01",
+      "kind": "image",
+      "path": "media/town/activity-S01.webp",
+      "sha256": "7ebad583d28266a22d4f65f063710ea9c407a90d0f28a0eada3996d2f6960c6a",
+      "status": "approved",
+      "width": 720,
+      "height": 490,
+      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+    },
+    {
+      "id": "town-activity-S02",
+      "kind": "image",
+      "path": "media/town/activity-S02.webp",
+      "sha256": "1128e436b723efaacfb60fb777fb1753cb17f025f0bef82de3c17f859e890477",
+      "status": "approved",
+      "width": 720,
+      "height": 490,
+      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+    },
+    {
+      "id": "town-activity-S03",
+      "kind": "image",
+      "path": "media/town/activity-S03.webp",
+      "sha256": "4b779f8d039449ae8474692e054aea066fc8423313d6009db13d4da16788e6d6",
+      "status": "approved",
+      "width": 720,
+      "height": 490,
+      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+    },
+    {
+      "id": "town-activity-T01",
+      "kind": "image",
+      "path": "media/town/activity-T01.webp",
+      "sha256": "bd7e6f8fe3ce5d3b9aacc715c318ba6503b68302d8bc975fe4ffa41dd03cdd9a",
+      "status": "approved",
+      "width": 720,
+      "height": 490,
+      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+    },
+    {
+      "id": "town-activity-T02",
+      "kind": "image",
+      "path": "media/town/activity-T02.webp",
+      "sha256": "c5a8b6517207a40409ce8bfa7e7e663b4eb3dff8dbbd4ada057895680fc9e833",
+      "status": "approved",
+      "width": 720,
+      "height": 490,
+      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+    },
+    {
+      "id": "town-activity-T03",
+      "kind": "image",
+      "path": "media/town/activity-T03.webp",
+      "sha256": "7a2bd3228f0a5c10753b75d6b9de2d2e02e8a95dfc1e7ab160c89a967fe992aa",
+      "status": "approved",
+      "width": 720,
+      "height": 490,
+      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+    },
+    {
+      "id": "town-activity-H01",
+      "kind": "image",
+      "path": "media/town/activity-H01.webp",
+      "sha256": "14f7a7623aada5d75233c79c4c7ad392145462bd76b47eed7be4803ffea9f3f0",
+      "status": "approved",
+      "width": 720,
+      "height": 490,
+      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+    },
+    {
+      "id": "town-activity-H02",
+      "kind": "image",
+      "path": "media/town/activity-H02.webp",
+      "sha256": "0d51effa6ecbceae63980900ae0b9b30d0825284eaf1fdb066f21e7752ae6100",
+      "status": "approved",
+      "width": 720,
+      "height": 490,
+      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+    },
+    {
+      "id": "town-activity-H03",
+      "kind": "image",
+      "path": "media/town/activity-H03.webp",
+      "sha256": "a2976c50d146fc5e901470a9fbdfcc437c12d4785e0c31069f32ef25f2fd93e0",
+      "status": "approved",
+      "width": 720,
+      "height": 490,
+      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+    },
+    {
+      "id": "town-activity-A01",
+      "kind": "image",
+      "path": "media/town/activity-A01.webp",
+      "sha256": "e2ecf2727733c2527eeb1a00ab5c9eebb38b540ce18facfcca71c1e27a739c58",
+      "status": "approved",
+      "width": 720,
+      "height": 490,
+      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+    },
+    {
+      "id": "town-activity-A02",
+      "kind": "image",
+      "path": "media/town/activity-A02.webp",
+      "sha256": "d5ed8b7f3c6af1bad852164d2e6ad3ce71e82d41cd22610ef36b002bd399d783",
+      "status": "approved",
+      "width": 720,
+      "height": 490,
+      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+    },
+    {
+      "id": "town-activity-L01",
+      "kind": "image",
+      "path": "media/town/activity-L01.webp",
+      "sha256": "242cd44c6a000103d2f63791ba03da330e6645ea1b158d4370b8e2e5aee671da",
+      "status": "approved",
+      "width": 720,
+      "height": 490,
+      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+    },
+    {
+      "id": "town-activity-L02",
+      "kind": "image",
+      "path": "media/town/activity-L02.webp",
+      "sha256": "d297c45a4fe513353eb945cff9f7ac4d83d4768342587de3334ad74a9128902f",
+      "status": "approved",
+      "width": 720,
+      "height": 490,
+      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+    },
+    {
+      "id": "town-activity-L03",
+      "kind": "image",
+      "path": "media/town/activity-L03.webp",
+      "sha256": "4ab6ddd78caf84a7f0ee35d99467e836bc77d1f9bbaa49fa363cc7136e4bc86f",
+      "status": "approved",
+      "width": 720,
+      "height": 490,
+      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+    },
+    {
+      "id": "town-activity-P01",
+      "kind": "image",
+      "path": "media/town/activity-P01.webp",
+      "sha256": "42bcc8ab3c237bb9832b6e48915419cb98f5d3336d52d341d3a22107223fa14d",
+      "status": "approved",
+      "width": 720,
+      "height": 490,
+      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+    },
+    {
+      "id": "town-activity-T04",
+      "kind": "image",
+      "path": "media/town/activity-T04.webp",
+      "sha256": "0ad367f5713ce9483b3dfe71e9db06b78c4f99dcfa1e0583ada0840a3156b99b",
+      "status": "approved",
+      "width": 720,
+      "height": 490,
+      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
     }
   ],
   "scenes": [

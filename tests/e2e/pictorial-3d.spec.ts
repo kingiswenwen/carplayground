@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 const turnarounds=JSON.parse(fs.readFileSync('content/car-turnarounds-production.json','utf8')) as {id:string}[];
-import {test,expect,type Page} from '@playwright/test';
+import {test,expect} from '@playwright/test';
 test('发布包模型分块损坏会回到同车图片，重试后恢复原模型 @smoke',async({page})=>{
  test.skip(!process.env.PLAYWRIGHT_BASE_URL,'分块交付用于构建后的发布包');test.setTimeout(90000);
  const pattern='**/models/car01.glb.part-001.bin';let intercepted=false;
@@ -10,11 +10,19 @@ test('发布包模型分块损坏会回到同车图片，重试后恢复原模�
  await page.unroute(pattern);await page.getByRole('button',{name:'打开车型立体模型',exact:true}).click();
  await expect(page.locator('.vehicle-webgl[data-ready=true]')).toHaveAttribute('data-car','CAR01',{timeout:45000});
 });
-async function words(page:Page){return page.evaluate(()=>{const words:string[]=[];const walker=document.createTreeWalker(document.getElementById('root')!,NodeFilter.SHOW_TEXT);while(walker.nextNode()){const n=walker.currentNode,e=n.parentElement;if(!e||e.closest('.sr-only,[aria-hidden=true],details:not([open]),.garage-picker')||!/[a-zA-Z\u3400-\u9fff]/.test(n.textContent||''))continue;const s=getComputedStyle(e),r=e.getBoundingClientRect();if(s.display!=='none'&&s.visibility!=='hidden'&&r.width>3&&r.height>3)words.push(n.textContent!);}return words;});}
-test('儿童首页、选车、详情、车库、故事和玩法无需读文字 @smoke',async({page})=>{
+test('儿童页面保留图像入口与直接操作，短标签不替代物体 @smoke',async({page})=>{
  test.setTimeout(90000);await page.setViewportSize({width:390,height:844});
- for(const route of ['/explore','/cars','/cars/CAR01','/garage','/stories/ST01','/play/H03']){await page.goto('/#'+route);await expect(page.locator('.picture-world,.picture-showroom,.picture-detail,.picture-garage,.picture-story,.touch-play').first()).toBeVisible();await expect.poll(()=>words(page)).toEqual([]);expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);}
- await page.goto('/#/explore');await page.getByRole('link',{name:'泡泡洗车屋',exact:true}).click();await expect(page.locator('canvas.touch-canvas')).toHaveAttribute('data-state',/"ready":true/);await page.getByRole('link',{name:'回到乐园',exact:true}).click();await expect(page.locator('.picture-activities')).toBeVisible();
+ for(const route of ['/explore','/cars','/cars/CAR01','/garage','/stories/ST01','/play/H03']){
+  await page.goto('/#'+route);
+  await expect(page.locator('.picture-world,.picture-showroom,.picture-detail,.picture-garage,.picture-story,.touch-play').first()).toBeVisible();
+  await expect(page.locator('h1')).toBeVisible();
+  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+ }
+ await page.goto('/#/explore');await page.getByRole('link',{name:'泡泡洗车屋',exact:true}).click();
+ await expect(page.locator('[data-town-place=wash]')).toBeVisible();
+ await page.getByRole('link',{name:'泡泡洗车屋',exact:true}).click();
+ await expect(page.locator('canvas.touch-canvas')).toHaveAttribute('data-state',/"ready":true/);
+ await page.getByRole('link',{name:'回到乐园',exact:true}).click();await expect(page.locator('.picture-activities')).toBeVisible();
 });
 test('直接拖动立体车可看到前后左右，键盘和重新选车也能继续 @smoke',async({page})=>{
  test.setTimeout(120000);
@@ -24,8 +32,17 @@ test('直接拖动立体车可看到前后左右，键盘和重新选车也能�
  // Native locator assertions avoid traced Node/CDP getter polling overhead.
  await canvas.focus();const beforeLeft=(await canvas.getAttribute('data-yaw'))!;await canvas.press('ArrowLeft');await expect(canvas).not.toHaveAttribute('data-yaw',beforeLeft);
  const beforeRight=(await canvas.getAttribute('data-yaw'))!;await canvas.press('ArrowRight');await expect(canvas).not.toHaveAttribute('data-yaw',beforeRight);
- const start=Number(await canvas.getAttribute('data-yaw'));const box=(await canvas.boundingBox())!;await page.mouse.move(box.x+box.width*.4,box.y+box.height*.5);await page.mouse.down();await page.mouse.move(box.x+box.width*.8,box.y+box.height*.5,{steps:4});await page.mouse.up();
- await page.waitForFunction(from=>{const value=Number(document.querySelector('canvas.vehicle-webgl')?.getAttribute('data-yaw'));return Number.isFinite(value)&&Math.abs(Math.atan2(Math.sin(value-from),Math.cos(value-from)))>1;},start,{timeout:5000});
+ let previous=Number(await canvas.getAttribute('data-yaw')),travelled=0;const box=(await canvas.boundingBox())!;
+ await page.mouse.move(box.x+box.width*.4,box.y+box.height*.5);await page.mouse.down();
+ // Responsive studio ratios can rotate through almost a full turn. Measure the
+ // rendered path, so a final angle near its start does not look like no input.
+ for(let n=1;n<=4;n++){
+  await page.mouse.move(box.x+box.width*(.4+n*.1),box.y+box.height*.5);
+  await expect(canvas).not.toHaveAttribute('data-yaw',String(previous));
+  const current=Number(await canvas.getAttribute('data-yaw'));
+  travelled+=Math.abs(Math.atan2(Math.sin(current-previous),Math.cos(current-previous)));previous=current;
+ }
+ await page.mouse.up();expect(travelled).toBeGreaterThan(1);
  const afterDrag=(await canvas.getAttribute('data-yaw'))!;await canvas.press('ArrowLeft');await expect(canvas).not.toHaveAttribute('data-yaw',afterDrag);
 });
 test('离开立体查看后能重新选车并打开对应模型 @smoke',async({page})=>{
