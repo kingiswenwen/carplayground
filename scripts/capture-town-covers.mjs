@@ -8,9 +8,14 @@ const baseURL=process.env.PLAYWRIGHT_BASE_URL||'http://localhost:5173';
 const content=JSON.parse(await fs.readFile('content/r3.json','utf8'));
 const browser=await chromium.launch();
 const page=await browser.newPage({viewport:{width:1280,height:1000},reducedMotion:'reduce'});
+// Optional balanced-shader capture on headless software GL. This exercises the
+// real production material path; it is not a hardware-device validation claim.
+if(process.env.PLAY_COVER_BALANCED==='1')await page.addInitScript(()=>{for(const proto of [WebGLRenderingContext.prototype,WebGL2RenderingContext.prototype]){const original=proto.getParameter;proto.getParameter=function(parameter){return parameter===37446?'ANGLE (Test Intel Iris balanced cover capture)':original.call(this,parameter);};}});
 const records=[];
 try{
  for(const activity of content.activities){
+  // Hash-only navigation can briefly expose the preceding ready canvas.
+  await page.goto('about:blank');
   await page.goto(`${baseURL}/#/play/${activity.id}?car=CAR01${['C03','A01','A02'].includes(activity.id)?'&view=2d':''}`);
   await page.waitForFunction(()=>JSON.parse(document.querySelector('.touch-canvas')?.getAttribute('data-state')||'{}').ready);
   await page.waitForFunction(()=>document.querySelector('.touch-canvas')?.getAttribute('data-presentation')==='flat'||document.querySelector('.touch-world-canvas')?.getAttribute('data-ready')==='true');
@@ -39,7 +44,7 @@ try{
   const sha256=createHash('sha256').update(output).digest('hex');
   const asset={id:`town-activity-${activity.id}`,kind:'image',path:file,sha256,status:'approved',width:720,height:490,source:'Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json'};
   const prior=content.assets.findIndex(a=>a.id===asset.id);if(prior>=0)content.assets[prior]=asset;else content.assets.push(asset);
-  records.push({activityId:activity.id,path:file,sha256,carId:'CAR01',presentation,gestures,goal:activity.goal,mode:activity.mode,source:'TouchBoard shared rule engine; original item/target geometry and colours',viewport:{width:1280,height:1000},captureScript:'scripts/capture-town-covers.mjs'});
+  records.push({activityId:activity.id,path:file,sha256,carId:'CAR01',presentation,rendererQuality:presentation==='three'?await page.locator('.touch-world-canvas').getAttribute('data-quality'):'flat',captureProfile:process.env.PLAY_COVER_BALANCED==='1'?'balanced shaders on headless software GL':'available renderer',gestures,goal:activity.goal,mode:activity.mode,source:'TouchBoard shared rule engine; original item/target geometry and colours',viewport:{width:1280,height:1000},captureScript:'scripts/capture-town-covers.mjs'});
   console.log(`${activity.id}: ${presentation}`);
  }
  await fs.writeFile('content/r3.json',JSON.stringify(content,null,2)+'\n');

@@ -105,3 +105,7 @@ Python 音频处理测试需要 FFmpeg。浏览器模拟结果不代表真机实
 开发服务器启动后，`node scripts/capture-town-covers.mjs`从实际玩法生成26张动作封面；C03、A01、A02通过真实指针操作呈现场景、海报和轮印。`node scripts/capture-town-preview.mjs`导出九页×三尺寸的页面审阅图，包含滚动加载的车型图片。封面脚本同步更新内容清单哈希，运行后需要检查画面、来源记录并执行内容校验。
 
 字体属于登记媒体，通过FontFace和`assetUrl`使用版本/CDN媒体前缀；不要在CSS中硬编码未版本化的字体根路径。发布包支持登记的WOFF，仍校验完整文件SHA-256、MIME和不可变缓存。
+
+玩法的33个主要物件图标也通过`assetUrl`使用不可变媒体路径。`node scripts/prepare-play-icons.mjs <透明图集> primary|secondary|cart`保留原图、机械裁切并更新文件哈希与来源。DOM加载失败退回SVG，Canvas解码失败也使用本地矢量；3D物件通过`symbolName`共用语义，不能把喷头和水瓶、手推车和包裹合成一个类别。
+
+`src/three/play-props.ts`只提供表现网格，归一化不能改变TouchBoard的尺寸、颜色、数量或接受规则。未知GPU走保守路径；软件长边约720像素的预算保留手机1倍逻辑像素上限，普通已识别GPU可使用有限环境图。`PLAY_COVER_BALANCED=1 node scripts/capture-town-covers.mjs`可在无头软件GL中覆盖平衡着色路径；生成记录明确区分路径覆盖和真实硬件验收。

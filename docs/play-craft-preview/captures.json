@@ -1,0 +1,685 @@
+{
+  "version": "0.18.0",
+  "method": "Fresh document per route; default SwiftShader quality plus explicit flat mode; no real hardware claim",
+  "viewports": {
+    "desktop": {
+      "width": 1440,
+      "height": 1000
+    },
+    "phone": {
+      "width": 390,
+      "height": 844
+    }
+  },
+  "count": 76,
+  "records": [
+    {
+      "device": "desktop",
+      "id": "E01",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "E02",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "E03",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "M01",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "M02",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "M03",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "M04",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "C01",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "C02",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "C03",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "S01",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "S02",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "S03",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "T01",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "T02",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "T03",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "H01",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "H02",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "H03",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "A01",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "A02",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "L01",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "L02",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "L03",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "P01",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "T04",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "H03",
+      "view": "2d",
+      "car": "CAR01",
+      "presentation": "flat",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "T04",
+      "view": "2d",
+      "car": "CAR01",
+      "presentation": "flat",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "T02",
+      "view": "2d",
+      "car": "CAR01",
+      "presentation": "flat",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "C03",
+      "view": "2d",
+      "car": "CAR01",
+      "presentation": "flat",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "L01",
+      "view": "2d",
+      "car": "CAR01",
+      "presentation": "flat",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "M03",
+      "view": "2d",
+      "car": "CAR01",
+      "presentation": "flat",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "E02",
+      "view": "2d",
+      "car": "CAR01",
+      "presentation": "flat",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "A01",
+      "view": "2d",
+      "car": "CAR01",
+      "presentation": "flat",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "H03",
+      "view": "default",
+      "car": "CAR11",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "E02",
+      "view": "default",
+      "car": "CAR11",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "M03",
+      "view": "default",
+      "car": "CAR11",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "desktop",
+      "id": "C03",
+      "view": "default",
+      "car": "CAR11",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "E01",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "E02",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "E03",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "M01",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "M02",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "M03",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "M04",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "C01",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "C02",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "C03",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "S01",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "S02",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "S03",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "T01",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "T02",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "T03",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "H01",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "H02",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "H03",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "A01",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "A02",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "L01",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "L02",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "L03",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "P01",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "T04",
+      "view": "default",
+      "car": "CAR01",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "H03",
+      "view": "2d",
+      "car": "CAR01",
+      "presentation": "flat",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "T04",
+      "view": "2d",
+      "car": "CAR01",
+      "presentation": "flat",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "T02",
+      "view": "2d",
+      "car": "CAR01",
+      "presentation": "flat",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "C03",
+      "view": "2d",
+      "car": "CAR01",
+      "presentation": "flat",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "L01",
+      "view": "2d",
+      "car": "CAR01",
+      "presentation": "flat",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "M03",
+      "view": "2d",
+      "car": "CAR01",
+      "presentation": "flat",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "E02",
+      "view": "2d",
+      "car": "CAR01",
+      "presentation": "flat",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "A01",
+      "view": "2d",
+      "car": "CAR01",
+      "presentation": "flat",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "H03",
+      "view": "default",
+      "car": "CAR11",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "E02",
+      "view": "default",
+      "car": "CAR11",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "M03",
+      "view": "default",
+      "car": "CAR11",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    },
+    {
+      "device": "phone",
+      "id": "C03",
+      "view": "default",
+      "car": "CAR11",
+      "presentation": "three",
+      "quality": "simple",
+      "overflow": false
+    }
+  ]
+}

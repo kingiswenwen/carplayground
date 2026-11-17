@@ -1,0 +1,490 @@
+{
+  "generator": "GPT Image via image_gen",
+  "purpose": "Shared DOM and canvas teaching-object vocabulary; not replacement vehicle-model or hit geometry",
+  "atlases": [
+    {
+      "set": "secondary",
+      "sha256": "475aa8f1786be98ba219168ca91a1c15cb1da713371ddfab2ec638976465829b",
+      "width": 1263,
+      "height": 1246
+    },
+    {
+      "set": "primary",
+      "sha256": "548714217e91670dbba576dd766bc1f4fe30cb5b8d9d620bf4f52b94adaa468a",
+      "width": 1263,
+      "height": 1246
+    },
+    {
+      "set": "cart",
+      "sha256": "ec67fa6acd442d0420955cd6dc101ec8dcefbf8e82a2241a2544c5af67d98397",
+      "width": 1536,
+      "height": 1024
+    }
+  ],
+  "layout": "Primary/secondary: 4x4 row-major; cart: single sprite; alpha-preserving extraction and WebP encoding",
+  "style": "Rounded miniature objects, top-left studio light, soft contact shadows, warm cream/sage/teal/coral palette",
+  "icons": [
+    {
+      "name": "hand",
+      "path": "media/play-icons/hand.webp",
+      "sha256": "2f0e7131895df13b4d8219e399638b375ca8354c09c57d44d8f0e7a98e2a41e7",
+      "width": 256,
+      "height": 256,
+      "atlas": "secondary",
+      "cell": {
+        "left": 0,
+        "top": 0,
+        "width": 316,
+        "height": 312
+      }
+    },
+    {
+      "name": "shower",
+      "path": "media/play-icons/shower.webp",
+      "sha256": "63e4b7bf1e3ee0be94eb04e693a4c780c15a2904496e355873ef9ff58578c4b9",
+      "width": 256,
+      "height": 256,
+      "atlas": "secondary",
+      "cell": {
+        "left": 316,
+        "top": 0,
+        "width": 316,
+        "height": 312
+      }
+    },
+    {
+      "name": "umbrella",
+      "path": "media/play-icons/umbrella.webp",
+      "sha256": "72a2f92e28877a50230c17a274b57156395896692d7151d6024764b51c2c3510",
+      "width": 256,
+      "height": 256,
+      "atlas": "secondary",
+      "cell": {
+        "left": 632,
+        "top": 0,
+        "width": 315,
+        "height": 312
+      }
+    },
+    {
+      "name": "belt",
+      "path": "media/play-icons/belt.webp",
+      "sha256": "26ae3197e3297da735c2ad89cf4fb5797436625af68821a04f577a555a922012",
+      "width": 256,
+      "height": 256,
+      "atlas": "secondary",
+      "cell": {
+        "left": 947,
+        "top": 0,
+        "width": 316,
+        "height": 312
+      }
+    },
+    {
+      "name": "sun",
+      "path": "media/play-icons/sun.webp",
+      "sha256": "43e9a6bd947a227c1bf29e91f751fde2003970649faa9c1332cac1577878b5b6",
+      "width": 256,
+      "height": 256,
+      "atlas": "secondary",
+      "cell": {
+        "left": 0,
+        "top": 312,
+        "width": 316,
+        "height": 311
+      }
+    },
+    {
+      "name": "rain",
+      "path": "media/play-icons/rain.webp",
+      "sha256": "0168b355a01cfce91f4d2bd918684b7aa927809e24ea13ae8e3e47aaeed64158",
+      "width": 256,
+      "height": 256,
+      "atlas": "secondary",
+      "cell": {
+        "left": 316,
+        "top": 312,
+        "width": 316,
+        "height": 311
+      }
+    },
+    {
+      "name": "home",
+      "path": "media/play-icons/home.webp",
+      "sha256": "4871bdc02837cd234544595fec6a10be2f53f527a493edb02b58231312922901",
+      "width": 256,
+      "height": 256,
+      "atlas": "secondary",
+      "cell": {
+        "left": 632,
+        "top": 312,
+        "width": 315,
+        "height": 311
+      }
+    },
+    {
+      "name": "bridge",
+      "path": "media/play-icons/bridge.webp",
+      "sha256": "9d78d5332264e5fe7b8801fa3828dfe60a80e5c2accdde63b2532e262fe5a253",
+      "width": 256,
+      "height": 256,
+      "atlas": "secondary",
+      "cell": {
+        "left": 947,
+        "top": 312,
+        "width": 316,
+        "height": 311
+      }
+    },
+    {
+      "name": "plank",
+      "path": "media/play-icons/plank.webp",
+      "sha256": "8857a82c6da796fca97f7f446662e15cee0d9ab01243baabac38d6ed82665982",
+      "width": 256,
+      "height": 256,
+      "atlas": "secondary",
+      "cell": {
+        "left": 0,
+        "top": 623,
+        "width": 316,
+        "height": 312
+      }
+    },
+    {
+      "name": "road",
+      "path": "media/play-icons/road.webp",
+      "sha256": "2996dc865541991aff9e43d1311252adc3199aa7fe7121c8db7f8c199f5617b3",
+      "width": 256,
+      "height": 256,
+      "atlas": "secondary",
+      "cell": {
+        "left": 316,
+        "top": 623,
+        "width": 316,
+        "height": 312
+      }
+    },
+    {
+      "name": "flag",
+      "path": "media/play-icons/flag.webp",
+      "sha256": "65eb95bb87087b15c288203c004710dd4f7ee13c0b6ce170595e09712d0ac4d6",
+      "width": 256,
+      "height": 256,
+      "atlas": "secondary",
+      "cell": {
+        "left": 632,
+        "top": 623,
+        "width": 315,
+        "height": 312
+      }
+    },
+    {
+      "name": "heart",
+      "path": "media/play-icons/heart.webp",
+      "sha256": "108741b9b1c7ae64808bf9dfc43c01938d0e14b213c995efb1b43d288a8504fd",
+      "width": 256,
+      "height": 256,
+      "atlas": "secondary",
+      "cell": {
+        "left": 947,
+        "top": 623,
+        "width": 316,
+        "height": 312
+      }
+    },
+    {
+      "name": "star",
+      "path": "media/play-icons/star.webp",
+      "sha256": "fff8bcc650a545f8004a9dce84f5fb7d7dcce998c50e1915f55bab6d89518f50",
+      "width": 256,
+      "height": 256,
+      "atlas": "secondary",
+      "cell": {
+        "left": 0,
+        "top": 935,
+        "width": 316,
+        "height": 311
+      }
+    },
+    {
+      "name": "leaf",
+      "path": "media/play-icons/leaf.webp",
+      "sha256": "adab040ff87b83461344d80623b0c3ca233bab26e84cf0fe1b4571482f5b01fd",
+      "width": 256,
+      "height": 256,
+      "atlas": "secondary",
+      "cell": {
+        "left": 316,
+        "top": 935,
+        "width": 316,
+        "height": 311
+      }
+    },
+    {
+      "name": "ball",
+      "path": "media/play-icons/ball.webp",
+      "sha256": "a1881401e553232c1085a4e551ed4c64fbfd9a670773ffb9695f6a2203df84c1",
+      "width": 256,
+      "height": 256,
+      "atlas": "secondary",
+      "cell": {
+        "left": 632,
+        "top": 935,
+        "width": 315,
+        "height": 311
+      }
+    },
+    {
+      "name": "ice",
+      "path": "media/play-icons/ice.webp",
+      "sha256": "6cd63bd4c885e96075cee37df10ec964adc41a5ab6f421a94a7726eee9482ca5",
+      "width": 256,
+      "height": 256,
+      "atlas": "secondary",
+      "cell": {
+        "left": 947,
+        "top": 935,
+        "width": 316,
+        "height": 311
+      }
+    },
+    {
+      "name": "car",
+      "path": "media/play-icons/car.webp",
+      "sha256": "f4e5a763cb246d86b3c9dd7eb5b170b73023e3f8a6ed26b5744a53dcceb862b3",
+      "width": 256,
+      "height": 256,
+      "atlas": "primary",
+      "cell": {
+        "left": 0,
+        "top": 0,
+        "width": 316,
+        "height": 312
+      }
+    },
+    {
+      "name": "garage",
+      "path": "media/play-icons/garage.webp",
+      "sha256": "5a36726f6b2c5b0893fb967e69bc4c88078976e877b94f3cbbb222b1a746af50",
+      "width": 256,
+      "height": 256,
+      "atlas": "primary",
+      "cell": {
+        "left": 316,
+        "top": 0,
+        "width": 316,
+        "height": 312
+      }
+    },
+    {
+      "name": "world",
+      "path": "media/play-icons/world.webp",
+      "sha256": "06d867fc3b1df30806f19585d12dba10a928c2671a2efb5d73f73c0cf9655dd1",
+      "width": 256,
+      "height": 256,
+      "atlas": "primary",
+      "cell": {
+        "left": 632,
+        "top": 0,
+        "width": 315,
+        "height": 312
+      }
+    },
+    {
+      "name": "tree",
+      "path": "media/play-icons/tree.webp",
+      "sha256": "a8466646ebaa3a380f61fe3dabf1eb80078b9b95e8e8c36822608d434f3a5f19",
+      "width": 256,
+      "height": 256,
+      "atlas": "primary",
+      "cell": {
+        "left": 947,
+        "top": 0,
+        "width": 316,
+        "height": 312
+      }
+    },
+    {
+      "name": "wheel",
+      "path": "media/play-icons/wheel.webp",
+      "sha256": "2a2e7ca79288ebb4c390be36a85c33437cdd7e48c8e75247dfc0ac5424d82f03",
+      "width": 256,
+      "height": 256,
+      "atlas": "primary",
+      "cell": {
+        "left": 0,
+        "top": 312,
+        "width": 316,
+        "height": 311
+      }
+    },
+    {
+      "name": "tool",
+      "path": "media/play-icons/tool.webp",
+      "sha256": "ad9193a580fbf4a2035b646762a89ba9483317c9f14efc3fa1f19f5478a7542c",
+      "width": 256,
+      "height": 256,
+      "atlas": "primary",
+      "cell": {
+        "left": 316,
+        "top": 312,
+        "width": 316,
+        "height": 311
+      }
+    },
+    {
+      "name": "sponge",
+      "path": "media/play-icons/sponge.webp",
+      "sha256": "3292b8c3a7e6738047303d415a8d01b7bcaa648b2c5cd883643f82c50085ba24",
+      "width": 256,
+      "height": 256,
+      "atlas": "primary",
+      "cell": {
+        "left": 632,
+        "top": 312,
+        "width": 315,
+        "height": 311
+      }
+    },
+    {
+      "name": "bubbles",
+      "path": "media/play-icons/bubbles.webp",
+      "sha256": "3e3c4b12e1c351ae4fcbcf20c91f0af683ee40269ccf2b9e96e4ed91f3f7fd73",
+      "width": 256,
+      "height": 256,
+      "atlas": "primary",
+      "cell": {
+        "left": 947,
+        "top": 312,
+        "width": 316,
+        "height": 311
+      }
+    },
+    {
+      "name": "bag",
+      "path": "media/play-icons/bag.webp",
+      "sha256": "81dd2d4fab519b09257518e62fef4050ba6f8f99ea7f05eb1a12f01e8b48c824",
+      "width": 256,
+      "height": 256,
+      "atlas": "primary",
+      "cell": {
+        "left": 0,
+        "top": 623,
+        "width": 316,
+        "height": 298
+      }
+    },
+    {
+      "name": "coat",
+      "path": "media/play-icons/coat.webp",
+      "sha256": "fb93c50f4cc74aefe44d3d4a705cf589d23d4c3b773bd457b65d1ebc3a8e4c3a",
+      "width": 256,
+      "height": 256,
+      "atlas": "primary",
+      "cell": {
+        "left": 316,
+        "top": 623,
+        "width": 316,
+        "height": 312
+      }
+    },
+    {
+      "name": "cap",
+      "path": "media/play-icons/cap.webp",
+      "sha256": "afe8df067f4fe2540c5f765907d88dcd0b0d031ef24605c33806b96c2b0c2edd",
+      "width": 256,
+      "height": 256,
+      "atlas": "primary",
+      "cell": {
+        "left": 632,
+        "top": 623,
+        "width": 315,
+        "height": 312
+      }
+    },
+    {
+      "name": "water",
+      "path": "media/play-icons/water.webp",
+      "sha256": "5d3f989e279e9d18d7297b924fb4893bb985cc78e72187bcd8dc68acb0d8c565",
+      "width": 256,
+      "height": 256,
+      "atlas": "primary",
+      "cell": {
+        "left": 947,
+        "top": 623,
+        "width": 316,
+        "height": 312
+      }
+    },
+    {
+      "name": "friend",
+      "path": "media/play-icons/friend.webp",
+      "sha256": "928bed218b4356c0bf8e38011d986cc002793077cceefadde5e1287d08a886e8",
+      "width": 256,
+      "height": 256,
+      "atlas": "primary",
+      "cell": {
+        "left": 0,
+        "top": 935,
+        "width": 316,
+        "height": 311
+      }
+    },
+    {
+      "name": "palette",
+      "path": "media/play-icons/palette.webp",
+      "sha256": "28818c98a3700c3bbc6935f33990f7ce8e618e26fd4b67dd75142f4485442901",
+      "width": 256,
+      "height": 256,
+      "atlas": "primary",
+      "cell": {
+        "left": 316,
+        "top": 935,
+        "width": 316,
+        "height": 311
+      }
+    },
+    {
+      "name": "book",
+      "path": "media/play-icons/book.webp",
+      "sha256": "9a0667e9218cc0dc618b94d42af290a5c4b445621ba7f6b23608c73bc7aeace1",
+      "width": 256,
+      "height": 256,
+      "atlas": "primary",
+      "cell": {
+        "left": 632,
+        "top": 935,
+        "width": 315,
+        "height": 311
+      }
+    },
+    {
+      "name": "lamp",
+      "path": "media/play-icons/lamp.webp",
+      "sha256": "d4fc5f47101083cc63e0fb60f7c5e00203ac8a45ff2c3be91cfe2a2307bfcafb",
+      "width": 256,
+      "height": 256,
+      "atlas": "primary",
+      "cell": {
+        "left": 947,
+        "top": 935,
+        "width": 316,
+        "height": 311
+      }
+    },
+    {
+      "name": "cart",
+      "path": "media/play-icons/cart.webp",
+      "sha256": "f9d001e0fb959ae3936bad6edf8ae2a7a78a961501d5860e4128142dad4644e9",
+      "width": 256,
+      "height": 256,
+      "atlas": "cart",
+      "cell": {
+        "left": 0,
+        "top": 0,
+        "width": 1536,
+        "height": 1024
+      }
+    }
+  ]
+}

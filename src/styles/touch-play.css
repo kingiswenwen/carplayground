@@ -38,3 +38,5 @@
 .world-camera-tools .touch-icon{background:#fff5dbed;min-width:46px;min-height:46px;box-shadow:0 2px 8px #36565325}
 .world-preparing{position:absolute;inset:0;display:grid;place-items:center;background:#d9edf0;color:#365653}
 .world-preparing svg{width:52px;height:52px}
+
+.touch-icon:has(.play-view-label){position:relative}.play-view-label{position:absolute;right:3px;bottom:2px;font-size:8px;font-weight:800;line-height:1;color:#3d6b52;pointer-events:none}

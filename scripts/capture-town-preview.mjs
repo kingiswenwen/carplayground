@@ -9,6 +9,7 @@ try{
  for(const[device,width,height]of[['desktop',1440,1000],['tablet',768,1024],['phone',390,844]]){
   const page=await browser.newPage({viewport:{width,height},reducedMotion:'reduce'});
   for(const[name,route]of[['home','/explore'],['showroom','/cars'],['wash','/play/H03'],['parking','/play/M03'],['bridge','/play/T02'],['studio','/explore/studio'],['story','/stories/ST02?step=1'],['garage','/garage'],['parent','/parent']]){
+   await page.goto('about:blank');
    await page.goto(`http://localhost:5173/#${route}`);
    await page.locator('h1').first().waitFor();
    if(route.includes('/play/')){
