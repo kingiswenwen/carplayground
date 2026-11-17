@@ -71,7 +71,7 @@ test('跨域图标加载后作品画布仍可导出',async({page})=>{
  await new Promise<void>(resolve=>server.listen(0,'127.0.0.1',resolve));
  const port=(server.address() as AddressInfo).port;
  try{
-  await page.route('**/media/play-icons/*.webp',route=>route.fulfill({status:302,headers:{location:`http://127.0.0.1:${port}/`+new URL(route.request().url()).pathname.split('/').at(-1)}}));
+  await page.route('**/play-icons/*.webp',route=>route.fulfill({status:302,headers:{location:`http://127.0.0.1:${port}/`+new URL(route.request().url()).pathname.split('/').at(-1)}}));
   await page.goto('/#/play/A01?car=CAR01&view=2d');
   await expect(page.locator('.touch-canvas')).toBeVisible();await expect.poll(async()=>(await touchState(page)).ready).toBe(true);
   expect(anonymousLoads).toBeGreaterThan(0);
