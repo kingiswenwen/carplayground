@@ -115,9 +115,11 @@ test('WebGL不可用时自动切回平面，停车仍可完整玩完', async ({p
 test('顺序卡的放置提示跟随实际规则，不提前提示第三步', async ({page}) => {
   await open(page, 'C02');
   let snapshot = await state(page);
+  const neutral = snapshot.targetScreens.find((target:any)=>target.id==='step-2').color;
+  expect(neutral).not.toBe('#f1bd58');
   await tap(page, snapshot.actors.find((actor: any) => actor.id === 'step-2').screen);
   await expect.poll(async () => (await state(page)).selected).toBe('step-2');
-  await expect.poll(async () => (await state(page)).targetScreens.find((target: any) => target.id === 'step-2').color).toBe('#fff5da');
+  await expect.poll(async () => (await state(page)).targetScreens.find((target: any) => target.id === 'step-2').color).toBe(neutral);
   snapshot = await state(page);
   await tap(page, snapshot.actors.find((actor: any) => actor.id === 'step-0').screen);
   await expect.poll(async () => (await state(page)).selected).toBe('step-0');

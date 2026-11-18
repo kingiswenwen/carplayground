@@ -127,7 +127,9 @@ for(const three of [false,true])test(`${three?'3D':'2D'} 同一擦洗动作探�
       const p=firstSurface!;
       // Approach the same patch over the actual body surface. Clicking exactly
       // on a patch can erase just that isolated patch with either radius.
-      for(const dx of [.06,.05,.04,.03,.02,.01,0]){
+      // Sample at roughly pixel spacing: a coarse 1% viewport stride can
+      // jump across both brush boundaries on the newer, narrower model.
+      for(const dx of Array.from({length:121},(_,i)=>(120-i)/1000)){
         await clickWorld(page,{x:p.x+dx,y:p.y});coverage.push((await flatState(page)).progress);
       }
     }else{await dragTouch(page,{x:65,y:680*.4},{x:935,y:680*.4},4);coverage.push((await flatState(page)).progress);}
