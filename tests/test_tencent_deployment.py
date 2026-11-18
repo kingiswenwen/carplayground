@@ -288,5 +288,78 @@ class DeploymentTest(unittest.TestCase):
         self.assertTrue(self.receipt['published'])
 
 
+class TransportRetryTests(unittest.TestCase):
+    class ServiceError(Exception):
+        def __init__(self, status):
+            super().__init__('signed-request-must-never-be-logged')
+            self.status = status
+
+        def get_status_code(self):
+            return self.status
+
+        def get_error_code(self):
+            return 'SlowDown' if self.status == 503 else 'AccessDenied'
+
+        def get_request_id(self):
+            return 'request-123'
+
+    def test_transient_service_failure_recovers_with_bounded_backoff(self):
+        from unittest.mock import Mock
+        operation = Mock(side_effect=[self.ServiceError(503), self.ServiceError(429), b'ok'])
+        with patch.object(deployment.time, 'sleep') as sleep, patch('builtins.print') as output:
+            self.assertEqual(deployment.transport_retry(operation), b'ok')
+        self.assertEqual(operation.call_count, 3)
+        self.assertEqual(sleep.call_count, 2)
+        self.assertNotIn('signed-request', str(output.call_args_list))
+        self.assertIn('SlowDown', str(output.call_args_list))
+
+    def test_permanent_errors_and_integrity_failures_are_not_retried(self):
+        from unittest.mock import Mock
+        for error in [self.ServiceError(403), self.ServiceError(404), ValueError('Remote bytes differ')]:
+            operation = Mock(side_effect=error)
+            with patch.object(deployment.time, 'sleep') as sleep:
+                with self.assertRaises(type(error)):
+                    deployment.transport_retry(operation)
+                sleep.assert_not_called()
+            self.assertEqual(operation.call_count, 1)
+
+    def test_exhausted_retry_preserves_the_error(self):
+        from unittest.mock import Mock
+        error = self.ServiceError(503)
+        operation = Mock(side_effect=error)
+        with patch.object(deployment.time, 'sleep'), patch('builtins.print'):
+            with self.assertRaises(self.ServiceError) as caught:
+                deployment.transport_retry(operation)
+        self.assertIs(caught.exception, error)
+        self.assertEqual(operation.call_count, 4)
+
+    def test_immutable_upload_retries_but_entry_promotion_does_not(self):
+        from unittest.mock import Mock
+        headers = {'Content-Type': 'text/html', 'Cache-Control': 'no-cache'}
+        for name, expected in [('media/new/file.bin', 2), ('index.html', 1)]:
+            client = Mock()
+            client.put_object.side_effect = [self.ServiceError(503), {}]
+            with patch.object(deployment.TencentCloud, 'cos', new_callable=PropertyMock, return_value=client), patch.object(deployment.time, 'sleep'), patch('builtins.print'):
+                cloud = deployment.TencentCloud({'bucket': 'test', 'domain': 'example.test'}, {})
+                if name == 'index.html':
+                    with self.assertRaises(self.ServiceError):
+                        cloud.put(name, b'entry', headers)
+                else:
+                    cloud.put(name, b'entry', headers)
+            self.assertEqual(client.put_object.call_count, expected)
+
+    def test_network_timeout_retries_and_tls_failure_does_not(self):
+        from requests.exceptions import Timeout, SSLError
+        from unittest.mock import Mock
+        operation = Mock(side_effect=[Timeout(), b'ok'])
+        with patch.object(deployment.time, 'sleep'), patch('builtins.print'):
+            self.assertEqual(deployment.transport_retry(operation), b'ok')
+        self.assertFalse(deployment.transient(SSLError()))
+
+    def test_cdn_server_failure_retries_but_404_does_not(self):
+        self.assertTrue(deployment.transient(deployment.DeliveryHTTPError(503)))
+        self.assertFalse(deployment.transient(deployment.DeliveryHTTPError(404)))
+
+
 if __name__ == '__main__':
     unittest.main()

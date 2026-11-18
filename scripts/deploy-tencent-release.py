@@ -16,8 +16,57 @@ import re
 import subprocess
 import sys
 import threading
+import time
+import random
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+class DeliveryHTTPError(Exception):
+    def __init__(self, status):
+        self.status = status
+
+
+def transport_details(error):
+    """Allowlisted diagnostics only: SDK messages may contain signed requests."""
+    result = {'type': type(error).__name__}
+    for method, field in [('get_status_code', 'status'), ('get_error_code', 'code'),
+                          ('get_request_id', 'requestId')]:
+        getter = getattr(error, method, None)
+        if callable(getter):
+            value = str(getter())
+            if re.fullmatch(r'[A-Za-z0-9_.-]{1,128}', value):
+                result[field] = value
+    if isinstance(error, DeliveryHTTPError):
+        result['status'] = str(error.status)
+    return result
+
+
+def transient(error):
+    if isinstance(error, ValueError):
+        return False
+    details = transport_details(error)
+    if 'status' in details:
+        return details['status'] in {'408', '429', '500', '502', '503', '504'}
+    # The SDK wraps requests failures and keeps the original exception context.
+    if type(error).__name__ == 'CosClientError' and error.__context__ is not None:
+        return transient(error.__context__)
+    # Do not retry arbitrary SDK client errors (which include invalid inputs).
+    from requests.exceptions import ConnectionError, Timeout, ChunkedEncodingError, SSLError
+    if isinstance(error, SSLError):
+        return False
+    return isinstance(error, (ConnectionError, Timeout, ChunkedEncodingError, TimeoutError))
+
+
+def transport_retry(operation):
+    for attempt in range(4):
+        try:
+            return operation()
+        except Exception as error:
+            if attempt == 3 or not transient(error):
+                raise
+            print('Retrying cloud request: ' + json.dumps(transport_details(error)), flush=True)
+            time.sleep(2 ** attempt + random.uniform(0, 1))
 
 
 def digest(data):
@@ -190,7 +239,7 @@ class TencentCloud:
         if not hasattr(self.local, 'cos'):
             self.local.cos = CosS3Client(CosConfig(Region=self.target['region'],
                                        SecretId=self.key['secretId'], SecretKey=self.key['secretKey'],
-                                       Token=self.key.get('token'), Scheme='https', Timeout=120))
+                                       Token=self.key.get('token'), Scheme='https', Timeout=40), retry=0)
         return self.local.cos
 
     @property
@@ -201,6 +250,9 @@ class TencentCloud:
         return self.local.http
 
     def origin_get(self, name):
+        return transport_retry(lambda: self._origin_get(name))
+
+    def _origin_get(self, name):
         from qcloud_cos.cos_exception import CosServiceError
         try:
             response = self.cos.get_object(Bucket=self.bucket, Key=name)
@@ -221,18 +273,28 @@ class TencentCloud:
     def put(self, name, data, headers):
         payload, options = upload_payload(name, data, headers)
         try:
-            self.cos.put_object(Bucket=self.bucket, Key=name, Body=payload, EnableMD5=True, **options)
+            def write():
+                return self.cos.put_object(Bucket=self.bucket, Key=name, Body=payload, EnableMD5=True, **options)
+            # Immutable uploads repeat the same bytes. Entry promotion is a
+            # separate operation and must never be blindly replayed.
+            if name == 'index.html':
+                write()
+            else:
+                transport_retry(write)
         except Exception as error:
             error.deployment_object = name
             error.deployment_bytes = len(payload)
             raise
 
     def cdn_get(self, name):
+        return transport_retry(lambda: self._cdn_get(name))
+
+    def _cdn_get(self, name):
         # No credentials, cache-busting query, Host override or TLS bypass.
-        response = self.http.get(self.base + name, timeout=(10, 40), allow_redirects=False)
-        if response.status_code != 200:
-            raise ValueError('CDN status ' + str(response.status_code) + ': ' + name)
-        return {'data': response.content, 'headers': dict(response.headers)}
+        with self.http.get(self.base + name, timeout=(10, 40), allow_redirects=False) as response:
+            if response.status_code != 200:
+                raise DeliveryHTTPError(response.status_code)
+            return {'data': response.content, 'headers': dict(response.headers)}
 
 
 def private_credentials(filename):
@@ -330,6 +392,8 @@ def main():
         except Exception as error:
             # SDK exception strings can include request/response details.
             receipt['failureType'] = type(error).__name__
+            receipt['transportError'] = transport_details(error)
+            print('Deployment error: ' + json.dumps(receipt['transportError']), file=sys.stderr)
             if hasattr(error, 'deployment_object'):
                 receipt['failureObject'] = error.deployment_object
                 receipt['failurePayloadBytes'] = error.deployment_bytes

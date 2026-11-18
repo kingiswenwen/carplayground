@@ -11,7 +11,40 @@ permissions:
   contents: read
 
 jobs:
+  select:
+    name: Select CI event
+    timeout-minutes: 5
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: read
+      pull-requests: read
+    outputs:
+      run: ${{ steps.select.outputs.run }}
+    steps:
+      - id: select
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          EVENT: ${{ github.event_name }}
+          BRANCH: ${{ github.ref_name }}
+        run: |
+          run=true
+          if [ "$EVENT" = push ] && [ "$BRANCH" = dev ]; then
+            # Only replace a dev push with a PR run that this workflow handles.
+            if count=$(gh api --method GET "repos/$GH_REPO/pulls" -f state=open -f head="${GH_REPO%%/*}:dev" --paginate --jq '[.[] | select(.base.ref == "main" or .base.ref == "dev")] | length'); then
+              if [ "$(printf '%s\n' "$count" | awk '{s += $1} END {print s+0}')" -gt 0 ]; then run=false; fi
+            else
+              echo '::warning::PR lookup failed; keeping the full push check'
+            fi
+          fi
+          echo "run=$run" >> "$GITHUB_OUTPUT"
+
   check:
+    needs: select
+    if: needs.select.outputs.run == 'true'
+    concurrency:
+      group: check-${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
+      cancel-in-progress: true
     name: Test and build
     runs-on: ubuntu-24.04
     timeout-minutes: 60
@@ -36,17 +69,29 @@ jobs:
         run: npm ci --registry=https://registry.npmjs.org --no-audit --fund=false --loglevel=info --fetch-timeout=30000 --fetch-retries=2
       - name: Check public source boundary
         run: python scripts/check-public-source.py --history HEAD
-      - run: npm test && npm run test:release
+      - name: Unit tests
+        run: npm test
+      - name: Release tool integration tests
+        run: npm run test:release
       - name: Use Ubuntu archive for dependency downloads
         run: |
           for source in /etc/apt/apt-mirrors.txt /etc/apt/sources.list /etc/apt/sources.list.d/*.sources; do
             if [ -f "$source" ]; then
-              sudo sed -E -i 's@https?://([A-Za-z0-9-]+\.)*archive\.ubuntu\.com/ubuntu@https://archive.ubuntu.com/ubuntu@g' "$source"
+              sudo sed -Ei 's|https?://([a-zA-Z0-9-]+\.)*archive\.ubuntu\.com/ubuntu|https://archive.ubuntu.com/ubuntu|g' "$source"
             fi
           done
+          printf '%s\n' 'Acquire::Retries "3";' 'Acquire::http::Timeout "30";' 'Acquire::https::Timeout "30";' | sudo tee /etc/apt/apt.conf.d/80-carplayground-ci > /dev/null
       - name: Install audio test processor
-        timeout-minutes: 10
-        run: sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 update && sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 install -y --no-install-recommends ffmpeg
+        timeout-minutes: 12
+        run: |
+          if ! command -v ffmpeg || ! command -v ffprobe; then
+            sudo apt-get update
+            sudo apt-get install -y --no-install-recommends ffmpeg
+          fi
+          ffmpeg -version
+          ffprobe -version
+      - name: Install deployment test dependencies
+        run: python -m pip install -r deployment/requirements.txt
       - run: python -m unittest discover -s tests -p 'test_*.py'
       - name: Prepare immutable release
         id: package
@@ -56,14 +101,17 @@ jobs:
           npm run release:prepare -- --id "$release_id" --kind review
           echo "release_id=$release_id" >> "$GITHUB_OUTPUT"
           echo "artifact_name=release-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}" >> "$GITHUB_OUTPUT"
-      - run: npx playwright install --with-deps chromium firefox
+      - name: Install Playwright browsers and dependencies
+        timeout-minutes: 12
+        run: npx playwright install --with-deps chromium firefox
       - name: Install Firefox software WebGL display
-        timeout-minutes: 5
-        run: sudo apt-get -o Acquire::Retries=2 -o Acquire::http::Timeout=20 -o Acquire::https::Timeout=20 install -y --no-install-recommends libgl1-mesa-dri libegl1 libglx-mesa0 mesa-utils xvfb xauth
+        timeout-minutes: 10
+        run: sudo apt-get install -y --no-install-recommends libgl1-mesa-dri libegl1 libglx-mesa0 mesa-utils xvfb xauth
       - name: Verify isolated development preview
         shell: bash
         env:
           DEV_SECURITY_E2E: '1'
+          PLAYWRIGHT_HTML_OUTPUT_DIR: test-results/reports/dev-security
           PLAYWRIGHT_BASE_URL: http://127.0.0.1:5195
         run: |
           npm run dev -- --host 127.0.0.1 --port 5195 --strictPort &
@@ -73,37 +121,57 @@ jobs:
             if curl --fail --silent "$PLAYWRIGHT_BASE_URL/" > /dev/null; then break; fi
             sleep 1
           done
-          npx playwright test tests/e2e/dev-security.spec.ts --project=chromium --workers=1
-      - name: Test built website browser flows
+          curl --fail --silent "$PLAYWRIGHT_BASE_URL/" > /dev/null
+          npx playwright test tests/e2e/dev-security.spec.ts --project=chromium --workers=1 --output=test-results/dev-security
+      - name: Firefox WebGL environment
         shell: bash
         env:
           PLAYWRIGHT_BASE_URL: http://127.0.0.1:5194
           RELEASE_ID: ${{ steps.package.outputs.release_id }}
         run: |
-          node scripts/preview-release.mjs ".release-artifacts/$RELEASE_ID" 5194 &
-          preview_pid=$!
-          trap 'kill "$preview_pid"' EXIT
-          for attempt in {1..30}; do
-            if curl --fail --silent "$PLAYWRIGHT_BASE_URL/" > /dev/null; then break; fi
-            sleep 1
-          done
-          # Fail before the long Chromium suite if the runner cannot render real
-          # Firefox WebGL2/Three frames. This is software GL, not device coverage.
-          # Scope opt-in to these commands; the legacy Firefox 2D run stays headless.
-          LIBGL_ALWAYS_SOFTWARE=1 xvfb-run -a -s '-screen 0 1920x1200x24' glxinfo -B
-          PLAYWRIGHT_FIREFOX_SOFTWARE_WEBGL=1 LIBGL_ALWAYS_SOFTWARE=1 xvfb-run -a -s '-screen 0 1920x1200x24' \
-            npx playwright test tests/e2e/firefox-webgl-environment.spec.ts --project=firefox --workers=1 --max-failures=1 --output=test-results/firefox-webgl-probe
-          # Fail-fast does not reduce successful coverage: all 19 tests must pass.
-          PLAYWRIGHT_FIREFOX_SOFTWARE_WEBGL=1 LIBGL_ALWAYS_SOFTWARE=1 xvfb-run -a -s '-screen 0 1920x1200x24' \
-            npx playwright test tests/e2e/difficulty.spec.ts tests/e2e/content-level.spec.ts tests/e2e/wash-state.spec.ts tests/e2e/tracks-continuity.spec.ts --project=firefox --workers=1 --max-failures=1 --output=test-results/firefox-strict
-          # Fail early on persistence/page-load timing before the full suite.
-          npx playwright test tests/e2e/core-records-favorites.spec.ts --project=chromium --workers=1 --output=test-results/chromium-core
-          # A synchronous WebGL constructor failure must keep its image fallback.
-          npx playwright test tests/e2e/pictorial-3d.spec.ts --project=chromium --workers=1 --grep 'WebGL不可用时' --output=test-results/chromium-viewer-fallback
-          # Check the mobile scroll regression repeatedly before the full suite.
-          npx playwright test tests/e2e/showroom-garage-feedback.spec.ts --project=chromium --workers=2 --grep '选车后看见新模型' --repeat-each=3 --output=test-results/chromium-scroll
-          npx playwright test --project=chromium --workers=2 --output=test-results/chromium-full
-          npx playwright test tests/e2e/responsive-ui.spec.ts tests/e2e/direct-touch.spec.ts tests/e2e/play-guidance.spec.ts --project=firefox --workers=2 --grep '三段故事和控件适配|车型分页和家长说明|推车松手|两路同推|洗车依次' --output=test-results/firefox-headless-2d
+          bash scripts/ci-browser-suite.sh PLAYWRIGHT_FIREFOX_SOFTWARE_WEBGL=1 LIBGL_ALWAYS_SOFTWARE=1 xvfb-run -a -s '-screen 0 1920x1200x24' npx playwright test tests/e2e/firefox-webgl-environment.spec.ts --project=firefox --workers=1 --max-failures=1 --output=test-results/firefox-webgl-probe
+      - name: Firefox strict gameplay
+        shell: bash
+        env:
+          PLAYWRIGHT_BASE_URL: http://127.0.0.1:5194
+          RELEASE_ID: ${{ steps.package.outputs.release_id }}
+        run: |
+          bash scripts/ci-browser-suite.sh PLAYWRIGHT_FIREFOX_SOFTWARE_WEBGL=1 LIBGL_ALWAYS_SOFTWARE=1 xvfb-run -a -s '-screen 0 1920x1200x24' npx playwright test tests/e2e/difficulty.spec.ts tests/e2e/content-level.spec.ts tests/e2e/wash-state.spec.ts tests/e2e/tracks-continuity.spec.ts --project=firefox --workers=1 --max-failures=1 --output=test-results/firefox-strict
+      - name: Chromium persistence
+        shell: bash
+        env:
+          PLAYWRIGHT_BASE_URL: http://127.0.0.1:5194
+          RELEASE_ID: ${{ steps.package.outputs.release_id }}
+        run: |
+          bash scripts/ci-browser-suite.sh npx playwright test tests/e2e/core-records-favorites.spec.ts --project=chromium --workers=1 --output=test-results/chromium-core
+      - name: Chromium WebGL fallback
+        shell: bash
+        env:
+          PLAYWRIGHT_BASE_URL: http://127.0.0.1:5194
+          RELEASE_ID: ${{ steps.package.outputs.release_id }}
+        run: |
+          bash scripts/ci-browser-suite.sh npx playwright test tests/e2e/pictorial-3d.spec.ts --project=chromium --workers=1 --grep 'WebGL不可用时' --output=test-results/chromium-viewer-fallback
+      - name: Chromium repeated scroll regression
+        shell: bash
+        env:
+          PLAYWRIGHT_BASE_URL: http://127.0.0.1:5194
+          RELEASE_ID: ${{ steps.package.outputs.release_id }}
+        run: |
+          bash scripts/ci-browser-suite.sh npx playwright test tests/e2e/showroom-garage-feedback.spec.ts --project=chromium --workers=2 --grep '选车后看见新模型' --repeat-each=3 --output=test-results/chromium-scroll
+      - name: Chromium full browser suite
+        shell: bash
+        env:
+          PLAYWRIGHT_BASE_URL: http://127.0.0.1:5194
+          RELEASE_ID: ${{ steps.package.outputs.release_id }}
+        run: |
+          bash scripts/ci-browser-suite.sh npx playwright test --project=chromium --workers=2 --output=test-results/chromium-full
+      - name: Firefox headless flows
+        shell: bash
+        env:
+          PLAYWRIGHT_BASE_URL: http://127.0.0.1:5194
+          RELEASE_ID: ${{ steps.package.outputs.release_id }}
+        run: |
+          bash scripts/ci-browser-suite.sh npx playwright test tests/e2e/responsive-ui.spec.ts tests/e2e/direct-touch.spec.ts tests/e2e/play-guidance.spec.ts --project=firefox --workers=2 --grep '三段故事和控件适配|车型分页和家长说明|推车松手|两路同推|洗车依次' --output=test-results/firefox-headless-2d
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: ${{ steps.package.outputs.artifact_name }}
@@ -111,11 +179,11 @@ jobs:
           if-no-files-found: error
           retention-days: 30
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
-        if: failure()
+        if: failure() || cancelled()
         with:
           name: browser-failure-${{ github.run_id }}-${{ github.run_attempt }}
           path: test-results/
-          retention-days: 7
+          retention-days: 14
 
   deploy:
     name: Deploy COS and verify CDN
@@ -182,9 +250,12 @@ jobs:
           trap 'rm -f "$credentials"' EXIT
           python scripts/github-oidc-credentials.py "$credentials"
           python scripts/deploy-tencent-release.py ".release-artifacts/$RELEASE_ID" \
-            --execute --publish --auto-current-index --authorized-review --workers 32 \
+            --execute --publish --auto-current-index --authorized-review --workers 8 \
             --credentials-file "$credentials"
-          python scripts/check-deployed-release.py ".release-artifacts/$RELEASE_ID"
+      - name: Verify public CDN entry and audio
+        env:
+          RELEASE_ID: ${{ needs.check.outputs.release_id }}
+        run: python scripts/check-deployed-release.py ".release-artifacts/$RELEASE_ID"
       - name: Remove private deployment configuration
         if: always()
         shell: bash
@@ -197,5 +268,5 @@ jobs:
           path: |
             .release-artifacts/deployment-*/receipt.json
             .release-artifacts/public-delivery-check.json
-          if-no-files-found: error
+          if-no-files-found: warn
           retention-days: 90

@@ -19,6 +19,8 @@ for(const width of [320,768,1440])test(`六地点通向全部26项活动，保�
    // cover rather than treating every decorative image as a second cover.
    const cover=link.locator('img.town-cover');await expect(cover).toHaveCount(1);
    await expect(cover).toHaveAttribute('src',/town\/activity-[A-Z]\d{2}\.webp$/);
+   await link.scrollIntoViewIfNeeded();
+   await expect.poll(()=>cover.evaluate((img:HTMLImageElement)=>img.complete&&img.naturalWidth>0)).toBe(true);
    const box=(await link.boundingBox())!;expect(box.width).toBeGreaterThanOrEqual(100);expect(box.height).toBeGreaterThanOrEqual(100);
   }
   expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
@@ -47,6 +49,7 @@ test('小镇字体与场景共用版本化媒体路径，并能实际加载 @smo
 });
 
 test('手机停车放大与横竖屏切换保留已停车辆及有余车位 @town-resize',async({page})=>{
+ test.setTimeout(120000); // Multiple model loads and two renderer rebuilds on software GL.
  await page.setViewportSize({width:390,height:844});await page.goto('/#/play/M03?car=CAR03');
  const world=page.locator('.touch-world-canvas');await expect(world).toHaveAttribute('data-ready','true',{timeout:45000});
  await dropTouch(page,'car-0','bay-0');
