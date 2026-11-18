@@ -383,6 +383,7 @@ export class TouchBoard {
   }
   get artwork(){return this.paintPoints;}
   get artworkRevision(){return this.artRevision;}
+  get artworkBackground(){return this.paper;}
   get selectedItem(){return this.grab?.item?.id||this.selected?.id||null;}
   down(id:number,p:Point,now:number){
     if(!this.ready||this.grab)return;
@@ -559,13 +560,14 @@ export class TouchBoard {
   }
   private background(){
     const c=this.ctx,H=this.height;
-    c.fillStyle=SKY;c.fillRect(0,0,1000,H);c.fillStyle=GRASS;c.fillRect(0,H*.32,1000,H*.68);
+    const sky=c.createLinearGradient(0,0,0,H);sky.addColorStop(0,SKY);sky.addColorStop(1,'#e9e5cf');c.fillStyle=sky;c.fillRect(0,0,1000,H);
+    const ground=c.createLinearGradient(0,H*.32,0,H);ground.addColorStop(0,GRASS);ground.addColorStop(1,'#bfceac');c.fillStyle=ground;c.fillRect(0,H*.32,1000,H*.68);
     if(['parking','spaces','sorting','motion','traffic','visit','rolling','road'].includes(this.mode)){
-      c.fillStyle=ASPHALT;this.round({x:500,y:H*.52,w:980,h:H*.73},40);c.fill();
+      const road=c.createLinearGradient(0,H*.2,0,H*.9);road.addColorStop(0,ASPHALT);road.addColorStop(1,'#637d76');c.fillStyle=road;this.round({x:500,y:H*.52,w:980,h:H*.73},40);c.fill();c.strokeStyle='#a6b5a5';c.lineWidth=3;c.stroke();
       c.strokeStyle='#efe9c8';c.lineWidth=5;c.setLineDash([35,25]);c.beginPath();c.moveTo(25,H*.43);c.lineTo(975,H*.43);c.stroke();c.setLineDash([]);
       if(this.rough){c.fillStyle='#b99e79';c.fillRect(0,H*.47,1000,H*.16);c.fillStyle='#84765f';for(let i=0;i<150;i++){c.beginPath();c.ellipse(i*73%1000,H*.48+(i*31%(H*.14)),5,3,0,0,Math.PI*2);c.fill();}}
     }else if(['assembly','helpers','sequence','paint','story','trip','help'].includes(this.mode)){
-      c.fillStyle=this.mode==='paint'?this.paper:'#eed4a4';this.round({x:500,y:H*.6,w:970,h:H*.68},35);c.fill();
+      const wood=c.createLinearGradient(0,H*.3,0,H);wood.addColorStop(0,'#efd8ae');wood.addColorStop(1,'#d9b786');c.fillStyle=this.mode==='paint'?this.paper:wood;this.round({x:500,y:H*.6,w:970,h:H*.68},35);c.fill();
     }else if(this.mode==='wash'){
       c.fillStyle='#c3dfdc';c.fillRect(0,H*.16,1000,H*.56);c.fillStyle='#a1c3bd';for(let x=0;x<1000;x+=100)c.fillRect(x,H*.67,4,30);
       c.strokeStyle='#d9eff0';c.lineWidth=3;for(let y=H*.2;y<H*.65;y+=70){c.beginPath();c.moveTo(0,y);c.lineTo(1000,y);c.stroke();}
@@ -619,7 +621,7 @@ export class TouchBoard {
     for(const target of this.targets){
       if(target.enabled===false)continue;
       if(this.mode==='assembly'&&(target.id==='body'||!this.targets[0].occupied))continue;
-      c.save();c.strokeStyle=target.color||'#fff9e9';c.fillStyle=target.color?target.color+'55':'#fff8df28';c.lineWidth=7;c.setLineDash(target.occupied?[]:[18,10]);
+      c.save();c.strokeStyle=target.color||'#6d8b7b';c.fillStyle=target.color?target.color+'55':'#fff8df55';c.lineWidth=7;c.setLineDash(target.occupied?[]:[18,10]);
       if(this.mode==='assembly'){c.beginPath();c.arc(target.x,target.y,target.w/2,0,Math.PI*2);c.stroke();}
       else{this.round(target,20);c.fill();c.stroke();}
       c.setLineDash([]);if(target.glyph)this.glyph(target.glyph,target.x,target.y,Math.min(100,target.h*.55));c.restore();
@@ -662,7 +664,7 @@ export class TouchBoard {
         c.strokeStyle=CREAM;c.lineWidth=8;this.round(item,12);c.stroke();this.glyph('🅿️',item.x,item.y,65);
       }else if(item.kind==='shape'){
         c.fillStyle=item.color||'#e5b34e';if(item.glyph==='●'){c.beginPath();c.arc(item.x,item.y,item.w/2,0,Math.PI*2);c.fill();c.strokeStyle=CREAM;c.lineWidth=9;c.save();c.translate(item.x,item.y);c.rotate(item.x/55);c.beginPath();c.moveTo(-item.w*.35,0);c.lineTo(item.w*.35,0);c.stroke();c.restore();}else{this.round(item,8);c.fill();}
-      }else if(item.glyph==='belt'){c.strokeStyle='#42616f';c.lineWidth=18;c.beginPath();c.moveTo(item.x-40,item.y-45);c.lineTo(item.x+40,item.y+45);c.moveTo(item.x-45,item.y+35);c.lineTo(item.x+45,item.y+35);c.stroke();c.fillStyle='#dca956';c.fillRect(item.x-20,item.y-5,40,35);}
+      }else if(item.glyph==='belt')this.glyph('belt',item.x,item.y,Math.min(item.w,item.h)*.72);
       else if(item.id.startsWith('ink-')){c.fillStyle=item.color!;c.beginPath();c.arc(item.x,item.y,45,0,Math.PI*2);c.fill();if(this.ink===item.color){c.strokeStyle=CREAM;c.lineWidth=8;c.stroke();}}
       else if(item.id==='paper'){c.fillStyle=this.paper;c.strokeStyle='#587465';c.lineWidth=7;this.round(item,12);c.fill();c.stroke();}
       else if(this.mode==='paint'&&item.id.startsWith('stamp-')){paintMark(c,{x:item.x/1000,y:item.y/H,color:item.color||this.ink,shape:({'stamp-0':'leaf','stamp-1':'sun','stamp-2':'star'}as const)[item.id as 'stamp-0'|'stamp-1'|'stamp-2']},1000,H);}

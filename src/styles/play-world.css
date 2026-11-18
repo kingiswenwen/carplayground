@@ -1,6 +1,6 @@
 /* Illustrated objects share the same proportions in menus, stories and play. */
 .play-symbol{display:inline-flex;align-items:center;justify-content:center;width:1em;height:1em;flex:none;vertical-align:middle;pointer-events:none}
-.play-symbol>svg{display:block;width:100%;height:100%;overflow:visible}
+.play-symbol>svg,.play-symbol>img{display:block;width:100%;height:100%;object-fit:contain}.play-symbol>svg{overflow:visible}
 .child-shell{background:#f7f5eb;color:#365653;--play-focus:#b5653d}
 .child-shell .picture-button,.child-shell .touch-icon{background:#fffdf5;box-shadow:0 3px 9px #345b4f12;border:1px solid #dce2d4}
 .child-shell .picture-button:active,.child-shell .touch-icon:active{transform:translateY(2px);box-shadow:0 1px 4px #345b4f12}

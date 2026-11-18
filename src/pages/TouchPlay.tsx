@@ -4,7 +4,7 @@ import {PlaySymbol} from '../components/PlaySymbol';
 import {PlayGuide} from '../components/PlayGuide';
 import {nextInvitation} from '../domain/play-journey';
 import { lazy,Suspense,useEffect, useRef, useState, type PointerEvent } from 'react';
-import { ArrowLeft, ArrowRight, Box, Check, Hand, Pause, Play, RotateCcw, Smartphone, Users, Volume2 } from 'lucide-react';
+import {Layers, ArrowLeft, ArrowRight, Box, Check, Hand, Pause, Play, RotateCcw, Smartphone, Users, Volume2 } from 'lucide-react';
 import { getActivity, type ActivityId } from '../domain/content';
 import { TouchBoard, type BoardSnapshot } from '../game/TouchBoard';
 import { useLearningSession } from '../hooks/useLearningSession';
@@ -105,7 +105,7 @@ export function TouchPlay({id,carId,settings,backHref='#/explore',continueHref}:
       <a className="touch-icon" href={backHref} aria-label="回到乐园"><ArrowLeft/></a>
       <a className="touch-title" href={`#/cars/${carId}`} aria-label="旋转看看这辆车"><PlayPicture id={id} carId={carId}/></a>
       <div className="touch-tools">
-        {threeAvailable&&<button className="touch-icon" aria-label={three?'使用平面简化玩法':'打开立体玩法'} aria-pressed={three} onClick={()=>{setThreeFailed(false);setFlat(three);}}><Box/></button>}
+        {threeAvailable&&<button className="touch-icon" aria-label={three?'使用平面简化玩法':'打开立体玩法'} aria-pressed={three} onClick={()=>{setThreeFailed(false);setFlat(three);}}>{three?<Box/>:<Layers/>}<span className="play-view-label" aria-hidden="true">{three?'3D':'2D'}</span></button>}
         {id==='P01'&&typeof window.DeviceOrientationEvent!=='undefined'&&<button className="touch-icon" aria-label={sensor?'关闭倾斜操控':'启用倾斜操控'} aria-pressed={sensor} onClick={()=>void tilt()}><Smartphone/></button>}
         <button className="touch-icon help-demonstration" aria-label="看看怎么玩" aria-expanded={guideStep!==null} disabled={!active||state.completed||(three&&!worldReady)} onClick={()=>{if(guideStep!==null){guide(null);return;}guide(0);session.hint();}}><PlaySymbol name="hand"/><Play className="help-play" fill="currentColor"/></button>
         <button className="touch-icon" aria-label="重听玩法" disabled={session.paused} onClick={session.replay}><Volume2/></button>

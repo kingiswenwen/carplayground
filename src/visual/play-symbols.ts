@@ -1,5 +1,6 @@
-// One illustrated vocabulary for the DOM and the interactive canvas.
-// These are authored vectors: no platform-dependent emoji fonts or remote assets.
+import {assetUrl} from '../domain/content';
+// Miniature vocabulary shared by DOM/canvas; vectors remain a network-independent
+// fallback and the semantic shape source for the 3D props.
 const ink = '#365653';
 const shapes: Record<string, string> = {
   home: '<path fill="#eed9b0" d="M20 47h60v42H20z"/><path fill="#e98265" d="M8 47 50 13l42 34-8 10-34-27-34 27z"/><path fill="#78b7b3" d="M40 61h21v28H40z"/><path fill="#fff9e7" d="M26 57h10v14H26zm40 0h10v14H66z"/>',
@@ -54,10 +55,13 @@ const shapes: Record<string, string> = {
   blue: '<circle cx="50" cy="50" r="35" fill="#72a7ba"/><path stroke="#b9dae0" d="M27 39q3-10 14-13"/>',
   white: '<circle cx="50" cy="50" r="35" fill="#f8f4df"/>',
   box: '<path fill="#d4af7e" d="m10 26 40-15 40 15v49L50 91 10 75z"/><path fill="none" stroke="#f1d8ae" d="m10 26 40 16 40-16M50 42v49M30 19l40 16v20"/>',
+  cart: '<path d="M15 60V18h16" fill="none" stroke="#6e9990" stroke-width="9"/><path fill="#d8b27c" d="m12 61 55-9 25 15-60 12-20-8z"/><path fill="#a3b5a1" d="m12 71 20 8 60-12v8L32 88 12 80z"/><g fill="#425258"><circle cx="29" cy="85" r="9"/><circle cx="77" cy="78" r="9"/></g><g fill="#dce1d4" stroke="none"><circle cx="29" cy="85" r="4"/><circle cx="77" cy="78" r="4"/></g>',
 };
 
-const aliases:Record<string,string>={'🏡':'home','🏠':'garage','🏎️':'car','🚗':'car','🚙':'car','🌳':'tree','☀️':'sun','☁️':'cloud','🌧️':'rain','☂️':'umbrella','🧽':'sponge','🫧':'bubbles','🚿':'shower','🛞':'wheel','🔧':'tool','🌉':'bridge','🪵':'plank','🛣️':'road','🏁':'flag','🎒':'bag','🧥':'coat','🧢':'cap','🥤':'water','🪑':'seat','🧑‍🔧':'friend','🤝':'friend','🫂':'friend','💛':'heart','👋':'hand','👆':'hand','🖐️':'hand','⭐':'star','✨':'sparkle','🔦':'lamp','💡':'light','🎨':'palette','🖍️':'pencil','📚':'book','📖':'book','🦋':'butterfly','🌼':'flower','🦕':'dinosaur','🦴':'bone','🐻':'bear','⌛':'clock','➜':'arrow','✓':'sparkle','😊':'smile','😟':'worried','🌒':'moon','⚽':'ball','🧊':'ice','🛑':'stop','🔴':'red','🔵':'blue','💦':'shower','📦':'box','🛒':'box','🎪':'home','🅿️':'garage','💨':'arrow','🌈':'world','👀':'smile'};
+const aliases:Record<string,string>={'🏡':'home','🏠':'garage','🏎️':'car','🚗':'car','🚙':'car','🌳':'tree','☀️':'sun','☁️':'cloud','🌧️':'rain','☂️':'umbrella','🧽':'sponge','🫧':'bubbles','🚿':'shower','🛞':'wheel','🔧':'tool','🌉':'bridge','🪵':'plank','🛣️':'road','🏁':'flag','🎒':'bag','🧥':'coat','🧢':'cap','🥤':'water','🪑':'seat','🧑‍🔧':'friend','🤝':'friend','🫂':'friend','💛':'heart','👋':'hand','👆':'hand','🖐️':'hand','⭐':'star','✨':'sparkle','🔦':'lamp','💡':'light','🎨':'palette','🖍️':'pencil','📚':'book','📖':'book','🦋':'butterfly','🌼':'flower','🦕':'dinosaur','🦴':'bone','🐻':'bear','⌛':'clock','➜':'arrow','✓':'sparkle','😊':'smile','😟':'worried','🌒':'moon','⚽':'ball','🧊':'ice','🛑':'stop','🔴':'red','🔵':'blue','💦':'shower','📦':'box','🛒':'cart','🎪':'home','🅿️':'garage','💨':'arrow','🌈':'world','👀':'smile'};
 export function symbolName(name:string){return aliases[name]||name;}
+const miniatureIcons=new Set(['car','garage','world','tree','wheel','tool','sponge','bubbles','bag','coat','cap','water','friend','palette','book','lamp','hand','shower','umbrella','belt','sun','rain','home','bridge','plank','road','flag','heart','star','leaf','ball','ice','cart']);
+export function symbolImage(name:string){const key=symbolName(name);return miniatureIcons.has(key)?assetUrl(`play-icon-${key}`):undefined;}
 export function symbolSvg(name:string){
   const body=shapes[symbolName(name)];
   return body?`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><g stroke="${ink}" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round">${body}</g></svg>`:undefined;
@@ -66,8 +70,13 @@ const images=new Map<string,HTMLImageElement>();
 let loading:Promise<void>|undefined;
 export function loadPlaySymbols(){
   return loading??=Promise.all(Object.keys(shapes).map(async name=>{
-    const image=new Image();image.src=`data:image/svg+xml;charset=utf-8,${encodeURIComponent(symbolSvg(name)!)}`;
-    await image.decode();images.set(name,image);
+    const image=new Image(),fallback=`data:image/svg+xml;charset=utf-8,${encodeURIComponent(symbolSvg(name)!)}`;
+    // Published artwork uses the media CDN. Preserve an origin-clean canvas for
+    // children's artwork/backup export, just like the registered vehicle images.
+    image.crossOrigin='anonymous';
+    image.src=symbolImage(name)||fallback;
+    try{await image.decode();}catch{image.src=fallback;await image.decode();}
+    images.set(name,image);
   })).then(()=>{}).catch(error=>{loading=undefined;throw error;});
 }
 export function drawPlaySymbol(ctx:CanvasRenderingContext2D,name:string,x:number,y:number,size:number){
