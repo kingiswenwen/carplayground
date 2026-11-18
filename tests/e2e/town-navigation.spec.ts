@@ -15,9 +15,12 @@ for(const width of [320,768,1440])test(`六地点通向全部26项活动，保�
   const hrefs=await links.evaluateAll(elements=>elements.map(a=>a.getAttribute('href')));
   expect(hrefs.map(href=>href!.match(/play\/([^?]+)/)![1])).toEqual(ids);
   for(const link of await links.all()){
-   await expect(link.locator('img.town-cover')).toHaveCount(1);
+   // Object/hand artwork may also be raster images. Verify the actual activity
+   // cover rather than treating every decorative image as a second cover.
+   const cover=link.locator('img.town-cover');await expect(cover).toHaveCount(1);
+   await expect(cover).toHaveAttribute('src',/town\/activity-[A-Z]\d{2}\.webp$/);
    await link.scrollIntoViewIfNeeded();
-   await expect.poll(()=>link.locator('img.town-cover').evaluate((img:HTMLImageElement)=>img.complete&&img.naturalWidth>0)).toBe(true);
+   await expect.poll(()=>cover.evaluate((img:HTMLImageElement)=>img.complete&&img.naturalWidth>0)).toBe(true);
    const box=(await link.boundingBox())!;expect(box.width).toBeGreaterThanOrEqual(100);expect(box.height).toBeGreaterThanOrEqual(100);
   }
   expect(await page.evaluate(()=>document.documentElement.scrollWidth)).toBeLessThanOrEqual(width);
