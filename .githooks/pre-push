@@ -2,7 +2,19 @@
 set -eu
 while read -r local_ref local_oid remote_ref remote_oid; do
   case "$local_oid" in
-    0000000000000000000000000000000000000000) continue ;;
+    0000000000000000000000000000000000000000)
+      case "$remote_ref" in
+        refs/heads/dev|refs/heads/main)
+          printf 'Keep the permanent branch %s.\n' "${remote_ref#refs/heads/}" >&2
+          exit 1 ;;
+      esac
+      continue ;;
+  esac
+  case "$remote_ref" in
+    refs/heads/dev) ;;
+    refs/heads/*)
+      printf '%s\n' 'Push development changes to dev. Release to main through a pull request.' >&2
+      exit 1 ;;
   esac
   python3 scripts/check-public-source.py --history "$local_oid"
 done
