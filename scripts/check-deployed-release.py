@@ -4,11 +4,29 @@ import json
 import os
 from pathlib import Path
 import sys
+import time
+import ssl
 import urllib.error
 import urllib.request
 
 
 def check(package):
+    # Repeat only transient transport failures; semantic checks remain strict.
+    for attempt in range(4):
+        try:
+            return check_once(package)
+        except (urllib.error.URLError, TimeoutError) as error:
+            if isinstance(error, urllib.error.HTTPError):
+                retry = error.code in {408, 429, 500, 502, 503, 504}
+            else:
+                retry = not isinstance(getattr(error, 'reason', None), ssl.SSLError)
+            if not retry or attempt == 3:
+                raise
+            print('Retrying public delivery transport check', flush=True)
+            time.sleep(2 ** attempt)
+
+
+def check_once(package):
     manifest = json.loads((package / 'manifest.json').read_text())
     config_dir = Path(os.environ.get('CARPLAYGROUND_DEPLOYMENT_DIR', Path(__file__).resolve().parents[1] / 'deployment'))
     target = json.loads((config_dir / 'tencent-cloud.json').read_text())
@@ -33,7 +51,7 @@ def check(package):
         urllib.request.urlopen(base + 'releases/' + manifest['appReleaseId'] + '/missing-file.js', timeout=40)
     except urllib.error.HTTPError as error:
         if error.code != 404:
-            raise ValueError('Missing object does not return 404') from None
+            raise
     else:
         raise ValueError('Missing object unexpectedly returns success')
     return {'appReleaseId': manifest['appReleaseId'], 'sourceCommit': manifest['sourceCommit'],

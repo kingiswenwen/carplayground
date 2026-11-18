@@ -6,7 +6,7 @@ const baseURL = process.env.PLAYWRIGHT_BASE_URL || 'http://localhost:5173';
 const firefoxSoftwareWebGL = process.env.PLAYWRIGHT_FIREFOX_SOFTWARE_WEBGL === '1';
 export default defineConfig({
   testDir: './tests/e2e', timeout: 30000, fullyParallel: false, workers: 2,
-  reporter: [['list'], ['html', { open: 'never' }]],
+  reporter: [['list'], ['html', { open: 'never', outputFolder: process.env.PLAYWRIGHT_HTML_OUTPUT_DIR || 'playwright-report' }]],
   use: { baseURL, viewport: { width: 1440, height: 1000 }, trace: 'retain-on-failure', screenshot: 'only-on-failure' },
   projects: [
     { name: 'chromium', use: { browserName: 'chromium' } },

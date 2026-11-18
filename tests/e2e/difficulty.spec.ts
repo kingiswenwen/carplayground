@@ -127,13 +127,10 @@ for(const three of [false,true])test(`${three?'3D':'2D'} 同一擦洗动作探�
       const p=firstSurface!;
       // Approach the same patch over the actual body surface. Clicking exactly
       // on a patch can erase just that isolated patch with either radius.
-      // Sample the same surface approach at roughly one CSS pixel intervals.
-      // Coarse .01 jumps can skip the entire annulus between the two unchanged
-      // brush radii after a camera/framing change, giving identical samples.
-      for(const dx of Array.from({length:41},(_,i)=>(40-i)*.002)){
-        await clickWorld(page,{x:p.x+dx,y:p.y});
-        await page.evaluate(()=>new Promise<void>(resolve=>requestAnimationFrame(()=>requestAnimationFrame(()=>resolve()))));
-        coverage.push((await flatState(page)).progress);
+      // Sample at roughly pixel spacing: a coarse 1% viewport stride can
+      // jump across both brush boundaries on the newer, narrower model.
+      for(const dx of Array.from({length:121},(_,i)=>(120-i)/1000)){
+        await clickWorld(page,{x:p.x+dx,y:p.y});coverage.push((await flatState(page)).progress);
       }
     }else{await dragTouch(page,{x:65,y:680*.4},{x:935,y:680*.4},4);coverage.push((await flatState(page)).progress);}
     const initial=await flatState(page);washed.push(coverage);

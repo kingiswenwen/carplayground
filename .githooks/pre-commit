@@ -1,3 +1,8 @@
 #!/bin/sh
 set -eu
+branch=$(git symbolic-ref --quiet --short HEAD || true)
+if [ "$branch" != dev ]; then
+  printf '%s\n' 'Commit on dev. main is updated through the release pull request.' >&2
+  exit 1
+fi
 exec python3 scripts/check-public-source.py
