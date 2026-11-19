@@ -73,9 +73,9 @@ test('全部车型在真实画面中可换红蓝两色并使用对应模型封�
  expect(failures,'Cars must change actual body pixels, not just button state').toEqual([]);
 });
 
-test('分离车漆、贴图车身和无光照模型都能还原原色',async({page})=>{
+test('分离车漆和不同贴图车身都能还原原色',async({page})=>{
  test.setTimeout(90000);await page.setViewportSize({width:960,height:820});
- for(const id of ['CAR01','CAR160','CAR162']){
+ for(const id of ['CAR01','CAR160','CAR192']){
   await page.goto(`/#/cars/${id}`);const canvas=page.locator('.vehicle-webgl[data-ready=true]');
   await expect(canvas).toHaveAttribute('data-car',id,{timeout:45000});
   const reset=page.getByRole('button',{name:'还原原车颜色'});await reset.click();const original=await canvas.screenshot();

@@ -1,6 +1,26 @@
+import {getMarkIllustration} from '../visual/scene-artwork';
 import{useRef,useState}from'react';import{Check,Download,RotateCcw,Save}from'lucide-react';import{CarImage}from'../components/CarImage';import{content,getDisplayCar,type ActivityDefinition}from'../domain/content';import{newSessionId}from'../domain/session-id';import{db,safely,type Creation,type Mark}from'../services/storage';import{audio}from'../services/audio';
 const palette=[{color:'#d04436',name:'红色',audio:'red'},{color:'#367cc1',name:'蓝色',audio:'blue'},{color:'#e3bf3f',name:'黄色',audio:'yellow'},{color:'#628450',name:'绿色',audio:'green'},{color:'#293b2e',name:'黑色',audio:'black'},{color:'#ffffff',name:'白色',audio:'white'}];
-export function ArtworkView({creation}:{creation:Creation}){const car=getDisplayCar(creation.carId);return <div className={`artwork ${creation.kind}`} style={{background:creation.background}}>{creation.kind==='poster'&&<><span className="sr-only">{creation.caption||(car?`汽车创作 ${car.name}`:'汽车创作')}</span>{car?<CarImage carId={creation.carId}/>:<p className="experiment-note">这辆车已下架，作品的文字与图案仍保留。</p>}</>}{creation.marks.map((mark,i)=><span key={i} className={`art-mark mark-${mark.shape}`} style={{left:`${mark.x*100}%`,top:`${mark.y*100}%`,color:mark.color}}>{({star:'★',leaf:'❧',sun:'☀',circle:'●',stripe:'▥',zigzag:'ϟ'})[mark.shape]}</span>)}</div>;}
+function ArtworkMark({mark}:{mark:Mark}){
+ const [failed,setFailed]=useState(false);
+ const style={left:`${mark.x*100}%`,top:`${mark.y*100}%`,color:mark.color};
+ const sticker=getMarkIllustration(mark);
+ const className=`art-mark mark-${mark.shape}`;
+ return sticker&&!failed
+  ?<img className={className} alt="" src={sticker.url} onError={()=>setFailed(true)}
+    style={{...style,width:'12%',aspectRatio:'1',objectFit:'contain',filter:sticker.filter}}/>
+  :<span className={className} style={style}>{({star:'★',leaf:'❧',sun:'☀',circle:'●',stripe:'▥',zigzag:'ϟ'})[mark.shape]}</span>;
+}
+export function ArtworkView({creation}:{creation:Creation}){
+ const car=getDisplayCar(creation.carId);
+ return <div className={`artwork ${creation.kind}`} style={{background:creation.background}}>
+  {creation.kind==='poster'&&<>
+   <span className="sr-only">{creation.caption||(car?`汽车创作 ${car.name}`:'汽车创作')}</span>
+   {car?<CarImage carId={creation.carId}/>:<p className="experiment-note">这辆车已下架，作品的文字与图案仍保留。</p>}
+  </>}
+  {creation.marks.map((mark,i)=><ArtworkMark key={i} mark={mark}/>)}
+ </div>;
+}
 export function CreativeStudio({activity,carId,finish,feedback}:{activity:ActivityDefinition;carId:string;finish:(s:string)=>void;feedback:(s:string)=>void}){
  const[id]=useState(newSessionId);const[chosenCar,setChosenCar]=useState(carId);const[background,setBackground]=useState('#e4edda');const[color,setColor]=useState(palette[0].color);const[shape,setShape]=useState<Mark['shape']>(activity.id==='A01'?'star':'stripe');const[caption,setCaption]=useState('');const[marks,setMarks]=useState<Mark[]>([]);const[ready,setReady]=useState(false);const[saved,setSaved]=useState(false);const[busy,setBusy]=useState(false);
  const creation:Creation={id,kind:activity.id==='A01'?'poster':'tracks',carId:chosenCar,background,caption,marks,createdAt:new Date().toISOString(),version:1};

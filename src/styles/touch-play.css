@@ -13,6 +13,7 @@
 .touch-loading{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;background:#e5f0e4;gap:14px}
 .touch-loading>span{font-size:64px;animation:touch-turn 2s linear infinite}
 .touch-bottom{display:flex;align-items:center;gap:14px;margin:18px 8px;color:#477b55}
+.touch-action-row{display:flex;flex-wrap:wrap;gap:8px;margin:12px 8px}.touch-action-row button{min-height:44px}
 .touch-progress{flex:1;height:7px;background:#dfe6d3;border-radius:10px;overflow:hidden}
 .touch-progress>span{display:block;height:100%;background:#75a66a;transition:transform .24s;border-radius:10px}
 .touch-adult{font-size:14px;max-width:780px;color:#576b5e;margin:28px 0 0}

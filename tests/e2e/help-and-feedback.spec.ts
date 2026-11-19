@@ -1,6 +1,6 @@
 import {test,expect} from '@playwright/test';
 import fs from 'node:fs';
-import {openTouch,touchCanvas,touchState,touchPosition,dropTouch,dragTouch,completedTouch} from './touch-helpers';
+import {openTouch,touchCanvas,touchState,dropTouch,dragTouch,completedTouch} from './touch-helpers';
 
 test('按需三步演示不自动出现、不代操作，关掉后仍能自己停车 @smoke',async({page})=>{
  await openTouch(page,'M01','CAR01');await expect(page.getByRole('dialog',{name:'图示玩法'})).toHaveCount(0);
@@ -57,15 +57,16 @@ test('看车时换车保留立体模式，显示当前选中的车型 @smoke',as
  }
 });
 
-test('红绿灯求助跟随当前阶段，出发之后示范点灯停止 @smoke',async({page})=>{
+test('红绿灯演示提示推车，等待中不会替孩子走完 @smoke',async({page})=>{
  await openTouch(page,'E03');
- const tapSignal=async()=>{const signal=(await touchState(page)).items.find(i=>i.id==='signal')!,at=await touchPosition(page,signal);await page.mouse.click(at.x,at.y);};
  const help=page.getByRole('button',{name:'看看怎么玩',exact:true});
- await help.click();await expect(page.getByRole('button',{name:'第1步：找到信号灯',exact:true})).toBeVisible();await page.keyboard.press('Escape');
- await tapSignal();await help.click();await page.getByRole('button',{name:'下一步演示',exact:true}).click();
+ await help.click();await page.getByRole('button',{name:'下一步演示',exact:true}).click();
  await expect(page.locator('.guide-demonstration canvas')).toHaveAttribute('aria-label','向前推一推');await page.keyboard.press('Escape');
- await dragTouch(page,(await touchState(page)).items[0],{x:650,y:340});await help.click();
- await expect(page.getByRole('button',{name:'第1步：找到信号灯',exact:true})).toBeVisible();
- await page.getByRole('button',{name:'下一步演示',exact:true}).click();await expect(page.locator('.guide-demonstration canvas')).toHaveAttribute('aria-label','轻轻点一下');
- await page.keyboard.press('Escape');await tapSignal();await completedTouch(page);
+ await dragTouch(page,(await touchState(page)).items[0],{x:650,y:340});
+ await help.click();await expect(page.getByRole('button',{name:'第1步：看看正在过街的行人',exact:true})).toBeVisible();
+ await page.getByRole('button',{name:'下一步演示',exact:true}).click();
+ await expect(page.locator('.guide-demonstration canvas')).toHaveAttribute('aria-label','红灯时，把小车留在停止线前');
+ await page.keyboard.press('Escape');
+ await expect(page.locator('.town-action-cue')).toContainText('绿灯亮了');
+ await dragTouch(page,(await touchState(page)).items[0],{x:861,y:340});await completedTouch(page);
 });

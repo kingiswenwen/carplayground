@@ -16,7 +16,7 @@ async function state(page: Page) {
   return snapshot;
 }
 async function open(page: Page, id: string) {
-  await page.goto(`/#/play/${id}?car=CAR01`);
+  await page.goto(`/#/play/${id}?car=CAR01&view=3d`);
   await expect(canvas(page)).toHaveAttribute('data-ready', 'true', {timeout: 45000});
 }
 async function tap(page: Page, point: {x: number; y: number}) {
@@ -38,6 +38,8 @@ for (const viewport of [{width: 390, height: 844}, {width: 768, height: 1024}, {
       await tap(page, snapshot.targetScreens.find((target: any) => target.id === id).screen);
       await expect.poll(async () => (await state(page)).items.find((item: any) => item.id === id).placed, {message: `${id} placed at visible socket`}).toBe(true);
     }
+    await expect(page.locator('.touch-play')).toHaveAttribute('data-completed', 'false');
+    await page.getByRole('button',{name:'推车试走'}).click();
     await expect(page.locator('.touch-play')).toHaveAttribute('data-completed', 'true');
   });
 }
@@ -85,14 +87,23 @@ test('立体颜色框随着红蓝白任务换色，点选点放可以完整配�
 test('桥板支持点选点放，短板不通过，换长板后小车能过桥', async ({page}) => {
   test.setTimeout(90000);
   await open(page, 'T02');
-  for (const id of ['short', 'long']) {
-    await expect.poll(async () => (await state(page)).recovering).toBe(false);
-    let snapshot = await state(page);
-    await tap(page, snapshot.actors.find((actor: any) => actor.id === id).screen);
-    await expect.poll(async () => (await state(page)).selected).toBe(id);
-    snapshot = await state(page);
-    await tap(page, snapshot.targetScreens[0].screen);
-    if (id === 'short') expect((await state(page)).completed).toBe(false);
+  for (let reach = 0; reach < 2; reach++) {
+    for (const id of ['short', 'long']) {
+      if (reach === 1 && id === 'long') {
+        await tap(page, (await state(page)).actors.find((actor: any) => actor.id === 'bridge-shed').screen);
+      }
+      let snapshot = await state(page);
+      await tap(page, snapshot.actors.find((actor: any) => actor.id === id).screen);
+      await expect.poll(async () => (await state(page)).selected).toBe(id);
+      snapshot = await state(page);
+      await tap(page, snapshot.targetScreens[0].screen);
+      await page.getByRole('button',{name:'推车试桥'}).click();
+      if (id === 'short') {
+        await expect(page.locator('.town-action-cue')).toContainText('桥板还够不到');
+        expect((await state(page)).completed).toBe(false);
+      }
+    }
+    if (reach === 0) await page.getByRole('button',{name:'去更宽的河段'}).click();
   }
   await expect(page.locator('.touch-play')).toHaveAttribute('data-completed', 'true', {timeout: 25000});
 });
@@ -105,7 +116,7 @@ test('WebGL不可用时自动切回平面，停车仍可完整玩完', async ({p
       return type.startsWith('webgl') ? null : Reflect.apply(original, this, [type, ...args]);
     });
   });
-  await page.goto('/#/play/M01?car=CAR01');
+  await page.goto('/#/play/M01?car=CAR01&view=3d');
   await expect(page.locator('.touch-canvas[data-presentation=flat]')).toBeVisible();
   await dropTouch(page, 'car-0', 'bay-0');
   await dropTouch(page, 'car-1', 'bay-1');

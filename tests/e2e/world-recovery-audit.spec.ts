@@ -1,7 +1,7 @@
 import {test,expect,type Page} from '@playwright/test';
 const world=(p:Page)=>p.locator('canvas.touch-world-canvas');
 const state=async(p:Page)=>JSON.parse((await world(p).getAttribute('data-state'))!);
-async function open(p:Page,id:string,car='CAR01'){await p.goto(`/#/play/${id}?car=${car}`);await expect(world(p)).toHaveAttribute('data-ready','true',{timeout:45000});}
+async function open(p:Page,id:string,car='CAR01'){await p.goto(`/#/play/${id}?car=${car}&view=3d`);await expect(world(p)).toHaveAttribute('data-ready','true',{timeout:45000});}
 test('立体部件键盘可完成，演示不消耗发现进度 @smoke',async({page})=>{
  test.setTimeout(90000);await open(page,'E02');const before=await state(page);
  await page.getByRole('button',{name:'看看怎么玩',exact:true}).click();await expect(page.getByRole('dialog',{name:'图示玩法'})).toBeVisible();

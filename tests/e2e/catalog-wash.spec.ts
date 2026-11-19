@@ -4,7 +4,7 @@ const models=JSON.parse(fs.readFileSync('content/vehicle-models.json','utf8')) a
 test.describe.configure({mode:'parallel'});
 test.use({viewport:{width:390,height:844},hasTouch:true});
 for(const model of models)test(`${model.id} ${model.catalogKey} 手机立体洗车与换车`,async({page})=>{
- test.setTimeout(90000);await page.goto(`/#/play/H03?car=${model.id}`);
+ test.setTimeout(90000);await page.goto(`/#/play/H03?car=${model.id}&view=3d`);
  const canvas=page.locator('canvas.touch-world-canvas');await expect(canvas).toHaveAttribute('data-ready','true',{timeout:45000});
  const snapshot=async()=>JSON.parse((await canvas.getAttribute('data-state'))!);
  const tap=async(p:{x:number;y:number})=>{const box=(await canvas.boundingBox())!;await page.touchscreen.tap(box.x+p.x*box.width,box.y+p.y*box.height);};

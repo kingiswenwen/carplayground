@@ -286,28 +286,6 @@
     "reference": "https://global.honda/en/stories/048.html"
   },
   {
-    "id": "CAR162",
-    "tool": "Built-in GPT Image",
-    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
-    "prompt": "Production transparent sprite sheet of EIGHT REAL road cars for a children's car exploration game. EXACT 2 columns x 4 rows, one whole car per cell in row-major order. Strict SIDE PROFILE facing RIGHT. Recognizable faithful model-specific proportions and details, polished toy-like 3D illustration, black rubber tires, silver hubs. ALL cars fit fully inside their own cell with 10% transparent padding and transparent gutters. Fully transparent background, no text, labels, floor, shadows outside cars, faces or fictional parts. In order left-to-right then top-to-bottom: 1 pale blue 2024 BYD Seal electric sedan; 2 white 1998 Honda Civic Type R EK9 three-door hatchback; 3 cream classic Volkswagen Karmann Ghia coupe; 4 red 2021 Volkswagen Golf GTI Mk8 hatchback; 5 British racing green 2005 Mini Cooper S three-door hatchback with white roof; 6 red 2018 Suzuki Swift five-door hatchback; 7 grey classic 1990 Peugeot 205 three-door hatchback; 8 blue 2003 Volvo S60 R sedan. Carefully preserve recognizable roof lines, door counts, front and rear architecture of each real model.",
-    "generatedFile": "exec-0c37de0f-af37-4e3e-910b-80aacc14f53c.png",
-    "sheetSha256": "5949b7d3bdac1f25ecb0a1f183546ebab142c1fd574de689f6e06d7166727f52",
-    "atlasFrame": {
-      "index": 2,
-      "columns": 2,
-      "rows": 4,
-      "bounds": {
-        "left": 0,
-        "top": 321,
-        "width": 611,
-        "height": 322
-      }
-    },
-    "asset": "illustration-CAR162-side",
-    "sha256": "b0b69a5b0cdde8867e499a06b7cb277f0149808dac495d4a21d381bde00fc19e",
-    "reference": "https://www.volkswagen-newsroom.com/en/vehicle-data-karmann-ghia-type-14-coupe-profile-19631"
-  },
-  {
     "id": "CAR163",
     "tool": "Built-in GPT Image",
     "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
@@ -660,28 +638,6 @@
     "reference": "https://macedonia.jaguar.com/jaguar-range/xf/overview"
   },
   {
-    "id": "CAR190",
-    "tool": "Built-in GPT Image",
-    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
-    "prompt": "Production car illustration asset sheet on a completely transparent background. EXACTLY THREE separate real road production cars in ONE COLUMN and THREE ROWS, one complete vehicle per row. All strict SIDE PROFILE facing RIGHT. Top: blue 2019 Porsche Macan compact SUV, recognizable sloped rear roof, black grille, silver wheels. Middle: British racing green 2015 Jaguar XE four-door sport sedan, recognizable short rear deck and long bonnet, silver wheels. Bottom: light purple and cream two-tone 2024 BYD Dolphin five-door electric hatchback, recognizable compact body and short hood, silver and black wheels. Faithfully use real model-specific proportions, door counts, wheelbase and body shapes. Polished high quality toy-like 3D illustrations for a children's car exploration game. Generous transparent margins and gutters, no clipping, no floor or shadows outside cars. Clean alpha edges, no colored fringes, no text or labels, no cartoon faces, no invented modifications or extra cars.",
-    "generatedFile": "exec-93caff70-502c-4b0c-a649-64a559552f6c.png",
-    "sheetSha256": "fdc799f99f245e845e0be400501b29449d681b6656c0804d61dcd79096d6c3ba",
-    "atlasFrame": {
-      "index": 0,
-      "columns": 1,
-      "rows": 3,
-      "bounds": {
-        "left": 0,
-        "top": 0,
-        "width": 1225,
-        "height": 428
-      }
-    },
-    "asset": "illustration-CAR190-side",
-    "sha256": "42ce2a57a23a9ac9d212a903aab334e33a5e904f28c0745a01678940c08ae8bf",
-    "reference": "https://newsroom.porsche.com/en/products/porsche-macan-2018-compact-suv-start-production-china-expansion-leipzig-design-body-shop-paint-shop-assembly-line-16016.html"
-  },
-  {
     "id": "CAR192",
     "tool": "Built-in GPT Image",
     "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
@@ -702,28 +658,6 @@
     "asset": "illustration-CAR192-side",
     "sha256": "4df19d41a94f7d8bb818bd093183a6c693ff12ada9588130e741a18df13117ea",
     "reference": "https://www.byd.com/eu/electric-cars/dolphin"
-  },
-  {
-    "id": "CAR193",
-    "tool": "Built-in GPT Image",
-    "purpose": "Catalogue illustration; independent credited GLB used for 3D and model-derived sprites for gameplay.",
-    "prompt": "Transparent production game asset sheet with exactly TWO real road cars in ONE COLUMN and TWO ROWS, one full vehicle per row, both strict SIDE PROFILE facing RIGHT. Top row: blue 2017 Maserati Levante SUV, recognizable sloping roof, signature triple side vents behind front wheel, elegant long hood, silver wheels. Bottom row: dark metallic grey 1990 Mercedes-Benz 190 E 2.5-16 Evolution II ROAD car, W201 four-door sedan, squared body, rectangular headlights, flared wheel arches and the actual factory tall rear wing, silver multi-spoke wheels; no racing stickers. Faithful recognizable real-model proportions, door counts, silhouette and wheelbase. Polished high quality toy-like 3D illustration for a children's car exploration game. Fully transparent background, clean alpha edges, generous padding and transparent gutter. No labels, words, faces, scenery or shadows outside cars. Every bumper and wheel fully inside its own row. No fictional parts.",
-    "generatedFile": "exec-5307503e-81be-4264-8f9b-3cac796a975e.png",
-    "sheetSha256": "49ee32e86428f1d20b256672aefcfc113d7432a70b386eb449843020f6f5132f",
-    "atlasFrame": {
-      "index": 0,
-      "columns": 1,
-      "rows": 2,
-      "bounds": {
-        "left": 0,
-        "top": 0,
-        "width": 1536,
-        "height": 512
-      }
-    },
-    "asset": "illustration-CAR193-side",
-    "sha256": "35e622851af0f33c16b8e51a9d14b8d88c333f34049b2c0fddd0aeca310ec95c",
-    "reference": "https://www.maserati.com/content/dam/maserati/international/catalogues/th/Maserati_Levante_Digital_Flyer_EN.pdf"
   },
   {
     "id": "CAR195",

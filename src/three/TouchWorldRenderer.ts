@@ -3,6 +3,7 @@ import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js'
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 import {SVGLoader} from 'three/addons/loaders/SVGLoader.js';
 import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
+import {paintMark} from '../visual/paint-mark';
 import {drawPlaySymbol,symbolName,symbolSvg} from '../visual/play-symbols';
 import {makePlayProp,toyBox,toyMaterial} from './play-props';
 import type {TouchBoard,BoardSnapshot} from '../game/TouchBoard';
@@ -32,12 +33,37 @@ export class TouchWorldRenderer{
  private targets=new Map<string,T.Group>();
  private retired=new T.Group();
  private scenery=new T.Group();
+ private bridgeScenery=new T.Group();
+ private bridgeSceneryKey='';
+ private bridgeStone?:T.Mesh;
+ private trafficPerson?:T.Group;
+ private crossingScenery=new T.Group();
+ private crossingHeight=0;
+ private posterSheet?:T.Mesh;
+ private posterHeight=0;
+ private roadStopMarker?:T.Group;
+ private helpBarrier?:T.Group;
+ private helperActors?:{partner:T.Group;cargo:T.Group;mark:T.Group}[];
+ private helperStations=new T.Group();
+ private repairTasks?:{goal:T.Group;passenger:T.Group;exit:T.Group;beam:T.Mesh};
  private dirt=new T.Group();
  private tracks=new T.Group();
+ private treadCanvas?:HTMLCanvasElement;
+ private treadTexture?:T.CanvasTexture;
+ private treadHeight=0;
  private selection=new T.Mesh(new T.RingGeometry(.85,1,40),new T.MeshBasicMaterial({color:'#efb44e',transparent:true,opacity:.85,depthWrite:false,side:T.DoubleSide}));
  private markRevision=-1;
  private surfaceCarIndex=0;
  private shadow?:T.Group;
+ private shadowPrevious?:T.Group;
+ private rollingMarkers=new T.Group();
+ private rollingMarkerKey='';
+ private outingScene=new T.Group();
+ private outingKey='';
+ private studioScene=new T.Group();
+ private studioKey='';
+ private standPreview=false;
+ private rainDrops:T.Mesh[]=[];
  private dirtPoints:T.Mesh[]=[];
  private partPulse?:{mesh:T.Mesh;part:string;life:number};
  private particles:{mesh:T.Mesh;velocity:T.Vector3;life:number}[]=[];
@@ -54,7 +80,7 @@ export class TouchWorldRenderer{
  private environment?:T.WebGLRenderTarget;
  private contactTexture?:T.CanvasTexture;
  private orbit=false;
- private pointer:{id:number;item?:string;start:T.Vector3;boardStart:{x:number;y:number};wash?:boolean}|null=null;
+ private pointer:{id:number;item?:string;start:T.Vector3;boardStart:{x:number;y:number};wash?:boolean;turnWheel?:number}|null=null;
  private last=performance.now();
  private time=0;
  private rendered=0;
@@ -126,7 +152,7 @@ export class TouchWorldRenderer{
  private world(x:number,y:number){return new T.Vector3((x-500)*UNIT,0,(y-this.board.height/2)*UNIT);}
  private point(event:PointerEvent){const rect=this.renderer.domElement.getBoundingClientRect();this.ray.setFromCamera(new T.Vector2((event.clientX-rect.left)/rect.width*2-1,-(event.clientY-rect.top)/rect.height*2+1),this.camera);return this.ray.ray.intersectPlane(this.floorPlane,new T.Vector3());}
  private boardPoint(point:T.Vector3){return{x:point.x/UNIT+500,y:point.z/UNIT+this.board.height/2};}
- private pick(){this.scene.updateMatrixWorld(true);const roots=[...this.actors.values()].map(a=>a.group);return this.ray.intersectObjects(roots,true).find(hit=>hit.object.visible&&this.visibleParents(hit.object));}
+ private pick(){this.scene.updateMatrixWorld(true);const roots=[...this.actors].filter(([id])=>id!=='care-car'&&id!=='help-partner').map(([,a])=>a.group);return this.ray.intersectObjects(roots,true).find(hit=>hit.object.visible&&this.visibleParents(hit.object));}
  private visibleParents(object:T.Object3D):boolean{if(!object.visible)return false;return object.parent?this.visibleParents(object.parent):true;}
  private actorId(object:T.Object3D){let p:T.Object3D|null=object;while(p){if(p.userData.item)return p.userData.item as string;p=p.parent;}return undefined;}
  private washPoint(hit:T.Intersection|undefined){
@@ -146,7 +172,8 @@ export class TouchWorldRenderer{
   return candidates.filter(c=>c.inside).sort((a,b)=>a.distance-b.distance)[0]?.id;
  }
  private targetAt(floor:T.Vector3){
-  const available=this.board.targets.filter(t=>t.enabled!==false&&!t.occupied&&this.targets.get(t.id)?.visible);
+  const available=this.board.targets.filter(t=>
+   (t.enabled!==false||t.construction)&&(!t.occupied||this.activity==='C02')&&this.targets.get(t.id)?.visible);
   const hits=this.ray.intersectObjects(available.map(t=>this.targets.get(t.id)!),true);
   for(const hit of hits){let node:T.Object3D|null=hit.object;while(node){const target=available.find(t=>t.id===node!.userData.target);if(target)return target;node=node.parent;}}
   const point=this.boardPoint(floor);
@@ -201,17 +228,28 @@ export class TouchWorldRenderer{
   actor.group.userData.partCamera=cameraKey;actor.group.userData.partScreens=points;return points;
  }
  private activatePart(actor:Actor,part:'wheel'|'door'|'light',point:T.Vector3){
-  this.board.touchPart(part,actor.wheels.length>0,!!actor.light?.length);if(this.partPulse){this.partPulse.mesh.removeFromParent();disposeModel(this.partPulse.mesh);}const ring=new T.Mesh(new T.RingGeometry(.22,.3,24),new T.MeshBasicMaterial({color:'#ffe49a',depthTest:false,transparent:true,opacity:1}));ring.position.copy(point);ring.quaternion.copy(this.camera.quaternion);ring.renderOrder=10;this.scene.add(ring);this.partPulse={mesh:ring,part,life:1.2};this.needsRender=true;
-  if(part==='light')actor.light?.forEach(m=>{m.emissive.set('#fff0a0');m.emissiveIntensity=2;});
-  if(part==='wheel'){for(const wheel of actor.wheels)wheel.rotateOnAxis(wheel.userData.axis,Math.PI*.8);delete actor.group.userData.partCamera;}
+  const accepted=this.board.touchPart(part,actor.wheels.length>0);
+  if(!accepted)return;
+  if(this.partPulse){this.partPulse.mesh.removeFromParent();disposeModel(this.partPulse.mesh);}const ring=new T.Mesh(new T.RingGeometry(.22,.3,24),new T.MeshBasicMaterial({color:'#ffe49a',depthTest:false,transparent:true,opacity:1}));ring.position.copy(point);ring.quaternion.copy(this.camera.quaternion);ring.renderOrder=10;this.scene.add(ring);this.partPulse={mesh:ring,part,life:1.2};this.needsRender=true;
+  if(part==='light'&&this.activity!=='E02')actor.light?.forEach(m=>{m.emissive.set('#fff0a0');m.emissiveIntensity=2;});
+  if(part==='wheel'&&this.activity!=='E02'){for(const wheel of actor.wheels)wheel.rotateOnAxis(wheel.userData.axis,Math.PI*.8);delete actor.group.userData.partCamera;}
   this.burst(point,part==='light'?'#fff4b2':'#a5d6d3');
  }
  private down=(event:PointerEvent)=>{
   if(!this.ready||this.paused||this.orbit||this.pointer)return;const floor=this.point(event);if(!floor)return;
+  if(['A01','C01'].includes(this.activity)&&this.board.placeSelectedPosterStamp(this.boardPoint(floor))){this.needsRender=true;return;}
   const hit=this.pick(),surface=['E02','T01','H03'].includes(this.activity),id=(hit&&this.actorId(hit.object))||(!surface?this.nearbyItem(event):undefined);const item=this.board.items.find(i=>i.id===id);
+  if(this.activity==='H03'&&(item?.id==='water'||item?.id==='sponge')){
+   this.board.selectWashTool(item.id);this.needsRender=true;return;
+  }
   if(this.activity==='H03'&&!this.state.wash.waiting&&!this.state.completed){const point=this.washPoint(hit);if(point){this.pointer={id:event.pointerId,start:floor,boardStart:this.boardPoint(floor),wash:true};this.renderer.domElement.setPointerCapture(event.pointerId);this.scrub(point);return;}}
   if(['E02','T01'].includes(this.activity)&&hit&&id==='parts-car'){
-   const actor=this.actors.get(id)!,part=this.partAt(actor,hit);if(!part){this.board.showHint();return;}this.activatePart(actor,part,hit.point);return;
+   const actor=this.actors.get(id)!,part=this.partAt(actor,hit);if(!part){this.board.showHint();return;}this.activatePart(actor,part,hit.point);
+   if(this.activity==='E02'&&part==='wheel'){
+    this.pointer={id:event.pointerId,start:floor,boardStart:this.boardPoint(floor),turnWheel:event.clientX};
+    this.renderer.domElement.setPointerCapture(event.pointerId);
+   }
+   return;
   }
   // Surface-specific games only accept the visible mesh hit, never hidden flat hit areas.
   if(['E02','T01'].includes(this.activity)||this.activity==='H03'&&!this.state.wash.waiting&&!this.state.completed){this.board.showHint();return;}
@@ -223,12 +261,21 @@ export class TouchWorldRenderer{
  };
  private move=(event:PointerEvent)=>{const pointer=this.pointer;if(!pointer||pointer.id!==event.pointerId||this.paused)return;const p=this.point(event);if(!p)return;
   if(pointer.wash){const point=this.washPoint(this.pick());if(point)this.scrub(point);return;}
-  this.board.move(pointer.id,{x:pointer.boardStart.x+(p.x-pointer.start.x)/UNIT,y:pointer.boardStart.y+(p.z-pointer.start.z)/UNIT},event.timeStamp);
+  if(pointer.turnWheel!==undefined){this.board.turnShowroomWheel((event.clientX-pointer.turnWheel)*.075);pointer.turnWheel=event.clientX;return;}
+  this.board.move(pointer.id,this.dragPoint(pointer,p),event.timeStamp);
  };
+ private dragPoint(pointer:NonNullable<TouchWorldRenderer['pointer']>,point:T.Vector3){
+  return ['A01','C01','C03'].includes(this.activity)&&pointer.item?.match(/^(stamp-|poster-mark-)/)
+   ?this.boardPoint(point)
+   :{x:pointer.boardStart.x+(point.x-pointer.start.x)/UNIT,y:pointer.boardStart.y+(point.z-pointer.start.z)/UNIT};
+ }
  private up=(event:PointerEvent)=>{const pointer=this.pointer;if(!pointer||pointer.id!==event.pointerId)return;const p=this.point(event);this.pointer=null;
-  if(!pointer.wash&&p){let drop={x:pointer.boardStart.x+(p.x-pointer.start.x)/UNIT,y:pointer.boardStart.y+(p.z-pointer.start.z)/UNIT};
+  if(!pointer.wash&&pointer.turnWheel===undefined&&p){
+   const moved=p.distanceTo(pointer.start)>.2,posterPiece=['A01','C01','C03'].includes(this.activity)&&!!pointer.item?.match(/^(stamp-|poster-mark-)/);
    const target=this.targetAt(p);
-   if(target&&p.distanceTo(pointer.start)>.2){drop={x:target.x,y:target.y};this.board.move(pointer.id,drop,event.timeStamp);}
+   let drop=posterPiece&&!moved?pointer.boardStart:this.dragPoint(pointer,p);
+   if(moved&&target)drop={x:target.x,y:target.y};
+   if(moved&&(target||posterPiece))this.board.move(pointer.id,drop,event.timeStamp);
    this.board.up(pointer.id,drop,event.timeStamp);
   }
   if(this.renderer.domElement.hasPointerCapture(event.pointerId))this.renderer.domElement.releasePointerCapture(event.pointerId);
@@ -236,10 +283,10 @@ export class TouchWorldRenderer{
  private cancel=(event?:PointerEvent)=>{if(event&&this.pointer?.id!==event.pointerId)return;this.board.cancel(this.pointer?.id);this.pointer=null;};
  private key=(event:KeyboardEvent)=>{
   if(this.paused||!this.ready||this.orbit)return;
-  if(['E02','T01'].includes(this.activity)&&['Enter',' '].includes(event.key)){event.preventDefault();const actor=this.actors.get('parts-car');if(actor){const part=(['wheel','door','light'] as const).find(p=>!this.state.parts.includes(p))||'wheel';const point=this.partScreens()?.[part];let hit:T.Intersection|undefined;if(point){this.ray.setFromCamera(new T.Vector2(point.x*2-1,1-point.y*2),this.camera);hit=this.ray.intersectObject(actor.model!,true).find(h=>this.visibleParents(h.object));}this.activatePart(actor,part,hit?.point||this.actorBounds(actor).getCenter(new T.Vector3()));}return;}
+  if(['E02','T01'].includes(this.activity)&&['Enter',' '].includes(event.key)){event.preventDefault();const actor=this.actors.get('parts-car');if(actor){const part=this.board.workshopAction??(['wheel','door','light'] as const).find(p=>!this.state.parts.includes(p))??'wheel';if(part==='done')return;const point=this.partScreens()?.[part];let hit:T.Intersection|undefined;if(point){this.ray.setFromCamera(new T.Vector2(point.x*2-1,1-point.y*2),this.camera);hit=this.ray.intersectObject(actor.model!,true).find(h=>this.visibleParents(h.object));}this.activatePart(actor,part,hit?.point||this.actorBounds(actor).getCenter(new T.Vector3()));}return;}
   if(this.activity==='H03'&&['Enter',' '].includes(event.key)){event.preventDefault();
    if(this.state.wash.waiting){const next=this.board.items.find(i=>i.id==='next-car');if(next)this.board.down(-1,{x:next.x,y:next.y},performance.now());}
-   else{const dirt=this.dirtPoints.find(d=>d.visible);if(dirt)this.scrub(dirt.position);}
+   else{const next=this.board.keyboardWashPatch();const dirt=this.dirtPoints.find(d=>d.userData.patchId===next?.id);if(dirt)this.scrub(dirt.position);}
    return;
   }
   if(['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Enter',' ','Escape','[',']'].includes(event.key)){event.preventDefault();this.board.keyboard(event.key);}
@@ -272,16 +319,49 @@ export class TouchWorldRenderer{
  private prop(item:Item):Actor{
   const group=new T.Group();group.userData.item=item.id;const w=item.w*UNIT,h=item.h*UNIT;
   let toy:T.Group|undefined;
-  if(item.kind==='wheel'){
+  if(item.posterShape&&this.activity!=='C01'){
+   const art=document.createElement('canvas');art.width=art.height=128;
+   const context=art.getContext('2d')!;
+   if(!this.board.drawPosterSticker(context,{x:64,y:64,w:120,h:120},item.posterShape,item.color)){
+    paintMark(context,{x:.5,y:.5,shape:item.posterShape,color:item.color!},128,128,1.7);
+   }
+   const map=new T.CanvasTexture(art);map.colorSpace=T.SRGBColorSpace;
+   const stamp=new T.Mesh(new T.PlaneGeometry(w,h),new T.MeshBasicMaterial({map,transparent:true,depthWrite:false,side:T.DoubleSide}));
+   stamp.rotation.x=-Math.PI/2;add(group,stamp,0,.12);
+  }else if(item.kind==='wheel'){
    const template=this.templates.get(this.carId),front=item.id==='wheel-0';const originals=template?.wheels.filter(object=>{const p=new T.Box3().setFromObject(object,true).getCenter(new T.Vector3());return(front?p.x<-.4:p.x>.4)&&p.z>.1;})||[];
    if(originals.length){const parts=new T.Group();for(const original of originals){const copy=original.clone(true);copy.traverse(node=>{if(node instanceof T.Mesh)node.material=Array.isArray(node.material)?node.material.map(m=>this.copyMaterial(m)):this.copyMaterial(node.material);});original.updateWorldMatrix(true,false);original.matrixWorld.decompose(copy.position,copy.quaternion,copy.scale);parts.add(copy);}const b=new T.Box3().setFromObject(parts,true),size=b.getSize(new T.Vector3()),center=b.getCenter(new T.Vector3());parts.position.sub(center);const holder=new T.Group();holder.add(parts);holder.scale.setScalar(w*.8/Math.max(size.x,size.y));group.add(holder);}
    else{const tire=new T.Mesh(new T.TorusGeometry(w*.34,w*.15,10,24),material('#37474b'));tire.castShadow=true;group.add(tire);const hub=new T.Mesh(new T.CylinderGeometry(w*.25,w*.25,.18,12),material('#c8d8d8',.3));hub.rotation.x=Math.PI/2;group.add(hub);add(group,ball(w*.09,'#edc96f'),0,0,.18);}
+  }else if(item.id==='bridge-shed'){
+   add(group,block(w,.16,h,'#625344'),0,.02);
+   const closed=item.glyph==='garage';
+   for(const sign of [-1,1])add(group,block(.24,1.0,h,'#a48767'),sign*(w/2-.2),.49);
+   if(closed){
+    add(group,block(w-.32,.44,h,'#b98258'),0,.76);
+    add(group,block(.77,.14,.30,'#ffdb93'),0,1.03,h*.31);
+   }
   }else if(item.kind==='plank'){add(group,block(w,.28,h,colors.wood),0,.14);for(let x=-w/2+.5;x<w/2;x+=.6)add(group,block(.035,.035,h*.9,'#e9c99b'),x,.3);}
   else if(item.kind==='road'){
-   add(group,block(w,.12,h,'#afc59a'),0,.02);const shape=this.state.road.shapes[item.turn!]||'LR';
+   const closed=this.board.isClosedRoad(item.turn!);
+   add(group,block(w,.12,h,closed?'#cfb58d':'#afc59a'),0,.02);
+   if(closed){
+    add(group,block(w*.7,.26,.18,'#ae6952'),0,.28,0);
+    for(const x of [-w*.29,w*.29])add(group,block(.26,.62,.21,colors.cream),x,.3,0);
+   }
+   const shape=closed?'':this.state.road.shapes[item.turn!]||'LR';
    for(const direction of shape){const along=direction==='L'||direction==='R';add(group,block(along?w*.5:w*.48,.08,along?h*.48:h*.5,colors.road),direction==='L'?-w*.25:direction==='R'?w*.25:0,.12,direction==='U'?-h*.25:direction==='D'?h*.25:0);}
   }else if(item.kind==='bay'){this.outline(group,w,h,colors.cream);}
-  else if(item.kind==='shape'){if(item.glyph==='●')add(group,ball(w*.5,item.color||'#e49b64'),0,w*.5);else add(group,block(w,w,w,item.color||'#73a2bc'),0,w*.5);}
+  else if(item.kind==='shape'){
+   if(item.glyph==='●'){
+    const radius=w*.5,roller=new T.Group();
+    roller.add(ball(radius,item.color||'#e49b64'));
+    for(const angle of [0,Math.PI/2]){
+     const stripe=new T.Mesh(new T.TorusGeometry(radius*.994,.037,5,30),material('#f8e3bc'));
+     stripe.rotation.y=angle;roller.add(stripe);
+    }
+    add(group,roller,0,radius);group.userData.roller=roller;
+   }else add(group,block(w,w,w,item.color||'#73a2bc'),0,w*.5);
+  }
   else if(item.id==='signal'){add(group,block(.22,2,.22,colors.ink),0,1);add(group,block(1.1,2,.5,colors.ink),0,2.3);add(group,ball(.32,'#d96554'),0,2.75,.3);add(group,ball(.32,'#6bba7e'),0,1.9,.3);}
   else if(item.id.startsWith('ink-')){add(group,new T.Mesh(new T.CylinderGeometry(.65,.7,.35,24),material(item.color||'#e0a060')),0,.2);}
   else if((toy=makePlayProp(symbolName(item.glyph||'')))){
@@ -299,17 +379,32 @@ export class TouchWorldRenderer{
  }
  private outline(parent:T.Object3D,w:number,d:number,color:string){for(const [x,z,a,b]of [[0,-d/2,w,.09],[0,d/2,w,.09],[-w/2,0,.09,d],[w/2,0,.09,d]])add(parent,block(a,.06,b,color),x,.045,z);}
  private buildScenery(){
-  const depth=this.board.height*UNIT;const road=['M01','M02','M03','L03','P01','S01','E03','T03','H01'].includes(this.activity);
+  const depth=this.board.height*UNIT;const road=['M01','M02','M03','L03','M04','P01','S01','E03','T03','H01','L02'].includes(this.activity);
   const rounded=(w:number,h:number,d:number,color:string)=>{const mesh=new T.Mesh(new RoundedBoxGeometry(w,h,d,2,Math.min(.16,w/4,h/4,d/4)),material(color));mesh.receiveShadow=true;return mesh;};
   const floor=rounded(22,.5,depth+2,road?'#c4d2a5':'#e7d8b4');floor.position.y=-.35;this.scenery.add(floor);
   if(road){const surface=rounded(19.5,.06,depth*.85,'#83938b');surface.position.y=-.06;this.scenery.add(surface);for(let x=-9;x<10;x+=1.3)add(this.scenery,block(.65,.025,.09,'#f9edc7'),x,.015,0);}
-  if(['P01','S01'].includes(this.activity)){for(let i=0;i<35;i++)add(this.scenery,ball(.13,'#b29b75'),-9+(i%14)*1.35,.09,depth*.15+Math.floor(i/14)*.4);}
   if(this.activity==='H03'){this.washGantry=new T.Group();this.scenery.add(this.washGantry);for(const x of [-9,9])add(this.washGantry,rounded(.65,6,.65,'#84b5aa'),x,3,-depth*.25);add(this.washGantry,rounded(18.6,.65,.65,'#84b5aa'),0,6,-depth*.25);for(let x=-8;x<=8;x+=2)add(this.washGantry,block(.15,.6,.15,'#c4ecf4'),x,5.5,-depth*.25);}
   if(this.activity==='H03'&&this.washGantry){
    add(this.washGantry,rounded(16,.22,.12,'#d7e5d6'),0,6.02,-depth*.25+.36);
    for(const x of [-9,9]){add(this.washGantry,rounded(.95,.18,1.1,'#608f89'),x,.05,-depth*.25);add(this.washGantry,rounded(.15,3.8,.1,'#d5e5d9'),x,2.8,-depth*.25+.37);}
   }
-  if(this.activity==='T02'){add(this.scenery,block(7.8,.16,depth*.8,'#83c8dc'),0,-.1,-1);for(const x of [-4.1,4.1])add(this.scenery,block(.15,.2,depth*.8,'#e1dfbb'),x,.04,-1);}
+  if(this.activity==='S02'){
+   const tree=makePlayProp('tree')!;tree.scale.setScalar(.85);
+   add(this.scenery,tree,-5.25,.03,depth*.30);
+   add(this.scenery,block(3.5,.05,.14,colors.cream),5.7,.018,depth*.26);
+  }
+  if(this.activity==='T04'){
+   add(this.scenery,block(17.2,.06,.86,'#a9b693'),0,.015,depth*.29);
+   add(this.scenery,block(.18,.09,1.35,'#fcf0c9'),6.5,.02,depth*.29);
+  }
+  if(this.activity==='T02')this.scenery.add(this.bridgeScenery);
+  if(this.activity==='E03')this.scenery.add(this.crossingScenery);
+  if(this.activity==='M04'){
+   for(const row of [-.245,.02]){
+    for(const x of [-9.5,8.4])add(this.scenery,block(.21,.13,depth*.23,'#ddd1a4'),x,.04,depth*row);
+    for(const side of [-1,1])add(this.scenery,ball(.29,'#edc780'),8.4,.51,depth*(row+side*.095));
+   }
+  }
   for(const x of [-10.3,10.3]){add(this.scenery,rounded(.22,.35,depth+1,'#9baa86'),x,0);}
   // Scenery stays outside the manipulation plane; it never changes task geometry.
   // No added dynamic lights, shadow maps or continuous decoration on software GPUs.
@@ -323,7 +418,6 @@ export class TouchWorldRenderer{
    add(this.scenery,rounded(17,.2,.45,'#c69e70'),0,.1,-depth*.48);
   }
   const back=-depth*.53;
-  if(this.activity==='S03'){const rain=makePlayProp('rain')!;rain.position.set(6,3,-depth*.18);rain.scale.setScalar(1.5);this.scenery.add(rain);}
   if(['E01','E02','E03','C01'].includes(this.activity)){
    // A low glazed showroom facade; the learning objects stay in front of it.
    add(this.scenery,rounded(15,1.8,.35,'#b9cfc2'),0,.75,back);
@@ -346,24 +440,334 @@ export class TouchWorldRenderer{
   }
 
  }
+ private updateRollingMarkers(){
+  const rolling=this.state.rollingTest;
+  if(!rolling)return;
+  const key=JSON.stringify([rolling.phase,rolling.round,rolling.stops,this.board.height]);
+  if(this.rollingMarkerKey===key)return;
+  this.rollingMarkerKey=key;
+  if(!this.rollingMarkers.parent)this.scenery.add(this.rollingMarkers);
+  for(const child of [...this.rollingMarkers.children]){child.removeFromParent();disposeModel(child);}
+  for(const lane of [.34,.65]){
+   const z=this.world(0,this.board.height*lane).z;
+   add(this.rollingMarkers,block(17.85,.06,1.9,rolling.round===0?'#a0b7b7':'#bb9772'),0,-.02,z);
+   if(rolling.round===1)for(let n=0;n<28;n++)add(this.rollingMarkers,block(.07,.08,.1,'#8d7259'),-7.9+n*.57,.01,z+Math.sin(n)*.69);
+   if(rolling.phase==='predict'||rolling.phase==='release')add(this.rollingMarkers,block(.17,.35,2.25,'#976d50'),-5.8,.2,z);
+  }
+  for(const [n,stop]of rolling.stops.entries()){
+   for(const [x,y]of [[stop.ball,.34],[stop.cube,.65]]){
+    const at=this.world(x,this.board.height*y);
+    add(this.rollingMarkers,block(.11,.13,2.17,n===0?'#f3e1a9':'#d38d69'),at.x,.05,at.z);
+   }
+  }
+ }
+ private updateMotionTracks(){
+  const H=this.board.height,stops=this.board.motionStops;
+  const key=JSON.stringify([this.board.motionRound,stops,H]);
+  if(this.rollingMarkerKey===key)return;
+  this.rollingMarkerKey=key;
+  if(!this.rollingMarkers.parent)this.scenery.add(this.rollingMarkers);
+  for(const child of [...this.rollingMarkers.children]){child.removeFromParent();disposeModel(child);}
+  for(const [lane,row]of [.34,.65].entries()){
+   const z=this.world(0,H*row).z,rough=this.board.isRoughLane(lane);
+   add(this.rollingMarkers,block(19.1,.05,3,rough?'#c9ac83':'#a0b5bc'),0,-.015,z);
+   if(rough)for(let i=0;i<38;i++)add(this.rollingMarkers,ball(.09,'#907455'),-9+i*.48,.02,z+Math.sin(i*2.6)*1.24);
+   for(const [run,stop]of stops.entries()){
+    const x=this.world(lane?stop.lower:stop.upper,0).x;
+    add(this.rollingMarkers,block(.14,.12,3.2,run?'#d98760':'#fff2b9'),x,.05,z);
+   }
+  }
+ }
+ private updateOutingScene(){
+  const {rain,trip,visit}=this.state,H=this.board.height;
+  const key=JSON.stringify([H,rain?.result,trip?.phase,trip?.buckled,visit?.location,visit?.visited,visit?.revealed]);
+  if(key!==this.outingKey){
+   this.outingKey=key;
+   if(!this.outingScene.parent)this.scenery.add(this.outingScene);
+   for(const child of [...this.outingScene.children]){child.removeFromParent();disposeModel(child);}
+   const place=(x:number,y:number)=>this.world(x,H*y);
+   if(rain){
+    const z=place(500,.525).z;
+    add(this.outingScene,block(11.8,.14,7.3,'#a8c6c1'),0,.012,z-1.35);
+    add(this.outingScene,block(5.5,.14,1.55,rain.result==='wet'?'#8baab9':'#f4e3b7'),0,.12,z);
+    this.rainDrops=Array.from({length:14},(_,n)=>{
+     const drop=ball(n%3===0?.13:.085,'#6db0cb');
+     add(this.outingScene,drop,-2.25+n*.35,.18,z);
+     return drop;
+    });
+   }
+   if(trip){
+    const z=place(650,.8).z;
+    add(this.outingScene,block(18.6,.06,H*UNIT*.20,'#9cae9f'),0,-.025,z);
+    const x=place(650,.8).x,open=trip.phase==='driving'||trip.phase==='arrived';
+    for(const offset of [-1,1])add(this.outingScene,block(.27,1,.26,'#a67d60'),x,.5,z+offset*1.58);
+    add(this.outingScene,block(.18,.30,open?1.34:3.1,open?'#7da278':'#b56b57'),x,.65,z+(open?-2:0));
+    add(this.outingScene,makePlayProp('tree')!,place(875,.15).x,.05,place(875,.15).z);
+    add(this.outingScene,makePlayProp('sun')!,place(135,.15).x,1,place(135,.15).z);
+    if(trip.buckled)add(this.outingScene,ball(.19,'#7aaa7d'),place(801,.34).x,.3,place(801,.34).z);
+   }
+   if(visit){
+    if(visit.location!==null){
+     const z=place(500,.42).z,color=['#b9d29f','#dac299','#bccfc9'][visit.location];
+     add(this.outingScene,block(17.4,.08,H*UNIT*.58,color),0,-.035,z);
+     const glyph=['tree','book','dinosaur'][visit.location];
+     for(const x of [-6.4,6.4]){
+      const prop=makePlayProp(glyph);
+      if(prop)add(this.outingScene,prop,x,.08,place(0,.19).z);
+     }
+     if(visit.revealed)add(this.outingScene,ball(.19,'#f4d075'),6.2,.52,place(0,.26).z);
+    }else for(const i of visit.visited){
+     const at=place(180+i*320,.405);
+     add(this.outingScene,ball(.24,'#83bc79'),at.x,.28,at.z);
+    }
+   }
+  }
+  if(rain){
+   const time=this.board.rainTime,covered=this.board.items.some(i=>i.placed&&['pack-0','pack-1'].includes(i.id));
+   for(const [i,drop]of this.rainDrops.entries()){
+    drop.visible=time!==null||rain.result==='wet';
+    drop.position.y=time===null?.22:(covered?1.25:.2)+(1-(time+i*.11)%1)*2.2;
+    drop.position.z=this.world(500,H*.525).z+Math.sin(i*3.1)*.63;
+   }
+  }
+ }
+ private updateStudioScenery(){
+  const {stand,story,sequence,colorStage,showroom}=this.state,H=this.board.height;
+  const stage=colorStage?this.board.targets[0]:undefined;
+  const key=JSON.stringify([H,stand,story?.act,story?.doorOpen,sequence?.scene,sequence?.effects,sequence?.index,sequence?.phase,stage?.x,colorStage,showroom?.door,showroom?.light]);
+  if(key===this.studioKey)return;
+  this.studioKey=key;
+  if(!this.studioScene.parent)this.scenery.add(this.studioScene);
+  for(const child of [...this.studioScene.children]){child.removeFromParent();disposeModel(child);}
+  if(stage&&colorStage){
+   const at=this.world(stage.x,stage.y),color=stage.color||colors.cream;
+   add(this.studioScene,block(8,.18,5.1,'#9cafaa'),at.x,-.01,at.z);
+   const outline=new T.Group();this.outline(outline,8,5.1,color);add(this.studioScene,outline,at.x,.02,at.z);
+   const shade=block(1.8,.34,.88,color);
+   add(this.studioScene,shade,at.x,3.1,at.z-2.8);
+   add(this.studioScene,block(.11,2.88,.12,'#748f88'),at.x,1.6,at.z-2.8);
+   if(colorStage.presenting||this.state.completed){
+    const glow=new T.Mesh(new T.PlaneGeometry(8,4.8),new T.MeshBasicMaterial({color,transparent:true,opacity:.36,depthWrite:false}));
+    glow.rotation.x=-Math.PI/2;
+    add(this.studioScene,glow,at.x,.10,at.z);
+    for(const side of [-1,1])add(this.studioScene,ball(.19,color),at.x+side*3.8,.25,at.z+1.9);
+   }
+  }
+  if(showroom){
+   const at=this.world(500,H*.49);
+   add(this.studioScene,block(18,.12,H*UNIT*.4,'#a5bfb3'),at.x,-.03,at.z);
+   if(showroom.door){
+    const cutaway=new T.Group();
+    const seat=makePlayProp('seat')!;seat.scale.setScalar(1.08);
+    add(cutaway,block(4.65,.13,2.65,'#425b58'),0,.06,0);
+    add(cutaway,seat,.38,.08,-.18);
+    const door=block(1.49,1.08,.16,'#719c99');door.rotation.y=-.8;
+    add(cutaway,door,-1.64,.61,.71);
+    add(this.studioScene,cutaway,-1,.02,this.world(0,H*.78).z);
+   }
+   if(showroom.light){
+    const beam=new T.Mesh(new T.CircleGeometry(1.8,22),new T.MeshBasicMaterial({color:'#ffdf86',transparent:true,opacity:.56}));
+    beam.scale.x=1.65;beam.rotation.x=-Math.PI/2;
+    add(this.studioScene,beam,7,.07,at.z);
+   }
+  }
+  if(stand){
+   const at=this.world(510,H*.55);
+   add(this.studioScene,block(18.5,.10,H*UNIT*.63,this.board.artworkBackground),at.x,-.054,at.z-.35);
+   const stage=new T.Mesh(new T.CylinderGeometry(5.55,5.8,.28,40),material('#bbaa93'));
+   add(this.studioScene,stage,at.x,-.095,at.z);
+   if(this.standPreview!==stand.preview){
+    this.standPreview=stand.preview;
+    this.resetCamera();
+    if(stand.preview){
+     this.camera.position.x-=7;this.camera.position.y*=.82;
+     this.camera.lookAt(this.controls.target);this.controls.update();this.camera.updateMatrixWorld();
+    }
+   }
+  }
+  if(story){
+   const at=this.world(500,H*.49);
+   add(this.studioScene,block(18.2,.1,H*UNIT*.48,story.act===0?'#b8cba3':'#c7bacf'),0,-.047,at.z);
+   add(this.studioScene,block(17.6,.055,H*UNIT*.13,'#c6ab94'),0,-.02,this.world(0,H*.624).z);
+   if(story.act===0&&story.doorOpen){
+    const door=this.world(775,H*.42);
+    add(this.studioScene,block(2.9,.07,2.8,'#fae5a4'),door.x,.045,door.z+1.05);
+   }
+  }
+  if(sequence){
+   const at=this.world(500,H*.245);
+   add(this.studioScene,block(18.15,.1,H*UNIT*.22,sequence.scene===0?'#9bb4aa':'#9fb9bd'),0,-.042,at.z);
+   if(sequence.index>=0&&sequence.index<3){
+    const target=this.board.targets[sequence.index],at=this.world(target.x,target.y);
+    add(this.studioScene,block(.82,.07,.14,sequence.phase==='blocked'?'#c97056':'#f2d289'),at.x,.09,at.z+.88);
+   }
+   for(const [step,glyph]of (sequence.scene===0?['garage','belt','tree']:['garage','flag','shower']).entries()){
+    const prop=makePlayProp(glyph)!;
+    add(this.studioScene,prop,-6+step*5.9,.045,this.world(0,H*.095).z);
+    if(sequence.effects.includes(step)){
+     add(this.studioScene,ball(.22,'#f6d170'),-5.2+step*5.9,1.35,this.world(0,H*.096).z);
+     if(sequence.scene===1&&step===2)for(let i=0;i<7;i++)add(this.studioScene,ball(.10,'#7bbbcf'),2.2+i*.35,.64+i%3*.3,at.z-.34);
+    }
+   }
+  }
+ }
+ private updateRepairTasks(){
+  if(!this.repairTasks){
+   const goal=makePlayProp('flag')!,passenger=makePlayProp('friend')!,exit=new T.Group();
+   add(exit,block(1.5,2.45,.30,'#4b6054'),0,1.1);
+   add(exit,block(1.25,2.06,.35,'#303e37'),0,.95,.07);
+   add(exit,block(1.62,.27,.56,'#ba9770'),0,2.33,.16);
+   const beam=new T.Mesh(new T.CircleGeometry(2.5,3),new T.MeshBasicMaterial({color:'#e8c66b',transparent:true,opacity:.54,side:T.DoubleSide}));
+   beam.rotation.set(-Math.PI/2,0,Math.PI);beam.scale.set(1,.43,1);
+   this.scenery.add(goal,passenger,exit,beam);this.repairTasks={goal,passenger,exit,beam};
+  }
+  const {goal,passenger,exit,beam}=this.repairTasks,H=this.board.height,task=this.board.workshopAction,ingress=this.board.workshopEffect('door');
+  goal.visible=task==='wheel';goal.position.copy(this.world(875,H*.22));
+  passenger.visible=task==='door'||ingress>0&&ingress<1;
+  passenger.position.copy(this.world(180+ingress*250,H*(.23+ingress*.17)));
+  exit.visible=task==='light'||task==='done'&&this.state.parts.includes('light');
+  exit.position.copy(this.world(918,H*.52));
+  beam.visible=exit.visible&&this.state.parts.includes('light');beam.position.copy(this.world(775,H*.53));beam.position.y=.06;
+ }
+ private updateHelperStations(){
+  if(!this.helperActors){
+   this.helperActors=['wheel','bubbles','box'].map((name,i)=>{
+    const partner=makePlayProp('friend')!,cargo=i===1?new T.Group():makePlayProp(name)!,mark=new T.Group();
+    add(mark,block(.18,.1,.48,'#efd379'),-.15,.09,0).rotation.y=-.56;
+    add(mark,block(.18,.10,.86,'#efd379'),.19,.09,-.15).rotation.y=.72;
+    if(i===1){
+     for(let n=0;n<4;n++)add(cargo,block(.51,.06,.36,'#77533c'),(n-1.5)*.7,.61,Math.sin(n)*.45);
+    }
+    this.helperStations.add(partner,cargo,mark);return {partner,cargo,mark};
+   });
+   this.scenery.add(this.helperStations);
+  }
+  for(const [index,station]of this.helperActors.entries()){
+   const t=this.board.helperProgress(index),target=this.board.targets[index],tool=this.board.items.find(i=>i.id==='tool-'+index)!;
+   station.partner.position.copy(this.world(target.x+(index===2?-38:0),this.board.height*(.19+Math.sin(t*Math.PI)*.08)));
+   station.partner.position.y=.09;
+   station.cargo.position.copy(index===2&&t>0?this.world(tool.x,tool.y):this.world(target.x,target.y));
+   station.cargo.position.y=index===2&&t>0?.58:.07;
+   if(index===0)station.cargo.rotation.y=Math.sin(t*Math.PI*4)*.45;
+   if(index===1){
+    for(const [n,spot]of station.cargo.children.entries())spot.visible=t<(n+1)/5;
+   }
+   station.mark.visible=t===1;
+   station.mark.position.copy(this.world(target.x+83,target.y-63));
+  }
+ }
+ private updatePosterSheet(){
+  const H=this.board.height;
+  if(this.posterHeight!==H){
+   this.posterHeight=H;
+   if(this.posterSheet){this.posterSheet.removeFromParent();disposeModel(this.posterSheet);}
+   this.posterSheet=block(18.4,.06,H*UNIT*.47,this.board.artworkBackground);
+   add(this.scenery,this.posterSheet,0,.01,this.world(500,H*.49).z);
+  }
+  (this.posterSheet!.material as T.MeshStandardMaterial).color.set(this.board.artworkBackground);
+ }
+ private updateCrossing(){
+  const H=this.board.height, point=this.board.trafficCrossing;
+  if(this.crossingHeight!==H){
+   this.crossingHeight=H;
+   for(const child of [...this.crossingScenery.children]){child.removeFromParent();disposeModel(child);}
+   const lane=this.world(point.x,H*.54);
+   for(const ratio of [.30,.73])add(this.crossingScenery,block(2.4,.12,H*UNIT*.10,'#d6c7a0'),lane.x,.04,this.world(0,H*ratio).z);
+   for(let n=0;n<6;n++)add(this.crossingScenery,block(1.84,.035,H*UNIT*.022,colors.cream),lane.x,.045,this.world(0,H*(.41+n*.046)).z);
+   const stop=this.world(548,H*.54);
+   add(this.crossingScenery,block(.18,.035,H*UNIT*.27,colors.cream),stop.x,.05,stop.z);
+   this.trafficPerson=makePlayProp('friend')!;
+   this.crossingScenery.add(this.trafficPerson);
+  }
+  this.trafficPerson!.position.copy(this.world(point.x,point.y));
+  this.trafficPerson!.position.y=.08;
+ }
+ private updateBridgeScenery(){
+  const {left,right,blocked}=this.board.bridgeGeometry, key=right+'/'+this.board.height;
+  if(this.bridgeSceneryKey!==key){
+   this.bridgeSceneryKey=key;
+   for(const child of [...this.bridgeScenery.children]){child.removeFromParent();disposeModel(child);}
+   const height=this.board.height, y=height*.44;
+   const center=this.world(500,y), bankLength=(right-left)*UNIT;
+   add(this.bridgeScenery,block(bankLength,.13,height*UNIT*.65,'#79b8c4'),0,-.105,center.z-height*UNIT*.1);
+   for(const x of [left,right]){
+    const at=this.world(x,y);
+    add(this.bridgeScenery,block(left*UNIT,.10,height*UNIT*.16,'#c9bb91'),at.x+(x===left?-1:1)*left*UNIT/2,-.03,center.z);
+    const stone=block(.46,.28,height*UNIT*.18,'#91a597');
+    add(this.bridgeScenery,stone,at.x,.04,center.z);
+    if(x===right)this.bridgeStone=stone;
+   }
+  }
+  (this.bridgeStone!.material as T.MeshStandardMaterial).color.set(blocked?'#ffdf83':'#91a597');
+ }
+ private roadShapeKey(item:Item){return `${item.w}/${this.board.isClosedRoad(item.turn!)?'closed':this.state.road.shapes[item.turn!]}`;}
  private sync(){
+  if(this.activity==='T02')this.updateBridgeScenery();
+  if(this.activity==='E03')this.updateCrossing();
+  if(this.activity==='L02'){
+   if(!this.helpBarrier){
+    this.helpBarrier=new T.Group();
+    add(this.helpBarrier,block(.22,.37,3.35,'#b35f47'),0,.45,0);
+    for(const z of [-1.15,0,1.15])add(this.helpBarrier,block(.25,.025,.42,colors.cream),0,.65,z);
+    this.scenery.add(this.helpBarrier);
+   }
+   this.helpBarrier.position.copy(this.world(640,this.board.height*(.51-this.board.helpEffect*.23)));
+  }
+  if(this.activity==='A01')this.updatePosterSheet();
+  if(this.activity==='H02')this.updateHelperStations();
+  if(this.activity==='T01')this.updateRepairTasks();
+  if(this.activity==='S01')this.updateRollingMarkers();
+  if(this.activity==='P01')this.updateMotionTracks();
+  if(['S03','L01','H01'].includes(this.activity))this.updateOutingScene();
+  if(['C01','C02','C03','E01','E02'].includes(this.activity))this.updateStudioScenery();
+  if(this.activity==='T03'){
+   const spot=this.board.roadStopPoint;
+   if(spot&&!this.roadStopMarker){
+    this.roadStopMarker=new T.Group();
+    add(this.roadStopMarker,block(.14,.6,.14,colors.ink),0,.32,0);
+    add(this.roadStopMarker,block(.68,.43,.16,'#be7257'),0,.79,0);
+    add(this.roadStopMarker,block(.48,.08,.19,colors.cream),0,.8,0);
+    this.scenery.add(this.roadStopMarker);
+   }
+   if(this.roadStopMarker){this.roadStopMarker.visible=!!spot;if(spot)this.roadStopMarker.position.copy(this.world(spot.x,spot.y));}
+  }
   const seen=new Set<string>();
   for(const item of this.board.items){seen.add(item.id);let actor=this.actors.get(item.id);
-   if(actor&&item.kind==='road'&&actor.group.userData.road!==this.state.road.shapes[item.turn!]){this.retired.add(actor.group);this.actors.delete(item.id);actor=undefined;}
+   if(actor&&item.kind==='prop'&&actor.group.userData.glyph!==item.glyph){actor.group.removeFromParent();disposeModel(actor.group);this.actors.delete(item.id);actor=undefined;}
+   if(actor&&item.kind==='road'&&actor.group.userData.road!==this.roadShapeKey(item)){this.retired.add(actor.group);this.actors.delete(item.id);actor=undefined;}
    if(actor&&item.kind==='plank'&&actor.group.userData.sizeKey!==`${item.w}/${item.h}`){this.retired.add(actor.group);this.actors.delete(item.id);actor=undefined;}
-   if(!actor){actor=item.kind==='car'||item.kind==='body'?this.vehicle({...item,carId:item.carId||this.carId}):this.prop(item);this.actors.set(item.id,actor);if(item.kind==='road')actor.group.userData.road=this.state.road.shapes[item.turn!];if(item.kind==='plank')actor.group.userData.sizeKey=`${item.w}/${item.h}`;}
+   if(!actor){actor=item.kind==='car'||item.kind==='body'?this.vehicle({...item,carId:item.carId||this.carId}):this.prop(item);this.actors.set(item.id,actor);actor.group.userData.glyph=item.glyph;if(item.kind==='road')actor.group.userData.road=this.roadShapeKey(item);if(item.kind==='plank')actor.group.userData.sizeKey=`${item.w}/${item.h}`;}
    if(item.id==='paper')actor.group.traverse(node=>{if(node instanceof T.Mesh&&node.material instanceof T.MeshPhongMaterial&&node.material.name==='paper-sheet')node.material.color.set(this.board.artworkBackground);});
    if(['M01','M02','M03','T02'].includes(this.activity)&&actor.model){actor.scale=item.w*UNIT/4.65;actor.group.scale.setScalar(actor.scale);}
    const position=this.world(item.x,item.y),dx=position.x-actor.x,dz=position.z-actor.z,dist=Math.hypot(dx,dz),held=this.board.selectedItem===item.id;
    if(actor.model&&dist>.002&&dist<3){const target=Math.atan2(-dz,dx);if(this.activity!=='T04'&&!item.placed)actor.yaw+=Math.atan2(Math.sin(target-actor.yaw),Math.cos(target-actor.yaw))*.2;for(const wheel of actor.wheels)wheel.rotateOnAxis(wheel.userData.axis,dist/.3/Math.max(.1,actor.scale));}
    if(actor.model){actor.scale=item.w*UNIT/4.65;actor.group.scale.setScalar(actor.scale);}
    actor.group.position.set(position.x,held&&this.pointer?.item===item.id ? .55 : .03,position.z);if(item.placed&&this.activity!=='T03')actor.yaw*=.7;actor.group.rotation.y=actor.yaw;
-   if(actor.model&&this.activity==='P01'&&item.id==='comparison'){actor.group.position.y+=Math.sin(position.x*18)*Math.min(.04,dist*.4);actor.group.rotation.z=Math.sin(position.x*10)*Math.min(.025,dist*.2);}
+   if(item.kind==='shape'&&actor.group.userData.roller)actor.group.userData.roller.rotation.z=(item.home.x-item.x)/Math.max(60,item.w/2);
+   if(actor.model&&this.activity==='P01'){
+    const rough=this.board.isRoughLane(item.id==='runner'?0:1);
+    if(rough)actor.group.position.y+=Math.sin(position.x*18)*Math.min(.04,dist*.4);
+    actor.group.rotation.z=rough?Math.sin(position.x*10)*Math.min(.025,dist*.2):0;
+   }
+   if(this.activity==='T02'&&item.id==='traveller'){
+    const {left,right}=this.board.bridgeGeometry;
+    actor.group.position.y=item.x>left&&item.x<right?.31:.03;
+   }
+   actor.group.visible=item.available!==false&&!(this.state.stand?.preview&&item.id.startsWith('stamp-'));
+   if(item.id==='parts-car'&&this.state.showroom){
+    const {wheel,light}=this.state.showroom,previous=Number(actor.group.userData.showroomRotation||0);
+    if(wheel!==previous){
+     for(const mesh of actor.wheels)mesh.rotateOnAxis(mesh.userData.axis,wheel-previous);
+     actor.group.userData.showroomRotation=wheel;
+    }
+    actor.light?.forEach(m=>{m.emissive.set(light?'#fff0a0':'#000000');m.emissiveIntensity=light?2:0;});
+   }
    if(item.kind==='wheel'){actor.group.visible=!item.placed;actor.group.position.y=1;actor.group.rotation.z=position.x*1.4;}
    if(item.kind==='bay'&&item.placed)actor.group.visible=false;
    if(item.id==='signal'){const red=actor.group.children[2] as T.Mesh,green=actor.group.children[3]as T.Mesh;(red.material as T.MeshStandardMaterial).emissive.set(this.state.signalGreen?'#000000':'#d95440');(green.material as T.MeshStandardMaterial).emissive.set(this.state.signalGreen?'#75df8d':'#000000');}
    if(item.id==='body'){
-    for(const wheel of actor.wheels){const center=new T.Box3().setFromObject(wheel,true).getCenter(new T.Vector3());const relative=center.clone().sub(actor.group.position);if(relative.z>0)wheel.visible=!!this.board.items.find(i=>i.id===(relative.x<0?'wheel-0':'wheel-1'))?.placed;}
+    actor.group.rotation.z=item.placed?this.board.assemblyWobble:0;
+    for(const wheel of actor.wheels){const center=new T.Box3().setFromObject(wheel,true).getCenter(new T.Vector3());const relative=center.clone().sub(actor.group.position);if(relative.z>0)wheel.visible=!!this.board.items.some(i=>i.kind==='wheel'&&i.dock===(relative.x<0?'wheel-0':'wheel-1')&&i.placed);}
     // An inseparable author mesh is a translucent assembly preview, rather
     // than an already finished vehicle above unrelated loose parts.
     if(!actor.wheels.length)actor.model?.traverse(object=>{if(!(object instanceof T.Mesh))return;for(const m of Array.isArray(object.material)?object.material:[object.material]){m.userData.baseOpacity??=m.opacity;const preview=!this.board.items.filter(i=>i.kind==='wheel').every(i=>i.placed);m.opacity=m.userData.baseOpacity*(preview?.24:1);m.transparent=preview||m.opacity<1;m.depthWrite=!preview;}});
@@ -376,33 +780,96 @@ export class TouchWorldRenderer{
    if(key!==this.washKey){this.washKey=key;const previous=this.actors.get('wash-car');if(previous)this.retired.add(previous.group);const id=this.state.wash.clean===1&&!this.state.wash.waiting?'CAR11':this.carId;const actor=this.vehicle({id:'wash-car',carId:id,w:820});actor.group.position.copy(this.world(500,this.board.height*.4));this.actors.set('wash-car',actor);if(this.washGantry)this.washGantry.scale.y=Math.max(1,(new T.Box3().setFromObject(actor.model!,true).max.y+1)/6);this.fitContentCamera();this.createDirt(actor);}
    seen.add('wash-car');
   }
-  for(const[id,actor]of this.actors)if(!seen.has(id)){this.retired.add(actor.group);this.actors.delete(id);}
+  for(const[id,actor]of this.actors)if(!seen.has(id)){
+   if(id.startsWith('poster-mark-')){actor.group.removeFromParent();disposeModel(actor.group);}
+   else this.retired.add(actor.group);
+   this.actors.delete(id);
+  }
   const targetIds=new Set(this.board.targets.map(t=>t.id));
   for(const[id,group]of this.targets)if(!targetIds.has(id)){this.retired.add(group);this.targets.delete(id);}
-  for(const target of this.board.targets){let group=this.targets.get(target.id);const sizeKey=`${target.w}/${target.h}`;if(group&&group.userData.sizeKey!==sizeKey){this.retired.add(group);this.targets.delete(target.id);group=undefined;}if(!group){group=new T.Group();group.userData.target=target.id;group.userData.sizeKey=sizeKey;
+  for(const target of this.board.targets){let group=this.targets.get(target.id);const sizeKey=`${target.w}/${target.h}/${target.sizeTier??''}`;if(group&&group.userData.sizeKey!==sizeKey){this.retired.add(group);this.targets.delete(target.id);group=undefined;}if(!group){group=new T.Group();group.userData.target=target.id;group.userData.sizeKey=sizeKey;
     if(this.activity==='T04'&&target.id.startsWith('wheel-')){const radius=target.w*UNIT*.43;const ring=new T.Mesh(new T.TorusGeometry(radius,.065,6,32),new T.MeshBasicMaterial({color:'#fff2be'}));group.add(ring);const hit=new T.Mesh(new T.BoxGeometry(radius*2.3,radius*2.3,.5),new T.MeshBasicMaterial({transparent:true,opacity:0,depthWrite:false,colorWrite:false}));group.add(hit);}
     else{this.outline(group,target.w*UNIT,target.h*UNIT,target.color||'#698779');const fill=new T.Mesh(new T.PlaneGeometry(target.w*UNIT,target.h*UNIT),new T.MeshBasicMaterial({color:target.color||colors.cream,transparent:true,opacity:.24,depthWrite:false,side:T.DoubleSide}));fill.rotation.x=-Math.PI/2;fill.position.y=.025;fill.userData.destinationFill=true;group.add(fill);}
     group.userData.feedbackMeshes=group.children.filter(o=>o instanceof T.Mesh);
+    if(target.blocked){
+     add(group,block(target.w*UNIT*.77,.20,.18,'#a64b3b'),0,.56,0);
+     for(const side of [-1,1]){
+      const pole=new T.Mesh(new T.ConeGeometry(.28,.85,16),material('#d78250'));
+      add(group,pole,side*target.w*UNIT*.36,.42,0);
+      add(group,block(.53,.12,.45,colors.cream),side*target.w*UNIT*.36,.12,0);
+     }
+    }
+    if(target.sizeTier!==undefined){
+     const width=(94+target.sizeTier*54)*UNIT,z=-target.h*UNIT*.69;
+     add(group,block(width+.25,.13,.38,'#dfc78f'),0,.07,z);
+     add(group,block(width,.03,.10,colors.ink),0,.15,z);
+     for(const side of [-1,1])add(group,block(.10,.03,.26,colors.ink),side*width/2,.15,z);
+    }
+    if(target.long){
+     for(const side of [-1,1]){
+      const marker=block(.22,.08,target.h*UNIT*.4,'#e8c186');
+      add(group,marker,side*target.w*UNIT*.43,.075,0);
+     }
+    }
     if(target.glyph&&!/^\d$/.test(target.glyph)){const prop=this.prop({id:'target-'+target.id,kind:'prop',glyph:target.glyph,w:Math.min(target.w,150),h:Math.min(target.h,150),x:0,y:0,home:{x:0,y:0}});group.add(prop.group);prop.group.traverse(o=>delete o.userData.item);}
     if(target.glyph&&/^\d$/.test(target.glyph)){for(let i=0;i<Number(target.glyph);i++)add(group,ball(.16,colors.cream),-.35*(Number(target.glyph)-1)+i*.7,.2,-target.h*UNIT*.32);}
-    this.scene.add(group);this.targets.set(target.id,group);}group.position.copy(this.targetPoint(target));group.visible=target.enabled!==false&&(!target.occupied||!!target.glyph)&&!(this.activity==='T04'&&target.id.startsWith('wheel-')&&!this.board.targets[0]?.occupied);
+    this.scene.add(group);this.targets.set(target.id,group);}group.position.copy(this.targetPoint(target));group.visible=(target.enabled!==false||target.construction===true)&&(!target.occupied||!!target.glyph)&&!(this.activity==='T04'&&target.id.startsWith('wheel-')&&!this.board.targets[0]?.occupied);
     const selected=this.board.selectedItem,matches=!!selected&&this.board.canPlace(selected,target.id);
-    for(const mesh of group.userData.feedbackMeshes as T.Mesh[]){const m=mesh.material as T.MeshBasicMaterial;m.color.set(matches?'#f1bd58':target.color||(mesh.userData.destinationFill?colors.cream:'#698779'));if(mesh.userData.destinationFill)m.opacity=matches?.35:this.state.hint?.3:.24;}
+    for(const mesh of group.userData.feedbackMeshes as T.Mesh[]){const m=mesh.material as T.MeshBasicMaterial;m.color.set(matches?'#f1bd58':target.construction&&target.enabled===false?'#d4aa72':target.color||(mesh.userData.destinationFill?colors.cream:'#698779'));if(mesh.userData.destinationFill)m.opacity=matches?.35:target.construction&&target.enabled===false?.65:this.state.hint?.3:.24;}
     group.userData.color='#'+((group.userData.feedbackMeshes[0] as T.Mesh).material as T.MeshBasicMaterial).color.getHexString();
   }
-  const chosen=this.actors.get(this.board.selectedItem||'');this.selection.visible=!!chosen&&!this.state.completed;
+  const chosen=this.actors.get(this.board.selectedItem||(this.activity==='H03'&&!this.state.wash.waiting?this.board.washTool:''));this.selection.visible=!!chosen&&!this.state.completed;
   if(chosen){const bounds=this.actorBounds(chosen),size=bounds.getSize(new T.Vector3());this.selection.position.copy(bounds.getCenter(new T.Vector3()));this.selection.position.y=.07;this.selection.scale.set(Math.max(.7,size.x*.62),Math.max(.6,size.z*.7),1);}
-  const phoneFocusKey=`${this.phoneFocus()}/${this.board.height}/${this.board.items[0]?.w}`;
+  const phoneFocusKey=`${this.phoneFocus()}/${this.board.height}/${this.board.items[0]?.w}/${this.state.visit?.location}`;
   if(phoneFocusKey!==this.phoneFocusKey){this.phoneFocusKey=phoneFocusKey;if(this.phoneFocus())this.fitContentCamera();}
   if(this.activity==='S02'){
-   const car=this.actors.get('shadow-car'),lamp=this.actors.get('lamp');if(car&&lamp){if(!this.shadow){this.shadow=car.group.clone(true);this.shadow.traverse(o=>{delete o.userData.item;if(o.userData.contactShadow)o.visible=false;if(o instanceof T.Mesh)o.material=new T.MeshBasicMaterial({color:'#445b5f',transparent:true,opacity:.35,depthWrite:false});});this.scene.add(this.shadow);}
-    this.shadow.position.copy(car.group.position).add(new T.Vector3((car.x-lamp.x)*.6,0,(car.z-lamp.z)*.2));this.shadow.position.y=.035;this.shadow.scale.set(car.scale*(1+Math.abs(car.x-lamp.x)*.04),.006,car.scale);this.shadow.rotation.y=car.yaw;}
+   const car=this.actors.get('shadow-car');
+   if(car){
+    if(!this.shadow){
+     const create=(opacity:number)=>{
+      const group=car.group.clone(true);
+      group.traverse(o=>{delete o.userData.item;if(o.userData.contactShadow)o.visible=false;
+       if(o instanceof T.Mesh)o.material=new T.MeshBasicMaterial({color:'#445b5f',transparent:true,opacity,depthWrite:false});});
+      this.scene.add(group);return group;
+     };
+     this.shadow=create(.38);this.shadowPrevious=create(.17);
+    }
+    const display=(group:T.Group,lamp:{lampX:number;lampY:number})=>{
+     const point=this.world(500+(500-lamp.lampX)*.57,this.board.height*.69);
+     group.position.copy(point);group.position.y=.055;
+     group.scale.set(car.scale*(.65+lamp.lampY*1.75),.006,car.scale);group.rotation.y=car.yaw;
+    };
+    display(this.shadow,this.board.currentShadow);
+    const previous=this.board.previousShadow;
+    this.shadowPrevious!.visible=!!previous;
+    if(previous)display(this.shadowPrevious!,previous);
+   }
   }
   this.syncDirt();
-  if(this.activity==='A02'&&this.board.artworkRevision!==this.markRevision){for(const child of [...this.tracks.children]){child.removeFromParent();disposeModel(child);}this.markRevision=this.board.artworkRevision;for(const mark of this.board.artwork){const point=this.world(mark.x*1000,mark.y*this.board.height);for(const dz of [-.5,.5]){const tread=block(.16,.035,.3,mark.color);add(this.tracks,tread,point.x,.03,point.z+dz);}}}
+  if(this.activity==='A02')this.updateTreadCanvas();
 
   if(this.state.completed&&!this.complete){this.burst(new T.Vector3(0,2,0),'#f1ca6c',32);}this.complete=this.state.completed;
-  this.renderer.domElement.dataset.state=JSON.stringify({...this.state,orbit:this.orbit,washPatchIds:this.dirtPoints.filter(p=>p.visible).map(p=>p.userData.patchId),tracks:{revision:this.markRevision,count:this.tracks.children.length,first:this.tracks.children[0]?.position.toArray(),last:this.tracks.children.at(-1)?.position.toArray()},partScreens:this.partScreens(),partEffect:this.partPulse?{part:this.partPulse.part,screen:this.project(this.partPulse.mesh.position)}:undefined,boardHeight:this.board.height,floorProjection:new T.Matrix4().multiplyMatrices(this.camera.projectionMatrix,this.camera.matrixWorldInverse).toArray(),items:this.board.items.map(i=>({id:i.id,x:i.x,y:i.y,placed:!!i.placed})),actors:[...this.actors].map(([id,a])=>({id,sourceCar:a.sourceCar,position:a.group.position.toArray(),screen:this.project(this.actorBounds(a).getCenter(new T.Vector3())),screenBounds:this.screenBounds(this.actorBounds(a)),yaw:a.group.rotation.y,mesh:!!a.model,wheelCount:a.wheels.length,wheelRotation:a.wheels[0]?.quaternion.toArray()})),targetScreens:this.board.targets.map(t=>({id:t.id,screen:this.project(this.targetPoint(t)),color:this.targets.get(t.id)?.userData.color})),dirt:this.dirtPoints.filter(p=>p.visible).map(p=>this.project(p.position)),camera:this.camera.position.toArray(),triangles:this.renderer.info.render.triangles});
+  const marks=this.activity==='A02'?this.board.artwork:[];
+  const trackPosition=(mark:typeof marks[number]|undefined)=>mark?this.world(mark.x*1000,mark.y*this.board.height).toArray():undefined;
+  this.renderer.domElement.dataset.state=JSON.stringify({...this.state,orbit:this.orbit,washPatchIds:this.dirtPoints.filter(p=>p.visible).map(p=>p.userData.patchId),tracks:{revision:this.markRevision,count:marks.length,first:trackPosition(marks[0]),last:trackPosition(marks.at(-1))},partScreens:this.partScreens(),partEffect:this.partPulse?{part:this.partPulse.part,screen:this.project(this.partPulse.mesh.position)}:undefined,boardHeight:this.board.height,floorProjection:new T.Matrix4().multiplyMatrices(this.camera.projectionMatrix,this.camera.matrixWorldInverse).toArray(),items:this.board.items.map(i=>({id:i.id,x:i.x,y:i.y,placed:!!i.placed,available:i.available})),actors:[...this.actors].map(([id,a])=>({id,sourceCar:a.sourceCar,position:a.group.position.toArray(),screen:this.project(this.actorBounds(a).getCenter(new T.Vector3())),screenBounds:this.screenBounds(this.actorBounds(a)),yaw:a.group.rotation.y,mesh:!!a.model,wheelCount:a.wheels.length,wheelRotation:a.wheels[0]?.quaternion.toArray()})),targetScreens:this.board.targets.map(t=>({id:t.id,screen:this.project(this.targetPoint(t)),color:this.targets.get(t.id)?.userData.color})),dirt:this.dirtPoints.filter(p=>p.visible).map(p=>this.project(p.position)),washDirt:this.dirtPoints.filter(mesh=>mesh.visible).map(mesh=>({kind:mesh.userData.kind,point:this.project(mesh.position)})),camera:this.camera.position.toArray(),triangles:this.renderer.info.render.triangles});
+ }
+ private updateTreadCanvas(){
+  const H=this.board.height;
+  if(this.treadHeight!==H){
+   for(const child of [...this.tracks.children]){child.removeFromParent();disposeModel(child);}
+   const canvas=document.createElement('canvas');canvas.width=1000;canvas.height=H;
+   const map=new T.CanvasTexture(canvas);map.colorSpace=T.SRGBColorSpace;
+   const plane=new T.Mesh(new T.PlaneGeometry(20,H*UNIT),new T.MeshBasicMaterial({map,transparent:true,depthWrite:false}));
+   plane.rotation.x=-Math.PI/2;add(this.tracks,plane,0,.07,0);this.treadCanvas=canvas;this.treadTexture=map;
+   this.treadHeight=H;this.markRevision=-1;
+  }
+  if(this.markRevision===this.board.artworkRevision)return;
+  const c=this.treadCanvas!.getContext('2d')!;
+  c.clearRect(0,0,1000,H);
+  const paper=this.board.trackSheet;c.fillStyle=this.board.artworkBackground;
+  c.beginPath();c.roundRect(paper.x-paper.w/2,paper.y-paper.h/2,paper.w,paper.h,22);c.fill();
+  for(const mark of this.board.artwork)paintMark(c,mark,1000,H,.52);
+  this.treadTexture!.needsUpdate=true;this.markRevision=this.board.artworkRevision;
  }
  private project(point:T.Vector3){const p=point.clone().project(this.camera);return{x:(p.x+1)/2,y:(1-p.y)/2};}
  private createDirt(actor:Actor){
@@ -452,11 +919,20 @@ export class TouchWorldRenderer{
    this.dirt.add(mesh);this.dirtPoints.push(mesh);
   });
  }
- private syncDirt(){const dirty=new Set(this.board.washPatches.filter(p=>!p.clean).map(p=>p.id));for(const mesh of this.dirtPoints)mesh.visible=dirty.has(mesh.userData.patchId);}
+ private syncDirt(){
+  const patches=new Map(this.board.washPatches.map(p=>[p.id,p]));
+  for(const mesh of this.dirtPoints){
+   const patch=patches.get(mesh.userData.patchId);mesh.visible=!!patch&&!patch.clean;
+   if(!patch)continue;
+   mesh.userData.kind=patch.kind;
+   (mesh.material as T.MeshStandardMaterial).color.set(patch.kind==='foam'?'#dfedf1':patch.kind==='stubborn'?'#654734':'#b59768');
+   mesh.scale.y=patch.kind==='foam'?.72:.35;
+  }
+ }
  private scrub(point:T.Vector3){
   this.needsRender=true;
   if(!this.dirtPoints.length)return;
-  const ids=this.dirtPoints.filter(d=>d.visible&&d.position.distanceTo(point)<1.65*this.board.difficulty.washScale).map(d=>d.userData.patchId as number);
+  const ids=this.dirtPoints.filter(d=>d.visible&&d.position.distanceTo(point)<(this.board.washTool==='sponge'?1.88:1.65)*this.board.difficulty.washScale).map(d=>d.userData.patchId as number);
   this.board.washSurface(ids,this.surfaceCarIndex);
   this.syncDirt();
   if(!this.reduced&&!this.software&&this.particles.length<12){const mesh=ball(.1,'#d5f5f6');mesh.material.opacity=.65;mesh.material.transparent=true;mesh.position.copy(point);this.scene.add(mesh);this.particles.push({mesh,velocity:new T.Vector3((Math.random()-.5)*1.5,1.2,(Math.random()-.5)*1.5),life:1});}
@@ -464,7 +940,7 @@ export class TouchWorldRenderer{
  private burst(at:T.Vector3,color:string,count=7){if(this.reduced||this.software)return;if(this.simpleMaterials)count=Math.min(count,8);for(let i=0;i<count;i++){const mesh=new T.Mesh(new T.IcosahedronGeometry(.08,0),material(i%2?color:'#b8dccc'));mesh.position.copy(at);this.scene.add(mesh);this.particles.push({mesh,velocity:new T.Vector3((Math.random()-.5)*5,2+Math.random()*4,(Math.random()-.5)*5),life:1.1});}}
  private draw=(now:number)=>{
   if(this.disposed)return;if(now-this.rendered<33||document.hidden){this.frame=requestAnimationFrame(this.draw);return;}this.rendered=now;const dt=Math.min(.25,(now-this.last)/1000);this.last=now;
-  if(!this.paused){this.time+=dt;const revision=JSON.stringify([this.state,this.board.artworkBackground,this.board.items.map(i=>[i.x,i.y,i.w,i.h,i.placed,i.turn]),this.board.selectedItem]);if(revision!==this.revision){this.revision=revision;this.needsRender=true;if(this.ready)this.sync();}for(const p of this.particles){p.life-=dt;p.velocity.y-=dt*4;p.mesh.position.addScaledVector(p.velocity,dt);p.mesh.scale.setScalar(Math.max(.01,p.life));if(p.life<=0){p.mesh.removeFromParent();disposeModel(p.mesh);}}this.particles=this.particles.filter(p=>p.life>0);}
+  if(!this.paused){this.time+=dt;const revision=JSON.stringify([this.state,this.board.artworkBackground,this.board.items.map(i=>[i.x,i.y,i.w,i.h,i.placed,i.turn]),this.board.selectedItem,this.board.assemblyWobble,this.activity==='T01'?this.board.workshopEffect('door'):0,this.board.rainTime]);if(revision!==this.revision){this.revision=revision;this.needsRender=true;if(this.ready)this.sync();}for(const p of this.particles){p.life-=dt;p.velocity.y-=dt*4;p.mesh.position.addScaledVector(p.velocity,dt);p.mesh.scale.setScalar(Math.max(.01,p.life));if(p.life<=0){p.mesh.removeFromParent();disposeModel(p.mesh);}}this.particles=this.particles.filter(p=>p.life>0);}
   if(!this.paused&&this.partPulse){const pulse=this.partPulse;pulse.life-=dt;pulse.mesh.scale.setScalar(this.reduced?1:1+(1.2-pulse.life)*.45);if(pulse.life<=0){pulse.mesh.removeFromParent();disposeModel(pulse.mesh);this.partPulse=undefined;this.needsRender=true;}}
   const changed=this.controls.update();if(this.needsRender||changed||this.particles.length||this.partPulse){try{this.renderer.render(this.scene,this.camera);if(this.ready)this.sync();this.needsRender=false;}catch(error){this.reportFailure('render',error);return;}}this.frame=requestAnimationFrame(this.draw);
  };

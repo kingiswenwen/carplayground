@@ -18,7 +18,7 @@ for(const [kind,rounds] of [['play',20],['viewer',10]] as const)test(`${kind} �
  const counter=await listenerCounter(page);let baseline:Awaited<ReturnType<typeof counter.counts>>|undefined;
  try{
   for(let round=1;round<=rounds;round++){
-   await page.evaluate(route=>{location.hash=route;},kind==='play'?'/play/M01?car=CAR01':'/cars/CAR01');
+   await page.evaluate(route=>{location.hash=route;},kind==='play'?'/play/M01?car=CAR01&view=3d':'/cars/CAR01');
    const canvas=page.locator(kind==='play'?'canvas.touch-world-canvas':'canvas.vehicle-webgl');
    await expect(canvas).toHaveAttribute('data-ready','true',{timeout:45000});
    await page.getByRole('link',{name:'汽车小镇首页',exact:true}).click();

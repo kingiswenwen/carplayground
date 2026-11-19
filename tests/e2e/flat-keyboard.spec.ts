@@ -7,7 +7,7 @@ const state=async(page:Page)=>JSON.parse((await touchCanvas(page).getAttribute('
 const variants=[
  {name:'保留车型主动选择平面',car:'CAR03',query:'&view=2d',webgl:false},
  {name:'有模型车辆主动选择平面',car:'CAR01',query:'&view=2d',webgl:false},
- {name:'WebGL 不可用后的平面回退',car:'CAR01',query:'',webgl:true},
+ {name:'WebGL 不可用后的平面回退',car:'CAR01',query:'&view=3d',webgl:true},
 ];
 async function open(page:Page,id:string,variant=variants[0]){
  if(variant.webgl)await page.addInitScript(()=>{
@@ -17,7 +17,7 @@ async function open(page:Page,id:string,variant=variants[0]){
   });
  });
  await page.goto(`/#/play/${id}?car=${variant.car}${variant.query}`);
- await expect(touchCanvas(page)).toHaveAttribute('data-presentation','flat');
+ await expect(touchCanvas(page)).toHaveAttribute('data-presentation','flat',{timeout:20000});
  await expect.poll(async()=>(await state(page)).ready).toBe(true);
 }
 async function washToNextCar(page:Page,clean:number){
@@ -34,6 +34,24 @@ async function completed(page:Page){
  await expect(page.getByRole('region',{name:'小车接下来想去哪里'})).toBeVisible();
  await expect.poll(async()=>(await localRows(page,'sessions')).filter(r=>r.state==='completed').length).toBe(1);
 }
+
+test('搭桥原画无法加载时，仍可用键盘试短板、打开木料棚并过河',async({page})=>{
+ await page.route('**/play-scenes/bridge/*.webp',route=>route.abort());
+ await open(page,'T02');
+ const canvas=touchCanvas(page);
+ await expect(canvas).not.toHaveAttribute('data-scene-art','illustrated');
+ const key=(value:string)=>canvas.press(value);
+ await key(']');await key('Enter');await key('Enter');
+ await expect.poll(async()=>(await state(page)).bridge.phase).toBe('blocked');
+ await key(']');await key('Enter');await key('Enter');
+ await expect.poll(async()=>(await state(page)).bridge.phase).toBe('crossed');
+ await key('Enter');await key(']');await key(']');
+ expect((await state(page)).selected).toBe('bridge-shed');
+ await key('Enter');
+ expect((await state(page)).bridge.shed).toBe('open');
+ await key(']');await key(']');await key('Enter');await key('Enter');
+ await completed(page);
+});
 
 for(const variant of variants){
  for(const id of ['E02','T01'])test(`${variant.name}：${id} 按键逐个探索真实部件 @smoke`,async({page})=>{

@@ -5,6 +5,7 @@ test.use({viewport:{width:390,height:844},hasTouch:true});
 async function drop(page:Page,id:string,target:string){
  const world=page.locator('canvas.touch-world-canvas'),three=await world.count()>0,canvas=three?world:touchCanvas(page);
  await expect.poll(async()=>JSON.parse((await canvas.getAttribute('data-state'))!).recovering).toBe(false);
+ if(target==='color-home')await expect.poll(async()=>JSON.parse((await canvas.getAttribute('data-state'))!).colorStage?.presenting,{timeout:15000}).toBe(false);
  const state=JSON.parse((await canvas.getAttribute('data-state'))!);
  const rect=await canvas.boundingBox();
  const project=(p:{x:number;y:number})=>({x:rect!.x+p.x*rect!.width,y:rect!.y+p.y*rect!.height});
@@ -17,7 +18,7 @@ async function drop(page:Page,id:string,target:string){
   await input.send('Input.dispatchTouchEvent',{type:'touchEnd',touchPoints:[]});
  }finally{await input.detach();}
 }
-for(const car of ['CAR65','CAR171','CAR05','CAR119','CAR170','CAR177','CAR187','CAR192','CAR129','CAR42','CAR118','CAR160','CAR162','CAR166'])for(const mode of ['E01','M04','L03'])test(`${car} ${mode} 不可换色车型使用正确颜色车图并完成触摸玩法`,async({page},testInfo)=>{
+for(const car of ['CAR65','CAR171','CAR05','CAR119','CAR170','CAR177','CAR187','CAR192','CAR129','CAR42','CAR118','CAR160','CAR166'])for(const mode of ['E01','M04','L03'])test(`${car} ${mode} 不可换色车型使用正确颜色车图并完成触摸玩法`,async({page},testInfo)=>{
  test.setTimeout(60000);await page.goto(`/#/play/${mode}?car=${car}`);
  await expect(touchCanvas(page)).toBeVisible();await expect.poll(async()=>(await touchState(page)).ready).toBe(true);
  await expect(page.locator('canvas.touch-world-canvas')).toHaveCount(0);
@@ -30,8 +31,15 @@ for(const car of ['CAR65','CAR171','CAR05','CAR119','CAR170','CAR177','CAR187','
   });
   expect(colours[0]).toBeGreaterThan(800);expect(colours[1]).toBeGreaterThan(800);
   for(const colour of ['red','blue','white'])await drop(page,colour,'color-home');
- }else if(mode==='M04'){await drop(page,'red','pattern-4');await drop(page,'blue','pattern-5');}
- else for(let i=0;i<3;i++)await drop(page,`car-${i}`,`bay-${i}`);
+ }else if(mode==='M04'){
+  await drop(page,'red','pattern-4');await drop(page,'blue','pattern-5');
+  await page.getByRole('button',{name:'接下一队车'}).click();
+  await drop(page,'blue','pattern-4');await drop(page,'red','pattern-5');
+ }else{
+  for(let i=0;i<3;i++)await drop(page,`car-${i}`,`bay-${i}`);
+  await page.getByRole('button',{name:'换成长短挂牌'}).click();
+  for(const [i,slot] of [1,2,0].entries())await drop(page,`car-${i}`,`bay-${slot}`);
+ }
  await completedTouch(page);
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
 });
@@ -48,8 +56,8 @@ test.describe('独立车身材质的实际颜色',()=>{
   for(let i=0;i<red.length;i+=4)if(red[i]>90&&red[i]>red[i+1]*1.35&&red[i]>red[i+2]*1.35){painted++;const channels=[white[i],white[i+1],white[i+2]];if(Math.min(...channels)>110&&Math.max(...channels)-Math.min(...channels)<50)changed++;}
   expect(painted).toBeGreaterThan(1000);expect(changed/painted).toBeGreaterThan(.5);
  });
- for(const car of ['CAR66','CAR116','CAR120','CAR141','CAR159','CAR172','CAR182','CAR08','CAR195','CAR29','CAR190','CAR14','CAR15','CAR22','CAR23','CAR26'])test(`${car} E01 三维车身显示红白颜色并完成触摸玩法`,async({page})=>{
-  test.setTimeout(60000);await page.goto(`/#/play/E01?car=${car}`);
+ for(const car of ['CAR66','CAR116','CAR120','CAR141','CAR159','CAR172','CAR182','CAR08','CAR195','CAR29','CAR14','CAR15','CAR22','CAR23','CAR26'])test(`${car} E01 三维车身显示红白颜色并完成触摸玩法`,async({page})=>{
+  test.setTimeout(60000);await page.goto(`/#/play/E01?car=${car}&view=3d`);
   const canvas=page.locator('canvas.touch-world-canvas');
   await expect(canvas).toHaveAttribute('data-ready','true',{timeout:45000});
   const state=JSON.parse((await canvas.getAttribute('data-state'))!);

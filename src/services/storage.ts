@@ -3,7 +3,7 @@ import type { ActivityId } from '../domain/content';
 import type {ContentLevel} from '../domain/play-level';
 export type Settings={id:'default';sound:boolean;difficulty:'gentle'|'explore';contentLevel?:ContentLevel;simple:boolean};
 export type SessionRecord={id:string;activityId:ActivityId;activityVersion:number;contentReleaseId:string;carIds:string[];difficulty:string;contentLevel?:ContentLevel;locale:'zh-CN';audioEnabled:boolean;startedAt:string;endedAt?:string;state:'playing'|'completed'|'participated'|'exited';hints:number;durationMs:number;summary?:string};
-export type Mark={x:number;y:number;color:string;shape:'star'|'leaf'|'sun'|'circle'|'stripe'|'zigzag'};
+export type Mark={x:number;y:number;color:string;shape:'star'|'leaf'|'sun'|'circle'|'stripe'|'zigzag';art?:'paper-sticker'|'showroom-prop'};
 export type Creation={id:string;kind:'poster'|'tracks';carId:string;background:string;caption:string;marks:Mark[];createdAt:string;version:1};
 export type Observation={id:string;activityId:ActivityId;text:string;createdAt:string};
 export type StoryProgress={storyId:string;version:number;frame:number;finished:boolean;updatedAt:string};

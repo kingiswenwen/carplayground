@@ -70,16 +70,6 @@
     "maxRelativeError": 0.005
   },
   {
-    "id": "CAR19",
-    "sourceModelSha256": "8dd8e2dcb26b8da757346c1a7f90d80d7e3fb2dedda5014631d8c1456fcf731e",
-    "playSha256": "3307f7f732e6c2ebbbd70dc90e85c33dda199b14bd2b8d9ea0039327bca52a57",
-    "inputTriangles": 69996,
-    "outputTriangles": 21003,
-    "bytes": 191604,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
     "id": "CAR24",
     "sourceModelSha256": "e45712c288cdd1e8c6de1ea8c952c8d8977af2eca310ad99bc9d9705b995a86d",
     "playSha256": "395008e9ab2592a2993de6002e7552abc5e41df0e5dbab49dee358239d8f0bcd",
@@ -670,16 +660,6 @@
     "maxRelativeError": 0.005
   },
   {
-    "id": "CAR162",
-    "sourceModelSha256": "5c30ce3c3f1c4e8f675972be52564b66b930abf599593d07be4d8e6692865c7f",
-    "playSha256": "5b2c4873c88ec144981eb194ffc81396034e7c33bf1ce9a4e46b1d483d746ca5",
-    "inputTriangles": 30553,
-    "outputTriangles": 9180,
-    "bytes": 136984,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
     "id": "CAR163",
     "sourceModelSha256": "2402c9f9631020012344baa560767c9ffe333f62b8326a9cd623e11720241d8f",
     "playSha256": "793e9df5396a7938415b26c5e077e3cd06e84317b7a58a7e39190257c1c8c09c",
@@ -960,32 +940,12 @@
     "maxRelativeError": 0.005
   },
   {
-    "id": "CAR190",
-    "sourceModelSha256": "9b267cfeb72ae2539ca042c3ce14f3a88bf6c37ae575fe11824e9de0fecbdb38",
-    "playSha256": "1e1e60995e008a161898f694563c1664ace51b45cb403c41355c88872043cfc1",
-    "inputTriangles": 100172,
-    "outputTriangles": 30072,
-    "bytes": 430252,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
     "id": "CAR192",
     "sourceModelSha256": "36aac1cc350b4eff13fe4ba8b5312b39142ff2f3f8e6acf1019d9891c448ef00",
     "playSha256": "2e3278d240e1f5e5bb659129787b9e8adaeed978c6f3416588407a59376b6c48",
     "inputTriangles": 69993,
     "outputTriangles": 20949,
     "bytes": 262968,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
-    "id": "CAR193",
-    "sourceModelSha256": "20542bf9348ff795b61c27a26ee18b4583000945c2c173d2b45aee98e3af590b",
-    "playSha256": "e5a979b802c0a1732050296eb354b03c605ee078c0d6ab47300813d389d73f30",
-    "inputTriangles": 26279,
-    "outputTriangles": 8165,
-    "bytes": 309568,
     "targetTriangles": 35000,
     "maxRelativeError": 0.005
   },

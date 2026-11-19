@@ -142,7 +142,7 @@ test('静音时主动听车名可播放，但保留静音偏好和后续自动�
  await expect(page.getByRole('button',{name:'开启声音',exact:true})).toBeVisible();
  expect((await rows(page,'settings')).find(row=>row.id==='default')?.sound??false).toBe(false);
  const count=requests.length;
- await page.goto('/#/play/E02?car=CAR01');
+ await page.goto('/#/play/E02?car=CAR01&view=3d');
  await expect(page.locator('.touch-play')).toHaveAttribute('data-activity','E02');
  await expect(page.locator('.touch-canvas')).toHaveAttribute('data-presentation','three');
  await expect(page.getByRole('button',{name:'看看怎么玩',exact:true})).toBeEnabled({timeout:45000});

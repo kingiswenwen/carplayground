@@ -16,6 +16,14 @@ describe('一个车身拥有唯一污点集合，投影不拥有进度',()=>{
     expect(state.wipe({x:-100,y:-100},{x:-90,y:-90},10)).toBe(false);
     expect(state.coverage).toBe(3/48);
   });
+  it('浮尘用水，泥点用海绵变泡沫，泡沫再用水冲净',()=>{
+    const state=new WashState([...points.slice(0,2).map(p=>({...p,kind:'loose' as const})),{...points[2],kind:'stubborn'}]);
+    expect(state.apply([2],'water')).toBe(false);
+    expect(state.apply([0,2],'sponge')).toBe(true);
+    expect(state.patches[2].kind).toBe('foam');expect(state.coverage).toBe(0);
+    expect(state.apply([0,1,2],'water')).toBe(true);
+    expect(state.coverage).toBe(1);
+  });
   it('小擦洗不自动洗净，超过91%才满足原阈值；下一辆独立且不继承布局',()=>{
     const first=new WashState(points);first.clean(points.slice(0,43).map(p=>p.id));expect(first.coverage>.91).toBe(false);
     first.clean([43]);expect(first.coverage>.91).toBe(true);

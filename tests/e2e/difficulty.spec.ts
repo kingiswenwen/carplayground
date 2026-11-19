@@ -17,7 +17,7 @@ async function choose(page:Page,mode:Mode){
   await expect.poll(async()=>(await localRows(page,'settings'))[0]?.difficulty).toBe(mode);
 }
 async function open(page:Page,id:string,three=false){
-  await page.goto(`/#/play/${id}?car=CAR01${three?'':'&view=2d'}`);
+  await page.goto(`/#/play/${id}?car=CAR01${three?'&view=3d':'&view=2d'}`);
   await expect.poll(async()=>(await flatState(page)).ready).toBe(true);
   if(three)await expect(world(page)).toHaveAttribute('data-ready','true',{timeout:45000});
 }

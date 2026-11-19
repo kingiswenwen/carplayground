@@ -1,12 +1,12 @@
 import {test,expect} from '@playwright/test';
 
-const removed=['CAR02','CAR04','CAR16','CAR17','CAR20','CAR25'];
-test('目录只保留有独立模型的106款车，取消车型不再出现',async({page})=>{
+const removed=['CAR02','CAR04','CAR16','CAR17','CAR20','CAR25','CAR19','CAR162','CAR190','CAR193'];
+test('目录只保留有独立模型的102款车，取消车型不再出现',async({page})=>{
  await page.goto('/#/cars');
- await expect(page.locator('.garage-count')).toContainText('106 款立体车 · 106 款真实车型');
+ await expect(page.locator('.garage-count')).toContainText('102 款立体车 · 102 款真实车型');
  await expect(page.locator('.garage-reference-switch')).toHaveCount(0);
  const search=page.getByRole('searchbox',{name:'查找车型或品牌'});
- for(const name of ['296 GTB','750S','MX-5 RF','F8 Tributo','Alpine A110','Nissan Z']){
+ for(const name of ['296 GTB','750S','MX-5 RF','F8 Tributo','Alpine A110','Nissan Z','Huracán','Karmann Ghia','Macan','Levante']){
   await search.fill(name);await expect(page.locator('.garage-paged .car-gallery-card')).toHaveCount(0);
  }
 });
@@ -28,8 +28,8 @@ test('旧收藏被过滤，旧海报保留文字图案并可导出，不重新�
  await page.evaluate(()=>new Promise<void>((resolve,reject)=>{
   const open=indexedDB.open('carplayground-local-v1');open.onerror=()=>reject(open.error);
   open.onsuccess=()=>{const db=open.result,tx=db.transaction(['favorites','creations'],'readwrite');
-   for(const carId of ['CAR02','CAR16','CAR83'])tx.objectStore('favorites').put({carId,at:new Date().toISOString()});
-   tx.objectStore('creations').put({id:'removed-vehicle-art',kind:'poster',carId:'CAR02',background:'#eef1d6',caption:'我的小星星',marks:[{x:.5,y:.5,color:'#367cc1',shape:'star'}],createdAt:new Date().toISOString(),version:1});
+   for(const carId of ['CAR02','CAR16','CAR83','CAR190'])tx.objectStore('favorites').put({carId,at:new Date().toISOString()});
+   tx.objectStore('creations').put({id:'removed-vehicle-art',kind:'poster',carId:'CAR190',background:'#eef1d6',caption:'我的小星星',marks:[{x:.5,y:.5,color:'#367cc1',shape:'star'}],createdAt:new Date().toISOString(),version:1});
    tx.oncomplete=()=>{db.close();resolve();};tx.onerror=()=>{db.close();reject(tx.error);};};
  }));
  await page.goto('/#/garage');await page.reload();

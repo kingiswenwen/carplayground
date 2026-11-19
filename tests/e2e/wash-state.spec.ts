@@ -8,7 +8,7 @@ async function tap(p:Page,point:{x:number;y:number}){const b=(await world(p).bou
 async function finishCar(p:Page,car:number){for(let n=0;n<110&&(await flat(p)).wash.clean===car;n++)await touchCanvas(p).press('Enter');expect((await flat(p)).wash.clean).toBe(car+1);}
 
 test('局部洗车在横竖屏、反复2D/3D与WebGL失败回退保持同一污点集合 @smoke',async({page},info)=>{
-  test.setTimeout(180000);await page.setViewportSize({width:1000,height:760});await page.goto('/#/play/H03?car=CAR01');await ready(page);
+  test.setTimeout(180000);await page.setViewportSize({width:1000,height:760});await page.goto('/#/play/H03?car=CAR01&view=3d');await ready(page);
   const initial=await state(page);expect(initial.dirt.length).toBeGreaterThan(8);
   await tap(page,initial.dirt[Math.floor(initial.dirt.length/2)]);
   await expect.poll(async()=>(await flat(page)).progress).toBeGreaterThan(0);

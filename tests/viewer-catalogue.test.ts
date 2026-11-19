@@ -27,6 +27,6 @@ describe('every catalogue car has a matching cover and usable viewer paint surfa
     for(const polygon of polygons){expect(polygon.length,spec.id).toBeGreaterThanOrEqual(3);for(const point of polygon){expect(point).toHaveLength(2);for(const coordinate of point){expect(coordinate).toBeGreaterThanOrEqual(0);expect(coordinate).toBeLessThanOrEqual(1);}}}
    }
   }
-  expect(vehicleModels.filter(spec=>!spec.paintMaterials.length)).toHaveLength(53);
+  expect(vehicleModels.filter(spec=>!spec.paintMaterials.length)).toHaveLength(51);
  });
 });

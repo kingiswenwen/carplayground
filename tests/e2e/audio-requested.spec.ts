@@ -1,5 +1,5 @@
 import {test,expect,type Page} from '@playwright/test';
-import {localRows,openTouch,touchState} from './touch-helpers';
+import {dropTouch,localRows,openTouch,touchState} from './touch-helpers';
 
 const playing=(page:Page)=>page.evaluate(()=>{
  const howler=Reflect.get(window,'Howler') as unknown as {_howls:{playing:()=>boolean}[]}|undefined;
@@ -41,5 +41,16 @@ test('静音故事可主动听当前幕，从第一幕从头听也会重新播�
  await page.getByRole('button',{name:'跳过玩法，继续故事',exact:true}).click();
  await expect(page.locator('.picture-story')).toHaveAttribute('data-frame','1');
  expect(await playing(page)).toBe(0);
+ await expect(page.getByRole('button',{name:'开启声音',exact:true})).toBeVisible();
+});
+
+test('静音时可重听当前展台颜色，仍保留静音设置',async({page})=>{
+ await openTouch(page,'E01');
+ await dropTouch(page,'red','color-home');
+ const button=page.getByRole('button',{name:'听登场提示',exact:true});
+ await expect(button).toBeEnabled();
+ const clip=page.waitForRequest(request=>/color-blue[^/]*\.mp3(?:\?|$)/.test(request.url()));
+ await button.click();await clip;
+ await expect.poll(()=>playing(page)).toBe(1);
  await expect(page.getByRole('button',{name:'开启声音',exact:true})).toBeVisible();
 });

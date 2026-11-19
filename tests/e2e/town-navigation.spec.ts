@@ -50,7 +50,7 @@ test('小镇字体与场景共用版本化媒体路径，并能实际加载 @smo
 
 test('手机停车放大与横竖屏切换保留已停车辆及有余车位 @town-resize',async({page})=>{
  test.setTimeout(120000); // Multiple model loads and two renderer rebuilds on software GL.
- await page.setViewportSize({width:390,height:844});await page.goto('/#/play/M03?car=CAR03');
+ await page.setViewportSize({width:390,height:844});await page.goto('/#/play/M03?car=CAR03&view=3d');
  const world=page.locator('.touch-world-canvas');await expect(world).toHaveAttribute('data-ready','true',{timeout:45000});
  await dropTouch(page,'car-0','bay-0');
  for(const viewport of [{width:844,height:390},{width:390,height:844}]){
@@ -59,6 +59,6 @@ test('手机停车放大与横竖屏切换保留已停车辆及有余车位 @tow
   await expect(world).toHaveAttribute('data-ready','true',{timeout:45000});
   expect((await touchState(page)).items.filter(item=>item.id.startsWith('car-')&&item.placed)).toHaveLength(1);
  }
- await dropTouch(page,'car-1','bay-1');await dropTouch(page,'car-2','bay-2');await completedTouch(page);
+ await dropTouch(page,'car-1','bay-1');await dropTouch(page,'car-2','bay-3');await completedTouch(page);
  expect(JSON.parse((await world.getAttribute('data-state'))!).targets.filter((target:{occupied?:boolean})=>!target.occupied)).toHaveLength(1);
 });

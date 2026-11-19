@@ -54,13 +54,16 @@ export async function dropTouch(page:Page,item:string,target:string){
  if(await touchCanvas(page).getAttribute('data-presentation')==='three'){
   await expect(world).toHaveAttribute('data-ready','true',{timeout:45000});
   await expect.poll(async()=>JSON.parse((await world.getAttribute('data-state'))!).recovering).toBe(false);
+  if(target==='color-home')await expect.poll(async()=>JSON.parse((await world.getAttribute('data-state'))!).colorStage?.presenting,{timeout:15000}).toBe(false);
   const s=JSON.parse((await world.getAttribute('data-state'))!),box=(await world.boundingBox())!;
   const from=s.actors.find((actor:{id:string})=>actor.id===item).screen,to=s.targetScreens.find((slot:{id:string})=>slot.id===target).screen;
   await page.mouse.move(box.x+from.x*box.width,box.y+from.y*box.height);await page.mouse.down();
   await page.mouse.move(box.x+to.x*box.width,box.y+to.y*box.height,{steps:6});await page.mouse.up();
   await expect.poll(async()=>JSON.parse((await world.getAttribute('data-state'))!).items.find((actor:{id:string})=>actor.id===item).placed).toBe(true);return;
  }
- await expect.poll(async()=>JSON.parse((await touchCanvas(page).getAttribute('data-state'))!).recovering).toBe(false);const s=await touchState(page);await dragTouch(page,s.items.find(i=>i.id===item)!,s.targets.find(t=>t.id===target)!);
+ await expect.poll(async()=>JSON.parse((await touchCanvas(page).getAttribute('data-state'))!).recovering).toBe(false);
+ if(target==='color-home')await expect.poll(async()=>JSON.parse((await touchCanvas(page).getAttribute('data-state'))!).colorStage?.presenting).toBe(false);
+ const s=await touchState(page);await dragTouch(page,s.items.find(i=>i.id===item)!,s.targets.find(t=>t.id===target)!);
 }
 export async function completedTouch(page:Page){await expect.poll(async()=>(await touchState(page)).completed,{timeout:12000}).toBe(true);}
 export async function localRows(page:Page,table:string){return page.evaluate(name=>new Promise<Record<string,unknown>[]>((resolve,reject)=>{const request=indexedDB.open('carplayground-local-v1');request.onerror=()=>reject(request.error);request.onsuccess=()=>{const db=request.result,read=db.transaction(name).objectStore(name).getAll();read.onerror=()=>{db.close();reject(read.error);};read.onsuccess=()=>{db.close();resolve(read.result);};};}),table);}

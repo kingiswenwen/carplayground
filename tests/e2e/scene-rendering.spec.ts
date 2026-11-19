@@ -20,7 +20,7 @@ async function renderedColors(page: Page) {
 test('完成和横竖屏切换后，静止的立体场景仍有实际画面', async ({page}) => {
   test.setTimeout(90000);
   await page.setViewportSize({width: 1000, height: 760});
-  await page.goto('/#/play/M01?car=CAR01');
+  await page.goto('/#/play/M01?car=CAR01&view=3d');
   await expect(page.locator('canvas.touch-world-canvas')).toHaveAttribute('data-ready', 'true', {timeout: 45000});
   await dropTouch(page, 'car-0', 'bay-0');
   await dropTouch(page, 'car-1', 'bay-1');

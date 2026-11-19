@@ -39,13 +39,13 @@
     {
       "id": "E01",
       "title": "发现颜色",
-      "version": 8,
+      "version": 10,
       "domain": "英语",
       "scene": "showroom",
       "mode": "closed",
       "subtitle": "英语 · 观察颜色，理解 red / blue / white",
-      "instruction": "依次找红色、蓝色和白色的小车。",
-      "hint": "看看发亮的颜色框，拖入同颜色的车。",
+      "instruction": "看展台灯，选一辆同色的小车送上台。",
+      "hint": "点听登场提示，或看灯光的颜色。小车登台后，下一辆会在另一个位置亮灯。",
       "goal": "观察颜色，理解 red / blue / white",
       "extension": "把今天见过的颜色找给家人看。",
       "instructionAudio": "color-red",
@@ -65,7 +65,6 @@
         "CAR14",
         "CAR15",
         "CAR18",
-        "CAR19",
         "CAR21",
         "CAR22",
         "CAR23",
@@ -129,7 +128,6 @@
         "CAR159",
         "CAR160",
         "CAR161",
-        "CAR162",
         "CAR163",
         "CAR164",
         "CAR165",
@@ -153,9 +151,7 @@
         "CAR186",
         "CAR187",
         "CAR189",
-        "CAR190",
         "CAR192",
-        "CAR193",
         "CAR194",
         "CAR195"
       ]
@@ -163,13 +159,13 @@
     {
       "id": "E02",
       "title": "汽车的身体",
-      "version": 8,
+      "version": 10,
       "domain": "英语",
       "scene": "showroom",
       "mode": "closed",
       "subtitle": "英语 · 把真实部件和英语声音对应",
-      "instruction": "直接碰车轮、车门或车灯。",
-      "hint": "看看示范手指指着的部件，车顶不会被当作车灯。",
+      "instruction": "用手转车轮，试试打开车门、点亮车灯。",
+      "hint": "拖动车轮可以继续转，门和灯都可以再点一次关上。",
       "goal": "点实物部件，观察车轮、车门和车灯的作用",
       "extension": "给玩具车的车轮、车门和车灯取名字。",
       "instructionAudio": "parts-task",
@@ -189,7 +185,6 @@
         "CAR14",
         "CAR15",
         "CAR18",
-        "CAR19",
         "CAR21",
         "CAR22",
         "CAR23",
@@ -253,7 +248,6 @@
         "CAR159",
         "CAR160",
         "CAR161",
-        "CAR162",
         "CAR163",
         "CAR164",
         "CAR165",
@@ -277,9 +271,7 @@
         "CAR186",
         "CAR187",
         "CAR189",
-        "CAR190",
         "CAR192",
-        "CAR193",
         "CAR194",
         "CAR195"
       ]
@@ -287,13 +279,13 @@
     {
       "id": "E03",
       "title": "出发和停止",
-      "version": 9,
+      "version": 11,
       "domain": "英语",
       "scene": "parking",
       "mode": "closed",
       "subtitle": "英语 · 理解 go 和 stop 的动作",
-      "instruction": "点点信号灯，绿灯推车出发，红灯停下。",
-      "hint": "先把信号灯换成绿色，再推小车；再点红灯看看。",
+      "instruction": "把小车推到停止线前，等行人过完。绿灯亮了，再推车过路口。",
+      "hint": "红灯时先等一等，看看行人有没有走完。",
       "goal": "观察红绿灯与出发、停止的对应",
       "extension": "和家人玩一轮出发、停止的动作游戏。",
       "instructionAudio": "activity-E03",
@@ -313,7 +305,6 @@
         "CAR14",
         "CAR15",
         "CAR18",
-        "CAR19",
         "CAR21",
         "CAR22",
         "CAR23",
@@ -377,7 +368,6 @@
         "CAR159",
         "CAR160",
         "CAR161",
-        "CAR162",
         "CAR163",
         "CAR164",
         "CAR165",
@@ -401,9 +391,7 @@
         "CAR186",
         "CAR187",
         "CAR189",
-        "CAR190",
         "CAR192",
-        "CAR193",
         "CAR194",
         "CAR195"
       ]
@@ -411,13 +399,13 @@
     {
       "id": "M01",
       "title": "小车回家",
-      "version": 8,
+      "version": 10,
       "domain": "数学",
       "scene": "parking",
       "mode": "closed",
       "subtitle": "数学 · 一辆车对应一个位置",
-      "instruction": "直接拖着小车停进空车位。",
-      "hint": "可以拖车，也可以点车再点空位。",
+      "instruction": "找没有挡板的空位。把小车开进去，一辆车停一个位置。",
+      "hint": "挡板前要停下，看看另一格有没有空位。",
       "goal": "一辆车对应一个位置",
       "extension": "用两辆玩具车和两张纸再玩一次。",
       "instructionAudio": "parking-task",
@@ -437,7 +425,6 @@
         "CAR14",
         "CAR15",
         "CAR18",
-        "CAR19",
         "CAR21",
         "CAR22",
         "CAR23",
@@ -501,7 +488,6 @@
         "CAR159",
         "CAR160",
         "CAR161",
-        "CAR162",
         "CAR163",
         "CAR164",
         "CAR165",
@@ -525,9 +511,7 @@
         "CAR186",
         "CAR187",
         "CAR189",
-        "CAR190",
         "CAR192",
-        "CAR193",
         "CAR194",
         "CAR195"
       ]
@@ -535,13 +519,13 @@
     {
       "id": "M02",
       "title": "还缺几个车位",
-      "version": 8,
+      "version": 10,
       "domain": "数学",
       "scene": "parking",
       "mode": "closed",
       "subtitle": "数学 · 观察数量与分合",
-      "instruction": "小车都有位置吗？还需要几个？",
-      "hint": "先把有位置的小车配好，再数数剩下的。",
+      "instruction": "看看排队的小车够不够停。拖一块车位板到空地，再让等待的小车开进去。",
+      "hint": "先数空位和等候的小车。浅棕色空地可以铺车位。",
       "goal": "观察数量与分合",
       "extension": "拿积木当车位，试试添一个、少一个。",
       "instructionAudio": "activity-M02",
@@ -561,7 +545,6 @@
         "CAR14",
         "CAR15",
         "CAR18",
-        "CAR19",
         "CAR21",
         "CAR22",
         "CAR23",
@@ -625,7 +608,6 @@
         "CAR159",
         "CAR160",
         "CAR161",
-        "CAR162",
         "CAR163",
         "CAR164",
         "CAR165",
@@ -649,9 +631,7 @@
         "CAR186",
         "CAR187",
         "CAR189",
-        "CAR190",
         "CAR192",
-        "CAR193",
         "CAR194",
         "CAR195"
       ]
@@ -659,13 +639,13 @@
     {
       "id": "M03",
       "title": "车位够不够",
-      "version": 8,
+      "version": 10,
       "domain": "数学",
       "scene": "parking",
       "mode": "closed",
       "subtitle": "数学 · 比较数量，区分足够、不够和有余",
-      "instruction": "给每辆车找个家，看看还有哪个车位空着。",
-      "hint": "一辆一位，停完仍有一个空位。",
+      "instruction": "先停小车，给晚来的长车留一格长车位。",
+      "hint": "长车装不进短格。长格如果停了小车，可以先挪小车。",
       "goal": "三辆车配四个车位，观察停好后仍有空位",
       "extension": "把杯子和家人数配一配，看看够不够。",
       "instructionAudio": "activity-M03",
@@ -685,7 +665,6 @@
         "CAR14",
         "CAR15",
         "CAR18",
-        "CAR19",
         "CAR21",
         "CAR22",
         "CAR23",
@@ -749,7 +728,6 @@
         "CAR159",
         "CAR160",
         "CAR161",
-        "CAR162",
         "CAR163",
         "CAR164",
         "CAR165",
@@ -773,9 +751,7 @@
         "CAR186",
         "CAR187",
         "CAR189",
-        "CAR190",
         "CAR192",
-        "CAR193",
         "CAR194",
         "CAR195"
       ]
@@ -783,13 +759,13 @@
     {
       "id": "M04",
       "title": "红蓝车队",
-      "version": 8,
+      "version": 10,
       "domain": "数学",
       "scene": "parking",
       "mode": "closed",
       "subtitle": "数学 · 发现并延续重复规律",
-      "instruction": "红、蓝、红、蓝，下一辆是谁？",
-      "hint": "跟着前面的颜色，一辆一辆读一读。",
+      "instruction": "看颜色怎样重复，接上队尾两辆车。下一队会换一种顺序。",
+      "hint": "看看前面哪几个颜色反复出现，再接到队尾。",
       "goal": "发现并延续重复规律",
       "extension": "用两种颜色的积木排出自己的队伍。",
       "instructionAudio": "activity-M04",
@@ -809,7 +785,6 @@
         "CAR14",
         "CAR15",
         "CAR18",
-        "CAR19",
         "CAR21",
         "CAR22",
         "CAR23",
@@ -873,7 +848,6 @@
         "CAR159",
         "CAR160",
         "CAR161",
-        "CAR162",
         "CAR163",
         "CAR164",
         "CAR165",
@@ -897,9 +871,7 @@
         "CAR186",
         "CAR187",
         "CAR189",
-        "CAR190",
         "CAR192",
-        "CAR193",
         "CAR194",
         "CAR195"
       ]
@@ -907,13 +879,13 @@
     {
       "id": "C01",
       "title": "我喜欢这辆车",
-      "version": 8,
+      "version": 10,
       "domain": "中文表达",
       "scene": "showroom",
       "mode": "open",
       "subtitle": "中文表达 · 用自己的话描述观察与喜好",
-      "instruction": "摆放爱车和喜欢的物件，想说的时候讲给家人听。",
-      "hint": "每个人的喜欢可以不一样，没有必须说出的标准答案。",
+      "instruction": "为爱车摆一盏灯、一个站牌或喜欢的背景，再从观众席看。",
+      "hint": "道具可以移动，也可以选中后移除。准备好就把展位保存到车库。",
       "goal": "自由布景与可选亲子描述；只记录参与，不自动评判表达",
       "extension": "家长可以回应：你注意到了什么细节？",
       "instructionAudio": "activity-C01",
@@ -933,7 +905,6 @@
         "CAR14",
         "CAR15",
         "CAR18",
-        "CAR19",
         "CAR21",
         "CAR22",
         "CAR23",
@@ -997,7 +968,6 @@
         "CAR159",
         "CAR160",
         "CAR161",
-        "CAR162",
         "CAR163",
         "CAR164",
         "CAR165",
@@ -1021,9 +991,7 @@
         "CAR186",
         "CAR187",
         "CAR189",
-        "CAR190",
         "CAR192",
-        "CAR193",
         "CAR194",
         "CAR195"
       ]
@@ -1031,13 +999,13 @@
     {
       "id": "C02",
       "title": "先做什么",
-      "version": 8,
+      "version": 10,
       "domain": "中文表达",
       "scene": "travel",
       "mode": "closed",
       "subtitle": "中文表达 · 理解顺序并尝试讲述过程",
-      "instruction": "去公园前，先做什么，再做什么？",
-      "hint": "先准备好物品，再请大人确认安全带，最后出发。",
+      "instruction": "把三件物品排进顺序，再让小车照着演一遍。",
+      "hint": "关车门和扣安全带可以交换顺序；两件事都做完才能出发。",
       "goal": "理解顺序并尝试讲述过程",
       "extension": "讲讲今天出门前，你先做了什么。",
       "instructionAudio": "activity-C02",
@@ -1057,7 +1025,6 @@
         "CAR14",
         "CAR15",
         "CAR18",
-        "CAR19",
         "CAR21",
         "CAR22",
         "CAR23",
@@ -1121,7 +1088,6 @@
         "CAR159",
         "CAR160",
         "CAR161",
-        "CAR162",
         "CAR163",
         "CAR164",
         "CAR165",
@@ -1145,9 +1111,7 @@
         "CAR186",
         "CAR187",
         "CAR189",
-        "CAR190",
         "CAR192",
-        "CAR193",
         "CAR194",
         "CAR195"
       ]
@@ -1155,13 +1119,13 @@
     {
       "id": "C03",
       "title": "接着讲下去",
-      "version": 8,
+      "version": 10,
       "domain": "中文表达",
       "scene": "travel",
       "mode": "open",
       "subtitle": "中文表达 · 展开想象并连贯表达",
-      "instruction": "把小车和树、太阳摆在一起，接下来想发生什么？",
-      "hint": "可以边摆边讲，也可以安静地探索。",
+      "instruction": "移动小车、贴上物件或打开门，再把故事接到第二幕。",
+      "hint": "第一幕的动作会带来不同物件。点播放，把自己做过的动作演一遍。",
       "goal": "自由编排场景与可选讲述；不自动判断连贯表达",
       "extension": "轮流接一句，把小故事讲给家人听。",
       "instructionAudio": "activity-C03",
@@ -1181,7 +1145,6 @@
         "CAR14",
         "CAR15",
         "CAR18",
-        "CAR19",
         "CAR21",
         "CAR22",
         "CAR23",
@@ -1245,7 +1208,6 @@
         "CAR159",
         "CAR160",
         "CAR161",
-        "CAR162",
         "CAR163",
         "CAR164",
         "CAR165",
@@ -1269,9 +1231,7 @@
         "CAR186",
         "CAR187",
         "CAR189",
-        "CAR190",
         "CAR192",
-        "CAR193",
         "CAR194",
         "CAR195"
       ]
@@ -1279,13 +1239,13 @@
     {
       "id": "S01",
       "title": "什么会滚",
-      "version": 8,
+      "version": 10,
       "domain": "科学",
       "scene": "workshop",
       "mode": "open",
       "subtitle": "科学 · 先预测，再观察和比较",
-      "instruction": "先猜一猜：小球和方块，谁更容易滚起来？",
-      "hint": "看看它们的表面，再试一次观察结果。",
+      "instruction": "先猜球和方块谁会走得更远，再一起放开。换个坡面比一比。",
+      "hint": "看两个停点，不用猜对也可以继续观察。",
       "goal": "先预测，再观察和比较",
       "extension": "找一个球和一个盒子，在安全平面试一试。",
       "instructionAudio": "activity-S01",
@@ -1305,7 +1265,6 @@
         "CAR14",
         "CAR15",
         "CAR18",
-        "CAR19",
         "CAR21",
         "CAR22",
         "CAR23",
@@ -1369,7 +1328,6 @@
         "CAR159",
         "CAR160",
         "CAR161",
-        "CAR162",
         "CAR163",
         "CAR164",
         "CAR165",
@@ -1393,9 +1351,7 @@
         "CAR186",
         "CAR187",
         "CAR189",
-        "CAR190",
         "CAR192",
-        "CAR193",
         "CAR194",
         "CAR195"
       ]
@@ -1403,13 +1359,13 @@
     {
       "id": "S02",
       "title": "车灯和影子",
-      "version": 8,
+      "version": 10,
       "domain": "科学",
       "scene": "workshop",
       "mode": "open",
       "subtitle": "科学 · 改变光源位置，观察影子方向",
-      "instruction": "移动小灯，看看影子跑到哪里。",
-      "hint": "把灯移到左边，再移到右边，比较影子。",
+      "instruction": "把灯移到一侧并松手留住影子，再换另一侧比较。",
+      "hint": "淡一点的影子是上一次留下的，深色的是现在的。",
       "goal": "改变光源位置，观察影子方向",
       "extension": "和大人在墙上玩手影，别用强光照眼睛。",
       "instructionAudio": "activity-S02",
@@ -1429,7 +1385,6 @@
         "CAR14",
         "CAR15",
         "CAR18",
-        "CAR19",
         "CAR21",
         "CAR22",
         "CAR23",
@@ -1493,7 +1448,6 @@
         "CAR159",
         "CAR160",
         "CAR161",
-        "CAR162",
         "CAR163",
         "CAR164",
         "CAR165",
@@ -1517,9 +1471,7 @@
         "CAR186",
         "CAR187",
         "CAR189",
-        "CAR190",
         "CAR192",
-        "CAR193",
         "CAR194",
         "CAR195"
       ]
@@ -1527,14 +1479,14 @@
     {
       "id": "S03",
       "title": "雨天出发",
-      "version": 8,
+      "version": 10,
       "domain": "科学",
       "scene": "travel",
       "mode": "closed",
       "subtitle": "科学 · 观察天气并选择合适物品",
       "instruction": "外面下雨了，带什么能帮你挡雨？",
-      "hint": "雨伞和外套一起能遮雨保暖，其他物品也可以带上。",
-      "goal": "根据下雨情境选雨伞和外套，观察防雨用途",
+      "hint": "把物品放到纸卡上方，点云朵，看看纸卡会不会湿。",
+      "goal": "用相同的雨滴试两种准备方式，观察纸卡的干湿",
       "extension": "看看窗外的天气，说说地面和天空。",
       "instructionAudio": "activity-S03",
       "hintAudio": "hint-S03",
@@ -1553,7 +1505,6 @@
         "CAR14",
         "CAR15",
         "CAR18",
-        "CAR19",
         "CAR21",
         "CAR22",
         "CAR23",
@@ -1617,7 +1568,6 @@
         "CAR159",
         "CAR160",
         "CAR161",
-        "CAR162",
         "CAR163",
         "CAR164",
         "CAR165",
@@ -1641,9 +1591,7 @@
         "CAR186",
         "CAR187",
         "CAR189",
-        "CAR190",
         "CAR192",
-        "CAR193",
         "CAR194",
         "CAR195"
       ]
@@ -1651,13 +1599,13 @@
     {
       "id": "T01",
       "title": "零件帮什么忙",
-      "version": 8,
+      "version": 10,
       "domain": "动手思考",
       "scene": "workshop",
       "mode": "closed",
       "subtitle": "动手思考 · 把部件与功能建立联系",
-      "instruction": "哪个部件能帮助小车滚动？",
-      "hint": "碰到车轮看它转动，再看看车门和车灯的不同反馈。",
+      "instruction": "小车要滚起来，乘客要上车，出口还会变暗。看看各需要哪个部件。",
+      "hint": "轮子帮忙滚动，车门让乘客进出，车灯在暗处照亮道路。",
       "goal": "触摸真实部件，观察轮转、灯亮和车门位置",
       "extension": "观察玩具车，试着说说每个部件帮什么忙。",
       "instructionAudio": "activity-T01",
@@ -1677,7 +1625,6 @@
         "CAR14",
         "CAR15",
         "CAR18",
-        "CAR19",
         "CAR21",
         "CAR22",
         "CAR23",
@@ -1741,7 +1688,6 @@
         "CAR159",
         "CAR160",
         "CAR161",
-        "CAR162",
         "CAR163",
         "CAR164",
         "CAR165",
@@ -1765,9 +1711,7 @@
         "CAR186",
         "CAR187",
         "CAR189",
-        "CAR190",
         "CAR192",
-        "CAR193",
         "CAR194",
         "CAR195"
       ]
@@ -1775,13 +1719,13 @@
     {
       "id": "T02",
       "title": "给小车搭桥",
-      "version": 8,
+      "version": 10,
       "domain": "动手思考",
       "scene": "workshop",
       "mode": "closed",
       "subtitle": "动手思考 · 比较长度、尝试并调整方案",
-      "instruction": "选一块桥板，让小车安全到对岸。",
-      "hint": "桥板要能搭在两边，先比较它和河的宽度。",
+      "instruction": "让桥板搭在两边的石头上，再推小车试试。过河后，前面还有更宽的一段。",
+      "hint": "桥板要搭住两块桥石。到了更宽的河段，可以打开岸边木料棚。",
       "goal": "比较长度、尝试并调整方案",
       "extension": "和大人用积木搭桥，只让玩具车通过。",
       "instructionAudio": "activity-T02",
@@ -1801,7 +1745,6 @@
         "CAR14",
         "CAR15",
         "CAR18",
-        "CAR19",
         "CAR21",
         "CAR22",
         "CAR23",
@@ -1865,7 +1808,6 @@
         "CAR159",
         "CAR160",
         "CAR161",
-        "CAR162",
         "CAR163",
         "CAR164",
         "CAR165",
@@ -1889,9 +1831,7 @@
         "CAR186",
         "CAR187",
         "CAR189",
-        "CAR190",
         "CAR192",
-        "CAR193",
         "CAR194",
         "CAR195"
       ]
@@ -1899,13 +1839,13 @@
     {
       "id": "T03",
       "title": "把路连起来",
-      "version": 8,
+      "version": 10,
       "domain": "动手思考",
       "scene": "parking",
       "mode": "closed",
       "subtitle": "动手思考 · 规划路径并检查连接",
-      "instruction": "转动道路，让小车从房子到公园。",
-      "hint": "先转中间一块。带固定边框的是起点和终点，形状不会变成另一种。",
+      "instruction": "转动路块，再让小车试路。遇到断口，转一转接起来。",
+      "hint": "两个开口要对上。遇到封路可以从旁边绕。",
       "goal": "固定形状路块旋转连接，由直路到转弯再到完整路线",
       "extension": "用纸条在桌上连一条路。",
       "instructionAudio": "activity-T03",
@@ -1925,7 +1865,6 @@
         "CAR14",
         "CAR15",
         "CAR18",
-        "CAR19",
         "CAR21",
         "CAR22",
         "CAR23",
@@ -1989,7 +1928,6 @@
         "CAR159",
         "CAR160",
         "CAR161",
-        "CAR162",
         "CAR163",
         "CAR164",
         "CAR165",
@@ -2013,9 +1951,7 @@
         "CAR186",
         "CAR187",
         "CAR189",
-        "CAR190",
         "CAR192",
-        "CAR193",
         "CAR194",
         "CAR195"
       ]
@@ -2023,14 +1959,14 @@
     {
       "id": "H01",
       "title": "去看看",
-      "version": 8,
+      "version": 10,
       "domain": "社会与人文",
       "scene": "travel",
       "mode": "open",
       "subtitle": "社会与人文 · 认识场所和不同的公共体验",
       "instruction": "带小车到一个地方，看看里面有什么。",
-      "hint": "公园有蝴蝶和花，图书馆有书，博物馆里有恐龙发现。",
-      "goal": "选择公园、图书馆和博物馆，观察不同场景物件",
+      "hint": "开车到一个地方，动手看一件东西，再回地图去下一站。",
+      "goal": "选择目的地，到达后操作实物，观察由此出现的发现",
       "extension": "下一次出门，观察一个你感兴趣的地方。",
       "instructionAudio": "activity-H01",
       "hintAudio": "hint-H01",
@@ -2049,7 +1985,6 @@
         "CAR14",
         "CAR15",
         "CAR18",
-        "CAR19",
         "CAR21",
         "CAR22",
         "CAR23",
@@ -2113,7 +2048,6 @@
         "CAR159",
         "CAR160",
         "CAR161",
-        "CAR162",
         "CAR163",
         "CAR164",
         "CAR165",
@@ -2137,9 +2071,7 @@
         "CAR186",
         "CAR187",
         "CAR189",
-        "CAR190",
         "CAR192",
-        "CAR193",
         "CAR194",
         "CAR195"
       ]
@@ -2147,13 +2079,13 @@
     {
       "id": "H02",
       "title": "谁能帮忙",
-      "version": 8,
+      "version": 10,
       "domain": "社会与人文",
       "scene": "workshop",
       "mode": "closed",
       "subtitle": "社会与人文 · 认识职业与合作",
-      "instruction": "小车的轮胎需要检查，可以请谁帮忙？",
-      "hint": "看看每个人的工具和工作。",
+      "instruction": "看伙伴旁边的轮胎、泥点和箱子。把合适的工具交给他们，看怎么用。",
+      "hint": "扳手检查轮胎，海绵能擦泥点，推车能载箱子。",
       "goal": "为维修、清洁和搬运伙伴匹配合适工具，观察帮助用途",
       "extension": "和家人说说，今天是谁帮助了我们。",
       "instructionAudio": "activity-H02",
@@ -2173,7 +2105,6 @@
         "CAR14",
         "CAR15",
         "CAR18",
-        "CAR19",
         "CAR21",
         "CAR22",
         "CAR23",
@@ -2237,7 +2168,6 @@
         "CAR159",
         "CAR160",
         "CAR161",
-        "CAR162",
         "CAR163",
         "CAR164",
         "CAR165",
@@ -2261,9 +2191,7 @@
         "CAR186",
         "CAR187",
         "CAR189",
-        "CAR190",
         "CAR192",
-        "CAR193",
         "CAR194",
         "CAR195"
       ]
@@ -2271,13 +2199,13 @@
     {
       "id": "H03",
       "title": "泡泡洗车屋",
-      "version": 8,
+      "version": 10,
       "domain": "社会与人文",
       "scene": "parking",
       "mode": "closed",
       "subtitle": "社会与人文 · 理解轮流、等待和公平使用",
-      "instruction": "手指擦掉泥点，洗好第一辆再请下一辆进来。",
-      "hint": "一辆在洗，另一辆先等待，洗好后点等待的小车交换。",
+      "instruction": "先冲掉浮尘。第二辆车有深色泥点，要用海绵，再冲掉泡沫。",
+      "hint": "喷水清浮尘和泡沫，用海绵擦深色泥点。",
       "goal": "依次为两辆车清洗，前一辆洗好后交换",
       "extension": "和家人轮流用一个玩具，试着说轮到你啦。",
       "instructionAudio": "activity-H03",
@@ -2297,7 +2225,6 @@
         "CAR14",
         "CAR15",
         "CAR18",
-        "CAR19",
         "CAR21",
         "CAR22",
         "CAR23",
@@ -2361,7 +2288,6 @@
         "CAR159",
         "CAR160",
         "CAR161",
-        "CAR162",
         "CAR163",
         "CAR164",
         "CAR165",
@@ -2385,9 +2311,7 @@
         "CAR186",
         "CAR187",
         "CAR189",
-        "CAR190",
         "CAR192",
-        "CAR193",
         "CAR194",
         "CAR195"
       ]
@@ -2395,12 +2319,12 @@
     {
       "id": "A01",
       "title": "车展海报",
-      "version": 8,
+      "version": 10,
       "domain": "艺术创作",
       "scene": "showroom",
       "mode": "open",
       "subtitle": "艺术创作 · 自由构图、配色与表达",
-      "instruction": "点颜色和画纸，把小物件摆到爱车旁。",
+      "instruction": "选颜色，拖贴纸到纸上。可以换颜色、移动或撤回，满意了再保存海报。",
       "hint": "可以换画纸、点颜色，再放叶子、太阳或星星。",
       "goal": "自由构图和配色，保存参与作品，不评判创作水平",
       "extension": "向家人介绍你设计的海报。",
@@ -2421,7 +2345,6 @@
         "CAR14",
         "CAR15",
         "CAR18",
-        "CAR19",
         "CAR21",
         "CAR22",
         "CAR23",
@@ -2485,7 +2408,6 @@
         "CAR159",
         "CAR160",
         "CAR161",
-        "CAR162",
         "CAR163",
         "CAR164",
         "CAR165",
@@ -2509,9 +2431,7 @@
         "CAR186",
         "CAR187",
         "CAR189",
-        "CAR190",
         "CAR192",
-        "CAR193",
         "CAR194",
         "CAR195"
       ]
@@ -2519,13 +2439,13 @@
     {
       "id": "A02",
       "title": "轮印花纹",
-      "version": 8,
+      "version": 10,
       "domain": "艺术创作",
       "scene": "showroom",
       "mode": "open",
       "subtitle": "艺术创作 · 探索图案、重复与视觉表达",
-      "instruction": "点一种颜色，推小车留下轮印。",
-      "hint": "只有车会留下轮印，拖贴纸不会画出车轮印。",
+      "instruction": "选轮纹和颜色，推小车在画纸上留下一串轮印。",
+      "hint": "换条路线或换轮纹再推一次，看看交叠的位置。可以撤回上一趟。",
       "goal": "推车留下轮印，观察重复和颜色，保存参与作品",
       "extension": "用可清洗材料和玩具车，在大人陪伴下印一印。",
       "instructionAudio": "activity-A02",
@@ -2545,7 +2465,6 @@
         "CAR14",
         "CAR15",
         "CAR18",
-        "CAR19",
         "CAR21",
         "CAR22",
         "CAR23",
@@ -2609,7 +2528,6 @@
         "CAR159",
         "CAR160",
         "CAR161",
-        "CAR162",
         "CAR163",
         "CAR164",
         "CAR165",
@@ -2633,9 +2551,7 @@
         "CAR186",
         "CAR187",
         "CAR189",
-        "CAR190",
         "CAR192",
-        "CAR193",
         "CAR194",
         "CAR195"
       ]
@@ -2643,14 +2559,14 @@
     {
       "id": "L01",
       "title": "出发准备",
-      "version": 8,
+      "version": 10,
       "domain": "生活习惯",
       "scene": "travel",
       "mode": "closed",
       "subtitle": "生活习惯 · 根据情境做准备并关注乘车安全",
-      "instruction": "把水和帽子放进包，再给座位搭好安全带。",
-      "hint": "带好物品后座位才会出现；真正出行仍请大人检查儿童安全座椅。",
-      "goal": "为晴天出游准备水和帽子，再模拟检查安全带",
+      "instruction": "晴天去公园。把水放进包，给座位扣好安全带，再开车出门。",
+      "hint": "可以先扣安全带，也可以先装水。车停在门口时，看看还缺什么。",
+      "goal": "晴天出游带水并扣好模拟安全带，实际操作车辆通过出口",
       "extension": "出门前和家人一起检查自己的小背包。",
       "instructionAudio": "activity-L01",
       "hintAudio": "hint-L01",
@@ -2669,7 +2585,6 @@
         "CAR14",
         "CAR15",
         "CAR18",
-        "CAR19",
         "CAR21",
         "CAR22",
         "CAR23",
@@ -2733,7 +2648,6 @@
         "CAR159",
         "CAR160",
         "CAR161",
-        "CAR162",
         "CAR163",
         "CAR164",
         "CAR165",
@@ -2757,9 +2671,7 @@
         "CAR186",
         "CAR187",
         "CAR189",
-        "CAR190",
         "CAR192",
-        "CAR193",
         "CAR194",
         "CAR195"
       ]
@@ -2767,13 +2679,13 @@
     {
       "id": "L02",
       "title": "请你帮帮我",
-      "version": 8,
+      "version": 10,
       "domain": "生活习惯",
       "scene": "parking",
       "mode": "open",
       "subtitle": "生活习惯 · 识别感受，尝试表达需要与求助",
-      "instruction": "小车遇到困难，把招手卡送给能帮忙的朋友。",
-      "hint": "可以招手，也可以向家人说请帮帮我；不需要录音。",
+      "instruction": "推推小车看看。遇到挡板，可以招手、喊伙伴或递出求助卡。",
+      "hint": "伙伴过来挪开挡板后，再推小车通过。",
       "goal": "在小车遇到困难的场景中尝试向同伴求助，记录参与不评判表达",
       "extension": "告诉家人你希望得到怎样的帮助。",
       "instructionAudio": "activity-L02",
@@ -2793,7 +2705,6 @@
         "CAR14",
         "CAR15",
         "CAR18",
-        "CAR19",
         "CAR21",
         "CAR22",
         "CAR23",
@@ -2857,7 +2768,6 @@
         "CAR159",
         "CAR160",
         "CAR161",
-        "CAR162",
         "CAR163",
         "CAR164",
         "CAR165",
@@ -2881,9 +2791,7 @@
         "CAR186",
         "CAR187",
         "CAR189",
-        "CAR190",
         "CAR192",
-        "CAR193",
         "CAR194",
         "CAR195"
       ]
@@ -2891,13 +2799,13 @@
     {
       "id": "L03",
       "title": "整理车库",
-      "version": 8,
+      "version": 10,
       "domain": "生活习惯",
       "scene": "parking",
       "mode": "closed",
       "subtitle": "生活习惯 · 按同一特征分类并整理物品",
-      "instruction": "红车回红色车库，蓝车回蓝色车库，白车回白色车库。",
-      "hint": "可以直接拖车，也可以点车再点同颜色的车库。",
+      "instruction": "先按颜色停车，再换挂牌，按车身长短整理。",
+      "hint": "看车库挂牌：颜色找同色，横尺比较长短。",
       "goal": "按可见车身颜色配对整理",
       "extension": "选一种方法，把玩具车整理回家。",
       "instructionAudio": "activity-L03",
@@ -2917,7 +2825,6 @@
         "CAR14",
         "CAR15",
         "CAR18",
-        "CAR19",
         "CAR21",
         "CAR22",
         "CAR23",
@@ -2981,7 +2888,6 @@
         "CAR159",
         "CAR160",
         "CAR161",
-        "CAR162",
         "CAR163",
         "CAR164",
         "CAR165",
@@ -3005,24 +2911,22 @@
         "CAR186",
         "CAR187",
         "CAR189",
-        "CAR190",
         "CAR192",
-        "CAR193",
         "CAR194",
         "CAR195"
       ]
     },
     {
       "id": "P01",
-      "version": 7,
+      "version": 9,
       "title": "推一推跑车",
       "subtitle": "推力、路面与慢慢停下",
       "domain": "科学",
       "scene": "parking",
       "mode": "open",
       "instruction": "推一辆车，两辆车会接受同样的推动。",
-      "hint": "两条路面用同样的车和推动，看看哪一辆滑得更远。",
-      "goal": "同样车辆接受同一推动，比较光滑与粗糙路面的滑行距离；只记录探索",
+      "hint": "看看两辆车的停点，再交换路面，用同样的力试一次。",
+      "goal": "在同一起点和推力下交换光滑与粗糙路面，比较两次滑行停点；只记录探索",
       "extension": "在平地上轻推玩具车，比较毛巾和光滑地面；别在道路上实验。",
       "instructionAudio": "physics-invite-surface",
       "hintAudio": "hint-P01",
@@ -3041,7 +2945,6 @@
         "CAR14",
         "CAR15",
         "CAR18",
-        "CAR19",
         "CAR21",
         "CAR22",
         "CAR23",
@@ -3105,7 +3008,6 @@
         "CAR159",
         "CAR160",
         "CAR161",
-        "CAR162",
         "CAR163",
         "CAR164",
         "CAR165",
@@ -3129,23 +3031,21 @@
         "CAR186",
         "CAR187",
         "CAR189",
-        "CAR190",
         "CAR192",
-        "CAR193",
         "CAR194",
         "CAR195"
       ]
     },
     {
       "id": "T04",
-      "version": 7,
+      "version": 9,
       "title": "装好自己的跑车",
       "subtitle": "车身与车轮拼装",
       "domain": "动手思考",
       "scene": "workshop",
       "mode": "closed",
-      "instruction": "先装车身，再把两个车轮放进轮廓。",
-      "hint": "两个车轮可以交换位置。也可以点零件，再点轮廓放下。",
+      "instruction": "把车身和两个轮子装好，再推车试走。可以取下轮子换位置。",
+      "hint": "小车要靠两只轮子平稳滚过去。少一只轮子可以先试，再装好。",
       "goal": "观察生成跑车的车身和两个车轮，拖装或点放完成",
       "extension": "拿一张打印的车图，和家人一起分成几块大拼图，再拼回去。",
       "instructionAudio": "assembly-body",
@@ -3165,7 +3065,6 @@
         "CAR14",
         "CAR15",
         "CAR18",
-        "CAR19",
         "CAR21",
         "CAR22",
         "CAR23",
@@ -3229,7 +3128,6 @@
         "CAR159",
         "CAR160",
         "CAR161",
-        "CAR162",
         "CAR163",
         "CAR164",
         "CAR165",
@@ -3253,9 +3151,7 @@
         "CAR186",
         "CAR187",
         "CAR189",
-        "CAR190",
         "CAR192",
-        "CAR193",
         "CAR194",
         "CAR195"
       ]
@@ -3904,6 +3800,796 @@
     }
   },
   "assets": [
+    {
+      "id": "trip-scene-backdrop",
+      "path": "media/play-scenes/trip/backdrop.webp",
+      "source": "GPT Image master scene edited in place to remove the interactive objects.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "12419fb7399372af235f11d8c92ae8ce7d445aac8be095fa2bd8b0108c812c14"
+    },
+    {
+      "id": "trip-scene-bottle",
+      "path": "media/play-scenes/trip/bottle.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 112,
+      "height": 202,
+      "sha256": "5ef959b3794f479375b06a1f9be97358c429bcb2d7926494c65962f1ef23db27"
+    },
+    {
+      "id": "trip-scene-hat",
+      "path": "media/play-scenes/trip/hat.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 309,
+      "height": 189,
+      "sha256": "75b23f3bb7ebbfbce3e5695762114eb135d29211871394d89b6ff2cddb652a1e"
+    },
+    {
+      "id": "trip-scene-belt",
+      "path": "media/play-scenes/trip/belt.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 264,
+      "height": 191,
+      "sha256": "f93cfcd62492e5a35819f28a8e185eb77472a220048dff1d35dec51a8d313f5f"
+    },
+    {
+      "id": "trip-scene-gate",
+      "path": "media/play-scenes/trip/gate.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 385,
+      "height": 42,
+      "sha256": "aae632f8a3a7a2ca3b548057a9134f3cdfc58c99461452f269b07032ba272c7d"
+    },
+    {
+      "id": "visit-scene-backdrop",
+      "path": "media/play-scenes/visit/backdrop.webp",
+      "source": "GPT Image master scene edited in place to remove the interactive objects.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "2dd08e780ac839d578b051ed974e2621cd6936b61116fd83dd980538ce14f2d5"
+    },
+    {
+      "id": "visit-scene-park",
+      "path": "media/play-scenes/visit/park.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 332,
+      "height": 333,
+      "sha256": "d75afcceb653841318a374db802b24ef7352eaa09f7c864819c8e76de774d436"
+    },
+    {
+      "id": "visit-scene-library",
+      "path": "media/play-scenes/visit/library.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 339,
+      "height": 333,
+      "sha256": "d89bfb7c572aaad5e440d8e999ce26bef010aa9309f84c62f488ad1fc3d847bf"
+    },
+    {
+      "id": "visit-scene-museum",
+      "path": "media/play-scenes/visit/museum.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 332,
+      "height": 343,
+      "sha256": "f1a274595b237a823e9eb45b2a7587840c97c62f8f093fe72395aed042c3f94c"
+    },
+    {
+      "id": "visit-scene-book",
+      "path": "media/play-scenes/visit/book.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 78,
+      "height": 57,
+      "sha256": "2623ad32ad30cdf05252d5d078a5dbfb4faa9ec9e910f409056f91a01fd0fc07"
+    },
+    {
+      "id": "sequence-scene-backdrop",
+      "path": "media/play-scenes/sequence/backdrop.webp",
+      "source": "GPT Image master scene edited in place to remove the interactive objects.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "952733d67b9fac4bade8c107285c4a1cc703b09602c420088716a8cbf5f4faf2"
+    },
+    {
+      "id": "sequence-scene-door",
+      "path": "media/play-scenes/sequence/door.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 300,
+      "height": 288,
+      "sha256": "959a671436554d2828f63003370f20e945409e48b900572ddd929f24d4adc832"
+    },
+    {
+      "id": "sequence-scene-belt",
+      "path": "media/play-scenes/sequence/belt.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 369,
+      "height": 226,
+      "sha256": "b284da65132414af7b18e9a91c0ffe6555006ba0dc67e0d3544a0e0bb153de97"
+    },
+    {
+      "id": "sequence-scene-flag",
+      "path": "media/play-scenes/sequence/flag.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 300,
+      "height": 273,
+      "sha256": "7ead51994a22f0e3b002428615eb982aeecfb973d128f3161bc29c9879385a11"
+    },
+    {
+      "id": "story-scene-backdrop",
+      "path": "media/play-scenes/story/backdrop.webp",
+      "source": "GPT Image master scene edited in place to remove the interactive objects.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "366acd1356a9ba85524a2c3e72efebad1c91960d27fffd13817b5d99bea2b9c5"
+    },
+    {
+      "id": "story-scene-door",
+      "path": "media/play-scenes/story/door.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 235,
+      "height": 330,
+      "sha256": "228eb8b082b8cba3400760d7a30bbb4616202120698317649f8977efa1256647"
+    },
+    {
+      "id": "story-scene-tree",
+      "path": "media/play-scenes/story/tree.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 273,
+      "height": 296,
+      "sha256": "560865b338e2f1c5cc87461341076e457a7e254b0909e0926b7ed5a84674d489"
+    },
+    {
+      "id": "story-scene-friend",
+      "path": "media/play-scenes/story/friend.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 265,
+      "height": 306,
+      "sha256": "dd7edaa4f5fd036feb2399deda6e9a4992a85e52783cd1d2972a964727150acc"
+    },
+    {
+      "id": "story-scene-star",
+      "path": "media/play-scenes/story/star.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 259,
+      "height": 231,
+      "sha256": "f4c971ce08ce4ecdf4e5ddba0c7bbb00d58412aa984c92522f3547b8125b5126"
+    },
+    {
+      "id": "story-scene-garden",
+      "path": "media/play-scenes/story/garden.webp",
+      "source": "GPT Image second story scene, aligned with the first act and prepared with the prop rack empty.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "9fa846768299bfc30ba81d0b951c96257309f0adaeafc9d061b4b51c6cc87ad1"
+    },
+    {
+      "id": "salon-scene-backdrop",
+      "path": "media/play-scenes/salon/backdrop.webp",
+      "source": "GPT Image master scene edited in place to remove the interactive objects.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "45aeb379ab2b23a700a8d84f6673f96ef535c760542398d08e648b7ce781ccd8"
+    },
+    {
+      "id": "salon-scene-lamp",
+      "path": "media/play-scenes/salon/lamp.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 190,
+      "height": 237,
+      "sha256": "0bef5ec8531ec924feac986f591984b2425c18ded0bfe5fdb9c49e100b0251eb"
+    },
+    {
+      "id": "salon-scene-flag",
+      "path": "media/play-scenes/salon/flag.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 227,
+      "height": 227,
+      "sha256": "dbb8d183e47d0dac818415f99a44d9c882713e5768d42555ead19b5e1bef8a0c"
+    },
+    {
+      "id": "salon-scene-tree",
+      "path": "media/play-scenes/salon/tree.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 210,
+      "height": 262,
+      "sha256": "78358c1c8784d3a5253f68116a859308cba1a275d42a44eb3aba527837133293"
+    },
+    {
+      "id": "road-scene-backdrop",
+      "path": "media/play-scenes/road/backdrop.webp",
+      "source": "GPT Image master scene edited in place to remove the interactive objects.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "64bb07502aa3f3100a406604cb223919b0f17384ac8fca17e9125fd6a1022f1a"
+    },
+    {
+      "id": "road-scene-straight",
+      "path": "media/play-scenes/road/straight.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 256,
+      "height": 245,
+      "sha256": "5039be7bcd519050841f11d92383a21f7fc27aa5731c11723f33ed010f83b9b6"
+    },
+    {
+      "id": "road-scene-bend",
+      "path": "media/play-scenes/road/bend.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 259,
+      "height": 245,
+      "sha256": "01fc097f07d7235907267f132b8bcd8cf43af76b2604bc855af1131de34bc59c"
+    },
+    {
+      "id": "crew-scene-backdrop",
+      "path": "media/play-scenes/crew/backdrop.webp",
+      "source": "GPT Image master scene edited in place to remove the interactive objects.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "cca3dde9d3897abf8103bc6f510383b3fe77de87ce736cb376323ea6b36286ea"
+    },
+    {
+      "id": "crew-scene-partner",
+      "path": "media/play-scenes/crew/partner.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 136,
+      "height": 315,
+      "sha256": "09ff6f836b64f492e47fce8771399cfa3047232379e0cc94c8236e8f4e81111b"
+    },
+    {
+      "id": "crew-scene-barrier",
+      "path": "media/play-scenes/crew/barrier.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 51,
+      "height": 318,
+      "sha256": "1fafb627b8927264aef824febce53d238130c3e152c716b354290003701de7e0"
+    },
+    {
+      "id": "crew-scene-cart",
+      "path": "media/play-scenes/crew/cart.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 205,
+      "height": 226,
+      "sha256": "f2db2ef21c0762da31ec0c3e00f07a833d7a4081d1b3e3f333f910340941f3fa"
+    },
+    {
+      "id": "crew-scene-wrench",
+      "path": "media/play-scenes/crew/wrench.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 227,
+      "height": 89,
+      "sha256": "1f9a7e1195ab49750306f7d212949a27a2b360e520cb78f76ac1d9fc86ee512c"
+    },
+    {
+      "id": "crew-scene-sponge",
+      "path": "media/play-scenes/crew/sponge.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 175,
+      "height": 106,
+      "sha256": "2b421cd3e4befc8f3493a8b506c14125e4b02192419a38e1eedf2824ba61784d"
+    },
+    {
+      "id": "rain-scene-backdrop",
+      "path": "media/play-scenes/rain/backdrop.webp",
+      "source": "GPT Image master scene edited in place to remove the interactive objects.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "8e7ae15adbff54947d3d760c8493fe6892d9edcd62336aa43b53943a561a4c13"
+    },
+    {
+      "id": "rain-scene-cloud",
+      "path": "media/play-scenes/rain/cloud.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 304,
+      "height": 173,
+      "sha256": "bd19af63acf556ee2fec3c4c4e3602f2b69a2ebde9ac88c3056b206c06daf2e5"
+    },
+    {
+      "id": "rain-scene-umbrella",
+      "path": "media/play-scenes/rain/umbrella.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 275,
+      "height": 284,
+      "sha256": "903343e12e07eda9182a64fa310b9fdcc6355a69d680444efcfaa949b464295a"
+    },
+    {
+      "id": "rain-scene-coat",
+      "path": "media/play-scenes/rain/coat.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 297,
+      "height": 368,
+      "sha256": "6b8e0d3219f48229b146fa6ef03a8a5ccc51da313f1947e284d040c0cbebc21b"
+    },
+    {
+      "id": "rain-scene-cap",
+      "path": "media/play-scenes/rain/cap.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 250,
+      "height": 224,
+      "sha256": "9d5cec3e8b407fde543dc7449f6bcc207634f094d7784199d3da83a4382824d2"
+    },
+    {
+      "id": "rain-scene-bottle",
+      "path": "media/play-scenes/rain/bottle.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 119,
+      "height": 326,
+      "sha256": "b3db9d3baa5f8dd5b909d4b68ae1ce157da582cbe934b20ea1c8b61c2df2aded"
+    },
+    {
+      "id": "parking-scene-backdrop",
+      "path": "media/play-scenes/parking/backdrop.webp",
+      "source": "GPT Image master scene edited in place to remove the interactive objects.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "5d1c9c8b43a483fd7d602a8da18f158b548129dc9538269a147b5450cba26aa5"
+    },
+    {
+      "id": "parking-scene-bay",
+      "path": "media/play-scenes/parking/bay.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 326,
+      "height": 186,
+      "sha256": "c86632d18bb50e6861bbf31efa4c7bfba4b82b20d0526fabf94f966d112fc6c4"
+    },
+    {
+      "id": "parking-scene-barrier",
+      "path": "media/play-scenes/parking/barrier.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 313,
+      "height": 127,
+      "sha256": "a2c9233b71aac3b766edf52e47b66f03b97c562ecf8a144e67822ee1ab7304ba"
+    },
+    {
+      "id": "parking-scene-spare",
+      "path": "media/play-scenes/parking/spare.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 224,
+      "height": 122,
+      "sha256": "9d05410be22ddba7a10d8504d76ef3991b5071c82d92af50d4eaeadc5100d9f7"
+    },
+    {
+      "id": "parade-scene-backdrop",
+      "path": "media/play-scenes/parade/backdrop.webp",
+      "source": "GPT Image master scene edited in place to remove the interactive objects.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "6a5491e6d790844b446550b1880ec5dead2e81db7f8d472bde070a0f082a665b"
+    },
+    {
+      "id": "parade-scene-gate",
+      "path": "media/play-scenes/parade/gate.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 168,
+      "height": 284,
+      "sha256": "a1c77409d82e06c5116547730dd37e5e4bcef88b1e2ae6f0560e613d1ad5ad3d"
+    },
+    {
+      "id": "assembly-scene-backdrop",
+      "path": "media/play-scenes/assembly/backdrop.webp",
+      "source": "GPT Image master scene edited in place to remove the interactive objects.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "3cc0a38b8790da8dcc8a9c7218f97467caa7e0d8c45cdb0071f9bf544fea3530"
+    },
+    {
+      "id": "assembly-scene-flag",
+      "path": "media/play-scenes/assembly/flag.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 95,
+      "height": 135,
+      "sha256": "88651e50c46153b8f600f87d989a08bc522d862b89a5c96408da715cdc9bf181"
+    },
+    {
+      "id": "parts-scene-backdrop",
+      "path": "media/play-scenes/parts/backdrop.webp",
+      "source": "GPT Image master scene edited in place to remove the interactive objects.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "f613c6eb120f0f3d02fb8946376e205dfd2b47bed049e610969c96af35a22793"
+    },
+    {
+      "id": "parts-scene-passenger",
+      "path": "media/play-scenes/parts/passenger.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 174,
+      "height": 295,
+      "sha256": "a93cef27045f1f3e952bd4072add017906862f3a7557addca357822ae413b7a1"
+    },
+    {
+      "id": "parts-scene-flag",
+      "path": "media/play-scenes/parts/flag.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 147,
+      "height": 173,
+      "sha256": "31279174ce9c1bf378068ddfd3be31ae94221efb4aacb9f43ef0dd4d87ac9abd"
+    },
+    {
+      "id": "rolling-scene-backdrop",
+      "path": "media/play-scenes/rolling/backdrop.webp",
+      "source": "GPT Image master scene edited in place to remove the interactive objects.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "c34cf3995556066ae298c8a6dedf385cfac5cddf7e3ee040dede4695041f448a"
+    },
+    {
+      "id": "rolling-scene-ball",
+      "path": "media/play-scenes/rolling/ball.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 148,
+      "height": 152,
+      "sha256": "6d6ae1fa14505143fbd39f3d5c62137f8f5050e62ada90c1adbede17c64baaa9"
+    },
+    {
+      "id": "rolling-scene-cube",
+      "path": "media/play-scenes/rolling/cube.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 135,
+      "height": 159,
+      "sha256": "93ea2fc72b0059684f181c4d77471600822b8af8aa645319b40dd3a9d62297e5"
+    },
+    {
+      "id": "rolling-scene-gate",
+      "path": "media/play-scenes/rolling/gate.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 60,
+      "height": 248,
+      "sha256": "11ebbdd7746bfa43f12f0ffd84a68b4323c218395a6ae7165e085ea13f3d6ef5"
+    },
+    {
+      "id": "tracks-scene-backdrop",
+      "path": "media/play-scenes/tracks/backdrop.webp",
+      "source": "GPT Image master scene edited in place to remove the interactive objects.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "df98fccbd96e046d556b965f62859416276286a930828f1dc1b11cbc9091ec7c"
+    },
+    {
+      "id": "tracks-scene-stripe",
+      "path": "media/play-scenes/tracks/stripe.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 238,
+      "height": 247,
+      "sha256": "da718eca1a1ca3d14d24b2c1e7dab2af9858956f9ae1aa71191de94c38941423"
+    },
+    {
+      "id": "tracks-scene-zigzag",
+      "path": "media/play-scenes/tracks/zigzag.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 242,
+      "height": 248,
+      "sha256": "2425967ff1717cc45fd8ddb7f73e9de99b2bfc1a821266b16b02d8c75bcde456"
+    },
+    {
+      "id": "tracks-scene-circle",
+      "path": "media/play-scenes/tracks/circle.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 241,
+      "height": 245,
+      "sha256": "f201694fc00ad49f7d9c02bc68639ceba0a0bdd8e456d1f89b83e2263f66e5e5"
+    },
+    {
+      "id": "wash-scene-backdrop",
+      "path": "media/play-scenes/wash/backdrop.webp",
+      "source": "GPT Image master scene edited in place to remove the interactive objects.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "77524c19ee04ca55434300d59a2fdf9aba2bd2632aa39db2b7b90cea3cffe71d"
+    },
+    {
+      "id": "wash-scene-shower",
+      "path": "media/play-scenes/wash/shower.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 231,
+      "height": 237,
+      "sha256": "b91a6f8e63cc2435765b02fbe4f26fb0c19a0bd589abedfca7e5108166143d09"
+    },
+    {
+      "id": "wash-scene-sponge",
+      "path": "media/play-scenes/wash/sponge.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 207,
+      "height": 152,
+      "sha256": "c9c34d494fcc4e7468db2b4a097aa5a59b8f83598e11893c336ebbcfa6b3da9c"
+    },
+    {
+      "id": "showroom-scene-backdrop",
+      "path": "media/play-scenes/showroom/backdrop.webp",
+      "source": "GPT Image master scene edited in place to remove the interactive objects.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "0dd4cc91b2106868dee51e90dfde83a007552752793313b04109a69ea8576323"
+    },
+    {
+      "id": "showroom-scene-stage",
+      "path": "media/play-scenes/showroom/stage.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 632,
+      "height": 335,
+      "sha256": "6145b49283032ecc912306ce4da493b25f4fead8182608bf84fd79b9c272ee0a"
+    },
+    {
+      "id": "showroom-scene-spotlight",
+      "path": "media/play-scenes/showroom/spotlight.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 190,
+      "height": 235,
+      "sha256": "efe2045e032cc6b4fd02057fb89e652091df806b759657f814c1933246ef2547"
+    },
+    {
+      "id": "motion-scene-backdrop",
+      "path": "media/play-scenes/motion/backdrop.webp",
+      "source": "GPT Image master scene edited in place to remove the interactive objects.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "f95af520ccbed462aaf3033c5c16f5bd3740b5c9aeacf5c0e01c447ffec0137e"
+    },
+    {
+      "id": "motion-scene-smooth",
+      "path": "media/play-scenes/motion/smooth.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1033,
+      "height": 210,
+      "sha256": "b93f35cd2a3304ef0365b09c1eae202cd9729b3e782f4bee20cee719a553b55e"
+    },
+    {
+      "id": "motion-scene-rough",
+      "path": "media/play-scenes/motion/rough.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1033,
+      "height": 212,
+      "sha256": "91980d0a678d1d87cd7e558de269e7a046c51636e4c0cebf661b28373ec6eb39"
+    },
+    {
+      "id": "shadow-scene-backdrop",
+      "path": "media/play-scenes/shadow/backdrop.webp",
+      "source": "GPT Image master scene edited in place to remove the interactive objects.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "fde13515db596d0bbcb27c42346e33a2117b63a960dc1929bde107b6d54b7739"
+    },
+    {
+      "id": "shadow-scene-lamp",
+      "path": "media/play-scenes/shadow/lamp.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 172,
+      "height": 248,
+      "sha256": "e99541ca8824081a6a564e9aa90b23c5a72a935b579f9e622af0ad8d566f8a3e"
+    },
+    {
+      "id": "crossing-scene-backdrop",
+      "path": "media/play-scenes/crossing/backdrop.webp",
+      "source": "GPT Image master scene edited in place to remove the interactive objects.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "1d53c358ded125ce6660aa56a701b7831144510e1b6e1b6d663a5a9d39c7eb7d"
+    },
+    {
+      "id": "crossing-scene-signal",
+      "path": "media/play-scenes/crossing/signal.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 167,
+      "height": 330,
+      "sha256": "0e613f8be6020c218d9fdc42202d49e5a63e04ccabd0eb4d9a4d98886d8e5b75"
+    },
+    {
+      "id": "crossing-scene-pedestrian",
+      "path": "media/play-scenes/crossing/pedestrian.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 136,
+      "height": 201,
+      "sha256": "c115d660139a5deb5abc5af04d17401885549d1ac83f83b5445bf329c3060abb"
+    },
+    {
+      "id": "poster-scene-backdrop",
+      "path": "media/play-scenes/poster/backdrop.webp",
+      "source": "GPT Image master scene edited in place to remove the interactive objects.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "d7a3105f7978eabd7207d71c36a09fe00ca9cdf71a9f8068616926560c8d57cd"
+    },
+    {
+      "id": "poster-scene-leaf",
+      "path": "media/play-scenes/poster/leaf.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 207,
+      "height": 218,
+      "sha256": "a6ebd31c1edcbda2fce14ee85d6d972c70d793b99f3685a8ce3df93ca3433e97"
+    },
+    {
+      "id": "poster-scene-sun",
+      "path": "media/play-scenes/poster/sun.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 230,
+      "height": 229,
+      "sha256": "106d4eb91202575def90adf4c8fbb3f63cc1ee2b02d891e8357a35eba3ffe343"
+    },
+    {
+      "id": "poster-scene-star",
+      "path": "media/play-scenes/poster/star.webp",
+      "source": "Transparent interactive layer extracted from the matching GPT Image master scene.",
+      "kind": "image",
+      "status": "approved",
+      "width": 233,
+      "height": 218,
+      "sha256": "8046f84bd2309cc24faf2a793f4077936f3009eff1f409abc55be779de4f7757"
+    },
+    {
+      "id": "bridge-scene-river",
+      "path": "media/play-scenes/bridge/river.webp",
+      "source": "Original GPT Image river scene. Empty mat and open material shelf edited in the same composition.",
+      "kind": "image",
+      "status": "approved",
+      "width": 1122,
+      "height": 1402,
+      "sha256": "d59a00c002ee44426a2f5c1ce23b9a546e03879815ec4877697467c19b9a5e9d"
+    },
+    {
+      "id": "bridge-scene-plank",
+      "path": "media/play-scenes/bridge/plank.webp",
+      "source": "Transparent plank cropped from the complete GPT Image river composition.",
+      "kind": "image",
+      "status": "approved",
+      "width": 284,
+      "height": 91,
+      "sha256": "018310dd4c05608bba50f9bf3ed8c88629659a06d75b58577de2c2c6cfb52ec7"
+    },
+    {
+      "id": "bridge-scene-shutter",
+      "path": "media/play-scenes/bridge/shutter.webp",
+      "source": "Transparent material shelf shutter cropped from the complete GPT Image river composition.",
+      "kind": "image",
+      "status": "approved",
+      "width": 445,
+      "height": 229,
+      "sha256": "b42a313cd27e56b5bfadacd81338ca7683409bbcdc9cf6c218fa712b3fd2e469"
+    },
     {
       "id": "scene-world",
       "path": "media/scenes/world-v3.webp",
@@ -5685,26 +6371,6 @@
       "source": "Built-in GPT Image: bright blue BMW M2-inspired toy interpretation; atlas exec-b237f91c-50ef-4a22-946d-78cf558b1936.png, row 3, top view. Not a photograph or an engineering reference."
     },
     {
-      "id": "play-CAR19-side",
-      "kind": "image",
-      "path": "media/play-cars/toy-car19-side.webp",
-      "sha256": "6c4be0cce85191d26627937e6698dbc9f9e055b99debb4ae7704c4d04af3eb3f",
-      "status": "approved",
-      "width": 1000,
-      "height": 450,
-      "source": "Built-in GPT Image: violet purple Lamborghini Huracán-inspired toy interpretation; atlas exec-b237f91c-50ef-4a22-946d-78cf558b1936.png, row 4, side view. Not a photograph or an engineering reference."
-    },
-    {
-      "id": "play-CAR19-top",
-      "kind": "image",
-      "path": "media/play-cars/toy-car19-top.webp",
-      "sha256": "e44018be7ab7154f0cdc147b8fe8cf9de721ac68c3fef012e569e25137b95abe",
-      "status": "approved",
-      "width": 1000,
-      "height": 450,
-      "source": "Built-in GPT Image: violet purple Lamborghini Huracán-inspired toy interpretation; atlas exec-b237f91c-50ef-4a22-946d-78cf558b1936.png, row 4, top view. Not a photograph or an engineering reference."
-    },
-    {
       "id": "play-CAR21-side",
       "kind": "image",
       "path": "media/play-cars/toy-car21-side.webp",
@@ -6751,66 +7417,6 @@
       "width": 800,
       "height": 480,
       "sha256": "018fb7eeff3c62ad9f447410eb3ed820fd3b3b4bb4ab05f5fa1f9f0674c55d5d",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR19-front-left",
-      "kind": "image",
-      "path": "media/car-turnarounds/car19-front-left.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "792e89b5befd8069b8641157c84ec0c1bf95be2cee6e6cedcb4e00905f7ed9dd",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR19-front",
-      "kind": "image",
-      "path": "media/car-turnarounds/car19-front.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "814a2059c2213e86e5ac92b0bdd68182bf96b8664ff9b5fbfa30f48a49bfecba",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR19-front-right",
-      "kind": "image",
-      "path": "media/car-turnarounds/car19-front-right.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "49ee76b5b8534fba2d43b0b19d5cbda4384459b4cdecf8c3f407b5f3ea5d05bb",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR19-left",
-      "kind": "image",
-      "path": "media/car-turnarounds/car19-left.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "c33a8cc71887d0f65dd0d6fc4d2967cd2f6fb2c53578de6078832ea2e8ded2a9",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR19-rear",
-      "kind": "image",
-      "path": "media/car-turnarounds/car19-rear.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "dac9acc4bdb6beb39d2fd9671ccd7682ce6dcc888196cc0e9b9f59dae1f927ce",
-      "status": "approved",
-      "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
-    },
-    {
-      "id": "orbit-CAR19-right",
-      "kind": "image",
-      "path": "media/car-turnarounds/car19-right.webp",
-      "width": 800,
-      "height": 480,
-      "sha256": "46d1823b5c4653cdc797ce9964134a333c1a7f3ef93bad240a3a5f5dc9660557",
       "status": "approved",
       "source": "Built-in GPT Image; original game-car six-view sheet, cropped and encoded locally. Stylized brand-inspired interpretation, not manufacturer reference geometry."
     },
@@ -9709,44 +10315,6 @@
       "source": "Rendered from the independently credited model CAR24. GT Cars: Hyperspeed; CC BY 4.0. https://sketchfab.com/3d-models/none-353d4768b2d74a7f888567e18952bcb1"
     },
     {
-      "id": "model-CAR19",
-      "kind": "model",
-      "path": "media/models/car19.glb",
-      "sha256": "8dd8e2dcb26b8da757346c1a7f90d80d7e3fb2dedda5014631d8c1456fcf731e",
-      "status": "approved",
-      "source": "giosassets; CC BY 4.0; https://sketchfab.com/3d-models/none-fed5e9f2a15c40b48f7ce1d6b22c0f1c. Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
-    },
-    {
-      "id": "render-CAR19-side",
-      "kind": "image",
-      "path": "media/rendered-cars/car19-side.webp",
-      "sha256": "890248908a0b2c8b5e37bef6c77e4b16dbb9265b4b43cd29450b66ebc41ee7ba",
-      "status": "approved",
-      "width": 1000,
-      "height": 450,
-      "source": "Rendered from the independently credited model CAR19. giosassets; CC BY 4.0. https://sketchfab.com/3d-models/none-fed5e9f2a15c40b48f7ce1d6b22c0f1c"
-    },
-    {
-      "id": "render-CAR19-top",
-      "kind": "image",
-      "path": "media/rendered-cars/car19-top.webp",
-      "sha256": "ee421e9354de58d669d34b3f15ea98c9ce15056c2e687a67b29c732f416a5ea4",
-      "status": "approved",
-      "width": 1000,
-      "height": 450,
-      "source": "Rendered from the independently credited model CAR19. giosassets; CC BY 4.0. https://sketchfab.com/3d-models/none-fed5e9f2a15c40b48f7ce1d6b22c0f1c"
-    },
-    {
-      "id": "render-CAR19-front-left",
-      "kind": "image",
-      "path": "media/rendered-cars/car19-front-left.webp",
-      "sha256": "eaa6f98bbe958afd5d772d2fd71eafbca1dc7cf87047cefccc7f4d5cc47f3a65",
-      "status": "approved",
-      "width": 800,
-      "height": 480,
-      "source": "Rendered from the independently credited model CAR19. giosassets; CC BY 4.0. https://sketchfab.com/3d-models/none-fed5e9f2a15c40b48f7ce1d6b22c0f1c"
-    },
-    {
       "id": "render-CAR33-side",
       "kind": "image",
       "path": "media/rendered-cars/car33-side.webp",
@@ -10841,44 +11409,6 @@
       "width": 800,
       "height": 480,
       "source": "Rendered from the independently credited model CAR161. tiedtke; CC BY 4.0. https://sketchfab.com/3d-models/none-b9604dd71c6546ec842702682019492a"
-    },
-    {
-      "id": "model-CAR162",
-      "kind": "model",
-      "path": "media/models/car162.glb",
-      "sha256": "5c30ce3c3f1c4e8f675972be52564b66b930abf599593d07be4d8e6692865c7f",
-      "status": "approved",
-      "source": "Karmann Ghia Volkswagen; alban; CC BY 4.0. https://sketchfab.com/3d-models/bd5f72f0da7449e5ae5ba250cdd128e9. Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
-    },
-    {
-      "id": "render-CAR162-side",
-      "kind": "image",
-      "path": "media/rendered-cars/car162-side.webp",
-      "sha256": "8fc6cf776d40cc6cf0124b7af943e5a78012b5e39f1622fe324fc2f62e3bea4d",
-      "status": "approved",
-      "width": 1000,
-      "height": 450,
-      "source": "Rendered from the independently credited model CAR162. alban; CC BY 4.0. https://sketchfab.com/3d-models/bd5f72f0da7449e5ae5ba250cdd128e9"
-    },
-    {
-      "id": "render-CAR162-top",
-      "kind": "image",
-      "path": "media/rendered-cars/car162-top.webp",
-      "sha256": "368981318915ffbec7bec7fa478254370b87d5abeb0e62b5be4c60521c5cf917",
-      "status": "approved",
-      "width": 1000,
-      "height": 450,
-      "source": "Rendered from the independently credited model CAR162. alban; CC BY 4.0. https://sketchfab.com/3d-models/bd5f72f0da7449e5ae5ba250cdd128e9"
-    },
-    {
-      "id": "render-CAR162-front-left",
-      "kind": "image",
-      "path": "media/rendered-cars/car162-front-left.webp",
-      "sha256": "173c4a6ecc4c9930664cf8ca3f31abbc9df92016d0044722d25417a5832c226f",
-      "status": "approved",
-      "width": 800,
-      "height": 480,
-      "source": "Rendered from the independently credited model CAR162. alban; CC BY 4.0. https://sketchfab.com/3d-models/bd5f72f0da7449e5ae5ba250cdd128e9"
     },
     {
       "id": "model-CAR163",
@@ -12043,14 +12573,6 @@
       "source": "Gameplay LOD derived from https://sketchfab.com/3d-models/none-b9604dd71c6546ec842702682019492a; solid surfaces retained, exporter wire overlays removed, compatible static meshes batched, bounded-error simplification, 512px WebP textures and meshopt compression. CC BY 4.0; tiedtke."
     },
     {
-      "id": "model-play-CAR162",
-      "kind": "model",
-      "path": "media/models/play/car162.glb",
-      "sha256": "5b2c4873c88ec144981eb194ffc81396034e7c33bf1ce9a4e46b1d483d746ca5",
-      "status": "approved",
-      "source": "Gameplay LOD derived from https://sketchfab.com/3d-models/bd5f72f0da7449e5ae5ba250cdd128e9; solid surfaces retained, exporter wire overlays removed, compatible static meshes batched, bounded-error simplification, 512px WebP textures and meshopt compression. CC BY 4.0; alban."
-    },
-    {
       "id": "model-play-CAR163",
       "kind": "model",
       "path": "media/models/play/car163.glb",
@@ -12437,16 +12959,6 @@
       "source": "Built-in GPT Image illustration inspired by the real Honda Civic Type R (EK9). https://global.honda/en/stories/048.html. Game illustration; not a photograph, scan or engineering model."
     },
     {
-      "id": "illustration-CAR162-side",
-      "kind": "image",
-      "path": "media/catalog-illustrations/car162-side.webp",
-      "sha256": "b0b69a5b0cdde8867e499a06b7cb277f0149808dac495d4a21d381bde00fc19e",
-      "status": "approved",
-      "width": 1000,
-      "height": 450,
-      "source": "Built-in GPT Image illustration inspired by the real Volkswagen Karmann Ghia. https://www.volkswagen-newsroom.com/en/vehicle-data-karmann-ghia-type-14-coupe-profile-19631. Game illustration; not a photograph, scan or engineering model."
-    },
-    {
       "id": "illustration-CAR163-side",
       "kind": "image",
       "path": "media/catalog-illustrations/car163-side.webp",
@@ -12705,44 +13217,6 @@
       "source": "Rendered from the independently credited model CAR189. Mona x Supercars; CC BY 4.0. https://sketchfab.com/3d-models/f27d0e569b7a44fc8786f1d914bc687d"
     },
     {
-      "id": "model-CAR190",
-      "kind": "model",
-      "path": "media/models/car190.glb",
-      "sha256": "9b267cfeb72ae2539ca042c3ce14f3a88bf6c37ae575fe11824e9de0fecbdb38",
-      "status": "approved",
-      "source": "Porsche Macan - Kaban; animanyarty; CC BY 4.0. https://sketchfab.com/3d-models/5d57f6dcabe7473f91b160595a3eb0cc. Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
-    },
-    {
-      "id": "render-CAR190-side",
-      "kind": "image",
-      "path": "media/rendered-cars/car190-side.webp",
-      "sha256": "e498f3d0102885c811bdbb5bd230993248aaeb7b908ba14ac8522729a65ff657",
-      "status": "approved",
-      "width": 1000,
-      "height": 450,
-      "source": "Rendered from the independently credited model CAR190. animanyarty; CC BY 4.0. https://sketchfab.com/3d-models/5d57f6dcabe7473f91b160595a3eb0cc"
-    },
-    {
-      "id": "render-CAR190-top",
-      "kind": "image",
-      "path": "media/rendered-cars/car190-top.webp",
-      "sha256": "c7c4755f6582a0de06e142575a3b85b129687208ced089124b6c60aa6c650125",
-      "status": "approved",
-      "width": 1000,
-      "height": 450,
-      "source": "Rendered from the independently credited model CAR190. animanyarty; CC BY 4.0. https://sketchfab.com/3d-models/5d57f6dcabe7473f91b160595a3eb0cc"
-    },
-    {
-      "id": "render-CAR190-front-left",
-      "kind": "image",
-      "path": "media/rendered-cars/car190-front-left.webp",
-      "sha256": "cd5ab1eca4155db6bfe9464c53e1a21ad545bf4b8bf984de230b5cbab0c55c1b",
-      "status": "approved",
-      "width": 800,
-      "height": 480,
-      "source": "Rendered from the independently credited model CAR190. animanyarty; CC BY 4.0. https://sketchfab.com/3d-models/5d57f6dcabe7473f91b160595a3eb0cc"
-    },
-    {
       "id": "model-CAR192",
       "kind": "model",
       "path": "media/models/car192.glb",
@@ -12789,58 +13263,12 @@
       "source": "Gameplay LOD derived from https://sketchfab.com/3d-models/f27d0e569b7a44fc8786f1d914bc687d; solid surfaces retained, exporter wire overlays removed, compatible static meshes batched, bounded-error simplification, 512px WebP textures and meshopt compression. CC BY 4.0; Mona x Supercars."
     },
     {
-      "id": "model-play-CAR190",
-      "kind": "model",
-      "path": "media/models/play/car190.glb",
-      "sha256": "1e1e60995e008a161898f694563c1664ace51b45cb403c41355c88872043cfc1",
-      "status": "approved",
-      "source": "Gameplay LOD derived from https://sketchfab.com/3d-models/5d57f6dcabe7473f91b160595a3eb0cc; solid surfaces retained, exporter wire overlays removed, compatible static meshes batched, bounded-error simplification, 512px WebP textures and meshopt compression. CC BY 4.0; animanyarty."
-    },
-    {
       "id": "model-play-CAR192",
       "kind": "model",
       "path": "media/models/play/car192.glb",
       "sha256": "2e3278d240e1f5e5bb659129787b9e8adaeed978c6f3416588407a59376b6c48",
       "status": "approved",
       "source": "Gameplay LOD derived from https://sketchfab.com/3d-models/8d30880667524cf3abb9e3e66c5299b5; solid surfaces retained, exporter wire overlays removed, compatible static meshes batched, bounded-error simplification, 512px WebP textures and meshopt compression. CC BY 4.0; Nazh Design ✔."
-    },
-    {
-      "id": "model-CAR193",
-      "kind": "model",
-      "path": "media/models/car193.glb",
-      "sha256": "20542bf9348ff795b61c27a26ee18b4583000945c2c173d2b45aee98e3af590b",
-      "status": "approved",
-      "source": "maserati levante axtr edition; amogusstrikesback2; CC BY 4.0. https://sketchfab.com/3d-models/bc38f72b3ac14acc9e435c99d18abf0c. Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
-    },
-    {
-      "id": "render-CAR193-side",
-      "kind": "image",
-      "path": "media/rendered-cars/car193-side.webp",
-      "sha256": "cca0e0c3590870effd0be9b7dbfa19484f0bcecfb746b587104f54a9d79e1818",
-      "status": "approved",
-      "width": 1000,
-      "height": 450,
-      "source": "Rendered from the independently credited model CAR193. amogusstrikesback2; CC BY 4.0. https://sketchfab.com/3d-models/bc38f72b3ac14acc9e435c99d18abf0c"
-    },
-    {
-      "id": "render-CAR193-top",
-      "kind": "image",
-      "path": "media/rendered-cars/car193-top.webp",
-      "sha256": "1ca9c5be69e15abf55b421eff1b4387e2a3256dbdbce6c3294a2ac8e1a567027",
-      "status": "approved",
-      "width": 1000,
-      "height": 450,
-      "source": "Rendered from the independently credited model CAR193. amogusstrikesback2; CC BY 4.0. https://sketchfab.com/3d-models/bc38f72b3ac14acc9e435c99d18abf0c"
-    },
-    {
-      "id": "render-CAR193-front-left",
-      "kind": "image",
-      "path": "media/rendered-cars/car193-front-left.webp",
-      "sha256": "6bebf4fab471827a573c559aa1ea713ea1f00e8dfc51d4e9b2a767bcb2a7ef13",
-      "status": "approved",
-      "width": 800,
-      "height": 480,
-      "source": "Rendered from the independently credited model CAR193. amogusstrikesback2; CC BY 4.0. https://sketchfab.com/3d-models/bc38f72b3ac14acc9e435c99d18abf0c"
     },
     {
       "id": "model-CAR194",
@@ -12881,14 +13309,6 @@
       "source": "Rendered from the independently credited model CAR194. Betier Models; CC BY 4.0. https://sketchfab.com/3d-models/none-15e5576f4b724f2db357165caed3492b"
     },
     {
-      "id": "model-play-CAR193",
-      "kind": "model",
-      "path": "media/models/play/car193.glb",
-      "sha256": "e5a979b802c0a1732050296eb354b03c605ee078c0d6ab47300813d389d73f30",
-      "status": "approved",
-      "source": "Gameplay LOD derived from https://sketchfab.com/3d-models/bc38f72b3ac14acc9e435c99d18abf0c; solid surfaces retained, exporter wire overlays removed, compatible static meshes batched, bounded-error simplification, 512px WebP textures and meshopt compression. CC BY 4.0; amogusstrikesback2."
-    },
-    {
       "id": "model-play-CAR194",
       "kind": "model",
       "path": "media/models/play/car194.glb",
@@ -12907,16 +13327,6 @@
       "source": "Built-in GPT Image illustration inspired by the real Jaguar XF. https://macedonia.jaguar.com/jaguar-range/xf/overview. Game illustration; not a photograph, scan or engineering model."
     },
     {
-      "id": "illustration-CAR190-side",
-      "kind": "image",
-      "path": "media/catalog-illustrations/car190-side.webp",
-      "sha256": "42ce2a57a23a9ac9d212a903aab334e33a5e904f28c0745a01678940c08ae8bf",
-      "status": "approved",
-      "width": 1000,
-      "height": 450,
-      "source": "Built-in GPT Image illustration inspired by the real Porsche Macan. https://newsroom.porsche.com/en/products/porsche-macan-2018-compact-suv-start-production-china-expansion-leipzig-design-body-shop-paint-shop-assembly-line-16016.html. Game illustration; not a photograph, scan or engineering model."
-    },
-    {
       "id": "illustration-CAR192-side",
       "kind": "image",
       "path": "media/catalog-illustrations/car192-side.webp",
@@ -12925,16 +13335,6 @@
       "width": 1000,
       "height": 450,
       "source": "Built-in GPT Image illustration inspired by the real BYD Dolphin. https://www.byd.com/eu/electric-cars/dolphin. Game illustration; not a photograph, scan or engineering model."
-    },
-    {
-      "id": "illustration-CAR193-side",
-      "kind": "image",
-      "path": "media/catalog-illustrations/car193-side.webp",
-      "sha256": "35e622851af0f33c16b8e51a9d14b8d88c333f34049b2c0fddd0aeca310ec95c",
-      "status": "approved",
-      "width": 1000,
-      "height": 450,
-      "source": "Built-in GPT Image illustration inspired by the real Maserati Levante. https://www.maserati.com/content/dam/maserati/international/catalogues/th/Maserati_Levante_Digital_Flyer_EN.pdf. Game illustration; not a photograph, scan or engineering model."
     },
     {
       "id": "illustration-CAR194-side",
@@ -12969,14 +13369,6 @@
       "sha256": "1d9c219b00910465146bf5bff21fb8bfca5afbc1ac13fa12a54e90c4334d4a8c",
       "status": "approved",
       "source": "Gameplay LOD derived from https://sketchfab.com/3d-models/none-3f6118da005a457a9ce6d737e5d1e37d; solid surfaces retained, exporter wire overlays removed, compatible static meshes batched, bounded-error simplification, 512px WebP textures and meshopt compression. CC BY 4.0; Socksthecat."
-    },
-    {
-      "id": "model-play-CAR19",
-      "kind": "model",
-      "path": "media/models/play/car19.glb",
-      "sha256": "3307f7f732e6c2ebbbd70dc90e85c33dda199b14bd2b8d9ea0039327bca52a57",
-      "status": "approved",
-      "source": "Gameplay LOD derived from https://sketchfab.com/3d-models/none-fed5e9f2a15c40b48f7ce1d6b22c0f1c; solid surfaces retained, exporter wire overlays removed, compatible static meshes batched, bounded-error simplification, 512px WebP textures and meshopt compression. CC BY 4.0; giosassets."
     },
     {
       "id": "model-play-CAR24",
@@ -16649,127 +17041,6 @@
         ]
       },
       "catalogKey": "bmw/m2",
-      "productionStatus": "production"
-    },
-    {
-      "id": "CAR19",
-      "name": "兰博基尼 Huracán",
-      "zhBrand": "兰博基尼",
-      "brand": "Lamborghini",
-      "model": "Huracán",
-      "edition": "真实量产车型的游戏外观",
-      "color": "violet purple",
-      "reference": "https://www.lamborghini.com/en-en/history",
-      "status": "reviewed",
-      "image": "render-CAR19-side",
-      "audio": "car",
-      "observation": "摸摸玩具车轮，看看车灯，带它去乐园动动手。",
-      "credit": {
-        "id": "CAR02",
-        "title": "File:2023 Ferrari 296 GTB.jpg",
-        "url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/73/2023_Ferrari_296_GTB.jpg/1280px-2023_Ferrari_296_GTB.jpg",
-        "page": "https://commons.wikimedia.org/wiki/File:2023_Ferrari_296_GTB.jpg",
-        "author": "Calreyn88",
-        "license": "CC BY-SA 4.0",
-        "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
-        "changes": "Resized and converted to WebP; no crop, recolor, or background alteration."
-      },
-      "views": [
-        {
-          "id": "side",
-          "image": "render-CAR19-side",
-          "label": "模型外观",
-          "caption": "由这辆车的独立模型渲染；作者版本，非厂商精密数据。",
-          "credit": {
-            "author": "giosassets",
-            "license": "CC BY 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-            "sourceUrl": "https://sketchfab.com/3d-models/none-fed5e9f2a15c40b48f7ce1d6b22c0f1c"
-          }
-        },
-        {
-          "id": "top",
-          "image": "render-CAR19-top",
-          "label": "俯视模型",
-          "caption": "由这辆车的独立模型渲染；作者版本，非厂商精密数据。",
-          "credit": {
-            "author": "giosassets",
-            "license": "CC BY 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-            "sourceUrl": "https://sketchfab.com/3d-models/none-fed5e9f2a15c40b48f7ce1d6b22c0f1c"
-          }
-        },
-        {
-          "id": "front-left",
-          "image": "render-CAR19-front-left",
-          "label": "模型外观",
-          "caption": "由这辆车的独立模型渲染；作者版本，非厂商精密数据。",
-          "credit": {
-            "author": "giosassets",
-            "license": "CC BY 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-            "sourceUrl": "https://sketchfab.com/3d-models/none-fed5e9f2a15c40b48f7ce1d6b22c0f1c"
-          }
-        }
-      ],
-      "hotspots": [
-        {
-          "id": "wheel",
-          "zh": "车轮",
-          "x": 0.25,
-          "y": 0.77
-        },
-        {
-          "id": "door",
-          "zh": "车门",
-          "x": 0.5,
-          "y": 0.5484458777554786
-        },
-        {
-          "id": "light",
-          "zh": "车灯",
-          "x": 0.9318181818181819,
-          "y": 0.6127248017106441
-        }
-      ],
-      "showcaseImage": "render-CAR19-side",
-      "showcaseHotspots": [
-        {
-          "id": "wheel",
-          "zh": "车轮",
-          "x": 0.25,
-          "y": 0.77
-        },
-        {
-          "id": "door",
-          "zh": "车门",
-          "x": 0.5,
-          "y": 0.5484458777554786
-        },
-        {
-          "id": "light",
-          "zh": "车灯",
-          "x": 0.9318181818181819,
-          "y": 0.6127248017106441
-        }
-      ],
-      "game": {
-        "side": "render-CAR19-side",
-        "top": "render-CAR19-top",
-        "wheels": [
-          {
-            "x": 0.25,
-            "y": 0.77,
-            "r": 0.09
-          },
-          {
-            "x": 0.75,
-            "y": 0.77,
-            "r": 0.09
-          }
-        ]
-      },
-      "catalogKey": "lamborghini/hurac-n",
       "productionStatus": "production"
     },
     {
@@ -24793,118 +25064,6 @@
       "illustrationImage": "illustration-CAR161-side"
     },
     {
-      "id": "CAR162",
-      "name": "大众 Karmann Ghia",
-      "zhBrand": "大众",
-      "brand": "Volkswagen",
-      "model": "Karmann Ghia",
-      "catalogKey": "volkswagen/karmann-ghia",
-      "productionStatus": "production",
-      "edition": "真实量产车型的游戏外观",
-      "color": "#d8b764",
-      "reference": "https://www.volkswagen-newsroom.com/en/vehicle-data-karmann-ghia-type-14-coupe-profile-19631",
-      "status": "reviewed",
-      "audio": "car-name-local",
-      "observation": "转动看看真实车型的游戏模型，再带它去洗车、停车和装配。",
-      "image": "render-CAR162-side",
-      "showcaseImage": "render-CAR162-side",
-      "hotspots": [
-        {
-          "id": "wheel",
-          "zh": "车轮",
-          "x": 0.25,
-          "y": 0.77
-        },
-        {
-          "id": "door",
-          "zh": "车门",
-          "x": 0.5,
-          "y": 0.5805175426879234
-        },
-        {
-          "id": "light",
-          "zh": "车灯",
-          "x": 0.9318181818181818,
-          "y": 0.6572172408807097
-        }
-      ],
-      "showcaseHotspots": [
-        {
-          "id": "wheel",
-          "zh": "车轮",
-          "x": 0.25,
-          "y": 0.77
-        },
-        {
-          "id": "door",
-          "zh": "车门",
-          "x": 0.5,
-          "y": 0.5805175426879234
-        },
-        {
-          "id": "light",
-          "zh": "车灯",
-          "x": 0.9318181818181818,
-          "y": 0.6572172408807097
-        }
-      ],
-      "game": {
-        "side": "render-CAR162-side",
-        "top": "render-CAR162-top",
-        "wheels": [
-          {
-            "x": 0.25,
-            "y": 0.77,
-            "r": 0.09
-          },
-          {
-            "x": 0.75,
-            "y": 0.77,
-            "r": 0.09
-          }
-        ]
-      },
-      "views": [
-        {
-          "id": "side",
-          "image": "render-CAR162-side",
-          "label": "模型外观",
-          "caption": "由这辆车的独立模型渲染；作者版本，非厂商精密数据。",
-          "credit": {
-            "author": "alban",
-            "license": "CC BY 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-            "sourceUrl": "https://sketchfab.com/3d-models/bd5f72f0da7449e5ae5ba250cdd128e9"
-          }
-        },
-        {
-          "id": "top",
-          "image": "render-CAR162-top",
-          "label": "俯视模型",
-          "caption": "由这辆车的独立模型渲染；作者版本，非厂商精密数据。",
-          "credit": {
-            "author": "alban",
-            "license": "CC BY 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-            "sourceUrl": "https://sketchfab.com/3d-models/bd5f72f0da7449e5ae5ba250cdd128e9"
-          }
-        },
-        {
-          "id": "front-left",
-          "image": "render-CAR162-front-left",
-          "label": "模型外观",
-          "caption": "由这辆车的独立模型渲染；作者版本，非厂商精密数据。",
-          "credit": {
-            "author": "alban",
-            "license": "CC BY 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-            "sourceUrl": "https://sketchfab.com/3d-models/bd5f72f0da7449e5ae5ba250cdd128e9"
-          }
-        }
-      ],
-      "illustrationImage": "illustration-CAR162-side"
-    },
-    {
       "id": "CAR163",
       "name": "大众 Golf GTI (Mk8)",
       "zhBrand": "大众",
@@ -27481,118 +27640,6 @@
       "illustrationImage": "illustration-CAR189-side"
     },
     {
-      "id": "CAR190",
-      "name": "保时捷 Macan",
-      "zhBrand": "保时捷",
-      "brand": "Porsche",
-      "model": "Macan",
-      "catalogKey": "porsche/macan",
-      "productionStatus": "production",
-      "edition": "真实量产车型的游戏外观",
-      "color": "#d8b764",
-      "reference": "https://newsroom.porsche.com/en/products/porsche-macan-2018-compact-suv-start-production-china-expansion-leipzig-design-body-shop-paint-shop-assembly-line-16016.html",
-      "status": "reviewed",
-      "audio": "car-name-local",
-      "observation": "转动看看真实车型的游戏模型，再带它去洗车、停车和装配。",
-      "image": "render-CAR190-side",
-      "showcaseImage": "render-CAR190-side",
-      "hotspots": [
-        {
-          "id": "wheel",
-          "zh": "车轮",
-          "x": 0.25,
-          "y": 0.77
-        },
-        {
-          "id": "door",
-          "zh": "车门",
-          "x": 0.5,
-          "y": 0.5554817017810086
-        },
-        {
-          "id": "light",
-          "zh": "车灯",
-          "x": 0.8380623893291068,
-          "y": 0.655790659071548
-        }
-      ],
-      "showcaseHotspots": [
-        {
-          "id": "wheel",
-          "zh": "车轮",
-          "x": 0.25,
-          "y": 0.77
-        },
-        {
-          "id": "door",
-          "zh": "车门",
-          "x": 0.5,
-          "y": 0.5554817017810086
-        },
-        {
-          "id": "light",
-          "zh": "车灯",
-          "x": 0.8380623893291068,
-          "y": 0.655790659071548
-        }
-      ],
-      "game": {
-        "side": "render-CAR190-side",
-        "top": "render-CAR190-top",
-        "wheels": [
-          {
-            "x": 0.25,
-            "y": 0.77,
-            "r": 0.09
-          },
-          {
-            "x": 0.75,
-            "y": 0.77,
-            "r": 0.09
-          }
-        ]
-      },
-      "views": [
-        {
-          "id": "side",
-          "image": "render-CAR190-side",
-          "label": "模型外观",
-          "caption": "由这辆车的独立模型渲染；作者版本，非厂商精密数据。",
-          "credit": {
-            "author": "animanyarty",
-            "license": "CC BY 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-            "sourceUrl": "https://sketchfab.com/3d-models/5d57f6dcabe7473f91b160595a3eb0cc"
-          }
-        },
-        {
-          "id": "top",
-          "image": "render-CAR190-top",
-          "label": "俯视模型",
-          "caption": "由这辆车的独立模型渲染；作者版本，非厂商精密数据。",
-          "credit": {
-            "author": "animanyarty",
-            "license": "CC BY 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-            "sourceUrl": "https://sketchfab.com/3d-models/5d57f6dcabe7473f91b160595a3eb0cc"
-          }
-        },
-        {
-          "id": "front-left",
-          "image": "render-CAR190-front-left",
-          "label": "模型外观",
-          "caption": "由这辆车的独立模型渲染；作者版本，非厂商精密数据。",
-          "credit": {
-            "author": "animanyarty",
-            "license": "CC BY 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-            "sourceUrl": "https://sketchfab.com/3d-models/5d57f6dcabe7473f91b160595a3eb0cc"
-          }
-        }
-      ],
-      "illustrationImage": "illustration-CAR190-side"
-    },
-    {
       "id": "CAR192",
       "name": "比亚迪 Dolphin",
       "zhBrand": "比亚迪",
@@ -27703,118 +27750,6 @@
         }
       ],
       "illustrationImage": "illustration-CAR192-side"
-    },
-    {
-      "id": "CAR193",
-      "name": "玛莎拉蒂 Levante",
-      "zhBrand": "玛莎拉蒂",
-      "brand": "Maserati",
-      "model": "Levante",
-      "catalogKey": "maserati/levante",
-      "productionStatus": "production",
-      "edition": "真实量产车型的游戏外观",
-      "color": "#d8b764",
-      "reference": "https://www.maserati.com/content/dam/maserati/international/catalogues/th/Maserati_Levante_Digital_Flyer_EN.pdf",
-      "status": "reviewed",
-      "audio": "car-name-local",
-      "observation": "转动看看真实车型的游戏模型，再带它去洗车、停车和装配。",
-      "image": "render-CAR193-side",
-      "showcaseImage": "render-CAR193-side",
-      "hotspots": [
-        {
-          "id": "wheel",
-          "zh": "车轮",
-          "x": 0.19820689060385815,
-          "y": 0.670182414532033
-        },
-        {
-          "id": "door",
-          "zh": "车门",
-          "x": 0.5,
-          "y": 0.5398962140676167
-        },
-        {
-          "id": "light",
-          "zh": "车灯",
-          "x": 0.9318181818181818,
-          "y": 0.6070345931474571
-        }
-      ],
-      "showcaseHotspots": [
-        {
-          "id": "wheel",
-          "zh": "车轮",
-          "x": 0.19820689060385815,
-          "y": 0.670182414532033
-        },
-        {
-          "id": "door",
-          "zh": "车门",
-          "x": 0.5,
-          "y": 0.5398962140676167
-        },
-        {
-          "id": "light",
-          "zh": "车灯",
-          "x": 0.9318181818181818,
-          "y": 0.6070345931474571
-        }
-      ],
-      "game": {
-        "side": "render-CAR193-side",
-        "top": "render-CAR193-top",
-        "wheels": [
-          {
-            "x": 0.19820689060385815,
-            "y": 0.670182414532033,
-            "r": 0.0997134361083251
-          },
-          {
-            "x": 0.6479274847723985,
-            "y": 0.6208214017817404,
-            "r": 0.12
-          }
-        ]
-      },
-      "views": [
-        {
-          "id": "side",
-          "image": "render-CAR193-side",
-          "label": "模型外观",
-          "caption": "由这辆车的独立模型渲染；作者版本，非厂商精密数据。",
-          "credit": {
-            "author": "amogusstrikesback2",
-            "license": "CC BY 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-            "sourceUrl": "https://sketchfab.com/3d-models/bc38f72b3ac14acc9e435c99d18abf0c"
-          }
-        },
-        {
-          "id": "top",
-          "image": "render-CAR193-top",
-          "label": "俯视模型",
-          "caption": "由这辆车的独立模型渲染；作者版本，非厂商精密数据。",
-          "credit": {
-            "author": "amogusstrikesback2",
-            "license": "CC BY 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-            "sourceUrl": "https://sketchfab.com/3d-models/bc38f72b3ac14acc9e435c99d18abf0c"
-          }
-        },
-        {
-          "id": "front-left",
-          "image": "render-CAR193-front-left",
-          "label": "模型外观",
-          "caption": "由这辆车的独立模型渲染；作者版本，非厂商精密数据。",
-          "credit": {
-            "author": "amogusstrikesback2",
-            "license": "CC BY 4.0",
-            "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-            "sourceUrl": "https://sketchfab.com/3d-models/bc38f72b3ac14acc9e435c99d18abf0c"
-          }
-        }
-      ],
-      "illustrationImage": "illustration-CAR193-side"
     },
     {
       "id": "CAR194",

@@ -15,7 +15,7 @@ async function choose(page:Page,level:Level){
   await page.reload();await expect(page.getByRole('combobox',{name:'内容阶段'})).toHaveValue(level);
 }
 async function open(page:Page,id:string,three:boolean){
-  await page.goto(`/#/play/${id}?car=CAR01${three?'':'&view=2d'}`);
+  await page.goto(`/#/play/${id}?car=CAR01${three?'&view=3d':'&view=2d'}`);
   await expect.poll(async()=>(await state(page)).ready).toBe(true);
   if(three)await expect(world(page)).toHaveAttribute('data-ready','true',{timeout:45000});
 }
@@ -62,13 +62,13 @@ for(const three of [false,true]){
       if(level==='discover'){expect((await state(page)).completed).toBe(false);await part(page,'light',three);}
       await saved(page,'E02',level);
     }
-    await choose(page,'starter');await open(page,'T01',three);await part(page,'wheel',three);await saved(page,'T01','starter');
+    await choose(page,'starter');await open(page,'T01',three);await part(page,'door',three);expect((await state(page)).parts).toEqual([]);await part(page,'wheel',three);await saved(page,'T01','starter');
   });
   test(`${three?'3D':'2D'} 停车一车/两车目标与记录一致，大目标不缩小 @smoke`,async({page},testInfo)=>{
     test.setTimeout(150000);
     for(const level of ['starter','discover'] as const){
       await choose(page,level);await open(page,'M01',three);
-      const s=await state(page);expect(s.items).toHaveLength(level==='starter'?1:2);expect(s.targets).toHaveLength(s.items.length);expect(s.targets[0].w).toBe(310);
+      const s=await state(page);expect(s.items).toHaveLength(level==='starter'?1:2);expect(s.targets.filter((target:{blocked?:boolean})=>!target.blocked)).toHaveLength(s.items.length);expect(s.targets.some((target:{blocked?:boolean})=>target.blocked)).toBe(true);expect(s.targets[0].w).toBe(310);
       await page.screenshot({path:testInfo.outputPath(`parking-${level}.png`)});
       await dropTouch(page,'car-0','bay-0');
       if(level==='discover'){expect((await state(page)).completed).toBe(false);await dropTouch(page,'car-1','bay-1');}

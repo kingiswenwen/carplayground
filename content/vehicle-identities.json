@@ -106,14 +106,6 @@
       "reference": "https://www.bmw-m.com/en/all-models/overview-m-and-m-performance/bmw-m2/2024/bmw-m2-coupe.html"
     },
     {
-      "id": "CAR19",
-      "brand": "Lamborghini",
-      "model": "Huracán",
-      "catalogKey": "lamborghini/hurac-n",
-      "productionStatus": "production",
-      "reference": "https://www.lamborghini.com/en-en/history"
-    },
-    {
       "id": "CAR21",
       "brand": "Porsche",
       "model": "718 Cayman",
@@ -618,14 +610,6 @@
       "reference": "https://global.honda/en/stories/048.html"
     },
     {
-      "id": "CAR162",
-      "brand": "Volkswagen",
-      "model": "Karmann Ghia",
-      "catalogKey": "volkswagen/karmann-ghia",
-      "productionStatus": "production",
-      "reference": "https://www.volkswagen-newsroom.com/en/vehicle-data-karmann-ghia-type-14-coupe-profile-19631"
-    },
-    {
       "id": "CAR163",
       "brand": "Volkswagen",
       "model": "Golf GTI (Mk8)",
@@ -810,28 +794,12 @@
       "reference": "https://macedonia.jaguar.com/jaguar-range/xf/overview"
     },
     {
-      "id": "CAR190",
-      "brand": "Porsche",
-      "model": "Macan",
-      "catalogKey": "porsche/macan",
-      "productionStatus": "production",
-      "reference": "https://newsroom.porsche.com/en/products/porsche-macan-2018-compact-suv-start-production-china-expansion-leipzig-design-body-shop-paint-shop-assembly-line-16016.html"
-    },
-    {
       "id": "CAR192",
       "brand": "BYD",
       "model": "Dolphin",
       "catalogKey": "byd/dolphin",
       "productionStatus": "production",
       "reference": "https://www.byd.com/eu/electric-cars/dolphin"
-    },
-    {
-      "id": "CAR193",
-      "brand": "Maserati",
-      "model": "Levante",
-      "catalogKey": "maserati/levante",
-      "productionStatus": "production",
-      "reference": "https://www.maserati.com/content/dam/maserati/international/catalogues/th/Maserati_Levante_Digital_Flyer_EN.pdf"
     },
     {
       "id": "CAR194",
@@ -1204,6 +1172,30 @@
       "name": "阿尔派 A110",
       "replacement": null,
       "reason": "removed-by-user-unmodeled"
+    },
+    {
+      "id": "CAR19",
+      "name": "兰博基尼 Huracán",
+      "replacement": null,
+      "reason": "quality-insufficient-model-detail"
+    },
+    {
+      "id": "CAR162",
+      "name": "大众 Karmann Ghia",
+      "replacement": null,
+      "reason": "quality-blurred-source-and-distorted-details"
+    },
+    {
+      "id": "CAR190",
+      "name": "保时捷 Macan",
+      "replacement": null,
+      "reason": "quality-toy-proportions"
+    },
+    {
+      "id": "CAR193",
+      "name": "玛莎拉蒂 Levante",
+      "replacement": null,
+      "reason": "quality-nonrepresentative-custom-body"
     }
   ]
 }

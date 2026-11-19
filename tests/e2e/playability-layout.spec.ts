@@ -7,7 +7,7 @@ for (const viewport of [{width: 667, height: 375}, {width: 844, height: 390}]) f
     await page.setViewportSize(viewport);
     if (mode === 'flat') await openTouch(page, 'M01');
     else {
-      await page.goto('/#/play/M01?car=CAR01');
+      await page.goto('/#/play/M01?car=CAR01&view=3d');
       await expect(page.locator('canvas.touch-world-canvas')).toHaveAttribute('data-ready', 'true', {timeout: 45000});
     }
     const surface = mode === 'flat' ? touchCanvas(page) : page.locator('canvas.touch-world-canvas');
@@ -39,7 +39,7 @@ test('完成邀请动画从开始到结束都不撑宽手机页面 @smoke', asyn
     await expect.poll(async () => (await touchState(page)).ready).toBe(true);
     // Pause from the moment the invitation mounts, including on a busy runner.
     await page.addStyleTag({content: '.next-destination { animation-play-state: paused !important; }'});
-    for (let index = 0; index < 3; index++) await dropTouch(page, `car-${index}`, `bay-${index}`);
+    for (let index = 0; index < 3; index++) await dropTouch(page, `car-${index}`, index===2?'bay-3':`bay-${index}`);
     await completedTouch(page);
     const destination = page.locator('.next-destination');
     for (const phase of [0, .25, .5, .75, .99, 1]) {
