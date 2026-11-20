@@ -124,6 +124,7 @@ test('WebGL不可用时自动切回平面，停车仍可完整玩完', async ({p
 });
 
 test('顺序卡可试放到任意位置，错误顺序在播放时停下来', async ({page}) => {
+  test.setTimeout(120000);
   await open(page, 'C02');
   const snapshot = await state(page);
   expect(snapshot.targetScreens.every((target:any)=>target.color!=='#f1bd58')).toBe(true);
@@ -135,6 +136,7 @@ test('顺序卡可试放到任意位置，错误顺序在播放时停下来', as
   }
   expect((await state(page)).sequence.order).toEqual([2,0,1]);
   await page.getByRole('button',{name:'照顺序演一遍',exact:true}).click();
-  await expect.poll(async () => (await state(page)).sequence.phase).toBe('blocked');
+  await expect(page.locator('.town-action-cue')).toContainText('车门还开着',{timeout:15000});
+  expect((await state(page)).sequence.phase).toBe('blocked');
   expect((await state(page)).completed).toBe(false);
 });

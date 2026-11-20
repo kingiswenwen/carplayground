@@ -64,10 +64,10 @@ test('全部车型在真实画面中可换红蓝两色并使用对应模型封�
   await expect(page.locator('.model-paints button')).toHaveCount(8);
   await page.getByRole('button',{name:'立体车试红色',exact:true}).click();const red=await vehiclePixels(canvas);
   await page.getByRole('button',{name:'立体车试蓝色',exact:true}).click();const blue=await vehiclePixels(canvas);
-  const original=await sharp(red).removeAlpha().raw().toBuffer({resolveWithObject:true}),r=original.data,b=await sharp(blue).removeAlpha().raw().toBuffer();
-  const origin=Math.floor(original.info.width/2)*3,bg=[r[origin],r[origin+1],r[origin+2]];let visible=0;
+  const r=await sharp(red).removeAlpha().raw().toBuffer(),b=await sharp(blue).removeAlpha().raw().toBuffer();
+  let visible=0;
   let redPixels=0,bluePixels=0,changed=0;
-  for(let i=0;i<r.length;i+=3){if(Math.abs(r[i]-bg[0])+Math.abs(r[i+1]-bg[1])+Math.abs(r[i+2]-bg[2])>45)visible++;if(r[i]>r[i+1]*1.35&&r[i]>r[i+2]*1.15&&r[i]>60)redPixels++;if(b[i+2]>b[i]*1.25&&b[i+2]>b[i+1]*1.05&&b[i+2]>50)bluePixels++;if(Math.abs(r[i]-b[i])+Math.abs(r[i+1]-b[i+1])+Math.abs(r[i+2]-b[i+2])>70)changed++;}
+  for(let i=0;i<r.length;i+=3){if(r[i]+r[i+1]+r[i+2]>45)visible++;if(r[i]>r[i+1]*1.35&&r[i]>r[i+2]*1.15&&r[i]>60)redPixels++;if(b[i+2]>b[i]*1.25&&b[i+2]>b[i+1]*1.05&&b[i+2]>50)bluePixels++;if(Math.abs(r[i]-b[i])+Math.abs(r[i+1]-b[i+1])+Math.abs(r[i+2]-b[i+2])>70)changed++;}
   results.push({id:car.id,red:redPixels,blue:bluePixels,changed,visible});
   if(redPixels<Math.max(500,visible*.03)||bluePixels<Math.max(500,visible*.03)||changed<Math.max(1500,visible*.05)){failures.push(car.id);await fs.writeFile(info.outputPath(car.id+'-red.png'),red);await fs.writeFile(info.outputPath(car.id+'-blue.png'),blue);}
  }
