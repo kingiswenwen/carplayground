@@ -123,16 +123,18 @@ test('WebGL不可用时自动切回平面，停车仍可完整玩完', async ({p
   await completedTouch(page);
 });
 
-test('顺序卡的放置提示跟随实际规则，不提前提示第三步', async ({page}) => {
+test('顺序卡可试放到任意位置，错误顺序在播放时停下来', async ({page}) => {
   await open(page, 'C02');
-  let snapshot = await state(page);
-  const neutral=snapshot.targetScreens.find((target:any)=>target.id==='step-2').color;
-  expect(neutral).not.toBe('#f1bd58');
+  const snapshot = await state(page);
+  expect(snapshot.targetScreens.every((target:any)=>target.color!=='#f1bd58')).toBe(true);
   await tap(page, snapshot.actors.find((actor: any) => actor.id === 'step-2').screen);
   await expect.poll(async () => (await state(page)).selected).toBe('step-2');
-  await expect.poll(async () => (await state(page)).targetScreens.find((target: any) => target.id === 'step-2').color).toBe(neutral);
-  snapshot = await state(page);
-  await tap(page, snapshot.actors.find((actor: any) => actor.id === 'step-0').screen);
-  await expect.poll(async () => (await state(page)).selected).toBe('step-0');
-  await expect.poll(async () => (await state(page)).targetScreens.find((target: any) => target.id === 'step-0').color).toBe('#f1bd58');
+  await expect.poll(async () => (await state(page)).targetScreens.every((target:any)=>target.color==='#f1bd58')).toBe(true);
+  for(const [item,target] of [['step-2','step-0'],['step-0','step-1'],['step-1','step-2']]){
+    await dropTouch(page,item,target);
+  }
+  expect((await state(page)).sequence.order).toEqual([2,0,1]);
+  await page.getByRole('button',{name:'照顺序演一遍',exact:true}).click();
+  await expect.poll(async () => (await state(page)).sequence.phase).toBe('blocked');
+  expect((await state(page)).completed).toBe(false);
 });

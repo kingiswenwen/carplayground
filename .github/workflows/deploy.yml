@@ -39,13 +39,13 @@ jobs:
           fi
           echo "run=$run" >> "$GITHUB_OUTPUT"
 
-  check:
+  build:
     needs: select
     if: needs.select.outputs.run == 'true'
     concurrency:
       group: check-${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
       cancel-in-progress: true
-    name: Test and build
+    name: Prepare release and run core checks
     runs-on: ubuntu-24.04
     timeout-minutes: 60
     outputs:
@@ -158,13 +158,6 @@ jobs:
           RELEASE_ID: ${{ steps.package.outputs.release_id }}
         run: |
           bash scripts/ci-browser-suite.sh npx playwright test tests/e2e/showroom-garage-feedback.spec.ts --project=chromium --workers=2 --grep '选车后看见新模型' --repeat-each=3 --output=test-results/chromium-scroll
-      - name: Chromium full browser suite
-        shell: bash
-        env:
-          PLAYWRIGHT_BASE_URL: http://127.0.0.1:5194
-          RELEASE_ID: ${{ steps.package.outputs.release_id }}
-        run: |
-          bash scripts/ci-browser-suite.sh npx playwright test --project=chromium --workers=2 --output=test-results/chromium-full
       - name: Firefox headless flows
         shell: bash
         env:
@@ -184,6 +177,66 @@ jobs:
           name: browser-failure-${{ github.run_id }}-${{ github.run_attempt }}
           path: test-results/
           retention-days: 14
+
+  chromium:
+    name: Chromium full suite (${{ matrix.shard }}/6)
+    needs: build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      matrix:
+        shard: [1, 2, 3, 4, 5, 6]
+    concurrency:
+      group: chromium-${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}-${{ matrix.shard }}
+      cancel-in-progress: true
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef358964e2896645e5dc5ba9c38 # v6
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+          registry-url: https://registry.npmjs.org
+      - name: Install locked dependencies
+        timeout-minutes: 5
+        run: npm ci --registry=https://registry.npmjs.org --no-audit --fund=false --loglevel=info --fetch-timeout=30000 --fetch-retries=2
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: ${{ needs.build.outputs.artifact_name }}
+          path: .release-artifacts/${{ needs.build.outputs.release_id }}
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Run Chromium browser shard
+        shell: bash
+        env:
+          PLAYWRIGHT_BASE_URL: http://127.0.0.1:5194
+          RELEASE_ID: ${{ needs.build.outputs.release_id }}
+          SHARD: ${{ matrix.shard }}
+        run: bash scripts/ci-browser-suite.sh npx playwright test --project=chromium --workers=2 --shard="$SHARD/6" --output=test-results/chromium-full
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: failure() || cancelled()
+        with:
+          name: chromium-failure-${{ github.run_id }}-${{ github.run_attempt }}-${{ matrix.shard }}
+          path: test-results/
+          retention-days: 14
+
+  check:
+    name: Test and build
+    needs: [select, build, chromium]
+    if: always() && needs.select.outputs.run == 'true'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    outputs:
+      release_id: ${{ needs.build.outputs.release_id }}
+      artifact_name: ${{ needs.build.outputs.artifact_name }}
+    steps:
+      - name: Require the release build and every Chromium shard
+        env:
+          BUILD_RESULT: ${{ needs.build.result }}
+          CHROMIUM_RESULT: ${{ needs.chromium.result }}
+        run: test "$BUILD_RESULT" = success && test "$CHROMIUM_RESULT" = success
 
   deploy:
     name: Deploy COS and verify CDN

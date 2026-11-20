@@ -3,6 +3,7 @@ import fs from 'node:fs/promises';
 import sharp from 'sharp';
 import {readFileSync} from 'node:fs';
 import type {Car} from '../../src/domain/content';
+import {vehiclePixels} from './vehicle-pixels';
 const content=JSON.parse(readFileSync('content/r3.json','utf8')) as {cars:Car[]};
 test.use({reducedMotion:'reduce'});
 
@@ -57,11 +58,12 @@ test('全部车型在真实画面中可换红蓝两色并使用对应模型封�
  for(const car of cars){
   await search.fill(car.model);
   const tile=page.getByRole('button',{name:`选择 ${car.name}，有独立立体模型`,exact:true});
+  await tile.scrollIntoViewIfNeeded();
   await expect(tile.getByRole('img',{name:`${car.name}，同车型独立立体模型渲染图`,exact:true})).toHaveAttribute('src',new RegExp(car.id.toLowerCase()+'-front-left\\.webp'));
   await tile.click();await expect(canvas).toHaveAttribute('data-car',car.id,{timeout:45000});await expect(canvas).toHaveAttribute('data-ready','true',{timeout:45000});
   await expect(page.locator('.model-paints button')).toHaveCount(8);
-  await page.getByRole('button',{name:'立体车试红色',exact:true}).click();const red=await canvas.screenshot();
-  await page.getByRole('button',{name:'立体车试蓝色',exact:true}).click();const blue=await canvas.screenshot();
+  await page.getByRole('button',{name:'立体车试红色',exact:true}).click();const red=await vehiclePixels(canvas);
+  await page.getByRole('button',{name:'立体车试蓝色',exact:true}).click();const blue=await vehiclePixels(canvas);
   const original=await sharp(red).removeAlpha().raw().toBuffer({resolveWithObject:true}),r=original.data,b=await sharp(blue).removeAlpha().raw().toBuffer();
   const origin=Math.floor(original.info.width/2)*3,bg=[r[origin],r[origin+1],r[origin+2]];let visible=0;
   let redPixels=0,bluePixels=0,changed=0;

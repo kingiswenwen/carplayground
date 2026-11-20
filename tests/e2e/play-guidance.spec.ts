@@ -28,9 +28,17 @@ test('装车可点选点放且两个相同车轮可以交换，错放后仍能�
  for(const [item,target]of [['wheel-0','wheel-1'],['wheel-1','wheel-0']]){await tapItem(page,item);await tap(page,(await touchState(page)).targets.find(t=>t.id===target)!);}
  await page.getByRole('button',{name:'推车试走'}).click();await completedTouch(page);
 });
-test('雨天进度只计算防雨必需物，随便装帽子饮料不能满条 @smoke',async({page})=>{
+test('雨天实验用相同降雨比较帽子饮料与雨具，完成两次试验才满条 @smoke',async({page})=>{
  await openTouch(page,'S03');await dropTouch(page,'pack-2','bag');await dropTouch(page,'pack-3','bag');expect((await touchState(page)).progress).toBe(0);expect((await touchState(page)).completed).toBe(false);
- await dropTouch(page,'pack-0','bag');expect((await touchState(page)).progress).toBe(.5);await dropTouch(page,'pack-1','bag');await completedTouch(page);
+ await page.getByRole('button',{name:'试试下雨',exact:true}).click();
+ await expect.poll(async()=>(await snapshot(page)).rain.result).toBe('wet');
+ expect((await touchState(page)).progress).toBe(.5);
+ expect((await touchState(page)).completed).toBe(false);
+ await page.getByRole('button',{name:'换一套再试',exact:true}).click();
+ await dropTouch(page,'pack-0','bag');
+ await page.getByRole('button',{name:'试试下雨',exact:true}).click();
+ await completedTouch(page);
+ expect((await snapshot(page)).rain.samples.map((sample:{result:string})=>sample.result)).toEqual(['wet','dry']);
 });
 test('红灯不能直接推过线，也不能点灯跳过等候 @smoke',async({page})=>{
  await openTouch(page,'E03');await tapItem(page,'signal');expect((await snapshot(page)).signalGreen).toBe(false);

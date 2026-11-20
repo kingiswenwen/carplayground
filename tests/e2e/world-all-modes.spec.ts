@@ -32,7 +32,15 @@ for(const id of ids)test(`${id} 立体场景完整实际操作 @worldmatrix`,asy
  const evidence=`playability-audit/${info.project.name}/${viewport.name}/${id}`;
  test.setTimeout(150000);const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));await open(page,id);await page.screenshot({path:test.info().outputPath(`${evidence}-start.png`)});
  if(['M01','M02','M03'].includes(id)){const n=id==='M01'?2:3;for(let i=0;i<n;i++){if(id==='M02'&&i===2)await drop(page,'extra-bay','bay-2');await drop(page,`car-${i}`,id==='M03'&&i===2?'bay-3':`bay-${i}`);}}
- else if(id==='E01'){await drop(page,'blue','color-home');expect((await snap(page)).progress).toBe(0);for(const c of ['red','blue','white'])await drop(page,c,'color-home');}
+ else if(id==='E01'){
+  await drop(page,'blue','color-home');
+  expect((await snap(page)).progress).toBe(0);
+  for(const color of ['red','blue','white']){
+   await expect.poll(async()=>(await snap(page)).colorStage.color).toBe(color);
+   await drop(page,color,'color-home');
+   await expect.poll(async()=>(await snap(page)).items.find((item:{id:string})=>item.id===color).placed).toBe(true);
+  }
+ }
  else if(id==='M04'){
   await drop(page,'red','pattern-4');await drop(page,'blue','pattern-5');
   await page.getByRole('button',{name:'接下一队车'}).click();

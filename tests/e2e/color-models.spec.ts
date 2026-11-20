@@ -1,6 +1,7 @@
 import {test,expect,type Page} from '@playwright/test';
 import sharp from 'sharp';
 import {touchCanvas,touchState,touchPosition,completedTouch} from './touch-helpers';
+import {vehiclePixels} from './vehicle-pixels';
 test.use({viewport:{width:390,height:844},hasTouch:true});
 async function drop(page:Page,id:string,target:string){
  const world=page.locator('canvas.touch-world-canvas'),three=await world.count()>0,canvas=three?world:touchCanvas(page);
@@ -50,9 +51,9 @@ test.describe('独立车身材质的实际颜色',()=>{
   test.setTimeout(60000);await page.goto(`/#/cars/${car}`);
   const canvas=page.locator('canvas.vehicle-webgl');await expect(canvas).toHaveAttribute('data-ready','true',{timeout:45000});
   await page.getByRole('button',{name:'立体车试红色',exact:true}).click();
-  const red=await sharp(await canvas.screenshot()).ensureAlpha().raw().toBuffer();
+  const red=await sharp(await vehiclePixels(canvas)).ensureAlpha().raw().toBuffer();
   await page.getByRole('button',{name:'立体车试白色',exact:true}).click();
-  const white=await sharp(await canvas.screenshot()).ensureAlpha().raw().toBuffer();let painted=0,changed=0;
+  const white=await sharp(await vehiclePixels(canvas)).ensureAlpha().raw().toBuffer();let painted=0,changed=0;
   for(let i=0;i<red.length;i+=4)if(red[i]>90&&red[i]>red[i+1]*1.35&&red[i]>red[i+2]*1.35){painted++;const channels=[white[i],white[i+1],white[i+2]];if(Math.min(...channels)>110&&Math.max(...channels)-Math.min(...channels)<50)changed++;}
   expect(painted).toBeGreaterThan(1000);expect(changed/painted).toBeGreaterThan(.5);
  });
