@@ -137,6 +137,6 @@ test('顺序卡可试放到任意位置，错误顺序在播放时停下来', as
   expect((await state(page)).sequence.order).toEqual([2,0,1]);
   await page.getByRole('button',{name:'照顺序演一遍',exact:true}).click();
   await expect(page.locator('.town-action-cue')).toContainText('车门还开着',{timeout:15000});
-  expect((await state(page)).sequence.phase).toBe('blocked');
+  await expect.poll(async () => (await state(page)).sequence.phase).toBe('blocked');
   expect((await state(page)).completed).toBe(false);
 });
