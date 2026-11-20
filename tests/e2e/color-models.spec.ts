@@ -71,7 +71,11 @@ test.describe('独立车身材质的实际颜色',()=>{
    }
    expect(matching/total,`${car} ${id} 车身颜色面积`).toBeGreaterThan(id==='red'?.12:.08);
   }
-  for(const colour of ['red','blue','white'])await drop(page,colour,'color-home');
+  for(const colour of ['red','blue','white']){
+   await expect.poll(async()=>JSON.parse((await canvas.getAttribute('data-state'))!).colorStage.color).toBe(colour);
+   await drop(page,colour,'color-home');
+   await expect.poll(async()=>(await touchState(page)).items.find(item=>item.id===colour)?.placed).toBe(true);
+  }
   await completedTouch(page);
  });
 });

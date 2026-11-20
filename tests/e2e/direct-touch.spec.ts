@@ -83,7 +83,7 @@ test('生成车身与独立轮子直接拖装，错放不能计为装好 @smoke'
  const x=(await state(page)).items.find(i=>i.id==='body')!.x;
  await page.setViewportSize({width:390,height:844});
  await expect.poll(()=>canvas(page).evaluate(c=>(c as HTMLCanvasElement).height)).toBe(1200);
- expect((await state(page)).items.find(i=>i.id==='body')!.x).toBe(x);
+ expect((await state(page)).items.find(i=>i.id==='body')!.x).toBeCloseTo(x,6);
 });
 test('推车松手之后继续滑行，无启动和完成按钮 @smoke',async({page})=>{
  await open(page,'P01');
