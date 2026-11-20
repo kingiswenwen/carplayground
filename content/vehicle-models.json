@@ -204,35 +204,6 @@
     "playSha256": "1d9c219b00910465146bf5bff21fb8bfca5afbc1ac13fa12a54e90c4334d4a8c"
   },
   {
-    "id": "CAR19",
-    "file": "media/models/car19.glb",
-    "bytes": 454924,
-    "sha256": "8dd8e2dcb26b8da757346c1a7f90d80d7e3fb2dedda5014631d8c1456fcf731e",
-    "preservePaint": true,
-    "color": "#d8b764",
-    "rotationY": 0,
-    "paintMaterials": [],
-    "lampMaterials": [],
-    "excludedNodes": [
-      "Cube.001_Material.006_0"
-    ],
-    "recalculateNormals": false,
-    "source": {
-      "title": "Low Poly Lamborghini Huracan LP6401",
-      "author": "giosassets",
-      "authorUrl": "https://sketchfab.com/giosassets",
-      "url": "https://sketchfab.com/3d-models/none-fed5e9f2a15c40b48f7ce1d6b22c0f1c",
-      "license": "CC BY 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-      "mirror": "https://mirror.traines.eu/sketchfab-backup/fe/fed5e9f2a15c40b48f7ce1d6b22c0f1c.zip",
-      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
-    },
-    "catalogKey": "lamborghini/hurac-n",
-    "playFile": "media/models/play/car19.glb",
-    "playBytes": 191604,
-    "playSha256": "3307f7f732e6c2ebbbd70dc90e85c33dda199b14bd2b8d9ea0039327bca52a57"
-  },
-  {
     "id": "CAR24",
     "file": "media/models/car24.glb",
     "bytes": 3128148,
@@ -1892,33 +1863,6 @@
     "playSha256": "67ab339dfa7f6f34b8221aa868d7d411df3400d0864afef28dd728a8b7c46039"
   },
   {
-    "id": "CAR162",
-    "file": "media/models/car162.glb",
-    "bytes": 315412,
-    "sha256": "5c30ce3c3f1c4e8f675972be52564b66b930abf599593d07be4d8e6692865c7f",
-    "preservePaint": true,
-    "color": "#d8b764",
-    "rotationY": 0,
-    "paintMaterials": [],
-    "lampMaterials": [],
-    "excludedNodes": [],
-    "recalculateNormals": false,
-    "source": {
-      "title": "Karmann Ghia Volkswagen",
-      "author": "alban",
-      "authorUrl": "https://sketchfab.com/alban",
-      "url": "https://sketchfab.com/3d-models/bd5f72f0da7449e5ae5ba250cdd128e9",
-      "license": "CC BY 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/volkswagen-karmann-ghia.glb",
-      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
-    },
-    "catalogKey": "volkswagen/karmann-ghia",
-    "playFile": "media/models/play/car162.glb",
-    "playBytes": 136984,
-    "playSha256": "5b2c4873c88ec144981eb194ffc81396034e7c33bf1ce9a4e46b1d483d746ca5"
-  },
-  {
     "id": "CAR163",
     "file": "media/models/car163.glb",
     "bytes": 945672,
@@ -2704,39 +2648,6 @@
     "playSha256": "892501da166ab089f0450f3145a7c728dbd00d05ddeaa9b60736b517ace62e22"
   },
   {
-    "id": "CAR190",
-    "file": "media/models/car190.glb",
-    "bytes": 1084100,
-    "sha256": "9b267cfeb72ae2539ca042c3ce14f3a88bf6c37ae575fe11824e9de0fecbdb38",
-    "preservePaint": true,
-    "color": "#d8b764",
-    "rotationY": 0,
-    "paintMaterials": [
-      "Kuzov",
-      "Kuzov.001",
-      "kuzov",
-      "kuzov_Hamam",
-      "Bagaznik"
-    ],
-    "lampMaterials": [],
-    "excludedNodes": [],
-    "recalculateNormals": false,
-    "source": {
-      "title": "Porsche Macan - Kaban",
-      "author": "animanyarty",
-      "authorUrl": "https://sketchfab.com/animanyarty",
-      "url": "https://sketchfab.com/3d-models/5d57f6dcabe7473f91b160595a3eb0cc",
-      "license": "CC BY 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/porsche-macan.glb",
-      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
-    },
-    "catalogKey": "porsche/macan",
-    "playFile": "media/models/play/car190.glb",
-    "playBytes": 430252,
-    "playSha256": "1e1e60995e008a161898f694563c1664ace51b45cb403c41355c88872043cfc1"
-  },
-  {
     "id": "CAR192",
     "file": "media/models/car192.glb",
     "bytes": 584012,
@@ -2762,35 +2673,6 @@
     "playFile": "media/models/play/car192.glb",
     "playBytes": 262968,
     "playSha256": "2e3278d240e1f5e5bb659129787b9e8adaeed978c6f3416588407a59376b6c48"
-  },
-  {
-    "id": "CAR193",
-    "file": "media/models/car193.glb",
-    "bytes": 591688,
-    "sha256": "20542bf9348ff795b61c27a26ee18b4583000945c2c173d2b45aee98e3af590b",
-    "preservePaint": true,
-    "color": "#d8b764",
-    "rotationY": 0,
-    "paintMaterials": [
-      "Material.001"
-    ],
-    "lampMaterials": [],
-    "excludedNodes": [],
-    "recalculateNormals": false,
-    "source": {
-      "title": "maserati levante axtr edition",
-      "author": "amogusstrikesback2",
-      "authorUrl": "https://sketchfab.com/amogusstrikesback2",
-      "url": "https://sketchfab.com/3d-models/bc38f72b3ac14acc9e435c99d18abf0c",
-      "license": "CC BY 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-      "mirror": "https://github.com/pedrosoandre/carros/blob/2d18dfd9db96bbf0d9cffa949deaf7f571388cbf/assets/maserati-levante.glb",
-      "modifications": "Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls."
-    },
-    "catalogKey": "maserati/levante",
-    "playFile": "media/models/play/car193.glb",
-    "playBytes": 309568,
-    "playSha256": "e5a979b802c0a1732050296eb354b03c605ee078c0d6ab47300813d389d73f30"
   },
   {
     "id": "CAR194",

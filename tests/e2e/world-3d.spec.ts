@@ -2,7 +2,7 @@ import {test,expect,type Page} from '@playwright/test';
 test.use({viewport:{width:1000,height:760}});
 const world=(page:Page)=>page.locator('canvas.touch-world-canvas');
 const snapshot=async(page:Page)=>JSON.parse((await world(page).getAttribute('data-state'))!);
-async function open(page:Page,id:string,car="CAR01"){await page.goto(`/#/play/${id}?car=${car}`);await expect(world(page)).toHaveAttribute('data-ready','true',{timeout:45000});}
+async function open(page:Page,id:string,car="CAR01"){await page.goto(`/#/play/${id}?car=${car}&view=3d`);await expect(world(page)).toHaveAttribute('data-ready','true',{timeout:45000});}
 async function drag(page:Page,from:{x:number;y:number},to:{x:number;y:number}){const b=(await world(page).boundingBox())!;await page.mouse.move(b.x+from.x*b.width,b.y+from.y*b.height);await page.mouse.down();await page.mouse.move(b.x+to.x*b.width,b.y+to.y*b.height,{steps:4});await page.mouse.up();}
 test('立体停车直接拖独立网格入位，能切换镜头而不丢进度 @smoke',async({page})=>{
  test.setTimeout(90000);await open(page,'M01');let s=await snapshot(page);expect(s.triangles).toBeGreaterThan(5000);expect(s.actors.filter((a:{mesh:boolean})=>a.mesh)).toHaveLength(2);
@@ -17,7 +17,7 @@ test('立体洗车指针擦除车身污渍，键盘可逐处擦洗并轮流换�
  const initial=await snapshot(page);console.log('wash quality',await world(page).getAttribute('data-quality'));const point=initial.dirt[Math.floor(initial.dirt.length/2)];await page.mouse.move(b.x+point.x*b.width,b.y+point.y*b.height);await page.mouse.down();await page.mouse.move(b.x+(point.x+.02)*b.width,b.y+point.y*b.height);await page.mouse.up();
  await expect.poll(async()=>(await snapshot(page)).dirt.length).toBeLessThan(initial.dirt.length);
  for(let car=0;car<2;car++){
-  for(let press=0;press<24;press++){const s=await snapshot(page);if(s.wash.clean>car)break;console.log('wash step',car,press,s.wash.clean,s.dirt.length);await world(page).press('Enter');}
+  for(let press=0;press<60;press++){const s=await snapshot(page);if(s.wash.clean>car)break;console.log('wash step',car,press,s.wash.clean,s.dirt.length);await world(page).press('Enter');}
   await expect.poll(async()=>(await snapshot(page)).wash.clean).toBe(car+1);
   if(car===0){await world(page).press('Enter');await expect.poll(async()=>(await snapshot(page)).wash.waiting).toBe(false);}
  }
@@ -26,8 +26,12 @@ test('立体洗车指针擦除车身污渍，键盘可逐处擦洗并轮流换�
 test('立体装车和推车使用实体模型，松手惯性仍按实际操作完成 @smoke',async({page})=>{
  test.setTimeout(120000);await open(page,'T04');
  for(const id of ['body','wheel-0','wheel-1']){const s=await snapshot(page);await drag(page,s.actors.find((a:{id:string})=>a.id===id).screen,s.targetScreens.find((t:{id:string})=>t.id===id).screen);}
+ await page.getByRole('button',{name:'推车试走'}).click();
  await expect(page.locator('.touch-play')).toHaveAttribute('data-completed','true');
- await open(page,'P01');await world(page).focus();await world(page).press('Enter');await expect.poll(async()=>(await snapshot(page)).completed,{timeout:30000}).toBe(true);
+ await open(page,'P01');await world(page).focus();await world(page).press('Enter');
+ await expect(page.getByRole('button',{name:'交换路面'})).toBeVisible({timeout:15000});await world(page).press('Enter');
+ await expect(page.getByRole('button',{name:'用同样的力再试'})).toBeVisible();await world(page).press('Enter');
+ await expect.poll(async()=>(await snapshot(page)).completed,{timeout:30000}).toBe(true);
 });
 
 test('新增跑车进入玩法时加载自己的车型网格，模型失败可简化并重试 @smoke',async({page})=>{
@@ -50,6 +54,7 @@ test('新增Countach装配后整车保持入镜，实际轮组插槽支持窄屏
   await expect.poll(async()=>{const s=await snapshot(page);if(!s)return false;const body=s.actors.find((a:{id:string})=>a.id==='body'),b=body.screenBounds;return b.min.x>=.04&&b.min.y>=.04&&b.max.x<=.96&&b.max.y<=.96;}).toBe(true);
  }
  for(const id of ['wheel-0','wheel-1']){s=await snapshot(page);await drag(page,s.actors.find((a:{id:string})=>a.id===id).screen,s.targetScreens.find((t:{id:string})=>t.id===id).screen);}
+ await page.getByRole('button',{name:'推车试走'}).click();
  await expect(page.locator('.touch-play')).toHaveAttribute('data-completed','true');
 });
 

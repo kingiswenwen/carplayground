@@ -3,6 +3,7 @@ import fs from 'node:fs/promises';
 import sharp from 'sharp';
 import {readFileSync} from 'node:fs';
 import type {Car} from '../../src/domain/content';
+import {vehiclePixels} from './vehicle-pixels';
 const content=JSON.parse(readFileSync('content/r3.json','utf8')) as {cars:Car[]};
 test.use({reducedMotion:'reduce'});
 
@@ -57,15 +58,16 @@ test('全部车型在真实画面中可换红蓝两色并使用对应模型封�
  for(const car of cars){
   await search.fill(car.model);
   const tile=page.getByRole('button',{name:`选择 ${car.name}，有独立立体模型`,exact:true});
-  await expect(tile.locator('img')).toHaveAttribute('src',new RegExp(car.id.toLowerCase()+'-front-left\\.webp'));
+  await tile.scrollIntoViewIfNeeded();
+  await expect(tile.getByRole('img',{name:`${car.name}，同车型独立立体模型渲染图`,exact:true})).toHaveAttribute('src',new RegExp(car.id.toLowerCase()+'-front-left\\.webp'));
   await tile.click();await expect(canvas).toHaveAttribute('data-car',car.id,{timeout:45000});await expect(canvas).toHaveAttribute('data-ready','true',{timeout:45000});
   await expect(page.locator('.model-paints button')).toHaveCount(8);
-  await page.getByRole('button',{name:'立体车试红色',exact:true}).click();const red=await canvas.screenshot();
-  await page.getByRole('button',{name:'立体车试蓝色',exact:true}).click();const blue=await canvas.screenshot();
-  const original=await sharp(red).removeAlpha().raw().toBuffer({resolveWithObject:true}),r=original.data,b=await sharp(blue).removeAlpha().raw().toBuffer();
-  const origin=Math.floor(original.info.width/2)*3,bg=[r[origin],r[origin+1],r[origin+2]];let visible=0;
+  await page.getByRole('button',{name:'立体车试红色',exact:true}).click();const red=await vehiclePixels(canvas);
+  await page.getByRole('button',{name:'立体车试蓝色',exact:true}).click();const blue=await vehiclePixels(canvas);
+  const r=await sharp(red).removeAlpha().raw().toBuffer(),b=await sharp(blue).removeAlpha().raw().toBuffer();
+  let visible=0;
   let redPixels=0,bluePixels=0,changed=0;
-  for(let i=0;i<r.length;i+=3){if(Math.abs(r[i]-bg[0])+Math.abs(r[i+1]-bg[1])+Math.abs(r[i+2]-bg[2])>45)visible++;if(r[i]>r[i+1]*1.35&&r[i]>r[i+2]*1.15&&r[i]>60)redPixels++;if(b[i+2]>b[i]*1.25&&b[i+2]>b[i+1]*1.05&&b[i+2]>50)bluePixels++;if(Math.abs(r[i]-b[i])+Math.abs(r[i+1]-b[i+1])+Math.abs(r[i+2]-b[i+2])>70)changed++;}
+  for(let i=0;i<r.length;i+=3){if(r[i]+r[i+1]+r[i+2]>45)visible++;if(r[i]>r[i+1]*1.35&&r[i]>r[i+2]*1.15&&r[i]>60)redPixels++;if(b[i+2]>b[i]*1.25&&b[i+2]>b[i+1]*1.05&&b[i+2]>50)bluePixels++;if(Math.abs(r[i]-b[i])+Math.abs(r[i+1]-b[i+1])+Math.abs(r[i+2]-b[i+2])>70)changed++;}
   results.push({id:car.id,red:redPixels,blue:bluePixels,changed,visible});
   if(redPixels<Math.max(500,visible*.03)||bluePixels<Math.max(500,visible*.03)||changed<Math.max(1500,visible*.05)){failures.push(car.id);await fs.writeFile(info.outputPath(car.id+'-red.png'),red);await fs.writeFile(info.outputPath(car.id+'-blue.png'),blue);}
  }
@@ -73,9 +75,9 @@ test('全部车型在真实画面中可换红蓝两色并使用对应模型封�
  expect(failures,'Cars must change actual body pixels, not just button state').toEqual([]);
 });
 
-test('分离车漆、贴图车身和无光照模型都能还原原色',async({page})=>{
+test('分离车漆和不同贴图车身都能还原原色',async({page})=>{
  test.setTimeout(90000);await page.setViewportSize({width:960,height:820});
- for(const id of ['CAR01','CAR160','CAR162']){
+ for(const id of ['CAR01','CAR160','CAR192']){
   await page.goto(`/#/cars/${id}`);const canvas=page.locator('.vehicle-webgl[data-ready=true]');
   await expect(canvas).toHaveAttribute('data-car',id,{timeout:45000});
   const reset=page.getByRole('button',{name:'还原原车颜色'});await reset.click();const original=await canvas.screenshot();

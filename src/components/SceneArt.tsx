@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { RefreshCw } from 'lucide-react';
+import { RefreshCw } from './TownIcons';
 import { assetUrl, content, type SceneId } from '../domain/content';
 export type SceneArtId = SceneId | 'world' | 'driving';
 export function sceneArtUrl(scene: SceneArtId) {

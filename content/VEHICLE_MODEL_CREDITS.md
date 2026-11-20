@@ -1,6 +1,6 @@
 # 立体车型来源与许可
 
-106 个独立模型，按真实车型系列去重。模型是作者制作的游戏外观，不是厂商工程数据；图片生成记录另见 catalog-illustrations.json。
+102 个独立模型，按真实车型系列去重。模型是作者制作的游戏外观，不是厂商工程数据；图片生成记录另见 catalog-illustrations.json。
 
 ## CAR01 · 兰博基尼 Revuelto
 
@@ -35,11 +35,6 @@ Mirror optimized mesh topology and meshopt compression. App uniformly scales, po
 ## CAR12 · 雷克萨斯 LC 500
 
 [Lexus LC-500](https://sketchfab.com/3d-models/none-3f6118da005a457a9ce6d737e5d1e37d) · [Socksthecat](https://sketchfab.com/Socksthecat) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
-
-## CAR19 · 兰博基尼 Huracán
-
-[Low Poly Lamborghini Huracan LP6401](https://sketchfab.com/3d-models/none-fed5e9f2a15c40b48f7ce1d6b22c0f1c) · [giosassets](https://sketchfab.com/giosassets) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
 Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
 
 ## CAR24 · 路特斯 Emira
@@ -337,11 +332,6 @@ Authored proportions and textures retained; bounded-error mesh simplification, W
 [Honda Civic Type R -98 (Free Asset)](https://sketchfab.com/3d-models/none-b9604dd71c6546ec842702682019492a) · [tiedtke](https://sketchfab.com/tiedtke) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
 Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
 
-## CAR162 · 大众 Karmann Ghia
-
-[Karmann Ghia Volkswagen](https://sketchfab.com/3d-models/bd5f72f0da7449e5ae5ba250cdd128e9) · [alban](https://sketchfab.com/alban) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
-
 ## CAR163 · 大众 Golf GTI (Mk8)
 
 [Volkswagen Golf 8. GTI (A8)](https://sketchfab.com/3d-models/e87d7c0f8937481db236529beb5ecab7) · [Mona x Supercars](https://sketchfab.com/Car2022) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
@@ -482,19 +472,9 @@ Authored proportions and textures retained; bounded-error mesh simplification, W
 [Jaguar XF](https://sketchfab.com/3d-models/f27d0e569b7a44fc8786f1d914bc687d) · [Mona x Supercars](https://sketchfab.com/Car2022) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
 Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
 
-## CAR190 · 保时捷 Macan
-
-[Porsche Macan - Kaban](https://sketchfab.com/3d-models/5d57f6dcabe7473f91b160595a3eb0cc) · [animanyarty](https://sketchfab.com/animanyarty) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
-
 ## CAR192 · 比亚迪 Dolphin
 
 [2024 BYD Dolphin Premium Long Range](https://sketchfab.com/3d-models/8d30880667524cf3abb9e3e66c5299b5) · [Nazh Design ✔](https://sketchfab.com/NazhDesign) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
-
-## CAR193 · 玛莎拉蒂 Levante
-
-[maserati levante axtr edition](https://sketchfab.com/3d-models/bc38f72b3ac14acc9e435c99d18abf0c) · [amogusstrikesback2](https://sketchfab.com/amogusstrikesback2) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
 Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
 
 ## CAR194 · 梅赛德斯·奔驰 190 E

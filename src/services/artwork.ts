@@ -1,4 +1,5 @@
 import {paintMark} from '../visual/paint-mark';
+import {getMarkIllustration} from '../visual/scene-artwork';
 import{vehicleModel}from'../domain/vehicle-models';
 import{assetUrl,getDisplayCar,content}from'../domain/content';import type{Creation}from'./storage';import{download}from'./download';import sources from'../../content/photo-sources.json';
 export async function exportArtwork(creation:Creation){
@@ -17,7 +18,20 @@ export async function exportArtwork(creation:Creation){
   ctx.fillStyle='#293b2e';ctx.font='bold 48px sans-serif';ctx.textAlign='center';if(creation.caption)ctx.fillText(creation.caption,600,100,1060);
   ctx.font='20px sans-serif';if(car&&!car.game)ctx.fillText(car.brand+' · '+car.edition,600,700,1100);
  }
- for(const mark of creation.marks)paintMark(ctx,mark,1200,800);
+ const illustrations=creation.marks.map(getMarkIllustration);
+ const stickerImages=new Map<string,HTMLImageElement>();
+ const urls=new Set(illustrations.flatMap(art=>art?[art.url]:[]));
+ await Promise.all([...urls].map(async url=>{
+  const image=new Image();image.crossOrigin='anonymous';image.src=url;
+  try{await image.decode();stickerImages.set(url,image);}catch{ /* Keep this drawing available with its vector mark. */ }
+ }));
+ for(const [i,mark]of creation.marks.entries()){
+  const illustration=illustrations[i],image=illustration?stickerImages.get(illustration.url):undefined;
+  if(image){
+   ctx.save();if(illustration?.filter)ctx.filter=illustration.filter;
+   ctx.drawImage(image,mark.x*1200-61,mark.y*800-61,122,122);ctx.restore();
+  }else paintMark(ctx,mark,1200,800);
+ }
  const source=car?sources.find(s=>s.id===car.id):undefined,modelCredit=car?(vehicleModel(car.id)?.source||car.modelCredit):undefined,generated=!!car?.game;
  const rendered=car&&content.assets.find(a=>a.id===(car.game?.side||car.displayImage||car.image))?.source?.startsWith('Rendered from');
  ctx.textAlign='left';ctx.fillStyle='#394637';ctx.font='12px sans-serif';

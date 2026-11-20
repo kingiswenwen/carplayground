@@ -532,41 +532,6 @@
     "limits": "Six discrete CG views, not a photogrammetry scan or exact licensed manufacturer model."
   },
   {
-    "id": "CAR19",
-    "tool": "Built-in GPT Image",
-    "generatedFile": "exec-6f4f2fef-6682-4b47-bc5f-bba349b64e5c.png",
-    "sheetSha256": "2d5436cc2feab6f971f77acba9bc05edfab228b3c84abefb5d497c71f6974c25",
-    "prompt": "Use case: stylized-concept. Asset type: ONE coherent six-view production turnaround sheet for CarPlayground, a four-year-old's touch car playground. Generate a completely NEW violet purple Lamborghini Huracán, recognizable sports-car silhouette and correct distinctive FRONT and REAR lighting, realistic polished 3D game prop, NEVER a photographic cutout. Attached yellow car is ONLY rendering/style/layout reference: replace the car in EVERY cell with requested Lamborghini Huracán. SAME car identity, proportions, wheelbase, paint and wheels in ALL six panels. EXACT 3 columns x 2 rows on 1536x1024, narrow pale grid separators, uniform pale mint studio background: TOP ROW front-left three-quarter / exact FRONT / front-right three-quarter; BOTTOM ROW exact LEFT SIDE nose LEFT / exact REAR / exact RIGHT SIDE nose RIGHT. Center FULL vehicle within each equal 512x512 cell with generous margins, no clipping, no repeated side-view substitutions. Premium realistic child-friendly game rendering, carefully crafted surfaces, readable windows and wheels, not a cartoon, no faces. No text, labels, letters, numbers, watermark, UI, people, podiums or extra vehicles. Include proper model-specific front bumper, hood, roof, rear architecture and tail lamps. This sheet will become six distinct views that a child swipes through; all views must belong to one car.",
-    "views": [
-      {
-        "id": "front-left",
-        "image": "orbit-CAR19-front-left"
-      },
-      {
-        "id": "front",
-        "image": "orbit-CAR19-front"
-      },
-      {
-        "id": "front-right",
-        "image": "orbit-CAR19-front-right"
-      },
-      {
-        "id": "left",
-        "image": "orbit-CAR19-left"
-      },
-      {
-        "id": "rear",
-        "image": "orbit-CAR19-rear"
-      },
-      {
-        "id": "right",
-        "image": "orbit-CAR19-right"
-      }
-    ],
-    "processing": "3 columns x 2 rows; crop, foreground bounds, contain 800x480 WebP. No perspective synthesis.",
-    "limits": "Six discrete CG views, not a photogrammetry scan or exact licensed manufacturer model."
-  },
-  {
     "id": "CAR21",
     "tool": "Built-in GPT Image",
     "generatedFile": "exec-cadc2675-773f-458a-b884-9aed9d159e1e.png",

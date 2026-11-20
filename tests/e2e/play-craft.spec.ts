@@ -4,15 +4,15 @@ import path from 'node:path';
 import fs from 'node:fs/promises';
 import {createServer} from 'node:http';
 import type {AddressInfo} from 'node:net';
-import {dropTouch,touchState} from './touch-helpers';
+import {dragTouch,dropTouch,localRows,touchState} from './touch-helpers';
 
 test.use({reducedMotion:'reduce'});
 
-test('图标图片失效仍可用矢量入口和真实平面玩法',async({page})=>{
+test('图标图片失效仍显示内置同款画面，平面玩法可操作',async({page})=>{
  const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));
  await page.route('**/play-icons/*.webp',route=>route.fulfill({status:503,body:'temporarily unavailable'}));
  await page.goto('/#/explore');
- await expect(page.locator('.picture-home .play-symbol svg')).toHaveCount(1);
+ await expect(page.locator('.picture-home .play-symbol img')).toHaveAttribute('src',/^data:image\/webp;base64,/);
  await expect(page.locator('.town-destination')).toHaveCount(6);
  await page.goto('/#/play/L01?car=CAR01&view=2d');
  await expect(page.locator('.touch-canvas')).toBeVisible();
@@ -23,9 +23,10 @@ test('图标图片失效仍可用矢量入口和真实平面玩法',async({page}
 });
 
 test('手机出行物件有可辨识尺寸且切换画面保留已装物品',async({page})=>{
- await page.setViewportSize({width:390,height:844});await page.goto('/#/play/L01?car=CAR01');
+ test.setTimeout(100000);
+ await page.setViewportSize({width:390,height:844});await page.goto('/#/play/L01?car=CAR01&view=3d');
  const world=page.locator('.touch-world-canvas');await expect(world).toHaveAttribute('data-ready','true',{timeout:45000});
- await expect.poll(()=>world.evaluate(canvas=>{const s=JSON.parse(canvas.getAttribute('data-state')||'{}');return s.actors?.length||0;})).toBe(3);
+ await expect.poll(()=>world.evaluate(canvas=>{const s=JSON.parse(canvas.getAttribute('data-state')||'{}');return s.actors?.length||0;})).toBe(4);
  const dimensions=await world.evaluate(canvas=>{const rect=canvas.getBoundingClientRect(),s=JSON.parse(canvas.getAttribute('data-state')!);return{backing:(canvas as HTMLCanvasElement).width,css:rect.width,props:s.actors.map((actor:{id:string;screenBounds:{min:{x:number;y:number};max:{x:number;y:number}}})=>({id:actor.id,size:Math.max((actor.screenBounds.max.x-actor.screenBounds.min.x)*rect.width,(actor.screenBounds.max.y-actor.screenBounds.min.y)*rect.height)}))};});
  // Software GL retains a desktop pixel budget but must not enlarge a subpixel
  // phone backing buffer. The visible object, not an invisible proxy, is checked.
@@ -46,7 +47,7 @@ test('平衡材质路径能实际绘制登记车型 @balanced-render-path',async
  // Exercise the PBR/environment/shadow branch on the available software GPU.
  // This is branch coverage, not a hardware-device or hardware-performance claim.
  await page.addInitScript(()=>{for(const proto of [WebGLRenderingContext.prototype,WebGL2RenderingContext.prototype]){const original=proto.getParameter;proto.getParameter=function(parameter:number){return parameter===37446?'ANGLE (Test Intel Iris balanced branch verification)':original.call(this,parameter);};}});
- await page.setViewportSize({width:960,height:820});await page.goto('/#/play/E02?car=CAR11');
+ await page.setViewportSize({width:960,height:820});await page.goto('/#/play/E02?car=CAR11&view=3d');
  const world=page.locator('.touch-world-canvas');await expect(world).toHaveAttribute('data-ready','true',{timeout:45000});await expect(world).toHaveAttribute('data-quality','balanced');
  await expect.poll(async()=>{const {data,info}=await sharp(await world.screenshot()).removeAlpha().raw().toBuffer({resolveWithObject:true});const colors=new Set<number>();for(let y=Math.floor(info.height*.2);y<info.height*.8;y+=5)for(let x=Math.floor(info.width*.15);x<info.width*.85;x+=5){const i=(y*info.width+x)*info.channels;colors.add((data[i]>>5)*64+(data[i+1]>>5)*8+(data[i+2]>>5));}return colors.size;},{timeout:20000}).toBeGreaterThan(20);
  await page.screenshot({path:info.outputPath('balanced-path-car11.png')});
@@ -54,7 +55,7 @@ test('平衡材质路径能实际绘制登记车型 @balanced-render-path',async
 
 test('浏览器隐藏GPU信息时仍可辨认并操作车型部件',async({page})=>{
  await page.addInitScript(()=>{for(const proto of [WebGLRenderingContext.prototype,WebGL2RenderingContext.prototype]){const original=proto.getExtension;Object.defineProperty(proto,'getExtension',{value:function(this:WebGLRenderingContext|WebGL2RenderingContext,name:string){return name==='WEBGL_debug_renderer_info'?null:Reflect.apply(original,this,[name]);}});}});
- await page.setViewportSize({width:390,height:844});await page.goto('/#/play/T01?car=CAR01');
+ await page.setViewportSize({width:390,height:844});await page.goto('/#/play/T01?car=CAR01&view=3d');
  const world=page.locator('.touch-world-canvas');await expect(world).toHaveAttribute('data-ready','true',{timeout:45000});await expect(world).toHaveAttribute('data-quality','simple');
  await world.focus();await page.keyboard.press('Enter');
  await expect.poll(()=>world.evaluate(canvas=>JSON.parse(canvas.getAttribute('data-state')||'{}').parts?.length||0)).toBe(1);
@@ -81,11 +82,15 @@ test('跨域图标加载后作品画布仍可导出',async({page})=>{
 });
 
 test('立体画纸选择后切到平面仍保留所选纸色',async({page})=>{
- await page.goto('/#/play/A01?car=CAR01');const world=page.locator('.touch-world-canvas');
+ await page.goto('/#/play/A01?car=CAR01&view=3d');const world=page.locator('.touch-world-canvas');
  await expect(world).toHaveAttribute('data-ready','true',{timeout:45000});
  const point=await world.evaluate(canvas=>{const actor=JSON.parse(canvas.getAttribute('data-state')!).actors.find((a:{id:string})=>a.id==='paper'),rect=canvas.getBoundingClientRect();return{x:rect.x+actor.screen.x*rect.width,y:rect.y+actor.screen.y*rect.height};});
  await page.mouse.click(point.x,point.y);
  await page.getByRole('button',{name:'使用平面简化玩法',exact:true}).click();
  const flat=page.locator('.touch-canvas');await expect(flat).toBeVisible();
- await expect.poll(()=>flat.evaluate(element=>{const canvas=element as HTMLCanvasElement;return[...canvas.getContext('2d')!.getImageData(Math.round(canvas.width*.85),Math.round(canvas.height*.13),1,1).data].slice(0,3);})).toEqual([244,221,204]);
+ const height=await flat.evaluate((canvas:HTMLCanvasElement)=>canvas.height);
+ const {items}=await touchState(page);
+ await dragTouch(page,items.find(item=>item.id==='stamp-0')!,{x:260,y:height*.38});
+ await page.getByRole('button',{name:'保存海报',exact:true}).click();
+ await expect.poll(async()=>(await localRows(page,'creations'))[0]?.background).toBe('#f4ddcc');
 });

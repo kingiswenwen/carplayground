@@ -353,5 +353,213 @@
       }
     ],
     "teachingBoundary": "Story illustration is separate from playable targets; no activity rule is inferred from generated art."
+  },
+  {
+    "tool": "Built-in GPT Image",
+    "sourceFile": "exec-11575138-b05e-4b37-8377-4a53af5c59b1.png",
+    "sourceSha256": "d9d76b46ef51cf382b91441997037b8746b5d8ff134eea726a5405f89835dd6a",
+    "prompt": "Create a single wide landscape environment background asset, aim 1536 wide by 1024 or wider. We will later composite a large actual interactive 3D car at the center. This is the empty glass car showroom interior of the original Chinese CarPlayground miniature educational town. The two local references set the visual world: use the bright vibrant warm touchable layered paper, wood grain and handmade construction of the river image, and the softly daylit boutique architectural vocabulary of the story; ignore all UI and any cars in the references. Camera centered front-on looking slightly down, eye height roughly that of the car, no exaggerated perspective. Large arch windows with muted sage mullions across the rear, paper-cut trees and distant warm cream town outside, small shelves and a potted plant only at far side edges. The lower half is an uninterrupted neutral light warm beige woodwork showroom floor with fine matte texture. A very broad inset oval warm wood display deck nearly flush to floor, centered near x 50% y 67%: leave the entire central 65% width free of structures and foreground obstacles, no objects on platform and no foreground framing. Plan a centered square crop and a centered 3:1 crop to retain an attractive main stage with room for a car. Ground of platform should appear quiet, low contrast, very light, and soft shadow to left. Sunlight from upper left, art directed contact shadows, dimensional laminated pockets, offset stacked paper edges with visible fiber, gently rounded shapes. Beautiful high-end stop-motion children's storybook diorama with tactile layered cardboard and sculptural paper, elegant soft lighting, vibrant green and warm ochre only as accents at edges. Handcrafted surface, no glossy 3D CGI or flat cartoon. No car, no people, no logos, absolutely no writing, no graphics, no interface, no frame, no watermark. Show exactly one coherent room, edge to edge.",
+    "reference": [
+      "T02 illustrated bridge in play",
+      "ST01 parking story illustration"
+    ],
+    "outputs": [
+      {
+        "path": "media/town/display-room.webp",
+        "purpose": "Background for the interactive model and its image fallback in the showroom and vehicle detail",
+        "sha256": "1a64600b837e725924ee8248c36d67335684b72f6aeb0abe9c2c8c1c4c0e1a49",
+        "width": 1440,
+        "height": 960
+      }
+    ]
+  },
+  {
+    "tool": "Built-in GPT Image",
+    "sourceFile": "exec-ab073fc5-8f22-4a4f-8b4b-6eaa2b8c5b40.png",
+    "sourceSha256": "bfc87c3606b657a6ae6e53b5d10c9ae3443d8b9b4c1c59ae144cac4569a33aa3",
+    "prompt": "Create a landscape 3:2 contact sheet of FOUR separate small horizontal illustrated scenes in an EXACT 2 column by 2 row grid, no border, no gutters. Each quadrant is its own full-bleed scene, assigned exactly as below. This is asset production for CarPlayground and will be sliced into four 768x512-ish images. Keep each main subject centered with a 12% margin to its quadrant edges and concentrate important objects within the central 60% vertical because each will also be cropped as a wide banner. Use the two supplied screenshots purely as reference for the world: reproduce the colorful, rich fibrous cut-paper, wood texture, warm dimensional shadows and tiny handcrafted diorama artistry found in the bridge scene, with the miniature architectural language of the picture story. Ignore screenshot interface, lettering and layout. Upper left: inviting little cream and sage wooden garage with an open terracotta garage door centered; inside an empty parking spot, honey wood shelving, red jack and clean tires at the sides, quiet ivy and late morning sun; NO CARS. Upper right: a warm honey-wood studio tabletop, blank tall pale cream postcard, orange watercolor basin, paintbrush, small paper leaf and star stickers in wooden tray, no image or marks on paper; visually rich but organized. Lower left: inviting small-scale companion's guide with one open, completely blank linen-bound notebook at center and deep green ribbon, two chunky painted pencils and a pressed sage leaf upon a warm light cork board; viewed in isometric three-quarter overhead. Lower right: follow the theme with a top-down handmade parking stall made of thick pale sage card on a wood board; one very simple cream painted parking bay center, subtle warm contact shadow, no cone or objects in center because a genuine vehicle image will be composited over; nothing written. Background shades cream, sage, terracotta, painted natural oak, quiet turquoise if needed. Hand-built relief paper craft, finely controlled details, no computer vector look, physical shadows and warm afternoon highlights. Absolutely no text, no lettering, no emoji, no logo, no borders or user interface. Each quadrant must be distinct and separated at the exactly centered grid seams.",
+    "reference": [
+      "T02 illustrated bridge in play",
+      "ST01 parking story illustration"
+    ],
+    "outputs": [
+      {
+        "path": "media/town/garage-home.webp",
+        "purpose": "Garage entrance artwork",
+        "crop": [
+          2,
+          2,
+          764,
+          508
+        ],
+        "sha256": "7f97156bf55fe50b6b414bf7215f86bdf60220c2d2c53b87f285c3ebf81ed624",
+        "width": 764,
+        "height": 508
+      },
+      {
+        "path": "media/town/creation-desk.webp",
+        "purpose": "Artwork shelf heading",
+        "crop": [
+          770,
+          2,
+          764,
+          508
+        ],
+        "sha256": "16e55aa408ec05dae5702df29d73629209d58db247dc1feaec47c06b8bac8138",
+        "width": 660,
+        "height": 439
+      },
+      {
+        "path": "media/town/guide-notebook.webp",
+        "purpose": "Parent page heading",
+        "crop": [
+          2,
+          514,
+          764,
+          508
+        ],
+        "sha256": "1985517654311a9682d609503d8af583051f0d3569e9c6973dc108cb2791976a",
+        "width": 764,
+        "height": 508
+      },
+      {
+        "path": "media/town/vehicle-bay.webp",
+        "purpose": "Car swatch background behind the corresponding model preview in the car catalogue and garage",
+        "crop": [
+          770,
+          514,
+          764,
+          508
+        ],
+        "sha256": "b8a147ba0cced42964ce994f802e0642c0ddc7c1e2e3519fef779f9452fda2b2",
+        "width": 450,
+        "height": 299
+      }
+    ]
+  },
+  {
+    "tool": "Built-in GPT Image",
+    "sourceFile": "exec-19108352-3d80-4e58-aa29-884390816b06.png",
+    "sourceSha256": "610306c33f60089bd7e77b5bb534e2e87a11ffd8512deba68a035a7fff267ffd",
+    "prompt": "A square 3 by 3 grid material atlas for a genuinely handcrafted paper and wood miniature car town. Exactly NINE full-bleed distinct texture swatches in exact equal square cells with no divider. Each tile depicts ONLY the solid surface straight down as a uniform repeatable raw material; no objects, visible light direction, landmarks, lines, numbers or perspective. The referenced screenshot sets the warm tactile cut-paper craft style. Row 1 left to right: dense quiet cream warm rough paper fiber surface, natural golden oak tightly grained surface, muted teal-blue river water tightly repeating short pale curved ripples across the surface. Row 2: soft leafy moss green flat paper turf with subtle speckle, desaturated midnight slate blue asphalt paper fleck without any lane lines, warm tan dusty trail paper granular texture. Row 3: pale mint watercolor paper with visibly matte subtle fibers, warm gray linen driveway cement lightly flecked, coral clay-paper roof tile material but with no actual tile divisions. All materials moderately textured at mini scale, true hues with natural rich but restrained variation, no seams inside a cell, fully matte flat illumination so that a game can light them itself. Full-bleed high resolution, no text or printed graphics. The pale surfaces must remain neutral enough for contrasting colored props.",
+    "outputs": [
+      {
+        "path": "media/town-materials/paper.webp",
+        "purpose": "Paper backdrop and craft surface",
+        "crop": [
+          4,
+          4,
+          410,
+          410
+        ],
+        "sha256": "4623bb4f972dee7cb4b6cf920614a58d3ecb7f8d3c975ed6c531f334a342bdfb",
+        "width": 352,
+        "height": 352
+      },
+      {
+        "path": "media/town-materials/wood.webp",
+        "purpose": "Wood floor, bridges, and worktops",
+        "crop": [
+          422,
+          4,
+          410,
+          410
+        ],
+        "sha256": "eeb8346aa6c7e71996e8b9de43e6d35cfc857cb0e24f29e6a7a4c5462e265a72",
+        "width": 352,
+        "height": 352
+      },
+      {
+        "path": "media/town-materials/water.webp",
+        "purpose": "Bridge river surface",
+        "crop": [
+          840,
+          4,
+          410,
+          410
+        ],
+        "sha256": "c06f359ceef10d04f09f8deb59aee114481ef0d431bd307d0eaec6b509383781",
+        "width": 352,
+        "height": 352
+      },
+      {
+        "path": "media/town-materials/turf.webp",
+        "purpose": "Grass beside paths and bridge",
+        "crop": [
+          4,
+          422,
+          410,
+          410
+        ],
+        "sha256": "8a7288c95050a2b829d9813003c0b39dd90a7182f3b6054277ffa7f1d6d79ed8",
+        "width": 352,
+        "height": 352
+      },
+      {
+        "path": "media/town-materials/road.webp",
+        "purpose": "Road and demonstration surface",
+        "crop": [
+          422,
+          422,
+          410,
+          410
+        ],
+        "sha256": "f94b81cfb659c0e5c9400a3e844260d6794787bd34a30b87f5903adb17796fee",
+        "width": 352,
+        "height": 352
+      },
+      {
+        "path": "media/town-materials/sand.webp",
+        "purpose": "Path to the bridge and rough demonstration surface",
+        "crop": [
+          840,
+          422,
+          410,
+          410
+        ],
+        "sha256": "6cceb20b02b0a9373fb59a3842c1084f831cb3ff7b79ca464be66143cc5d32b8",
+        "width": 352,
+        "height": 352
+      },
+      {
+        "path": "media/town-materials/mint.webp",
+        "purpose": "Wash and showroom structures",
+        "crop": [
+          4,
+          840,
+          410,
+          410
+        ],
+        "sha256": "fc25714f66b73e87ef2d8970ffce2de90965378225e526afee02e739b593fe39",
+        "width": 352,
+        "height": 352
+      },
+      {
+        "path": "media/town-materials/stone.webp",
+        "purpose": "Parking and stone piers",
+        "crop": [
+          422,
+          840,
+          410,
+          410
+        ],
+        "sha256": "0d1f58a1b03d7e06ff625ae6369d959e68390a341cc34e798a072c8b516dd4d6",
+        "width": 352,
+        "height": 352
+      },
+      {
+        "path": "media/town-materials/coral.webp",
+        "purpose": "Small roof and workshop trim",
+        "crop": [
+          840,
+          840,
+          410,
+          410
+        ],
+        "sha256": "65dd2fd2f107aaa0407e391f827e04245be919164267f0debd97e8ad68aa6f79",
+        "width": 352,
+        "height": 352
+      }
+    ]
   }
 ]

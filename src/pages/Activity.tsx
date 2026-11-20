@@ -1,6 +1,6 @@
 import { SceneArt } from '../components/SceneArt';
 import { lazy, Suspense, useCallback, useEffect, useRef, useState } from 'react';
-import { CircleHelp, RotateCcw, Volume2, ArrowLeft, ArrowRight, Check, Play, MousePointer2 } from 'lucide-react';
+import { CircleHelp, RotateCcw, Volume2, ArrowLeft, ArrowRight, Check, Play, MousePointer2 } from '../components/TownIcons';
 import { CarImage } from '../components/CarImage';
 import { colors, colorNames, content, getActivity, type CoreActivityId, type Color, type Part } from '../domain/content';
 import { colorOptions, createParking, parkedCount, parkingComplete, placeCar } from '../domain/parking';

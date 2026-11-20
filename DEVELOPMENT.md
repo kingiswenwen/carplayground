@@ -42,7 +42,7 @@ Python 音频处理测试需要 FFmpeg。浏览器模拟结果不代表真机实
 
 所有开发提交和推送都在 `dev` 进行，不创建临时、功能或修复分支。需要审查发布内容时，直接使用 `dev` → `main` 的 Pull Request。
 
-CI 在 `dev` 已有面向 `main` 的 PR 时由 PR 执行完整检查，避免同一提交重复跑 push 检查；没有 PR 时仍检查 `dev` push。每次更新会取消同一来源的旧检查，生产部署继续串行执行。浏览器阶段分别显示 Firefox WebGL、严格玩法、收藏持久化、图片回退、滚动回归和全量覆盖；失败工件保存各阶段独立报告及 trace 14 天。
+CI 在 `dev` 已有面向 `main` 的 PR 时由 PR 执行完整检查，避免同一提交重复跑 push 检查；没有 PR 时仍检查 `dev` push。每次更新会取消同一来源的旧检查，生产部署继续串行执行。Chromium 全量检查分成六组，在同一个发布包上并行运行。核心检查和六组浏览器用例全部通过后，合并检查才会通过。失败工件保存各阶段独立报告及 trace 14 天。
 
 COS 与 CDN 的临时网络故障、408/429/500/502/503/504 最多尝试 4 次并退避等待。不可变文件可以用相同字节重试上传，根 `index.html` 发布写入不自动重放；权限、证书、版本冲突和内容校验失败会直接阻止发布。COS 日志和回执只保留脱敏的状态码、错误码与请求编号，不打印 SDK 原始异常中的签名请求。部署并发为 8，完整资源与 CDN 校验完成后才切换入口。
 
@@ -62,11 +62,11 @@ COS 与 CDN 的临时网络故障、408/429/500/502/503/504 最多尝试 4 次�
 - `scripts/`：校验、素材处理和通用发布工具。
 - `tests/`：单元、发布工具和浏览器测试。
 
-车型扩充按 `docs/CATALOG_WORKFLOW.md` 执行：先核对真实量产车型及系列别名，再核对独立 GLB 的作者、许可和实际外观。当前 106 款立体车使用登记来源的独立模型；GPT Image 负责车辆插画，不直接输出这些 GLB。
+车型扩充按 `docs/CATALOG_WORKFLOW.md` 执行：先核对真实量产车型及系列别名，再核对独立 GLB 的作者、许可和实际外观。当前 102 款立体车使用登记来源的独立模型；GPT Image 负责车辆插画，不直接输出这些 GLB。
 
 新增目录插画的图集、提示词、图帧及哈希记录在 `content/catalog-illustrations.json`。`node scripts/prepare-catalog-illustrations.mjs <本机图集索引.json>` 将经过检查的 GPT 图集裁成透明 WebP。玩法继续使用从同车型模型渲染的侧视、俯视图及登记轮位，避免插画换图后点击位置失准。
 
-保留的 24 款 GPT 六角度图与玩具侧视/俯视图的生成记录分别保留在 `content/car-turnarounds-production.json`、`content/play-cars-production.json`。来源索引中的本机绝对路径不进入公开记录。
+保留的 23 款 GPT 六角度图与玩具侧视/俯视图的生成记录分别保留在 `content/car-turnarounds-production.json`、`content/play-cars-production.json`。来源索引中的本机绝对路径不进入公开记录。
 
 素材来源与署名保留在 `content/photo-sources.json`、`content/photo-view-sources.json` 等清单中。素材的许可范围需分别核对；声音听审与分发依据仍待确认。
 
@@ -82,7 +82,7 @@ COS 与 CDN 的临时网络故障、408/429/500/502/503/504 最多尝试 4 次�
 
 旧测试截图已统一使用 Playwright 当前测试输出路径，请为每批传独立 `--output`，不写回旧历史目录。新增内容阶段、洗车/轮印连续性在 CI 中增加 Firefox 代表性回归。
 
-选车与详情查看器的换色选择独立记录在 `content/viewer-paints.json`，保留来源模型、贴图与哈希；语义材质按车身映射，单张图集按颜色与轮位遮罩换色，支持标准光照与无光照材质。还原按钮关闭着色并恢复原材质参数。查看器支持换色不代表玩法模型能准确识别目标色，不能因此修改 `vehicle-models.json` 的 `paintMaterials` 资格。`tests/e2e/showroom-updates.spec.ts` 在Chromium逐车比较106款模型的红蓝实际像素，而非只断言按钮状态；`VIEWER_PAINT_IDS` 可在本地复核指定车型，CI默认检查全量。
+选车与详情查看器的换色选择独立记录在 `content/viewer-paints.json`，保留来源模型、贴图与哈希；语义材质按车身映射，单张图集按颜色与轮位遮罩换色，支持标准光照与无光照材质。还原按钮关闭着色并恢复原材质参数。查看器支持换色不代表玩法模型能准确识别目标色，不能因此修改 `vehicle-models.json` 的 `paintMaterials` 资格。`tests/e2e/showroom-updates.spec.ts` 在Chromium逐车比较102款模型的红蓝实际像素，而非只断言按钮状态；`VIEWER_PAINT_IDS` 可在本地复核指定车型，CI默认检查全量。
 
 选车缩略图和加载占位统一使用 `vehiclePreview` 选择对应独立模型的已登记前左渲染图，不把插画当作模型预览。切换同步隐藏/清除旧画布，加载图片按车型重新挂载，实际绘制后才显示画布。品牌与发源地的 `CatalogueSelect` 使用可搜索的自定义面板，支持方向键、Escape、Tab和视口内定位。
 
@@ -112,6 +112,6 @@ COS 与 CDN 的临时网络故障、408/429/500/502/503/504 最多尝试 4 次�
 
 字体属于登记媒体，通过FontFace和`assetUrl`使用版本/CDN媒体前缀；不要在CSS中硬编码未版本化的字体根路径。发布包支持登记的WOFF，仍校验完整文件SHA-256、MIME和不可变缓存。
 
-玩法的33个主要物件图标也通过`assetUrl`使用不可变媒体路径。`node scripts/prepare-play-icons.mjs <透明图集> primary|secondary|cart`保留原图、机械裁切并更新文件哈希与来源。DOM加载失败退回SVG，Canvas解码失败也使用本地矢量；3D物件通过`symbolName`共用语义，不能把喷头和水瓶、手推车和包裹合成一个类别。
+导航、控件和玩法道具共用 89 个图标，通过 `assetUrl` 使用不可变媒体路径。`node scripts/prepare-play-icons.mjs <图集索引.json>` 按索引里的网格和名称裁切透明图集，同步更新文件哈希、来源和内置预览。DOM 和 Canvas 遇到图标加载失败时显示同款的内置 WebP 小图。3D 物件通过 `symbolName` 共用语义，保留喷头、水瓶、手推车和包裹的各自图案。
 
 `src/three/play-props.ts`只提供表现网格，归一化不能改变TouchBoard的尺寸、颜色、数量或接受规则。未知GPU走保守路径；软件长边约720像素的预算保留手机1倍逻辑像素上限，普通已识别GPU可使用有限环境图。`PLAY_COVER_BALANCED=1 node scripts/capture-town-covers.mjs`可在无头软件GL中覆盖平衡着色路径；生成记录明确区分路径覆盖和真实硬件验收。

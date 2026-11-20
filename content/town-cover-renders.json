@@ -2,15 +2,14 @@
   {
     "activityId": "E01",
     "path": "media/town/activity-E01.webp",
-    "sha256": "7ba690bf9a5224e02b58ab249ce3a2a12c92a3c0b5a0b5a19942304069f11f67",
+    "sha256": "d1e7c1edeed670cb54f778e35bf09d83087066f3eb5a14503878bbf62f7d1349",
     "carId": "CAR01",
-    "presentation": "three",
-    "rendererQuality": "balanced",
-    "captureProfile": "balanced shaders on headless software GL",
+    "presentation": "flat",
+    "captureProfile": "illustrated gameplay",
     "gestures": [],
     "goal": "观察颜色，理解 red / blue / white",
     "mode": "closed",
-    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "source": "TouchBoard shared rule engine with authored backgrounds, object layers and original teaching colours",
     "viewport": {
       "width": 1280,
       "height": 1000
@@ -20,15 +19,14 @@
   {
     "activityId": "E02",
     "path": "media/town/activity-E02.webp",
-    "sha256": "cabbb728f8f4ffa80104b6623aa5f0cdfeed1e4724f3fa14d905ae2ee3863265",
+    "sha256": "2fdfe86127a4df78f86e36725996038c49f3dbc5c6e5a63ae481401e7ff6ae22",
     "carId": "CAR01",
-    "presentation": "three",
-    "rendererQuality": "balanced",
-    "captureProfile": "balanced shaders on headless software GL",
+    "presentation": "flat",
+    "captureProfile": "illustrated gameplay",
     "gestures": [],
     "goal": "点实物部件，观察车轮、车门和车灯的作用",
     "mode": "closed",
-    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "source": "TouchBoard shared rule engine with authored backgrounds, object layers and original teaching colours",
     "viewport": {
       "width": 1280,
       "height": 1000
@@ -38,15 +36,14 @@
   {
     "activityId": "E03",
     "path": "media/town/activity-E03.webp",
-    "sha256": "83c94e85630a779bd156951e417801d257a9c9bea12e6cf0f4d9e27829bd6a4d",
+    "sha256": "0f3a5b062d00ab9829178759c3f0801398e54608df944220d7aca0726103d254",
     "carId": "CAR01",
-    "presentation": "three",
-    "rendererQuality": "balanced",
-    "captureProfile": "balanced shaders on headless software GL",
+    "presentation": "flat",
+    "captureProfile": "illustrated gameplay",
     "gestures": [],
     "goal": "观察红绿灯与出发、停止的对应",
     "mode": "closed",
-    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "source": "TouchBoard shared rule engine with authored backgrounds, object layers and original teaching colours",
     "viewport": {
       "width": 1280,
       "height": 1000
@@ -56,15 +53,27 @@
   {
     "activityId": "M01",
     "path": "media/town/activity-M01.webp",
-    "sha256": "c693a1e6d906d2a352aff3153bd8aa065c58cce5623d101bf876443a8e6f9837",
+    "sha256": "4356680f78c988c8f4a6509ab4eced00f858ab0da04ec1f440f12832994b216d",
     "carId": "CAR01",
-    "presentation": "three",
-    "rendererQuality": "balanced",
-    "captureProfile": "balanced shaders on headless software GL",
-    "gestures": [],
+    "presentation": "flat",
+    "captureProfile": "illustrated gameplay",
+    "gestures": [
+      {
+        "id": "car-0",
+        "from": {
+          "x": 280,
+          "y": 149.6
+        },
+        "to": {
+          "x": 280,
+          "y": 442
+        },
+        "action": "real pointer drag"
+      }
+    ],
     "goal": "一辆车对应一个位置",
     "mode": "closed",
-    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "source": "TouchBoard shared rule engine with authored backgrounds, object layers and original teaching colours",
     "viewport": {
       "width": 1280,
       "height": 1000
@@ -74,15 +83,14 @@
   {
     "activityId": "M02",
     "path": "media/town/activity-M02.webp",
-    "sha256": "55292bcd6673e45c50e2e92ed5b082b26e7a5921757081d3a71989751e463dba",
+    "sha256": "60420dd040cc8f2a05cc8b0c39dc147302fc7335686b708f4734bfb252c11013",
     "carId": "CAR01",
-    "presentation": "three",
-    "rendererQuality": "balanced",
-    "captureProfile": "balanced shaders on headless software GL",
+    "presentation": "flat",
+    "captureProfile": "illustrated gameplay",
     "gestures": [],
     "goal": "观察数量与分合",
     "mode": "closed",
-    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "source": "TouchBoard shared rule engine with authored backgrounds, object layers and original teaching colours",
     "viewport": {
       "width": 1280,
       "height": 1000
@@ -92,15 +100,14 @@
   {
     "activityId": "M03",
     "path": "media/town/activity-M03.webp",
-    "sha256": "13d4b75ff8e25a5d585baa6dbaed973e21bf4ad8d11681d473058e3e3b7c3b30",
+    "sha256": "db4e0dd18e33f80c9c15bac5bc9b3e2ea60dee428e10cb842e0be8ad8abc2a57",
     "carId": "CAR01",
-    "presentation": "three",
-    "rendererQuality": "balanced",
-    "captureProfile": "balanced shaders on headless software GL",
+    "presentation": "flat",
+    "captureProfile": "illustrated gameplay",
     "gestures": [],
     "goal": "三辆车配四个车位，观察停好后仍有空位",
     "mode": "closed",
-    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "source": "TouchBoard shared rule engine with authored backgrounds, object layers and original teaching colours",
     "viewport": {
       "width": 1280,
       "height": 1000
@@ -110,15 +117,14 @@
   {
     "activityId": "M04",
     "path": "media/town/activity-M04.webp",
-    "sha256": "83d4aded1424b5d6edf49241997cb1e96601ada32444e4d312bcf8d9307ae725",
+    "sha256": "38d00cf0e9a94570d5a01f835a07398b51ee6dc35aa2b96c8bd0a059de85c032",
     "carId": "CAR01",
-    "presentation": "three",
-    "rendererQuality": "balanced",
-    "captureProfile": "balanced shaders on headless software GL",
+    "presentation": "flat",
+    "captureProfile": "illustrated gameplay",
     "gestures": [],
     "goal": "发现并延续重复规律",
     "mode": "closed",
-    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "source": "TouchBoard shared rule engine with authored backgrounds, object layers and original teaching colours",
     "viewport": {
       "width": 1280,
       "height": 1000
@@ -128,15 +134,14 @@
   {
     "activityId": "C01",
     "path": "media/town/activity-C01.webp",
-    "sha256": "2a0c35e82cb7ddb84edcdfde2999b5c2d71efa8698a383774253edc878ca473b",
+    "sha256": "1db857a53fb8b8f5e27716039c74702466d0bcc2459fc0e4271274de22d80753",
     "carId": "CAR01",
-    "presentation": "three",
-    "rendererQuality": "balanced",
-    "captureProfile": "balanced shaders on headless software GL",
+    "presentation": "flat",
+    "captureProfile": "illustrated gameplay",
     "gestures": [],
     "goal": "自由布景与可选亲子描述；只记录参与，不自动评判表达",
     "mode": "open",
-    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "source": "TouchBoard shared rule engine with authored backgrounds, object layers and original teaching colours",
     "viewport": {
       "width": 1280,
       "height": 1000
@@ -146,15 +151,14 @@
   {
     "activityId": "C02",
     "path": "media/town/activity-C02.webp",
-    "sha256": "4047c052d2e7cb89d3fd7ecd219e1148bcd07b545d0e0008da57f91ea3d45086",
+    "sha256": "b7fa6debdbf267f5c15e171322630a2036e0a2f8a0e5bd3f9b35dcc296a5a227",
     "carId": "CAR01",
-    "presentation": "three",
-    "rendererQuality": "balanced",
-    "captureProfile": "balanced shaders on headless software GL",
+    "presentation": "flat",
+    "captureProfile": "illustrated gameplay",
     "gestures": [],
     "goal": "理解顺序并尝试讲述过程",
     "mode": "closed",
-    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "source": "TouchBoard shared rule engine with authored backgrounds, object layers and original teaching colours",
     "viewport": {
       "width": 1280,
       "height": 1000
@@ -164,17 +168,16 @@
   {
     "activityId": "C03",
     "path": "media/town/activity-C03.webp",
-    "sha256": "673418d7713a1ba427042d50285d8d63d4e6fade24902b20ab5ecf80c258a27c",
+    "sha256": "168024c5d4f0385e0ec0ec41887ec91bfdd8ae3cd0ced4eed61d0497e2bf53d2",
     "carId": "CAR01",
     "presentation": "flat",
-    "rendererQuality": "flat",
-    "captureProfile": "balanced shaders on headless software GL",
+    "captureProfile": "illustrated gameplay",
     "gestures": [
       {
         "id": "my-car",
         "from": {
-          "x": 500,
-          "y": 367.20000000000005
+          "x": 246,
+          "y": 387.59999999999997
         },
         "to": {
           "x": 300,
@@ -185,8 +188,8 @@
       {
         "id": "stamp-0",
         "from": {
-          "x": 200,
-          "y": 578
+          "x": 181,
+          "y": 571.1999999999999
         },
         "to": {
           "x": 770,
@@ -197,8 +200,8 @@
       {
         "id": "stamp-1",
         "from": {
-          "x": 500,
-          "y": 578
+          "x": 501,
+          "y": 571.1999999999999
         },
         "to": {
           "x": 730,
@@ -209,8 +212,8 @@
       {
         "id": "stamp-2",
         "from": {
-          "x": 800,
-          "y": 578
+          "x": 821,
+          "y": 571.1999999999999
         },
         "to": {
           "x": 220,
@@ -221,7 +224,7 @@
     ],
     "goal": "自由编排场景与可选讲述；不自动判断连贯表达",
     "mode": "open",
-    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "source": "TouchBoard shared rule engine with authored backgrounds, object layers and original teaching colours",
     "viewport": {
       "width": 1280,
       "height": 1000
@@ -231,15 +234,14 @@
   {
     "activityId": "S01",
     "path": "media/town/activity-S01.webp",
-    "sha256": "069f8f8b9c0f22ec0064707b67638b325c7a4336ff51338ae422211cd0169e84",
+    "sha256": "fe956cbd14c12418cbe22edf7582ba0a357c750b6cd509843075ba05817d2a42",
     "carId": "CAR01",
-    "presentation": "three",
-    "rendererQuality": "balanced",
-    "captureProfile": "balanced shaders on headless software GL",
+    "presentation": "flat",
+    "captureProfile": "illustrated gameplay",
     "gestures": [],
     "goal": "先预测，再观察和比较",
     "mode": "open",
-    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "source": "TouchBoard shared rule engine with authored backgrounds, object layers and original teaching colours",
     "viewport": {
       "width": 1280,
       "height": 1000
@@ -249,15 +251,14 @@
   {
     "activityId": "S02",
     "path": "media/town/activity-S02.webp",
-    "sha256": "3becf43eefd4befe9a08bafaa9058c92149ccef794b64b8e92e76e7be41afe18",
+    "sha256": "e94ab871f0c395e6593f41188058ccd2b792dc6207545928fc5c34218a22ad70",
     "carId": "CAR01",
-    "presentation": "three",
-    "rendererQuality": "balanced",
-    "captureProfile": "balanced shaders on headless software GL",
+    "presentation": "flat",
+    "captureProfile": "illustrated gameplay",
     "gestures": [],
     "goal": "改变光源位置，观察影子方向",
     "mode": "open",
-    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "source": "TouchBoard shared rule engine with authored backgrounds, object layers and original teaching colours",
     "viewport": {
       "width": 1280,
       "height": 1000
@@ -267,15 +268,14 @@
   {
     "activityId": "S03",
     "path": "media/town/activity-S03.webp",
-    "sha256": "d15777abeb9067ffc0f514969d052a912c78aec617fad51dd76ff6bf02e71937",
+    "sha256": "8ceb2f1da6130efd50a95e1d0f14d5fa6fa949ab36051c53e517228e2e62502d",
     "carId": "CAR01",
-    "presentation": "three",
-    "rendererQuality": "balanced",
-    "captureProfile": "balanced shaders on headless software GL",
+    "presentation": "flat",
+    "captureProfile": "illustrated gameplay",
     "gestures": [],
-    "goal": "根据下雨情境选雨伞和外套，观察防雨用途",
+    "goal": "用相同的雨滴试两种准备方式，观察纸卡的干湿",
     "mode": "closed",
-    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "source": "TouchBoard shared rule engine with authored backgrounds, object layers and original teaching colours",
     "viewport": {
       "width": 1280,
       "height": 1000
@@ -285,15 +285,14 @@
   {
     "activityId": "T01",
     "path": "media/town/activity-T01.webp",
-    "sha256": "2471658e04062e179f75a85005201c1733e0804d83ef681b80608388a785ca0c",
+    "sha256": "9f07e317aa559f08ef3c5f7331df8c245e892b4add7d90cd7b97175aa9345ca0",
     "carId": "CAR01",
-    "presentation": "three",
-    "rendererQuality": "balanced",
-    "captureProfile": "balanced shaders on headless software GL",
+    "presentation": "flat",
+    "captureProfile": "illustrated gameplay",
     "gestures": [],
     "goal": "触摸真实部件，观察轮转、灯亮和车门位置",
     "mode": "closed",
-    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "source": "TouchBoard shared rule engine with authored backgrounds, object layers and original teaching colours",
     "viewport": {
       "width": 1280,
       "height": 1000
@@ -303,15 +302,27 @@
   {
     "activityId": "T02",
     "path": "media/town/activity-T02.webp",
-    "sha256": "4a204d83d4f1743cc4791f09dc7383c7dd9c39c9be58269886b057d66ae63c17",
+    "sha256": "7c379675f22f16c8f8583c437dd6f4ca109c89691bddc8c736687126d4875b26",
     "carId": "CAR01",
-    "presentation": "three",
-    "rendererQuality": "balanced",
-    "captureProfile": "balanced shaders on headless software GL",
-    "gestures": [],
+    "presentation": "flat",
+    "captureProfile": "illustrated gameplay",
+    "gestures": [
+      {
+        "id": "long",
+        "from": {
+          "x": 789.2086401378663,
+          "y": 528.9446494464945
+        },
+        "to": {
+          "x": 500,
+          "y": 299.2
+        },
+        "action": "real pointer drag"
+      }
+    ],
     "goal": "比较长度、尝试并调整方案",
     "mode": "closed",
-    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "source": "TouchBoard shared rule engine with authored backgrounds, object layers and original teaching colours",
     "viewport": {
       "width": 1280,
       "height": 1000
@@ -321,15 +332,14 @@
   {
     "activityId": "T03",
     "path": "media/town/activity-T03.webp",
-    "sha256": "85720bb6e685d14b72c3a55e873991a9b3aa537d7bc03af95060022a4d999738",
+    "sha256": "54dba98295f64f08a9e8014de175bc4857c7a2f11bd7586c35ee50d44c88602c",
     "carId": "CAR01",
-    "presentation": "three",
-    "rendererQuality": "balanced",
-    "captureProfile": "balanced shaders on headless software GL",
+    "presentation": "flat",
+    "captureProfile": "illustrated gameplay",
     "gestures": [],
     "goal": "固定形状路块旋转连接，由直路到转弯再到完整路线",
     "mode": "closed",
-    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "source": "TouchBoard shared rule engine with authored backgrounds, object layers and original teaching colours",
     "viewport": {
       "width": 1280,
       "height": 1000
@@ -339,15 +349,14 @@
   {
     "activityId": "H01",
     "path": "media/town/activity-H01.webp",
-    "sha256": "977c44d990c2972bd56dca50ae128ce4b8cb922a1c01eded065ff900e00344ce",
+    "sha256": "f09e879b04a38450005e36decd8267b1f51b2f94bc677776907fca372832010c",
     "carId": "CAR01",
-    "presentation": "three",
-    "rendererQuality": "balanced",
-    "captureProfile": "balanced shaders on headless software GL",
+    "presentation": "flat",
+    "captureProfile": "illustrated gameplay",
     "gestures": [],
-    "goal": "选择公园、图书馆和博物馆，观察不同场景物件",
+    "goal": "选择目的地，到达后操作实物，观察由此出现的发现",
     "mode": "open",
-    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "source": "TouchBoard shared rule engine with authored backgrounds, object layers and original teaching colours",
     "viewport": {
       "width": 1280,
       "height": 1000
@@ -357,15 +366,14 @@
   {
     "activityId": "H02",
     "path": "media/town/activity-H02.webp",
-    "sha256": "c7bc17227d8f478b503a9503ce813c3e7e4377e433448bb76ffcfcc197109e24",
+    "sha256": "ca4dd61a0ee7d0a53169fef20c5beb3c46b7dced6c7819fd48104cf082d81bfd",
     "carId": "CAR01",
-    "presentation": "three",
-    "rendererQuality": "balanced",
-    "captureProfile": "balanced shaders on headless software GL",
+    "presentation": "flat",
+    "captureProfile": "illustrated gameplay",
     "gestures": [],
     "goal": "为维修、清洁和搬运伙伴匹配合适工具，观察帮助用途",
     "mode": "closed",
-    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "source": "TouchBoard shared rule engine with authored backgrounds, object layers and original teaching colours",
     "viewport": {
       "width": 1280,
       "height": 1000
@@ -375,15 +383,14 @@
   {
     "activityId": "H03",
     "path": "media/town/activity-H03.webp",
-    "sha256": "bf97587a1d3b539d645ccc9ca30468fbc5e544027d3bb1a046a13ad42714071c",
+    "sha256": "276d1c6cf1eb00c742371b153e9de689743c0460b573a5c6cef19da722968725",
     "carId": "CAR01",
-    "presentation": "three",
-    "rendererQuality": "balanced",
-    "captureProfile": "balanced shaders on headless software GL",
+    "presentation": "flat",
+    "captureProfile": "illustrated gameplay",
     "gestures": [],
     "goal": "依次为两辆车清洗，前一辆洗好后交换",
     "mode": "closed",
-    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "source": "TouchBoard shared rule engine with authored backgrounds, object layers and original teaching colours",
     "viewport": {
       "width": 1280,
       "height": 1000
@@ -393,11 +400,10 @@
   {
     "activityId": "A01",
     "path": "media/town/activity-A01.webp",
-    "sha256": "db33a163ca89aacb8058f170ad38ec3ef31954a8a166930a743ae9ab36ca69ef",
+    "sha256": "47a7c7b820c17f6e4752e1bdb40149ec38dcc234a28b8a9f67bba40da5bee317",
     "carId": "CAR01",
     "presentation": "flat",
-    "rendererQuality": "flat",
-    "captureProfile": "balanced shaders on headless software GL",
+    "captureProfile": "illustrated gameplay",
     "gestures": [
       {
         "id": "stamp-0",
@@ -419,7 +425,7 @@
         },
         "to": {
           "x": 220,
-          "y": 170
+          "y": 235
         },
         "action": "real pointer drag"
       },
@@ -431,14 +437,14 @@
         },
         "to": {
           "x": 760,
-          "y": 180
+          "y": 240
         },
         "action": "real pointer drag"
       }
     ],
     "goal": "自由构图和配色，保存参与作品，不评判创作水平",
     "mode": "open",
-    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "source": "TouchBoard shared rule engine with authored backgrounds, object layers and original teaching colours",
     "viewport": {
       "width": 1280,
       "height": 1000
@@ -448,11 +454,10 @@
   {
     "activityId": "A02",
     "path": "media/town/activity-A02.webp",
-    "sha256": "bf6915802635eb93e899162cf0b7ce080f417bd597a9db1cb78dcb5eaaa1ae16",
+    "sha256": "72aead762e5a41a43190b93787c9b31d4ba77ee40132ba5100078ad27f7be792",
     "carId": "CAR01",
     "presentation": "flat",
-    "rendererQuality": "flat",
-    "captureProfile": "balanced shaders on headless software GL",
+    "captureProfile": "illustrated gameplay",
     "gestures": [
       {
         "id": "ink-1",
@@ -461,7 +466,7 @@
       {
         "id": "my-car",
         "from": {
-          "x": 500,
+          "x": 240,
           "y": 367.20000000000005
         },
         "to": {
@@ -473,7 +478,7 @@
       {
         "id": "my-car",
         "from": {
-          "x": 300,
+          "x": 220.00000114896463,
           "y": 439.9999897268422
         },
         "to": {
@@ -485,7 +490,7 @@
       {
         "id": "my-car",
         "from": {
-          "x": 700,
+          "x": 760.0000011489647,
           "y": 299.9999897268422
         },
         "to": {
@@ -497,7 +502,7 @@
     ],
     "goal": "推车留下轮印，观察重复和颜色，保存参与作品",
     "mode": "open",
-    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "source": "TouchBoard shared rule engine with authored backgrounds, object layers and original teaching colours",
     "viewport": {
       "width": 1280,
       "height": 1000
@@ -507,15 +512,14 @@
   {
     "activityId": "L01",
     "path": "media/town/activity-L01.webp",
-    "sha256": "34e17abfc27de8e0dd1428df312e39ce406037e6cc63442eec3bd6969c10e83e",
+    "sha256": "a1bfad4faf46786326021c5ae207e2398fd433caae37681fd6f472c2bd30c084",
     "carId": "CAR01",
-    "presentation": "three",
-    "rendererQuality": "balanced",
-    "captureProfile": "balanced shaders on headless software GL",
+    "presentation": "flat",
+    "captureProfile": "illustrated gameplay",
     "gestures": [],
-    "goal": "为晴天出游准备水和帽子，再模拟检查安全带",
+    "goal": "晴天出游带水并扣好模拟安全带，实际操作车辆通过出口",
     "mode": "closed",
-    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "source": "TouchBoard shared rule engine with authored backgrounds, object layers and original teaching colours",
     "viewport": {
       "width": 1280,
       "height": 1000
@@ -525,15 +529,14 @@
   {
     "activityId": "L02",
     "path": "media/town/activity-L02.webp",
-    "sha256": "884e20a65a266d66e7996e7adda76c4e8db707c26ec58bb6af1ba337321abc38",
+    "sha256": "6a3e12065bfd183df03a6f1a2aa6c386d2edae5dc4916649dbba5c6c147c20a3",
     "carId": "CAR01",
-    "presentation": "three",
-    "rendererQuality": "balanced",
-    "captureProfile": "balanced shaders on headless software GL",
+    "presentation": "flat",
+    "captureProfile": "illustrated gameplay",
     "gestures": [],
     "goal": "在小车遇到困难的场景中尝试向同伴求助，记录参与不评判表达",
     "mode": "open",
-    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "source": "TouchBoard shared rule engine with authored backgrounds, object layers and original teaching colours",
     "viewport": {
       "width": 1280,
       "height": 1000
@@ -543,15 +546,14 @@
   {
     "activityId": "L03",
     "path": "media/town/activity-L03.webp",
-    "sha256": "e3a472673dc7aad22b418a35104ea9e1fbb3f2dc3e6190fab51af7776fdd297a",
+    "sha256": "ea2f24be0322b98d2c40fd6e73df50affaa9ccb44f5ee3f30b12986c3eae36e5",
     "carId": "CAR01",
-    "presentation": "three",
-    "rendererQuality": "balanced",
-    "captureProfile": "balanced shaders on headless software GL",
+    "presentation": "flat",
+    "captureProfile": "illustrated gameplay",
     "gestures": [],
     "goal": "按可见车身颜色配对整理",
     "mode": "closed",
-    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "source": "TouchBoard shared rule engine with authored backgrounds, object layers and original teaching colours",
     "viewport": {
       "width": 1280,
       "height": 1000
@@ -561,15 +563,14 @@
   {
     "activityId": "P01",
     "path": "media/town/activity-P01.webp",
-    "sha256": "4eeae271e54d5f6833814464dac793d0f26fc041533f0c64840002d168543728",
+    "sha256": "86a84f7e26248326839e2805dd1be45a3d4b1ba572a945a68ffc3e80ae5970cf",
     "carId": "CAR01",
-    "presentation": "three",
-    "rendererQuality": "balanced",
-    "captureProfile": "balanced shaders on headless software GL",
+    "presentation": "flat",
+    "captureProfile": "illustrated gameplay",
     "gestures": [],
-    "goal": "同样车辆接受同一推动，比较光滑与粗糙路面的滑行距离；只记录探索",
+    "goal": "在同一起点和推力下交换光滑与粗糙路面，比较两次滑行停点；只记录探索",
     "mode": "open",
-    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "source": "TouchBoard shared rule engine with authored backgrounds, object layers and original teaching colours",
     "viewport": {
       "width": 1280,
       "height": 1000
@@ -579,15 +580,39 @@
   {
     "activityId": "T04",
     "path": "media/town/activity-T04.webp",
-    "sha256": "4cdd9ee54c698ef466cd84478240c80f1eb45099f99e775f633431423e62d88e",
+    "sha256": "e6693de653ed8308b14e8af4543bc734124588a69c12d737c8a092a82ac83f4e",
     "carId": "CAR01",
-    "presentation": "three",
-    "rendererQuality": "balanced",
-    "captureProfile": "balanced shaders on headless software GL",
-    "gestures": [],
+    "presentation": "flat",
+    "captureProfile": "illustrated gameplay",
+    "gestures": [
+      {
+        "id": "body",
+        "from": {
+          "x": 500,
+          "y": 475.99999999999994
+        },
+        "to": {
+          "x": 500,
+          "y": 272
+        },
+        "action": "real pointer drag"
+      },
+      {
+        "id": "wheel-0",
+        "from": {
+          "x": 310,
+          "y": 564.4
+        },
+        "to": {
+          "x": 216.5,
+          "y": 316.54999999999995
+        },
+        "action": "real pointer drag"
+      }
+    ],
     "goal": "观察生成跑车的车身和两个车轮，拖装或点放完成",
     "mode": "closed",
-    "source": "TouchBoard shared rule engine; original item/target geometry and colours",
+    "source": "TouchBoard shared rule engine with authored backgrounds, object layers and original teaching colours",
     "viewport": {
       "width": 1280,
       "height": 1000

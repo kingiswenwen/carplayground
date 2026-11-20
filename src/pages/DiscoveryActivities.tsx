@@ -1,7 +1,7 @@
 import { CarPhotoGallery } from '../components/CarPhotoGallery';
 import { MotionLab } from './MotionLab';
 import { SceneArt } from '../components/SceneArt';
-import{useEffect,useRef,useState}from'react';import{ArrowLeft,ArrowRight,Check,CircleHelp,RotateCcw,Volume2,Play,Sun,CloudRain,TreePine,BookOpen,Landmark,Briefcase,ShieldCheck,Wrench,Droplets,Backpack,HandHelping,Pause,Flag}from'lucide-react';
+import{useEffect,useRef,useState}from'react';import{ArrowLeft,ArrowRight,Check,CircleHelp,RotateCcw,Volume2,Play,Sun,CloudRain,TreePine,BookOpen,Landmark,Briefcase,ShieldCheck,Wrench,Droplets,Backpack,HandHelping,Pause,Flag}from'../components/TownIcons';
 import{CarImage}from'../components/CarImage';import{content,getCar,type ActivityId,type ActivityDefinition,type Part}from'../domain/content';import{bridgeFits,compareSpaces,missingSpaces,roadConnected,roadShapes,type RoadShape}from'../domain/learning';import{audio}from'../services/audio';import{type Settings}from'../services/storage';import{useLearningSession}from'../hooks/useLearningSession';import{useActivityImages}from'../hooks/useActivityImages';import{CreativeStudio}from'./Studio';
 type TaskProps={activity:ActivityDefinition;carId:string;finish:(summary:string)=>void;feedback:(message:string)=>void;observe:(text:string)=>Promise<boolean>;sessionId:string;paused:boolean;hint:()=>void};
 const Choice=({children,onClick,selected=false,disabled=false,label}:{children:React.ReactNode;onClick:()=>void;selected?:boolean;disabled?:boolean;label?:string})=><button aria-label={label} className={`learning-choice ${selected?'chosen':''}`} disabled={disabled} onClick={onClick}>{children}</button>;

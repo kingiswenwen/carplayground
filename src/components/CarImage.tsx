@@ -1,7 +1,15 @@
 import {vehiclePreview} from '../domain/vehicle-preview';
 import { useEffect, useLayoutEffect, useRef, useState, type CSSProperties } from 'react';
-import { RefreshCw } from 'lucide-react';
+import {PlaySymbol} from './PlaySymbol';
+import { RefreshCw } from './TownIcons';
 import { assetUrl, content, getDisplayCar, type Color, type Part } from '../domain/content';
+import {symbolPreview} from '../visual/play-symbols';
+
+export function CarThumbnail({imageId,className,priority}:{imageId:string;className?:string;priority?:boolean}){
+  const [failed,setFailed]=useState<string>();
+  return <img className={className} alt="" draggable={false} fetchPriority={priority?'high':undefined}
+    src={failed===imageId?symbolPreview('wheel'):assetUrl(imageId)} onError={()=>setFailed(imageId)}/>;
+}
 
 type Props = { presentation?: 'object' | 'showcase' | 'catalogue'; lazy?: boolean; carId?: string; color?: Color; hotspots?: boolean; active?: Part; onPart?: (part: Part) => void; marker?: { x: number; y: number }; priority?: boolean; onReadyChange?: (ready: boolean) => void };
 export function CarImage({ presentation = 'object', lazy = false, carId = 'CAR01', color = 'white', hotspots = false, active, onPart, marker, priority, onReadyChange }: Props) {
@@ -34,7 +42,7 @@ export function CarImage({ presentation = 'object', lazy = false, carId = 'CAR01
       alt={`${car.name}，${presentation==='catalogue'?'同车型独立立体模型渲染图':illustration?'按真实车型生成的游戏插画':car.game?.side.startsWith('render-')?'独立立体模型预览':'游戏跑车'}`}
       width={image.width} height={image.height} draggable={false} loading={lazy ? 'lazy' : 'eager'} fetchPriority={priority ? 'high' : 'auto'}
       onLoad={() => setStatus('ready')} onError={() => setStatus('error')} />}
-    {status === 'loading' && <span className="image-loading" aria-label="正在准备小车">🛞</span>}
+    {status === 'loading' && <span className="image-loading" role="status" aria-label="正在准备小车"><PlaySymbol name="wheel"/></span>}
     {status === 'error' && <div className="image-error" role="alert"><span className="sr-only">这张图片还没到，再试一次</span>
       <button aria-label="重新加载小车图片" onClick={event => { event.preventDefault(); event.stopPropagation(); setStatus('loading'); setRetry(r => r + 1); }}><RefreshCw size={20} /></button></div>}
     {showPoints && points.map(part =>

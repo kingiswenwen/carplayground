@@ -1,5 +1,5 @@
 import { useLayoutEffect, useRef, useState } from 'react';
-import { Camera, RefreshCw } from 'lucide-react';
+import { Camera, ChevronDown, RefreshCw } from './TownIcons';
 import { assetUrl, content, getCar } from '../domain/content';
 import { audio } from '../services/audio';
 import '../styles/photo-gallery.css';
@@ -34,6 +34,6 @@ export function CarPhotoGallery({ carId, interiorOnly = false }: { carId: string
       <figcaption>{selected.caption}</figcaption>
     </figure>
     {word && <p className="photo-spoken-word" role="status">座椅 <strong>seat</strong></p>}
-    <details className="photo-attribution"><summary>照片出处</summary><p><a href={selected.credit.sourceUrl} target="_blank" rel="noreferrer">{selected.credit.author}</a> · <a href={selected.credit.licenseUrl} target="_blank" rel="noreferrer">{selected.credit.license}</a> · 图片已缩小并转为网页格式，保留完整画面。</p></details>
+    <details className="photo-attribution"><summary>照片出处<ChevronDown className="town-disclosure"/></summary><p><a href={selected.credit.sourceUrl} target="_blank" rel="noreferrer">{selected.credit.author}</a> · <a href={selected.credit.licenseUrl} target="_blank" rel="noreferrer">{selected.credit.license}</a> · 图片已缩小并转为网页格式，保留完整画面。</p></details>
   </section>;
 }

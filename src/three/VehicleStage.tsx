@@ -1,9 +1,10 @@
 import {vehiclePreview} from '../domain/vehicle-preview';
 import {useEffect,useLayoutEffect,useRef,useState} from 'react';
-import {CircleDashed,Hand,MoveHorizontal,RotateCcw} from 'lucide-react';
+import {CircleDashed,Hand,MoveHorizontal,RotateCcw} from '../components/TownIcons';
+import {CarThumbnail} from '../components/CarImage';
 import {VehicleRenderer} from './VehicleRenderer';
 import {vehicleModel} from '../domain/vehicle-models';
-import {assetUrl,getCar} from '../domain/content';
+import {getCar} from '../domain/content';
 
 export function VehicleStage({carId,onTouch,onUnavailable,onReady}:{carId:string;onTouch?:()=>void;onUnavailable:()=>void;onReady?:()=>void}){
  const host=useRef<HTMLDivElement>(null),stage=useRef<VehicleRenderer|null>(null),[readyCar,setReadyCar]=useState(''),[touched,setTouched]=useState(false);
@@ -25,7 +26,7 @@ export function VehicleStage({carId,onTouch,onUnavailable,onReady}:{carId:string
  const car=getCar(carId)!;
  return <div className="vehicle-stage" data-ready={ready}>
   <div className="vehicle-model-surface" ref={host}/>
-  {!ready&&<img key={carId} className="vehicle-poster" src={assetUrl(vehiclePreview(carId)||car.game!.side)} alt=""/>}
+  {!ready&&<CarThumbnail className="vehicle-poster" imageId={vehiclePreview(carId)||car.game!.side}/>}
   {!ready&&<span className="stage-loading" aria-label="正在准备立体车"><CircleDashed/></span>}
   {ready&&!touched&&<span className="orbit-invitation" aria-hidden="true"><Hand/><MoveHorizontal/></span>}
   {ready&&<div className="model-paints" role="group" aria-label="给立体车试颜色"><button type="button" aria-label="还原原车颜色" aria-pressed={paint===null} onClick={()=>{stage.current?.setPaint(null);setPaint(null);setTouched(true);}}><RotateCcw size={18}/></button>{paints.map(choice=><button key={choice.color} type="button" aria-label={`立体车试${choice.name}`} aria-pressed={paint===choice.color} style={{'--paint':choice.color} as React.CSSProperties} onClick={()=>{stage.current?.setPaint(choice.color);setPaint(choice.color);setTouched(true);}}><span/></button>)}</div>}

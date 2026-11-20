@@ -4,9 +4,9 @@ import {content,getCar,historicalCarIds,selectableCarIds,getDisplayCar} from '..
 import identities from '../content/vehicle-identities.json';
 import {vehicleModels} from '../src/domain/vehicle-models';
 describe('production model catalogue identity',()=>{
- it('retains only independently modeled vehicles and removes the six canceled families from every selectable activity',()=>{
-  const removed=['CAR02','CAR04','CAR16','CAR17','CAR20','CAR25','CAR70','CAR83','CAR130','CAR131'];
-  expect(content.cars).toHaveLength(106);
+ it('retains only independently modeled vehicles and excludes retired families from every selectable activity',()=>{
+  const removed=['CAR02','CAR04','CAR16','CAR17','CAR20','CAR25','CAR70','CAR83','CAR130','CAR131','CAR19','CAR162','CAR190','CAR193'];
+  expect(content.cars).toHaveLength(102);
   expect(new Set(content.cars.map(c=>c.id))).toEqual(new Set(vehicleModels.map(m=>m.id)));
   for(const id of removed){
    expect(getCar(id)).toBeUndefined();expect(getDisplayCar(id)).toBeUndefined();

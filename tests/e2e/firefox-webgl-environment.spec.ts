@@ -41,7 +41,7 @@ test('Firefox software WebGL2 draws real pixels and a real Three scene @smoke', 
     }
     expect(webgl.renderer, 'This opt-in gate must actually exercise software GL').toMatch(/llvmpipe|softpipe|swrast|software/i);
 
-    await page.goto('/#/play/E02?car=CAR01');
+    await page.goto('/#/play/E02?car=CAR01&view=3d');
     const world = page.locator('canvas.touch-world-canvas');
     await expect(world).toHaveAttribute('data-ready', 'true', { timeout: 20000 });
     const scene = await world.evaluate(canvas => {
