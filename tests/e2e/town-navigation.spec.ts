@@ -55,7 +55,8 @@ test('手机停车放大与横竖屏切换保留已停车辆及有余车位 @tow
  await dropTouch(page,'car-0','bay-0');
  for(const viewport of [{width:844,height:390},{width:390,height:844}]){
   await page.setViewportSize(viewport);
-  await expect.poll(async()=>{const raw=await world.getAttribute('data-state');return raw?JSON.parse(raw).boardHeight:undefined;}).toBe(viewport.width<600?1200:680);
+  const height=viewport.width<600?1200:680;
+  await expect(world).toHaveAttribute('data-state',new RegExp(`"boardHeight":${height},`),{timeout:45000});
   await expect(world).toHaveAttribute('data-ready','true',{timeout:45000});
   expect((await touchState(page)).items.filter(item=>item.id.startsWith('car-')&&item.placed)).toHaveLength(1);
  }

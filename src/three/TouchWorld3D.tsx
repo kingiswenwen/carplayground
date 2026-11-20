@@ -1,5 +1,5 @@
 import {useEffect,useLayoutEffect,useRef,useState} from 'react';
-import {CircleDashed,Rotate3D,Hand,Scan} from 'lucide-react';
+import {CircleDashed,Rotate3D,Hand,Scan} from '../components/TownIcons';
 import type {TouchBoard,BoardSnapshot} from '../game/TouchBoard';
 import {TouchWorldRenderer} from './TouchWorldRenderer';
 

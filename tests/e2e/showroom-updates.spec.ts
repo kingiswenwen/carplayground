@@ -57,7 +57,7 @@ test('全部车型在真实画面中可换红蓝两色并使用对应模型封�
  for(const car of cars){
   await search.fill(car.model);
   const tile=page.getByRole('button',{name:`选择 ${car.name}，有独立立体模型`,exact:true});
-  await expect(tile.locator('img')).toHaveAttribute('src',new RegExp(car.id.toLowerCase()+'-front-left\\.webp'));
+  await expect(tile.getByRole('img',{name:`${car.name}，同车型独立立体模型渲染图`,exact:true})).toHaveAttribute('src',new RegExp(car.id.toLowerCase()+'-front-left\\.webp'));
   await tile.click();await expect(canvas).toHaveAttribute('data-car',car.id,{timeout:45000});await expect(canvas).toHaveAttribute('data-ready','true',{timeout:45000});
   await expect(page.locator('.model-paints button')).toHaveCount(8);
   await page.getByRole('button',{name:'立体车试红色',exact:true}).click();const red=await canvas.screenshot();

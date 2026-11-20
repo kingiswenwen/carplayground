@@ -1,30 +1,96 @@
-// Mechanical sprite extraction only; original generated art remains untouched.
+// Extract the named cells of the original GPT Image atlases without redrawing them.
 import fs from 'node:fs/promises';
+import path from 'node:path';
 import sharp from 'sharp';
 import {createHash} from 'node:crypto';
 
-const source=process.argv[2];
-if(!source)throw Error('Provide the original 4×4 transparent icon atlas');
-const buffer=await fs.readFile(source),meta=await sharp(buffer).metadata();
-const set=process.argv[3]||'primary';
-if(!['primary','secondary','cart'].includes(set))throw Error('Icon set must be primary, secondary or cart');
-const names=set==='primary'?['car','garage','world','tree','wheel','tool','sponge','bubbles','bag','coat','cap','water','friend','palette','book','lamp']:set==='secondary'?['hand','shower','umbrella','belt','sun','rain','home','bridge','plank','road','flag','heart','star','leaf','ball','ice']:['cart'];
+const index=process.argv[2];
+if(!index)throw Error('Provide an atlas index with set, source, grid, names and prompt for each image');
+const atlases=JSON.parse(await fs.readFile(index,'utf8'));
 const content=JSON.parse(await fs.readFile('content/r3.json','utf8'));
-await fs.mkdir('public/media/play-icons',{recursive:true});
-const records=[];
-for(const [index,name]of names.entries()){
- const grid=set==='cart'?1:4,x=index%grid,y=Math.floor(index/grid),left=Math.round(x*meta.width/grid),top=Math.round(y*meta.height/grid),width=Math.round((x+1)*meta.width/grid)-left;
- // The bag cell has a tiny next-row cap fragment below its own contact shadow.
- const height=Math.round((y+1)*meta.height/grid)-top-(name==='bag'?14:0);
- const cell=await sharp(buffer).extract({left,top,width,height}).toBuffer();
- const output=await sharp(cell).trim({threshold:8}).resize(256,256,{fit:'contain',background:'#00000000'}).webp({quality:92,alphaQuality:100}).toBuffer();
- const path=`media/play-icons/${name}.webp`,sha256=createHash('sha256').update(output).digest('hex');
- await fs.writeFile('public/'+path,output);
- const asset={id:`play-icon-${name}`,kind:'image',path,sha256,status:'approved',width:256,height:256,source:'Origin: GPT Image generated miniature object atlas; content/play-icons-production.json'};
- const existing=content.assets.findIndex(a=>a.id===asset.id);if(existing<0)content.assets.push(asset);else content.assets[existing]=asset;
- records.push({name,path,sha256,width:256,height:256,atlas:set,cell:{left,top,width,height}});
+const icons=[];
+const sources=[];
+const files=[];
+const hash=bytes=>createHash('sha256').update(bytes).digest('hex');
+
+function subjectMask(pixels,width,height,name){
+ const visited=new Uint8Array(width*height),components=[];
+ for(let i=0;i<visited.length;i++){
+  if(visited[i]||pixels[i*4+3]<155)continue;
+  const component=[i];
+  visited[i]=1;
+  for(let cursor=0;cursor<component.length;cursor++){
+   const at=component[cursor],x=at%width,y=Math.floor(at/width);
+   for(const next of [x>0?at-1:-1,x<width-1?at+1:-1,y>0?at-width:-1,y<height-1?at+width:-1]){
+    if(next<0||visited[next]||pixels[next*4+3]<155)continue;
+    visited[next]=1;component.push(next);
+   }
+  }
+  components.push(component);
+ }
+ const largest=Math.max(0,...components.map(component=>component.length));
+ if(largest<width*height*.018)throw Error('Icon cell has no opaque subject: '+name);
+ const mask=new Uint8Array(width*height);
+ // Keep separate illustrated parts such as the waves beside the loudspeaker.
+ for(const component of components.filter(group=>group.length>=Math.max(30,largest*.009))){
+  for(const pixel of component){
+   const x=pixel%width,y=Math.floor(pixel/width);
+   for(let dy=-2;dy<=2;dy++)for(let dx=-2;dx<=2;dx++){
+    if(x+dx>=0&&x+dx<width&&y+dy>=0&&y+dy<height)mask[pixel+dy*width+dx]=1;
+   }
+  }
+ }
+ let left=width,top=height,right=0,bottom=0;
+ for(let i=0;i<mask.length;i++){
+  const at=i*4,alpha=pixels[at+3];
+  if(!mask[i]||alpha<32){pixels.fill(0,at,at+4);continue;}
+  const x=i%width,y=Math.floor(i/width);
+  left=Math.min(left,x);right=Math.max(right,x);top=Math.min(top,y);bottom=Math.max(bottom,y);
+ }
+ return {left,top,width:right-left+1,height:bottom-top+1};
 }
+
+for(const {set,source,grid,names,prompt} of atlases){
+ if(names.length!==grid*grid||!prompt)throw Error('Invalid icon atlas '+set);
+ const bytes=await fs.readFile(source),meta=await sharp(bytes).metadata();
+ if(!meta.hasAlpha)throw Error('Expected an image with transparency '+set);
+ sources.push({set,sourceFile:path.basename(source),sha256:hash(bytes),width:meta.width,height:meta.height,grid,prompt});
+ for(const [i,name] of names.entries()){
+  if(!/^[a-z-]+$/.test(name)||icons.some(icon=>icon.name===name))throw Error('Invalid or duplicate icon '+name);
+  const column=i%grid,row=Math.floor(i/grid);
+  const left=Math.round(column*meta.width/grid),top=Math.round(row*meta.height/grid);
+  const width=Math.round((column+1)*meta.width/grid)-left,height=Math.round((row+1)*meta.height/grid)-top;
+  const pixels=await sharp(bytes).extract({left,top,width,height}).ensureAlpha().raw().toBuffer();
+  const crop=subjectMask(pixels,width,height,name);
+  const output=await sharp(pixels,{raw:{width,height,channels:4}}).extract(crop)
+   .resize(168,168,{fit:'contain',background:'#00000000'})
+   .extend({top:12,bottom:12,left:12,right:12,background:'#00000000'})
+   .webp({quality:87,alphaQuality:100}).toBuffer();
+  const path=`media/play-icons/${name}.webp`,sha256=hash(output),id=`play-icon-${name}`;
+  const asset={id,kind:'image',path,sha256,status:'approved',width:192,height:192,source:'Origin: Built-in GPT Image; content/play-icons-production.json'};
+  const at=content.assets.findIndex(a=>a.id===id);
+  if(at<0)content.assets.push(asset);else content.assets[at]=asset;
+  files.push({path,output});
+  icons.push({name,path,sha256,width:192,height:192,atlas:set,cell:{left,top,width,height},crop});
+ }
+}
+if(content.assets.some(asset=>asset.id.startsWith('play-icon-')&&!icons.some(icon=>asset.path===icon.path)))throw Error('The new icon set must cover all previously registered icons');
+await fs.mkdir('public/media/play-icons',{recursive:true});
+await Promise.all(files.map(({path,output})=>fs.writeFile('public/'+path,output)));
+const previews=await Promise.all(files.map(async ({path,output})=>{
+ const bytes=await sharp(output).resize(48,48).webp({quality:68}).toBuffer();
+ return [path.split('/').at(-1).replace('.webp',''),bytes.toString('base64')];
+}));
+const previewSource=JSON.stringify(Object.fromEntries(previews),null,2);
+await fs.writeFile('src/visual/play-icon-previews.ts',
+ `// Generated by scripts/prepare-play-icons.mjs.\nconst previews:Record<string,string>=${previewSource};\n\nexport default previews;\n`);
 await fs.writeFile('content/r3.json',JSON.stringify(content,null,2)+'\n');
-let prior={atlases:[],icons:[]};try{prior=JSON.parse(await fs.readFile('content/play-icons-production.json','utf8'));}catch{}
-await fs.writeFile('content/play-icons-production.json',JSON.stringify({generator:'GPT Image via image_gen',purpose:'Shared DOM and canvas teaching-object vocabulary; not replacement vehicle-model or hit geometry',atlases:[...(prior.atlases||[]).filter(a=>a.set!==set),{set,sha256:createHash('sha256').update(buffer).digest('hex'),width:meta.width,height:meta.height}],layout:'Primary/secondary: 4x4 row-major; cart: single sprite; alpha-preserving extraction and WebP encoding',style:'Rounded miniature objects, top-left studio light, soft contact shadows, warm cream/sage/teal/coral palette',icons:[...prior.icons.filter(a=>!names.includes(a.name)),...records]},null,2)+'\n');
-console.log(`Prepared ${records.length} alpha WebP icons`);
+await fs.writeFile('content/play-icons-production.json',JSON.stringify({
+ generator:'GPT Image via image_gen',
+ purpose:'Shared artwork for navigation, interface controls, statuses and game objects',
+ atlases:sources,
+ layout:'Row-major grid; isolate visible alpha, trim and preserve the illustrated layers in transparent WebP',
+ style:'Cut paper and painted wood with a warm bevel, tactile grain and upper-left light',
+ icons,
+},null,2)+'\n');
+console.log(`Prepared ${icons.length} transparent icons`);

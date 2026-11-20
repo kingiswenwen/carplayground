@@ -4,15 +4,15 @@ import path from 'node:path';
 import fs from 'node:fs/promises';
 import {createServer} from 'node:http';
 import type {AddressInfo} from 'node:net';
-import {dropTouch,touchState} from './touch-helpers';
+import {dragTouch,dropTouch,localRows,touchState} from './touch-helpers';
 
 test.use({reducedMotion:'reduce'});
 
-test('图标图片失效仍可用矢量入口和真实平面玩法',async({page})=>{
+test('图标图片失效仍显示内置同款画面，平面玩法可操作',async({page})=>{
  const errors:string[]=[];page.on('pageerror',error=>errors.push(error.message));
  await page.route('**/play-icons/*.webp',route=>route.fulfill({status:503,body:'temporarily unavailable'}));
  await page.goto('/#/explore');
- await expect(page.locator('.picture-home .play-symbol svg')).toHaveCount(1);
+ await expect(page.locator('.picture-home .play-symbol img')).toHaveAttribute('src',/^data:image\/webp;base64,/);
  await expect(page.locator('.town-destination')).toHaveCount(6);
  await page.goto('/#/play/L01?car=CAR01&view=2d');
  await expect(page.locator('.touch-canvas')).toBeVisible();
@@ -88,5 +88,9 @@ test('立体画纸选择后切到平面仍保留所选纸色',async({page})=>{
  await page.mouse.click(point.x,point.y);
  await page.getByRole('button',{name:'使用平面简化玩法',exact:true}).click();
  const flat=page.locator('.touch-canvas');await expect(flat).toBeVisible();
- await expect.poll(()=>flat.evaluate(element=>{const canvas=element as HTMLCanvasElement;return[...canvas.getContext('2d')!.getImageData(Math.round(canvas.width*.85),Math.round(canvas.height*.13),1,1).data].slice(0,3);})).toEqual([244,221,204]);
+ const height=await flat.evaluate((canvas:HTMLCanvasElement)=>canvas.height);
+ const {items}=await touchState(page);
+ await dragTouch(page,items.find(item=>item.id==='stamp-0')!,{x:260,y:height*.38});
+ await page.getByRole('button',{name:'保存海报',exact:true}).click();
+ await expect.poll(async()=>(await localRows(page,'creations'))[0]?.background).toBe('#f4ddcc');
 });

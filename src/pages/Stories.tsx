@@ -1,6 +1,6 @@
 import {TownHeading} from '../components/Town';
 import {useEffect, useRef, useState} from 'react';
-import {ArrowLeft, ArrowRight, Volume2, RotateCcw, Check} from 'lucide-react';
+import {ArrowLeft, ArrowRight, Volume2, RotateCcw, Check} from '../components/TownIcons';
 import {StoryScene} from '../components/StoryScene';
 import {PlaySymbol} from '../components/PlaySymbol';
 import {activeCar} from '../domain/active-car';

@@ -1,5 +1,5 @@
 {
-  "id": "r29-playcraft-0.18.0",
+  "id": "r32-town-detail-art-0.18.0",
   "schemaVersion": 2,
   "appVersion": "0.18.0",
   "car": {
@@ -14232,591 +14232,1291 @@
       "id": "town-activity-E01",
       "kind": "image",
       "path": "media/town/activity-E01.webp",
-      "sha256": "7ba690bf9a5224e02b58ab249ce3a2a12c92a3c0b5a0b5a19942304069f11f67",
+      "sha256": "d1e7c1edeed670cb54f778e35bf09d83087066f3eb5a14503878bbf62f7d1349",
       "status": "approved",
       "width": 720,
       "height": 490,
-      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+      "source": "Origin: actual illustrated TouchBoard render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
     },
     {
       "id": "town-activity-E02",
       "kind": "image",
       "path": "media/town/activity-E02.webp",
-      "sha256": "cabbb728f8f4ffa80104b6623aa5f0cdfeed1e4724f3fa14d905ae2ee3863265",
+      "sha256": "2fdfe86127a4df78f86e36725996038c49f3dbc5c6e5a63ae481401e7ff6ae22",
       "status": "approved",
       "width": 720,
       "height": 490,
-      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+      "source": "Origin: actual illustrated TouchBoard render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
     },
     {
       "id": "town-activity-E03",
       "kind": "image",
       "path": "media/town/activity-E03.webp",
-      "sha256": "83c94e85630a779bd156951e417801d257a9c9bea12e6cf0f4d9e27829bd6a4d",
+      "sha256": "0f3a5b062d00ab9829178759c3f0801398e54608df944220d7aca0726103d254",
       "status": "approved",
       "width": 720,
       "height": 490,
-      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+      "source": "Origin: actual illustrated TouchBoard render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
     },
     {
       "id": "town-activity-M01",
       "kind": "image",
       "path": "media/town/activity-M01.webp",
-      "sha256": "c693a1e6d906d2a352aff3153bd8aa065c58cce5623d101bf876443a8e6f9837",
+      "sha256": "4356680f78c988c8f4a6509ab4eced00f858ab0da04ec1f440f12832994b216d",
       "status": "approved",
       "width": 720,
       "height": 490,
-      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+      "source": "Origin: actual illustrated TouchBoard render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
     },
     {
       "id": "town-activity-M02",
       "kind": "image",
       "path": "media/town/activity-M02.webp",
-      "sha256": "55292bcd6673e45c50e2e92ed5b082b26e7a5921757081d3a71989751e463dba",
+      "sha256": "60420dd040cc8f2a05cc8b0c39dc147302fc7335686b708f4734bfb252c11013",
       "status": "approved",
       "width": 720,
       "height": 490,
-      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+      "source": "Origin: actual illustrated TouchBoard render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
     },
     {
       "id": "town-activity-M03",
       "kind": "image",
       "path": "media/town/activity-M03.webp",
-      "sha256": "13d4b75ff8e25a5d585baa6dbaed973e21bf4ad8d11681d473058e3e3b7c3b30",
+      "sha256": "db4e0dd18e33f80c9c15bac5bc9b3e2ea60dee428e10cb842e0be8ad8abc2a57",
       "status": "approved",
       "width": 720,
       "height": 490,
-      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+      "source": "Origin: actual illustrated TouchBoard render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
     },
     {
       "id": "town-activity-M04",
       "kind": "image",
       "path": "media/town/activity-M04.webp",
-      "sha256": "83d4aded1424b5d6edf49241997cb1e96601ada32444e4d312bcf8d9307ae725",
+      "sha256": "38d00cf0e9a94570d5a01f835a07398b51ee6dc35aa2b96c8bd0a059de85c032",
       "status": "approved",
       "width": 720,
       "height": 490,
-      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+      "source": "Origin: actual illustrated TouchBoard render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
     },
     {
       "id": "town-activity-C01",
       "kind": "image",
       "path": "media/town/activity-C01.webp",
-      "sha256": "2a0c35e82cb7ddb84edcdfde2999b5c2d71efa8698a383774253edc878ca473b",
+      "sha256": "1db857a53fb8b8f5e27716039c74702466d0bcc2459fc0e4271274de22d80753",
       "status": "approved",
       "width": 720,
       "height": 490,
-      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+      "source": "Origin: actual illustrated TouchBoard render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
     },
     {
       "id": "town-activity-C02",
       "kind": "image",
       "path": "media/town/activity-C02.webp",
-      "sha256": "4047c052d2e7cb89d3fd7ecd219e1148bcd07b545d0e0008da57f91ea3d45086",
+      "sha256": "b7fa6debdbf267f5c15e171322630a2036e0a2f8a0e5bd3f9b35dcc296a5a227",
       "status": "approved",
       "width": 720,
       "height": 490,
-      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+      "source": "Origin: actual illustrated TouchBoard render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
     },
     {
       "id": "town-activity-C03",
       "kind": "image",
       "path": "media/town/activity-C03.webp",
-      "sha256": "673418d7713a1ba427042d50285d8d63d4e6fade24902b20ab5ecf80c258a27c",
+      "sha256": "168024c5d4f0385e0ec0ec41887ec91bfdd8ae3cd0ced4eed61d0497e2bf53d2",
       "status": "approved",
       "width": 720,
       "height": 490,
-      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+      "source": "Origin: actual illustrated TouchBoard render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
     },
     {
       "id": "town-activity-S01",
       "kind": "image",
       "path": "media/town/activity-S01.webp",
-      "sha256": "069f8f8b9c0f22ec0064707b67638b325c7a4336ff51338ae422211cd0169e84",
+      "sha256": "fe956cbd14c12418cbe22edf7582ba0a357c750b6cd509843075ba05817d2a42",
       "status": "approved",
       "width": 720,
       "height": 490,
-      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+      "source": "Origin: actual illustrated TouchBoard render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
     },
     {
       "id": "town-activity-S02",
       "kind": "image",
       "path": "media/town/activity-S02.webp",
-      "sha256": "3becf43eefd4befe9a08bafaa9058c92149ccef794b64b8e92e76e7be41afe18",
+      "sha256": "e94ab871f0c395e6593f41188058ccd2b792dc6207545928fc5c34218a22ad70",
       "status": "approved",
       "width": 720,
       "height": 490,
-      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+      "source": "Origin: actual illustrated TouchBoard render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
     },
     {
       "id": "town-activity-S03",
       "kind": "image",
       "path": "media/town/activity-S03.webp",
-      "sha256": "d15777abeb9067ffc0f514969d052a912c78aec617fad51dd76ff6bf02e71937",
+      "sha256": "8ceb2f1da6130efd50a95e1d0f14d5fa6fa949ab36051c53e517228e2e62502d",
       "status": "approved",
       "width": 720,
       "height": 490,
-      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+      "source": "Origin: actual illustrated TouchBoard render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
     },
     {
       "id": "town-activity-T01",
       "kind": "image",
       "path": "media/town/activity-T01.webp",
-      "sha256": "2471658e04062e179f75a85005201c1733e0804d83ef681b80608388a785ca0c",
+      "sha256": "9f07e317aa559f08ef3c5f7331df8c245e892b4add7d90cd7b97175aa9345ca0",
       "status": "approved",
       "width": 720,
       "height": 490,
-      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+      "source": "Origin: actual illustrated TouchBoard render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
     },
     {
       "id": "town-activity-T02",
       "kind": "image",
       "path": "media/town/activity-T02.webp",
-      "sha256": "4a204d83d4f1743cc4791f09dc7383c7dd9c39c9be58269886b057d66ae63c17",
+      "sha256": "7c379675f22f16c8f8583c437dd6f4ca109c89691bddc8c736687126d4875b26",
       "status": "approved",
       "width": 720,
       "height": 490,
-      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+      "source": "Origin: actual illustrated TouchBoard render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
     },
     {
       "id": "town-activity-T03",
       "kind": "image",
       "path": "media/town/activity-T03.webp",
-      "sha256": "85720bb6e685d14b72c3a55e873991a9b3aa537d7bc03af95060022a4d999738",
+      "sha256": "54dba98295f64f08a9e8014de175bc4857c7a2f11bd7586c35ee50d44c88602c",
       "status": "approved",
       "width": 720,
       "height": 490,
-      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+      "source": "Origin: actual illustrated TouchBoard render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
     },
     {
       "id": "town-activity-H01",
       "kind": "image",
       "path": "media/town/activity-H01.webp",
-      "sha256": "977c44d990c2972bd56dca50ae128ce4b8cb922a1c01eded065ff900e00344ce",
+      "sha256": "f09e879b04a38450005e36decd8267b1f51b2f94bc677776907fca372832010c",
       "status": "approved",
       "width": 720,
       "height": 490,
-      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+      "source": "Origin: actual illustrated TouchBoard render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
     },
     {
       "id": "town-activity-H02",
       "kind": "image",
       "path": "media/town/activity-H02.webp",
-      "sha256": "c7bc17227d8f478b503a9503ce813c3e7e4377e433448bb76ffcfcc197109e24",
+      "sha256": "ca4dd61a0ee7d0a53169fef20c5beb3c46b7dced6c7819fd48104cf082d81bfd",
       "status": "approved",
       "width": 720,
       "height": 490,
-      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+      "source": "Origin: actual illustrated TouchBoard render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
     },
     {
       "id": "town-activity-H03",
       "kind": "image",
       "path": "media/town/activity-H03.webp",
-      "sha256": "bf97587a1d3b539d645ccc9ca30468fbc5e544027d3bb1a046a13ad42714071c",
+      "sha256": "276d1c6cf1eb00c742371b153e9de689743c0460b573a5c6cef19da722968725",
       "status": "approved",
       "width": 720,
       "height": 490,
-      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+      "source": "Origin: actual illustrated TouchBoard render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
     },
     {
       "id": "town-activity-A01",
       "kind": "image",
       "path": "media/town/activity-A01.webp",
-      "sha256": "db33a163ca89aacb8058f170ad38ec3ef31954a8a166930a743ae9ab36ca69ef",
+      "sha256": "47a7c7b820c17f6e4752e1bdb40149ec38dcc234a28b8a9f67bba40da5bee317",
       "status": "approved",
       "width": 720,
       "height": 490,
-      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+      "source": "Origin: actual illustrated TouchBoard render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
     },
     {
       "id": "town-activity-A02",
       "kind": "image",
       "path": "media/town/activity-A02.webp",
-      "sha256": "bf6915802635eb93e899162cf0b7ce080f417bd597a9db1cb78dcb5eaaa1ae16",
+      "sha256": "72aead762e5a41a43190b93787c9b31d4ba77ee40132ba5100078ad27f7be792",
       "status": "approved",
       "width": 720,
       "height": 490,
-      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+      "source": "Origin: actual illustrated TouchBoard render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
     },
     {
       "id": "town-activity-L01",
       "kind": "image",
       "path": "media/town/activity-L01.webp",
-      "sha256": "34e17abfc27de8e0dd1428df312e39ce406037e6cc63442eec3bd6969c10e83e",
+      "sha256": "a1bfad4faf46786326021c5ae207e2398fd433caae37681fd6f472c2bd30c084",
       "status": "approved",
       "width": 720,
       "height": 490,
-      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+      "source": "Origin: actual illustrated TouchBoard render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
     },
     {
       "id": "town-activity-L02",
       "kind": "image",
       "path": "media/town/activity-L02.webp",
-      "sha256": "884e20a65a266d66e7996e7adda76c4e8db707c26ec58bb6af1ba337321abc38",
+      "sha256": "6a3e12065bfd183df03a6f1a2aa6c386d2edae5dc4916649dbba5c6c147c20a3",
       "status": "approved",
       "width": 720,
       "height": 490,
-      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+      "source": "Origin: actual illustrated TouchBoard render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
     },
     {
       "id": "town-activity-L03",
       "kind": "image",
       "path": "media/town/activity-L03.webp",
-      "sha256": "e3a472673dc7aad22b418a35104ea9e1fbb3f2dc3e6190fab51af7776fdd297a",
+      "sha256": "ea2f24be0322b98d2c40fd6e73df50affaa9ccb44f5ee3f30b12986c3eae36e5",
       "status": "approved",
       "width": 720,
       "height": 490,
-      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+      "source": "Origin: actual illustrated TouchBoard render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
     },
     {
       "id": "town-activity-P01",
       "kind": "image",
       "path": "media/town/activity-P01.webp",
-      "sha256": "4eeae271e54d5f6833814464dac793d0f26fc041533f0c64840002d168543728",
+      "sha256": "86a84f7e26248326839e2805dd1be45a3d4b1ba572a945a68ffc3e80ae5970cf",
       "status": "approved",
       "width": 720,
       "height": 490,
-      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+      "source": "Origin: actual illustrated TouchBoard render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
     },
     {
       "id": "town-activity-T04",
       "kind": "image",
       "path": "media/town/activity-T04.webp",
-      "sha256": "4cdd9ee54c698ef466cd84478240c80f1eb45099f99e775f633431423e62d88e",
+      "sha256": "e6693de653ed8308b14e8af4543bc734124588a69c12d737c8a092a82ac83f4e",
       "status": "approved",
       "width": 720,
       "height": 490,
-      "source": "Origin: actual TouchBoard / TouchWorldRenderer render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
+      "source": "Origin: actual illustrated TouchBoard render; scripts/capture-town-covers.mjs; content/town-cover-renders.json"
     },
     {
       "id": "play-icon-car",
       "kind": "image",
       "path": "media/play-icons/car.webp",
-      "sha256": "f4e5a763cb246d86b3c9dd7eb5b170b73023e3f8a6ed26b5744a53dcceb862b3",
+      "sha256": "91da86c928959da5f33f32a165a0aacea6af301e29a3b733eca88875bf0cd448",
       "status": "approved",
-      "width": 256,
-      "height": 256,
-      "source": "Origin: GPT Image generated miniature object atlas; content/play-icons-production.json"
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
     },
     {
       "id": "play-icon-garage",
       "kind": "image",
       "path": "media/play-icons/garage.webp",
-      "sha256": "5a36726f6b2c5b0893fb967e69bc4c88078976e877b94f3cbbb222b1a746af50",
+      "sha256": "2a4a78d448e135553973481275285b9520abf3f5c6c2eb099df7e5fb5e0cb4e4",
       "status": "approved",
-      "width": 256,
-      "height": 256,
-      "source": "Origin: GPT Image generated miniature object atlas; content/play-icons-production.json"
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
     },
     {
       "id": "play-icon-world",
       "kind": "image",
       "path": "media/play-icons/world.webp",
-      "sha256": "06d867fc3b1df30806f19585d12dba10a928c2671a2efb5d73f73c0cf9655dd1",
+      "sha256": "7144e49d2a49676cefaaf5f1b7f3cda0be4d3b9d960d354a4d5d34e5c5659938",
       "status": "approved",
-      "width": 256,
-      "height": 256,
-      "source": "Origin: GPT Image generated miniature object atlas; content/play-icons-production.json"
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
     },
     {
       "id": "play-icon-tree",
       "kind": "image",
       "path": "media/play-icons/tree.webp",
-      "sha256": "a8466646ebaa3a380f61fe3dabf1eb80078b9b95e8e8c36822608d434f3a5f19",
+      "sha256": "6c5b58496dd8a2a9d97e566b10e5c42afc1e8d1da6a08679e0274837876c2c05",
       "status": "approved",
-      "width": 256,
-      "height": 256,
-      "source": "Origin: GPT Image generated miniature object atlas; content/play-icons-production.json"
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
     },
     {
       "id": "play-icon-wheel",
       "kind": "image",
       "path": "media/play-icons/wheel.webp",
-      "sha256": "2a2e7ca79288ebb4c390be36a85c33437cdd7e48c8e75247dfc0ac5424d82f03",
+      "sha256": "9cb2ba98630eb7c2fcfa0b2657c5b63aeecc2f8311bd9ccde981eedd2660c2ab",
       "status": "approved",
-      "width": 256,
-      "height": 256,
-      "source": "Origin: GPT Image generated miniature object atlas; content/play-icons-production.json"
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
     },
     {
       "id": "play-icon-tool",
       "kind": "image",
       "path": "media/play-icons/tool.webp",
-      "sha256": "ad9193a580fbf4a2035b646762a89ba9483317c9f14efc3fa1f19f5478a7542c",
+      "sha256": "9005032239459149d43c47e89a920dabe87a9e5c2413458500b785900bc8abfd",
       "status": "approved",
-      "width": 256,
-      "height": 256,
-      "source": "Origin: GPT Image generated miniature object atlas; content/play-icons-production.json"
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
     },
     {
       "id": "play-icon-sponge",
       "kind": "image",
       "path": "media/play-icons/sponge.webp",
-      "sha256": "3292b8c3a7e6738047303d415a8d01b7bcaa648b2c5cd883643f82c50085ba24",
+      "sha256": "c7d2ac62251f4b727074218049e2d616be6700a956a80f1205f228f3d3e4c324",
       "status": "approved",
-      "width": 256,
-      "height": 256,
-      "source": "Origin: GPT Image generated miniature object atlas; content/play-icons-production.json"
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
     },
     {
       "id": "play-icon-bubbles",
       "kind": "image",
       "path": "media/play-icons/bubbles.webp",
-      "sha256": "3e3c4b12e1c351ae4fcbcf20c91f0af683ee40269ccf2b9e96e4ed91f3f7fd73",
+      "sha256": "7b7e4dc46c9bf02208bacec76f7889ff47d31375727aec6e853e752572eb5836",
       "status": "approved",
-      "width": 256,
-      "height": 256,
-      "source": "Origin: GPT Image generated miniature object atlas; content/play-icons-production.json"
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
     },
     {
       "id": "play-icon-bag",
       "kind": "image",
       "path": "media/play-icons/bag.webp",
-      "sha256": "81dd2d4fab519b09257518e62fef4050ba6f8f99ea7f05eb1a12f01e8b48c824",
+      "sha256": "186548f37b59e1bebcc7885db8f4aae6bacbb0e485a650f7888093bb6671c07d",
       "status": "approved",
-      "width": 256,
-      "height": 256,
-      "source": "Origin: GPT Image generated miniature object atlas; content/play-icons-production.json"
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
     },
     {
       "id": "play-icon-coat",
       "kind": "image",
       "path": "media/play-icons/coat.webp",
-      "sha256": "fb93c50f4cc74aefe44d3d4a705cf589d23d4c3b773bd457b65d1ebc3a8e4c3a",
+      "sha256": "88e99a951494010c475a7778667c8779c88d2cf5859d1cbea81cdec57bc644ab",
       "status": "approved",
-      "width": 256,
-      "height": 256,
-      "source": "Origin: GPT Image generated miniature object atlas; content/play-icons-production.json"
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
     },
     {
       "id": "play-icon-cap",
       "kind": "image",
       "path": "media/play-icons/cap.webp",
-      "sha256": "afe8df067f4fe2540c5f765907d88dcd0b0d031ef24605c33806b96c2b0c2edd",
+      "sha256": "3558efc05f7343c7fdcbc16b701a5dc16c78e4e4559fd450fb862ec2691954e0",
       "status": "approved",
-      "width": 256,
-      "height": 256,
-      "source": "Origin: GPT Image generated miniature object atlas; content/play-icons-production.json"
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
     },
     {
       "id": "play-icon-water",
       "kind": "image",
       "path": "media/play-icons/water.webp",
-      "sha256": "5d3f989e279e9d18d7297b924fb4893bb985cc78e72187bcd8dc68acb0d8c565",
+      "sha256": "5ad9530024f59a802f7d163e2ba57c8f68ef7e96f03e5036e80686e25f6a190f",
       "status": "approved",
-      "width": 256,
-      "height": 256,
-      "source": "Origin: GPT Image generated miniature object atlas; content/play-icons-production.json"
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
     },
     {
       "id": "play-icon-friend",
       "kind": "image",
       "path": "media/play-icons/friend.webp",
-      "sha256": "928bed218b4356c0bf8e38011d986cc002793077cceefadde5e1287d08a886e8",
+      "sha256": "ab82cc3f94f324ff3975085b0105bdf19517567b7ddae1b4a174bde683535f74",
       "status": "approved",
-      "width": 256,
-      "height": 256,
-      "source": "Origin: GPT Image generated miniature object atlas; content/play-icons-production.json"
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
     },
     {
       "id": "play-icon-palette",
       "kind": "image",
       "path": "media/play-icons/palette.webp",
-      "sha256": "28818c98a3700c3bbc6935f33990f7ce8e618e26fd4b67dd75142f4485442901",
+      "sha256": "43d9dfc14ad6a8b3589c615187b44e5cf590cf1357db60618f1fc990fdd557a2",
       "status": "approved",
-      "width": 256,
-      "height": 256,
-      "source": "Origin: GPT Image generated miniature object atlas; content/play-icons-production.json"
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
     },
     {
       "id": "play-icon-book",
       "kind": "image",
       "path": "media/play-icons/book.webp",
-      "sha256": "9a0667e9218cc0dc618b94d42af290a5c4b445621ba7f6b23608c73bc7aeace1",
+      "sha256": "9ea2379c8972d7d9508c77c272da1f0e8a042bcb25819c2dfab8d6bbd186fbaa",
       "status": "approved",
-      "width": 256,
-      "height": 256,
-      "source": "Origin: GPT Image generated miniature object atlas; content/play-icons-production.json"
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
     },
     {
       "id": "play-icon-lamp",
       "kind": "image",
       "path": "media/play-icons/lamp.webp",
-      "sha256": "d4fc5f47101083cc63e0fb60f7c5e00203ac8a45ff2c3be91cfe2a2307bfcafb",
+      "sha256": "7e3ed8120af319f2bcae6056ac89177334ef37ea1dff2bd67f067f89a5455e94",
       "status": "approved",
-      "width": 256,
-      "height": 256,
-      "source": "Origin: GPT Image generated miniature object atlas; content/play-icons-production.json"
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
     },
     {
       "id": "play-icon-hand",
       "kind": "image",
       "path": "media/play-icons/hand.webp",
-      "sha256": "2f0e7131895df13b4d8219e399638b375ca8354c09c57d44d8f0e7a98e2a41e7",
+      "sha256": "98e5bf55c32ddde098e81fcfb9315f2e36c95f204db5b45f7ada0a1fbba49f03",
       "status": "approved",
-      "width": 256,
-      "height": 256,
-      "source": "Origin: GPT Image generated miniature object atlas; content/play-icons-production.json"
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
     },
     {
       "id": "play-icon-shower",
       "kind": "image",
       "path": "media/play-icons/shower.webp",
-      "sha256": "63e4b7bf1e3ee0be94eb04e693a4c780c15a2904496e355873ef9ff58578c4b9",
+      "sha256": "c0ce9e8085077214a689bc41ce49ef990a98ded9cc0ce17ddb3032677fbcce0d",
       "status": "approved",
-      "width": 256,
-      "height": 256,
-      "source": "Origin: GPT Image generated miniature object atlas; content/play-icons-production.json"
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
     },
     {
       "id": "play-icon-umbrella",
       "kind": "image",
       "path": "media/play-icons/umbrella.webp",
-      "sha256": "72a2f92e28877a50230c17a274b57156395896692d7151d6024764b51c2c3510",
+      "sha256": "e50e90f8df5cd4df65e025fff62e0650c3c8c21e27cae92b6cfc2f1485e12fb9",
       "status": "approved",
-      "width": 256,
-      "height": 256,
-      "source": "Origin: GPT Image generated miniature object atlas; content/play-icons-production.json"
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
     },
     {
       "id": "play-icon-belt",
       "kind": "image",
       "path": "media/play-icons/belt.webp",
-      "sha256": "26ae3197e3297da735c2ad89cf4fb5797436625af68821a04f577a555a922012",
+      "sha256": "ba33539df807a512435c7ce354d42fc9a7f57d11ffe6c8cda1d9d9433b198fc4",
       "status": "approved",
-      "width": 256,
-      "height": 256,
-      "source": "Origin: GPT Image generated miniature object atlas; content/play-icons-production.json"
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
     },
     {
       "id": "play-icon-sun",
       "kind": "image",
       "path": "media/play-icons/sun.webp",
-      "sha256": "43e9a6bd947a227c1bf29e91f751fde2003970649faa9c1332cac1577878b5b6",
+      "sha256": "58759b15f9aa061a57e51c284d51a08082abdbfdbb83eee9ebfad0303047205a",
       "status": "approved",
-      "width": 256,
-      "height": 256,
-      "source": "Origin: GPT Image generated miniature object atlas; content/play-icons-production.json"
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
     },
     {
       "id": "play-icon-rain",
       "kind": "image",
       "path": "media/play-icons/rain.webp",
-      "sha256": "0168b355a01cfce91f4d2bd918684b7aa927809e24ea13ae8e3e47aaeed64158",
+      "sha256": "1fbb4b582b3b274dde656b4f6091af924089e0866e848712ea5545846413cde8",
       "status": "approved",
-      "width": 256,
-      "height": 256,
-      "source": "Origin: GPT Image generated miniature object atlas; content/play-icons-production.json"
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
     },
     {
       "id": "play-icon-home",
       "kind": "image",
       "path": "media/play-icons/home.webp",
-      "sha256": "4871bdc02837cd234544595fec6a10be2f53f527a493edb02b58231312922901",
+      "sha256": "d3f7fc60a3011f58c62bf979639789a408d808049f6a41c771e161482a7b7fc0",
       "status": "approved",
-      "width": 256,
-      "height": 256,
-      "source": "Origin: GPT Image generated miniature object atlas; content/play-icons-production.json"
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
     },
     {
       "id": "play-icon-bridge",
       "kind": "image",
       "path": "media/play-icons/bridge.webp",
-      "sha256": "9d78d5332264e5fe7b8801fa3828dfe60a80e5c2accdde63b2532e262fe5a253",
+      "sha256": "903d443b1d93da472d9d643cc5764b474d0e1de1a965eec6651032e8fa248d0c",
       "status": "approved",
-      "width": 256,
-      "height": 256,
-      "source": "Origin: GPT Image generated miniature object atlas; content/play-icons-production.json"
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
     },
     {
       "id": "play-icon-plank",
       "kind": "image",
       "path": "media/play-icons/plank.webp",
-      "sha256": "8857a82c6da796fca97f7f446662e15cee0d9ab01243baabac38d6ed82665982",
+      "sha256": "f0552620069ade75484c81ac3d98c9dbddf50520c22de6608a135cb5aefb7bf2",
       "status": "approved",
-      "width": 256,
-      "height": 256,
-      "source": "Origin: GPT Image generated miniature object atlas; content/play-icons-production.json"
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
     },
     {
       "id": "play-icon-road",
       "kind": "image",
       "path": "media/play-icons/road.webp",
-      "sha256": "2996dc865541991aff9e43d1311252adc3199aa7fe7121c8db7f8c199f5617b3",
+      "sha256": "7f86defdadee775199112c0ecd722efc4585a2af15e7f6d3e67b3b3621eea7c6",
       "status": "approved",
-      "width": 256,
-      "height": 256,
-      "source": "Origin: GPT Image generated miniature object atlas; content/play-icons-production.json"
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
     },
     {
       "id": "play-icon-flag",
       "kind": "image",
       "path": "media/play-icons/flag.webp",
-      "sha256": "65eb95bb87087b15c288203c004710dd4f7ee13c0b6ce170595e09712d0ac4d6",
+      "sha256": "c51a130a9f406f50d8e0b50b2e628cd697577dbe3659a14bb8e76c91a7e4a784",
       "status": "approved",
-      "width": 256,
-      "height": 256,
-      "source": "Origin: GPT Image generated miniature object atlas; content/play-icons-production.json"
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
     },
     {
       "id": "play-icon-heart",
       "kind": "image",
       "path": "media/play-icons/heart.webp",
-      "sha256": "108741b9b1c7ae64808bf9dfc43c01938d0e14b213c995efb1b43d288a8504fd",
+      "sha256": "75012c10d9549b0b69de76eff59c3f0f11670b699c4a80f2388b158300ed5a6e",
       "status": "approved",
-      "width": 256,
-      "height": 256,
-      "source": "Origin: GPT Image generated miniature object atlas; content/play-icons-production.json"
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
     },
     {
       "id": "play-icon-star",
       "kind": "image",
       "path": "media/play-icons/star.webp",
-      "sha256": "fff8bcc650a545f8004a9dce84f5fb7d7dcce998c50e1915f55bab6d89518f50",
+      "sha256": "4357e02d57bf3599546125955e638d449306ed594c9756e2e7b75b47a48a0563",
       "status": "approved",
-      "width": 256,
-      "height": 256,
-      "source": "Origin: GPT Image generated miniature object atlas; content/play-icons-production.json"
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
     },
     {
       "id": "play-icon-leaf",
       "kind": "image",
       "path": "media/play-icons/leaf.webp",
-      "sha256": "adab040ff87b83461344d80623b0c3ca233bab26e84cf0fe1b4571482f5b01fd",
+      "sha256": "2fe864e7adf0d28467e30b9a75542b497ccf22e703b70c9564fb060ca16a1c4a",
       "status": "approved",
-      "width": 256,
-      "height": 256,
-      "source": "Origin: GPT Image generated miniature object atlas; content/play-icons-production.json"
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
     },
     {
       "id": "play-icon-ball",
       "kind": "image",
       "path": "media/play-icons/ball.webp",
-      "sha256": "a1881401e553232c1085a4e551ed4c64fbfd9a670773ffb9695f6a2203df84c1",
+      "sha256": "7b68e480e9646cb1de5cc9b857b515e04075e62ec170e8a91531d9bbf097f2eb",
       "status": "approved",
-      "width": 256,
-      "height": 256,
-      "source": "Origin: GPT Image generated miniature object atlas; content/play-icons-production.json"
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
     },
     {
       "id": "play-icon-ice",
       "kind": "image",
       "path": "media/play-icons/ice.webp",
-      "sha256": "6cd63bd4c885e96075cee37df10ec964adc41a5ab6f421a94a7726eee9482ca5",
+      "sha256": "311e1018c7a7dd4ad075d1451da56b3dda3a6aa3646c75db643261291b0cbed3",
       "status": "approved",
-      "width": 256,
-      "height": 256,
-      "source": "Origin: GPT Image generated miniature object atlas; content/play-icons-production.json"
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
     },
     {
       "id": "play-icon-cart",
       "kind": "image",
       "path": "media/play-icons/cart.webp",
-      "sha256": "f9d001e0fb959ae3936bad6edf8ae2a7a78a961501d5860e4128142dad4644e9",
+      "sha256": "79ae43940f7d3da66d5aa193ca83cd8c26cdeeeb1566719db7cfe199f8351165",
       "status": "approved",
-      "width": 256,
-      "height": 256,
-      "source": "Origin: GPT Image generated miniature object atlas; content/play-icons-production.json"
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "town-display-room",
+      "kind": "image",
+      "path": "media/town/display-room.webp",
+      "sha256": "1a64600b837e725924ee8248c36d67335684b72f6aeb0abe9c2c8c1c4c0e1a49",
+      "status": "approved",
+      "width": 1440,
+      "height": 960,
+      "source": "Origin: Built-in GPT Image; content/town-art-production.json"
+    },
+    {
+      "id": "town-garage-home",
+      "kind": "image",
+      "path": "media/town/garage-home.webp",
+      "sha256": "7f97156bf55fe50b6b414bf7215f86bdf60220c2d2c53b87f285c3ebf81ed624",
+      "status": "approved",
+      "width": 764,
+      "height": 508,
+      "source": "Origin: Built-in GPT Image; content/town-art-production.json"
+    },
+    {
+      "id": "town-creation-desk",
+      "kind": "image",
+      "path": "media/town/creation-desk.webp",
+      "sha256": "16e55aa408ec05dae5702df29d73629209d58db247dc1feaec47c06b8bac8138",
+      "status": "approved",
+      "width": 660,
+      "height": 439,
+      "source": "Origin: Built-in GPT Image; content/town-art-production.json"
+    },
+    {
+      "id": "town-guide-notebook",
+      "kind": "image",
+      "path": "media/town/guide-notebook.webp",
+      "sha256": "1985517654311a9682d609503d8af583051f0d3569e9c6973dc108cb2791976a",
+      "status": "approved",
+      "width": 764,
+      "height": 508,
+      "source": "Origin: Built-in GPT Image; content/town-art-production.json"
+    },
+    {
+      "id": "town-vehicle-bay",
+      "kind": "image",
+      "path": "media/town/vehicle-bay.webp",
+      "sha256": "b8a147ba0cced42964ce994f802e0642c0ddc7c1e2e3519fef779f9452fda2b2",
+      "status": "approved",
+      "width": 450,
+      "height": 299,
+      "source": "Origin: Built-in GPT Image; content/town-art-production.json"
+    },
+    {
+      "id": "play-icon-arrow",
+      "kind": "image",
+      "path": "media/play-icons/arrow.webp",
+      "sha256": "c536a711b54157db72c23c00ff21dbb49abf96786f223ab10ac868124555e4b9",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-chevron",
+      "kind": "image",
+      "path": "media/play-icons/chevron.webp",
+      "sha256": "a7e54442e87a5ca7827369c09024cdb7e9d1fdd98108e3acd132a90119f5756a",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-retry",
+      "kind": "image",
+      "path": "media/play-icons/retry.webp",
+      "sha256": "cef94b078215d41390f3a26700139cf0e79618b01a51d5e21a7a79573aa4c46a",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-refresh",
+      "kind": "image",
+      "path": "media/play-icons/refresh.webp",
+      "sha256": "7af7eedce606e532e5c0ec54c3f4ae85c6f5ccac2c5c05a800875ded1d4afee0",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-close",
+      "kind": "image",
+      "path": "media/play-icons/close.webp",
+      "sha256": "8be4bb3bd17885c95bcd8ba1adecfe4260ab89710339914806e683f50a4be2ee",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-check",
+      "kind": "image",
+      "path": "media/play-icons/check.webp",
+      "sha256": "f28723b1e71910917e56850b21d1b37bad7545db5543949f093437f29b40ea23",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-plus",
+      "kind": "image",
+      "path": "media/play-icons/plus.webp",
+      "sha256": "39b0cc5e34da5bed2acb8d03e0380281c7bcf0b6c0ddde088624241dcd03d556",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-minus",
+      "kind": "image",
+      "path": "media/play-icons/minus.webp",
+      "sha256": "8f3815757c3aff60cbc560bdb9294313d323130d3ed7db17b5dbfc7ab90caa9c",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-play",
+      "kind": "image",
+      "path": "media/play-icons/play.webp",
+      "sha256": "7cb2c3a15acc2f59ffef50ec12b6d83030c64ae8bf4510faa9b0d161112e5d26",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-pause",
+      "kind": "image",
+      "path": "media/play-icons/pause.webp",
+      "sha256": "1211a3adb88632d11be3dd85dcde542ff82b02e2f57f5e015bbc73666f98abeb",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-layers",
+      "kind": "image",
+      "path": "media/play-icons/layers.webp",
+      "sha256": "7629653497fc0730be4ecbaf5c211525adbcc4ee3b0edaed1f53fd84a4e3e339",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-cube",
+      "kind": "image",
+      "path": "media/play-icons/cube.webp",
+      "sha256": "52fc677fafcfcfbe5c828f4c0a8d1f2dbe576589a7c5f3d7bd61b806fb7b874c",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-orbit",
+      "kind": "image",
+      "path": "media/play-icons/orbit.webp",
+      "sha256": "1bf002b637509aeb0a4cfcebafdafc9faae5072ceab1c5f96fe2ba063114f79e",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-scan",
+      "kind": "image",
+      "path": "media/play-icons/scan.webp",
+      "sha256": "2cf21c9cfc7703f8d25263c23469f373745e81207bacdaacbbd5b2597a5c7f60",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-move",
+      "kind": "image",
+      "path": "media/play-icons/move.webp",
+      "sha256": "e25bf41bc7e0567e85e6ca0efa056111a0d95b91c95fa27a48c2e5a61d8d01a7",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-pointer",
+      "kind": "image",
+      "path": "media/play-icons/pointer.webp",
+      "sha256": "8683616fc45ffa85767082436828c8ea9117304baa30fd61e9963cb5b00d24d5",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-sound",
+      "kind": "image",
+      "path": "media/play-icons/sound.webp",
+      "sha256": "d5b5f0cf1af449438bca84dec168039e081513c436992629d75bf62771cbcafa",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-muted",
+      "kind": "image",
+      "path": "media/play-icons/muted.webp",
+      "sha256": "38103050b5fe0035c4e620bb8fe7c5ad5b73766aa9c8bc9fa24a14eb902b5dde",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-family",
+      "kind": "image",
+      "path": "media/play-icons/family.webp",
+      "sha256": "a80871210d43087f20f0bc34ec0f305f4fa4e1dca5ded0629cb0f206f4ac52e2",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-camera",
+      "kind": "image",
+      "path": "media/play-icons/camera.webp",
+      "sha256": "62b30c9a5bc8c8884f930bde6bcb2d9814fe8c77474a13a61edfb1cce58ca40e",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-search",
+      "kind": "image",
+      "path": "media/play-icons/search.webp",
+      "sha256": "75f934446283cf133f585dd8f2eaaefd9fadebd0b72ae9bbea07d0fad0af79e4",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-help",
+      "kind": "image",
+      "path": "media/play-icons/help.webp",
+      "sha256": "725f7272f1b791723e9a1f6de035d45c8887ef730cd3aafb30483ac9850dd846",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-download",
+      "kind": "image",
+      "path": "media/play-icons/download.webp",
+      "sha256": "71a8065ef4916ddaaee3729307a7d1589eb85cbef3218e0c11da7d3d63add880",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-upload",
+      "kind": "image",
+      "path": "media/play-icons/upload.webp",
+      "sha256": "3e4a2e85b45346e677391cfd300632d982d687f45ce29a06c5b7adce02fba15b",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-save",
+      "kind": "image",
+      "path": "media/play-icons/save.webp",
+      "sha256": "1f568cc341f76db1a1ef8309db93f87b0f3272de680c0acefefa4458283e4a8e",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-trash",
+      "kind": "image",
+      "path": "media/play-icons/trash.webp",
+      "sha256": "dd5515aa9955a0990875d1912fe95c4c91412b1118d172a948b8a55e699ab72f",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-phone",
+      "kind": "image",
+      "path": "media/play-icons/phone.webp",
+      "sha256": "de7a68ac74377af113caec223f0ada312908454d137bb8f7771b5990cbc004bf",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-music",
+      "kind": "image",
+      "path": "media/play-icons/music.webp",
+      "sha256": "ef0142c4ca52b449337889346646ca3d97303e45087bfb9360ecf2f4e1f41a66",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-shield",
+      "kind": "image",
+      "path": "media/play-icons/shield.webp",
+      "sha256": "73ae2bc268cc21795edcb0569b14ead0d4586bee458f62451c6fa88c48850f2f",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-heart-outline",
+      "kind": "image",
+      "path": "media/play-icons/heart-outline.webp",
+      "sha256": "bf16cef3b975548196888fc6e85d879719a821527b19e076bf5f50929fb9a67f",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-smile",
+      "kind": "image",
+      "path": "media/play-icons/smile.webp",
+      "sha256": "070319b3b40d9ed384d6d4222df609d754b4972ddd0212bf80fbd1e7ff7fa1c2",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-worried",
+      "kind": "image",
+      "path": "media/play-icons/worried.webp",
+      "sha256": "3a0f3fc0f9d6dd1adc4610db2f5715c01f9f8aaa72acff28eac5f24a891e2259",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-cloud",
+      "kind": "image",
+      "path": "media/play-icons/cloud.webp",
+      "sha256": "1cf7d07bb3921f9855134068ce6281cb77886abc7d7e519cabfa3280b3fb870c",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-seat",
+      "kind": "image",
+      "path": "media/play-icons/seat.webp",
+      "sha256": "aae928fe2224275aa28cee89347e2d830a2c116066731c920a2c315bd892467c",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-sparkle",
+      "kind": "image",
+      "path": "media/play-icons/sparkle.webp",
+      "sha256": "66e217d92400f113af16fd135855c0d38981f2e41728b7f84a55e76abca0be2d",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-flower",
+      "kind": "image",
+      "path": "media/play-icons/flower.webp",
+      "sha256": "e354c8316982c90574a9922ba6876a5c6b5e692c0ff593e51a8fa67689d20c9c",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-butterfly",
+      "kind": "image",
+      "path": "media/play-icons/butterfly.webp",
+      "sha256": "684a0732e8aa1d713a9d57285d070b0f508d46bf7b355bdc2a1adb77c3e3a60d",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-dinosaur",
+      "kind": "image",
+      "path": "media/play-icons/dinosaur.webp",
+      "sha256": "5ab360825eeabb69797e6191722153c966a524d1d65ce98a33b9c67a6d41f16c",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-bone",
+      "kind": "image",
+      "path": "media/play-icons/bone.webp",
+      "sha256": "72577895428d0cdd5d838f96b4db8df32592a41157bd339dcacdb8639d29916c",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-bear",
+      "kind": "image",
+      "path": "media/play-icons/bear.webp",
+      "sha256": "c7f16ee5a737d42ad471d13e4e8c3312f475642a0e143a97626d6de4f511e95e",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-clock",
+      "kind": "image",
+      "path": "media/play-icons/clock.webp",
+      "sha256": "20f82bbb43c52010e917ae43259afd8465388596fd5b8459b729d11e5f9133fe",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-light",
+      "kind": "image",
+      "path": "media/play-icons/light.webp",
+      "sha256": "6041f9e9f174dec955e8698c49f24df6a1953ae29e85a63733bb9d4b21a46926",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-moon",
+      "kind": "image",
+      "path": "media/play-icons/moon.webp",
+      "sha256": "137b8d4f526b745bdfb35f9123bf8b10597297b031fcc0501a673e58b2ad3ebc",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-stop",
+      "kind": "image",
+      "path": "media/play-icons/stop.webp",
+      "sha256": "ca3e0f9c76b12c639f6ae7fab99bf7a6e4992ca2056bc7315744e9cb6ee79189",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-box",
+      "kind": "image",
+      "path": "media/play-icons/box.webp",
+      "sha256": "5e0a6cce77e423b3e500c146ac65570e9dd2a993681af9e04b5e4722dee7d07e",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-briefcase",
+      "kind": "image",
+      "path": "media/play-icons/briefcase.webp",
+      "sha256": "a93f5149afa7e02dcd1e0662cfd4675c4e0c131806087681f3009a138a1a85f4",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-landmark",
+      "kind": "image",
+      "path": "media/play-icons/landmark.webp",
+      "sha256": "2dcf21527b9dcf1135e36c67cd9fde0ae827366abb9aeafbf1249bd74bdb4776",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-red",
+      "kind": "image",
+      "path": "media/play-icons/red.webp",
+      "sha256": "ae7f88c51c317727590050270dd3c20e2c6973fd38ffe978fcfd8d67c1eccc19",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-blue",
+      "kind": "image",
+      "path": "media/play-icons/blue.webp",
+      "sha256": "4a1eb9da08fbce70b18a22412d9fa4b277a748017e444b393a294b18471fc218",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-white",
+      "kind": "image",
+      "path": "media/play-icons/white.webp",
+      "sha256": "d83731c92728fea23013f4e926be725f9f52add406c0f24888bb09f5dc14cb7f",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-pencil",
+      "kind": "image",
+      "path": "media/play-icons/pencil.webp",
+      "sha256": "f5f9c2f467c457ef4ea0b48b05d46fff328e9320cf8aafb0488232e52c98b76e",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-signal",
+      "kind": "image",
+      "path": "media/play-icons/signal.webp",
+      "sha256": "bfccf8bab101ff600ecbf8d98c6faf0576da904fe82222630a6c8af39474de25",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-parking",
+      "kind": "image",
+      "path": "media/play-icons/parking.webp",
+      "sha256": "e0d9197e64d72ad8f00cfb75eed6036e78810571d1d5d768b39899eff4d13d14",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-paper",
+      "kind": "image",
+      "path": "media/play-icons/paper.webp",
+      "sha256": "c23c90476d604bcb8b0d0849048f6d651efeb203cf68f9a4eda6114898458612",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-hourglass",
+      "kind": "image",
+      "path": "media/play-icons/hourglass.webp",
+      "sha256": "e8648b1ad31595faba8df3005e4ed5d5075172ba9bfc3c8b844ab98cb5843a14",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "play-icon-greeting",
+      "kind": "image",
+      "path": "media/play-icons/greeting.webp",
+      "sha256": "4422fd85fe0690de7717ccd3a950c6fd78dc47d0d5669cd89024de510b29ecb0",
+      "status": "approved",
+      "width": 192,
+      "height": 192,
+      "source": "Origin: Built-in GPT Image; content/play-icons-production.json"
+    },
+    {
+      "id": "town-material-paper",
+      "kind": "image",
+      "path": "media/town-materials/paper.webp",
+      "sha256": "4623bb4f972dee7cb4b6cf920614a58d3ecb7f8d3c975ed6c531f334a342bdfb",
+      "status": "approved",
+      "width": 352,
+      "height": 352,
+      "source": "Origin: Built-in GPT Image miniature material atlas; content/town-art-production.json"
+    },
+    {
+      "id": "town-material-wood",
+      "kind": "image",
+      "path": "media/town-materials/wood.webp",
+      "sha256": "eeb8346aa6c7e71996e8b9de43e6d35cfc857cb0e24f29e6a7a4c5462e265a72",
+      "status": "approved",
+      "width": 352,
+      "height": 352,
+      "source": "Origin: Built-in GPT Image miniature material atlas; content/town-art-production.json"
+    },
+    {
+      "id": "town-material-water",
+      "kind": "image",
+      "path": "media/town-materials/water.webp",
+      "sha256": "c06f359ceef10d04f09f8deb59aee114481ef0d431bd307d0eaec6b509383781",
+      "status": "approved",
+      "width": 352,
+      "height": 352,
+      "source": "Origin: Built-in GPT Image miniature material atlas; content/town-art-production.json"
+    },
+    {
+      "id": "town-material-turf",
+      "kind": "image",
+      "path": "media/town-materials/turf.webp",
+      "sha256": "8a7288c95050a2b829d9813003c0b39dd90a7182f3b6054277ffa7f1d6d79ed8",
+      "status": "approved",
+      "width": 352,
+      "height": 352,
+      "source": "Origin: Built-in GPT Image miniature material atlas; content/town-art-production.json"
+    },
+    {
+      "id": "town-material-road",
+      "kind": "image",
+      "path": "media/town-materials/road.webp",
+      "sha256": "f94b81cfb659c0e5c9400a3e844260d6794787bd34a30b87f5903adb17796fee",
+      "status": "approved",
+      "width": 352,
+      "height": 352,
+      "source": "Origin: Built-in GPT Image miniature material atlas; content/town-art-production.json"
+    },
+    {
+      "id": "town-material-sand",
+      "kind": "image",
+      "path": "media/town-materials/sand.webp",
+      "sha256": "6cceb20b02b0a9373fb59a3842c1084f831cb3ff7b79ca464be66143cc5d32b8",
+      "status": "approved",
+      "width": 352,
+      "height": 352,
+      "source": "Origin: Built-in GPT Image miniature material atlas; content/town-art-production.json"
+    },
+    {
+      "id": "town-material-mint",
+      "kind": "image",
+      "path": "media/town-materials/mint.webp",
+      "sha256": "fc25714f66b73e87ef2d8970ffce2de90965378225e526afee02e739b593fe39",
+      "status": "approved",
+      "width": 352,
+      "height": 352,
+      "source": "Origin: Built-in GPT Image miniature material atlas; content/town-art-production.json"
+    },
+    {
+      "id": "town-material-stone",
+      "kind": "image",
+      "path": "media/town-materials/stone.webp",
+      "sha256": "0d1f58a1b03d7e06ff625ae6369d959e68390a341cc34e798a072c8b516dd4d6",
+      "status": "approved",
+      "width": 352,
+      "height": 352,
+      "source": "Origin: Built-in GPT Image miniature material atlas; content/town-art-production.json"
+    },
+    {
+      "id": "town-material-coral",
+      "kind": "image",
+      "path": "media/town-materials/coral.webp",
+      "sha256": "65dd2fd2f107aaa0407e391f827e04245be919164267f0debd97e8ad68aa6f79",
+      "status": "approved",
+      "width": 352,
+      "height": 352,
+      "source": "Origin: Built-in GPT Image miniature material atlas; content/town-art-production.json"
     }
   ],
   "scenes": [

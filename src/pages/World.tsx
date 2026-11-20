@@ -1,4 +1,4 @@
-import {ArrowRight} from 'lucide-react';
+import {ArrowRight} from '../components/TownIcons';
 import type {CSSProperties} from 'react';
 import {ActivityLinks} from './Browse';
 import {PlaySymbol} from '../components/PlaySymbol';
@@ -20,7 +20,7 @@ export function World({sceneId}:{sceneId?:string}) {
     <div className="town-map" aria-label="汽车小镇六个地点">
       <TownImage name="town" className="town-map-art" priority alt="道路连着车展大厅、停车广场、修车工坊、泡泡洗车屋、科学公园和故事画室的微缩汽车小镇"/>
       <nav className="town-destinations" aria-label="选择小镇地点">{townPlaces.map(place=><a key={place.id} className={`town-destination town-destination-${place.id}`} href={`#/explore/${place.id}`} aria-label={place.name} style={{'--place-x':`${place.x}%`,'--place-y':`${place.y}%`} as CSSProperties}>
-        <TownImage name={place.id} className="town-mobile-building"/>
+        <TownImage name={place.id} className="town-mobile-building" linkSymbol={place.symbol}/>
         <span className="town-place-sign"><PlaySymbol name={place.symbol}/><span><strong>{place.name}</strong><small>{place.action}</small></span><ArrowRight aria-hidden="true"/></span>
       </a>)}</nav>
     </div>

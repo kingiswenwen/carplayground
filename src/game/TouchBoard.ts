@@ -20,7 +20,7 @@ import {SceneArtwork,hasSceneArtwork,studioSticker} from '../visual/scene-artwor
 
 type Item = Rect & { id: string; kind: 'car'|'body'|'wheel'|'prop'|'plank'|'road'|'bay'|'shape'; glyph?: string; color?: string; carId?: string; home: Point; placed?: boolean; target?: string; turn?: number; dock?: string;posterShape?:Mark['shape'];available?:boolean;decorative?:boolean };
 type Target = Rect & { id: string; glyph?: string; color?: string; accepts?: string[]; occupied?: boolean; enabled?: boolean; blocked?:boolean; construction?:boolean; long?:boolean;sizeTier?:number };
-type Grab = { id: number; item?: Item; start: Point; offset: Point; samples: (Point & {t:number})[]; origin?: Point; washing?: boolean; dock?:string; wasPlaced?:boolean; companions?:{item:Item;origin:Point}[] };
+type Grab = { id: number; item?: Item; start: Point; offset: Point; samples: (Point & {t:number})[]; origin?: Point; washing?: boolean; dock?:string; wasPlaced?:boolean; blockedBy?:Target; companions?:{item:Item;origin:Point}[] };
 type GuideCue={start:Point;end:Point;item?:Item;action:'drag'|'push'|'tap'|'turn'|'wipe';subject:string};
 export type BridgePhase='choose'|'try'|'driving'|'blocked'|'crossed';
 export type TrafficPhase='red'|'crossing'|'green'|'arrived';
@@ -1377,9 +1377,13 @@ export class TouchBoard {
     if(this.mode==='trip'&&item.id==='trip-car'){item.y=item.home.y;item.x=Math.min(item.x,490);}
     if(this.options.id==='M01'&&item.kind==='car'){
       const barrier=this.targets.find(t=>t.blocked)!;
-      if(Math.abs(item.x-barrier.x)<(item.w+barrier.w)*.39&&
-        item.y>barrier.y-(item.h+barrier.h)/2&&item.y<barrier.y+(item.h+barrier.h)/2){
-        item.y=barrier.y-(item.h+barrier.h)/2;
+      const stop=barrier.y-(item.h+barrier.h)/2;
+      // A car in the neighbouring lane should keep its own drop position.
+      grab.blockedBy=undefined;
+      if(Math.abs(item.x-barrier.x)<barrier.w/2&&
+        item.y>stop&&item.y<barrier.y+(item.h+barrier.h)/2){
+        item.y=stop;
+        grab.blockedBy=barrier;
       }
     }
     if(distance(grab.start,p)>12){this.selected=null;}
@@ -1459,7 +1463,7 @@ export class TouchBoard {
       if(grab.origin)Object.assign(item,grab.origin);
       return;
     }
-    const target=this.dropTarget(item);
+    const target=grab.blockedBy?undefined:this.dropTarget(item);
     if(this.mode==='sequence'){
       if(!target){this.reject(item,grab);return;}
       const other=this.items.find(i=>i!==item&&i.placed&&i.dock===target.id);
@@ -1519,7 +1523,7 @@ export class TouchBoard {
     }
     if(['M01','M02','M03'].includes(this.options.id)){
       if(!target){
-        const where=this.targets.find(t=>inside(p,t,30));
+        const where=grab.blockedBy||this.targets.find(t=>inside(p,t,30));
         const message=where?.blocked?'挡板挡住了这个车位，看看旁边的空位。'
           :where?.enabled===false&&item.kind==='car'?'这里还没有车位，拖一块车位板来。'
           :where?.occupied?'这个车位已经有车了，可以找一个空位。'
@@ -1702,7 +1706,11 @@ export class TouchBoard {
     }
   }
   private round(r:Rect,radius=20){this.ctx.beginPath();this.ctx.roundRect(r.x-r.w/2,r.y-r.h/2,r.w,r.h,radius);}
-  private glyph(glyph:string,x:number,y:number,size=85,c=this.ctx){if(drawPlaySymbol(c,glyph,x,y,size))return;c.font=`${size}px system-ui,sans-serif`;c.textAlign='center';c.textBaseline='middle';c.fillText(glyph,x,y);}
+  private glyph(glyph:string,x:number,y:number,size=85,c=this.ctx){
+    if(drawPlaySymbol(c,glyph,x,y,size))return;
+    if(!/^\d+$/.test(glyph)){drawPlaySymbol(c,'sparkle',x,y,size);return;}
+    c.font=`600 ${size}px Town Sans,sans-serif`;c.textAlign='center';c.textBaseline='middle';c.fillText(glyph,x,y);
+  }
   private sprite(carId:string,r:Rect,top=false,opacity=1,c=this.ctx){
     const image=this.images.get(`${carId}/${top?'top':'side'}`);if(!image)return;
     c.save();c.globalAlpha=opacity;c.drawImage(image,r.x-r.w/2,r.y-r.h/2,r.w,r.h);c.restore();

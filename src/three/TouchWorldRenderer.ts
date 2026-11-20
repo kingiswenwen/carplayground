@@ -1,12 +1,13 @@
 import * as T from 'three';
 import {RoundedBoxGeometry} from 'three/addons/geometries/RoundedBoxGeometry.js';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
-import {SVGLoader} from 'three/addons/loaders/SVGLoader.js';
 import {RoomEnvironment} from 'three/addons/environments/RoomEnvironment.js';
 import {paintMark} from '../visual/paint-mark';
-import {drawPlaySymbol,symbolName,symbolSvg} from '../visual/play-symbols';
+import {drawPlaySymbol,symbolName} from '../visual/play-symbols';
 import {makePlayProp,toyBox,toyMaterial} from './play-props';
 import type {TouchBoard,BoardSnapshot} from '../game/TouchBoard';
+import {assetUrl} from '../domain/content';
+import {loadImage} from '../services/load-image';
 import {vehicleModel} from '../domain/vehicle-models';
 import {loadPlayVehicle,type PlayVehicle} from './play-model';
 import {disposeModel} from './model';
@@ -15,6 +16,8 @@ import {withinPartRange} from '../domain/play-difficulty';
 
 type Item=TouchBoard['items'][number];
 type Actor={group:T.Group;model?:T.Group;sourceCar?:string;wheels:T.Group[];x:number;z:number;yaw:number;scale:number;bounds?:T.Box3;light?:(T.MeshStandardMaterial|T.MeshPhongMaterial)[]};
+type Surface='paper'|'wood'|'water'|'turf'|'road'|'sand'|'mint'|'stone'|'coral';
+type SurfaceMesh=T.Mesh<T.BufferGeometry,T.MeshPhongMaterial>;
 const UNIT=.02;
 const colors={ink:'#365653',cream:'#fff5da',green:'#8eb987',road:'#7c9899',water:'#8dccdf',wood:'#c99562'};
 const material=toyMaterial;
@@ -78,6 +81,8 @@ export class TouchWorldRenderer{
  private simpleMaterials=false;
  private software=false;
  private environment?:T.WebGLRenderTarget;
+ private materialImages=new Map<Surface,Promise<HTMLImageElement|undefined>>();
+ private paperBackdrop?:T.Texture;
  private contactTexture?:T.CanvasTexture;
  private orbit=false;
  private pointer:{id:number;item?:string;start:T.Vector3;boardStart:{x:number;y:number};wash?:boolean;turnWheel?:number}|null=null;
@@ -110,6 +115,10 @@ export class TouchWorldRenderer{
 
   this.controls=new OrbitControls(this.camera,canvas);this.controls.enablePan=false;this.controls.enableDamping=true;this.controls.minPolarAngle=.25;this.controls.maxPolarAngle=1.35;this.controls.minDistance=8;this.controls.maxDistance=65;this.controls.enabled=false;
   this.buildScenery();this.resetCamera();
+  void this.materialImage('paper').then(image=>{
+   if(!image||this.disposed)return;
+   this.paperBackdrop=this.makeTexture(image);this.scene.background=this.paperBackdrop;this.needsRender=true;
+  });
   canvas.addEventListener('pointerdown',this.down);canvas.addEventListener('pointermove',this.move);canvas.addEventListener('pointerup',this.up);canvas.addEventListener('pointercancel',this.cancel);canvas.addEventListener('lostpointercapture',this.cancel);canvas.addEventListener('keydown',this.key);canvas.addEventListener('webglcontextlost',this.lost);
   this.observer=new ResizeObserver(this.resize);this.observer.observe(host);this.resize();
   void this.load().catch(error=>this.reportFailure('model loading',error));
@@ -340,7 +349,7 @@ export class TouchWorldRenderer{
     add(group,block(w-.32,.44,h,'#b98258'),0,.76);
     add(group,block(.77,.14,.30,'#ffdb93'),0,1.03,h*.31);
    }
-  }else if(item.kind==='plank'){add(group,block(w,.28,h,colors.wood),0,.14);for(let x=-w/2+.5;x<w/2;x+=.6)add(group,block(.035,.035,h*.9,'#e9c99b'),x,.3);}
+  }else if(item.kind==='plank'){add(group,this.finishSurface(block(w,.28,h,colors.wood),'wood'),0,.14);}
   else if(item.kind==='road'){
    const closed=this.board.isClosedRoad(item.turn!);
    add(group,block(w,.12,h,closed?'#cfb58d':'#afc59a'),0,.02);
@@ -369,7 +378,15 @@ export class TouchWorldRenderer{
    const scale=Math.min(w*.92/Math.max(.01,size.x),h*.92/Math.max(.01,size.y,size.z));
    toy.scale.setScalar(scale);toy.position.set(-center.x*scale,-bounds.min.y*scale,-center.z*scale);group.add(toy);
   }
-  else{const svg=symbolSvg(item.glyph||'star');if(svg){const art=new T.Group();const paths=new SVGLoader().parse(svg).paths;for(const path of paths){if(path.color.getHexString()==='000000'&&(path.userData?.style as {fill?:string}|undefined)?.fill==='none')continue;for(const shape of SVGLoader.createShapes(path)){const mesh=new T.Mesh(new T.ExtrudeGeometry(shape,{depth:8,bevelEnabled:true,bevelSize:1,bevelThickness:1,bevelSegments:1,steps:1,curveSegments:5}),new T.MeshStandardMaterial({color:path.color,roughness:.7,side:T.DoubleSide}));mesh.castShadow=true;art.add(mesh);}}const size=Math.min(w,h)*.008;art.scale.set(size,-size,size);art.position.set(-50*size,100*size,.1);group.add(art);}else add(group,ball(.6,item.color||'#e2b879'),0,.65);}
+  else{
+   const art=document.createElement('canvas');art.width=art.height=192;
+   const context=art.getContext('2d')!;
+   if(!drawPlaySymbol(context,item.glyph||'star',96,96,192))drawPlaySymbol(context,'star',96,96,192);
+   const map=new T.CanvasTexture(art);map.colorSpace=T.SRGBColorSpace;
+   const size=Math.min(w,h)*.92;
+   const sticker=new T.Mesh(new T.PlaneGeometry(size,size),new T.MeshBasicMaterial({map,transparent:true,alphaTest:.18,side:T.DoubleSide}));
+   add(group,sticker,0,size/2);
+  }
   const bounds=new T.Box3().setFromObject(group,true),size=bounds.getSize(new T.Vector3()),center=bounds.getCenter(new T.Vector3());if(!['road','bay','plank'].includes(item.kind)){const shadow=this.contactShadow(Math.max(.5,size.x*1.25),Math.max(.5,size.z*1.4),.24);shadow.position.x=center.x;shadow.position.z=center.z;group.add(shadow);}const hit=new T.Mesh(new T.BoxGeometry(Math.max(.6,size.x),Math.max(.5,size.y),Math.max(.6,size.z)),new T.MeshBasicMaterial({transparent:true,opacity:0,colorWrite:false,depthWrite:false}));hit.position.copy(center);hit.userData.pickProxy=true;group.add(hit);this.scene.add(group);return{group,wheels:[],x:0,z:0,yaw:0,scale:1,bounds:bounds.clone()};
  }
  private targetPoint(target:{id:string;x:number;y:number}){
@@ -378,14 +395,40 @@ export class TouchWorldRenderer{
   return this.world(target.x,target.y);
  }
  private outline(parent:T.Object3D,w:number,d:number,color:string){for(const [x,z,a,b]of [[0,-d/2,w,.09],[0,d/2,w,.09],[-w/2,0,.09,d],[w/2,0,.09,d]])add(parent,block(a,.06,b,color),x,.045,z);}
+ private materialImage(surface:Surface){
+  let pending=this.materialImages.get(surface);
+  if(!pending){
+   pending=loadImage(assetUrl('town-material-'+surface),this.abort.signal,6000,true).catch(()=>undefined);
+   this.materialImages.set(surface,pending);
+  }
+  return pending;
+ }
+ private makeTexture(image:HTMLImageElement){
+  const texture=new T.Texture(image);
+  texture.colorSpace=T.SRGBColorSpace;texture.needsUpdate=true;
+  return texture;
+ }
+ private finishSurface(mesh:SurfaceMesh,surface:Surface,repeat=1){
+  void this.materialImage(surface).then(image=>{
+   if(!image||this.disposed||!mesh.parent)return;
+   // Each mesh owns its texture so rebuilding a dynamic prop cannot dispose
+   // a texture that is still used by another object.
+   const texture=this.makeTexture(image);
+   if(repeat>1){texture.wrapS=texture.wrapT=T.MirroredRepeatWrapping;texture.repeat.set(repeat,repeat);}
+   mesh.material.map=texture;mesh.material.color.set('#ffffff');mesh.material.needsUpdate=true;
+   this.needsRender=true;
+  });
+  return mesh;
+ }
  private buildScenery(){
   const depth=this.board.height*UNIT;const road=['M01','M02','M03','L03','M04','P01','S01','E03','T03','H01','L02'].includes(this.activity);
   const rounded=(w:number,h:number,d:number,color:string)=>{const mesh=new T.Mesh(new RoundedBoxGeometry(w,h,d,2,Math.min(.16,w/4,h/4,d/4)),material(color));mesh.receiveShadow=true;return mesh;};
-  const floor=rounded(22,.5,depth+2,road?'#c4d2a5':'#e7d8b4');floor.position.y=-.35;this.scenery.add(floor);
-  if(road){const surface=rounded(19.5,.06,depth*.85,'#83938b');surface.position.y=-.06;this.scenery.add(surface);for(let x=-9;x<10;x+=1.3)add(this.scenery,block(.65,.025,.09,'#f9edc7'),x,.015,0);}
+  const floorKind=road||this.activity==='T02'?'turf':['E01','E02','A01','A02','C01','C02','C03','T01','T04'].includes(this.activity)?'wood':'paper';
+  const floor=this.finishSurface(rounded(22,.5,depth+2,road?'#c4d2a5':'#e7d8b4'),floorKind,2);floor.position.y=-.35;this.scenery.add(floor);
+  if(road){const surface=this.finishSurface(rounded(19.5,.06,depth*.85,'#83938b'),this.activity.startsWith('M')||this.activity==='L03'?'stone':'road',2);surface.position.y=-.06;this.scenery.add(surface);for(let x=-9;x<10;x+=1.3)add(this.scenery,block(.65,.025,.09,'#f9edc7'),x,.015,0);}
   if(this.activity==='H03'){this.washGantry=new T.Group();this.scenery.add(this.washGantry);for(const x of [-9,9])add(this.washGantry,rounded(.65,6,.65,'#84b5aa'),x,3,-depth*.25);add(this.washGantry,rounded(18.6,.65,.65,'#84b5aa'),0,6,-depth*.25);for(let x=-8;x<=8;x+=2)add(this.washGantry,block(.15,.6,.15,'#c4ecf4'),x,5.5,-depth*.25);}
   if(this.activity==='H03'&&this.washGantry){
-   add(this.washGantry,rounded(16,.22,.12,'#d7e5d6'),0,6.02,-depth*.25+.36);
+   add(this.washGantry,this.finishSurface(rounded(16,.22,.12,'#d7e5d6'),'mint'),0,6.02,-depth*.25+.36);
    for(const x of [-9,9]){add(this.washGantry,rounded(.95,.18,1.1,'#608f89'),x,.05,-depth*.25);add(this.washGantry,rounded(.15,3.8,.1,'#d5e5d9'),x,2.8,-depth*.25+.37);}
   }
   if(this.activity==='S02'){
@@ -420,14 +463,14 @@ export class TouchWorldRenderer{
   const back=-depth*.53;
   if(['E01','E02','E03','C01'].includes(this.activity)){
    // A low glazed showroom facade; the learning objects stay in front of it.
-   add(this.scenery,rounded(15,1.8,.35,'#b9cfc2'),0,.75,back);
+   add(this.scenery,this.finishSurface(rounded(15,1.8,.35,'#b9cfc2'),'mint'),0,.75,back);
    add(this.scenery,rounded(13.8,1.25,.1,'#dbe7d4'),0,.8,back+.22);
    for(const x of [-6,-3,0,3,6])add(this.scenery,rounded(.12,1.4,.14,'#8aa99d'),x,.85,back+.3);
    add(this.scenery,rounded(15.5,.28,.8,'#edca7c'),0,1.8,back);
   }else if(['T01','T02','T03','T04','H02','L02'].includes(this.activity)){
-   add(this.scenery,rounded(10,1.6,.25,'#dfbe89'),0,.75,back);
+   add(this.scenery,this.finishSurface(rounded(10,1.6,.25,'#dfbe89'),'wood'),0,.75,back);
    for(let n=0;n<8;n++)add(this.scenery,ball(.05,'#ae8c5d'),-4+n*1.15,1.1,back+.16);
-   add(this.scenery,rounded(11,.25,.75,'#d69474'),0,1.6,back);
+   add(this.scenery,this.finishSurface(rounded(11,.25,.75,'#d69474'),'coral'),0,1.6,back);
    for(const [name,x]of [['tool',-3],['wheel',-1.5]]as const){const prop=makePlayProp(name)!;prop.scale.setScalar(.5);prop.position.set(x,.2,back+.3);this.scenery.add(prop);}
   }else if(['A01','A02','C02','C03'].includes(this.activity)){
    for(const [n,color]of ['#c96b4f','#477da8','#6e9154'].entries()){
@@ -470,7 +513,7 @@ export class TouchWorldRenderer{
   for(const child of [...this.rollingMarkers.children]){child.removeFromParent();disposeModel(child);}
   for(const [lane,row]of [.34,.65].entries()){
    const z=this.world(0,H*row).z,rough=this.board.isRoughLane(lane);
-   add(this.rollingMarkers,block(19.1,.05,3,rough?'#c9ac83':'#a0b5bc'),0,-.015,z);
+   add(this.rollingMarkers,this.finishSurface(block(19.1,.05,3,rough?'#c9ac83':'#a0b5bc'),rough?'sand':'road'),0,-.015,z);
    if(rough)for(let i=0;i<38;i++)add(this.rollingMarkers,ball(.09,'#907455'),-9+i*.48,.02,z+Math.sin(i*2.6)*1.24);
    for(const [run,stop]of stops.entries()){
     const x=this.world(lane?stop.lower:stop.upper,0).x;
@@ -689,10 +732,10 @@ export class TouchWorldRenderer{
    for(const child of [...this.bridgeScenery.children]){child.removeFromParent();disposeModel(child);}
    const height=this.board.height, y=height*.44;
    const center=this.world(500,y), bankLength=(right-left)*UNIT;
-   add(this.bridgeScenery,block(bankLength,.13,height*UNIT*.65,'#79b8c4'),0,-.105,center.z-height*UNIT*.1);
+   add(this.bridgeScenery,this.finishSurface(block(bankLength,.13,height*UNIT*.65,'#79b8c4'),'water',2),0,-.105,center.z-height*UNIT*.1);
    for(const x of [left,right]){
     const at=this.world(x,y);
-    add(this.bridgeScenery,block(left*UNIT,.10,height*UNIT*.16,'#c9bb91'),at.x+(x===left?-1:1)*left*UNIT/2,-.03,center.z);
+    add(this.bridgeScenery,this.finishSurface(block(left*UNIT,.10,height*UNIT*.16,'#c9bb91'),'sand'),at.x+(x===left?-1:1)*left*UNIT/2,-.03,center.z);
     const stone=block(.46,.28,height*UNIT*.18,'#91a597');
     add(this.bridgeScenery,stone,at.x,.04,center.z);
     if(x===right)this.bridgeStone=stone;
@@ -961,5 +1004,5 @@ export class TouchWorldRenderer{
  private reportFailure(reason:string,error?:unknown){if(!this.disposed){console.warn('立体玩法暂时无法打开：'+reason,error);this.failed();}}
  dispose(){if(this.disposed)return;this.cancel();this.disposed=true;this.abort.abort();cancelAnimationFrame(this.frame);this.observer.disconnect();this.controls.dispose();const canvas=this.renderer.domElement;
   canvas.removeEventListener('pointerdown',this.down);canvas.removeEventListener('pointermove',this.move);canvas.removeEventListener('pointerup',this.up);canvas.removeEventListener('pointercancel',this.cancel);canvas.removeEventListener('lostpointercapture',this.cancel);canvas.removeEventListener('keydown',this.key);canvas.removeEventListener('webglcontextlost',this.lost);
-  disposeModel(new T.Group().add(this.scene,...[...this.templates.values()].map(t=>t.root)));this.scene.traverse(node=>{if(node instanceof T.DirectionalLight)node.dispose();});this.environment?.dispose();this.renderer.dispose();this.renderer.forceContextLoss();canvas.remove();}
+  disposeModel(new T.Group().add(this.scene,...[...this.templates.values()].map(t=>t.root)));this.scene.traverse(node=>{if(node instanceof T.DirectionalLight)node.dispose();});this.paperBackdrop?.dispose();this.environment?.dispose();this.renderer.dispose();this.renderer.forceContextLoss();canvas.remove();}
 }

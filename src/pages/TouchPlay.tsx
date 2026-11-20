@@ -6,17 +6,19 @@ import {hasSceneArtwork} from '../visual/scene-artwork';
 import {activityPlace,teachingActions} from '../domain/town';
 import {PlayPicture} from '../components/PlayPicture';
 import {PlaySymbol} from '../components/PlaySymbol';
+import {CarThumbnail} from '../components/CarImage';
 import {PlayGuide} from '../components/PlayGuide';
 import {nextInvitation} from '../domain/play-journey';
 import { lazy,Suspense,useEffect, useRef, useState, type PointerEvent } from 'react';
-import {Layers, ArrowLeft, ArrowRight, Box, Check, Hand, Pause, Play, RotateCcw, Save, Download, Smartphone, Users, Volume2 } from 'lucide-react';
-import { getActivity, type ActivityId } from '../domain/content';
+import {Layers, ArrowLeft, ArrowRight, Box, Check, Hand, Pause, Play, RotateCcw, Save, Download, Smartphone, Users, Volume2 } from '../components/TownIcons';
+import { getActivity,getCar,type ActivityId } from '../domain/content';
 import { TouchBoard, type BoardSnapshot } from '../game/TouchBoard';
 import { useLearningSession } from '../hooks/useLearningSession';
 import { db, safely, type Creation, type Settings, type Mark } from '../services/storage';
 import { audio } from '../services/audio';
 import {stageGoal} from '../domain/play-level';
 import {vehicleModel} from '../domain/vehicle-models';
+import {vehiclePreview} from '../domain/vehicle-preview';
 const TouchWorld3D=lazy(()=>import('../three/TouchWorld3D').then(m=>({default:m.TouchWorld3D})));
 
 const empty:BoardSnapshot={ready:false,progress:0,completed:false,moving:false,hint:false,recovering:false,selected:null,signalGreen:false,road:{level:0,shapes:[],locked:[],won:false},comparison:[],wash:{clean:0,waiting:false},parts:[],items:[],targets:[]};
@@ -199,7 +201,7 @@ export function TouchPlay({id,carId,settings,backHref='#/explore',continueHref}:
     <div className="town-play-heading"><span>{activityPlace(id).name}</span><h1>{activity.title}</h1></div>
     <div className="touch-toolbar">
       <a className="touch-icon" href={backHref} aria-label="回到乐园"><ArrowLeft/></a>
-      <a className="touch-title" href={`#/cars/${carId}`} aria-label="旋转看看这辆车"><PlayPicture id={id} carId={carId}/></a>
+      <a className="touch-title" href={`#/cars/${carId}`} aria-label="旋转看看这辆车"><CarThumbnail className="touch-car-preview" imageId={vehiclePreview(carId)||getCar(carId)!.game!.side}/></a>
       <div className="touch-tools">
         {threeAvailable&&<button className="touch-icon" aria-label={three?'使用平面简化玩法':'打开立体玩法'} aria-pressed={three} onClick={()=>{setThreeFailed(false);setFlat(three);}}>{three?<Box/>:<Layers/>}<span className="play-view-label" aria-hidden="true">{three?'3D':'2D'}</span></button>}
         {id==='P01'&&typeof window.DeviceOrientationEvent!=='undefined'&&<button className="touch-icon" aria-label={sensor?'关闭倾斜操控':'启用倾斜操控'} aria-pressed={sensor} onClick={()=>void tilt()}><Smartphone/></button>}
@@ -257,7 +259,10 @@ export function TouchPlay({id,carId,settings,backHref='#/explore',continueHref}:
         onClick={()=>rain.result?board.current?.resetRain():board.current?.testRain()}>
         {rain.result?'换一套再试':'试试下雨'}
       </button>
-      {rain.samples.length>0&&<span aria-label="试验记录">{rain.samples.map(sample=>sample.result==='wet'?'湿':'干').join(' → ')}</span>}
+      {rain.samples.length>0&&<span className="town-test-results" role="group" aria-label="试验记录">
+        {rain.samples.map((sample,index)=><span key={index}>{index>0&&<ArrowRight size={15}/>}
+          {sample.result==='wet'?'湿':'干'}</span>)}
+      </span>}
     </div>}
     {trip&&trip.phase!=='arrived'&&<div className="touch-action-row">
       <button className="button primary" disabled={!active||guideStep!==null||trip.phase==='driving'} onClick={()=>board.current?.departTrip()}>开车出门</button>
@@ -336,7 +341,7 @@ export function TouchPlay({id,carId,settings,backHref='#/explore',continueHref}:
     {state.completed&&!continueHref&&<div className="next-invitation" role="region" aria-label="小车接下来想去哪里">
       {session.completion&&<button className="completion-replay" aria-label="重听这次发现" onClick={()=>audio.announce(session.completion!.text,session.completion!.sounds,session.completion!.preferClips)}><PlaySymbol name={session.completion.symbol}/><Volume2/><span className="sr-only">{session.completion.text}</span></button>}
       <span className="invitation-trail" aria-hidden="true"/>
-      <a href={next.href} className="next-destination" aria-label={next.label}><PlayPicture id={next.picture} carId={carId}/><ArrowRight aria-hidden="true"/></a>
+      <a href={next.href} className="next-destination" aria-label={next.label}><PlayPicture id={next.picture}/><ArrowRight aria-hidden="true"/></a>
     </div>}
     <span className="sr-only" role="status" aria-live="polite">{session.message}</span>
     {(session.recordStatus==='error'||creationStatus==='error')&&<div className="pictorial-error" role="status"><span className="sr-only">这次记录暂时没保存。</span><button className="picture-button" aria-label="重试保存" onClick={()=>{void session.retrySave();writeCreation();}}><RotateCcw/></button></div>}

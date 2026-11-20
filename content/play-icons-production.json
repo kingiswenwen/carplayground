@@ -1,489 +1,1843 @@
 {
   "generator": "GPT Image via image_gen",
-  "purpose": "Shared DOM and canvas teaching-object vocabulary; not replacement vehicle-model or hit geometry",
+  "purpose": "Shared artwork for navigation, interface controls, statuses and game objects",
   "atlases": [
     {
-      "set": "secondary",
-      "sha256": "475aa8f1786be98ba219168ca91a1c15cb1da713371ddfab2ec638976465829b",
-      "width": 1263,
-      "height": 1246
+      "set": "controls",
+      "sourceFile": "exec-f8cd3a40-5277-4d64-9b67-d44a9ddd7466.png",
+      "sha256": "54e98c32dd26ae3689062d7b0140a2ac5597c3c7993d40a68b36eae44106509c",
+      "width": 1254,
+      "height": 1254,
+      "grid": 4,
+      "prompt": "A precisely organized square asset production atlas of EXACTLY 16 separate icons for the same original children's car town game. Output SQUARE 1024x1024 or 1536x1536, exactly FOUR evenly spaced columns and FOUR evenly spaced rows. Strict equal square cells, pixel grid implied with NO visible lines. Every subject centered within its independent cell and with at least 16 percent transparent margin on all four sides. Matte transparent background between all icons; do not make white disks, square button backgrounds or add labels behind anything. Generate exactly the objects listed here, no repeats or drift. Left to right in each row, top to bottom: ROW 1: a single clear right-pointing arrow, arrowhead and short thick shaft | a single clear DOWN chevron shaped like a thick rounded V, no shaft | a single almost-full circular counterclockwise arrow with arrowhead at upper left | two circular arrows chasing each other. ROW 2: a chunky X cut from two crossed coral strips | an upright emerald-green check mark | a chunky green plus sign | a single chunky horizontal green minus sign. ROW 3: a single green right-pointing play triangle | two straight thick teal vertical pause bars next to each other | three visibly separated stacked cream and sage square paper layers in isometric view | one turquoise painted wooden cube in isometric view. ROW 4: a miniature cream cube surrounded by one clear teal orbit arrow in isometric view | four separate sage right angle brackets framing a tiny blank center, focus symbol | a single teal double headed horizontal arrow, arrowheads pointing left and right | one cream wooden mouse pointer arrow cursor, pointing up-left with dark-sage edges. All icons are tactile cut-card and painted miniature wood from the paper crafted reference world, not emoji, not basic outline icons; dimly visible wood or fiber grain at desktop size, a light cream bevel at top left, subtle layered dark lower right edges giving real depth, minimal tight shadow. Ignore the UI in reference images. Use the same forest green, honey, muted teal, coral, warm cream and slate palette, matching all 16 in the same lighting and scale. Use bold distinctive shapes that remain recognizable at 24 CSS px; especially control symbols are shown almost front on with slight extrusion, no intricate decoration. A single subject per cell, fully visible, no text, numbers, letters, watermark, background, framing, or overlap."
     },
     {
-      "set": "primary",
-      "sha256": "548714217e91670dbba576dd766bc1f4fe30cb5b8d9d620bf4f52b94adaa468a",
-      "width": 1263,
-      "height": 1246
+      "set": "utilities",
+      "sourceFile": "exec-0699d8c0-a0fb-4c7d-88fe-3ffc90fda9eb.png",
+      "sha256": "893ef34cc73bba54c783c516ac50a049aa840d7ec9abe8a0488bef9ad28c54b7",
+      "width": 1254,
+      "height": 1254,
+      "grid": 4,
+      "prompt": "A precisely organized square asset production atlas of EXACTLY 16 separate icons for the same original children's car town game. Output SQUARE 1024x1024 or 1536x1536, exactly FOUR evenly spaced columns and FOUR evenly spaced rows. Strict equal square cells, pixel grid implied with NO visible lines. Every subject centered within its independent cell and with at least 16 percent transparent margin on all four sides. Matte transparent background between all icons; do not make white disks, square button backgrounds or add labels behind anything. Generate exactly the objects listed here, no repeats or drift. Left to right in each row, top to bottom: ROW 1: a little dark teal loudspeaker megaphone pointed right with two distinct curved sound-wave bands | a little dark teal loudspeaker megaphone pointed right with a small coral X beside it | two clearly distinct simplified miniature figurines of an adult and a child side by side | a small sage and cream camera facing forward with a bold deep navy circular lens. ROW 2: one visible sage and wood magnifying glass, simple clear circle with diagonal handle | one readable teal question mark embossed on a pale round wooden tile | one chunky teal down arrow over an open shallow light honey-wood tray, clear gap between | one chunky teal up arrow over an open shallow light honey-wood tray, clear gap between. ROW 3: one recognizable cream and teal floppy disk with a dark rectangular label, blank with no lettering | one tiny terra cotta and cream waste bin with a lid, clean readable silhouette | one vertical sage smartphone with plain bright blank cream screen | two attached dark teal wooden musical eighth notes. ROW 4: a deep sage shield with a cream checkmark inset, viewed front-on | one clearly open heart outline carved in red-coral wood, with a completely transparent hollow center | a round golden painted wooden token, two simple dark eyes and a smiling mouth, no writing | a round golden painted wooden token, two simple dark eyes and a worried gently downturned mouth, no writing. All icons are tactile cut-card and painted miniature wood from the paper crafted reference world, not emoji, not basic outline icons; dimly visible wood or fiber grain at desktop size, a light cream bevel at top left, subtle layered dark lower right edges giving real depth, minimal tight shadow. Ignore the UI in reference images. Use the same forest green, honey, muted teal, coral, warm cream and slate palette, matching all 16 in the same lighting and scale. Use bold distinctive shapes that remain recognizable at 24 CSS px; especially control symbols are shown almost front on with slight extrusion, no intricate decoration. A single subject per cell, fully visible, no text, numbers, letters, watermark, background, framing, or overlap."
     },
     {
-      "set": "cart",
-      "sha256": "ec67fa6acd442d0420955cd6dc101ec8dcefbf8e82a2241a2544c5af67d98397",
-      "width": 1536,
-      "height": 1024
+      "set": "objects",
+      "sourceFile": "exec-65508b84-c516-4123-9894-c7dbf2c1636f.png",
+      "sha256": "0d4a64d498c3b3c216ee9748bb2f04223149ce046fe982de57b14e83cc52c321",
+      "width": 1254,
+      "height": 1254,
+      "grid": 4,
+      "prompt": "A precisely organized square asset production atlas of EXACTLY 16 separate icons for the same original children's car town game. Output SQUARE 1024x1024 or 1536x1536, exactly FOUR evenly spaced columns and FOUR evenly spaced rows. Strict equal square cells, pixel grid implied with NO visible lines. Every subject centered within its independent cell and with at least 16 percent transparent margin on all four sides. Matte transparent background between all icons; do not make white disks, square button backgrounds or add labels behind anything. Generate exactly the objects listed here, no repeats or drift. Left to right in each row, top to bottom: ROW 1: a tiny mustard yellow unbranded sporty toy car in front three-quarter view | a small cream wooden garage, terra cotta roof, open sage door | a tiny miniature island with winding cream path, green grass, and orange location flag | a single layered sage green deciduous tree, carved wood trunk. ROW 2: a single charcoal rubber wheel with cream and slate metal spokes | one painted teal and metal open-end wrench angled diagonally | a golden porous rectangular sponge with rounded corners, a few pale soap bubbles | three soft aqua translucent thick overlapping soap bubbles with soft highlights. ROW 3: a tiny sage green child backpack with two straps and honey canvas pocket | one small sunshine yellow raincoat front view, defined sleeves and hood | a blue cotton baseball cap with deep teal brim and seams | one mint teal reusable water bottle with screw cap. ROW 4: one smiling friendly kid mechanic miniature with dark hair, earthy green overalls and ochre cap, half body | a pale honey-wood painter palette and small brush, 4 paint dabs | a small open cream picture book with sage cover, no letters | one dark teal and brass flashlight with front lens pointing diagonally, short warm cone. All icons are tactile cut-card and painted miniature wood from the paper crafted reference world, not emoji, not basic outline icons; dimly visible wood or fiber grain at desktop size, a light cream bevel at top left, subtle layered dark lower right edges giving real depth, minimal tight shadow. Ignore the UI in reference images. Use the same forest green, honey, muted teal, coral, warm cream and slate palette, matching all 16 in the same lighting and scale. Use bold distinctive shapes that remain recognizable at 24 CSS px; especially control symbols are shown almost front on with slight extrusion, no intricate decoration. A single subject per cell, fully visible, no text, numbers, letters, watermark, background, framing, or overlap."
+    },
+    {
+      "set": "outdoors",
+      "sourceFile": "exec-2006607d-aa16-4b3d-ba09-3f721e05108d.png",
+      "sha256": "3ef1fcab43ded3e7f9c03ed2e485d18f55f0866789478194ab3e85603198028e",
+      "width": 1254,
+      "height": 1254,
+      "grid": 4,
+      "prompt": "A precisely organized square asset production atlas of EXACTLY 16 separate icons for the same original children's car town game. Output SQUARE 1024x1024 or 1536x1536, exactly FOUR evenly spaced columns and FOUR evenly spaced rows. Strict equal square cells, pixel grid implied with NO visible lines. Every subject centered within its independent cell and with at least 16 percent transparent margin on all four sides. Matte transparent background between all icons; do not make white disks, square button backgrounds or add labels behind anything. Generate exactly the objects listed here, no repeats or drift. Left to right in each row, top to bottom: ROW 1: a clear sculptural hand with index finger pointing up, pale honey colored cut paper and a sage sleeve | a miniature turquoise hand-held wash sprayer with a few separate teal drops | a rust-orange opened umbrella with pale wooden hooked handle | one charcoal cloth diagonal seatbelt with visible orange metal buckle. ROW 2: a gold sun cut from multiple stacked thick paper layers, with simple short rays | one chunky slate-blue cloud with three distinct water drops underneath | a tiny cheerful cream cottage with coral roof, warm wooden door and sage trim | one tiny rounded wooden arched footbridge over a small strip of teal water. ROW 3: one horizontal short honey wooden plank, wide rectangle with real wood detail | one thick L-shaped gray-blue toy road tile with two connected branches and short cream dashed lane markers | one warm coral small pennant on a pale wooden stick, thick silhouette | one solid smooth warm red-coral heart with layered edges, painted wood. ROW 4: one large golden five pointed star cut from 2 layers of paper | a single sage green oak-like leaf, raised veins and layered paper | one small coral orange rolling toy ball with single curved cream stripe | one rounded translucent blue ice cube. All icons are tactile cut-card and painted miniature wood from the paper crafted reference world, not emoji, not basic outline icons; dimly visible wood or fiber grain at desktop size, a light cream bevel at top left, subtle layered dark lower right edges giving real depth, minimal tight shadow. Ignore the UI in reference images. Use the same forest green, honey, muted teal, coral, warm cream and slate palette, matching all 16 in the same lighting and scale. Use bold distinctive shapes that remain recognizable at 24 CSS px; especially control symbols are shown almost front on with slight extrusion, no intricate decoration. A single subject per cell, fully visible, no text, numbers, letters, watermark, background, framing, or overlap."
+    },
+    {
+      "set": "details",
+      "sourceFile": "exec-4c33224b-e1aa-4346-93f9-88cae5cd9a6b.png",
+      "sha256": "c66369accbfefda80d141f07f48440856f3c389561c47cebee8d2d80d9bb63c5",
+      "width": 1254,
+      "height": 1254,
+      "grid": 4,
+      "prompt": "A precisely organized square asset production atlas of EXACTLY 16 separate icons for the same original children's car town game. Output SQUARE 1024x1024 or 1536x1536, exactly FOUR evenly spaced columns and FOUR evenly spaced rows. Strict equal square cells, pixel grid implied with NO visible lines. Every subject centered within its independent cell and with at least 16 percent transparent margin on all four sides. Matte transparent background between all icons; do not make white disks, square button backgrounds or add labels behind anything. Generate exactly the objects listed here, no repeats or drift. Left to right in each row, top to bottom: ROW 1: one low toy utility trolley with teal handle, wood platform and two dark wheels | one ivory paper cloud with round silhouette and layered edges | one blue green miniature upholstered bucket seat with headrest | one glowing four point golden diamond sparkle with clear silhouette, thick layered paper. ROW 2: one creamy daisy with ochre center, green stem and leaf | one coral and peach butterfly with sculpted paper wings | one green toy dinosaur with clear long neck, warm wooden body | one cream colored simple toy fossil bone. ROW 3: one warmly colored brown teddy bear head with two round ears | one cream clock face with clear green hands and jewel wood rim, no numbers | one bright honey-yellow light bulb with gray-green screw base | one thick layered cream-yellow crescent moon. ROW 4: one red octagonal wooden stop sign with a horizontal cream bar, no text or pole | one small kraft cardboard box closed with cream paper tape, isometric | one small terracotta leather briefcase with wooden handle | one tiny cream classical museum building with triangular roof and 3 columns, no lettering. All icons are tactile cut-card and painted miniature wood from the paper crafted reference world, not emoji, not basic outline icons; dimly visible wood or fiber grain at desktop size, a light cream bevel at top left, subtle layered dark lower right edges giving real depth, minimal tight shadow. Ignore the UI in reference images. Use the same forest green, honey, muted teal, coral, warm cream and slate palette, matching all 16 in the same lighting and scale. Use bold distinctive shapes that remain recognizable at 24 CSS px; especially control symbols are shown almost front on with slight extrusion, no intricate decoration. A single subject per cell, fully visible, no text, numbers, letters, watermark, background, framing, or overlap."
+    },
+    {
+      "set": "extras",
+      "sourceFile": "exec-b899ef3b-59cd-4243-9c24-e3c514742122.png",
+      "sha256": "cf87ddc5402daea419c66e46947e64dd7c27a220501c57f27b1bd02395f8ba79",
+      "width": 1254,
+      "height": 1254,
+      "grid": 3,
+      "prompt": "Square game asset atlas exactly 3 by 3 equal grid, nine separate icons separated by wide transparent gutters, no lines between icons. In strict row-major left to right, from top down: 1 a single round bright tomato red painted wood token; 2 a single round true royal blue painted wood token; 3 a single round snowy white painted wood token, with a fine natural wood bevel; 4 one terracotta and honey wooden colored pencil pointing diagonally upwards; 5 one small dark sage traffic light toy with exactly a red upper bulb, amber middle bulb and green lower bulb; 6 one square forest green tile with a single cream capital P inset as a parking sign; 7 one stack of two blank cream sheets of fiber paper with small lifted corner, no marks; 8 one tiny ochre and sage wood hourglass with golden sand; 9 one open waving five finger hand with sage sleeve cut from honey colored layered paper. Each fills about 70 percent of its own square. Isolated on transparent, zero backdrop, primary shape centered, no crop or overlapping. Same rich tactile hand-crafted paper-and-wood miniature style as reference, soft upper-left sun, true vibrant teaching colors, finely layered wood/paper bevel, organic shadows tightly under the object. Distinct shapes legible at small size. All subjects standalone and front-facing. No text or numbers except the single capital P visibly in the parking sign. Ignore all interface in reference."
     }
   ],
-  "layout": "Primary/secondary: 4x4 row-major; cart: single sprite; alpha-preserving extraction and WebP encoding",
-  "style": "Rounded miniature objects, top-left studio light, soft contact shadows, warm cream/sage/teal/coral palette",
+  "layout": "Row-major grid; isolate visible alpha, trim and preserve the illustrated layers in transparent WebP",
+  "style": "Cut paper and painted wood with a warm bevel, tactile grain and upper-left light",
   "icons": [
     {
-      "name": "hand",
-      "path": "media/play-icons/hand.webp",
-      "sha256": "2f0e7131895df13b4d8219e399638b375ca8354c09c57d44d8f0e7a98e2a41e7",
-      "width": 256,
-      "height": 256,
-      "atlas": "secondary",
+      "name": "arrow",
+      "path": "media/play-icons/arrow.webp",
+      "sha256": "c536a711b54157db72c23c00ff21dbb49abf96786f223ab10ac868124555e4b9",
+      "width": 192,
+      "height": 192,
+      "atlas": "controls",
       "cell": {
         "left": 0,
         "top": 0,
-        "width": 316,
-        "height": 312
+        "width": 314,
+        "height": 314
+      },
+      "crop": {
+        "left": 62,
+        "top": 100,
+        "width": 225,
+        "height": 176
       }
     },
     {
-      "name": "shower",
-      "path": "media/play-icons/shower.webp",
-      "sha256": "63e4b7bf1e3ee0be94eb04e693a4c780c15a2904496e355873ef9ff58578c4b9",
-      "width": 256,
-      "height": 256,
-      "atlas": "secondary",
+      "name": "chevron",
+      "path": "media/play-icons/chevron.webp",
+      "sha256": "a7e54442e87a5ca7827369c09024cdb7e9d1fdd98108e3acd132a90119f5756a",
+      "width": 192,
+      "height": 192,
+      "atlas": "controls",
       "cell": {
-        "left": 316,
+        "left": 314,
         "top": 0,
-        "width": 316,
-        "height": 312
+        "width": 313,
+        "height": 314
+      },
+      "crop": {
+        "left": 57,
+        "top": 112,
+        "width": 213,
+        "height": 157
       }
     },
     {
-      "name": "umbrella",
-      "path": "media/play-icons/umbrella.webp",
-      "sha256": "72a2f92e28877a50230c17a274b57156395896692d7151d6024764b51c2c3510",
-      "width": 256,
-      "height": 256,
-      "atlas": "secondary",
+      "name": "retry",
+      "path": "media/play-icons/retry.webp",
+      "sha256": "cef94b078215d41390f3a26700139cf0e79618b01a51d5e21a7a79573aa4c46a",
+      "width": 192,
+      "height": 192,
+      "atlas": "controls",
       "cell": {
-        "left": 632,
+        "left": 627,
         "top": 0,
-        "width": 315,
-        "height": 312
+        "width": 314,
+        "height": 314
+      },
+      "crop": {
+        "left": 41,
+        "top": 58,
+        "width": 215,
+        "height": 244
       }
     },
     {
-      "name": "belt",
-      "path": "media/play-icons/belt.webp",
-      "sha256": "26ae3197e3297da735c2ad89cf4fb5797436625af68821a04f577a555a922012",
-      "width": 256,
-      "height": 256,
-      "atlas": "secondary",
+      "name": "refresh",
+      "path": "media/play-icons/refresh.webp",
+      "sha256": "7af7eedce606e532e5c0ec54c3f4ae85c6f5ccac2c5c05a800875ded1d4afee0",
+      "width": 192,
+      "height": 192,
+      "atlas": "controls",
       "cell": {
-        "left": 947,
+        "left": 941,
         "top": 0,
-        "width": 316,
-        "height": 312
+        "width": 313,
+        "height": 314
+      },
+      "crop": {
+        "left": 27,
+        "top": 67,
+        "width": 215,
+        "height": 231
       }
     },
     {
-      "name": "sun",
-      "path": "media/play-icons/sun.webp",
-      "sha256": "43e9a6bd947a227c1bf29e91f751fde2003970649faa9c1332cac1577878b5b6",
-      "width": 256,
-      "height": 256,
-      "atlas": "secondary",
+      "name": "close",
+      "path": "media/play-icons/close.webp",
+      "sha256": "8be4bb3bd17885c95bcd8ba1adecfe4260ab89710339914806e683f50a4be2ee",
+      "width": 192,
+      "height": 192,
+      "atlas": "controls",
       "cell": {
         "left": 0,
-        "top": 312,
-        "width": 316,
-        "height": 311
+        "top": 314,
+        "width": 314,
+        "height": 313
+      },
+      "crop": {
+        "left": 73,
+        "top": 59,
+        "width": 212,
+        "height": 220
       }
     },
     {
-      "name": "rain",
-      "path": "media/play-icons/rain.webp",
-      "sha256": "0168b355a01cfce91f4d2bd918684b7aa927809e24ea13ae8e3e47aaeed64158",
-      "width": 256,
-      "height": 256,
-      "atlas": "secondary",
+      "name": "check",
+      "path": "media/play-icons/check.webp",
+      "sha256": "f28723b1e71910917e56850b21d1b37bad7545db5543949f093437f29b40ea23",
+      "width": 192,
+      "height": 192,
+      "atlas": "controls",
       "cell": {
-        "left": 316,
-        "top": 312,
-        "width": 316,
-        "height": 311
+        "left": 314,
+        "top": 314,
+        "width": 313,
+        "height": 313
+      },
+      "crop": {
+        "left": 44,
+        "top": 66,
+        "width": 235,
+        "height": 207
       }
     },
     {
-      "name": "home",
-      "path": "media/play-icons/home.webp",
-      "sha256": "4871bdc02837cd234544595fec6a10be2f53f527a493edb02b58231312922901",
-      "width": 256,
-      "height": 256,
-      "atlas": "secondary",
+      "name": "plus",
+      "path": "media/play-icons/plus.webp",
+      "sha256": "39b0cc5e34da5bed2acb8d03e0380281c7bcf0b6c0ddde088624241dcd03d556",
+      "width": 192,
+      "height": 192,
+      "atlas": "controls",
       "cell": {
-        "left": 632,
-        "top": 312,
-        "width": 315,
-        "height": 311
+        "left": 627,
+        "top": 314,
+        "width": 314,
+        "height": 313
+      },
+      "crop": {
+        "left": 31,
+        "top": 50,
+        "width": 235,
+        "height": 231
       }
     },
     {
-      "name": "bridge",
-      "path": "media/play-icons/bridge.webp",
-      "sha256": "9d78d5332264e5fe7b8801fa3828dfe60a80e5c2accdde63b2532e262fe5a253",
-      "width": 256,
-      "height": 256,
-      "atlas": "secondary",
+      "name": "minus",
+      "path": "media/play-icons/minus.webp",
+      "sha256": "8f3815757c3aff60cbc560bdb9294313d323130d3ed7db17b5dbfc7ab90caa9c",
+      "width": 192,
+      "height": 192,
+      "atlas": "controls",
       "cell": {
-        "left": 947,
-        "top": 312,
-        "width": 316,
-        "height": 311
+        "left": 941,
+        "top": 314,
+        "width": 313,
+        "height": 313
+      },
+      "crop": {
+        "left": 20,
+        "top": 118,
+        "width": 240,
+        "height": 93
       }
     },
     {
-      "name": "plank",
-      "path": "media/play-icons/plank.webp",
-      "sha256": "8857a82c6da796fca97f7f446662e15cee0d9ab01243baabac38d6ed82665982",
-      "width": 256,
-      "height": 256,
-      "atlas": "secondary",
-      "cell": {
-        "left": 0,
-        "top": 623,
-        "width": 316,
-        "height": 312
-      }
-    },
-    {
-      "name": "road",
-      "path": "media/play-icons/road.webp",
-      "sha256": "2996dc865541991aff9e43d1311252adc3199aa7fe7121c8db7f8c199f5617b3",
-      "width": 256,
-      "height": 256,
-      "atlas": "secondary",
-      "cell": {
-        "left": 316,
-        "top": 623,
-        "width": 316,
-        "height": 312
-      }
-    },
-    {
-      "name": "flag",
-      "path": "media/play-icons/flag.webp",
-      "sha256": "65eb95bb87087b15c288203c004710dd4f7ee13c0b6ce170595e09712d0ac4d6",
-      "width": 256,
-      "height": 256,
-      "atlas": "secondary",
-      "cell": {
-        "left": 632,
-        "top": 623,
-        "width": 315,
-        "height": 312
-      }
-    },
-    {
-      "name": "heart",
-      "path": "media/play-icons/heart.webp",
-      "sha256": "108741b9b1c7ae64808bf9dfc43c01938d0e14b213c995efb1b43d288a8504fd",
-      "width": 256,
-      "height": 256,
-      "atlas": "secondary",
-      "cell": {
-        "left": 947,
-        "top": 623,
-        "width": 316,
-        "height": 312
-      }
-    },
-    {
-      "name": "star",
-      "path": "media/play-icons/star.webp",
-      "sha256": "fff8bcc650a545f8004a9dce84f5fb7d7dcce998c50e1915f55bab6d89518f50",
-      "width": 256,
-      "height": 256,
-      "atlas": "secondary",
+      "name": "play",
+      "path": "media/play-icons/play.webp",
+      "sha256": "7cb2c3a15acc2f59ffef50ec12b6d83030c64ae8bf4510faa9b0d161112e5d26",
+      "width": 192,
+      "height": 192,
+      "atlas": "controls",
       "cell": {
         "left": 0,
-        "top": 935,
-        "width": 316,
-        "height": 311
+        "top": 627,
+        "width": 314,
+        "height": 314
+      },
+      "crop": {
+        "left": 89,
+        "top": 49,
+        "width": 180,
+        "height": 213
       }
     },
     {
-      "name": "leaf",
-      "path": "media/play-icons/leaf.webp",
-      "sha256": "adab040ff87b83461344d80623b0c3ca233bab26e84cf0fe1b4571482f5b01fd",
-      "width": 256,
-      "height": 256,
-      "atlas": "secondary",
+      "name": "pause",
+      "path": "media/play-icons/pause.webp",
+      "sha256": "1211a3adb88632d11be3dd85dcde542ff82b02e2f57f5e015bbc73666f98abeb",
+      "width": 192,
+      "height": 192,
+      "atlas": "controls",
       "cell": {
-        "left": 316,
-        "top": 935,
-        "width": 316,
-        "height": 311
+        "left": 314,
+        "top": 627,
+        "width": 313,
+        "height": 314
+      },
+      "crop": {
+        "left": 66,
+        "top": 47,
+        "width": 179,
+        "height": 211
       }
     },
     {
-      "name": "ball",
-      "path": "media/play-icons/ball.webp",
-      "sha256": "a1881401e553232c1085a4e551ed4c64fbfd9a670773ffb9695f6a2203df84c1",
-      "width": 256,
-      "height": 256,
-      "atlas": "secondary",
+      "name": "layers",
+      "path": "media/play-icons/layers.webp",
+      "sha256": "7629653497fc0730be4ecbaf5c211525adbcc4ee3b0edaed1f53fd84a4e3e339",
+      "width": 192,
+      "height": 192,
+      "atlas": "controls",
       "cell": {
-        "left": 632,
-        "top": 935,
-        "width": 315,
-        "height": 311
+        "left": 627,
+        "top": 627,
+        "width": 314,
+        "height": 314
+      },
+      "crop": {
+        "left": 34,
+        "top": 28,
+        "width": 222,
+        "height": 248
       }
     },
     {
-      "name": "ice",
-      "path": "media/play-icons/ice.webp",
-      "sha256": "6cd63bd4c885e96075cee37df10ec964adc41a5ab6f421a94a7726eee9482ca5",
-      "width": 256,
-      "height": 256,
-      "atlas": "secondary",
+      "name": "cube",
+      "path": "media/play-icons/cube.webp",
+      "sha256": "52fc677fafcfcfbe5c828f4c0a8d1f2dbe576589a7c5f3d7bd61b806fb7b874c",
+      "width": 192,
+      "height": 192,
+      "atlas": "controls",
       "cell": {
-        "left": 947,
-        "top": 935,
-        "width": 316,
-        "height": 311
+        "left": 941,
+        "top": 627,
+        "width": 313,
+        "height": 314
+      },
+      "crop": {
+        "left": 32,
+        "top": 28,
+        "width": 214,
+        "height": 243
+      }
+    },
+    {
+      "name": "orbit",
+      "path": "media/play-icons/orbit.webp",
+      "sha256": "1bf002b637509aeb0a4cfcebafdafc9faae5072ceab1c5f96fe2ba063114f79e",
+      "width": 192,
+      "height": 192,
+      "atlas": "controls",
+      "cell": {
+        "left": 0,
+        "top": 941,
+        "width": 314,
+        "height": 313
+      },
+      "crop": {
+        "left": 51,
+        "top": 44,
+        "width": 237,
+        "height": 211
+      }
+    },
+    {
+      "name": "scan",
+      "path": "media/play-icons/scan.webp",
+      "sha256": "2cf21c9cfc7703f8d25263c23469f373745e81207bacdaacbbd5b2597a5c7f60",
+      "width": 192,
+      "height": 192,
+      "atlas": "controls",
+      "cell": {
+        "left": 314,
+        "top": 941,
+        "width": 313,
+        "height": 313
+      },
+      "crop": {
+        "left": 48,
+        "top": 32,
+        "width": 222,
+        "height": 221
+      }
+    },
+    {
+      "name": "move",
+      "path": "media/play-icons/move.webp",
+      "sha256": "e25bf41bc7e0567e85e6ca0efa056111a0d95b91c95fa27a48c2e5a61d8d01a7",
+      "width": 192,
+      "height": 192,
+      "atlas": "controls",
+      "cell": {
+        "left": 627,
+        "top": 941,
+        "width": 314,
+        "height": 313
+      },
+      "crop": {
+        "left": 17,
+        "top": 72,
+        "width": 261,
+        "height": 146
+      }
+    },
+    {
+      "name": "pointer",
+      "path": "media/play-icons/pointer.webp",
+      "sha256": "8683616fc45ffa85767082436828c8ea9117304baa30fd61e9963cb5b00d24d5",
+      "width": 192,
+      "height": 192,
+      "atlas": "controls",
+      "cell": {
+        "left": 941,
+        "top": 941,
+        "width": 313,
+        "height": 313
+      },
+      "crop": {
+        "left": 45,
+        "top": 32,
+        "width": 181,
+        "height": 233
+      }
+    },
+    {
+      "name": "sound",
+      "path": "media/play-icons/sound.webp",
+      "sha256": "d5b5f0cf1af449438bca84dec168039e081513c436992629d75bf62771cbcafa",
+      "width": 192,
+      "height": 192,
+      "atlas": "utilities",
+      "cell": {
+        "left": 0,
+        "top": 0,
+        "width": 314,
+        "height": 314
+      },
+      "crop": {
+        "left": 48,
+        "top": 88,
+        "width": 233,
+        "height": 181
+      }
+    },
+    {
+      "name": "muted",
+      "path": "media/play-icons/muted.webp",
+      "sha256": "38103050b5fe0035c4e620bb8fe7c5ad5b73766aa9c8bc9fa24a14eb902b5dde",
+      "width": 192,
+      "height": 192,
+      "atlas": "utilities",
+      "cell": {
+        "left": 314,
+        "top": 0,
+        "width": 313,
+        "height": 314
+      },
+      "crop": {
+        "left": 35,
+        "top": 88,
+        "width": 241,
+        "height": 181
+      }
+    },
+    {
+      "name": "family",
+      "path": "media/play-icons/family.webp",
+      "sha256": "a80871210d43087f20f0bc34ec0f305f4fa4e1dca5ded0629cb0f206f4ac52e2",
+      "width": 192,
+      "height": 192,
+      "atlas": "utilities",
+      "cell": {
+        "left": 627,
+        "top": 0,
+        "width": 314,
+        "height": 314
+      },
+      "crop": {
+        "left": 35,
+        "top": 50,
+        "width": 227,
+        "height": 249
+      }
+    },
+    {
+      "name": "camera",
+      "path": "media/play-icons/camera.webp",
+      "sha256": "62b30c9a5bc8c8884f930bde6bcb2d9814fe8c77474a13a61edfb1cce58ca40e",
+      "width": 192,
+      "height": 192,
+      "atlas": "utilities",
+      "cell": {
+        "left": 941,
+        "top": 0,
+        "width": 313,
+        "height": 314
+      },
+      "crop": {
+        "left": 24,
+        "top": 80,
+        "width": 239,
+        "height": 198
+      }
+    },
+    {
+      "name": "search",
+      "path": "media/play-icons/search.webp",
+      "sha256": "75f934446283cf133f585dd8f2eaaefd9fadebd0b72ae9bbea07d0fad0af79e4",
+      "width": 192,
+      "height": 192,
+      "atlas": "utilities",
+      "cell": {
+        "left": 0,
+        "top": 314,
+        "width": 314,
+        "height": 313
+      },
+      "crop": {
+        "left": 50,
+        "top": 43,
+        "width": 233,
+        "height": 249
+      }
+    },
+    {
+      "name": "help",
+      "path": "media/play-icons/help.webp",
+      "sha256": "725f7272f1b791723e9a1f6de035d45c8887ef730cd3aafb30483ac9850dd846",
+      "width": 192,
+      "height": 192,
+      "atlas": "utilities",
+      "cell": {
+        "left": 314,
+        "top": 314,
+        "width": 313,
+        "height": 313
+      },
+      "crop": {
+        "left": 37,
+        "top": 43,
+        "width": 235,
+        "height": 243
+      }
+    },
+    {
+      "name": "download",
+      "path": "media/play-icons/download.webp",
+      "sha256": "71a8065ef4916ddaaee3729307a7d1589eb85cbef3218e0c11da7d3d63add880",
+      "width": 192,
+      "height": 192,
+      "atlas": "utilities",
+      "cell": {
+        "left": 627,
+        "top": 314,
+        "width": 314,
+        "height": 313
+      },
+      "crop": {
+        "left": 27,
+        "top": 47,
+        "width": 242,
+        "height": 236
+      }
+    },
+    {
+      "name": "upload",
+      "path": "media/play-icons/upload.webp",
+      "sha256": "3e4a2e85b45346e677391cfd300632d982d687f45ce29a06c5b7adce02fba15b",
+      "width": 192,
+      "height": 192,
+      "atlas": "utilities",
+      "cell": {
+        "left": 941,
+        "top": 314,
+        "width": 313,
+        "height": 313
+      },
+      "crop": {
+        "left": 23,
+        "top": 43,
+        "width": 242,
+        "height": 240
+      }
+    },
+    {
+      "name": "save",
+      "path": "media/play-icons/save.webp",
+      "sha256": "1f568cc341f76db1a1ef8309db93f87b0f3272de680c0acefefa4458283e4a8e",
+      "width": 192,
+      "height": 192,
+      "atlas": "utilities",
+      "cell": {
+        "left": 0,
+        "top": 627,
+        "width": 314,
+        "height": 314
+      },
+      "crop": {
+        "left": 52,
+        "top": 47,
+        "width": 227,
+        "height": 222
+      }
+    },
+    {
+      "name": "trash",
+      "path": "media/play-icons/trash.webp",
+      "sha256": "dd5515aa9955a0990875d1912fe95c4c91412b1118d172a948b8a55e699ab72f",
+      "width": 192,
+      "height": 192,
+      "atlas": "utilities",
+      "cell": {
+        "left": 314,
+        "top": 627,
+        "width": 313,
+        "height": 314
+      },
+      "crop": {
+        "left": 54,
+        "top": 40,
+        "width": 204,
+        "height": 237
+      }
+    },
+    {
+      "name": "phone",
+      "path": "media/play-icons/phone.webp",
+      "sha256": "de7a68ac74377af113caec223f0ada312908454d137bb8f7771b5990cbc004bf",
+      "width": 192,
+      "height": 192,
+      "atlas": "utilities",
+      "cell": {
+        "left": 627,
+        "top": 627,
+        "width": 314,
+        "height": 314
+      },
+      "crop": {
+        "left": 67,
+        "top": 32,
+        "width": 162,
+        "height": 248
+      }
+    },
+    {
+      "name": "music",
+      "path": "media/play-icons/music.webp",
+      "sha256": "ef0142c4ca52b449337889346646ca3d97303e45087bfb9360ecf2f4e1f41a66",
+      "width": 192,
+      "height": 192,
+      "atlas": "utilities",
+      "cell": {
+        "left": 941,
+        "top": 627,
+        "width": 313,
+        "height": 314
+      },
+      "crop": {
+        "left": 29,
+        "top": 47,
+        "width": 214,
+        "height": 211
+      }
+    },
+    {
+      "name": "shield",
+      "path": "media/play-icons/shield.webp",
+      "sha256": "73ae2bc268cc21795edcb0569b14ead0d4586bee458f62451c6fa88c48850f2f",
+      "width": 192,
+      "height": 192,
+      "atlas": "utilities",
+      "cell": {
+        "left": 0,
+        "top": 941,
+        "width": 314,
+        "height": 313
+      },
+      "crop": {
+        "left": 51,
+        "top": 28,
+        "width": 230,
+        "height": 244
+      }
+    },
+    {
+      "name": "heart-outline",
+      "path": "media/play-icons/heart-outline.webp",
+      "sha256": "bf16cef3b975548196888fc6e85d879719a821527b19e076bf5f50929fb9a67f",
+      "width": 192,
+      "height": 192,
+      "atlas": "utilities",
+      "cell": {
+        "left": 314,
+        "top": 941,
+        "width": 313,
+        "height": 313
+      },
+      "crop": {
+        "left": 30,
+        "top": 42,
+        "width": 250,
+        "height": 230
+      }
+    },
+    {
+      "name": "smile",
+      "path": "media/play-icons/smile.webp",
+      "sha256": "070319b3b40d9ed384d6d4222df609d754b4972ddd0212bf80fbd1e7ff7fa1c2",
+      "width": 192,
+      "height": 192,
+      "atlas": "utilities",
+      "cell": {
+        "left": 627,
+        "top": 941,
+        "width": 314,
+        "height": 313
+      },
+      "crop": {
+        "left": 29,
+        "top": 33,
+        "width": 232,
+        "height": 237
+      }
+    },
+    {
+      "name": "worried",
+      "path": "media/play-icons/worried.webp",
+      "sha256": "3a0f3fc0f9d6dd1adc4610db2f5715c01f9f8aaa72acff28eac5f24a891e2259",
+      "width": 192,
+      "height": 192,
+      "atlas": "utilities",
+      "cell": {
+        "left": 941,
+        "top": 941,
+        "width": 313,
+        "height": 313
+      },
+      "crop": {
+        "left": 25,
+        "top": 33,
+        "width": 234,
+        "height": 237
       }
     },
     {
       "name": "car",
       "path": "media/play-icons/car.webp",
-      "sha256": "f4e5a763cb246d86b3c9dd7eb5b170b73023e3f8a6ed26b5744a53dcceb862b3",
-      "width": 256,
-      "height": 256,
-      "atlas": "primary",
+      "sha256": "91da86c928959da5f33f32a165a0aacea6af301e29a3b733eca88875bf0cd448",
+      "width": 192,
+      "height": 192,
+      "atlas": "objects",
       "cell": {
         "left": 0,
         "top": 0,
-        "width": 316,
-        "height": 312
+        "width": 314,
+        "height": 314
+      },
+      "crop": {
+        "left": 40,
+        "top": 97,
+        "width": 249,
+        "height": 186
       }
     },
     {
       "name": "garage",
       "path": "media/play-icons/garage.webp",
-      "sha256": "5a36726f6b2c5b0893fb967e69bc4c88078976e877b94f3cbbb222b1a746af50",
-      "width": 256,
-      "height": 256,
-      "atlas": "primary",
+      "sha256": "2a4a78d448e135553973481275285b9520abf3f5c6c2eb099df7e5fb5e0cb4e4",
+      "width": 192,
+      "height": 192,
+      "atlas": "objects",
       "cell": {
-        "left": 316,
+        "left": 314,
         "top": 0,
-        "width": 316,
-        "height": 312
+        "width": 313,
+        "height": 314
+      },
+      "crop": {
+        "left": 24,
+        "top": 52,
+        "width": 266,
+        "height": 240
       }
     },
     {
       "name": "world",
       "path": "media/play-icons/world.webp",
-      "sha256": "06d867fc3b1df30806f19585d12dba10a928c2671a2efb5d73f73c0cf9655dd1",
-      "width": 256,
-      "height": 256,
-      "atlas": "primary",
+      "sha256": "7144e49d2a49676cefaaf5f1b7f3cda0be4d3b9d960d354a4d5d34e5c5659938",
+      "width": 192,
+      "height": 192,
+      "atlas": "objects",
       "cell": {
-        "left": 632,
+        "left": 627,
         "top": 0,
-        "width": 315,
-        "height": 312
+        "width": 314,
+        "height": 314
+      },
+      "crop": {
+        "left": 30,
+        "top": 51,
+        "width": 231,
+        "height": 247
       }
     },
     {
       "name": "tree",
       "path": "media/play-icons/tree.webp",
-      "sha256": "a8466646ebaa3a380f61fe3dabf1eb80078b9b95e8e8c36822608d434f3a5f19",
-      "width": 256,
-      "height": 256,
-      "atlas": "primary",
+      "sha256": "6c5b58496dd8a2a9d97e566b10e5c42afc1e8d1da6a08679e0274837876c2c05",
+      "width": 192,
+      "height": 192,
+      "atlas": "objects",
       "cell": {
-        "left": 947,
+        "left": 941,
         "top": 0,
-        "width": 316,
-        "height": 312
+        "width": 313,
+        "height": 314
+      },
+      "crop": {
+        "left": 23,
+        "top": 47,
+        "width": 245,
+        "height": 244
       }
     },
     {
       "name": "wheel",
       "path": "media/play-icons/wheel.webp",
-      "sha256": "2a2e7ca79288ebb4c390be36a85c33437cdd7e48c8e75247dfc0ac5424d82f03",
-      "width": 256,
-      "height": 256,
-      "atlas": "primary",
+      "sha256": "9cb2ba98630eb7c2fcfa0b2657c5b63aeecc2f8311bd9ccde981eedd2660c2ab",
+      "width": 192,
+      "height": 192,
+      "atlas": "objects",
       "cell": {
         "left": 0,
-        "top": 312,
-        "width": 316,
-        "height": 311
+        "top": 314,
+        "width": 314,
+        "height": 313
+      },
+      "crop": {
+        "left": 60,
+        "top": 47,
+        "width": 228,
+        "height": 241
       }
     },
     {
       "name": "tool",
       "path": "media/play-icons/tool.webp",
-      "sha256": "ad9193a580fbf4a2035b646762a89ba9483317c9f14efc3fa1f19f5478a7542c",
-      "width": 256,
-      "height": 256,
-      "atlas": "primary",
+      "sha256": "9005032239459149d43c47e89a920dabe87a9e5c2413458500b785900bc8abfd",
+      "width": 192,
+      "height": 192,
+      "atlas": "objects",
       "cell": {
-        "left": 316,
-        "top": 312,
-        "width": 316,
-        "height": 311
+        "left": 314,
+        "top": 314,
+        "width": 313,
+        "height": 313
+      },
+      "crop": {
+        "left": 39,
+        "top": 39,
+        "width": 236,
+        "height": 250
       }
     },
     {
       "name": "sponge",
       "path": "media/play-icons/sponge.webp",
-      "sha256": "3292b8c3a7e6738047303d415a8d01b7bcaa648b2c5cd883643f82c50085ba24",
-      "width": 256,
-      "height": 256,
-      "atlas": "primary",
+      "sha256": "c7d2ac62251f4b727074218049e2d616be6700a956a80f1205f228f3d3e4c324",
+      "width": 192,
+      "height": 192,
+      "atlas": "objects",
       "cell": {
-        "left": 632,
-        "top": 312,
-        "width": 315,
-        "height": 311
+        "left": 627,
+        "top": 314,
+        "width": 314,
+        "height": 313
+      },
+      "crop": {
+        "left": 23,
+        "top": 50,
+        "width": 261,
+        "height": 224
       }
     },
     {
       "name": "bubbles",
       "path": "media/play-icons/bubbles.webp",
-      "sha256": "3e3c4b12e1c351ae4fcbcf20c91f0af683ee40269ccf2b9e96e4ed91f3f7fd73",
-      "width": 256,
-      "height": 256,
-      "atlas": "primary",
+      "sha256": "7b7e4dc46c9bf02208bacec76f7889ff47d31375727aec6e853e752572eb5836",
+      "width": 192,
+      "height": 192,
+      "atlas": "objects",
       "cell": {
-        "left": 947,
-        "top": 312,
-        "width": 316,
-        "height": 311
+        "left": 941,
+        "top": 314,
+        "width": 313,
+        "height": 313
+      },
+      "crop": {
+        "left": 27,
+        "top": 46,
+        "width": 238,
+        "height": 228
       }
     },
     {
       "name": "bag",
       "path": "media/play-icons/bag.webp",
-      "sha256": "81dd2d4fab519b09257518e62fef4050ba6f8f99ea7f05eb1a12f01e8b48c824",
-      "width": 256,
-      "height": 256,
-      "atlas": "primary",
+      "sha256": "186548f37b59e1bebcc7885db8f4aae6bacbb0e485a650f7888093bb6671c07d",
+      "width": 192,
+      "height": 192,
+      "atlas": "objects",
       "cell": {
         "left": 0,
-        "top": 623,
-        "width": 316,
-        "height": 298
+        "top": 627,
+        "width": 314,
+        "height": 314
+      },
+      "crop": {
+        "left": 54,
+        "top": 25,
+        "width": 221,
+        "height": 257
       }
     },
     {
       "name": "coat",
       "path": "media/play-icons/coat.webp",
-      "sha256": "fb93c50f4cc74aefe44d3d4a705cf589d23d4c3b773bd457b65d1ebc3a8e4c3a",
-      "width": 256,
-      "height": 256,
-      "atlas": "primary",
+      "sha256": "88e99a951494010c475a7778667c8779c88d2cf5859d1cbea81cdec57bc644ab",
+      "width": 192,
+      "height": 192,
+      "atlas": "objects",
       "cell": {
-        "left": 316,
-        "top": 623,
-        "width": 316,
-        "height": 312
+        "left": 314,
+        "top": 627,
+        "width": 313,
+        "height": 314
+      },
+      "crop": {
+        "left": 28,
+        "top": 21,
+        "width": 256,
+        "height": 263
       }
     },
     {
       "name": "cap",
       "path": "media/play-icons/cap.webp",
-      "sha256": "afe8df067f4fe2540c5f765907d88dcd0b0d031ef24605c33806b96c2b0c2edd",
-      "width": 256,
-      "height": 256,
-      "atlas": "primary",
+      "sha256": "3558efc05f7343c7fdcbc16b701a5dc16c78e4e4559fd450fb862ec2691954e0",
+      "width": 192,
+      "height": 192,
+      "atlas": "objects",
       "cell": {
-        "left": 632,
-        "top": 623,
-        "width": 315,
-        "height": 312
+        "left": 627,
+        "top": 627,
+        "width": 314,
+        "height": 314
+      },
+      "crop": {
+        "left": 24,
+        "top": 55,
+        "width": 254,
+        "height": 202
       }
     },
     {
       "name": "water",
       "path": "media/play-icons/water.webp",
-      "sha256": "5d3f989e279e9d18d7297b924fb4893bb985cc78e72187bcd8dc68acb0d8c565",
-      "width": 256,
-      "height": 256,
-      "atlas": "primary",
+      "sha256": "5ad9530024f59a802f7d163e2ba57c8f68ef7e96f03e5036e80686e25f6a190f",
+      "width": 192,
+      "height": 192,
+      "atlas": "objects",
       "cell": {
-        "left": 947,
-        "top": 623,
-        "width": 316,
-        "height": 312
+        "left": 941,
+        "top": 627,
+        "width": 313,
+        "height": 314
+      },
+      "crop": {
+        "left": 80,
+        "top": 24,
+        "width": 142,
+        "height": 260
       }
     },
     {
       "name": "friend",
       "path": "media/play-icons/friend.webp",
-      "sha256": "928bed218b4356c0bf8e38011d986cc002793077cceefadde5e1287d08a886e8",
-      "width": 256,
-      "height": 256,
-      "atlas": "primary",
+      "sha256": "ab82cc3f94f324ff3975085b0105bdf19517567b7ddae1b4a174bde683535f74",
+      "width": 192,
+      "height": 192,
+      "atlas": "objects",
       "cell": {
         "left": 0,
-        "top": 935,
-        "width": 316,
-        "height": 311
+        "top": 941,
+        "width": 314,
+        "height": 313
+      },
+      "crop": {
+        "left": 52,
+        "top": 16,
+        "width": 236,
+        "height": 253
       }
     },
     {
       "name": "palette",
       "path": "media/play-icons/palette.webp",
-      "sha256": "28818c98a3700c3bbc6935f33990f7ce8e618e26fd4b67dd75142f4485442901",
-      "width": 256,
-      "height": 256,
-      "atlas": "primary",
+      "sha256": "43d9dfc14ad6a8b3589c615187b44e5cf590cf1357db60618f1fc990fdd557a2",
+      "width": 192,
+      "height": 192,
+      "atlas": "objects",
       "cell": {
-        "left": 316,
-        "top": 935,
-        "width": 316,
-        "height": 311
+        "left": 314,
+        "top": 941,
+        "width": 313,
+        "height": 313
+      },
+      "crop": {
+        "left": 24,
+        "top": 37,
+        "width": 264,
+        "height": 232
       }
     },
     {
       "name": "book",
       "path": "media/play-icons/book.webp",
-      "sha256": "9a0667e9218cc0dc618b94d42af290a5c4b445621ba7f6b23608c73bc7aeace1",
-      "width": 256,
-      "height": 256,
-      "atlas": "primary",
+      "sha256": "9ea2379c8972d7d9508c77c272da1f0e8a042bcb25819c2dfab8d6bbd186fbaa",
+      "width": 192,
+      "height": 192,
+      "atlas": "objects",
       "cell": {
-        "left": 632,
-        "top": 935,
-        "width": 315,
-        "height": 311
+        "left": 627,
+        "top": 941,
+        "width": 314,
+        "height": 313
+      },
+      "crop": {
+        "left": 13,
+        "top": 51,
+        "width": 276,
+        "height": 194
       }
     },
     {
       "name": "lamp",
       "path": "media/play-icons/lamp.webp",
-      "sha256": "d4fc5f47101083cc63e0fb60f7c5e00203ac8a45ff2c3be91cfe2a2307bfcafb",
-      "width": 256,
-      "height": 256,
-      "atlas": "primary",
+      "sha256": "7e3ed8120af319f2bcae6056ac89177334ef37ea1dff2bd67f067f89a5455e94",
+      "width": 192,
+      "height": 192,
+      "atlas": "objects",
       "cell": {
-        "left": 947,
-        "top": 935,
-        "width": 316,
-        "height": 311
+        "left": 941,
+        "top": 941,
+        "width": 313,
+        "height": 313
+      },
+      "crop": {
+        "left": 40,
+        "top": 34,
+        "width": 231,
+        "height": 201
+      }
+    },
+    {
+      "name": "hand",
+      "path": "media/play-icons/hand.webp",
+      "sha256": "98e5bf55c32ddde098e81fcfb9315f2e36c95f204db5b45f7ada0a1fbba49f03",
+      "width": 192,
+      "height": 192,
+      "atlas": "outdoors",
+      "cell": {
+        "left": 0,
+        "top": 0,
+        "width": 314,
+        "height": 314
+      },
+      "crop": {
+        "left": 103,
+        "top": 49,
+        "width": 152,
+        "height": 253
+      }
+    },
+    {
+      "name": "shower",
+      "path": "media/play-icons/shower.webp",
+      "sha256": "c0ce9e8085077214a689bc41ce49ef990a98ded9cc0ce17ddb3032677fbcce0d",
+      "width": 192,
+      "height": 192,
+      "atlas": "outdoors",
+      "cell": {
+        "left": 314,
+        "top": 0,
+        "width": 313,
+        "height": 314
+      },
+      "crop": {
+        "left": 45,
+        "top": 75,
+        "width": 235,
+        "height": 221
+      }
+    },
+    {
+      "name": "umbrella",
+      "path": "media/play-icons/umbrella.webp",
+      "sha256": "e50e90f8df5cd4df65e025fff62e0650c3c8c21e27cae92b6cfc2f1485e12fb9",
+      "width": 192,
+      "height": 192,
+      "atlas": "outdoors",
+      "cell": {
+        "left": 627,
+        "top": 0,
+        "width": 314,
+        "height": 314
+      },
+      "crop": {
+        "left": 30,
+        "top": 43,
+        "width": 247,
+        "height": 256
+      }
+    },
+    {
+      "name": "belt",
+      "path": "media/play-icons/belt.webp",
+      "sha256": "ba33539df807a512435c7ce354d42fc9a7f57d11ffe6c8cda1d9d9433b198fc4",
+      "width": 192,
+      "height": 192,
+      "atlas": "outdoors",
+      "cell": {
+        "left": 941,
+        "top": 0,
+        "width": 313,
+        "height": 314
+      },
+      "crop": {
+        "left": 54,
+        "top": 57,
+        "width": 201,
+        "height": 247
+      }
+    },
+    {
+      "name": "sun",
+      "path": "media/play-icons/sun.webp",
+      "sha256": "58759b15f9aa061a57e51c284d51a08082abdbfdbb83eee9ebfad0303047205a",
+      "width": 192,
+      "height": 192,
+      "atlas": "outdoors",
+      "cell": {
+        "left": 0,
+        "top": 314,
+        "width": 314,
+        "height": 313
+      },
+      "crop": {
+        "left": 42,
+        "top": 29,
+        "width": 251,
+        "height": 258
+      }
+    },
+    {
+      "name": "rain",
+      "path": "media/play-icons/rain.webp",
+      "sha256": "1fbb4b582b3b274dde656b4f6091af924089e0866e848712ea5545846413cde8",
+      "width": 192,
+      "height": 192,
+      "atlas": "outdoors",
+      "cell": {
+        "left": 314,
+        "top": 314,
+        "width": 313,
+        "height": 313
+      },
+      "crop": {
+        "left": 25,
+        "top": 37,
+        "width": 262,
+        "height": 247
+      }
+    },
+    {
+      "name": "home",
+      "path": "media/play-icons/home.webp",
+      "sha256": "d3f7fc60a3011f58c62bf979639789a408d808049f6a41c771e161482a7b7fc0",
+      "width": 192,
+      "height": 192,
+      "atlas": "outdoors",
+      "cell": {
+        "left": 627,
+        "top": 314,
+        "width": 314,
+        "height": 313
+      },
+      "crop": {
+        "left": 9,
+        "top": 31,
+        "width": 274,
+        "height": 254
+      }
+    },
+    {
+      "name": "bridge",
+      "path": "media/play-icons/bridge.webp",
+      "sha256": "903d443b1d93da472d9d643cc5764b474d0e1de1a965eec6651032e8fa248d0c",
+      "width": 192,
+      "height": 192,
+      "atlas": "outdoors",
+      "cell": {
+        "left": 941,
+        "top": 314,
+        "width": 313,
+        "height": 313
+      },
+      "crop": {
+        "left": 10,
+        "top": 77,
+        "width": 279,
+        "height": 189
+      }
+    },
+    {
+      "name": "plank",
+      "path": "media/play-icons/plank.webp",
+      "sha256": "f0552620069ade75484c81ac3d98c9dbddf50520c22de6608a135cb5aefb7bf2",
+      "width": 192,
+      "height": 192,
+      "atlas": "outdoors",
+      "cell": {
+        "left": 0,
+        "top": 627,
+        "width": 314,
+        "height": 314
+      },
+      "crop": {
+        "left": 30,
+        "top": 90,
+        "width": 262,
+        "height": 138
+      }
+    },
+    {
+      "name": "road",
+      "path": "media/play-icons/road.webp",
+      "sha256": "7f86defdadee775199112c0ecd722efc4585a2af15e7f6d3e67b3b3621eea7c6",
+      "width": 192,
+      "height": 192,
+      "atlas": "outdoors",
+      "cell": {
+        "left": 314,
+        "top": 627,
+        "width": 313,
+        "height": 314
+      },
+      "crop": {
+        "left": 30,
+        "top": 23,
+        "width": 252,
+        "height": 248
+      }
+    },
+    {
+      "name": "flag",
+      "path": "media/play-icons/flag.webp",
+      "sha256": "c51a130a9f406f50d8e0b50b2e628cd697577dbe3659a14bb8e76c91a7e4a784",
+      "width": 192,
+      "height": 192,
+      "atlas": "outdoors",
+      "cell": {
+        "left": 627,
+        "top": 627,
+        "width": 314,
+        "height": 314
+      },
+      "crop": {
+        "left": 65,
+        "top": 22,
+        "width": 203,
+        "height": 255
+      }
+    },
+    {
+      "name": "heart",
+      "path": "media/play-icons/heart.webp",
+      "sha256": "75012c10d9549b0b69de76eff59c3f0f11670b699c4a80f2388b158300ed5a6e",
+      "width": 192,
+      "height": 192,
+      "atlas": "outdoors",
+      "cell": {
+        "left": 941,
+        "top": 627,
+        "width": 313,
+        "height": 314
+      },
+      "crop": {
+        "left": 22,
+        "top": 44,
+        "width": 253,
+        "height": 231
+      }
+    },
+    {
+      "name": "star",
+      "path": "media/play-icons/star.webp",
+      "sha256": "4357e02d57bf3599546125955e638d449306ed594c9756e2e7b75b47a48a0563",
+      "width": 192,
+      "height": 192,
+      "atlas": "outdoors",
+      "cell": {
+        "left": 0,
+        "top": 941,
+        "width": 314,
+        "height": 313
+      },
+      "crop": {
+        "left": 44,
+        "top": 19,
+        "width": 249,
+        "height": 246
+      }
+    },
+    {
+      "name": "leaf",
+      "path": "media/play-icons/leaf.webp",
+      "sha256": "2fe864e7adf0d28467e30b9a75542b497ccf22e703b70c9564fb060ca16a1c4a",
+      "width": 192,
+      "height": 192,
+      "atlas": "outdoors",
+      "cell": {
+        "left": 314,
+        "top": 941,
+        "width": 313,
+        "height": 313
+      },
+      "crop": {
+        "left": 48,
+        "top": 11,
+        "width": 221,
+        "height": 265
+      }
+    },
+    {
+      "name": "ball",
+      "path": "media/play-icons/ball.webp",
+      "sha256": "7b68e480e9646cb1de5cc9b857b515e04075e62ec170e8a91531d9bbf097f2eb",
+      "width": 192,
+      "height": 192,
+      "atlas": "outdoors",
+      "cell": {
+        "left": 627,
+        "top": 941,
+        "width": 314,
+        "height": 313
+      },
+      "crop": {
+        "left": 38,
+        "top": 37,
+        "width": 213,
+        "height": 217
+      }
+    },
+    {
+      "name": "ice",
+      "path": "media/play-icons/ice.webp",
+      "sha256": "311e1018c7a7dd4ad075d1451da56b3dda3a6aa3646c75db643261291b0cbed3",
+      "width": 192,
+      "height": 192,
+      "atlas": "outdoors",
+      "cell": {
+        "left": 941,
+        "top": 941,
+        "width": 313,
+        "height": 313
+      },
+      "crop": {
+        "left": 31,
+        "top": 38,
+        "width": 226,
+        "height": 220
       }
     },
     {
       "name": "cart",
       "path": "media/play-icons/cart.webp",
-      "sha256": "f9d001e0fb959ae3936bad6edf8ae2a7a78a961501d5860e4128142dad4644e9",
-      "width": 256,
-      "height": 256,
-      "atlas": "cart",
+      "sha256": "79ae43940f7d3da66d5aa193ca83cd8c26cdeeeb1566719db7cfe199f8351165",
+      "width": 192,
+      "height": 192,
+      "atlas": "details",
       "cell": {
         "left": 0,
         "top": 0,
-        "width": 1536,
-        "height": 1024
+        "width": 314,
+        "height": 314
+      },
+      "crop": {
+        "left": 37,
+        "top": 53,
+        "width": 241,
+        "height": 231
+      }
+    },
+    {
+      "name": "cloud",
+      "path": "media/play-icons/cloud.webp",
+      "sha256": "1cf7d07bb3921f9855134068ce6281cb77886abc7d7e519cabfa3280b3fb870c",
+      "width": 192,
+      "height": 192,
+      "atlas": "details",
+      "cell": {
+        "left": 314,
+        "top": 0,
+        "width": 313,
+        "height": 314
+      },
+      "crop": {
+        "left": 28,
+        "top": 70,
+        "width": 261,
+        "height": 196
+      }
+    },
+    {
+      "name": "seat",
+      "path": "media/play-icons/seat.webp",
+      "sha256": "aae928fe2224275aa28cee89347e2d830a2c116066731c920a2c315bd892467c",
+      "width": 192,
+      "height": 192,
+      "atlas": "details",
+      "cell": {
+        "left": 627,
+        "top": 0,
+        "width": 314,
+        "height": 314
+      },
+      "crop": {
+        "left": 39,
+        "top": 40,
+        "width": 214,
+        "height": 258
+      }
+    },
+    {
+      "name": "sparkle",
+      "path": "media/play-icons/sparkle.webp",
+      "sha256": "66e217d92400f113af16fd135855c0d38981f2e41728b7f84a55e76abca0be2d",
+      "width": 192,
+      "height": 192,
+      "atlas": "details",
+      "cell": {
+        "left": 941,
+        "top": 0,
+        "width": 313,
+        "height": 314
+      },
+      "crop": {
+        "left": 47,
+        "top": 52,
+        "width": 214,
+        "height": 229
+      }
+    },
+    {
+      "name": "flower",
+      "path": "media/play-icons/flower.webp",
+      "sha256": "e354c8316982c90574a9922ba6876a5c6b5e692c0ff593e51a8fa67689d20c9c",
+      "width": 192,
+      "height": 192,
+      "atlas": "details",
+      "cell": {
+        "left": 0,
+        "top": 314,
+        "width": 314,
+        "height": 313
+      },
+      "crop": {
+        "left": 54,
+        "top": 36,
+        "width": 212,
+        "height": 256
+      }
+    },
+    {
+      "name": "butterfly",
+      "path": "media/play-icons/butterfly.webp",
+      "sha256": "684a0732e8aa1d713a9d57285d070b0f508d46bf7b355bdc2a1adb77c3e3a60d",
+      "width": 192,
+      "height": 192,
+      "atlas": "details",
+      "cell": {
+        "left": 314,
+        "top": 314,
+        "width": 313,
+        "height": 313
+      },
+      "crop": {
+        "left": 22,
+        "top": 66,
+        "width": 272,
+        "height": 199
+      }
+    },
+    {
+      "name": "dinosaur",
+      "path": "media/play-icons/dinosaur.webp",
+      "sha256": "5ab360825eeabb69797e6191722153c966a524d1d65ce98a33b9c67a6d41f16c",
+      "width": 192,
+      "height": 192,
+      "atlas": "details",
+      "cell": {
+        "left": 627,
+        "top": 314,
+        "width": 314,
+        "height": 313
+      },
+      "crop": {
+        "left": 30,
+        "top": 36,
+        "width": 256,
+        "height": 245
+      }
+    },
+    {
+      "name": "bone",
+      "path": "media/play-icons/bone.webp",
+      "sha256": "72577895428d0cdd5d838f96b4db8df32592a41157bd339dcacdb8639d29916c",
+      "width": 192,
+      "height": 192,
+      "atlas": "details",
+      "cell": {
+        "left": 941,
+        "top": 314,
+        "width": 313,
+        "height": 313
+      },
+      "crop": {
+        "left": 32,
+        "top": 66,
+        "width": 248,
+        "height": 199
+      }
+    },
+    {
+      "name": "bear",
+      "path": "media/play-icons/bear.webp",
+      "sha256": "c7f16ee5a737d42ad471d13e4e8c3312f475642a0e143a97626d6de4f511e95e",
+      "width": 192,
+      "height": 192,
+      "atlas": "details",
+      "cell": {
+        "left": 0,
+        "top": 627,
+        "width": 314,
+        "height": 314
+      },
+      "crop": {
+        "left": 34,
+        "top": 53,
+        "width": 249,
+        "height": 219
+      }
+    },
+    {
+      "name": "clock",
+      "path": "media/play-icons/clock.webp",
+      "sha256": "20f82bbb43c52010e917ae43259afd8465388596fd5b8459b729d11e5f9133fe",
+      "width": 192,
+      "height": 192,
+      "atlas": "details",
+      "cell": {
+        "left": 314,
+        "top": 627,
+        "width": 313,
+        "height": 314
+      },
+      "crop": {
+        "left": 29,
+        "top": 32,
+        "width": 252,
+        "height": 257
+      }
+    },
+    {
+      "name": "light",
+      "path": "media/play-icons/light.webp",
+      "sha256": "6041f9e9f174dec955e8698c49f24df6a1953ae29e85a63733bb9d4b21a46926",
+      "width": 192,
+      "height": 192,
+      "atlas": "details",
+      "cell": {
+        "left": 627,
+        "top": 627,
+        "width": 314,
+        "height": 314
+      },
+      "crop": {
+        "left": 65,
+        "top": 34,
+        "width": 177,
+        "height": 252
+      }
+    },
+    {
+      "name": "moon",
+      "path": "media/play-icons/moon.webp",
+      "sha256": "137b8d4f526b745bdfb35f9123bf8b10597297b031fcc0501a673e58b2ad3ebc",
+      "width": 192,
+      "height": 192,
+      "atlas": "details",
+      "cell": {
+        "left": 941,
+        "top": 627,
+        "width": 313,
+        "height": 314
+      },
+      "crop": {
+        "left": 38,
+        "top": 34,
+        "width": 230,
+        "height": 251
+      }
+    },
+    {
+      "name": "stop",
+      "path": "media/play-icons/stop.webp",
+      "sha256": "ca3e0f9c76b12c639f6ae7fab99bf7a6e4992ca2056bc7315744e9cb6ee79189",
+      "width": 192,
+      "height": 192,
+      "atlas": "details",
+      "cell": {
+        "left": 0,
+        "top": 941,
+        "width": 314,
+        "height": 313
+      },
+      "crop": {
+        "left": 38,
+        "top": 34,
+        "width": 238,
+        "height": 242
+      }
+    },
+    {
+      "name": "box",
+      "path": "media/play-icons/box.webp",
+      "sha256": "5e0a6cce77e423b3e500c146ac65570e9dd2a993681af9e04b5e4722dee7d07e",
+      "width": 192,
+      "height": 192,
+      "atlas": "details",
+      "cell": {
+        "left": 314,
+        "top": 941,
+        "width": 313,
+        "height": 313
+      },
+      "crop": {
+        "left": 34,
+        "top": 40,
+        "width": 245,
+        "height": 235
+      }
+    },
+    {
+      "name": "briefcase",
+      "path": "media/play-icons/briefcase.webp",
+      "sha256": "a93f5149afa7e02dcd1e0662cfd4675c4e0c131806087681f3009a138a1a85f4",
+      "width": 192,
+      "height": 192,
+      "atlas": "details",
+      "cell": {
+        "left": 627,
+        "top": 941,
+        "width": 314,
+        "height": 313
+      },
+      "crop": {
+        "left": 30,
+        "top": 36,
+        "width": 247,
+        "height": 232
+      }
+    },
+    {
+      "name": "landmark",
+      "path": "media/play-icons/landmark.webp",
+      "sha256": "2dcf21527b9dcf1135e36c67cd9fde0ae827366abb9aeafbf1249bd74bdb4776",
+      "width": 192,
+      "height": 192,
+      "atlas": "details",
+      "cell": {
+        "left": 941,
+        "top": 941,
+        "width": 313,
+        "height": 313
+      },
+      "crop": {
+        "left": 27,
+        "top": 30,
+        "width": 252,
+        "height": 239
+      }
+    },
+    {
+      "name": "red",
+      "path": "media/play-icons/red.webp",
+      "sha256": "ae7f88c51c317727590050270dd3c20e2c6973fd38ffe978fcfd8d67c1eccc19",
+      "width": 192,
+      "height": 192,
+      "atlas": "extras",
+      "cell": {
+        "left": 0,
+        "top": 0,
+        "width": 418,
+        "height": 418
+      },
+      "crop": {
+        "left": 69,
+        "top": 64,
+        "width": 296,
+        "height": 312
+      }
+    },
+    {
+      "name": "blue",
+      "path": "media/play-icons/blue.webp",
+      "sha256": "4a1eb9da08fbce70b18a22412d9fa4b277a748017e444b393a294b18471fc218",
+      "width": 192,
+      "height": 192,
+      "atlas": "extras",
+      "cell": {
+        "left": 418,
+        "top": 0,
+        "width": 418,
+        "height": 418
+      },
+      "crop": {
+        "left": 54,
+        "top": 63,
+        "width": 301,
+        "height": 315
+      }
+    },
+    {
+      "name": "white",
+      "path": "media/play-icons/white.webp",
+      "sha256": "d83731c92728fea23013f4e926be725f9f52add406c0f24888bb09f5dc14cb7f",
+      "width": 192,
+      "height": 192,
+      "atlas": "extras",
+      "cell": {
+        "left": 836,
+        "top": 0,
+        "width": 418,
+        "height": 418
+      },
+      "crop": {
+        "left": 43,
+        "top": 62,
+        "width": 298,
+        "height": 315
+      }
+    },
+    {
+      "name": "pencil",
+      "path": "media/play-icons/pencil.webp",
+      "sha256": "f5f9c2f467c457ef4ea0b48b05d46fff328e9320cf8aafb0488232e52c98b76e",
+      "width": 192,
+      "height": 192,
+      "atlas": "extras",
+      "cell": {
+        "left": 0,
+        "top": 418,
+        "width": 418,
+        "height": 418
+      },
+      "crop": {
+        "left": 83,
+        "top": 34,
+        "width": 271,
+        "height": 345
+      }
+    },
+    {
+      "name": "signal",
+      "path": "media/play-icons/signal.webp",
+      "sha256": "bfccf8bab101ff600ecbf8d98c6faf0576da904fe82222630a6c8af39474de25",
+      "width": 192,
+      "height": 192,
+      "atlas": "extras",
+      "cell": {
+        "left": 418,
+        "top": 418,
+        "width": 418,
+        "height": 418
+      },
+      "crop": {
+        "left": 88,
+        "top": 19,
+        "width": 236,
+        "height": 373
+      }
+    },
+    {
+      "name": "parking",
+      "path": "media/play-icons/parking.webp",
+      "sha256": "e0d9197e64d72ad8f00cfb75eed6036e78810571d1d5d768b39899eff4d13d14",
+      "width": 192,
+      "height": 192,
+      "atlas": "extras",
+      "cell": {
+        "left": 836,
+        "top": 418,
+        "width": 418,
+        "height": 418
+      },
+      "crop": {
+        "left": 34,
+        "top": 43,
+        "width": 318,
+        "height": 322
+      }
+    },
+    {
+      "name": "paper",
+      "path": "media/play-icons/paper.webp",
+      "sha256": "c23c90476d604bcb8b0d0849048f6d651efeb203cf68f9a4eda6114898458612",
+      "width": 192,
+      "height": 192,
+      "atlas": "extras",
+      "cell": {
+        "left": 0,
+        "top": 836,
+        "width": 418,
+        "height": 418
+      },
+      "crop": {
+        "left": 60,
+        "top": 24,
+        "width": 297,
+        "height": 338
+      }
+    },
+    {
+      "name": "hourglass",
+      "path": "media/play-icons/hourglass.webp",
+      "sha256": "e8648b1ad31595faba8df3005e4ed5d5075172ba9bfc3c8b844ab98cb5843a14",
+      "width": 192,
+      "height": 192,
+      "atlas": "extras",
+      "cell": {
+        "left": 418,
+        "top": 836,
+        "width": 418,
+        "height": 418
+      },
+      "crop": {
+        "left": 96,
+        "top": 18,
+        "width": 220,
+        "height": 348
+      }
+    },
+    {
+      "name": "greeting",
+      "path": "media/play-icons/greeting.webp",
+      "sha256": "4422fd85fe0690de7717ccd3a950c6fd78dc47d0d5669cd89024de510b29ecb0",
+      "width": 192,
+      "height": 192,
+      "atlas": "extras",
+      "cell": {
+        "left": 836,
+        "top": 836,
+        "width": 418,
+        "height": 418
+      },
+      "crop": {
+        "left": 39,
+        "top": 7,
+        "width": 296,
+        "height": 358
       }
     }
   ]

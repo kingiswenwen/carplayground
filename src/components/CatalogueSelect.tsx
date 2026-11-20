@@ -1,6 +1,7 @@
 import {useEffect,useId,useLayoutEffect,useRef,useState} from 'react';
 import {createPortal} from 'react-dom';
-import {Check,ChevronDown,Search} from 'lucide-react';
+import {Check,ChevronDown} from './TownIcons';
+import {TownSearch} from './TownSearch';
 
 type Option={value:string;label:string;keywords?:string};
 export function CatalogueSelect({label,name,value,options,onChange}:{label:string;name:string;value:string;options:Option[];onChange:(value:string)=>void}){
@@ -43,9 +44,13 @@ export function CatalogueSelect({label,name,value,options,onChange}:{label:strin
   {open&&createPortal(<div ref={popup} className="catalogue-select-popup" style={position} onKeyDown={event=>{
    if(event.key==='Escape'){event.preventDefault();event.stopPropagation();close(true);}
    if(event.key==='ArrowDown'||event.key==='ArrowUp'){event.preventDefault();move(event.key==='ArrowDown'?1:-1);}
-   if(event.key==='Tab')close(true);
+   if(event.key==='Tab'){
+    if(query&&((event.target===search.current&&!event.shiftKey)||(event.target instanceof HTMLElement&&event.target.classList.contains('town-search-clear')&&event.shiftKey)))return;
+    close(true);
+   }
   }}>
-   <label className="catalogue-option-search"><Search size={18} aria-hidden="true"/><input ref={search} type="search" aria-label={`搜索${label}`} placeholder={`搜索${label}`} value={query} onChange={event=>setQuery(event.target.value)}/></label>
+   <TownSearch className="catalogue-option-search" label={`搜索${label}`} clearLabel={`清空${label}搜索`} placeholder={`搜索${label}`}
+     value={query} change={setQuery} inputRef={search}/>
    <div id={id+'-options'} role="listbox" aria-labelledby={id+'-label'} className="catalogue-options">
     {filtered.map(option=><button key={option.value} type="button" role="option" aria-selected={option.value===value} onClick={()=>choose(option)}><span>{option.label}</span>{option.value===value&&<Check size={18} aria-hidden="true"/>}</button>)}
    </div>

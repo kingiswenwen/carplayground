@@ -1,4 +1,6 @@
 import { Component, StrictMode, type ReactNode } from 'react';
+import {RotateCcw} from './components/TownIcons';
+import {PlaySymbol} from './components/PlaySymbol';
 import { createRoot } from 'react-dom/client';
 import App from './app/App';
 import { releaseInfo } from './domain/release';
@@ -15,7 +17,7 @@ class Recovery extends Component<{ children: ReactNode }, { failed: boolean }> {
   state = { failed: false };
   static getDerivedStateFromError() { return { failed: true }; }
   render() {
-    return this.state.failed ? <main className="empty-state"><span aria-hidden="true">🛞</span><p className="sr-only">小车休息一下，可以刷新重试。</p><button className="picture-button" aria-label="重新打开展厅" onClick={() => { const next = new URL(window.location.href); next.searchParams.set('carplayground-retry', String(Date.now())); next.hash = '/cars'; window.location.replace(next.href); }}>↻</button></main> : this.props.children;
+    return this.state.failed ? <main className="empty-state"><PlaySymbol name="wheel"/><p className="sr-only">小车休息一下，可以刷新重试。</p><button className="picture-button" aria-label="重新打开展厅" onClick={() => { const next = new URL(window.location.href); next.searchParams.set('carplayground-retry', String(Date.now())); next.hash = '/cars'; window.location.replace(next.href); }}><RotateCcw/></button></main> : this.props.children;
   }
 }
 // Fonts share the manifest's versioned/CDN media base, just like car art.

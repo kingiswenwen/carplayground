@@ -9,7 +9,7 @@ for(const width of [320,768,1440])test(`世界车库在 ${width}px 可搜索、�
  expect(await query.evaluate(el=>parseFloat(getComputedStyle(el).fontSize))).toBeGreaterThanOrEqual(16);
  await page.getByRole('combobox',{name:'按品牌发源地筛选'}).click();await page.getByRole('option',{name:'中国',exact:true}).click();
  await expect(cards).toHaveCount(2);await query.fill('seal');await expect(cards).toHaveCount(1);
- await expect(cards.locator('img')).toHaveAttribute('src',/rendered-cars\/car160-front-left\.webp/);
+ await expect(cards.getByRole('img',{name:/同车型独立立体模型渲染图/})).toHaveAttribute('src',/rendered-cars\/car160-front-left\.webp/);
  await cards.first().click();await expect(page.locator('.vehicle-webgl[data-car=CAR160]')).toHaveAttribute('data-ready','true',{timeout:45000});
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
  await page.screenshot({path:test.info().outputPath(`catalog-expansion/world-catalog-${width}.png`),fullPage:true});

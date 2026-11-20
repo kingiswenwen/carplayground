@@ -5,7 +5,7 @@
 .catalogue-select-trigger:focus-visible{outline:3px solid #456c60;outline-offset:3px}
 .catalogue-select-popup{position:fixed;z-index:100;display:flex;flex-direction:column;gap:8px;padding:10px;border:1px solid #b8c7b0;border-radius:20px;background:#fffaf0;color:#365653;box-shadow:0 12px 30px #294b3d24}
 .catalogue-option-search{position:relative;display:flex;align-items:center;flex:none}
-.catalogue-option-search>svg{position:absolute;left:12px;pointer-events:none}
+.catalogue-option-search>:is(svg,.town-icon){position:absolute;left:12px;pointer-events:none}
 .catalogue-option-search input{width:100%;min-height:44px;min-width:0;padding:10px 12px 10px 38px;border:1px solid #c6d1be;border-radius:12px;background:#f4f4e9;color:#365653;font:inherit;font-size:16px}
 .catalogue-option-search input::placeholder{color:#526f64;opacity:1}
 .catalogue-options{overflow-y:auto;min-height:0;overscroll-behavior:contain;scrollbar-width:thin;scrollbar-color:#9aaa90 #f1f1e4}
@@ -16,3 +16,18 @@
 .model-paints{width:max-content;max-width:100%;flex-wrap:wrap;justify-content:center}
 .model-paints button{flex:0 0 44px}
 @media(max-width:600px){.garage-filters>.catalogue-select{min-width:0;flex:1}.catalogue-select-trigger{gap:8px}}
+.catalogue-select-popup{font-family:Town Sans,"Noto Sans CJK SC","PingFang SC",sans-serif}
+.town-search{min-width:0}
+.town-search input{flex:1;min-width:0}
+.town-search input::-webkit-search-cancel-button,.town-search input::-webkit-search-decoration{appearance:none}
+.town-search-clear{
+  display:grid;place-items:center;flex:none;width:44px;height:44px;
+  padding:0;border:0;border-radius:11px;background:transparent
+}
+.town-search-clear:hover{background:#e9ecda}
+.town-search-clear:focus-visible{outline:2px solid #a75c2f;outline-offset:-3px}
+.catalogue-option-search:has(.town-search-clear) input{padding-inline-end:46px}
+.catalogue-option-search .town-search-clear{position:absolute;inset-inline-end:0}
+.garage-search:has(.town-search-clear) input{padding-inline-end:48px}
+.garage-search .town-search-clear{position:absolute;inset-inline-end:2px;top:2px}
+.garage-search .town-search-clear>.town-icon{position:static}

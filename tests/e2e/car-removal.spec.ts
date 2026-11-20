@@ -35,8 +35,10 @@ test('旧收藏被过滤，旧海报保留文字图案并可导出，不重新�
  await page.goto('/#/garage');await page.reload();
  const card=page.locator('.creation-card');await expect(card).toHaveCount(1);
  await expect(card).toContainText('我的小星星');await expect(card).toContainText('这辆车已下架');
- await expect(card.locator('.car-picture,img')).toHaveCount(0);
- await expect(card.locator('.art-mark')).toHaveCount(1);
+ await expect(card.locator('.artwork').locator('.car-picture,img:not(.art-mark)')).toHaveCount(0);
+ const star=card.locator('img.art-mark.mark-star');
+ await expect(star).toHaveAttribute('src',/^data:image\/png;base64,/);
+ await expect.poll(()=>star.evaluate((image:HTMLImageElement)=>image.naturalWidth)).toBe(64);
  await expect(page.locator('.garage-car')).toHaveCount(0);
  const download=page.waitForEvent('download');await card.getByRole('button',{name:'下载图片',exact:true}).click();
  expect((await download).suggestedFilename()).toMatch(/^carplayground-poster-.*\.png$/);

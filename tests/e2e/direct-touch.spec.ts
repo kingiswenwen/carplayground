@@ -45,6 +45,14 @@ test('停车直接拖车，错误车位不覆盖，拖动取消不计数 @smoke'
  await open(page,'M01');const initial=await state(page);const p=await position(page,initial.items[0]);await page.mouse.move(p.x,p.y);await page.mouse.down();await page.mouse.move(p.x+40,p.y+30);await canvas(page).dispatchEvent('pointercancel',{pointerId:1});await page.mouse.up();
  expect((await state(page)).progress).toBe(0);
  await drop(page,'car-0','blocked-bay');expect((await state(page)).items[0].placed).toBe(false);
+ await expect.poll(async()=>JSON.parse((await canvas(page).getAttribute('data-state'))!).recovering).toBe(false);
+ const blocked=initial.targets.find(t=>t.id==='blocked-bay')!;
+ const blockedEdge=await position(page,{x:blocked.x-125,y:blocked.y});
+ await page.mouse.move(p.x,p.y);await page.mouse.down();
+ await page.mouse.move(blockedEdge.x,blockedEdge.y,{steps:14});
+ await expect.poll(async()=>(await state(page)).items[0].y).toBeLessThan(blocked.y);
+ await page.mouse.up();
+ expect((await state(page)).progress).toBe(0);
  await drop(page,'car-0','bay-0');await expect.poll(async()=>(await state(page)).items[0].placed).toBe(true);
  await drop(page,'car-1','bay-0');expect((await state(page)).completed).toBe(false);
  await drop(page,'car-1','bay-1');await complete(page);

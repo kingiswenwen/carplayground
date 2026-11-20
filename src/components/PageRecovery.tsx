@@ -1,5 +1,5 @@
 import {Component,type ReactNode} from 'react';
-import {RotateCcw} from 'lucide-react';
+import {RotateCcw} from './TownIcons';
 import {PlaySymbol} from './PlaySymbol';
 
 // Lazy imports cache rejected requests. Reloading keeps the route and local

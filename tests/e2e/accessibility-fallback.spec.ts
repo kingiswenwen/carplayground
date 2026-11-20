@@ -27,7 +27,7 @@ test('@smoke 禁用脚本时开启脚本说明与重新打开入口仍可见', a
     await expect(page.locator('noscript p')).toHaveText('请开启 JavaScript，才能看车和玩游戏。');
     await expect(page.locator('noscript')).toBeVisible();
     await expect(page.locator('#entry-loading')).toBeHidden();
-    await page.getByRole('link', {name: '重新打开汽车游乐园', exact: true}).click();
+    await page.getByRole('link', {name: '重新打开汽车小镇', exact: true}).click();
     await expect(page).toHaveURL(/\/index\.html#\/explore$/);
     await expect(page.locator('noscript')).toBeVisible();
   } finally {await context.close();}
@@ -43,7 +43,7 @@ test(`@smoke 入口脚本网络失败后可在原地址重试 ${entry}`, async (
   await expect(page.getByText('连接暂时中断，请再试一次。', {exact: true})).toBeVisible();
   await expect(page.locator('#entry-loading')).toBeHidden();
   unavailable = false;
-  await page.getByRole('link', {name: '重新打开汽车游乐园', exact: true}).click();
+  await page.getByRole('link', {name: '重新打开汽车小镇', exact: true}).click();
   await expect(page.getByRole('link', {name: '泡泡洗车屋', exact: true})).toBeVisible();
 });
 }
