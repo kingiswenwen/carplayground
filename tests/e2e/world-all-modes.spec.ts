@@ -53,10 +53,17 @@ for(const id of ids)test(`${id} 立体场景完整实际操作 @worldmatrix`,asy
  }
  else if(id==='T04'){for(const x of ['body','wheel-0','wheel-1'])await drop(page,x,x);await page.getByRole('button',{name:'推车试走'}).click();}
  else if(id==='C02'){
-  for(const [i,slot] of [1,0,2].entries())await drop(page,`step-${i}`,`step-${slot}`);
+  for(const [i,slot] of [1,0,2].entries()){
+   await drop(page,`step-${i}`,`step-${slot}`);
+   await expect.poll(async()=>(await snap(page)).sequence.order[slot]).toBe(i);
+  }
   await page.getByRole('button',{name:'照顺序演一遍'}).click();await done(page);
   await page.getByRole('button',{name:'换成洗车前'}).click();
-  for(let i=0;i<3;i++)await drop(page,`step-${i}`,`step-${i}`);
+  await expect.poll(async()=>(await snap(page)).sequence.scene).toBe(1);
+  for(let i=0;i<3;i++){
+   await drop(page,`step-${i}`,`step-${i}`);
+   await expect.poll(async()=>(await snap(page)).sequence.order[i]).toBe(i);
+  }
   await page.getByRole('button',{name:'照顺序演一遍'}).click();
   await expect.poll(async()=>(await snap(page)).sequence.phase,{timeout:15000}).toBe('passed');
  }
@@ -75,7 +82,9 @@ for(const id of ids)test(`${id} 立体场景完整实际操作 @worldmatrix`,asy
  else if(id==='H01'){
   await drop(page,'visitor','place-0');await expect.poll(async()=>(await snap(page)).visit.location).toBe(0);
   expect((await snap(page)).completed).toBe(false);await click(page,'exhibit');await done(page);
-  await page.getByRole('button',{name:'回地图'}).click();await drop(page,'visitor','place-2');
+  await page.getByRole('button',{name:'回地图'}).click();
+  await expect.poll(async()=>(await snap(page)).visit.location).toBeNull();
+  await drop(page,'visitor','place-2');
   await page.getByRole('button',{name:'打开标本箱'}).click();await expect.poll(async()=>(await snap(page)).visit.visited).toEqual([0,2]);
  }
  else if(id==='L02'){

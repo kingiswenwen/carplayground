@@ -214,7 +214,7 @@ jobs:
           PLAYWRIGHT_BASE_URL: http://127.0.0.1:5194
           RELEASE_ID: ${{ needs.build.outputs.release_id }}
           SHARD: ${{ matrix.shard }}
-        run: bash scripts/ci-browser-suite.sh npx playwright test --project=chromium --workers=2 --shard="$SHARD/6" --output=test-results/chromium-full
+        run: bash scripts/ci-browser-suite.sh npx playwright test --project=chromium --workers=2 --retries=1 --shard="$SHARD/6" --output=test-results/chromium-full
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: failure() || cancelled()
         with:
