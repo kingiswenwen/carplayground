@@ -15,7 +15,10 @@ test('100点轮印满额后新轮印仍重绘，几何位置与保存作品一�
   const actor=before.actors.find((a:{id:string})=>a.id==='my-car'),box=(await world.boundingBox())!;
   await page.mouse.move(box.x+actor.screen.x*box.width,box.y+actor.screen.y*box.height);await page.mouse.down();
   await page.mouse.move(box.x+(actor.screen.x+(before.items.find((i:{id:string})=>i.id==='my-car').x<500?.18:-.18))*box.width,box.y+actor.screen.y*box.height,{steps:6});await page.mouse.up();
-  await expect.poll(async()=>(await state()).tracks.revision).toBeGreaterThan(before.tracks.revision);
+  await expect.poll(async()=>{
+    const {tracks}=await state();
+    return tracks.revision>before.tracks.revision&&tracks.count===100;
+  }).toBe(true);
   const after=await state();expect(after.tracks.count).toBe(100);expect(after.tracks.first).not.toEqual(before.tracks.first);expect(after.tracks.last).not.toEqual(before.tracks.last);
   await expect.poll(async()=>{
     const marks=(await localRows(page,'creations'))[0]?.marks as {x:number;y:number}[]|undefined,last=marks?.at(-1);
