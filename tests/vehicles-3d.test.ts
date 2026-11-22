@@ -3,12 +3,13 @@ import fs from 'node:fs';
 import {createHash} from 'node:crypto';
 import * as T from 'three';
 import {fitModel,disposeModel,frameModel} from '../src/three/model';
+import {content} from '../src/domain/content';
 import {vehicleModel,vehicleModels} from '../src/domain/vehicle-models';
 import {isWheelMesh,separateWheelMeshes} from '../src/three/wheel-meshes';
 
 describe('independent vehicle models',()=>{
  it('ships the exact credited self-contained mesh for each enabled vehicle',()=>{
-  expect(vehicleModels.length).toBeGreaterThanOrEqual(100);expect(new Set(vehicleModels.map(m=>m.source.url)).size).toBe(vehicleModels.length);expect(new Set(vehicleModels.map(m=>m.sha256)).size).toBe(vehicleModels.length);
+  expect(vehicleModels.map(model=>model.id).sort()).toEqual(content.cars.map(car=>car.id).sort());expect(new Set(vehicleModels.map(m=>m.source.url)).size).toBe(vehicleModels.length);expect(new Set(vehicleModels.map(m=>m.sha256)).size).toBe(vehicleModels.length);
   for(const model of vehicleModels){
    const bytes=fs.readFileSync('public/'+model.file);expect(bytes.length).toBe(model.bytes);expect(bytes.length).toBeLessThan(8*1024*1024);
    expect(createHash('sha256').update(bytes).digest('hex')).toBe(model.sha256);expect(bytes.toString('ascii',0,4)).toBe('glTF');expect(bytes.readUInt32LE(8)).toBe(bytes.length);

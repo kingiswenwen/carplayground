@@ -23,7 +23,10 @@ describe('汽车小镇的教学保留约束',()=>{
   expect(getTownPlace('travel')?.id).toBe('park');
  });
  it('保留当前车型，受支持的车型进入相同活动；全部车型仍可选',()=>{
-  expect(content.cars).toHaveLength(102);
-  for(const a of content.activities)for(const carId of a.carIds)expect(activityHref(a.id,carId)).toBe(`#/play/${a.id}?car=${carId}`);
+  const selectable = content.cars.map(car=>car.id);
+  for(const activity of content.activities){
+   expect(activity.carIds,activity.id).toEqual(selectable);
+   for(const carId of activity.carIds)expect(activityHref(activity.id,carId)).toBe(`#/play/${activity.id}?car=${carId}`);
+  }
  });
 });

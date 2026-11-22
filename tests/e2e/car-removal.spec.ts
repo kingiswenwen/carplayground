@@ -1,12 +1,12 @@
 import {test,expect} from '@playwright/test';
 
-const removed=['CAR02','CAR04','CAR16','CAR17','CAR20','CAR25','CAR19','CAR162','CAR190','CAR193'];
-test('目录只保留有独立模型的102款车，取消车型不再出现',async({page})=>{
+const removed=['CAR02','CAR04','CAR16','CAR17','CAR20','CAR25','CAR19','CAR162','CAR190','CAR193','CAR42','CAR166','CAR176','CAR78'];
+test('选车目录保留68款，下架车型不再出现在搜索结果',async({page})=>{
  await page.goto('/#/cars');
- await expect(page.locator('.garage-count')).toContainText('102 款立体车 · 102 款真实车型');
+ await expect(page.locator('.garage-count')).toContainText('68 款立体车 · 68 款真实车型');
  await expect(page.locator('.garage-reference-switch')).toHaveCount(0);
  const search=page.getByRole('searchbox',{name:'查找车型或品牌'});
- for(const name of ['296 GTB','750S','MX-5 RF','F8 Tributo','Alpine A110','Nissan Z','Huracán','Karmann Ghia','Macan','Levante']){
+ for(const name of ['296 GTB','750S','MX-5 RF','F8 Tributo','Alpine A110','Nissan Z','Huracán','Karmann Ghia','Macan','Levante','Portofino','Peugeot 205','RS3 Sportback','Skyline GT-R']){
   await search.fill(name);await expect(page.locator('.garage-paged .car-gallery-card')).toHaveCount(0);
  }
 });
@@ -17,7 +17,7 @@ test('取消车型的旧详情链接不显示车辆，旧玩法链接回退到�
   await expect(page.getByRole('link',{name:'回到乐园',exact:true})).toBeVisible();
   await expect(page.locator('.vehicle-views')).toHaveCount(0);
  }
- await page.goto('/#/play/E02?car=CAR02&view=2d');
+ await page.goto('/#/play/E02?car=CAR166&view=2d');
  await expect(page.getByRole('link',{name:'旋转看看这辆车',exact:true})).toHaveAttribute('href','#/cars/CAR01');
  await expect(page.locator('.touch-canvas')).toHaveAttribute('data-presentation','flat');
 });
@@ -28,8 +28,8 @@ test('旧收藏被过滤，旧海报保留文字图案并可导出，不重新�
  await page.evaluate(()=>new Promise<void>((resolve,reject)=>{
   const open=indexedDB.open('carplayground-local-v1');open.onerror=()=>reject(open.error);
   open.onsuccess=()=>{const db=open.result,tx=db.transaction(['favorites','creations'],'readwrite');
-   for(const carId of ['CAR02','CAR16','CAR83','CAR190'])tx.objectStore('favorites').put({carId,at:new Date().toISOString()});
-   tx.objectStore('creations').put({id:'removed-vehicle-art',kind:'poster',carId:'CAR190',background:'#eef1d6',caption:'我的小星星',marks:[{x:.5,y:.5,color:'#367cc1',shape:'star'}],createdAt:new Date().toISOString(),version:1});
+   for(const carId of ['CAR02','CAR16','CAR83','CAR190','CAR42','CAR78'])tx.objectStore('favorites').put({carId,at:new Date().toISOString()});
+   tx.objectStore('creations').put({id:'removed-vehicle-art',kind:'poster',carId:'CAR176',background:'#eef1d6',caption:'我的小星星',marks:[{x:.5,y:.5,color:'#367cc1',shape:'star'}],createdAt:new Date().toISOString(),version:1});
    tx.oncomplete=()=>{db.close();resolve();};tx.onerror=()=>{db.close();reject(tx.error);};};
  }));
  await page.goto('/#/garage');await page.reload();

@@ -6,7 +6,7 @@ describe('world car catalogue',()=>{
  it('finds real cars by Chinese brand, model and unaccented name',()=>{
   expect(filterCatalogue(content.cars,{query:'法拉利'}).every(c=>c.brand==='Ferrari')).toBe(true);
   expect(filterCatalogue(content.cars,{query:'TESLA model 3'}).map(c=>c.model)).toEqual(['Model 3']);
-  expect(filterCatalogue(content.cars,{query:'megane'}).map(c=>c.model)).toEqual(['Mégane Sedan']);
+  expect(filterCatalogue(content.cars,{query:'audi r8 coupe'}).map(c=>c.model)).toEqual(['R8 Coupé']);
  });
  it('combines country, brand and model without returning unrelated cars',()=>{
   expect(filterCatalogue(content.cars,{origin:'中国',query:'seal'}).map(c=>c.brand)).toEqual(['BYD']);

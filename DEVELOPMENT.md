@@ -62,7 +62,7 @@ COS 与 CDN 的临时网络故障、408/429/500/502/503/504 最多尝试 4 次�
 - `scripts/`：校验、素材处理和通用发布工具。
 - `tests/`：单元、发布工具和浏览器测试。
 
-车型扩充按 `docs/CATALOG_WORKFLOW.md` 执行：先核对真实量产车型及系列别名，再核对独立 GLB 的作者、许可和实际外观。当前 102 款立体车使用登记来源的独立模型；GPT Image 负责车辆插画，不直接输出这些 GLB。
+车型扩充按 `docs/CATALOG_WORKFLOW.md` 执行：先核对真实量产车型及系列别名，再核对独立 GLB 的作者、许可和实际外观。当前 68 款立体车使用登记来源的独立模型；GPT Image 负责车辆插画，不直接输出这些 GLB。
 
 新增目录插画的图集、提示词、图帧及哈希记录在 `content/catalog-illustrations.json`。`node scripts/prepare-catalog-illustrations.mjs <本机图集索引.json>` 将经过检查的 GPT 图集裁成透明 WebP。玩法继续使用从同车型模型渲染的侧视、俯视图及登记轮位，避免插画换图后点击位置失准。
 
@@ -82,7 +82,7 @@ COS 与 CDN 的临时网络故障、408/429/500/502/503/504 最多尝试 4 次�
 
 旧测试截图已统一使用 Playwright 当前测试输出路径，请为每批传独立 `--output`，不写回旧历史目录。新增内容阶段、洗车/轮印连续性在 CI 中增加 Firefox 代表性回归。
 
-选车与详情查看器的换色选择独立记录在 `content/viewer-paints.json`，保留来源模型、贴图与哈希；语义材质按车身映射，单张图集按颜色与轮位遮罩换色，支持标准光照与无光照材质。还原按钮关闭着色并恢复原材质参数。查看器支持换色不代表玩法模型能准确识别目标色，不能因此修改 `vehicle-models.json` 的 `paintMaterials` 资格。`tests/e2e/showroom-updates.spec.ts` 在Chromium逐车比较102款模型的红蓝实际像素，而非只断言按钮状态；`VIEWER_PAINT_IDS` 可在本地复核指定车型，CI默认检查全量。
+选车与详情查看器的换色选择独立记录在 `content/viewer-paints.json`，保留来源模型、贴图与哈希；语义材质按车身映射，单张图集按颜色与轮位遮罩换色，支持标准光照与无光照材质。还原按钮关闭着色并恢复原材质参数。查看器支持换色不代表玩法模型能准确识别目标色，不能因此修改 `vehicle-models.json` 的 `paintMaterials` 资格。`tests/e2e/showroom-updates.spec.ts` 在Chromium逐车比较68款模型的红蓝实际像素，而非只断言按钮状态；`VIEWER_PAINT_IDS` 可在本地复核指定车型，CI默认检查全量。
 
 选车缩略图和加载占位统一使用 `vehiclePreview` 选择对应独立模型的已登记前左渲染图，不把插画当作模型预览。切换同步隐藏/清除旧画布，加载图片按车型重新挂载，实际绘制后才显示画布。品牌与发源地的 `CatalogueSelect` 使用可搜索的自定义面板，支持方向键、Escape、Tab和视口内定位。
 
