@@ -1,6 +1,6 @@
 # 立体车型来源与许可
 
-102 个独立模型，按真实车型系列去重。模型是作者制作的游戏外观，不是厂商工程数据；图片生成记录另见 catalog-illustrations.json。
+68 个独立模型，按真实车型系列去重。模型是作者制作的游戏外观，不是厂商工程数据；图片生成记录另见 catalog-illustrations.json。
 
 ## CAR01 · 兰博基尼 Revuelto
 
@@ -32,11 +32,6 @@ Mirror optimized mesh topology and meshopt compression. App uniformly scales, po
 [Audi R8](https://sketchfab.com/3d-models/audi-r8-e17e438f076f4427a58d93aa779edaed) · [wallon](https://sketchfab.com/realwallon) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
 Mirror optimized mesh topology and meshopt compression. App uniformly scales, positions and recolors specified paint materials; original proportions retained.
 
-## CAR12 · 雷克萨斯 LC 500
-
-[Lexus LC-500](https://sketchfab.com/3d-models/none-3f6118da005a457a9ce6d737e5d1e37d) · [Socksthecat](https://sketchfab.com/Socksthecat) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
-
 ## CAR24 · 路特斯 Emira
 
 [Lotus Emira](https://sketchfab.com/3d-models/none-353d4768b2d74a7f888567e18952bcb1) · [GT Cars: Hyperspeed](https://sketchfab.com/Car2022) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
@@ -62,19 +57,9 @@ Authored proportions and textures retained; bounded-error mesh simplification, W
 [Lamborghini Aventador SVJ SDC ( FREE )](https://sketchfab.com/3d-models/none-784e4656aca649cca55d6b18740a19b2) · [SDC PERFORMANCE™️](https://sketchfab.com/Lambo_SC04) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
 Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
 
-## CAR34 · 兰博基尼 Gallardo LP 560-4
-
-[Lamborghini Gallardo lp560](https://sketchfab.com/3d-models/none-86691e28bae34cffa896b148c895e58d) · [Black Snow](https://sketchfab.com/BlackSnow02) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
-
 ## CAR39 · 兰博基尼 Centenario LP 770-4
 
 [Lamborghini Centenario LP-770 Interior SDC](https://sketchfab.com/3d-models/none-d679af35b5694301a185c7454a700c73) · [SDC PERFORMANCE™️](https://sketchfab.com/Lambo_SC04) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
-
-## CAR42 · 法拉利 Portofino
-
-[Ferrari Portofino - Red](https://sketchfab.com/3d-models/46631a0db29a437e95f36b45969d572e) · [WA7KVI](https://sketchfab.com/WA7KVI) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
 Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
 
 ## CAR43 · 法拉利 F40
@@ -87,11 +72,6 @@ Authored proportions and textures retained; bounded-error mesh simplification, W
 [Ferrari 599 GTO](https://sketchfab.com/3d-models/none-14b4f6d9f84d4e30be52a2158685d3ff) · [Black Snow](https://sketchfab.com/BlackSnow02) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
 Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
 
-## CAR46 · 迈凯伦 720S
-
-[2017 Mclaren 720s](https://sketchfab.com/3d-models/f7bece69400f4640a4a3be746b44998b) · [_shobh19](https://sketchfab.com/s0h1o9b) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
-
 ## CAR48 · 迈凯伦 Senna
 
 [McLaren Senna Free](https://sketchfab.com/3d-models/none-ea3e43a6eb004853a87fe9c58422eb96) · [Black Snow](https://sketchfab.com/BlackSnow02) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
@@ -102,29 +82,14 @@ Authored proportions and textures retained; bounded-error mesh simplification, W
 [Porsche 918 Free](https://sketchfab.com/3d-models/none-ec8eebcdbf534bbba151375b9992f6d7) · [Black Snow](https://sketchfab.com/BlackSnow02) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
 Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
 
-## CAR58 · 保时捷 959
-
-[Porsche 959](https://sketchfab.com/3d-models/none-0530aa8fa4b74427a71c961a5bdd7087) · [Yakpower](https://sketchfab.com/Alexios_Apokaukos) · [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
-
 ## CAR60 · 布加迪 Veyron
 
 [Bugatti Veyron 16.4 Super Sport - Lowpoly](https://sketchfab.com/3d-models/0ee4c65face949efa4500deb17c79150) · [andikapratamaw](https://sketchfab.com/andikapratamaw) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
 Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
 
-## CAR61 · 帕加尼 Zonda Cinque
-
-[Pagani Zonda Cinque](https://sketchfab.com/3d-models/none-71a48cb9822a4289a90f29f644ee564e) · [Ajay Gawde](https://sketchfab.com/aagawde) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
-
 ## CAR62 · 帕加尼 Utopia
 
 [Pagani Utopia 2023](https://sketchfab.com/3d-models/none-a8a0264c80714a21b6f3e2ab4b538b0b) · [DFLEX](https://sketchfab.com/DFLEX) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
-
-## CAR63 · 科尼赛克 One:1
-
-[Koenigsegg One:1](https://sketchfab.com/3d-models/none-b4e5a4c5fa5d4d45acd6715d3325254f) · [iSteven](https://sketchfab.com/OneSteven) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
 Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
 
 ## CAR65 · 科尼赛克 CCX
@@ -137,31 +102,6 @@ Authored proportions and textures retained; bounded-error mesh simplification, W
 [Aston Martin db11](https://sketchfab.com/3d-models/0ce56f01b1ff40b3a4e36bc56873dbc7) · [Black Snow](https://sketchfab.com/BlackSnow02) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
 Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
 
-## CAR67 · 路特斯 Elise
-
-[LOTUS ÉLISE](https://sketchfab.com/3d-models/none-75e9045ac1af4cdbb69318108c81edfd) · [Stéphane Agullo](https://sketchfab.com/sa3d) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
-
-## CAR71 · 日产 Silvia S13
-
-[1992 Nissan Silvia S13](https://sketchfab.com/3d-models/none-6fa8f1948f954e3b980b5e96f203815a) · [bagged_ls](https://sketchfab.com/lstance) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
-
-## CAR72 · 日产 Skyline GT-R (R34)
-
-[Nissan Skyline R34 GT-R](https://sketchfab.com/3d-models/none-ff8fb2251dfa4bb9979e7022c5a6666c) · [Lexyc16](https://sketchfab.com/Lexyc16) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
-
-## CAR75 · 日产 GT-R (R35)
-
-[Nissan Skyline GTR r35](https://sketchfab.com/3d-models/none-7b142ea3376e4811a326256c59bbc7a2) · [Black Snow](https://sketchfab.com/BlackSnow02) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
-
-## CAR81 · 日产 180SX
-
-[Nissan 180sx [FREE]](https://sketchfab.com/3d-models/none-b37cea6e8a864a2aa602934ddb0e6ff0) · [autoNgraphic](https://sketchfab.com/autoNgraphic) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
-
 ## CAR85 · 丰田 MR2 (W20)
 
 [1996 Toyota MR2 W20](https://sketchfab.com/3d-models/none-f66020ee62d741ebb0adc1ba351300db) · [_shobh19](https://sketchfab.com/s0h1o9b) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
@@ -170,11 +110,6 @@ Authored proportions and textures retained; bounded-error mesh simplification, W
 ## CAR89 · 丰田 Corolla Levin (AE92)
 
 [Toyota Corolla Levin AE92 GT APEX Kouki](https://sketchfab.com/3d-models/none-66dcbaf822ae47468655a604a83af703) · [Nix_Dektara](https://sketchfab.com/Nix_Dektara) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
-
-## CAR95 · 马自达 RX-7
-
-[Mazda RX-7](https://sketchfab.com/3d-models/none-45cb02e634ed477a9a04bb19813443f2) · [wallon](https://sketchfab.com/realwallon) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
 Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
 
 ## CAR98 · 本田 Integra Type R (DB8)
@@ -212,11 +147,6 @@ Authored proportions and textures retained; bounded-error mesh simplification, W
 [Mercedes-Benz 300 SL Gullwing](https://sketchfab.com/3d-models/505241c829c540a4921533000736904e) · [Lexyc16](https://sketchfab.com/Lexyc16) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
 Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
 
-## CAR116 · 奥迪 TT Roadster
-
-[2015 Audi TT Convertible](https://sketchfab.com/3d-models/80cc29628e1b407d8e14d5ae0710f6fe) · [razor24](https://sketchfab.com/razor24) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
-
 ## CAR118 · 奥迪 RS5
 
 [Audi RS5](https://sketchfab.com/3d-models/none-75d636ab26b1423ca61ffd0fd758fd0a) · [WillisChiejina](https://sketchfab.com/WillisChiejina) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
@@ -235,11 +165,6 @@ Authored proportions and textures retained; bounded-error mesh simplification, W
 ## CAR125 · 福特 Mustang Shelby GT500
 
 [Ford Mustang Shelby GT500](https://sketchfab.com/3d-models/0eaa7a16796540f29461ddae05ecdeb3) · [Jiaxing](https://sketchfab.com/saitoyang) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
-
-## CAR129 · 阿尔法·罗密欧 4C
-
-[Alfa Romeo 4C](https://sketchfab.com/3d-models/93da1386a94744c5bd8a676a09f9d4e9) · [Mona x Supercars](https://sketchfab.com/Car2022) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
 Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
 
 ## CAR135 · 庞蒂亚克 Firebird Trans Am
@@ -267,16 +192,6 @@ Authored proportions and textures retained; bounded-error mesh simplification, W
 [2018 McLaren 570S Spider](https://sketchfab.com/3d-models/a504090e516f44608e35160953b61fcd) · [Ddiaz Design](https://sketchfab.com/ddiaz-design) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
 Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
 
-## CAR145 · 迈凯伦 12C
-
-[Mclaren MP4-12C Ultimate](https://sketchfab.com/3d-models/none-80f19f7f5aac428985356987769538fe) · [COOL601](https://sketchfab.com/COOL601) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
-
-## CAR146 · 捷豹 XJ220
-
-[Jaguar XJ220 1991](https://sketchfab.com/3d-models/none-d99bb7b0fc0e4e3c9553246679dd067f) · [Comrade1280](https://sketchfab.com/comrade1280) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls. Remove authored presentation ground, which otherwise reduces the car to a speck.
-
 ## CAR147 · 阿斯顿·马丁 Valour
 
 [Aston Martin Valour 2024 | www.vecarz.com](https://sketchfab.com/3d-models/none-0c36c7adb6d742e9bc27444880eb2f02) · [vecarz](https://sketchfab.com/heynic) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
@@ -292,34 +207,9 @@ Authored proportions and textures retained; bounded-error mesh simplification, W
 [Mitsubishi Lancer Evolution 6  | www.vecarz.com](https://sketchfab.com/3d-models/none-c3d5dcd8ff724bc88c46760d92fc5188) · [vecarz](https://sketchfab.com/heynic) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
 Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
 
-## CAR153 · 现代 Veloster Turbo
-
-[hyundai veloster turbo](https://sketchfab.com/3d-models/ab41362f67fe4904aaff7e62882b5aec) · [amogusstrikesback2](https://sketchfab.com/amogusstrikesback2) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
-
-## CAR155 · 阿尔法·罗密欧 Giulia Sprint (1965)
-
-[1965 Alfa Romeo Giulia Sprint](https://sketchfab.com/3d-models/3b30a0277a7b45a58496c843e6588212) · [dagtholander](https://sketchfab.com/dagtholander) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls. Keep the assembled Giulia at the scene origin; remove the second exploded presentation copy.
-
-## CAR156 · 兰博基尼 Urus
-
-[Lamborghini Urus 2018](https://sketchfab.com/3d-models/none-32964087f5d24c3e90482724ddfc2fef) · [Kai Xiang](https://sketchfab.com/kirikom9000) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
-
-## CAR157 · 劳斯莱斯 Ghost
-
-[Rolls-Royce Ghost](https://sketchfab.com/3d-models/none-4a590f4afa094fa8b407a14db77a63a8) · [Black Snow](https://sketchfab.com/BlackSnow02) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
-
 ## CAR158 · 劳斯莱斯 Phantom
 
 [rollsroyce phantom](https://sketchfab.com/3d-models/1a2f117c8f1b4324b5a5dd70d38d396b) · [Jaggu_wrld](https://sketchfab.com/jagathkrishna148) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
-
-## CAR159 · 劳斯莱斯 Cullinan
-
-[Rolls Royce Cullinan](https://sketchfab.com/3d-models/61f16a1d5be2403abcdd8fa552f730f7) · [NewViStudios](https://sketchfab.com/newvistudios) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
 Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
 
 ## CAR160 · 比亚迪 Seal
@@ -337,19 +227,9 @@ Authored proportions and textures retained; bounded-error mesh simplification, W
 [Volkswagen Golf 8. GTI (A8)](https://sketchfab.com/3d-models/e87d7c0f8937481db236529beb5ecab7) · [Mona x Supercars](https://sketchfab.com/Car2022) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
 Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
 
-## CAR164 · 迷你 Cooper S
-
-[Mini Cooper S](https://sketchfab.com/3d-models/b262744901a04cda823f17289d1a4847) · [cenobyte](https://sketchfab.com/cenobyte) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls. Use alpha cutout for the combined body atlas instead of sorting overlapping translucent body panels.
-
 ## CAR165 · 铃木 Swift
 
 [Suzuki Swift](https://sketchfab.com/3d-models/218c3c0c6afd4d0eb343bd50d8868fd0) · [Casacade Models](https://sketchfab.com/CasacadeOperations) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
-
-## CAR166 · 标致 205
-
-[Vehicle - Peugeot 205](https://sketchfab.com/3d-models/527949cddab34ea4b3b334b9a137d1be) · [Thcyrax](https://sketchfab.com/thcyrax) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
 Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
 
 ## CAR168 · 斯巴鲁 Impreza WRX STI (2004)
@@ -361,11 +241,6 @@ Authored proportions and textures retained; bounded-error mesh simplification, W
 
 [Toyota Crown athlete s210](https://sketchfab.com/3d-models/none-138a753d04dd4d8f8982d8f5583d212d) · [Black Snow](https://sketchfab.com/BlackSnow02) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
 Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
-
-## CAR170 · 道奇 Charger R/T (1970)
-
-[Dominic Toretto's 1970 Dodge Charger R/T FAST X](https://sketchfab.com/3d-models/0e2c80e2928d4b76b49914db5bbb47ca) · [Emmanual Robinson, Jr.](https://sketchfab.com/3001105) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls. Remove source wire edges (line primitives); retain the original solid road-car surfaces.
 
 ## CAR171 · 特斯拉 Model 3
 
@@ -387,16 +262,6 @@ Authored proportions and textures retained; bounded-error mesh simplification, W
 [2006 Land Rover Range Rover Supercharged](https://sketchfab.com/3d-models/277cf51a9f95473c85580612651990fd) · [Randomness](https://sketchfab.com/throwbackthursdaymodels) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
 Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
 
-## CAR175 · 悍马 H2
-
-[HUMMER H2](https://sketchfab.com/3d-models/none-5cd3ea8eb94c4f5597cc086b2df40e58) · [Peter_D](https://sketchfab.com/better_peter) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
-
-## CAR176 · 奥迪 RS3 Sportback
-
-[[Real Racing 3] 2021 Audi RS3 Sportback](https://sketchfab.com/3d-models/19c892aa76a7435a994b001d726ffdcf) · [VuckyZ](https://sketchfab.com/VuckyZ123) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls. Retain the RS3 body; add four original simplified game wheels to the source that omits wheel geometry. Wheels are teaching geometry, not scanned OEM rims.
-
 ## CAR177 · 雷克萨斯 ES Hybrid
 
 [Lexus ES Hybrid](https://sketchfab.com/3d-models/b4edfa2fd5cc48ada679352215e0105e) · [Mona x Supercars](https://sketchfab.com/Car2022) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
@@ -407,11 +272,6 @@ Authored proportions and textures retained; bounded-error mesh simplification, W
 [Ford Bronco](https://sketchfab.com/3d-models/09ebc68dcb634807a9dace7404ce5e66) · [Casacade Models](https://sketchfab.com/CasacadeOperations) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
 Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
 
-## CAR180 · 雷诺 Mégane Sedan
-
-[Renault Megane Sedan](https://sketchfab.com/3d-models/0c0d6c54a2424feb95447400a5c5e50e) · [Mona x Supercars](https://sketchfab.com/Car2022) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
-
 ## CAR181 · 菲亚特 500 Abarth
 
 [Fiat Abarth 500](https://sketchfab.com/3d-models/none-b59a403dfa1d40318c1126e658f87c19) · [Luquita](https://sketchfab.com/speedmodel) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
@@ -420,11 +280,6 @@ Authored proportions and textures retained; bounded-error mesh simplification, W
 ## CAR182 · 宝马 X5 M Competition
 
 [2020 BMW X5 M Competition](https://sketchfab.com/3d-models/9b211d525797457e988c903f67d0b753) · [David_Holiday](https://sketchfab.com/David_Holiday) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
-
-## CAR183 · 阿尔法·罗密欧 Stelvio Quadrifoglio
-
-[2017 Alfa Romeo Stelvio Quadrifoglio](https://sketchfab.com/3d-models/b6e382aee4a44fb3b1222d7191470640) · [tonielpro520](https://sketchfab.com/tonielpro520) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
 Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
 
 ## CAR08 · 阿斯顿·马丁 Vantage
@@ -442,11 +297,6 @@ Authored proportions and textures retained; bounded-error mesh simplification, W
 [2020 Koenigsegg Jesko](https://sketchfab.com/3d-models/none-c657f51fb0db43e38fea172dfa385287) · [Ddiaz Design](https://sketchfab.com/ddiaz-design) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
 Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
 
-## CAR18 · 宝马 M2
-
-[BMW M2](https://sketchfab.com/3d-models/none-394feedd0a0742c595917c7b0f6edcad) · [Manuel Contento](https://sketchfab.com/manuelcontento) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls. Remove the separate pPlane23 presentation ground; retain the complete BMW M2.
-
 ## CAR21 · 保时捷 718 Cayman
 
 [Porsche 718 Cayman GT4 2020 | www.vecarz.com](https://sketchfab.com/3d-models/none-0b210ff1ee3e4f75acf3fd31e6b1b298) · [vecarz](https://sketchfab.com/heynic) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
@@ -457,21 +307,6 @@ Authored proportions and textures retained; bounded-error mesh simplification, W
 [Fiat 850 Spider](https://sketchfab.com/3d-models/none-8ea03b3cbb9f439ea82a68ddbeb5f6ae) · [Lucas Soler](https://sketchfab.com/lucassoler) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
 Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
 
-## CAR186 · 奥迪 A7 Sportback
-
-[Audi A7 Sportback 2018](https://sketchfab.com/3d-models/95700e5a98904b3591c6a03a4b67787b) · [KiW](https://sketchfab.com/QlER5) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
-
-## CAR187 · 宝马 1 Series
-
-[BMW Serie 1](https://sketchfab.com/3d-models/fddf543ea68245309379bf7336aaa7a3) · [3DDomino](https://sketchfab.com/3DDomino) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls. Reset the exporter presentation quaternion so the original BMW body stands upright.
-
-## CAR189 · 捷豹 XF
-
-[Jaguar XF](https://sketchfab.com/3d-models/f27d0e569b7a44fc8786f1d914bc687d) · [Mona x Supercars](https://sketchfab.com/Car2022) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
-
 ## CAR192 · 比亚迪 Dolphin
 
 [2024 BYD Dolphin Premium Long Range](https://sketchfab.com/3d-models/8d30880667524cf3abb9e3e66c5299b5) · [Nazh Design ✔](https://sketchfab.com/NazhDesign) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
@@ -480,11 +315,6 @@ Authored proportions and textures retained; bounded-error mesh simplification, W
 ## CAR194 · 梅赛德斯·奔驰 190 E
 
 [Mercedes 190E EVO 1982 3D Model Free](https://sketchfab.com/3d-models/none-15e5576f4b724f2db357165caed3492b) · [Betier Models](https://sketchfab.com/betier) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
-Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
-
-## CAR195 · 现代 i30
-
-[2011 Hyundai i30 FD](https://sketchfab.com/3d-models/036a13aefc3f48c5ba996aa2361b429e) · [D3NK](https://sketchfab.com/leeyunhe902) · [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)。
 Authored proportions and textures retained; bounded-error mesh simplification, WebP texture resizing and meshopt compression. App uses uniform fitting and camera controls.
 
 ## CAR14 · 丰田 GR Supra

@@ -17,6 +17,6 @@ for(const width of [320,768,1440])test(`世界车库在 ${width}px 可搜索、�
  await expect(page.getByRole('button',{name:'下一组跑车'})).toHaveCount(0);
  await page.getByRole('button',{name:'清除筛选',exact:true}).click();await expect(cards).toHaveCount(8);
  await expect(query).toHaveValue('');await expect(page.getByRole('combobox',{name:'按品牌发源地筛选'})).toHaveText('世界各地');
- await query.fill('megane');await expect(cards).toHaveCount(1);await expect(cards.first()).toContainText('Mégane');
+ await query.fill('audi r8 coupe');await expect(cards).toHaveCount(1);await expect(cards.first()).toContainText('R8 Coupé');
  expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
 });

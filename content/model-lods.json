@@ -60,16 +60,6 @@
     "maxRelativeError": 0.005
   },
   {
-    "id": "CAR12",
-    "sourceModelSha256": "d6fb8ab8e34837f7c407f6ae28f928ae30e913593187f060a490b3dedc940647",
-    "playSha256": "1d9c219b00910465146bf5bff21fb8bfca5afbc1ac13fa12a54e90c4334d4a8c",
-    "inputTriangles": 150768,
-    "outputTriangles": 36843,
-    "bytes": 707440,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
     "id": "CAR24",
     "sourceModelSha256": "e45712c288cdd1e8c6de1ea8c952c8d8977af2eca310ad99bc9d9705b995a86d",
     "playSha256": "395008e9ab2592a2993de6002e7552abc5e41df0e5dbab49dee358239d8f0bcd",
@@ -120,32 +110,12 @@
     "maxRelativeError": 0.005
   },
   {
-    "id": "CAR34",
-    "sourceModelSha256": "8bd7d632120f5373cbf92e7867a8f8223f3d004cc1ada5ee037e2e22d5123d6d",
-    "playSha256": "89142ae88a5cc12d145b706a3c81068f8ce343a459253cbf28e194f1e1496d6c",
-    "inputTriangles": 178820,
-    "outputTriangles": 43565,
-    "bytes": 622856,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
     "id": "CAR39",
     "sourceModelSha256": "aadf97fefb2a37f72d5b52ba049d40a5ce60aefe96ddcc62355b900dc7a23390",
     "playSha256": "00b5c4cbd35293147f03b552a9c58febc56f52151efc4cd98f5ecb2453aa0c7e",
     "inputTriangles": 119030,
     "outputTriangles": 36778,
     "bytes": 738148,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
-    "id": "CAR42",
-    "sourceModelSha256": "43ce6554bea819e409087fb71bb388d5231a2824a5fc2982f6368b9e979b80a3",
-    "playSha256": "684116a05ec7fa4b5ec802a1f4325eec053e8169a86eef4ba8fbe1c948c45479",
-    "inputTriangles": 20000,
-    "outputTriangles": 6000,
-    "bytes": 143700,
     "targetTriangles": 35000,
     "maxRelativeError": 0.005
   },
@@ -170,16 +140,6 @@
     "maxRelativeError": 0.005
   },
   {
-    "id": "CAR46",
-    "sourceModelSha256": "1d1e7c7ebc363328d83cd67964f8067009e49508cb093fbe78c2a66fce1a56b9",
-    "playSha256": "2320715471a3a0129309f16bcd1130276f0976d595d326f672f892b3adb5bf7c",
-    "inputTriangles": 6915,
-    "outputTriangles": 3530,
-    "bytes": 195752,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
     "id": "CAR48",
     "sourceModelSha256": "2b83bbfdc0fbfef91876ff8e72f00a2489bc1f9c76d088d4c6ec29dd08df3055",
     "playSha256": "316733673e438df409579814021c532342f1058aed2f6db4b1a12aa1ab6b1331",
@@ -200,16 +160,6 @@
     "maxRelativeError": 0.005
   },
   {
-    "id": "CAR58",
-    "sourceModelSha256": "dd05245fbdf187fd3040787e9305ec4fcf6b128c8d1dd9b041406171ef861daf",
-    "playSha256": "2ab735ec9d987453eb292c7043c79cdc2cc5a211740195bd736c2b995166d5ee",
-    "inputTriangles": 72918,
-    "outputTriangles": 22937,
-    "bytes": 687260,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
     "id": "CAR60",
     "sourceModelSha256": "b2897602346f6a2d1410e9b30e4eeb62f3e60371414f671cc58200d733788e88",
     "playSha256": "1a75b62fb152d4646f09dc3d5831490e128dd60496881811cc65bd408cacc97f",
@@ -220,32 +170,12 @@
     "maxRelativeError": 0.005
   },
   {
-    "id": "CAR61",
-    "sourceModelSha256": "d37742cb59f3fd994ec057232030ef28078661329dd7688f701e98e1585d01b8",
-    "playSha256": "3cdcdb6f26b4c50a3a9b6a4db04b208d005d28c22dbe8b7bfb69f3f63dc15036",
-    "inputTriangles": 12615,
-    "outputTriangles": 4020,
-    "bytes": 217408,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
     "id": "CAR62",
     "sourceModelSha256": "80c3f79ba3fc8cdc7b6974ddd4718a3211de17f93baae338dca2ec2fb1fdebbf",
     "playSha256": "bfc2bb0c776c73d9fb33844280a8cbd03f4f7bc245ca5c5fc125a3586275076a",
     "inputTriangles": 171757,
     "outputTriangles": 35893,
     "bytes": 1193732,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
-    "id": "CAR63",
-    "sourceModelSha256": "1062a52c2393668be7214d9fec19a7cdd2edf34d2f0cf9ce4291265039a96fbd",
-    "playSha256": "af7dd7379595052cb83c12f00e3f5d91a8ee40625cc28567ecb0ac6bd9e5a265",
-    "inputTriangles": 22611,
-    "outputTriangles": 6827,
-    "bytes": 337512,
     "targetTriangles": 35000,
     "maxRelativeError": 0.005
   },
@@ -270,56 +200,6 @@
     "maxRelativeError": 0.005
   },
   {
-    "id": "CAR67",
-    "sourceModelSha256": "26571ceb13a433e8de38826a972e19dcb7f1ffb981c1cde3f6d82ace97d18778",
-    "playSha256": "49f0a2948a7a75336dc8221ca3e4cf580c4deab943c5d87e6ba2b4c38d92335a",
-    "inputTriangles": 157365,
-    "outputTriangles": 58666,
-    "bytes": 1059488,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
-    "id": "CAR71",
-    "sourceModelSha256": "1320db07d67cd8569d51645ef48e13b19387fd6641de91b3aea780e7e7afa880",
-    "playSha256": "c176be8c0ec82602edc07f08c699efbacf288d94e4a297eff5dd7957294af5f6",
-    "inputTriangles": 26408,
-    "outputTriangles": 8582,
-    "bytes": 241204,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
-    "id": "CAR72",
-    "sourceModelSha256": "681ee0f699b0f556fd8a47d3d3ec1a6d4004bf55c073be01a37997c434945489",
-    "playSha256": "f96035ae695167b7459eb54ea809bb803f2b4edbb551f293a569bd020aca48d4",
-    "inputTriangles": 20054,
-    "outputTriangles": 6149,
-    "bytes": 262116,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
-    "id": "CAR75",
-    "sourceModelSha256": "d87649a12fe517fb072ed12ec463f0439e8bd21194790e3052d338d90b74799f",
-    "playSha256": "31f26ab0e9e65af44d60fe1e86b5f487d613025a29cd397cdbebaec66b5cdec7",
-    "inputTriangles": 195467,
-    "outputTriangles": 41505,
-    "bytes": 952032,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
-    "id": "CAR81",
-    "sourceModelSha256": "f2c2aadd21d228e5c9d67fac89ac31786a5fb876c35d5bbdda16043e4adb6bb5",
-    "playSha256": "f8b99490f9e6df9203e7f185f5ae44738500da12be0dac65fce4afd479f91e89",
-    "inputTriangles": 98687,
-    "outputTriangles": 30906,
-    "bytes": 1142592,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
     "id": "CAR85",
     "sourceModelSha256": "7be7252a49f3df6bdea3454e92b63ebbc20ebf1023a9ce095a0243e8749ff681",
     "playSha256": "fd5b25b412d71b900070b835f4a6a7221507362d5c84f3555b80a46454ceea14",
@@ -336,16 +216,6 @@
     "inputTriangles": 103844,
     "outputTriangles": 31344,
     "bytes": 1096052,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
-    "id": "CAR95",
-    "sourceModelSha256": "162ef19c578f4d0819c377e00fff1b50fd456dc1bf041507953e99524713eae5",
-    "playSha256": "479a1da8782e96cda66d0cf26cea56b13990387b89701e7f36d0fbc2a9e78ff7",
-    "inputTriangles": 76427,
-    "outputTriangles": 22922,
-    "bytes": 364200,
     "targetTriangles": 35000,
     "maxRelativeError": 0.005
   },
@@ -420,16 +290,6 @@
     "maxRelativeError": 0.005
   },
   {
-    "id": "CAR116",
-    "sourceModelSha256": "ad0f53804433d577d5fa067b86fc9efc66d9ee07b9147db9ea4af535c31a4532",
-    "playSha256": "85ce67a47c26812d325ba63c1b1ba72cf0564b8b0584010a2a53c10ae1ff327d",
-    "inputTriangles": 32253,
-    "outputTriangles": 10113,
-    "bytes": 133964,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
     "id": "CAR118",
     "sourceModelSha256": "e304d6e66701809d7dc5e950b71ba2b0d9416ca20010fb175f64660ef498204b",
     "playSha256": "c49dd50e4fc86f76a8972e09d146235b067d7fc06be32051530a87fa8d45ed06",
@@ -466,16 +326,6 @@
     "inputTriangles": 143308,
     "outputTriangles": 36182,
     "bytes": 456492,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
-    "id": "CAR129",
-    "sourceModelSha256": "274fa8ef58a3b490e8b0c6ad9035aba156f469e1f79ae7392f550627855b1239",
-    "playSha256": "6f23e104ad1be9d00bc939b58d33a7ed975cb35dd82f9d46456c86edd123634a",
-    "inputTriangles": 13627,
-    "outputTriangles": 6979,
-    "bytes": 321352,
     "targetTriangles": 35000,
     "maxRelativeError": 0.005
   },
@@ -530,26 +380,6 @@
     "maxRelativeError": 0.005
   },
   {
-    "id": "CAR145",
-    "sourceModelSha256": "1cb3e9aaf63bbb956f29f4d115e9275e3a95391fe485201dcd5783185acc9047",
-    "playSha256": "a1393a7d4aaf80a0e508ffdff080cec4353336cb2e147af07c817ded280d0211",
-    "inputTriangles": 87306,
-    "outputTriangles": 27668,
-    "bytes": 489824,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
-    "id": "CAR146",
-    "sourceModelSha256": "6aee2ad31951633400d26f03038d0e53ab430f073c669803cd22d5895caefab2",
-    "playSha256": "ea3251e0cd3287756392154e8322d91571209efa68a3e867eb287d9d2225be89",
-    "inputTriangles": 19416,
-    "outputTriangles": 7312,
-    "bytes": 493404,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
     "id": "CAR147",
     "sourceModelSha256": "0bd8f0347a5ddc53da3aeabdd71fdd28689be7fb924ae26c23a4a77e7810b541",
     "playSha256": "0cea60ef28fda294174cbcb5bd14a454054ce61eb4d8c1e2462df48fe177ace5",
@@ -580,62 +410,12 @@
     "maxRelativeError": 0.005
   },
   {
-    "id": "CAR153",
-    "sourceModelSha256": "03569635a5f8c8da89dc69d678c2fba80cd59507869e6424b70c1846092244d4",
-    "playSha256": "e80ba0f823ab3a8879b6700b861201b754945c10a9a3edb04cfa1578b1dd5284",
-    "inputTriangles": 6261,
-    "outputTriangles": 3435,
-    "bytes": 161540,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
-    "id": "CAR155",
-    "sourceModelSha256": "d9a35df7494e6114fdbe66ee3923fd047770b9dfb3316a7452e8c7a1c2ba2d45",
-    "playSha256": "46b5ee1952f2f97ca2cda4599fe2742064ef96f2518116e83ee02af0738c9c90",
-    "inputTriangles": 23434,
-    "outputTriangles": 7439,
-    "bytes": 217352,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
-    "id": "CAR156",
-    "sourceModelSha256": "f481f7029397b6bdc39c38d6484fc5d75f8403910232be38d06ef9354dcc7c43",
-    "playSha256": "495839cdd938fda0f5bef607a9feeedb3cf182ea6c1bb792a89891a06dd6ef5e",
-    "inputTriangles": 76477,
-    "outputTriangles": 22937,
-    "bytes": 459572,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
-    "id": "CAR157",
-    "sourceModelSha256": "cd7bdcfe8f8101c963007cdcbf9ffb410f2d82fbe3cd5195f09328851815fe07",
-    "playSha256": "5e6a39d4e3d66d96dbfa3c86e0c4c91eba7d2158e3667a0dd0a428a8df90cb25",
-    "inputTriangles": 273368,
-    "outputTriangles": 42114,
-    "bytes": 591896,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
     "id": "CAR158",
     "sourceModelSha256": "9e0bc2be418dbd8e6b62d4430203be2e7d790a58ea4944b9ae3cfac75b142fdf",
     "playSha256": "6fdf1a1f12573caa64a9618cf66b661862aa783c90a348caeba3f7a4ff6b0c8d",
     "inputTriangles": 94008,
     "outputTriangles": 29820,
     "bytes": 485284,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
-    "id": "CAR159",
-    "sourceModelSha256": "b95259e94b516ad61fec7205b559490795943cfb7eb147cc20e8a34c0067408e",
-    "playSha256": "55d738a708edd1be27511ae96e18544b4d170c809a7b087a15e7f814701dbdcd",
-    "inputTriangles": 5147,
-    "outputTriangles": 2774,
-    "bytes": 133876,
     "targetTriangles": 35000,
     "maxRelativeError": 0.005
   },
@@ -670,32 +450,12 @@
     "maxRelativeError": 0.005
   },
   {
-    "id": "CAR164",
-    "sourceModelSha256": "269385ade0930f5d382199ec011b9c79fba25bd18a90967f106b3b643635bb4c",
-    "playSha256": "228fe76ac7f8ee84571bebe80058b676d76f447750b1da8f3ad6ca29ab442410",
-    "inputTriangles": 15545,
-    "outputTriangles": 5021,
-    "bytes": 335992,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
     "id": "CAR165",
     "sourceModelSha256": "7a89e1728aa489f537a25a2f63597e395acd73e3a64a11929dbe82a226c7c8bb",
     "playSha256": "f08af7cc766bb1aac35ba01fc742d0e1cce488fd2065d49d8597edebaf57d92c",
     "inputTriangles": 156830,
     "outputTriangles": 37261,
     "bytes": 590636,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
-    "id": "CAR166",
-    "sourceModelSha256": "9f49696a23d206c9f8d2388646a2f1c24d037790789ed8c80dc3360512fd4d7e",
-    "playSha256": "bab2d91bd104a8858bbeb27fb20a1e32286aa8f5ecd10648a53b11f352eaa241",
-    "inputTriangles": 2592,
-    "outputTriangles": 806,
-    "bytes": 20184,
     "targetTriangles": 35000,
     "maxRelativeError": 0.005
   },
@@ -716,16 +476,6 @@
     "inputTriangles": 286448,
     "outputTriangles": 41840,
     "bytes": 759672,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
-    "id": "CAR170",
-    "sourceModelSha256": "f3401174cd23432b27980f58f20b0387c825f968526171bb2e28d8ae27d23ee1",
-    "playSha256": "f6e08eb4010d5da76e2b5c23daedd43c06271ee25c9a835996a76897d63b6ae9",
-    "inputTriangles": 178425,
-    "outputTriangles": 37982,
-    "bytes": 454472,
     "targetTriangles": 35000,
     "maxRelativeError": 0.005
   },
@@ -770,26 +520,6 @@
     "maxRelativeError": 0.005
   },
   {
-    "id": "CAR175",
-    "sourceModelSha256": "0439a7d8c24107b52ad4eb5619a26ba25857d6ce67aed7f621177270d58ab545",
-    "playSha256": "86de4b5311750614d527f417971ed96885f45e96f21608c2a69a14937c8157c2",
-    "inputTriangles": 43705,
-    "outputTriangles": 13034,
-    "bytes": 716560,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
-    "id": "CAR176",
-    "sourceModelSha256": "74bf63a21f52726fdc84e2afa324337c83b0cd2be291be7f3a6f3cece160e8cf",
-    "playSha256": "0a426e500bdc7d15219ce5c305ccbe262931a9b011e838e95529093bbaf4bf86",
-    "inputTriangles": 15480,
-    "outputTriangles": 5457,
-    "bytes": 260240,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
     "id": "CAR177",
     "sourceModelSha256": "75d2c97f991364213e9d8690aed8969ce67d99d910f6033e1506cef514ae5a54",
     "playSha256": "a8063c4c67b8536af019c34ce26b5d353668c310facc61897b27ab66688129a9",
@@ -810,16 +540,6 @@
     "maxRelativeError": 0.005
   },
   {
-    "id": "CAR180",
-    "sourceModelSha256": "689f86fc96b7c7502a020c21a0cb14586dd45e03161ed6812ee8d6b48d759123",
-    "playSha256": "9a3dc037b876fffbc3106fbdaf14969a700cf8f856a6dbca2cc9194ef3220c10",
-    "inputTriangles": 114353,
-    "outputTriangles": 40233,
-    "bytes": 542580,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
     "id": "CAR181",
     "sourceModelSha256": "f5cf1918908116f29940f23e24ccfbf4fd881da053e1402518e4a806bd55bcc5",
     "playSha256": "b1c7c215d2ab4872428a6b94365b6ecf42a8f1f99c3eac7fcacfa64ee2f3ec71",
@@ -836,16 +556,6 @@
     "inputTriangles": 294473,
     "outputTriangles": 34307,
     "bytes": 495304,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
-    "id": "CAR183",
-    "sourceModelSha256": "bc90a1ac2394be24edef83f4a21f45156b2ebb7f6ce25aa21f4d333ccd575af4",
-    "playSha256": "28ea32c9246eb08103fc9b331a933333eba8f2b0653ae561afeb08f1347c11e6",
-    "inputTriangles": 84029,
-    "outputTriangles": 32381,
-    "bytes": 1471920,
     "targetTriangles": 35000,
     "maxRelativeError": 0.005
   },
@@ -880,16 +590,6 @@
     "maxRelativeError": 0.005
   },
   {
-    "id": "CAR18",
-    "sourceModelSha256": "04b099d58507998424fd0db070498534a6f06cb4f368566754982226378c8949",
-    "playSha256": "912f717e549656e1e7649706e5c99f10cd460c2038e0226f1c97fac8558243f4",
-    "inputTriangles": 113867,
-    "outputTriangles": 34804,
-    "bytes": 1205500,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
     "id": "CAR21",
     "sourceModelSha256": "e81a587d96005c89a7880a24c26a172fdb91fe5859f7badaa0f057bc826683e7",
     "playSha256": "03ccbdeb723fbfff6e3672ab4ce302a09c603489c6704504cad7515923e1873d",
@@ -910,36 +610,6 @@
     "maxRelativeError": 0.005
   },
   {
-    "id": "CAR186",
-    "sourceModelSha256": "27ec626b1160d2aaf57003c7d8191bb1647009ec1d2ba4b2e95e4079bb8c048b",
-    "playSha256": "67ce92b1e64de3a701da663636e2edc5b26d61615d651510898d8866b8b5e035",
-    "inputTriangles": 112751,
-    "outputTriangles": 33887,
-    "bytes": 422448,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
-    "id": "CAR187",
-    "sourceModelSha256": "a24ce737dfe56a38377af0b3afacdca8f7cb3c3aeaed0e17c4f04e221bcab9c5",
-    "playSha256": "7d25c1e71fee8526611241cf9385af1b72b4da9bcb90dbe24e9a5e69c498f00d",
-    "inputTriangles": 69920,
-    "outputTriangles": 21137,
-    "bytes": 197732,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
-    "id": "CAR189",
-    "sourceModelSha256": "0b3570542840d2b3065f119a13f74d74f1b19e11e98de9ca61d2d935b2a743a6",
-    "playSha256": "892501da166ab089f0450f3145a7c728dbd00d05ddeaa9b60736b517ace62e22",
-    "inputTriangles": 19220,
-    "outputTriangles": 5977,
-    "bytes": 234032,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
     "id": "CAR192",
     "sourceModelSha256": "36aac1cc350b4eff13fe4ba8b5312b39142ff2f3f8e6acf1019d9891c448ef00",
     "playSha256": "2e3278d240e1f5e5bb659129787b9e8adaeed978c6f3416588407a59376b6c48",
@@ -956,16 +626,6 @@
     "inputTriangles": 86708,
     "outputTriangles": 26321,
     "bytes": 465680,
-    "targetTriangles": 35000,
-    "maxRelativeError": 0.005
-  },
-  {
-    "id": "CAR195",
-    "sourceModelSha256": "d4b2024992804270645bbea75d3b741a504bcdc065002fb11661f3c50e1cf6f4",
-    "playSha256": "2a19219fbe05d84d2f16ec4c7acf1185279ae2f6b3bbff7821a288a627afb73c",
-    "inputTriangles": 96174,
-    "outputTriangles": 29717,
-    "bytes": 449968,
     "targetTriangles": 35000,
     "maxRelativeError": 0.005
   },

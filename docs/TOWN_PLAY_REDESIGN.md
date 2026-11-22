@@ -115,4 +115,4 @@ T02 首轮的例子是有矮石支点的浅河。孩子看见对岸的目的地�
 | CAR190 保时捷 Macan | 使用 Kaban 玩具造型，车身和轮窗比例明显偏离量产参考。 [保时捷车型资料](https://newsroom.porsche.com/en/products/porsche-macan-2018-compact-suv-start-production-china-expansion-leipzig-design-body-shop-paint-shop-assembly-line-16016.html) |
 | CAR193 玛莎拉蒂 Levante | 定制车头出现大幅伸出车体的尖刺和覆盖件，遮挡量产车标志性前脸。 [玛莎拉蒂车型资料](https://www.maserati.com/content/dam/maserati/international/catalogues/th/Maserati_Levante_Digital_Flyer_EN.pdf) |
 
-余下 102 款通过本轮目录清点，其中部分样本仍需真机检查。截图清晰度取决于原始模型、模型贴图和画布渲染。浏览器使用软件渲染时，查看器像素比会调到 0.65，不能用这个画面单独判素材不合格。其余候选的重点是 CAR42 / CAR164 贴图噪声、CAR67 暗部辨认、CAR176 轮圈细节、CAR194 / CAR195 车标和饰件。先对照同车原始模型图和真机，再判断是模型资产问题还是显示问题。
+上轮余下的 102 款在 0.19.0 再次筛选。新名单及验收方法见 [车型质量筛选](CATALOG_WORKFLOW.md#0190-外观筛选)。软件渲染会降低查看器的画布像素比，筛选同时核对由原 GLB 生成的预览，以区分模型问题和画布清晰度。

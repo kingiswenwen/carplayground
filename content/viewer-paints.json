@@ -40,28 +40,11 @@
     ],
     "mode": "body"
   },
-  "CAR34": {
-    "materials": [
-      "gallardo_paint"
-    ],
-    "mode": "body"
-  },
   "CAR39": {
     "materials": [
       "Carbon_R"
     ],
     "mode": "body"
-  },
-  "CAR42": {
-    "materials": [
-      "default"
-    ],
-    "mode": "masked",
-    "source": [
-      0.8490943972945714,
-      0.44309173088804366,
-      0.49892368224238337
-    ]
   },
   "CAR43": {
     "materials": [
@@ -88,12 +71,6 @@
     ],
     "mode": "body"
   },
-  "CAR61": {
-    "materials": [
-      "Material"
-    ],
-    "mode": "body"
-  },
   "CAR62": {
     "materials": [
       "CSR2_Coloured",
@@ -101,39 +78,9 @@
     ],
     "mode": "body"
   },
-  "CAR63": {
-    "materials": [
-      "material"
-    ],
-    "mode": "body"
-  },
   "CAR65": {
     "materials": [
       "body_color"
-    ],
-    "mode": "body"
-  },
-  "CAR67": {
-    "materials": [
-      "CAR.carros"
-    ],
-    "mode": "body"
-  },
-  "CAR72": {
-    "materials": [
-      "Material.001"
-    ],
-    "mode": "body"
-  },
-  "CAR75": {
-    "materials": [
-      "r35_paint"
-    ],
-    "mode": "body"
-  },
-  "CAR81": {
-    "materials": [
-      "remap180__prim_env_2_spec"
     ],
     "mode": "body"
   },
@@ -178,21 +125,9 @@
     ],
     "mode": "body"
   },
-  "CAR129": {
-    "materials": [
-      "CARBON_FIBER"
-    ],
-    "mode": "body"
-  },
   "CAR140": {
     "materials": [
       "Gto84headlightframer0031Mtl"
-    ],
-    "mode": "body"
-  },
-  "CAR145": {
-    "materials": [
-      "Paint.001"
     ],
     "mode": "body"
   },
@@ -206,13 +141,6 @@
   "CAR152": {
     "materials": [
       "material"
-    ],
-    "mode": "body"
-  },
-  "CAR157": {
-    "materials": [
-      "rrghost_paint",
-      "rrghost_paint_b"
     ],
     "mode": "body"
   },
@@ -233,38 +161,9 @@
     ],
     "mode": "body"
   },
-  "CAR164": {
-    "materials": [
-      "material"
-    ],
-    "mode": "masked",
-    "source": [
-      1,
-      0,
-      0
-    ]
-  },
-  "CAR166": {
-    "materials": [
-      "Vehicle"
-    ],
-    "mode": "masked",
-    "mesh": "^Body_",
-    "source": [
-      1,
-      1,
-      1
-    ]
-  },
   "CAR169": {
     "materials": [
       "s210_body"
-    ],
-    "mode": "body"
-  },
-  "CAR170": {
-    "materials": [
-      "Color_008_1"
     ],
     "mode": "body"
   },
@@ -281,12 +180,6 @@
     "materials": [
       "material_0",
       "material_3"
-    ],
-    "mode": "body"
-  },
-  "CAR175": {
-    "materials": [
-      "mat_body"
     ],
     "mode": "body"
   },
@@ -316,22 +209,10 @@
     ],
     "mode": "body"
   },
-  "CAR18": {
-    "materials": [
-      "MAT_LIVERY"
-    ],
-    "mode": "body"
-  },
   "CAR21": {
     "materials": [
       "Porsche_718CaymanGT4_2020Coloured_Material",
       "Porsche_718CaymanGT4_2020Paint_Material"
-    ],
-    "mode": "body"
-  },
-  "CAR187": {
-    "materials": [
-      "01___Default"
     ],
     "mode": "body"
   },
