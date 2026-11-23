@@ -1,7 +1,7 @@
 {
-  "id": "r35-curated-cars-0.19.0",
+  "id": "r36-showroom-0.19.1",
   "schemaVersion": 2,
-  "appVersion": "0.19.0",
+  "appVersion": "0.19.1",
   "car": {
     "id": "CAR01",
     "brand": "Lamborghini",

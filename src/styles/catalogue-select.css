@@ -13,8 +13,6 @@
 .catalogue-options>[role=option]:is(:hover,:focus-visible){background:#edf2df;outline:2px solid #456c60;outline-offset:-2px}
 .catalogue-options>[aria-selected=true]{background:#e3ebd4;font-weight:600}
 .catalogue-no-options{padding:16px 12px;font-size:15px;line-height:1.7;color:#526f64}
-.model-paints{width:max-content;max-width:100%;flex-wrap:wrap;justify-content:center}
-.model-paints button{flex:0 0 44px}
 @media(max-width:600px){.garage-filters>.catalogue-select{min-width:0;flex:1}.catalogue-select-trigger{gap:8px}}
 .catalogue-select-popup{font-family:Town Sans,"Noto Sans CJK SC","PingFang SC",sans-serif}
 .town-search{min-width:0}

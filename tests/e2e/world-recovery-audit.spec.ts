@@ -23,8 +23,8 @@ test('历史重复收藏归并为一个车型，取消收藏不残留旧别名 @
  await page.goto('/#/parent');await expect(page.getByRole('heading',{name:'体验设置'})).toBeVisible();
  await page.evaluate(()=>new Promise<void>((resolve,reject)=>{const request=indexedDB.open('carplayground-local-v1');request.onerror=()=>reject(request.error);request.onsuccess=()=>{const db=request.result,tx=db.transaction('favorites','readwrite');for(const carId of ['CAR32','CAR33','CAR35'])tx.objectStore('favorites').put({carId,at:new Date().toISOString()});tx.oncomplete=()=>{db.close();resolve();};tx.onerror=()=>reject(tx.error);};}));
  await page.goto('/#/garage');await page.reload();const cars=page.locator('.favorite-grid > a');await expect(cars).toHaveCount(1);await expect(cars).toHaveAttribute('href','#/cars/CAR32');
- await cars.click();await page.getByRole('button',{name:'已放进车库',exact:true}).click();await expect(page.getByRole('button',{name:'我喜欢这辆车',exact:true})).toBeVisible();
- await page.reload();await expect(page.getByRole('button',{name:'我喜欢这辆车',exact:true})).toBeVisible({timeout:25000});
+ await cars.click();await page.getByRole('button',{name:'取消收藏',exact:true}).click();await expect(page.getByRole('button',{name:'收藏这辆车',exact:true})).toBeVisible();
+ await page.reload();await expect(page.getByRole('button',{name:'收藏这辆车',exact:true})).toBeVisible({timeout:25000});
 });
 
 test('空白地面不能代替车身擦洗或部件触碰 @smoke',async({page})=>{

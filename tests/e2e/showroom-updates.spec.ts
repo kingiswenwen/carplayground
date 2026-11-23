@@ -7,6 +7,36 @@ import {vehiclePixels} from './vehicle-pixels';
 const content=JSON.parse(readFileSync('content/r3.json','utf8')) as {cars:Car[]};
 test.use({reducedMotion:'reduce'});
 
+test('展厅在手机上用文字分清查看方式和换色，来回切换保留当前试色',async({page})=>{
+ test.setTimeout(90000);
+ await page.setViewportSize({width:390,height:844});
+ await page.goto('/#/cars');
+ const viewer=page.locator('.vehicle-views'),canvas=viewer.locator('.vehicle-webgl');
+ await expect(canvas).toHaveAttribute('data-ready','true',{timeout:45000});
+ const modes=viewer.getByRole('group',{name:'查看方式',exact:true});
+ const model=modes.getByRole('button',{name:'立体模型',exact:true});
+ const pictures=modes.getByRole('button',{name:'外观图',exact:true});
+ const paints=viewer.getByRole('group',{name:'给立体车试颜色',exact:true});
+ await expect(model).toHaveAttribute('aria-pressed','true');
+ await expect(viewer.getByRole('button',{name:'听车名',exact:true})).toBeVisible();
+ await expect(viewer.getByRole('link',{name:'车型详情',exact:true})).toHaveAttribute('href','#/cars/CAR01');
+ await expect(viewer.getByRole('link',{name:'带它去洗车',exact:true})).toHaveAttribute('href',/#\/play\/H03\?car=CAR01/);
+ await paints.getByRole('button',{name:'立体车试红色',exact:true}).click();
+ await expect(canvas).toHaveAttribute('data-paint','#df4145');
+ await pictures.click();
+ await expect(pictures).toHaveAttribute('aria-pressed','true');
+ await expect(paints).toHaveCount(0);
+ await viewer.getByRole('button',{name:'下一角度',exact:true}).click();
+ await expect(viewer).toHaveAttribute('data-view','front');
+ await expect(viewer.getByRole('status').filter({hasText:'正前方'})).toBeVisible();
+ await model.click();
+ await expect(canvas).toHaveAttribute('data-paint','#df4145',{timeout:45000});
+ await expect(paints.getByRole('button',{name:'立体车试红色',exact:true})).toHaveAttribute('aria-pressed','true');
+ await paints.getByRole('button',{name:'还原原色',exact:true}).click();
+ await expect(canvas).toHaveAttribute('data-paint','original');
+ expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
+});
+
 test('自定义品牌和发源地面板可以搜索、键盘选择和退出 @smoke',async({page})=>{
  await page.setViewportSize({width:390,height:844});await page.goto('/#/cars');
  await expect(page.locator('.garage-filters select')).toHaveCount(0);
@@ -80,7 +110,7 @@ test('分离车漆和不同贴图车身都能还原原色',async({page})=>{
  for(const id of ['CAR01','CAR160','CAR192']){
   await page.goto(`/#/cars/${id}`);const canvas=page.locator('.vehicle-webgl[data-ready=true]');
   await expect(canvas).toHaveAttribute('data-car',id,{timeout:45000});
-  const reset=page.getByRole('button',{name:'还原原车颜色'});await reset.click();const original=await canvas.screenshot();
+  const reset=page.getByRole('button',{name:'还原原色'});await reset.click();const original=await canvas.screenshot();
   await page.getByRole('button',{name:'立体车试绿色',exact:true}).click();
   await expect(reset).toHaveAttribute('aria-pressed','false');await canvas.screenshot();
   await reset.click();await expect(reset).toHaveAttribute('aria-pressed','true');const restored=await canvas.screenshot();
