@@ -22,11 +22,19 @@ export function ActivityLinks({ids,carId,domain,scene}:{ids?:string[];carId?:str
  const chosen=carId||activeCar();const list=content.activities.filter(a=>(!ids||ids.includes(a.id))&&(!domain||a.domain===domain)&&(!scene||a.scene===scene)).sort((a,b)=>ids?ids.indexOf(a.id)-ids.indexOf(b.id):0);
  return <div className="activity-links picture-activities">{list.map(item=><a href={activityHref(item.id,chosen)} className={`activity-link picture-activity play-${item.id}`} key={item.id} aria-label={item.title}><PlayPicture id={item.id}/><span className="town-activity-caption"><strong>{item.title}</strong><small>{teachingActions[item.id]}</small><ArrowRight aria-hidden="true"/></span></a>)}</div>;
 }
-function Model({carId}:{carId:string}){return <VehicleViews carId={carId}/>;}
 function useCarNameVoice(){const[available,setAvailable]=useState(()=>!!window.speechSynthesis?.getVoices().some(v=>v.localService&&/^zh[-_]/i.test(v.lang)));useEffect(()=>{const update=()=>setAvailable(!!window.speechSynthesis?.getVoices().some(v=>v.localService&&/^zh[-_]/i.test(v.lang)));window.speechSynthesis?.addEventListener('voiceschanged',update);return()=>window.speechSynthesis?.removeEventListener('voiceschanged',update);},[]);return available;}
-function sayCar(car:typeof content.cars[number]){if(car.audio==='car-name-local')audio.announce(car.name,[]);else void audio.playRequested(car.audio);}
+function CarNameButton({car}:{car:typeof content.cars[number]}){
+ const localNameVoice=useCarNameVoice(),unavailable=car.audio==='car-name-local'&&!localNameVoice;
+ return <button className="vehicle-secondary" type="button" disabled={unavailable}
+  title={unavailable?'本机没有可用的中文车名语音':undefined}
+  onClick={()=>{if(car.audio==='car-name-local')audio.announce(car.name,[]);else void audio.playRequested(car.audio);}}>
+  <Volume2 aria-hidden="true"/>{unavailable?'暂无音频':'听车名'}
+ </button>;
+}
+function WashLink({carId}:{carId:string}){
+ return <a className="town-primary-link" href={activityHref('H03',carId)}>带它去洗车 <ArrowRight aria-hidden="true"/></a>;
+}
 export function Showroom(_props:{welcome:boolean;begin:(sound:boolean)=>void}){
- const localNameVoice=useCarNameVoice();
  const[index,setIndex]=useState(Math.max(0,content.cars.findIndex(c=>c.id===activeCar()&&vehicleModel(c.id))));
  const preview=useRef<HTMLDivElement>(null),revealPreview=useRef(false);
  useLayoutEffect(()=>{
@@ -47,7 +55,16 @@ export function Showroom(_props:{welcome:boolean;begin:(sound:boolean)=>void}){
  const filtered=filterCatalogue(available,{brand,origin,query});const pages=Math.max(1,Math.ceil(filtered.length/8)),current=Math.min(page,pages-1);
  const clearFilters=()=>{setBrand('all');setOrigin('all');setQuery('');setPage(0);};
  const choose=(id:string)=>{const next=content.cars.findIndex(c=>c.id===id);if(next===index)return;revealPreview.current=true;setIndex(next);rememberCar(id);};
- return <div className="picture-showroom"><TownHeading title="带哪辆小车出发？" description="转一转，换个颜色，再带它去小镇。"/><div className="car-roundabout" ref={preview} style={{scrollMarginTop:12}}><Model carId={car.id}/><div className="town-car-caption"><strong>{car.zhBrand} {car.model}</strong><a className="town-primary-link" href={activityHref('H03',car.id)}>带它去洗车 <ArrowRight/></a></div><a className="picture-button car-heart" aria-label={`走近看看 ${car.name}`} href={`#/cars/${car.id}`}><PlaySymbol name="smile"/></a><button className="picture-button car-voice" aria-label={car.audio==='car-name-local'&&!localNameVoice?'本机未提供这辆车的名称声音':'听车名'} disabled={car.audio==='car-name-local'&&!localNameVoice} onClick={()=>sayCar(car)}><Volume2/></button></div>
+ return <div className="picture-showroom"><TownHeading title="带哪辆小车出发？"/>
+ <div className="car-roundabout" ref={preview}>
+  <VehicleViews carId={car.id} title={`${car.zhBrand} ${car.model}`}>
+   <div className="vehicle-utilities">
+    <CarNameButton car={car}/>
+    <a className="vehicle-secondary" href={`#/cars/${car.id}`}>车型详情<ArrowRight aria-hidden="true"/></a>
+   </div>
+   <WashLink carId={car.id}/>
+  </VehicleViews>
+ </div>
  <section className="garage-picker" aria-label="挑选跑车" style={vehicleBayStyle}><div className="garage-picker-bar"><span className="garage-count">{references?<Camera aria-hidden="true"/>:<Box aria-hidden="true"/>}{references?`${content.cars.length-vehicleModels.length} 款真实车型 · 模型待补`:`${vehicleModels.length} 款立体车 · ${content.cars.length} 款真实车型`}</span></div>
  <div className="garage-filters">
   <TownSearch className="garage-search" label="查找车型或品牌" clearLabel="清空车型搜索" placeholder="找车型或品牌" value={query}
@@ -63,10 +80,26 @@ export function Showroom(_props:{welcome:boolean;begin:(sound:boolean)=>void}){
  <ActivityLinks carId={car.id} ids={['H03','M01','T04']}/></div>;
 }
 export function Detail({carId,favorite,favoriteBusy=false,favoriteError,toggleFavorite}:{carId:string;favorite:boolean;favoriteBusy?:boolean;favoriteError?:string;toggleFavorite:()=>void}){
- const localNameVoice=useCarNameVoice();
  const car=getCar(carId)!;useEffect(()=>{void safely(()=>db.recent.put({carId,at:new Date().toISOString()}),undefined,`recent:${carId}`);},[carId]);
- return <div className="picture-detail"><TownHeading title={`${car.zhBrand} ${car.model}`} description="看看细节，把喜欢的小车留在车库。"/><div className="car-roundabout detail-stage"><Model carId={carId}/><a className="picture-button car-prev" href="#/cars" aria-label="换一辆汽车"><ArrowLeft/></a><button className={`picture-button favorite-button car-heart ${favorite?'saved':''}`} onClick={toggleFavorite} disabled={favoriteBusy} aria-label={favoriteBusy?'正在保存…':favorite?'已放进车库':'我喜欢这辆车'} aria-pressed={favorite}><Heart fill={favorite?'currentColor':'none'}/></button><button className="picture-button car-voice" aria-label={car.audio==='car-name-local'&&!localNameVoice?'本机未提供这辆车的名称声音':'听车名'} disabled={car.audio==='car-name-local'&&!localNameVoice} onClick={()=>sayCar(car)}><Volume2/></button></div>
- {favoriteError&&<div className="activity-feedback pictorial-error" role="status"><button className="picture-button" aria-label="重试收藏" onClick={toggleFavorite}><RotateCcw/></button><span className="sr-only">{favoriteError}</span></div>}
+ return <div className="picture-detail">
+ <a className="vehicle-back vehicle-text-control" href="#/cars"><ArrowLeft aria-hidden="true"/>回到选车</a>
+ <TownHeading title={`${car.zhBrand} ${car.model}`}/>
+ <div className="car-roundabout">
+  <VehicleViews carId={carId}>
+   <div className="vehicle-utilities">
+    <CarNameButton car={car}/>
+    <button className="vehicle-secondary favorite-button" type="button" onClick={toggleFavorite} disabled={favoriteBusy}
+     aria-pressed={favorite}>
+     <Heart fill={favorite?'currentColor':'none'} aria-hidden="true"/>
+     {favoriteBusy?'正在保存…':favorite?'取消收藏':'收藏这辆车'}
+    </button>
+   </div>
+   {favoriteError&&<div className="activity-feedback vehicle-favorite-error" role="status">
+    <span>{favoriteError}</span><button className="vehicle-text-control" onClick={toggleFavorite}>重试收藏</button>
+   </div>}
+   <WashLink carId={carId}/>
+  </VehicleViews>
+ </div>
  <ActivityLinks carId={carId} ids={['H03','M01','T04']}/></div>;
 }
 export function Garage({favorites:storedFavorites}:{favorites:string[]}){

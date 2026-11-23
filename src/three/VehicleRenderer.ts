@@ -11,6 +11,24 @@ import type {VehicleModelSpec} from '../domain/vehicle-models';
 import {disposeModel,fitModel,frameModel} from './model';
 import {isVehicleLampName} from './part-names';
 
+function makeContactShadow(){
+ const size=64, pixels=new Uint8Array(size*size*4);
+ for(let y=0;y<size;y++)for(let x=0;x<size;x++){
+  const radius=Math.hypot((x+.5)*2/size-1,(y+.5)*2/size-1);
+  const feather=T.MathUtils.clamp((1-radius)/.76,0,1);
+  const index=(y*size+x)*4;
+  pixels[index]=pixels[index+1]=pixels[index+2]=255;
+  pixels[index+3]=Math.round(255*feather*feather);
+ }
+ const texture=new T.DataTexture(pixels,size,size);
+ texture.minFilter=T.LinearFilter;texture.magFilter=T.LinearFilter;texture.needsUpdate=true;
+ const shadow=new T.Mesh(new T.PlaneGeometry(1,1),new T.MeshBasicMaterial({
+  color:'#504438',map:texture,transparent:true,opacity:.33,depthWrite:false,toneMapped:false,
+ }));
+ shadow.rotation.x=-Math.PI/2;shadow.position.y=-.005;shadow.visible=false;
+ return shadow;
+}
+
 /** One context and studio per viewer. Changing cars replaces only the vehicle. */
 export class VehicleRenderer{
  private renderer:T.WebGLRenderer;
@@ -19,6 +37,7 @@ export class VehicleRenderer{
  private controls:OrbitControls;
  private observer:ResizeObserver;
  private floor=new T.Mesh(new T.PlaneGeometry(30,30),new T.ShadowMaterial({color:'#30483e',opacity:.23}));
+ private contactShadow=makeContactShadow();
  private environment?:T.WebGLRenderTarget;
  private root?:T.Group;
  private removed:T.Object3D[]=[];
@@ -37,21 +56,21 @@ export class VehicleRenderer{
  private pointers=new Set<number>();
  private lights=false;
  private software=false;
- constructor(private box:HTMLDivElement,private onReady:(carId:string)=>void,private onTouch:()=>void,private onUnavailable:()=>void){
+ constructor(private box:HTMLDivElement,private onReady:(carId:string)=>void,private onUnavailable:()=>void){
   this.renderer=new T.WebGLRenderer({antialias:true,alpha:true,powerPreference:'low-power'});
   const renderer=this.renderer,canvas=renderer.domElement;
   const gl=renderer.getContext(),debug=gl.getExtension('WEBGL_debug_renderer_info');
   const software=!!debug&&/swiftshader|llvmpipe|software/i.test(gl.getParameter(debug.UNMASKED_RENDERER_WEBGL));
   // Keep the real mesh and authored textures. Software GPUs use a lighter
   // studio and input-driven frames instead of spending seconds on inertia.
-  this.software=software;renderer.setPixelRatio(Math.min(devicePixelRatio,software?.65:1.5));canvas.dataset.quality=software?'simple':'full';renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=.9;
+  this.software=software;canvas.dataset.quality=software?'simple':'full';renderer.outputColorSpace=T.SRGBColorSpace;renderer.toneMapping=T.ACESFilmicToneMapping;renderer.toneMappingExposure=.96;
   renderer.shadowMap.enabled=!software;renderer.shadowMap.type=T.PCFShadowMap;renderer.shadowMap.autoUpdate=false;
   this.scene.environmentIntensity=.6;
-  this.scene.add(new T.HemisphereLight('#eaf5ff','#c6bba8',.8));
-  const sun=new T.DirectionalLight('#fff7eb',1.6);sun.position.set(3,7,4);sun.castShadow=true;sun.shadow.mapSize.set(512,512);
+  this.scene.add(new T.HemisphereLight('#f5faff','#cfc4ad',1.0));
+  const sun=new T.DirectionalLight('#fff8ee',1.45);sun.position.set(3,7,4);sun.castShadow=true;sun.shadow.mapSize.set(512,512);
   Object.assign(sun.shadow.camera,{left:-4,right:4,top:4,bottom:-4,near:.1,far:20});sun.shadow.normalBias=.012;sun.shadow.bias=-.0001;this.scene.add(sun);
   const fill=new T.DirectionalLight('#e0edff',.65);fill.position.set(-4,3,-5);this.scene.add(fill);
-  this.floor.rotation.x=-Math.PI/2;this.floor.position.y=-.008;this.floor.receiveShadow=true;this.scene.add(this.floor);
+  this.floor.rotation.x=-Math.PI/2;this.floor.position.y=-.008;this.floor.receiveShadow=true;this.scene.add(this.floor,this.contactShadow);
   canvas.className='vehicle-webgl';canvas.setAttribute('aria-label','立体跑车，拖动旋转看前后左右，双指缩放');canvas.setAttribute('role','application');canvas.tabIndex=0;box.append(canvas);
   this.camera.position.set(5,2.5,6);this.controls=new OrbitControls(this.camera,canvas);this.controls.enablePan=false;this.controls.enableDamping=!software;this.controls.dampingFactor=.12;this.controls.addEventListener('change',this.invalidate);
   this.controls.minZoom=.8;this.controls.maxZoom=2;this.controls.minPolarAngle=.12;this.controls.maxPolarAngle=Math.PI*.48;this.controls.rotateSpeed=.65;
@@ -60,11 +79,16 @@ export class VehicleRenderer{
  }
  private invalidate=()=>{this.needsRender=true;};
  private resize=()=>{
-  if(this.disposed)return;const w=Math.max(1,this.box.clientWidth),h=Math.max(1,this.box.clientHeight);this.renderer.setSize(w,h,false);
+  if(this.disposed)return;const w=Math.max(1,this.box.clientWidth),h=Math.max(1,this.box.clientHeight);
+  // Preserve a sharp one-pixel-per-CSS-pixel view at typical phone sizes and
+  // cap the cost of larger software-rendered canvases.
+  const ratio=Math.min(devicePixelRatio,this.software?Math.min(1,900/Math.max(w,h)):1.5);
+  if(this.renderer.getPixelRatio()!==ratio)this.renderer.setPixelRatio(ratio);
+  this.renderer.setSize(w,h,false);
   if(this.bounds)frameModel(this.camera,this.bounds,w/h);this.needsRender=true;
  };
  private clearCar(){
-  this.abort?.abort();clearTimeout(this.timer);this.bounds=undefined;this.lamps.clear();this.paint?.dispose();this.paint=undefined;this.down=null;this.pointers.clear();
+  this.abort?.abort();clearTimeout(this.timer);this.bounds=undefined;this.contactShadow.visible=false;this.lamps.clear();this.paint?.dispose();this.paint=undefined;this.down=null;this.pointers.clear();
   if(this.root){disposeModel(new T.Group().add(this.root,...this.removed));this.root=undefined;}this.removed=[];
  }
  async load(spec:VehicleModelSpec){
@@ -85,12 +109,16 @@ export class VehicleRenderer{
     for(const material of Array.isArray(object.material)?object.material:[object.material]){if(!(material instanceof T.MeshStandardMaterial))continue;
      if(spec.paintMaterials.includes(material.name)){
       if(spec.recalculateNormals){const original=object.geometry;object.geometry=toCreasedNormals(original,Math.PI/4);if(original!==object.geometry)original.dispose();}
-      if(!spec.preservePaint)material.color.set(spec.color);material.roughness=.27;material.metalness=.55;
+      if(!spec.preservePaint)material.color.set(spec.color);material.roughness=.36;material.metalness=.42;
      }
      if(spec.lampMaterials.includes(material.name)||isVehicleLampName(material.name))this.lamps.set(material,{color:material.emissive.clone(),intensity:material.emissiveIntensity});
     }
    }});
    this.bounds=fitModel(this.root,spec.rotationY);this.paint=new ViewerPaint(this.root,spec,this.bounds);this.scene.add(this.root);
+   const size=this.bounds.getSize(new T.Vector3());
+   this.contactShadow.scale.set(size.x*1.28,size.z*1.28,1);
+   this.contactShadow.material.opacity=this.software?.36:.21;
+   this.contactShadow.visible=true;
    const offset=this.camera.position.clone().sub(this.controls.target);this.controls.target.copy(this.bounds.getCenter(new T.Vector3()));this.camera.position.copy(this.controls.target).add(offset);this.controls.update();
    if(!this.software&&!this.environment){const room=new RoomEnvironment(),pmrem=new T.PMREMGenerator(this.renderer);try{this.environment=pmrem.fromScene(room,.04,.1,100,{size:64});this.scene.environment=this.environment.texture;}finally{room.dispose();pmrem.dispose();}}
    this.renderer.shadowMap.needsUpdate=true;this.resize();
@@ -98,7 +126,7 @@ export class VehicleRenderer{
  }
  private fail(){if(this.disposed)return;this.dispose();this.onUnavailable();}
  setPaint(color:string|null){this.paint?.setColor(color);this.renderer.domElement.dataset.paint=color||'original';this.needsRender=true;}
- private start=(event:PointerEvent)=>{this.pointers.add(event.pointerId);this.down=this.pointers.size===1?{id:event.pointerId,x:event.clientX,y:event.clientY}:null;this.onTouch();};
+ private start=(event:PointerEvent)=>{this.pointers.add(event.pointerId);this.down=this.pointers.size===1?{id:event.pointerId,x:event.clientX,y:event.clientY}:null;};
  private cancel=(event:PointerEvent)=>{this.pointers.delete(event.pointerId);this.down=null;};
  private end=(event:PointerEvent)=>{
   this.pointers.delete(event.pointerId);const down=this.down;this.down=null;
@@ -111,7 +139,7 @@ export class VehicleRenderer{
   if(!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(event.key))return;event.preventDefault();
   const sphere=new T.Spherical().setFromVector3(this.camera.position.clone().sub(this.controls.target));sphere.theta+=event.key==='ArrowLeft'?.25:event.key==='ArrowRight'?-.25:0;
   sphere.phi=T.MathUtils.clamp(sphere.phi+(event.key==='ArrowUp'?-.15:event.key==='ArrowDown'?.15:0),.12,Math.PI*.48);
-  this.camera.position.copy(this.controls.target).add(new T.Vector3().setFromSpherical(sphere));this.controls.update();this.needsRender=true;this.onTouch();
+  this.camera.position.copy(this.controls.target).add(new T.Vector3().setFromSpherical(sphere));this.controls.update();this.needsRender=true;
  };
  private lost=(event:Event)=>{event.preventDefault();this.fail();};
  private render=()=>{
@@ -128,6 +156,6 @@ export class VehicleRenderer{
  dispose(){
   if(this.disposed)return;this.disposed=true;++this.epoch;cancelAnimationFrame(this.frame);this.observer.disconnect();this.controls.removeEventListener('change',this.invalidate);this.controls.dispose();this.clearCar();
   const canvas=this.renderer.domElement;canvas.removeEventListener('pointerdown',this.start);canvas.removeEventListener('pointerup',this.end,true);canvas.removeEventListener('pointercancel',this.cancel);canvas.removeEventListener('lostpointercapture',this.cancel);canvas.removeEventListener('keydown',this.key);canvas.removeEventListener('webglcontextlost',this.lost);
-  this.environment?.dispose();this.floor.geometry.dispose();this.floor.material.dispose();canvas.remove();this.renderer.dispose();this.renderer.forceContextLoss();
+  this.environment?.dispose();this.floor.geometry.dispose();this.floor.material.dispose();disposeModel(this.contactShadow);canvas.remove();this.renderer.dispose();this.renderer.forceContextLoss();
  }
 }

@@ -35,3 +35,4 @@ createRoot(document.getElementById('root')!).render(<StrictMode><Recovery><App /
 import './styles/catalogue-select.css';
 
 import './styles/town.css';
+import './styles/showroom.css';

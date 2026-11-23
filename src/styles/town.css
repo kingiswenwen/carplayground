@@ -82,30 +82,6 @@
 .town-neighbours a{display:flex;align-items:center;gap:7px;font-size:13px;min-height:48px;padding:4px 10px;border-radius:15px}
 .town-neighbours a:hover{background:#e9ecd9}
 .town-neighbours .play-symbol{width:34px;height:34px}
-/* The illustrated room sits behind the actual model and its image fallback. */
-.town-shell .car-roundabout{background:#ead8b7;border-radius:32px;border:1px solid #e0d2b5;margin-bottom:28px;padding-bottom:82px;min-height:0}
-.town-shell .vehicle-views{height:clamp(320px,42svh,440px);border-radius:0;background:#ead8b7}
-.vehicle-scenery{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 70%;z-index:-1;pointer-events:none}
-.vehicle-angle[data-ready=false]{visibility:hidden}
-.town-shell .vehicle-views[data-mode=model]::before{
-  content:'';position:absolute;left:50%;top:66%;width:min(72%,470px);height:24px;
-  transform:translate(-50%,-50%);border-radius:50%;background:#48312372;
-  filter:blur(12px);z-index:0;pointer-events:none
-}
-.town-shell .vehicle-views :is(.vehicle-stage,.vehicle-turnaround){background:transparent}
-.town-shell .vehicle-views .vehicle-poster{
-  position:absolute;inset:0 0 68px;width:100%;height:calc(100% - 68px);
-  object-fit:contain;padding:15px clamp(20px,8vw,116px);
-  filter:drop-shadow(0 8px 6px #4d352c38);pointer-events:none
-}
-.town-shell .vehicle-views .vehicle-angle{
-  object-fit:contain;padding:14px clamp(16px,7vw,100px) 66px;
-  filter:drop-shadow(0 8px 6px #4d352c38)
-}
-.town-shell .car-roundabout .car-voice{bottom:auto;top:16px;left:16px}
-.town-shell .car-roundabout .car-heart{right:16px;top:16px}
-.town-car-caption{position:absolute;bottom:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:18px 24px;background:#f4f1e4;border-top:1px solid #d9dfcb}
-.town-car-caption>strong{font-size:19px;font-weight:800}
 .town-primary-link{display:inline-flex;gap:10px;align-items:center;justify-content:center;min-height:48px;padding:9px 20px;border-radius:17px;background:#3d6b52;color:#fffdf2;font-size:15px;font-weight:700;white-space:nowrap}
 .town-primary-link :is(svg,.town-icon){width:18px;height:18px}
 .town-shell .garage-picker{max-width:none;padding-bottom:28px;margin-bottom:32px;border-bottom:1px solid var(--town-line)}
@@ -117,7 +93,6 @@
   background:#e7dfc8 var(--town-bay-art) center/cover;border-radius:14px
 }
 .town-shell .garage-paged .car-gallery-card .car-image>img{filter:drop-shadow(0 4px 3px #332b2538)}
-.town-shell .picture-detail .detail-stage{padding-bottom:0;border:1px solid #d9dfcb}
 .town-shell .picture-garage .favorite-grid{gap:20px}
 .town-shell .picture-garage :is(.garage-car,.garage-invitation){background:#e7dfc8 var(--town-bay-art) center/cover;border:1px solid #dfd6b9;border-radius:24px}
 .town-shell .picture-garage .favorite-grid .car-image>img{filter:drop-shadow(0 5px 4px #332b253d)}
@@ -248,20 +223,9 @@
  .town-shell .picture-activities{gap:16px}.town-shell .picture-activities .picture-activity{border-radius:22px}
  .town-activity-caption{padding:12px 13px 15px;gap:4px;min-height:91px}.town-activity-caption strong{font-size:15px}.town-activity-caption small{font-size:11px}.town-activity-caption>:is(svg,.town-icon){display:none}
  .town-neighbours{gap:7px;margin-top:28px}.town-neighbours a{font-size:12px;padding:3px 5px}.town-neighbours .play-symbol{width:29px;height:29px}
- .town-shell .car-roundabout{padding-bottom:76px;border-radius:25px;margin-bottom:20px}.town-shell .vehicle-views{height:310px}
- .vehicle-scenery{inset:-23% 0 auto;height:123%;object-position:center 67%}
- .town-shell .vehicle-views[data-mode=model]::before{top:54%;width:70%;height:18px;filter:blur(8px)}
- .town-shell .vehicle-views .model-paints{
-  display:grid;grid-template-columns:repeat(4,44px);gap:0 6px;padding:3px 9px;
-  bottom:8px;border-radius:23px
- }
- .town-shell .vehicle-views .vehicle-model-surface{bottom:94px}
- .town-shell .vehicle-views .vehicle-poster{bottom:94px;height:calc(100% - 94px)}
- .town-car-caption{padding:12px 15px;gap:8px}.town-car-caption>strong{font-size:14px;line-height:1.6;max-width:48%}
  .town-primary-link{padding:8px 13px;font-size:13px;gap:7px;border-radius:15px}
- .town-shell .car-roundabout .car-voice{top:12px;left:12px}.town-shell .car-roundabout .car-heart{top:12px;right:12px}
  .town-shell .car-gallery.car-ribbon.garage-paged{gap:12px}.town-shell .garage-paged .car-gallery-card{border-radius:18px}
- .town-shell .picture-detail .detail-stage{padding-bottom:0}.town-shell .picture-garage .favorite-grid{gap:14px}
+ .town-shell .picture-garage .favorite-grid{gap:14px}
  .town-shell .touch-toolbar{gap:6px;flex-wrap:nowrap}.town-shell .touch-title{width:46px;height:42px;margin:0 auto 0 0}
  .town-shell .touch-icon{min-width:44px;min-height:44px;border-radius:15px}.town-shell .touch-tools{gap:5px}
  .town-shell .touch-icon :is(svg,.town-icon){width:22px;height:22px}.town-shell .touch-canvas-wrap{border-radius:23px}
