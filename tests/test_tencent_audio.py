@@ -38,8 +38,11 @@ class AudioProductionTest(unittest.TestCase):
 
     def test_full_plan_has_all_speech_and_explicit_unassumed_quota(self):
         plan = tts.make_plan(self.content, self.config, list(self.content['speech']))
-        self.assertEqual(plan['clips'], 160)
-        self.assertEqual(plan['characters'], 2323)
+        self.assertEqual(plan['clips'], len(self.content['speech']))
+        self.assertEqual([line['id'] for line in plan['lines']], list(self.content['speech']))
+        expected_characters = sum(len(self.config['pronunciations'].get(key, {}).get('spokenText', entry['text']))
+                                  for key, entry in self.content['speech'].items())
+        self.assertEqual(plan['characters'], expected_characters)
         self.assertFalse(plan['freeQuotaAssumed'])
         self.assertFalse(plan['applicationMediaReplaced'])
         car = next(line for line in plan['lines'] if line['id'] == 'name-CAR03')
@@ -89,7 +92,7 @@ class AudioProductionTest(unittest.TestCase):
     def test_nested_public_artifact_directory_cannot_bypass_staging_boundary(self):
         target = ROOT / 'public/.release-artifacts/must-not-write'
         result = subprocess.run([sys.executable, str(ROOT / 'scripts/generate-tencent-audio.py'),
-                                 '--execute', '--max-cost-cny', '2', '--credentials-file', '/does-not-exist',
+                                 '--execute', '--only', 'wheel', '--max-cost-cny', '2', '--credentials-file', '/does-not-exist',
                                  '--output', str(target)], capture_output=True, text=True)
         self.assertEqual(result.returncode, 1)
         self.assertIn('never public/', result.stderr)
@@ -97,7 +100,7 @@ class AudioProductionTest(unittest.TestCase):
 
     def test_zero_spend_policy_cannot_be_overridden_by_command_line_budget(self):
         result = subprocess.run([sys.executable, str(ROOT / 'scripts/generate-tencent-audio.py'),
-                                 '--execute', '--max-cost-cny', '2', '--credentials-file', '/does-not-exist'],
+                                 '--execute', '--only', 'wheel', '--max-cost-cny', '2', '--credentials-file', '/does-not-exist'],
                                 capture_output=True, text=True)
         self.assertEqual(result.returncode, 1)
         self.assertIn('disabled by the user zero-spend policy', result.stderr)

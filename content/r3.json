@@ -1,7 +1,7 @@
 {
-  "id": "r36-showroom-0.19.1",
+  "id": "r37-vehicle-guide-0.20.0",
   "schemaVersion": 2,
-  "appVersion": "0.19.1",
+  "appVersion": "0.20.0",
   "car": {
     "id": "CAR01",
     "brand": "Lamborghini",
@@ -2912,6 +2912,258 @@
     },
     "zh-seat": {
       "text": "座椅",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR05": {
+      "text": "布加迪 Chiron Profilée",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR09": {
+      "text": "雪佛兰 Corvette C8 Stingray",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR10": {
+      "text": "梅赛德斯-AMG GT Coupé",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR11": {
+      "text": "奥迪 R8 Coupé",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR14": {
+      "text": "丰田 GR Supra",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR15": {
+      "text": "丰田 GR86",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR21": {
+      "text": "保时捷 718 Cayman",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR22": {
+      "text": "迈凯伦 Artura",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR23": {
+      "text": "玛莎拉蒂 MC20",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR24": {
+      "text": "路特斯 Emira",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR26": {
+      "text": "捷豹 F-Type",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR29": {
+      "text": "道奇 Viper",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR30": {
+      "text": "宝马 i8",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR31": {
+      "text": "兰博基尼 Countach",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR32": {
+      "text": "兰博基尼 Aventador SVJ",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR39": {
+      "text": "兰博基尼 Centenario LP 770-4",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR43": {
+      "text": "法拉利 F40",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR45": {
+      "text": "法拉利 599 GTO",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR48": {
+      "text": "迈凯伦 Senna",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR56": {
+      "text": "保时捷 918 Spyder",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR60": {
+      "text": "布加迪 Veyron",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR62": {
+      "text": "帕加尼 Utopia",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR65": {
+      "text": "科尼赛克 CCX",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR66": {
+      "text": "阿斯顿·马丁 DB11",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR85": {
+      "text": "丰田 MR2 (W20)",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR89": {
+      "text": "丰田 Corolla Levin (AE92)",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR98": {
+      "text": "本田 Integra Type R (DB8)",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR99": {
+      "text": "本田 NSX (1990)",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR100": {
+      "text": "本田 S800",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR105": {
+      "text": "宝马 M4 CSL",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR108": {
+      "text": "宝马 M6 Gran Coupé",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR111": {
+      "text": "宝马 M3 (E30)",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR113": {
+      "text": "梅赛德斯-奔驰 300 SL",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR118": {
+      "text": "奥迪 RS5",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR119": {
+      "text": "雪佛兰 Camaro (1970)",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR120": {
+      "text": "道奇 Challenger SRT",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR125": {
+      "text": "福特 Mustang Shelby GT500",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR135": {
+      "text": "庞蒂亚克 Firebird Trans Am",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR140": {
+      "text": "法拉利 288 GTO",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR141": {
+      "text": "法拉利 Roma",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR143": {
+      "text": "迈凯伦 P1",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR144": {
+      "text": "迈凯伦 570S Spider",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR147": {
+      "text": "阿斯顿·马丁 Valour",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR149": {
+      "text": "保时捷 Taycan Turbo S",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR152": {
+      "text": "三菱 Lancer Evolution VI",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR158": {
+      "text": "劳斯莱斯 Phantom",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR160": {
+      "text": "比亚迪 Seal",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR161": {
+      "text": "本田 Civic Type R (EK9)",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR163": {
+      "text": "大众 Golf GTI (Mk8)",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR165": {
+      "text": "铃木 Swift",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR168": {
+      "text": "斯巴鲁 Impreza WRX STI (2004)",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR169": {
+      "text": "丰田 Crown Athlete (S210)",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR171": {
+      "text": "特斯拉 Model 3",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR172": {
+      "text": "凯迪拉克 Escalade",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR173": {
+      "text": "别克 Skylark Convertible (1953)",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR174": {
+      "text": "路虎 Range Rover (2006)",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR177": {
+      "text": "雷克萨斯 ES Hybrid",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR178": {
+      "text": "福特 Bronco",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR181": {
+      "text": "菲亚特 500 Abarth",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR182": {
+      "text": "宝马 X5 M Competition",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR185": {
+      "text": "菲亚特 850 Spider",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR192": {
+      "text": "比亚迪 Dolphin",
+      "locale": "zh-CN"
+    },
+    "vehicle-name-CAR194": {
+      "text": "梅赛德斯·奔驰 190 E",
       "locale": "zh-CN"
     }
   },
@@ -12459,6 +12711,573 @@
       "width": 352,
       "height": 352,
       "source": "Origin: Built-in GPT Image miniature material atlas; content/town-art-production.json"
+    },
+    {
+      "id": "vehicle-name-CAR05",
+      "path": "media/vehicle-name-CAR05.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "675575709298e165d05d477256efd7e12b3dd51c7ba730b3da0c2e0f60a237d3",
+      "duration": 2.928,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR09",
+      "path": "media/vehicle-name-CAR09.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "c2e7123625af50adcbf3e34b6ca7aabd788e74404fc5fc7a9e0dcf6ba23caffd",
+      "duration": 3.432,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR10",
+      "path": "media/vehicle-name-CAR10.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "31d91277ef5ca1217baf7ca0940146217d1bc977020aee6b6e0429514b99a21f",
+      "duration": 3.552,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR11",
+      "path": "media/vehicle-name-CAR11.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "0a7d0ce391708409b586f236d650680e712569848bdcff1475855ae50fc072b4",
+      "duration": 2.688,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR14",
+      "path": "media/vehicle-name-CAR14.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "a21cd01ce2b11eeaa1a41f468d6e0dce8c80fe81eaab8543928445da1d3b1366",
+      "duration": 2.784,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR15",
+      "path": "media/vehicle-name-CAR15.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "33282c430e66d388241e2d5a082be2150fb9e6de971325c5d7368ce9b00ce90c",
+      "duration": 2.712,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR21",
+      "path": "media/vehicle-name-CAR21.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "08e6c9df1e61fd5a24ff63f2b3bbf9e17c9a4239cc114148b73e80866ec003d9",
+      "duration": 2.976,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR22",
+      "path": "media/vehicle-name-CAR22.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "b2e887bed66c48daffcbe061e65308f0802bb73bd5c640bce65bc17aaa853c2e",
+      "duration": 2.544,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR23",
+      "path": "media/vehicle-name-CAR23.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "5e671f64d6a86aa1c6983f9bb7c94f7e03e6227d0dc1ea011d91efe6460d751e",
+      "duration": 2.952,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR24",
+      "path": "media/vehicle-name-CAR24.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "bea270802c28eafb955f6e76a3e0ae01bf37c4418c5d1f978af6f0254e36d23f",
+      "duration": 2.376,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR26",
+      "path": "media/vehicle-name-CAR26.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "c3c30212d8ef650a7c875f40b0699d54b134f7d0ffc6dfba595ab4c2018f13d1",
+      "duration": 2.112,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR29",
+      "path": "media/vehicle-name-CAR29.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "0d7dcdb414feb17ab2e40a6bfe8f9d5c5ad8d9da12c31095cc0516068d2cfdbb",
+      "duration": 2.304,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR30",
+      "path": "media/vehicle-name-CAR30.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "eb57e0598f89155d08bd9869406a299d9df15868b9c727783eb9088e036cebad",
+      "duration": 2.088,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR31",
+      "path": "media/vehicle-name-CAR31.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "f8ceb35ee872b7d6285a6a075fa4802b0963c8fef9b60a6883e25d48814e2f46",
+      "duration": 2.688,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR32",
+      "path": "media/vehicle-name-CAR32.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "a917309cff2f0e73da2e29fd70d7f73e0864a08ba9a482cea3766cc61bc01fff",
+      "duration": 3.504,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR39",
+      "path": "media/vehicle-name-CAR39.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "b61d4c2422dcc12809e7b3cc12f02c62489368f0b27820f216d1bf7bbae7cde4",
+      "duration": 4.224,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR43",
+      "path": "media/vehicle-name-CAR43.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "f28edce616ef0b8983ef033fb88fe6af8ab446d7f884804082cb152518cc0042",
+      "duration": 2.568,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR45",
+      "path": "media/vehicle-name-CAR45.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "ec320a86b209879b9fd4a79f25fcb456f19ff4200739b315da0166164b10018b",
+      "duration": 3.048,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR48",
+      "path": "media/vehicle-name-CAR48.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "2bb9599e461f18397d9b239ce0e992455a15490beb3b2a5c851b97331d0828d5",
+      "duration": 2.184,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR56",
+      "path": "media/vehicle-name-CAR56.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "d18f5fae606be339f6ecb3ae60fd0d67ca25242a7e3e8dfbea49f66ce094e90e",
+      "duration": 3.048,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR60",
+      "path": "media/vehicle-name-CAR60.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "bf31d97724cddc6882405182916a1d40ec3daaa0ae4298273c067044c59bcc51",
+      "duration": 2.328,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR62",
+      "path": "media/vehicle-name-CAR62.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "eb15845fcffae832ceaf1e744e17086a83233f9ccc616a0f567799dcedae804b",
+      "duration": 2.52,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR65",
+      "path": "media/vehicle-name-CAR65.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "066895447b9acffe41ddcfc2a5d54bea5f31c8a060b0e59e57c3f595c1a54688",
+      "duration": 2.856,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR66",
+      "path": "media/vehicle-name-CAR66.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "8c6a0515af5544c0d7ca0e19c278842034adcf6114a9f3697aed8d324286fb83",
+      "duration": 3.12,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR85",
+      "path": "media/vehicle-name-CAR85.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "c874c8f5346ce20da97f38e7956f2845117f9c94c21bac4ab7b3447f91e17af4",
+      "duration": 3.264,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR89",
+      "path": "media/vehicle-name-CAR89.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "8219d274e925edae22390a8fa2e4ff71cfc30954c2bcba32e80cb4b087bfbcc1",
+      "duration": 3.552,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR98",
+      "path": "media/vehicle-name-CAR98.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "1b3dcd80573ab29689995a4ec70935eab80ce73eb418902a213dcd0edbcdf4af",
+      "duration": 3.432,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR99",
+      "path": "media/vehicle-name-CAR99.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "7cee149436228a0145765fb82626546ec3af9ce22f38821c5c3e6ec0dcb7e352",
+      "duration": 3.312,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR100",
+      "path": "media/vehicle-name-CAR100.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "9f4a5d142f6f4dfcfcffa94c5a4f413d356599314597ebf33d7d8ecd67eb7e97",
+      "duration": 2.568,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR105",
+      "path": "media/vehicle-name-CAR105.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "41a2f34f099b825a3eac00dd0016f5c1f44fc94f7b4c7993a2866de75a5c1248",
+      "duration": 2.688,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR108",
+      "path": "media/vehicle-name-CAR108.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "bb13bf39203e6f558da99d72284ea154bac9751b05890669607919d9c16f4e13",
+      "duration": 2.64,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR111",
+      "path": "media/vehicle-name-CAR111.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "612312ec32a6d97e08afdf2251b451b9567e8f9f2dc4b1d30a80a8e1ac251974",
+      "duration": 2.736,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR113",
+      "path": "media/vehicle-name-CAR113.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "27e12f356b6af6211e81061ae5d63fb9b80eb33d2a6fae73b9304c1dff8fba46",
+      "duration": 3.888,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR118",
+      "path": "media/vehicle-name-CAR118.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "2222482650bf0b66a36d5d4c30ffe993ce13b367675d687726473d2c9976ed0d",
+      "duration": 2.448,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR119",
+      "path": "media/vehicle-name-CAR119.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "377f5f42deb4b98c54b37ae97582f6c8aee5a0dda2d5014b8cd1e20fa309fc2f",
+      "duration": 3.264,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR120",
+      "path": "media/vehicle-name-CAR120.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "79f4f55f065a1588074eeb74792844136e7bf62d9004952da87036379a7bb6c8",
+      "duration": 3.024,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR125",
+      "path": "media/vehicle-name-CAR125.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "6d206aae8488b07e672facfe71271a9910cb0495e1636806b77f4885fabf2da5",
+      "duration": 3.552,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR135",
+      "path": "media/vehicle-name-CAR135.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "be96efed1c45a95dbbfb0be0b9b5dfa8cede9d112892cb1b2c761106155f8e75",
+      "duration": 3.336,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR140",
+      "path": "media/vehicle-name-CAR140.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "2276d84751902a9658037853f525d1273419c7d31405ba5511fc52940cdf047e",
+      "duration": 2.976,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR141",
+      "path": "media/vehicle-name-CAR141.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "23d0e9c125b168c217ae8f42e6c181e83c5aed120800f95afab06240d355bb64",
+      "duration": 2.184,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR143",
+      "path": "media/vehicle-name-CAR143.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "54442f6d151ba0cf2976f225568bbd6994c3d1b0671d662f9d4baf25bc159c93",
+      "duration": 2.4,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR144",
+      "path": "media/vehicle-name-CAR144.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "e933e19180e266e9bdabbfaa739994ee187477fe0bde72aabc93ad9af16701bc",
+      "duration": 3.264,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR147",
+      "path": "media/vehicle-name-CAR147.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "b8af4da33a4e081e64aee351d7ec0136735937dde72798d1d3a4bd4b48b47d2f",
+      "duration": 2.832,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR149",
+      "path": "media/vehicle-name-CAR149.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "0d7f2f7733b31734b3376fa5f828fed932303077eb7a1a7fb506dfd293a639a0",
+      "duration": 3.144,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR152",
+      "path": "media/vehicle-name-CAR152.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "a7d399b864df0942d9c7b34312b51a1530384712cb117228317a4f51903fff68",
+      "duration": 3.312,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR158",
+      "path": "media/vehicle-name-CAR158.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "c1262bda23eb80219ce8628a3075b8aefe70ea2698c367c514209cbdcf5ca5c0",
+      "duration": 2.664,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR160",
+      "path": "media/vehicle-name-CAR160.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "8ecdaa9fb4583faa32561030aae9362522357dff6411dfb8dd003cda7ac0cd7b",
+      "duration": 2.016,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR161",
+      "path": "media/vehicle-name-CAR161.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "e83f86b512892465c033eea64489ed3cee47b01c2975eb20967d9bfab27a0738",
+      "duration": 3.264,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR163",
+      "path": "media/vehicle-name-CAR163.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "7a39534d7e0575dcfbf9e20121f33046d4baf21b90366d4d2f7624c62cd92c2b",
+      "duration": 3.456,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR165",
+      "path": "media/vehicle-name-CAR165.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "5f25f58db61f6d594cc8948037bb5341ff97934a01289119e9693d5bb7862540",
+      "duration": 1.728,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR168",
+      "path": "media/vehicle-name-CAR168.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "e395827af5eed86048c146bec96b2a921546ff116ff63bbb27169d80047a98e6",
+      "duration": 4.8,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR169",
+      "path": "media/vehicle-name-CAR169.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "ae5c6e99e6cc907c7adb11cbecc422c4c3d735805b99103372dd44cd59a97b3f",
+      "duration": 3.384,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR171",
+      "path": "media/vehicle-name-CAR171.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "3fac6748da01b5dc340437f1d7bb343e6a32e4b33a187d1478ea0fb60460efcf",
+      "duration": 2.52,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR172",
+      "path": "media/vehicle-name-CAR172.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "d13ea5d2e1cd2e5683b3704950030f75a9c288c05414ab72cadb63d0691ee38a",
+      "duration": 2.856,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR173",
+      "path": "media/vehicle-name-CAR173.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "afdcf9d3ae6342b62e12fd81a6cdf1f468c8fbf6244e5fe29573f60bed43df69",
+      "duration": 3.888,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR174",
+      "path": "media/vehicle-name-CAR174.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "555225a4d77c73ca68ea8d3f9ae50a5c651649c55231794609a1a68f7ebc4933",
+      "duration": 3.408,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR177",
+      "path": "media/vehicle-name-CAR177.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "60831203363d6689234beeb4de3106a4df8e0b080518e8a985735e4fc58bf6c4",
+      "duration": 2.832,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR178",
+      "path": "media/vehicle-name-CAR178.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "c174885e91980c44034fea66f6482c30de8d7746eafddad3e1523e4384bd570d",
+      "duration": 2.16,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR181",
+      "path": "media/vehicle-name-CAR181.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "412186cb402939c873a36636f5e69c51e3484bd3e307874ce2eb50fa1c605d54",
+      "duration": 2.856,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR182",
+      "path": "media/vehicle-name-CAR182.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "d823310e9ea563e5a6c86769090134d8727efeb95dd7fc26d4edb313a76b705e",
+      "duration": 3.192,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR185",
+      "path": "media/vehicle-name-CAR185.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "b354790c8c3568c90b9a6b8eee5f09b3e173a3db1c6940bb62f31780acab124a",
+      "duration": 3,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR192",
+      "path": "media/vehicle-name-CAR192.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "a880b9ffda9c54a0c73ec872c729c2397aefbb48bae927f475ecb1f12da24c68",
+      "duration": 2.4,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
+    },
+    {
+      "id": "vehicle-name-CAR194",
+      "path": "media/vehicle-name-CAR194.mp3",
+      "kind": "audio",
+      "status": "approved",
+      "sha256": "b1a1d067e965a0d5ad161607573f0cd9bd6b81841e993b5d75f26de232c68c22",
+      "duration": 3.864,
+      "source": "Offline Kokoro zf_001 (Apache-2.0); content/vehicle-name-audio.json records the exact model, pronunciation and file."
     }
   ],
   "scenes": [
@@ -12861,7 +13680,7 @@
       "reference": "https://newsroom.bugatti.com/api/en/press-releases/pdf/the-bugatti-chiron-profilee-an-automotive-solitaire",
       "status": "reviewed",
       "image": "render-CAR05-side",
-      "audio": "name-CAR05",
+      "audio": "vehicle-name-CAR05",
       "observation": "摸摸玩具车轮，看看车灯，带它去乐园动动手。",
       "credit": {
         "id": "CAR05",
@@ -13471,7 +14290,7 @@
       "reference": "https://www.chevrolet.com/performance/corvette",
       "status": "reviewed",
       "image": "play-CAR09-side",
-      "audio": "car",
+      "audio": "vehicle-name-CAR09",
       "observation": "摸摸玩具车轮，看看车灯，带它去乐园动动手。",
       "credit": {
         "id": "CAR02",
@@ -13655,7 +14474,7 @@
       "reference": "https://www.mercedes-amg.com/en/vehicles/gt/coupe.html",
       "status": "reviewed",
       "image": "play-CAR10-side",
-      "audio": "car",
+      "audio": "vehicle-name-CAR10",
       "observation": "摸摸玩具车轮，看看车灯，带它去乐园动动手。",
       "credit": {
         "id": "CAR02",
@@ -13839,7 +14658,7 @@
       "reference": "https://www.audi-mediacenter.com/en/audi-r8-23",
       "status": "reviewed",
       "image": "play-CAR11-side",
-      "audio": "car",
+      "audio": "vehicle-name-CAR11",
       "observation": "摸摸玩具车轮，看看车灯，带它去乐园动动手。",
       "credit": {
         "id": "CAR02",
@@ -14023,7 +14842,7 @@
       "reference": "https://www.toyota.com/grsupra/",
       "status": "reviewed",
       "image": "play-CAR14-side",
-      "audio": "car",
+      "audio": "vehicle-name-CAR14",
       "observation": "摸摸玩具车轮，看看车灯，带它去乐园动动手。",
       "credit": {
         "id": "CAR02",
@@ -14207,7 +15026,7 @@
       "reference": "https://www.toyota.com/gr86/",
       "status": "reviewed",
       "image": "play-CAR15-side",
-      "audio": "car",
+      "audio": "vehicle-name-CAR15",
       "observation": "摸摸玩具车轮，看看车灯，带它去乐园动动手。",
       "credit": {
         "id": "CAR02",
@@ -14391,7 +15210,7 @@
       "reference": "https://www.porsche.com/international/models/718/",
       "status": "reviewed",
       "image": "play-CAR21-side",
-      "audio": "car",
+      "audio": "vehicle-name-CAR21",
       "observation": "摸摸玩具车轮，看看车灯，带它去乐园动动手。",
       "credit": {
         "id": "CAR02",
@@ -14575,7 +15394,7 @@
       "reference": "https://cars.mclaren.com/en/artura",
       "status": "reviewed",
       "image": "play-CAR22-side",
-      "audio": "car",
+      "audio": "vehicle-name-CAR22",
       "observation": "摸摸玩具车轮，看看车灯，带它去乐园动动手。",
       "credit": {
         "id": "CAR02",
@@ -14759,7 +15578,7 @@
       "reference": "https://www.maserati.com/global/en/models/mc20",
       "status": "reviewed",
       "image": "play-CAR23-side",
-      "audio": "car",
+      "audio": "vehicle-name-CAR23",
       "observation": "摸摸玩具车轮，看看车灯，带它去乐园动动手。",
       "credit": {
         "id": "CAR02",
@@ -14943,7 +15762,7 @@
       "reference": "https://www.lotuscars.com/en-GB/emira",
       "status": "reviewed",
       "image": "render-CAR24-side",
-      "audio": "car",
+      "audio": "vehicle-name-CAR24",
       "observation": "摸摸玩具车轮，看看车灯，带它去乐园动动手。",
       "credit": {
         "id": "CAR02",
@@ -15064,7 +15883,7 @@
       "reference": "https://media.jlr.com/archive-jaguar/news/2024/06/jaguar-marks-sports-car-anniversary-final-f-type",
       "status": "reviewed",
       "image": "play-CAR26-side",
-      "audio": "car",
+      "audio": "vehicle-name-CAR26",
       "observation": "摸摸玩具车轮，看看车灯，带它去乐园动动手。",
       "credit": {
         "id": "CAR02",
@@ -15248,7 +16067,7 @@
       "reference": "https://www.dodge.com/viper.html",
       "status": "reviewed",
       "image": "render-CAR29-side",
-      "audio": "car",
+      "audio": "vehicle-name-CAR29",
       "observation": "摸摸玩具车轮，看看车灯，带它去乐园动动手。",
       "credit": {
         "id": "CAR02",
@@ -15369,7 +16188,7 @@
       "reference": "https://www.press.bmwgroup.com/canada/article/attachment/T0310099EN/453341",
       "status": "reviewed",
       "image": "render-CAR30-side",
-      "audio": "car",
+      "audio": "vehicle-name-CAR30",
       "observation": "摸摸玩具车轮，看看车灯，带它去乐园动动手。",
       "credit": {
         "id": "CAR02",
@@ -15489,7 +16308,7 @@
       "color": "#d8b764",
       "reference": "https://www.lamborghini.com/en-en/history",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR31",
       "observation": "拖动旋转这辆独立建模的跑车，看看前后和两侧。",
       "hotspots": [
         {
@@ -15686,7 +16505,7 @@
       "color": "#d8b764",
       "reference": "https://www.lamborghini.com/en-en/history",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR32",
       "observation": "拖动旋转这辆独立建模的跑车，看看前后和两侧。",
       "hotspots": [
         {
@@ -15883,7 +16702,7 @@
       "color": "#d8b764",
       "reference": "https://www.lamborghini.com/en-en/history",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR39",
       "observation": "拖动旋转这辆独立建模的跑车，看看前后和两侧。",
       "hotspots": [
         {
@@ -16080,7 +16899,7 @@
       "color": "#d8b764",
       "reference": "https://www.ferrari.com/en-US/corporate/articles/the-new-supercars-exhibition-opens-at-the-enzo-ferrari-museum-in-modena",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR43",
       "observation": "拖动旋转这辆独立建模的跑车，看看前后和两侧。",
       "hotspots": [
         {
@@ -16277,7 +17096,7 @@
       "color": "#d8b764",
       "reference": "https://cdn.ferrari.com/cms/network/media/pdf/2023_08_02%20-%20Ferrari%20-%20Q2%202023%20Results%20Presentation.pdf",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR45",
       "observation": "拖动旋转这辆独立建模的跑车，看看前后和两侧。",
       "hotspots": [
         {
@@ -16474,7 +17293,7 @@
       "color": "#d8b764",
       "reference": "https://cars.mclaren.com/en/ultimate-series/mclaren-senna",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR48",
       "observation": "拖动旋转这辆独立建模的跑车，看看前后和两侧。",
       "hotspots": [
         {
@@ -16585,7 +17404,7 @@
       "color": "#d8b764",
       "reference": "https://newsroom.porsche.com/pdf/e9920c42-d519-4f3d-8ae8-b43cae7e3b83?print=",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR56",
       "observation": "拖动旋转这辆独立建模的跑车，看看前后和两侧。",
       "hotspots": [
         {
@@ -16696,7 +17515,7 @@
       "color": "#d8b764",
       "reference": "https://www.bugatti.com/en/models/veyron",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR60",
       "observation": "拖动旋转这辆独立建模的跑车，看看前后和两侧。",
       "hotspots": [
         {
@@ -16807,7 +17626,7 @@
       "color": "#d8b764",
       "reference": "https://www.pagani.com/utopia/",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR62",
       "observation": "拖动旋转这辆独立建模的跑车，看看前后和两侧。",
       "hotspots": [
         {
@@ -16918,7 +17737,7 @@
       "color": "#d8b764",
       "reference": "https://www.koenigsegg.com/model/ccx",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR65",
       "observation": "拖动旋转这辆独立建模的跑车，看看前后和两侧。",
       "hotspots": [
         {
@@ -17029,7 +17848,7 @@
       "color": "#d8b764",
       "reference": "https://media.astonmartin.com/sublime-choices-db11-now-offered-with-v8-engine/?lang=eng",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR66",
       "observation": "拖动旋转这辆独立建模的跑车，看看前后和两侧。",
       "hotspots": [
         {
@@ -17140,7 +17959,7 @@
       "color": "#d8b764",
       "reference": "https://www.toyota-global.com/company/history_of_toyota/75years/data/automotive_business/products_technology/vehicle_lineage_chart/origin/",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR85",
       "observation": "拖动旋转这辆独立建模的跑车，看看前后和两侧。",
       "hotspots": [
         {
@@ -17251,7 +18070,7 @@
       "color": "#d8b764",
       "reference": "https://www.toyota-global.com/company/history_of_toyota/75years/data/automotive_business/products_technology/vehicle_lineage_chart/origin/",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR89",
       "observation": "拖动旋转这辆独立建模的跑车，看看前后和两侧。",
       "hotspots": [
         {
@@ -17362,7 +18181,7 @@
       "color": "#d8b764",
       "reference": "https://global.honda/jp/SOUNDSITTER/pdf/syasyu.pdf",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR98",
       "observation": "拖动旋转这辆独立建模的跑车，看看前后和两侧。",
       "hotspots": [
         {
@@ -17473,7 +18292,7 @@
       "color": "#d8b764",
       "reference": "https://global.honda/jp/SOUNDSITTER/pdf/syasyu.pdf",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR99",
       "observation": "拖动旋转这辆独立建模的跑车，看看前后和两侧。",
       "hotspots": [
         {
@@ -17584,7 +18403,7 @@
       "color": "#d8b764",
       "reference": "https://global.honda/jp/SOUNDSITTER/pdf/syasyu.pdf",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR100",
       "observation": "拖动旋转这辆独立建模的跑车，看看前后和两侧。",
       "hotspots": [
         {
@@ -17695,7 +18514,7 @@
       "color": "#d8b764",
       "reference": "https://www.bmw-m.com/en/topics/magazine-article-pool/bmw-m4-csl.html",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR105",
       "observation": "拖动旋转这辆独立建模的跑车，看看前后和两侧。",
       "hotspots": [
         {
@@ -17806,7 +18625,7 @@
       "color": "#d8b764",
       "reference": "https://www.press.bmwgroup.com/usa/article/detail/T0135219EN_US/introducing-the-all-new-bmw-m6-gran-coupe?language=en_US",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR108",
       "observation": "拖动旋转这辆独立建模的跑车，看看前后和两侧。",
       "hotspots": [
         {
@@ -17917,7 +18736,7 @@
       "color": "#d8b764",
       "reference": "https://www.bmw-m.com/en/topics/magazine-article-pool/bmw-m3-generationen.html",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR111",
       "observation": "拖动旋转这辆独立建模的跑车，看看前后和两侧。",
       "hotspots": [
         {
@@ -18028,7 +18847,7 @@
       "color": "#d8b764",
       "reference": "https://www.mercedes-benz.com/en/innovation/milestones/mercedes-benz-300-sl-gullwing/",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR113",
       "observation": "拖动旋转这辆独立建模的跑车，看看前后和两侧。",
       "hotspots": [
         {
@@ -18139,7 +18958,7 @@
       "color": "#d8b764",
       "reference": "https://uploads.audi-mediacenter.com/system/production/uploaded_files/16690/file/b6992f5100845cdcaeeb75349744429acdc83c82/enBasisInfo_Audi_RS_5.pdf?1586349672=&disposition=attachment",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR118",
       "observation": "拖动旋转这辆独立建模的跑车，看看前后和两侧。",
       "hotspots": [
         {
@@ -18250,7 +19069,7 @@
       "color": "#d8b764",
       "reference": "https://www.chevrolet.com/legacy/camaro",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR119",
       "observation": "拖动旋转这辆独立建模的跑车，看看前后和两侧。",
       "hotspots": [
         {
@@ -18361,7 +19180,7 @@
       "color": "#d8b764",
       "reference": "https://www.dodge.com/challenger.html",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR120",
       "observation": "拖动旋转这辆独立建模的跑车，看看前后和两侧。",
       "hotspots": [
         {
@@ -18472,7 +19291,7 @@
       "color": "#d8b764",
       "reference": "https://www.ford.mx/content/dam/Ford/website-assets/latam/mx/nameplate/shelby-gt500/2022/pdf/ford-shelby-gt500-2022-catalogo-descargable.pdf",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR125",
       "observation": "拖动旋转这辆独立建模的跑车，看看前后和两侧。",
       "hotspots": [
         {
@@ -18583,7 +19402,7 @@
       "color": "#d8b764",
       "reference": "https://www.gm.com/heritage/archive/vehicle-information-kits",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR135",
       "observation": "拖动旋转这辆独立建模的跑车，看看前后和两侧。",
       "hotspots": [
         {
@@ -18696,7 +19515,7 @@
       "color": "#d8b764",
       "reference": "https://www.ferrari.com/en-EN/auto/gto",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR140",
       "observation": "转动看看真实车型的游戏模型，再带它去洗车、停车和装配。",
       "image": "render-CAR140-side",
       "showcaseImage": "render-CAR140-side",
@@ -18808,7 +19627,7 @@
       "color": "#d8b764",
       "reference": "https://www.ferrari.com/en-EN/auto/ferrari-roma",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR141",
       "observation": "转动看看真实车型的游戏模型，再带它去洗车、停车和装配。",
       "image": "render-CAR141-side",
       "showcaseImage": "render-CAR141-side",
@@ -18920,7 +19739,7 @@
       "color": "#d8b764",
       "reference": "https://cars.mclaren.com/us_en/legacy/mclaren-p1",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR143",
       "observation": "转动看看真实车型的游戏模型，再带它去洗车、停车和装配。",
       "image": "render-CAR143-side",
       "showcaseImage": "render-CAR143-side",
@@ -19032,7 +19851,7 @@
       "color": "#d8b764",
       "reference": "https://cars.mclaren.com/es_es/legacy/570s-spider",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR144",
       "observation": "转动看看真实车型的游戏模型，再带它去洗车、停车和装配。",
       "image": "render-CAR144-side",
       "showcaseImage": "render-CAR144-side",
@@ -19144,7 +19963,7 @@
       "color": "#d8b764",
       "reference": "https://media.astonmartin.com/valour-a-spectacular-celebration-of-110-years-of-history/?lang=eng",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR147",
       "observation": "转动看看真实车型的游戏模型，再带它去洗车、停车和装配。",
       "image": "render-CAR147-side",
       "showcaseImage": "render-CAR147-side",
@@ -19256,7 +20075,7 @@
       "color": "#d8b764",
       "reference": "https://www.porsche.com/international/models/taycan/",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR149",
       "observation": "转动看看真实车型的游戏模型，再带它去洗车、停车和装配。",
       "image": "render-CAR149-side",
       "showcaseImage": "render-CAR149-side",
@@ -19368,7 +20187,7 @@
       "color": "#d8b764",
       "reference": "https://www.mitsubishi-motors.com/en/company/history/car/",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR152",
       "observation": "转动看看真实车型的游戏模型，再带它去洗车、停车和装配。",
       "image": "render-CAR152-side",
       "showcaseImage": "render-CAR152-side",
@@ -19480,7 +20299,7 @@
       "color": "#d8b764",
       "reference": "https://www.rolls-roycemotorcars.com/en_GB/showroom/phantom.html",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR158",
       "observation": "转动看看真实车型的游戏模型，再带它去洗车、停车和装配。",
       "image": "render-CAR158-side",
       "showcaseImage": "render-CAR158-side",
@@ -19592,7 +20411,7 @@
       "color": "#d8b764",
       "reference": "https://www.byd.com/eu/electric-cars/seal",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR160",
       "observation": "转动看看真实车型的游戏模型，再带它去洗车、停车和装配。",
       "image": "render-CAR160-side",
       "showcaseImage": "render-CAR160-side",
@@ -19704,7 +20523,7 @@
       "color": "#d8b764",
       "reference": "https://global.honda/en/stories/048.html",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR161",
       "observation": "转动看看真实车型的游戏模型，再带它去洗车、停车和装配。",
       "image": "render-CAR161-side",
       "showcaseImage": "render-CAR161-side",
@@ -19816,7 +20635,7 @@
       "color": "#d8b764",
       "reference": "https://www.volkswagen-newsroom.com/en/the-new-golf-gti-edition-50-international-media-drive-20143/the-history-of-the-golf-gti-in-detail-20156",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR163",
       "observation": "转动看看真实车型的游戏模型，再带它去洗车、停车和装配。",
       "image": "render-CAR163-side",
       "showcaseImage": "render-CAR163-side",
@@ -19928,7 +20747,7 @@
       "color": "#d8b764",
       "reference": "https://www.globalsuzuki.com/automobile/lineup/swift/",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR165",
       "observation": "转动看看真实车型的游戏模型，再带它去洗车、停车和装配。",
       "image": "render-CAR165-side",
       "showcaseImage": "render-CAR165-side",
@@ -20040,7 +20859,7 @@
       "color": "#d8b764",
       "reference": "https://www.subaru.com/vehicles/impreza.html",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR168",
       "observation": "转动看看真实车型的游戏模型，再带它去洗车、停车和装配。",
       "image": "render-CAR168-side",
       "showcaseImage": "render-CAR168-side",
@@ -20152,7 +20971,7 @@
       "color": "#d8b764",
       "reference": "https://global.toyota/en/newsroom/toyota/",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR169",
       "observation": "转动看看真实车型的游戏模型，再带它去洗车、停车和装配。",
       "image": "render-CAR169-side",
       "showcaseImage": "render-CAR169-side",
@@ -20264,7 +21083,7 @@
       "color": "#d8b764",
       "reference": "https://www.tesla.com/model3",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR171",
       "observation": "转动看看真实车型的游戏模型，再带它去洗车、停车和装配。",
       "image": "render-CAR171-side",
       "showcaseImage": "render-CAR171-side",
@@ -20376,7 +21195,7 @@
       "color": "#d8b764",
       "reference": "https://www.cadillac.com/suvs/escalade",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR172",
       "observation": "转动看看真实车型的游戏模型，再带它去洗车、停车和装配。",
       "image": "render-CAR172-side",
       "showcaseImage": "render-CAR172-side",
@@ -20488,7 +21307,7 @@
       "color": "#d8b764",
       "reference": "https://www.gm.com/heritage/archive/vehicle-information-kits",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR173",
       "observation": "转动看看真实车型的游戏模型，再带它去洗车、停车和装配。",
       "image": "render-CAR173-side",
       "showcaseImage": "render-CAR173-side",
@@ -20600,7 +21419,7 @@
       "color": "#d8b764",
       "reference": "https://www.rangerover.com/en-gb/range-rover/index.html",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR174",
       "observation": "转动看看真实车型的游戏模型，再带它去洗车、停车和装配。",
       "image": "render-CAR174-side",
       "showcaseImage": "render-CAR174-side",
@@ -20712,7 +21531,7 @@
       "color": "#d8b764",
       "reference": "https://www.lexus.com/models/ES",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR177",
       "observation": "转动看看真实车型的游戏模型，再带它去洗车、停车和装配。",
       "image": "render-CAR177-side",
       "showcaseImage": "render-CAR177-side",
@@ -20824,7 +21643,7 @@
       "color": "#d8b764",
       "reference": "https://www.ford.com/suvs/bronco/",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR178",
       "observation": "转动看看真实车型的游戏模型，再带它去洗车、停车和装配。",
       "image": "render-CAR178-side",
       "showcaseImage": "render-CAR178-side",
@@ -20936,7 +21755,7 @@
       "color": "#d8b764",
       "reference": "https://www.media.stellantis.com/de-de/abarth/press/neuer-500-abarth-deutschlandstart-am-19-juli-offizielle-premiere-des-kult-modells-mit-live-act-in-munchen",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR181",
       "observation": "转动看看真实车型的游戏模型，再带它去洗车、停车和装配。",
       "image": "render-CAR181-side",
       "showcaseImage": "render-CAR181-side",
@@ -21048,7 +21867,7 @@
       "color": "#d8b764",
       "reference": "https://www.bmw-m.com/en/all-models/overview-m-and-m-performance/bmw-x5-m/2023/bmw-x5-m.html",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR182",
       "observation": "转动看看真实车型的游戏模型，再带它去洗车、停车和装配。",
       "image": "render-CAR182-side",
       "showcaseImage": "render-CAR182-side",
@@ -21160,7 +21979,7 @@
       "color": "#d8b764",
       "reference": "https://www.media.stellantis.com/es-es/fiat/press/decadas-de-veranos-de-ensueno-con-los-descapotables-fiat",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR185",
       "observation": "转动看看真实车型的游戏模型，再带它去洗车、停车和装配。",
       "image": "render-CAR185-side",
       "showcaseImage": "render-CAR185-side",
@@ -21272,7 +22091,7 @@
       "color": "#d8b764",
       "reference": "https://www.byd.com/eu/electric-cars/dolphin",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR192",
       "observation": "转动看看真实车型的游戏模型，再带它去洗车、停车和装配。",
       "image": "render-CAR192-side",
       "showcaseImage": "render-CAR192-side",
@@ -21384,7 +22203,7 @@
       "color": "#d8b764",
       "reference": "https://media.mercedes-benz.com/en/article/25dd00e4-5ef9-4c2f-b12c-55169f795d4d",
       "status": "reviewed",
-      "audio": "car-name-local",
+      "audio": "vehicle-name-CAR194",
       "observation": "转动看看真实车型的游戏模型，再带它去洗车、停车和装配。",
       "image": "render-CAR194-side",
       "showcaseImage": "render-CAR194-side",

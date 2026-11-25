@@ -66,6 +66,8 @@ COS 与 CDN 的临时网络故障、408/429/500/502/503/504 最多尝试 4 次�
 
 新增目录插画的图集、提示词、图帧及哈希记录在 `content/catalog-illustrations.json`。`node scripts/prepare-catalog-illustrations.mjs <本机图集索引.json>` 将经过检查的 GPT 图集裁成透明 WebP。玩法继续使用从同车型模型渲染的侧视、俯视图及登记轮位，避免插画换图后点击位置失准。
 
+新增车型时，登记对应全名语音与科普资料。构建验证车名与语音文案一致、音频独立，并核对科普资料的车型标识与 HTTPS 来源。详情资料保存在 `content/vehicle-profiles.json`，离线车名语音的模型版本、许可、音素与文件哈希见 `content/vehicle-name-audio.json`。
+
 保留的 23 款 GPT 六角度图与玩具侧视/俯视图的生成记录分别保留在 `content/car-turnarounds-production.json`、`content/play-cars-production.json`。来源索引中的本机绝对路径不进入公开记录。
 
 素材来源与署名保留在 `content/photo-sources.json`、`content/photo-view-sources.json` 等清单中。素材的许可范围需分别核对；声音听审与分发依据仍待确认。

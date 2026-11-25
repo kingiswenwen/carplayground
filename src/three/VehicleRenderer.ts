@@ -71,9 +71,15 @@ export class VehicleRenderer{
   Object.assign(sun.shadow.camera,{left:-4,right:4,top:4,bottom:-4,near:.1,far:20});sun.shadow.normalBias=.012;sun.shadow.bias=-.0001;this.scene.add(sun);
   const fill=new T.DirectionalLight('#e0edff',.65);fill.position.set(-4,3,-5);this.scene.add(fill);
   this.floor.rotation.x=-Math.PI/2;this.floor.position.y=-.008;this.floor.receiveShadow=true;this.scene.add(this.floor,this.contactShadow);
-  canvas.className='vehicle-webgl';canvas.setAttribute('aria-label','立体跑车，拖动旋转看前后左右，双指缩放');canvas.setAttribute('role','application');canvas.tabIndex=0;box.append(canvas);
+  canvas.className='vehicle-webgl';canvas.setAttribute('aria-label','立体汽车，左右拖动或按方向键旋转');canvas.setAttribute('role','application');canvas.tabIndex=0;box.append(canvas);
   this.camera.position.set(5,2.5,6);this.controls=new OrbitControls(this.camera,canvas);this.controls.enablePan=false;this.controls.enableDamping=!software;this.controls.dampingFactor=.12;this.controls.addEventListener('change',this.invalidate);
-  this.controls.minZoom=.8;this.controls.maxZoom=2;this.controls.minPolarAngle=.12;this.controls.maxPolarAngle=Math.PI*.48;this.controls.rotateSpeed=.65;
+  this.controls.enableZoom=false;this.controls.minPolarAngle=.12;this.controls.maxPolarAngle=Math.PI*.48;this.controls.rotateSpeed=.65;
+  // OrbitControls sets touch-action:none on connect. Let vertical swipes
+  // scroll out of the exhibit while the canvas owns horizontal rotation.
+  canvas.style.touchAction='pan-y';
+  canvas.addEventListener('wheel',this.keepScale,{passive:false});
+  canvas.addEventListener('gesturestart',this.keepScale);
+  canvas.addEventListener('gesturechange',this.keepScale);
   canvas.addEventListener('pointerdown',this.start);canvas.addEventListener('pointerup',this.end,true);canvas.addEventListener('pointercancel',this.cancel);canvas.addEventListener('lostpointercapture',this.cancel);canvas.addEventListener('keydown',this.key);canvas.addEventListener('webglcontextlost',this.lost);
   this.observer=new ResizeObserver(this.resize);this.observer.observe(box);this.resize();this.frame=requestAnimationFrame(this.render);
  }
@@ -93,7 +99,7 @@ export class VehicleRenderer{
  }
  async load(spec:VehicleModelSpec){
   if(this.disposed)return;const canvas=this.renderer.domElement;canvas.style.visibility='hidden';this.renderer.clear();const epoch=++this.epoch;this.clearCar();this.first=true;this.carId=spec.id;this.lights=false;
-  canvas.dataset.ready='false';delete canvas.dataset.car;delete canvas.dataset.lights;
+  canvas.dataset.ready='false';canvas.dataset.paint='original';delete canvas.dataset.car;delete canvas.dataset.lights;
   const abort=new AbortController();this.abort=abort;
   this.timer=setTimeout(()=>{if(epoch===this.epoch)this.fail();},30000);
   try{
@@ -125,7 +131,14 @@ export class VehicleRenderer{
   }catch(error){if(this.disposed||epoch!==this.epoch)return;console.warn('车辆模型未能打开',error);this.fail();}
  }
  private fail(){if(this.disposed)return;this.dispose();this.onUnavailable();}
- setPaint(color:string|null){this.paint?.setColor(color);this.renderer.domElement.dataset.paint=color||'original';this.needsRender=true;}
+ setPaint(color:string|null){
+  const canvas=this.renderer.domElement,key=color||'original';
+  if(!this.paint||canvas.dataset.paint===key)return;
+  this.paint.setColor(color);canvas.dataset.paint=key;this.needsRender=true;
+ }
+ private keepScale=(event:Event)=>{
+  if(event.type!=='wheel'||(event as WheelEvent).ctrlKey||(event as WheelEvent).metaKey)event.preventDefault();
+ };
  private start=(event:PointerEvent)=>{this.pointers.add(event.pointerId);this.down=this.pointers.size===1?{id:event.pointerId,x:event.clientX,y:event.clientY}:null;};
  private cancel=(event:PointerEvent)=>{this.pointers.delete(event.pointerId);this.down=null;};
  private end=(event:PointerEvent)=>{
@@ -156,6 +169,7 @@ export class VehicleRenderer{
  dispose(){
   if(this.disposed)return;this.disposed=true;++this.epoch;cancelAnimationFrame(this.frame);this.observer.disconnect();this.controls.removeEventListener('change',this.invalidate);this.controls.dispose();this.clearCar();
   const canvas=this.renderer.domElement;canvas.removeEventListener('pointerdown',this.start);canvas.removeEventListener('pointerup',this.end,true);canvas.removeEventListener('pointercancel',this.cancel);canvas.removeEventListener('lostpointercapture',this.cancel);canvas.removeEventListener('keydown',this.key);canvas.removeEventListener('webglcontextlost',this.lost);
+  canvas.removeEventListener('wheel',this.keepScale);canvas.removeEventListener('gesturestart',this.keepScale);canvas.removeEventListener('gesturechange',this.keepScale);
   this.environment?.dispose();this.floor.geometry.dispose();this.floor.material.dispose();disposeModel(this.contactShadow);canvas.remove();this.renderer.dispose();this.renderer.forceContextLoss();
  }
 }

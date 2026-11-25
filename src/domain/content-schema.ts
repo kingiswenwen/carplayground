@@ -12,12 +12,17 @@ export const releaseSchema=z.object({id:z.string(),schemaVersion:z.literal(2),ap
  const issue=(message:string)=>ctx.addIssue({code:'custom',message});
  const unique=(values:string[],label:string)=>{if(new Set(values).size!==values.length)issue(`${label}重复`);};
  unique(release.cars.map(c=>c.catalogKey),'量产车型系列');unique(release.cars.map(c=>(c.brand+'/'+c.model).normalize('NFKD').toLowerCase().replace(/[^a-z0-9]/g,'')),'车型名称');
+ unique(release.cars.map(car=>car.audio),'车型车名语音');
+ for(const car of release.cars){
+  const name=release.speech[car.audio];
+  if(name?.text!==car.name||name.locale!=='zh-CN')issue('车名语音与车型全名不一致 '+car.id);
+ }
  for(const car of release.cars){const identity=identities.cars.find(row=>row.id===car.id);if(!identity||(['brand','model','catalogKey','productionStatus','reference'] as const).some(key=>identity[key]!==car[key]))issue('车型身份与独立审核记录不一致 '+car.id);}
  if(release.cars.length!==identities.cars.length)issue('车型身份清单与车库不一致');
  unique(release.assets.map(a=>a.id),'素材');unique(release.cars.map(a=>a.id),'车型');unique(release.activities.map(a=>a.id),'活动');unique(release.scenes.map(a=>a.id),'场景');unique(release.stories.map(a=>a.id),'故事');unique(release.car.hotspots.map(p=>p.id),'热点');
  for(const asset of release.assets){if(asset.kind==='image'&&(!asset.width||!asset.height))issue(`图片缺尺寸 ${asset.id}`);if(asset.kind==='audio'&&!asset.duration)issue(`声音缺时长 ${asset.id}`);}
  for(const id of [...release.scenes.map(s=>'scene-'+s.id),'scene-world','scene-driving'])if(!release.assets.some(a=>a.id===id&&a.kind==='image'))issue(`场景图片断链 ${id}`);
- const refs:[string,'image'|'audio'][]=[...Object.values(release.car.images).map(id=>[id,'image'] as [string,'image']),...release.cars.flatMap(c=>[[c.image,'image'],[c.showcaseImage,'image'],...(c.displayImage?[[c.displayImage,'image']]:[]),...(c.illustrationImage?[[c.illustrationImage,'image']]:[]),...(c.audio==='car-name-local'?[]:[[c.audio,'audio']])] as [string,'image'|'audio'][]),...Object.keys(release.speech).map(id=>[id,'audio'] as [string,'audio']),...release.activities.flatMap(a=>[a.instructionAudio,a.hintAudio,a.completeAudio].map(id=>[id,'audio'] as [string,'audio'])),...release.stories.map(s=>[s.scene==='showroom'?'showcase-CAR01':`story-${s.scene}`,'image'] as [string,'image']),...release.stories.flatMap(s=>s.frames.map(f=>[f.audio,'audio'] as [string,'audio']))];
+ const refs:[string,'image'|'audio'][]=[...Object.values(release.car.images).map(id=>[id,'image'] as [string,'image']),...release.cars.flatMap(c=>[[c.image,'image'],[c.showcaseImage,'image'],...(c.displayImage?[[c.displayImage,'image']]:[]),...(c.illustrationImage?[[c.illustrationImage,'image']]:[]),[c.audio,'audio']] as [string,'image'|'audio'][]),...Object.keys(release.speech).map(id=>[id,'audio'] as [string,'audio']),...release.activities.flatMap(a=>[a.instructionAudio,a.hintAudio,a.completeAudio].map(id=>[id,'audio'] as [string,'audio'])),...release.stories.map(s=>[s.scene==='showroom'?'showcase-CAR01':`story-${s.scene}`,'image'] as [string,'image']),...release.stories.flatMap(s=>s.frames.map(f=>[f.audio,'audio'] as [string,'audio']))];
  for(const [id,kind]of refs)if(!release.assets.some(a=>a.id===id&&a.kind===kind))issue(`缺少 ${kind} 引用 ${id}`);
  for(const a of release.activities)for(const carId of a.carIds)if(!release.cars.some(c=>c.id===carId))issue(`活动 ${a.id} 车型断链`);
  unique(release.vocabulary.map(v=>v.id),'词汇');unique(release.phrases.map(v=>v.id),'短句');

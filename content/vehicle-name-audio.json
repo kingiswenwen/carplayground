@@ -1,0 +1,455 @@
+{
+  "voice": {
+    "model": "hexgrad/Kokoro-82M-v1.1-zh",
+    "revision": "01e7505bd6a7a2ac4975463114c3a7650a9f7218",
+    "weightsSha256": "b1d8410fa44dfb5c15471fd6c4225ea6b4e9ac7fa03c98e8bea47a9928476e2b",
+    "voice": "zf_001",
+    "voiceSha256": "9bdc9a87e13e9bb1ea3e7803259c2ecbfebaeeb2ff80b5d0c76df1a464c1c962",
+    "speed": 0.92,
+    "license": "Apache-2.0",
+    "licenseSource": "https://huggingface.co/hexgrad/Kokoro-82M-v1.1-zh/blob/01e7505bd6a7a2ac4975463114c3a7650a9f7218/README.md"
+  },
+  "clips": {
+    "vehicle-name-CAR05": {
+      "carId": "CAR05",
+      "text": "布加迪 Chiron Profilée",
+      "phonemes": "ㄅㄨ4ㄐ压1ㄉㄧ2, ʃˈiɹɔn pɹɔfilˈe",
+      "sha256": "675575709298e165d05d477256efd7e12b3dd51c7ba730b3da0c2e0f60a237d3",
+      "duration": 2.928
+    },
+    "vehicle-name-CAR09": {
+      "carId": "CAR09",
+      "text": "雪佛兰 Corvette C8 Stingray",
+      "phonemes": "ㄒ月3ㄈㄛ2ㄌㄢ2, kɔɹvˈɛt sˈi ㄅㄚ1 stˈɪŋɹˌA",
+      "sha256": "c2e7123625af50adcbf3e34b6ca7aabd788e74404fc5fc7a9e0dcf6ba23caffd",
+      "duration": 3.432
+    },
+    "vehicle-name-CAR10": {
+      "carId": "CAR10",
+      "text": "梅赛德斯-AMG GT Coupé",
+      "phonemes": "ㄇㄟ2ㄙㄞ4ㄉㄜ2ㄙㄭ1 ˈA ˈɛm ʤˈi, ʤˈi tˈi kˈupA",
+      "sha256": "31d91277ef5ca1217baf7ca0940146217d1bc977020aee6b6e0429514b99a21f",
+      "duration": 3.552
+    },
+    "vehicle-name-CAR11": {
+      "carId": "CAR11",
+      "text": "奥迪 R8 Coupé",
+      "phonemes": "ㄠ4ㄉㄧ2, ˈɑɹ ㄅㄚ1 kˈupA",
+      "sha256": "0a7d0ce391708409b586f236d650680e712569848bdcff1475855ae50fc072b4",
+      "duration": 2.688
+    },
+    "vehicle-name-CAR14": {
+      "carId": "CAR14",
+      "text": "丰田 GR Supra",
+      "phonemes": "ㄈㄥ1ㄊ言2, ʤˈi ˈɑɹ sˈupɹə",
+      "sha256": "a21cd01ce2b11eeaa1a41f468d6e0dce8c80fe81eaab8543928445da1d3b1366",
+      "duration": 2.784
+    },
+    "vehicle-name-CAR15": {
+      "carId": "CAR15",
+      "text": "丰田 GR86",
+      "phonemes": "ㄈㄥ1ㄊ言2, ʤˈi ˈɑɹ ㄅㄚ1 ㄌ又4",
+      "sha256": "33282c430e66d388241e2d5a082be2150fb9e6de971325c5d7368ce9b00ce90c",
+      "duration": 2.712
+    },
+    "vehicle-name-CAR21": {
+      "carId": "CAR21",
+      "text": "保时捷 718 Cayman",
+      "phonemes": "ㄅㄠ3ㄕ十2ㄐㄝ2, ㄑㄧ1 ㄧ1 ㄅㄚ1 kˈAmən",
+      "sha256": "08e6c9df1e61fd5a24ff63f2b3bbf9e17c9a4239cc114148b73e80866ec003d9",
+      "duration": 2.976
+    },
+    "vehicle-name-CAR22": {
+      "carId": "CAR22",
+      "text": "迈凯伦 Artura",
+      "phonemes": "ㄇㄞ4ㄎㄞ3ㄌ文2, ɑɹtˈʊɹə",
+      "sha256": "b2e887bed66c48daffcbe061e65308f0802bb73bd5c640bce65bc17aaa853c2e",
+      "duration": 2.544
+    },
+    "vehicle-name-CAR23": {
+      "carId": "CAR23",
+      "text": "玛莎拉蒂 MC20",
+      "phonemes": "ㄇㄚ3ㄕㄚ1ㄌㄚ1ㄉㄧ4, ˈɛm sˈi ㄦ4 ㄌ应2",
+      "sha256": "5e671f64d6a86aa1c6983f9bb7c94f7e03e6227d0dc1ea011d91efe6460d751e",
+      "duration": 2.952
+    },
+    "vehicle-name-CAR24": {
+      "carId": "CAR24",
+      "text": "路特斯 Emira",
+      "phonemes": "ㄌㄨ4/ㄊㄜ4ㄙㄭ1, ɛmˈiɹə",
+      "sha256": "bea270802c28eafb955f6e76a3e0ae01bf37c4418c5d1f978af6f0254e36d23f",
+      "duration": 2.376
+    },
+    "vehicle-name-CAR26": {
+      "carId": "CAR26",
+      "text": "捷豹 F-Type",
+      "phonemes": "ㄐㄝ2ㄅㄠ4, ˈɛf tˈIp",
+      "sha256": "c3c30212d8ef650a7c875f40b0699d54b134f7d0ffc6dfba595ab4c2018f13d1",
+      "duration": 2.112
+    },
+    "vehicle-name-CAR29": {
+      "carId": "CAR29",
+      "text": "道奇 Viper",
+      "phonemes": "ㄉㄠ4ㄑㄧ2, vˈIpəɹ",
+      "sha256": "0d7dcdb414feb17ab2e40a6bfe8f9d5c5ad8d9da12c31095cc0516068d2cfdbb",
+      "duration": 2.304
+    },
+    "vehicle-name-CAR30": {
+      "carId": "CAR30",
+      "text": "宝马 i8",
+      "phonemes": "ㄅㄠ2ㄇㄚ3, ˈI ㄅㄚ1",
+      "sha256": "eb57e0598f89155d08bd9869406a299d9df15868b9c727783eb9088e036cebad",
+      "duration": 2.088
+    },
+    "vehicle-name-CAR31": {
+      "carId": "CAR31",
+      "text": "兰博基尼 Countach",
+      "phonemes": "ㄌㄢ2ㄅㄛ2ㄐㄧ1ㄋㄧ2, kˈuntaʧ",
+      "sha256": "f8ceb35ee872b7d6285a6a075fa4802b0963c8fef9b60a6883e25d48814e2f46",
+      "duration": 2.688
+    },
+    "vehicle-name-CAR32": {
+      "carId": "CAR32",
+      "text": "兰博基尼 Aventador SVJ",
+      "phonemes": "ㄌㄢ2ㄅㄛ2ㄐㄧ1ㄋㄧ2, ˈævəntˌædɔɹ ˈɛs vˈi ʤˈA",
+      "sha256": "a917309cff2f0e73da2e29fd70d7f73e0864a08ba9a482cea3766cc61bc01fff",
+      "duration": 3.504
+    },
+    "vehicle-name-CAR39": {
+      "carId": "CAR39",
+      "text": "兰博基尼 Centenario LP 770-4",
+      "phonemes": "ㄌㄢ2ㄅㄛ2ㄐㄧ1ㄋㄧ2, ʧɛntɛnˈaɹiO ˈɛl pˈi ㄑㄧ1 ㄑㄧ1 ㄌ应2 ㄙㄭ4",
+      "sha256": "b61d4c2422dcc12809e7b3cc12f02c62489368f0b27820f216d1bf7bbae7cde4",
+      "duration": 4.224
+    },
+    "vehicle-name-CAR43": {
+      "carId": "CAR43",
+      "text": "法拉利 F40",
+      "phonemes": "ㄈㄚ3ㄌㄚ1ㄌㄧ4, ˈɛf ㄙㄭ4 ㄌ应2",
+      "sha256": "f28edce616ef0b8983ef033fb88fe6af8ab446d7f884804082cb152518cc0042",
+      "duration": 2.568
+    },
+    "vehicle-name-CAR45": {
+      "carId": "CAR45",
+      "text": "法拉利 599 GTO",
+      "phonemes": "ㄈㄚ3ㄌㄚ1ㄌㄧ4, ㄨ3 ㄐ又3 ㄐ又3 ʤˈi tˈi ˈO",
+      "sha256": "ec320a86b209879b9fd4a79f25fcb456f19ff4200739b315da0166164b10018b",
+      "duration": 3.048
+    },
+    "vehicle-name-CAR48": {
+      "carId": "CAR48",
+      "text": "迈凯伦 Senna",
+      "phonemes": "ㄇㄞ4ㄎㄞ3ㄌ文2, sˈɛnə",
+      "sha256": "2bb9599e461f18397d9b239ce0e992455a15490beb3b2a5c851b97331d0828d5",
+      "duration": 2.184
+    },
+    "vehicle-name-CAR56": {
+      "carId": "CAR56",
+      "text": "保时捷 918 Spyder",
+      "phonemes": "ㄅㄠ3ㄕ十2ㄐㄝ2, ㄐ又3 ㄧ1 ㄅㄚ1 spˈIdəɹ",
+      "sha256": "d18f5fae606be339f6ecb3ae60fd0d67ca25242a7e3e8dfbea49f66ce094e90e",
+      "duration": 3.048
+    },
+    "vehicle-name-CAR60": {
+      "carId": "CAR60",
+      "text": "布加迪 Veyron",
+      "phonemes": "ㄅㄨ4ㄐ压1ㄉㄧ2, vˈAɹɔn",
+      "sha256": "bf31d97724cddc6882405182916a1d40ec3daaa0ae4298273c067044c59bcc51",
+      "duration": 2.328
+    },
+    "vehicle-name-CAR62": {
+      "carId": "CAR62",
+      "text": "帕加尼 Utopia",
+      "phonemes": "ㄆㄚ4ㄐ压1ㄋㄧ2, jutˈOpiə",
+      "sha256": "eb15845fcffae832ceaf1e744e17086a83233f9ccc616a0f567799dcedae804b",
+      "duration": 2.52
+    },
+    "vehicle-name-CAR65": {
+      "carId": "CAR65",
+      "text": "科尼赛克 CCX",
+      "phonemes": "ㄎㄜ1ㄋㄧ2/ㄙㄞ4ㄎㄜ4, sˈi sˈi ˈɛks",
+      "sha256": "066895447b9acffe41ddcfc2a5d54bea5f31c8a060b0e59e57c3f595c1a54688",
+      "duration": 2.856
+    },
+    "vehicle-name-CAR66": {
+      "carId": "CAR66",
+      "text": "阿斯顿·马丁 DB11",
+      "phonemes": "ㄚ1ㄙㄭ1ㄉ文4 ㄇㄚ3ㄉ应1, dˈi bˈi ㄧ1 ㄧ1",
+      "sha256": "8c6a0515af5544c0d7ca0e19c278842034adcf6114a9f3697aed8d324286fb83",
+      "duration": 3.12
+    },
+    "vehicle-name-CAR85": {
+      "carId": "CAR85",
+      "text": "丰田 MR2 (W20)",
+      "phonemes": "ㄈㄥ1ㄊ言2, ˈɛm ˈɑɹ ㄦ4 dˈʌbəl jˈu ㄦ4 ㄌ应2",
+      "sha256": "c874c8f5346ce20da97f38e7956f2845117f9c94c21bac4ab7b3447f91e17af4",
+      "duration": 3.264
+    },
+    "vehicle-name-CAR89": {
+      "carId": "CAR89",
+      "text": "丰田 Corolla Levin (AE92)",
+      "phonemes": "ㄈㄥ1ㄊ言2, kəɹˈɑlə lˈɛvɪn ˈA ˈi ㄐ又3 ㄦ4",
+      "sha256": "8219d274e925edae22390a8fa2e4ff71cfc30954c2bcba32e80cb4b087bfbcc1",
+      "duration": 3.552
+    },
+    "vehicle-name-CAR98": {
+      "carId": "CAR98",
+      "text": "本田 Integra Type R (DB8)",
+      "phonemes": "ㄅㄣ3ㄊ言2, ˈɪntᵻɡɹə tˈIp ˈɑɹ dˈi bˈi ㄅㄚ1",
+      "sha256": "1b3dcd80573ab29689995a4ec70935eab80ce73eb418902a213dcd0edbcdf4af",
+      "duration": 3.432
+    },
+    "vehicle-name-CAR99": {
+      "carId": "CAR99",
+      "text": "本田 NSX (1990)",
+      "phonemes": "ㄅㄣ3ㄊ言2, ˈɛn ˈɛs ˈɛks ㄧ1 ㄐ又3 ㄐ又3 ㄌ应2",
+      "sha256": "7cee149436228a0145765fb82626546ec3af9ce22f38821c5c3e6ec0dcb7e352",
+      "duration": 3.312
+    },
+    "vehicle-name-CAR100": {
+      "carId": "CAR100",
+      "text": "本田 S800",
+      "phonemes": "ㄅㄣ3ㄊ言2, ˈɛs ㄅㄚ1 ㄌ应2 ㄌ应2",
+      "sha256": "9f4a5d142f6f4dfcfcffa94c5a4f413d356599314597ebf33d7d8ecd67eb7e97",
+      "duration": 2.568
+    },
+    "vehicle-name-CAR105": {
+      "carId": "CAR105",
+      "text": "宝马 M4 CSL",
+      "phonemes": "ㄅㄠ2ㄇㄚ3, ˈɛm ㄙㄭ4 sˈi ˈɛs ˈɛl",
+      "sha256": "41a2f34f099b825a3eac00dd0016f5c1f44fc94f7b4c7993a2866de75a5c1248",
+      "duration": 2.688
+    },
+    "vehicle-name-CAR108": {
+      "carId": "CAR108",
+      "text": "宝马 M6 Gran Coupé",
+      "phonemes": "ㄅㄠ2ㄇㄚ3, ˈɛm ㄌ又4 ɡɹˈɑn kˈupA",
+      "sha256": "bb13bf39203e6f558da99d72284ea154bac9751b05890669607919d9c16f4e13",
+      "duration": 2.64
+    },
+    "vehicle-name-CAR111": {
+      "carId": "CAR111",
+      "text": "宝马 M3 (E30)",
+      "phonemes": "ㄅㄠ2ㄇㄚ3, ˈɛm ㄙㄢ1 ˈi ㄙㄢ1 ㄌ应2",
+      "sha256": "612312ec32a6d97e08afdf2251b451b9567e8f9f2dc4b1d30a80a8e1ac251974",
+      "duration": 2.736
+    },
+    "vehicle-name-CAR113": {
+      "carId": "CAR113",
+      "text": "梅赛德斯-奔驰 300 SL",
+      "phonemes": "ㄇㄟ2ㄙㄞ4ㄉㄜ2ㄙㄭ1 ㄅㄣ1ㄔ十2, ㄙㄢ1 ㄌ应2 ㄌ应2 ˈɛs ˈɛl",
+      "sha256": "27e12f356b6af6211e81061ae5d63fb9b80eb33d2a6fae73b9304c1dff8fba46",
+      "duration": 3.888
+    },
+    "vehicle-name-CAR118": {
+      "carId": "CAR118",
+      "text": "奥迪 RS5",
+      "phonemes": "ㄠ4ㄉㄧ2, ˈɑɹ ˈɛs ㄨ3",
+      "sha256": "2222482650bf0b66a36d5d4c30ffe993ce13b367675d687726473d2c9976ed0d",
+      "duration": 2.448
+    },
+    "vehicle-name-CAR119": {
+      "carId": "CAR119",
+      "text": "雪佛兰 Camaro (1970)",
+      "phonemes": "ㄒ月3ㄈㄛ2ㄌㄢ2, kəmˈɛɹO ㄧ1 ㄐ又3 ㄑㄧ1 ㄌ应2",
+      "sha256": "377f5f42deb4b98c54b37ae97582f6c8aee5a0dda2d5014b8cd1e20fa309fc2f",
+      "duration": 3.264
+    },
+    "vehicle-name-CAR120": {
+      "carId": "CAR120",
+      "text": "道奇 Challenger SRT",
+      "phonemes": "ㄉㄠ4ㄑㄧ2, ʧˈælənʤəɹ ˈɛs ˈɑɹ tˈi",
+      "sha256": "79f4f55f065a1588074eeb74792844136e7bf62d9004952da87036379a7bb6c8",
+      "duration": 3.024
+    },
+    "vehicle-name-CAR125": {
+      "carId": "CAR125",
+      "text": "福特 Mustang Shelby GT500",
+      "phonemes": "ㄈㄨ2ㄊㄜ4, mˈʌstˌæŋ ʃˈɛlbi ʤˈi tˈi ㄨ3 ㄌ应2 ㄌ应2",
+      "sha256": "6d206aae8488b07e672facfe71271a9910cb0495e1636806b77f4885fabf2da5",
+      "duration": 3.552
+    },
+    "vehicle-name-CAR135": {
+      "carId": "CAR135",
+      "text": "庞蒂亚克 Firebird Trans Am",
+      "phonemes": "ㄆㄤ2ㄉㄧ4压4/ㄎㄜ4, fˈIəɹbɜɹd tɹˈænz æm",
+      "sha256": "be96efed1c45a95dbbfb0be0b9b5dfa8cede9d112892cb1b2c761106155f8e75",
+      "duration": 3.336
+    },
+    "vehicle-name-CAR140": {
+      "carId": "CAR140",
+      "text": "法拉利 288 GTO",
+      "phonemes": "ㄈㄚ3ㄌㄚ1ㄌㄧ4, ㄦ4 ㄅㄚ1 ㄅㄚ1 ʤˈi tˈi ˈO",
+      "sha256": "2276d84751902a9658037853f525d1273419c7d31405ba5511fc52940cdf047e",
+      "duration": 2.976
+    },
+    "vehicle-name-CAR141": {
+      "carId": "CAR141",
+      "text": "法拉利 Roma",
+      "phonemes": "ㄈㄚ3ㄌㄚ1ㄌㄧ4, ɹˈomɑ",
+      "sha256": "23d0e9c125b168c217ae8f42e6c181e83c5aed120800f95afab06240d355bb64",
+      "duration": 2.184
+    },
+    "vehicle-name-CAR143": {
+      "carId": "CAR143",
+      "text": "迈凯伦 P1",
+      "phonemes": "ㄇㄞ4ㄎㄞ3ㄌ文2, pˈi ㄧ1",
+      "sha256": "54442f6d151ba0cf2976f225568bbd6994c3d1b0671d662f9d4baf25bc159c93",
+      "duration": 2.4
+    },
+    "vehicle-name-CAR144": {
+      "carId": "CAR144",
+      "text": "迈凯伦 570S Spider",
+      "phonemes": "ㄇㄞ4ㄎㄞ3ㄌ文2, ㄨ3 ㄑㄧ1 ㄌ应2 ˈɛs spˈIdəɹ",
+      "sha256": "e933e19180e266e9bdabbfaa739994ee187477fe0bde72aabc93ad9af16701bc",
+      "duration": 3.264
+    },
+    "vehicle-name-CAR147": {
+      "carId": "CAR147",
+      "text": "阿斯顿·马丁 Valour",
+      "phonemes": "ㄚ1ㄙㄭ1ㄉ文4 ㄇㄚ3ㄉ应1, vˈæləɹ",
+      "sha256": "b8af4da33a4e081e64aee351d7ec0136735937dde72798d1d3a4bd4b48b47d2f",
+      "duration": 2.832
+    },
+    "vehicle-name-CAR149": {
+      "carId": "CAR149",
+      "text": "保时捷 Taycan Turbo S",
+      "phonemes": "ㄅㄠ3ㄕ十2ㄐㄝ2, tˈIkɑn tˈɜɹbO ˈɛs",
+      "sha256": "0d7f2f7733b31734b3376fa5f828fed932303077eb7a1a7fb506dfd293a639a0",
+      "duration": 3.144
+    },
+    "vehicle-name-CAR152": {
+      "carId": "CAR152",
+      "text": "三菱 Lancer Evolution VI",
+      "phonemes": "ㄙㄢ1ㄌ应2, lˈænsəɹ ˌɛvəlˈuʃən vˈi ˈI",
+      "sha256": "a7d399b864df0942d9c7b34312b51a1530384712cb117228317a4f51903fff68",
+      "duration": 3.312
+    },
+    "vehicle-name-CAR158": {
+      "carId": "CAR158",
+      "text": "劳斯莱斯 Phantom",
+      "phonemes": "ㄌㄠ2ㄙㄭ1ㄌㄞ2ㄙㄭ1, fˈæntəm",
+      "sha256": "c1262bda23eb80219ce8628a3075b8aefe70ea2698c367c514209cbdcf5ca5c0",
+      "duration": 2.664
+    },
+    "vehicle-name-CAR160": {
+      "carId": "CAR160",
+      "text": "比亚迪 Seal",
+      "phonemes": "ㄅㄧ3压4ㄉㄧ2, sˈiᵊl",
+      "sha256": "8ecdaa9fb4583faa32561030aae9362522357dff6411dfb8dd003cda7ac0cd7b",
+      "duration": 2.016
+    },
+    "vehicle-name-CAR161": {
+      "carId": "CAR161",
+      "text": "本田 Civic Type R (EK9)",
+      "phonemes": "ㄅㄣ3ㄊ言2, sˈɪvɪk tˈIp ˈɑɹ ˈi kˈA ㄐ又3",
+      "sha256": "e83f86b512892465c033eea64489ed3cee47b01c2975eb20967d9bfab27a0738",
+      "duration": 3.264
+    },
+    "vehicle-name-CAR163": {
+      "carId": "CAR163",
+      "text": "大众 Golf GTI (Mk8)",
+      "phonemes": "ㄉㄚ4ㄓ中4, ɡˈɔlf ʤˈi tˈi ˈI ˈɛm kˈA ㄅㄚ1",
+      "sha256": "7a39534d7e0575dcfbf9e20121f33046d4baf21b90366d4d2f7624c62cd92c2b",
+      "duration": 3.456
+    },
+    "vehicle-name-CAR165": {
+      "carId": "CAR165",
+      "text": "铃木 Swift",
+      "phonemes": "ㄌ应2ㄇㄨ4, swˈɪft",
+      "sha256": "5f25f58db61f6d594cc8948037bb5341ff97934a01289119e9693d5bb7862540",
+      "duration": 1.728
+    },
+    "vehicle-name-CAR168": {
+      "carId": "CAR168",
+      "text": "斯巴鲁 Impreza WRX STI (2004)",
+      "phonemes": "ㄙㄭ1ㄅㄚ1ㄌㄨ3, ɪmpɹˈɛzə dˈʌbəl jˈu ˈɑɹ ˈɛks ˈɛs tˈi ˈI ㄦ4 ㄌ应2 ㄌ应2 ㄙㄭ4",
+      "sha256": "e395827af5eed86048c146bec96b2a921546ff116ff63bbb27169d80047a98e6",
+      "duration": 4.8
+    },
+    "vehicle-name-CAR169": {
+      "carId": "CAR169",
+      "text": "丰田 Crown Athlete (S210)",
+      "phonemes": "ㄈㄥ1ㄊ言2, kɹˈWn ˈæθəlˌit ˈɛs ㄦ4 ㄧ1 ㄌ应2",
+      "sha256": "ae5c6e99e6cc907c7adb11cbecc422c4c3d735805b99103372dd44cd59a97b3f",
+      "duration": 3.384
+    },
+    "vehicle-name-CAR171": {
+      "carId": "CAR171",
+      "text": "特斯拉 Model 3",
+      "phonemes": "ㄊㄜ4ㄙㄭ1ㄌㄚ1, mˈɑdᵊl ㄙㄢ1",
+      "sha256": "3fac6748da01b5dc340437f1d7bb343e6a32e4b33a187d1478ea0fb60460efcf",
+      "duration": 2.52
+    },
+    "vehicle-name-CAR172": {
+      "carId": "CAR172",
+      "text": "凯迪拉克 Escalade",
+      "phonemes": "ㄎㄞ3ㄉㄧ2ㄌㄚ1ㄎㄜ4, ˌɛskəlˈAd",
+      "sha256": "d13ea5d2e1cd2e5683b3704950030f75a9c288c05414ab72cadb63d0691ee38a",
+      "duration": 2.856
+    },
+    "vehicle-name-CAR173": {
+      "carId": "CAR173",
+      "text": "别克 Skylark Convertible (1953)",
+      "phonemes": "ㄅㄝ2ㄎㄜ4, skˈIlˌɑɹk kənvˈɜɹTəbᵊl ㄧ1 ㄐ又3 ㄨ3 ㄙㄢ1",
+      "sha256": "afdcf9d3ae6342b62e12fd81a6cdf1f468c8fbf6244e5fe29573f60bed43df69",
+      "duration": 3.888
+    },
+    "vehicle-name-CAR174": {
+      "carId": "CAR174",
+      "text": "路虎 Range Rover (2006)",
+      "phonemes": "ㄌㄨ4ㄏㄨ3, ɹˈAnʤ ɹˈOvəɹ ㄦ4 ㄌ应2 ㄌ应2 ㄌ又4",
+      "sha256": "555225a4d77c73ca68ea8d3f9ae50a5c651649c55231794609a1a68f7ebc4933",
+      "duration": 3.408
+    },
+    "vehicle-name-CAR177": {
+      "carId": "CAR177",
+      "text": "雷克萨斯 ES Hybrid",
+      "phonemes": "ㄌㄟ2ㄎㄜ4ㄙㄚ4ㄙㄭ1, ˈi ˈɛs hˈIbɹˌɪd",
+      "sha256": "60831203363d6689234beeb4de3106a4df8e0b080518e8a985735e4fc58bf6c4",
+      "duration": 2.832
+    },
+    "vehicle-name-CAR178": {
+      "carId": "CAR178",
+      "text": "福特 Bronco",
+      "phonemes": "ㄈㄨ2ㄊㄜ4, bɹˈɑŋkO",
+      "sha256": "c174885e91980c44034fea66f6482c30de8d7746eafddad3e1523e4384bd570d",
+      "duration": 2.16
+    },
+    "vehicle-name-CAR181": {
+      "carId": "CAR181",
+      "text": "菲亚特 500 Abarth",
+      "phonemes": "ㄈㄟ1压4ㄊㄜ4, ㄨ3 ㄌ应2 ㄌ应2 abˈart",
+      "sha256": "412186cb402939c873a36636f5e69c51e3484bd3e307874ce2eb50fa1c605d54",
+      "duration": 2.856
+    },
+    "vehicle-name-CAR182": {
+      "carId": "CAR182",
+      "text": "宝马 X5 M Competition",
+      "phonemes": "ㄅㄠ2ㄇㄚ3, ˈɛks ㄨ3 ˈɛm kˌɑmpətˈɪʃən",
+      "sha256": "d823310e9ea563e5a6c86769090134d8727efeb95dd7fc26d4edb313a76b705e",
+      "duration": 3.192
+    },
+    "vehicle-name-CAR185": {
+      "carId": "CAR185",
+      "text": "菲亚特 850 Spider",
+      "phonemes": "ㄈㄟ1压4ㄊㄜ4, ㄅㄚ1 ㄨ3 ㄌ应2 spˈIdəɹ",
+      "sha256": "b354790c8c3568c90b9a6b8eee5f09b3e173a3db1c6940bb62f31780acab124a",
+      "duration": 3
+    },
+    "vehicle-name-CAR192": {
+      "carId": "CAR192",
+      "text": "比亚迪 Dolphin",
+      "phonemes": "ㄅㄧ3压4ㄉㄧ2, dˈɑlfən",
+      "sha256": "a880b9ffda9c54a0c73ec872c729c2397aefbb48bae927f475ecb1f12da24c68",
+      "duration": 2.4
+    },
+    "vehicle-name-CAR194": {
+      "carId": "CAR194",
+      "text": "梅赛德斯·奔驰 190 E",
+      "phonemes": "ㄇㄟ2ㄙㄞ4ㄉㄜ2ㄙㄭ1 ㄅㄣ1ㄔ十2, ㄧ1 ㄐ又3 ㄌ应2 ˈi",
+      "sha256": "b1a1d067e965a0d5ad161607573f0cd9bd6b81841e993b5d75f26de232c68c22",
+      "duration": 3.864
+    }
+  }
+}

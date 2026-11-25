@@ -6,7 +6,7 @@ import type { Connect, Plugin } from 'vite';
 // entry point requires reviewing it here; arbitrary repository files stay private.
 const contentFiles = new Set([
   'r3.json', 'vehicle-identities.json', 'retired-car-previews.json',
-  'vehicle-models.json', 'photo-sources.json', 'photo-view-sources.json',
+  'vehicle-models.json', 'vehicle-profiles.json', 'photo-sources.json', 'photo-view-sources.json',
   'viewer-paints.json', // Public, model-material selections for the viewer only.
 ]);
 const moduleExtension = /\.(?:[cm]?js|[cm]?ts|jsx|tsx|css|wasm)$/i;
