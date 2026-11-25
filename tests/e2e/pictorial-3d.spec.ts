@@ -44,6 +44,20 @@ test('直接拖动立体车可看到前后左右，键盘和重新选车也能�
  }
  await page.mouse.up();expect(travelled).toBeGreaterThan(1);
  const afterDrag=(await canvas.getAttribute('data-yaw'))!;await canvas.press('ArrowLeft');await expect(canvas).not.toHaveAttribute('data-yaw',afterDrag);
+ await canvas.press('+');await expect(canvas).toHaveAttribute('data-zoom','125');
+ await canvas.press('Home');await expect(canvas).toHaveAttribute('data-zoom','100');
+ const wheel=await canvas.evaluate(node=>{
+  const pinch=new WheelEvent('wheel',{deltaY:-50,ctrlKey:true,bubbles:true,cancelable:true});
+  const scroll=new WheelEvent('wheel',{deltaY:50,bubbles:true,cancelable:true});
+  node.dispatchEvent(pinch);node.dispatchEvent(scroll);
+  return {pinch:pinch.defaultPrevented,scroll:scroll.defaultPrevented};
+ });
+ expect(wheel).toEqual({pinch:true,scroll:false});
+ await expect.poll(async()=>Number(await canvas.getAttribute('data-zoom'))).toBeGreaterThan(140);
+ await page.getByRole('link',{name:'回到选车',exact:true}).click();
+ await page.getByRole('button',{name:/选择.*911 GT3 RS/}).click();
+ await expect(canvas).toHaveAttribute('data-car','CAR03',{timeout:45000});
+ await expect(canvas).toHaveAttribute('data-zoom','100');
 });
 test('离开立体查看后能重新选车并打开对应模型 @smoke',async({page})=>{
  test.setTimeout(120000);await page.goto('/#/cars/CAR01');await expect(page.locator('.vehicle-webgl')).toHaveAttribute('data-ready','true',{timeout:30000});
