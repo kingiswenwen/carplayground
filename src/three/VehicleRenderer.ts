@@ -10,6 +10,7 @@ import {assetUrl} from '../domain/content';
 import type {VehicleModelSpec} from '../domain/vehicle-models';
 import {disposeModel,fitModel,frameModel} from './model';
 import {isVehicleLampName} from './part-names';
+import {paintHex, type ShowroomPaint} from '../domain/showroom-paint';
 
 function makeContactShadow(){
  const size=64, pixels=new Uint8Array(size*size*4);
@@ -99,7 +100,7 @@ export class VehicleRenderer{
  }
  async load(spec:VehicleModelSpec){
   if(this.disposed)return;const canvas=this.renderer.domElement;canvas.style.visibility='hidden';this.renderer.clear();const epoch=++this.epoch;this.clearCar();this.first=true;this.carId=spec.id;this.lights=false;
-  canvas.dataset.ready='false';canvas.dataset.paint='original';delete canvas.dataset.car;delete canvas.dataset.lights;
+  canvas.dataset.ready='false';canvas.dataset.paint='original';canvas.dataset.finish='original';delete canvas.dataset.car;delete canvas.dataset.lights;
   const abort=new AbortController();this.abort=abort;
   this.timer=setTimeout(()=>{if(epoch===this.epoch)this.fail();},30000);
   try{
@@ -131,10 +132,12 @@ export class VehicleRenderer{
   }catch(error){if(this.disposed||epoch!==this.epoch)return;console.warn('车辆模型未能打开',error);this.fail();}
  }
  private fail(){if(this.disposed)return;this.dispose();this.onUnavailable();}
- setPaint(color:string|null){
-  const canvas=this.renderer.domElement,key=color||'original';
-  if(!this.paint||canvas.dataset.paint===key)return;
-  this.paint.setColor(color);canvas.dataset.paint=key;this.needsRender=true;
+ setPaint(paint:ShowroomPaint|null){
+  const canvas=this.renderer.domElement,color=paint?paintHex(paint):null;
+  const key=color??'original',finish=paint?.finish??'original';
+  if(!this.paint||(canvas.dataset.paint===key&&canvas.dataset.finish===finish))return;
+  this.paint.setPaint(color,paint?.finish??'gloss');
+  canvas.dataset.paint=key;canvas.dataset.finish=finish;this.needsRender=true;
  }
  private keepScale=(event:Event)=>{
   if(event.type!=='wheel'||(event as WheelEvent).ctrlKey||(event as WheelEvent).metaKey)event.preventDefault();

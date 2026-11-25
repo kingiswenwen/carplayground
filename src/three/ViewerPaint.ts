@@ -2,9 +2,15 @@ import * as T from 'three';
 import selections from '../../content/viewer-paints.json';
 import type {VehicleModelSpec} from '../domain/vehicle-models';
 import {getCar} from '../domain/content';
+import type {PaintFinish} from '../domain/showroom-paint';
 
 type PaintSelection={materials:string[];mode:'body'|'masked';mesh?:string;source?:number[];protectedUV?:Record<string,number[][][]>};
 type PaintMaterial=T.MeshStandardMaterial|T.MeshBasicMaterial;
+const finishes:Record<PaintFinish,{roughness:number;metalness:number}>={
+ gloss:{roughness:.17,metalness:.16},
+ matte:{roughness:.85,metalness:0},
+ metallic:{roughness:.31,metalness:.62},
+};
 export function viewerPaintSelection(spec:VehicleModelSpec):PaintSelection{
  return (selections as Record<string,PaintSelection>)[spec.id]||{materials:spec.paintMaterials,mode:'body'};
 }
@@ -13,7 +19,8 @@ export function viewerPaintSelection(spec:VehicleModelSpec):PaintSelection{
 export class ViewerPaint{
  private enabled=new T.Uniform(0);
  private color=new T.Uniform(new T.Color());
- private materials:{material:PaintMaterial;roughness?:number;metalness?:number}[]=[];
+ private roughness=new T.Uniform(finishes.gloss.roughness);
+ private metalness=new T.Uniform(finishes.gloss.metalness);
  private masks:T.CanvasTexture[]=[];
  readonly materialCount:number;
  constructor(root:T.Group,spec:VehicleModelSpec,bounds:T.Box3){
@@ -40,14 +47,15 @@ export class ViewerPaint{
     }
     material.onBeforeCompile=shader=>{
      if(mask)shader.uniforms.viewerPaintMask=new T.Uniform(mask);
-     Object.assign(shader.uniforms,{viewerPaintEnabled:this.enabled,viewerPaintColor:this.color,
+     Object.assign(shader.uniforms,{viewerPaintEnabled:this.enabled,viewerPaintColor:this.color,viewerPaintRoughness:this.roughness,viewerPaintMetalness:this.metalness,
       viewerPaintMode:new T.Uniform(masked?(neutral?2:1):0),viewerPaintSource:new T.Uniform(sourceHue),
       viewerPaintMin:new T.Uniform(bounds.min),viewerPaintSize:new T.Uniform(size),viewerPaintAlongZ:new T.Uniform(size.z>size.x?1:0),
       viewerPaintAspect:new T.Uniform(Math.max(size.x,size.z)/Math.max(size.y,.001)),viewerPaintWheels:new T.Uniform(new T.Vector2(wheelPositions[0],wheelPositions[1]))});
      shader.vertexShader='varying vec3 vViewerPaintPosition;\nuniform vec3 viewerPaintMin;\nuniform vec3 viewerPaintSize;\n'+shader.vertexShader;
      shader.vertexShader=shader.vertexShader.replace('#include <project_vertex>','#include <project_vertex>\nvViewerPaintPosition=((modelMatrix*vec4(transformed,1.0)).xyz-viewerPaintMin)/max(viewerPaintSize,vec3(0.001));');
-     shader.fragmentShader=(mask?'uniform sampler2D viewerPaintMask;\n':'')+'varying vec3 vViewerPaintPosition;\nuniform float viewerPaintEnabled;\nuniform vec3 viewerPaintColor;\nuniform float viewerPaintMode;\nuniform vec3 viewerPaintSource;\nuniform float viewerPaintAlongZ;\nuniform float viewerPaintAspect;\nuniform vec2 viewerPaintWheels;\n'+shader.fragmentShader;
+     shader.fragmentShader=(mask?'uniform sampler2D viewerPaintMask;\n':'')+'varying vec3 vViewerPaintPosition;\nuniform float viewerPaintEnabled;\nuniform vec3 viewerPaintColor;\nuniform float viewerPaintRoughness;\nuniform float viewerPaintMetalness;\nuniform float viewerPaintMode;\nuniform vec3 viewerPaintSource;\nuniform float viewerPaintAlongZ;\nuniform float viewerPaintAspect;\nuniform vec2 viewerPaintWheels;\n'+shader.fragmentShader;
      shader.fragmentShader=shader.fragmentShader.replace('#include <color_fragment>',`#include <color_fragment>
+      float viewerPaintWeight=0.0;
       if(viewerPaintEnabled>0.5){
        vec3 originalPaint=diffuseColor.rgb;
        float highPaint=max(max(originalPaint.r,originalPaint.g),originalPaint.b);
@@ -69,26 +77,25 @@ export class ViewerPaint{
        ${mask?'paintMask*=texture2D(viewerPaintMask,vMapUv).r;':''}
        float paintDetail=0.55+0.45*clamp(highPaint,0.0,1.0);
        diffuseColor.rgb=mix(originalPaint,viewerPaintColor*paintDetail,paintMask);
+       viewerPaintWeight=paintMask;
       }`);
+     // The same mask protects the material on glass and trim baked into the atlas.
+     shader.fragmentShader=shader.fragmentShader
+      .replace('#include <roughnessmap_fragment>','#include <roughnessmap_fragment>\nroughnessFactor=mix(roughnessFactor,viewerPaintRoughness,viewerPaintWeight);')
+      .replace('#include <metalnessmap_fragment>','#include <metalnessmap_fragment>\nmetalnessFactor=mix(metalnessFactor,viewerPaintMetalness,viewerPaintWeight);');
     };
-    material.customProgramCacheKey=()=> 'viewer-body-paint-v2'+(mask?'-atlas-mask':'');
+    material.customProgramCacheKey=()=> 'viewer-body-paint-v3'+(mask?'-atlas-mask':'');
     return material;
    };
    object.material=Array.isArray(object.material)?object.material.map(paint):paint(object.material);
   });
   this.materialCount=clones.size;
-  this.materials=[...clones.values()].map(material=>({material,...(material instanceof T.MeshStandardMaterial?{roughness:material.roughness,metalness:material.metalness}:{})}));
  }
  dispose(){for(const mask of this.masks)mask.dispose();this.masks=[];}
- setColor(color:string|null){
-  this.enabled.value=color?1:0;if(color)this.color.value.set(color);
-  for(const {material,roughness,metalness} of this.materials){
-   if(material instanceof T.MeshStandardMaterial){
-    material.roughness=color?Math.max(.3,roughness!):roughness!;
-    material.metalness=color?Math.max(.4,metalness!):metalness!;
-   }
-   // Refresh custom uniforms even when every mesh shares one cached program.
-   material.needsUpdate=true;
-  }
+ setPaint(color:string|null,finish:PaintFinish){
+  this.enabled.value=color?1:0;
+  if(color)this.color.value.set(color);
+  this.roughness.value=finishes[finish].roughness;
+  this.metalness.value=finishes[finish].metalness;
  }
 }

@@ -1,63 +1,19 @@
-import {lazy, Suspense, useLayoutEffect, useState, type CSSProperties, type ReactNode} from 'react';
+import {lazy, Suspense, useLayoutEffect, useState, type ReactNode} from 'react';
 import {getCar} from '../domain/content';
 import {vehicleModel} from '../domain/vehicle-models';
 import {vehiclePreview} from '../domain/vehicle-preview';
 import {CarThumbnail} from './CarImage';
 import {CircleDashed, Rotate3D, RotateCcw} from './TownIcons';
+import {VehiclePaintControls} from './VehiclePaintControls';
+import type {ShowroomPaint} from '../domain/showroom-paint';
 
 const Model = lazy(() => import('../three/VehicleStage').then(module => ({default:module.VehicleStage})));
-const paints = [
-  {name:'红', color:'#df4145'}, {name:'橙', color:'#f08b2c'}, {name:'黄', color:'#ffc928'},
-  {name:'绿', color:'#30c562'}, {name:'蓝', color:'#3798e8'}, {name:'紫', color:'#8657d6'}, {name:'白', color:'#f0efdf'},
-];
-
-function PaintControls({paint, original, change}:{paint:string|null; original:string; change:(value:string|null)=>void}) {
-  const [draft,setDraft] = useState(paint??original);
-  const [error,setError] = useState(false);
-  function select(color:string|null){
-    change(color);
-    setDraft(color??original);
-    setError(false);
-  }
-  return <div className="model-paints" role="group" aria-label="给立体车试颜色">
-    <div className="vehicle-paint-header">
-      <span className="vehicle-option-label">车身颜色</span>
-      <button type="button" className="vehicle-text-control paint-reset"
-        aria-pressed={paint===null} onClick={() => select(null)}>还原原色</button>
-    </div>
-    <div className="vehicle-paint-inputs">
-      <label className="vehicle-custom-color">
-        <input type="color" value={paint??original} onChange={event => select(event.currentTarget.value)}/>
-        <span>自定义颜色</span>
-      </label>
-      <form className="vehicle-color-code" onSubmit={event=>{
-        event.preventDefault();
-        const match = draft.trim().match(/^#?([\da-f]{6}|[\da-f]{3})$/i);
-        if(!match){setError(true);return;}
-        const code=match[1].toLowerCase();
-        select('#'+(code.length===3?[...code].map(char=>char+char).join(''):code));
-      }}>
-        <label>颜色代码 <input value={draft} autoComplete="off" spellCheck={false} aria-invalid={error}
-          onChange={event=>{setDraft(event.currentTarget.value);setError(false);}}/></label>
-        <button className="vehicle-text-control" type="submit">应用</button>
-      </form>
-    </div>
-    {error&&<p className="vehicle-color-error" role="alert">请输入颜色代码，例如 #26A69A。</p>}
-    <div className="vehicle-swatches">
-      {paints.map(choice => <button key={choice.color} type="button" aria-label={`立体车试${choice.name}色`}
-        aria-pressed={paint===choice.color} style={{'--paint':choice.color} as CSSProperties} onClick={() => select(choice.color)}>
-        <span className="vehicle-swatch" aria-hidden="true"/>{choice.name}
-      </button>)}
-    </div>
-  </div>;
-}
-
 export function VehicleViews({carId, title, children}:{carId:string; title?:string; children:ReactNode}) {
   const car = getCar(carId)!;
   const spec = vehicleModel(carId);
   const [readyCar,setReadyCar] = useState('');
   const [failedCar,setFailedCar] = useState('');
-  const [paint,setPaint] = useState<string|null>(null);
+  const [paint,setPaint] = useState<ShowroomPaint|null>(null);
   const [attempt,setAttempt] = useState(0);
   const ready=readyCar===carId;
   const failed=!spec||failedCar===carId;
@@ -95,7 +51,9 @@ export function VehicleViews({carId, title, children}:{carId:string; title?:stri
     </div>
     <div className="vehicle-console">
       {title&&<h2 className="vehicle-name">{title}</h2>}
-      {ready&&!failed&&<PaintControls key={carId} paint={paint} original={original} change={setPaint}/>}
+      {!failed&&(ready
+        ? <VehiclePaintControls key={carId} paint={paint} original={original} change={setPaint}/>
+        : <div className="vehicle-paint-placeholder" aria-hidden="true"/>)}
       <div className="vehicle-actions">{children}</div>
     </div>
   </div>;

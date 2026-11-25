@@ -26,6 +26,8 @@ test('手机展厅仅显示立体车，能自定义换色和就地展开对应�
  await expect(profile).toContainText('三台电动机');
  await expect(profile.getByRole('link',{name:'查看车型资料'})).toHaveAttribute('href',/lamborghini\.com.*revuelto/);
  await expect(viewer.getByRole('link',{name:'带它去洗车',exact:true})).toHaveAttribute('href',/#\/play\/H03\?car=CAR01/);
+ const precise=paints.getByRole('button',{name:'输入颜色代码'});
+ await precise.click();
  const code=paints.getByRole('textbox',{name:'颜色代码'});
  await code.fill('invalid');await code.press('Enter');
  await expect(paints.getByRole('alert')).toBeVisible();
@@ -33,10 +35,21 @@ test('手机展厅仅显示立体车，能自定义换色和就地展开对应�
  await code.fill('#29b');await paints.getByRole('button',{name:'应用',exact:true}).click();
  await expect(canvas).toHaveAttribute('data-paint','#2299bb');
  await expect(paints.getByRole('alert')).toHaveCount(0);
- const custom=paints.getByLabel('自定义颜色');
- await custom.fill('#ad8b26');
- await expect(canvas).toHaveAttribute('data-paint','#ad8b26');
- await expect(code).toHaveValue('#ad8b26');
+ await expect(precise).toHaveAttribute('aria-expanded','false');
+ await expect(precise).toBeFocused();
+ const hue=paints.getByRole('slider',{name:'色相',exact:true});
+ await hue.scrollIntoViewIfNeeded();
+ const slider=(await hue.boundingBox())!;
+ await page.mouse.move(slider.x+slider.width*.15,slider.y+slider.height/2);
+ await page.mouse.down();
+ await page.mouse.move(slider.x+slider.width*.72,slider.y+slider.height/2,{steps:8});
+ await page.mouse.up();
+ await expect(canvas).not.toHaveAttribute('data-paint','#2299bb');
+ await paints.getByRole('slider',{name:'明度'}).press('Home');
+ await expect(canvas).toHaveAttribute('data-paint','#000000');
+ await paints.getByRole('slider',{name:'明度'}).press('End');
+ await paints.getByRole('slider',{name:'饱和度'}).press('Home');
+ await expect(canvas).toHaveAttribute('data-paint','#ffffff');
  await paints.getByRole('button',{name:'还原原色',exact:true}).click();
  await expect(canvas).toHaveAttribute('data-paint','original');
  await page.getByRole('button',{name:/选择.*Chiron Profilée/}).click();
@@ -79,6 +92,15 @@ test.describe('触屏立体展台',()=>{
   await touch('touchEnd');
   await expect.poll(()=>page.evaluate(()=>scrollY)).toBeGreaterThan(beforeScroll+30);
   expect(await scale()).toBe(startScale);
+  const hue=page.getByRole('slider',{name:'色相',exact:true});
+  await hue.scrollIntoViewIfNeeded();
+  const slider=(await hue.boundingBox())!;
+  const trackY=slider.y+slider.height/2;
+  await touch('touchStart',{x:slider.x+slider.width*.2,y:trackY});
+  for(const offset of [.3,.45,.6,.75])await touch('touchMove',{x:slider.x+slider.width*offset,y:trackY});
+  await touch('touchEnd');
+  await expect(canvas).not.toHaveAttribute('data-paint','original');
+  await expect.poll(async()=>Number(await hue.inputValue())).toBeGreaterThan(230);
  });
 });
 
@@ -176,15 +198,29 @@ test('全部车型在真实画面中可换红蓝两色并使用对应模型封�
  expect(failures,'Cars must change actual body pixels, not just button state').toEqual([]);
 });
 
-test('分离车漆和不同贴图车身都能还原原色',async({page})=>{
+test('分离车漆和贴图车身能真实显示三种漆面并还原原色',async({page})=>{
  test.setTimeout(90000);await page.setViewportSize({width:960,height:820});
  for(const id of ['CAR01','CAR160','CAR192']){
   await page.goto(`/#/cars/${id}`);const canvas=page.locator('.vehicle-webgl[data-ready=true]');
   await expect(canvas).toHaveAttribute('data-car',id,{timeout:45000});
   const reset=page.getByRole('button',{name:'还原原色'});await reset.click();const original=await canvas.screenshot();
+  const photos:Buffer[]=[];
   await page.getByRole('button',{name:'立体车试绿色',exact:true}).click();
-  await expect(reset).toHaveAttribute('aria-pressed','false');await canvas.screenshot();
+  for(const [finish,label] of [['gloss','亮面'],['matte','哑光'],['metallic','金属漆']]){
+   await page.getByRole('radio',{name:label,exact:true}).check();
+   await expect(canvas).toHaveAttribute('data-finish',finish);
+   await expect(canvas).toHaveAttribute('data-paint','#30c562');
+   photos.push(await sharp(await vehiclePixels(canvas)).removeAlpha().raw().toBuffer());
+  }
+  for(const [i,j] of [[0,1],[0,2],[1,2]]){
+   const x=photos[i],y=photos[j];
+   expect(x.length).toBe(y.length);
+   let changed=0;
+   for(let p=0;p<x.length;p+=3)if(Math.abs(x[p]-y[p])+Math.abs(x[p+1]-y[p+1])+Math.abs(x[p+2]-y[p+2])>20)changed++;
+   expect(changed,`${id} finish ${i} and ${j} must render visibly differently`).toBeGreaterThan(300);
+  }
   await reset.click();await expect(reset).toHaveAttribute('aria-pressed','true');const restored=await canvas.screenshot();
+  await expect(canvas).toHaveAttribute('data-finish','original');
   const a=await sharp(original).removeAlpha().raw().toBuffer(),b=await sharp(restored).removeAlpha().raw().toBuffer();
   expect(a.length).toBe(b.length);let changed=0;for(let i=0;i<a.length;i+=3)if(Math.abs(a[i]-b[i])+Math.abs(a[i+1]-b[i+1])+Math.abs(a[i+2]-b[i+2])>10)changed++;
   expect(changed/(a.length/3),id+' must retain its original appearance').toBeLessThan(.005);

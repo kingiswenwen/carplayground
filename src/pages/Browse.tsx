@@ -57,7 +57,7 @@ export function Showroom(_props:{welcome:boolean;begin:(sound:boolean)=>void}){
   const frame=requestAnimationFrame(()=>{
    const stage=preview.current;if(!stage)return;
    const bounds=stage.getBoundingClientRect();
-   if(bounds.top<0||bounds.bottom>window.innerHeight)stage.scrollIntoView({block:'center',inline:'nearest',behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
+   if(bounds.top<0||bounds.bottom>window.innerHeight)stage.scrollIntoView({block:bounds.height>window.innerHeight?'start':'center',inline:'nearest',behavior:window.matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
   });
   return()=>cancelAnimationFrame(frame);
  },[index]);
