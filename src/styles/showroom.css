@@ -108,47 +108,142 @@
 }
 .vehicle-secondary:not(:disabled):hover { background: #e7eddf; }
 .vehicle-secondary .town-icon { width: 20px; height: 20px; }
-.model-paints { display: grid; gap: 5px; }
-.vehicle-paint-header { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
-.paint-reset { padding-inline: 8px; }
-.paint-reset[aria-pressed=true] { background: #eaf0e2; }
-.vehicle-swatches { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); }
-.vehicle-swatches button {
-  display: flex;
-  flex-direction: column;
+.model-paints { display: grid; gap: 8px; }
+.vehicle-paint-placeholder { min-height: 290px; }
+.vehicle-paint-header { display: flex; align-items: center; gap: 5px; }
+.vehicle-paint-header h3 { flex: 1; }
+.paint-reset { padding-inline: 6px; white-space: nowrap; }
+.paint-reset[aria-pressed=true] { color: #536957; }
+.vehicle-paint-value {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 3px;
-  min-width: 44px;
-  min-height: 52px;
-  padding: 4px 0;
-  font-size: 12px;
-  color: #365649;
-  border-radius: 11px;
+  gap: 4px;
+  min-height: 44px;
+  padding: 0 5px;
+  border-radius: 8px;
+  font: 700 12px ui-monospace, monospace;
 }
-.vehicle-swatches button:hover { background: #f0eee2; }
-.vehicle-swatches button[aria-pressed=true] { background: #eaf0e2; font-weight: 800; }
+.vehicle-paint-value:hover, .vehicle-paint-value[aria-expanded=true] { background: #edf0e3; }
+.vehicle-paint-value .vehicle-swatch { width: 16px; height: 16px; border-radius: 5px; }
+.vehicle-paint-value .town-icon { width: 13px; height: 13px; }
+.vehicle-paint-value[aria-expanded=true] .town-icon { transform: rotate(180deg); }
+.vehicle-paint-slider {
+  display: grid;
+  grid-template-columns: 3.4em minmax(0,1fr) 3.2em;
+  align-items: center;
+  gap: 6px;
+  min-height: 44px;
+  color: #364f42;
+  font-size: 13px;
+  font-weight: 700;
+}
+.vehicle-paint-number { text-align: right; font-size: 12px; font-variant-numeric: tabular-nums; }
+.vehicle-paint-slider input {
+  appearance: none;
+  background: transparent;
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  margin: 0;
+  cursor: ew-resize;
+  touch-action: pan-y;
+  border-radius: 8px;
+}
+.vehicle-paint-slider input::-webkit-slider-runnable-track {
+  height: 12px;
+  border-radius: 999px;
+  background: var(--paint-track);
+  box-shadow: inset 0 0 0 1px #2337293b;
+}
+.vehicle-paint-slider input::-moz-range-track {
+  height: 12px;
+  border-radius: 999px;
+  background: var(--paint-track);
+  box-shadow: inset 0 0 0 1px #2337293b;
+}
+.vehicle-paint-slider input::-webkit-slider-thumb {
+  appearance: none;
+  width: 19px;
+  height: 22px;
+  margin-top: -5px;
+  border-radius: 7px;
+  border: 2px solid #335647;
+  background: #fffdf7;
+  box-shadow: 0 2px 3px #392b162b;
+}
+.vehicle-paint-slider input::-moz-range-thumb {
+  box-sizing: border-box;
+  width: 19px;
+  height: 22px;
+  border-radius: 7px;
+  border: 2px solid #335647;
+  background: #fffdf7;
+  box-shadow: 0 2px 3px #392b162b;
+}
+.vehicle-swatches { display: grid; grid-template-columns: repeat(7,minmax(0,1fr)); }
+.vehicle-swatches button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0;
+  border-radius: 8px;
+}
+.vehicle-swatches button:hover, .vehicle-swatches button[aria-pressed=true] { background: #edf0e3; }
 .vehicle-swatch {
-  width: 23px;
-  height: 23px;
-  border: 1px solid #32453970;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #32453980;
   border-radius: 50%;
   background: var(--paint);
 }
 .vehicle-swatches button[aria-pressed=true] .vehicle-swatch { outline: 2px solid #3d6b52; outline-offset: 2px; }
-.vehicle-paint-inputs { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 10px; }
-.vehicle-custom-color, .vehicle-color-code, .vehicle-color-code label { display: flex; align-items: center; gap: 5px; }
-.vehicle-custom-color, .vehicle-color-code { color: #365649; font-size: 13px; font-weight: 700; }
-.vehicle-custom-color { cursor: pointer; }
-.vehicle-custom-color input {
-  width: 44px;
-  height: 44px;
-  padding: 5px;
-  border: 1px solid #dcdac8;
-  border-radius: 9px;
-  background: #faf7eb;
-  cursor: pointer;
+.vehicle-paint-finishes {
+  display: grid;
+  grid-template-columns: repeat(3,minmax(0,1fr));
+  gap: 6px;
 }
+.vehicle-paint-finish {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(3px, .6vw, 7px);
+  min-height: 46px;
+  padding: 4px;
+  border: 1px solid #dcdac8;
+  border-radius: 10px;
+  background: #faf7eb;
+  color: #315343;
+  cursor: pointer;
+  white-space: nowrap;
+  font-size: 13px;
+  font-weight: 700;
+}
+.vehicle-paint-finish:hover { background: #edf0e3; }
+.vehicle-paint-finish input { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: pointer; }
+.vehicle-paint-finish:has(:checked) { border-color: #597d62; background: #e4eddd; box-shadow: inset 0 0 0 1px #597d62; }
+.vehicle-paint-finish:has(:focus-visible) { outline: 2px solid #9c582b; outline-offset: 2px; }
+.vehicle-finish-sample {
+  flex: none;
+  width: 20px;
+  height: 22px;
+  border: 1px solid #32453980;
+  border-radius: 5px;
+  background-color: var(--paint);
+}
+.vehicle-paint-finish[data-finish=gloss] .vehicle-finish-sample {
+  background-image: linear-gradient(155deg,#fff0 22%,#fff9 42%,#fff3 52%,#0004 88%);
+}
+.vehicle-paint-finish[data-finish=matte] .vehicle-finish-sample {
+  background-image: linear-gradient(135deg,#fff2,#0002);
+}
+.vehicle-paint-finish[data-finish=metallic] .vehicle-finish-sample {
+  background-image: linear-gradient(150deg,#0008 5%,#fff1 28%,#fff9 47%,#0007 67%,#fff4 96%);
+}
+.vehicle-color-code, .vehicle-color-code label { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; }
+.vehicle-color-code { color: #365649; font-size: 13px; font-weight: 700; }
 .vehicle-color-code input {
   width: 7ch;
   box-sizing: content-box;
@@ -162,7 +257,7 @@
 }
 .vehicle-color-code input[aria-invalid=true] { border-color: #a1422a; }
 .vehicle-color-code button { min-width: 44px; }
-.vehicle-color-error { font-size: 13px; line-height: 1.5; color: #8a381e; }
+.vehicle-color-error { flex-basis: 100%; font-size: 13px; line-height: 1.5; color: #8a381e; }
 .vehicle-actions { display: grid; gap: 10px; margin-top: auto; padding-top: 15px; border-top: 1px solid #e4e0d1; }
 .vehicle-utilities { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; }
 .vehicle-secondary { border: 1px solid #dcdac8; background: #faf7eb; }
@@ -211,6 +306,8 @@
   .vehicle-console { gap: 13px; }
 }
 @media (max-width: 380px) {
-  .vehicle-swatches { grid-template-columns: repeat(4, minmax(0,1fr)); }
+  .vehicle-swatches { grid-template-columns: repeat(4,minmax(0,1fr)); }
+  .vehicle-swatch { width: 21px; height: 21px; }
+  .vehicle-paint-placeholder { min-height: 334px; }
   .vehicle-console { padding-inline: 13px; }
 }

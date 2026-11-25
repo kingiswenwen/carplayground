@@ -5,9 +5,10 @@ import {getCar} from '../domain/content';
 import {vehicleModel} from '../domain/vehicle-models';
 import {vehiclePreview} from '../domain/vehicle-preview';
 import {VehicleRenderer} from './VehicleRenderer';
+import type {ShowroomPaint} from '../domain/showroom-paint';
 
 export function VehicleStage({carId, paint, onUnavailable, onReady}: {
-  carId:string; paint:string|null; onUnavailable:()=>void; onReady:()=>void;
+  carId:string; paint:ShowroomPaint|null; onUnavailable:()=>void; onReady:()=>void;
 }) {
   const host = useRef<HTMLDivElement>(null);
   const stage = useRef<VehicleRenderer|null>(null);
