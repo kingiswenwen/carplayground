@@ -64,13 +64,16 @@ test('手机展厅仅显示立体车，能自定义换色和就地展开对应�
 
 test.describe('触屏立体展台',()=>{
  test.use({hasTouch:true,isMobile:true,viewport:{width:390,height:844}});
- test('车身横拖能旋转，双击和双指留在原比例，竖划可以滚动',async({page,context})=>{
+ test('车身横拖、双指缩放各自控制车模，竖划可以滚动',async({page,context})=>{
+  test.setTimeout(90000);
   await page.goto('/#/cars');
   const canvas=page.locator('.vehicle-webgl[data-ready=true]');
   await expect(canvas).toBeVisible({timeout:30000});
   await expect(canvas).toHaveCSS('touch-action','pan-y');
   const {x,y,width,height}=(await canvas.boundingBox())!;
   const initial=await canvas.getAttribute('data-yaw');
+  const pagePosition=()=>page.evaluate(()=>[scrollX,scrollY,visualViewport!.offsetLeft,visualViewport!.offsetTop,visualViewport!.scale]);
+  const startPosition=await pagePosition();
   const scale=()=>page.evaluate(()=>window.visualViewport!.scale);
   const startScale=await scale();
   const input=await context.newCDPSession(page);
@@ -80,11 +83,37 @@ test.describe('触屏立体展台',()=>{
   for(let dx=-30;dx<=50;dx+=20)await touch('touchMove',{x:middle.x+dx,y:middle.y});
   await touch('touchEnd');
   await expect(canvas).not.toHaveAttribute('data-yaw',initial!);
+  expect(await pagePosition()).toEqual(startPosition);
   await page.touchscreen.tap(middle.x,middle.y);
   await page.touchscreen.tap(middle.x,middle.y);
-  await touch('touchStart',{x:middle.x-20,y:middle.y},{x:middle.x+20,y:middle.y});
-  for(let dx=30;dx<=90;dx+=15)await touch('touchMove',{x:middle.x-dx,y:middle.y},{x:middle.x+dx,y:middle.y});
-  await touch('touchEnd');
+  await expect(canvas).toHaveAttribute('data-zoom','100');
+  const visibleCarPixels=async()=>{
+   const pixels=await sharp(await vehiclePixels(canvas)).removeAlpha().raw().toBuffer();
+   let count=0;
+   for(let i=0;i<pixels.length;i+=3)if(pixels[i]+pixels[i+1]+pixels[i+2]>50)count++;
+   return count;
+  };
+  const initialPixels=await visibleCarPixels();
+  const pinch=async(distances:number[])=>{
+   for(const [i,dx] of distances.entries())await touch(i?'touchMove':'touchStart',{x:middle.x-dx,y:middle.y},{x:middle.x+dx,y:middle.y});
+   await touch('touchEnd');
+  };
+  await pinch([30,40,50,60]);
+  await expect.poll(async()=>Number(await canvas.getAttribute('data-zoom'))).toBeGreaterThan(175);
+  const percent=await canvas.getAttribute('data-zoom');
+  await expect(page.getByRole('group',{name:'车模缩放'})).toContainText(percent+'%');
+  expect(await visibleCarPixels()).toBeGreaterThan(initialPixels*1.35);
+  expect(await pagePosition()).toEqual(startPosition);
+  await pinch([60,50,40,30,20]);
+  await expect(canvas).toHaveAttribute('data-zoom','75');
+  await expect(page.getByRole('button',{name:'缩小车模'})).toBeDisabled();
+  await page.getByRole('button',{name:'默认视角'}).click();
+  await expect(canvas).toHaveAttribute('data-zoom','100');
+  await expect(canvas).toHaveAttribute('data-yaw',initial!);
+  await page.getByRole('button',{name:'放大车模'}).click();
+  await expect(canvas).toHaveAttribute('data-zoom','125');
+  await page.getByRole('button',{name:'缩小车模'}).click();
+  await expect(canvas).toHaveAttribute('data-zoom','100');
   const beforeScroll=await page.evaluate(()=>scrollY);
   expect(await scale()).toBe(startScale);
   await touch('touchStart',{x:middle.x,y:middle.y+65});

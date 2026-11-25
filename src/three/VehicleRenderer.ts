@@ -11,6 +11,7 @@ import type {VehicleModelSpec} from '../domain/vehicle-models';
 import {disposeModel,fitModel,frameModel} from './model';
 import {isVehicleLampName} from './part-names';
 import {paintHex, type ShowroomPaint} from '../domain/showroom-paint';
+import {MIN_VEHICLE_ZOOM, MAX_VEHICLE_ZOOM, VEHICLE_ZOOM_STEP} from '../domain/vehicle-view';
 
 function makeContactShadow(){
  const size=64, pixels=new Uint8Array(size*size*4);
@@ -57,7 +58,10 @@ export class VehicleRenderer{
  private pointers=new Set<number>();
  private lights=false;
  private software=false;
- constructor(private box:HTMLDivElement,private onReady:(carId:string)=>void,private onUnavailable:()=>void){
+ private reportedZoom=100;
+ private trackpadZoom=1;
+ private touchAxis?:{x:number;y:number;direction?:'horizontal'|'vertical'};
+ constructor(private box:HTMLDivElement,private onReady:(carId:string)=>void,private onUnavailable:()=>void,private onZoom:(percent:number)=>void){
   this.renderer=new T.WebGLRenderer({antialias:true,alpha:true,powerPreference:'low-power'});
   const renderer=this.renderer,canvas=renderer.domElement;
   const gl=renderer.getContext(),debug=gl.getExtension('WEBGL_debug_renderer_info');
@@ -72,15 +76,18 @@ export class VehicleRenderer{
   Object.assign(sun.shadow.camera,{left:-4,right:4,top:4,bottom:-4,near:.1,far:20});sun.shadow.normalBias=.012;sun.shadow.bias=-.0001;this.scene.add(sun);
   const fill=new T.DirectionalLight('#e0edff',.65);fill.position.set(-4,3,-5);this.scene.add(fill);
   this.floor.rotation.x=-Math.PI/2;this.floor.position.y=-.008;this.floor.receiveShadow=true;this.scene.add(this.floor,this.contactShadow);
-  canvas.className='vehicle-webgl';canvas.setAttribute('aria-label','立体汽车，左右拖动或按方向键旋转');canvas.setAttribute('role','application');canvas.tabIndex=0;box.append(canvas);
+  canvas.className='vehicle-webgl';canvas.setAttribute('aria-label','立体汽车，拖动或按方向键旋转，双指或按加减键缩放');canvas.setAttribute('role','application');canvas.tabIndex=0;box.append(canvas);
   this.camera.position.set(5,2.5,6);this.controls=new OrbitControls(this.camera,canvas);this.controls.enablePan=false;this.controls.enableDamping=!software;this.controls.dampingFactor=.12;this.controls.addEventListener('change',this.invalidate);
-  this.controls.enableZoom=false;this.controls.minPolarAngle=.12;this.controls.maxPolarAngle=Math.PI*.48;this.controls.rotateSpeed=.65;
+  this.controls.minZoom=MIN_VEHICLE_ZOOM/100;this.controls.maxZoom=MAX_VEHICLE_ZOOM/100;
+  this.controls.minPolarAngle=.12;this.controls.maxPolarAngle=Math.PI*.48;this.controls.rotateSpeed=.65;
   // OrbitControls sets touch-action:none on connect. Let vertical swipes
   // scroll out of the exhibit while the canvas owns horizontal rotation.
   canvas.style.touchAction='pan-y';
-  canvas.addEventListener('wheel',this.keepScale,{passive:false});
-  canvas.addEventListener('gesturestart',this.keepScale);
-  canvas.addEventListener('gesturechange',this.keepScale);
+  canvas.addEventListener('wheel',this.wheel,{passive:false,capture:true});
+  canvas.addEventListener('touchstart',this.touchStart,{passive:false});
+  canvas.addEventListener('touchmove',this.touchMove,{passive:false});
+  canvas.addEventListener('gesturestart',this.gestureStart);
+  canvas.addEventListener('gesturechange',this.gestureChange);
   canvas.addEventListener('pointerdown',this.start);canvas.addEventListener('pointerup',this.end,true);canvas.addEventListener('pointercancel',this.cancel);canvas.addEventListener('lostpointercapture',this.cancel);canvas.addEventListener('keydown',this.key);canvas.addEventListener('webglcontextlost',this.lost);
   this.observer=new ResizeObserver(this.resize);this.observer.observe(box);this.resize();this.frame=requestAnimationFrame(this.render);
  }
@@ -126,7 +133,8 @@ export class VehicleRenderer{
    this.contactShadow.scale.set(size.x*1.28,size.z*1.28,1);
    this.contactShadow.material.opacity=this.software?.36:.21;
    this.contactShadow.visible=true;
-   const offset=this.camera.position.clone().sub(this.controls.target);this.controls.target.copy(this.bounds.getCenter(new T.Vector3()));this.camera.position.copy(this.controls.target).add(offset);this.controls.update();
+   this.controls.target.copy(this.bounds.getCenter(new T.Vector3()));
+   this.camera.position.set(5,2.5,6).add(this.controls.target);this.setZoom(1);this.controls.saveState();this.resetView();
    if(!this.software&&!this.environment){const room=new RoomEnvironment(),pmrem=new T.PMREMGenerator(this.renderer);try{this.environment=pmrem.fromScene(room,.04,.1,100,{size:64});this.scene.environment=this.environment.texture;}finally{room.dispose();pmrem.dispose();}}
    this.renderer.shadowMap.needsUpdate=true;this.resize();
   }catch(error){if(this.disposed||epoch!==this.epoch)return;console.warn('车辆模型未能打开',error);this.fail();}
@@ -139,8 +147,44 @@ export class VehicleRenderer{
   this.paint.setPaint(color,paint?.finish??'gloss');
   canvas.dataset.paint=key;canvas.dataset.finish=finish;this.needsRender=true;
  }
- private keepScale=(event:Event)=>{
-  if(event.type!=='wheel'||(event as WheelEvent).ctrlKey||(event as WheelEvent).metaKey)event.preventDefault();
+ private setZoom(zoom:number){
+  this.camera.zoom=T.MathUtils.clamp(zoom,this.controls.minZoom,this.controls.maxZoom);
+  this.camera.updateProjectionMatrix();this.invalidate();
+ }
+ adjustZoom(percent:number){if(this.bounds)this.setZoom(this.camera.zoom+percent/100);}
+ resetView(){
+  if(!this.bounds)return;
+  const damping=this.controls.enableDamping;
+  this.controls.enableDamping=false;this.controls.update();this.controls.reset();this.controls.enableDamping=damping;
+ }
+ private wheel=(event:WheelEvent)=>{
+  // Keep the normal wheel for page scrolling. Trackpad pinch generally arrives as Ctrl+wheel.
+  event.stopImmediatePropagation();
+  if(!event.ctrlKey&&!event.metaKey)return;
+  event.preventDefault();
+  if(this.bounds)this.setZoom(this.camera.zoom*Math.exp(-event.deltaY*(event.deltaMode===1?.06:.009)));
+ };
+ private touchStart=(event:TouchEvent)=>{
+  if(event.targetTouches.length>1){
+   this.touchAxis=undefined;if(event.cancelable)event.preventDefault();return;
+  }
+  const touch=event.targetTouches[0];
+  this.touchAxis=touch?{x:touch.clientX,y:touch.clientY}:undefined;
+ };
+ private touchMove=(event:TouchEvent)=>{
+  // Back up touch-action on browsers that still attempt page zoom or navigation.
+  if(event.targetTouches.length>1){if(event.cancelable)event.preventDefault();return;}
+  const touch=event.targetTouches[0],axis=this.touchAxis;
+  if(!touch||!axis)return;
+  const dx=Math.abs(touch.clientX-axis.x),dy=Math.abs(touch.clientY-axis.y);
+  if(!axis.direction&&Math.max(dx,dy)>=6)axis.direction=dx>dy?'horizontal':'vertical';
+  if(axis.direction==='horizontal'&&event.cancelable)event.preventDefault();
+ };
+ private gestureStart=(event:Event)=>{event.preventDefault();this.trackpadZoom=this.camera.zoom;};
+ private gestureChange=(event:Event)=>{
+  event.preventDefault();
+  const scale=(event as Event&{scale?:number}).scale;
+  if(this.bounds&&!this.pointers.size&&scale&&Number.isFinite(scale))this.setZoom(this.trackpadZoom*scale);
  };
  private start=(event:PointerEvent)=>{this.pointers.add(event.pointerId);this.down=this.pointers.size===1?{id:event.pointerId,x:event.clientX,y:event.clientY}:null;};
  private cancel=(event:PointerEvent)=>{this.pointers.delete(event.pointerId);this.down=null;};
@@ -152,6 +196,12 @@ export class VehicleRenderer{
   this.lamps.forEach((base,m)=>{m.emissive.copy(this.lights?new T.Color('#fff6d4'):base.color);m.emissiveIntensity=this.lights?2:base.intensity;});this.renderer.domElement.dataset.lights=this.lights?'on':'off';this.needsRender=true;
  };
  private key=(event:KeyboardEvent)=>{
+  if(['+','=','-','_','0','Home'].includes(event.key)){
+   event.preventDefault();
+   if(event.key==='0'||event.key==='Home')this.resetView();
+   else this.adjustZoom(['-','_'].includes(event.key)?-VEHICLE_ZOOM_STEP:VEHICLE_ZOOM_STEP);
+   return;
+  }
   if(!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(event.key))return;event.preventDefault();
   const sphere=new T.Spherical().setFromVector3(this.camera.position.clone().sub(this.controls.target));sphere.theta+=event.key==='ArrowLeft'?.25:event.key==='ArrowRight'?-.25:0;
   sphere.phi=T.MathUtils.clamp(sphere.phi+(event.key==='ArrowUp'?-.15:event.key==='ArrowDown'?.15:0),.12,Math.PI*.48);
@@ -164,7 +214,8 @@ export class VehicleRenderer{
    // Elevation can change during a drag. Refit without changing the user's zoom.
    frameModel(this.camera,this.bounds,Math.max(1,this.box.clientWidth)/Math.max(1,this.box.clientHeight));
    try{this.renderer.render(this.scene,this.camera);}catch{this.fail();return;}
-   const canvas=this.renderer.domElement;canvas.dataset.yaw=String(Math.atan2(this.camera.position.z-this.controls.target.z,this.camera.position.x-this.controls.target.x));canvas.dataset.car=this.carId;canvas.dataset.ready='true';canvas.dataset.source='reviewed-gltf';canvas.style.visibility='';this.needsRender=false;
+   const canvas=this.renderer.domElement,zoom=Math.round(this.camera.zoom*100);canvas.dataset.yaw=String(Math.atan2(this.camera.position.z-this.controls.target.z,this.camera.position.x-this.controls.target.x));canvas.dataset.zoom=String(zoom);canvas.dataset.car=this.carId;canvas.dataset.ready='true';canvas.dataset.source='reviewed-gltf';canvas.style.visibility='';this.needsRender=false;
+   if(zoom!==this.reportedZoom){this.reportedZoom=zoom;this.onZoom(zoom);}
    if(this.first){this.first=false;this.onReady(this.carId);}
   }}
   this.frame=requestAnimationFrame(this.render);
@@ -172,7 +223,7 @@ export class VehicleRenderer{
  dispose(){
   if(this.disposed)return;this.disposed=true;++this.epoch;cancelAnimationFrame(this.frame);this.observer.disconnect();this.controls.removeEventListener('change',this.invalidate);this.controls.dispose();this.clearCar();
   const canvas=this.renderer.domElement;canvas.removeEventListener('pointerdown',this.start);canvas.removeEventListener('pointerup',this.end,true);canvas.removeEventListener('pointercancel',this.cancel);canvas.removeEventListener('lostpointercapture',this.cancel);canvas.removeEventListener('keydown',this.key);canvas.removeEventListener('webglcontextlost',this.lost);
-  canvas.removeEventListener('wheel',this.keepScale);canvas.removeEventListener('gesturestart',this.keepScale);canvas.removeEventListener('gesturechange',this.keepScale);
+  canvas.removeEventListener('wheel',this.wheel,true);canvas.removeEventListener('touchstart',this.touchStart);canvas.removeEventListener('touchmove',this.touchMove);canvas.removeEventListener('gesturestart',this.gestureStart);canvas.removeEventListener('gesturechange',this.gestureChange);
   this.environment?.dispose();this.floor.geometry.dispose();this.floor.material.dispose();disposeModel(this.contactShadow);canvas.remove();this.renderer.dispose();this.renderer.forceContextLoss();
  }
 }

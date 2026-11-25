@@ -17,6 +17,8 @@
   min-height: clamp(298px, 39svh, 420px);
   background: linear-gradient(180deg, #f8f4e8 2%, #f4eee0 62%, #e8ddc7 100%);
   touch-action: pan-y;
+  overflow: hidden;
+  overscroll-behavior-x: contain;
 }
 .vehicle-stage, .vehicle-model-surface, .vehicle-webgl {
   position: absolute;
@@ -25,7 +27,7 @@
   height: 100%;
 }
 .vehicle-stage { min-height: 0; }
-.vehicle-webgl { cursor: grab; touch-action: pan-y; }
+.vehicle-webgl { cursor: grab; touch-action: pan-y; user-select: none; }
 .vehicle-webgl:active { cursor: grabbing; }
 .vehicle-webgl:focus-visible { outline: 3px solid #9c582b; outline-offset: -5px; }
 .vehicle-frame .vehicle-poster {
@@ -57,9 +59,12 @@
 }
 .vehicle-frame .stage-loading .town-icon { width: 100%; height: 100%; }
 .vehicle-view-footer {
-  display: grid;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
   min-height: 55px;
   align-items: center;
+  gap: 0 10px;
   padding: 4px 16px;
   border-top: 1px solid #dcdac8;
   background: #f3efe3;
@@ -67,7 +72,15 @@
   color: #415d50;
 }
 .vehicle-stage-hint { display: flex; align-items: center; justify-content: center; gap: 9px; }
+.vehicle-stage-hint:only-child { flex: 1; }
 .vehicle-stage-hint .town-icon { width: 23px; height: 23px; }
+.vehicle-camera-tools, .vehicle-zoom { display: flex; align-items: center; }
+.vehicle-camera-tools { gap: 6px; }
+.vehicle-zoom { border: 1px solid #dcdac8; border-radius: 10px; background: #fcf9ef; }
+.vehicle-zoom button { min-width: 44px; }
+.vehicle-zoom button:disabled { opacity: .47; cursor: default; background: transparent; }
+.vehicle-zoom-value { min-width: 3.3em; text-align: center; font-variant-numeric: tabular-nums; font-weight: 800; }
+.vehicle-reset-view { padding-inline: 8px; }
 .vehicle-text-control {
   display: inline-flex;
   align-items: center;
@@ -302,7 +315,8 @@
 }
 @media (max-width: 700px) {
   .car-roundabout { border-radius: 23px; margin-bottom: 22px; }
-  .vehicle-view-footer { min-height: 50px; padding-inline: 10px; }
+  .vehicle-view-footer { flex-direction: column; justify-content: center; min-height: 75px; padding-inline: 10px; font-size: 13px; }
+  .vehicle-stage-hint .town-icon { width: 18px; height: 18px; }
   .vehicle-console { gap: 13px; }
 }
 @media (max-width: 380px) {
