@@ -49,7 +49,13 @@ for(const id of ids)test(`${id} 立体场景完整实际操作 @worldmatrix`,asy
  else if(id==='L03'){
   for(let i=0;i<3;i++)await drop(page,`car-${i}`,`bay-${i}`);
   await page.getByRole('button',{name:'换成长短挂牌'}).click();
-  for(const [i,slot] of [1,2,0].entries())await drop(page,`car-${i}`,`bay-${slot}`);
+  // The parked cars from the color round remain in the snapshot until the next draw.
+  await expect(world(page)).toHaveAttribute('data-state',/"sorting":"lengths"/);
+  for(const [i,slot] of [1,2,0].entries()){
+   const carId=`car-${i}`;
+   await drop(page,carId,`bay-${slot}`);
+   await expect.poll(async()=>(await snap(page)).items.find((item:{id:string})=>item.id===carId).placed).toBe(true);
+  }
  }
  else if(id==='T04'){for(const x of ['body','wheel-0','wheel-1'])await drop(page,x,x);await page.getByRole('button',{name:'推车试走'}).click();}
  else if(id==='C02'){
