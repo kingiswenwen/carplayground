@@ -21,10 +21,12 @@ for(const row of imported){
  for(const asset of render.assets)upsert(release.assets,asset);
  upsert(previousRenders,render);
  if(existing&&!existing.game?.side.startsWith('render-'))continue;
+ const name=existing?.name||`${identity.zhBrand} ${identity.model}`,audio=existing?.audio||'vehicle-name-'+spec.id;
+ if(release.speech[audio]?.text!==name||!release.assets.some(asset=>asset.kind==='audio'&&asset.id===audio))throw Error('Missing dedicated full-name audio '+spec.id);
  const credit={author:spec.source.author,license:spec.source.license,licenseUrl:spec.source.licenseUrl,sourceUrl:spec.source.url};
  const hotspots=[{id:'wheel',zh:'车轮',...render.points.wheel},{id:'door',zh:'车门',...render.points.door},{id:'light',zh:'车灯',...render.points.light}];
- const car={...existing,id:identity.id,name:`${identity.zhBrand} ${identity.model}`,zhBrand:identity.zhBrand,brand:identity.brand,model:identity.model,catalogKey:identity.catalogKey,productionStatus:'production',
-  edition:'真实量产车型的游戏外观',color:spec.color,reference:identity.reference,status:'reviewed',audio:'car-name-local',observation:'转动看看真实车型的游戏模型，再带它去洗车、停车和装配。',
+ const car={...existing,id:identity.id,name,zhBrand:identity.zhBrand,brand:identity.brand,model:identity.model,catalogKey:identity.catalogKey,productionStatus:'production',
+  edition:'真实量产车型的游戏外观',color:spec.color,reference:identity.reference,status:'reviewed',audio,observation:'转动看看真实车型的游戏模型，再带它去洗车、停车和装配。',
   image:`render-${spec.id}-side`,showcaseImage:`render-${spec.id}-side`,hotspots,showcaseHotspots:hotspots,
   game:{side:`render-${spec.id}-side`,top:`render-${spec.id}-top`,wheels:render.wheels},
   views:render.assets.map(asset=>({id:asset.id.replace(`render-${spec.id}-`,''),image:asset.id,label:asset.id.endsWith('-top')?'俯视模型':'模型外观',caption:'由这辆车的独立模型渲染；作者版本，非厂商精密数据。',credit}))};

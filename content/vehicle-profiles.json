@@ -1,0 +1,478 @@
+[
+  {
+    "id": "CAR01",
+    "catalogKey": "lamborghini/revuelto",
+    "bodyStyle": "双门跑车",
+    "fact": "Revuelto 采用一台 V12 发动机和三台电动机。发动机和电动机可以一起提供动力。",
+    "source": "https://www.lamborghini.com/en-en/models/revuelto-models/revuelto"
+  },
+  {
+    "id": "CAR03",
+    "catalogKey": "porsche/911",
+    "bodyStyle": "双门跑车",
+    "fact": "911 GT3 RS 的大尾翼可以改变角度。在需要减小空气阻力时，尾翼会调到阻力更小的位置。",
+    "source": "https://www.porsche.com/international/models/911/911-gt3-rs/911-gt3-rs/"
+  },
+  {
+    "id": "CAR05",
+    "catalogKey": "bugatti/chiron",
+    "bodyStyle": "双门跑车",
+    "fact": "Chiron Profilée 只造了一辆。车尾向上翘起的固定尾翼，是它与其他 Chiron 版本容易分辨的地方。",
+    "source": "https://newsroom.bugatti.com/api/en/press-releases/pdf/the-bugatti-chiron-profilee-an-automotive-solitaire"
+  },
+  {
+    "id": "CAR06",
+    "catalogKey": "pagani/huayra",
+    "bodyStyle": "双门跑车",
+    "fact": "Huayra 的车身有四块会动的空气翼片，前后各两块。它们能改变空气流过车身时产生的作用力。",
+    "source": "https://www.pagani.com/huayra/"
+  },
+  {
+    "id": "CAR07",
+    "catalogKey": "koenigsegg/jesko",
+    "bodyStyle": "双门跑车",
+    "fact": "Jesko Attack 的大尾翼让高速气流把车向路面压，帮助轮胎在弯道中抓住地面。",
+    "source": "https://www.koenigsegg.com/model/jesko-attack"
+  },
+  {
+    "id": "CAR08",
+    "catalogKey": "aston-martin/vantage",
+    "bodyStyle": "双门跑车",
+    "fact": "Vantage 把发动机放在车身前部，动力传给后轮。前轮负责转向，后轮负责驱动。",
+    "source": "https://www.astonmartin.com/en/models/vantage-coupe"
+  },
+  {
+    "id": "CAR09",
+    "catalogKey": "chevrolet/corvette",
+    "bodyStyle": "双门跑车",
+    "fact": "C8 是第八代 Corvette。它把发动机从车头移到座椅后面，让较重的发动机更靠近车身中间。",
+    "source": "https://www.chevrolet.com/performance/corvette"
+  },
+  {
+    "id": "CAR10",
+    "catalogKey": "mercedes-benz/amg-gt",
+    "bodyStyle": "双门跑车",
+    "fact": "GT Coupé 是 Mercedes-AMG 的双门公路跑车。Coupé 在这个车型名里指双门、固定车顶的车身。",
+    "source": "https://rk.mb-qr.com/en/card/pdf/155/AMG_AMG_GT__Coup%C3%A9_2015_2d_GD_EN_190.3v3.1.pdf/"
+  },
+  {
+    "id": "CAR11",
+    "catalogKey": "audi/r8",
+    "bodyStyle": "双门跑车",
+    "fact": "R8 Coupé 把发动机放在座椅之后、后轴之前，这种布局叫中置发动机。",
+    "source": "https://www.audi.com/en/media-releases/the-audi-r8-a-captivating-legend-16374"
+  },
+  {
+    "id": "CAR14",
+    "catalogKey": "toyota/supra",
+    "bodyStyle": "双门跑车",
+    "fact": "GR Supra 把发动机放在车身前部，动力传给后轮。这叫前置发动机、后轮驱动。",
+    "source": "https://pressroom.toyota.com/vehicle/2026-toyota-gr-supra/"
+  },
+  {
+    "id": "CAR15",
+    "catalogKey": "toyota/86",
+    "bodyStyle": "双门跑车",
+    "fact": "GR86 的发动机采用水平对置气缸。气缸向两边平放，能让发动机布置得更低。",
+    "source": "https://pressroom.toyota.com/vehicle/2026-toyota-gr86/"
+  },
+  {
+    "id": "CAR21",
+    "catalogKey": "porsche/718-cayman",
+    "bodyStyle": "双门跑车",
+    "fact": "718 Cayman 和 718 Boxster 都把发动机放在座椅后方。Cayman 有固定硬顶，Boxster 的车顶可以打开。",
+    "source": "https://www.porsche.com/international/models/718/"
+  },
+  {
+    "id": "CAR22",
+    "catalogKey": "mclaren/artura",
+    "bodyStyle": "双门跑车",
+    "fact": "Artura 是插电式混合动力跑车，由汽油发动机和电动机提供动力。电池可以用外部电源充电。",
+    "source": "https://cars.mclaren.com/en/artura"
+  },
+  {
+    "id": "CAR23",
+    "catalogKey": "maserati/mc20",
+    "bodyStyle": "双门跑车",
+    "fact": "MC20 的乘员舱主体由碳纤维复合材料制成。这种材料可以兼顾轻量和结构刚度。",
+    "source": "https://www.maserati.com/global/en/models/mc20"
+  },
+  {
+    "id": "CAR24",
+    "catalogKey": "lotus/emira",
+    "bodyStyle": "双门跑车",
+    "fact": "Emira 是双座中置发动机跑车。它把发动机放在座椅后方、后轴之前。",
+    "source": "https://www.lotuscars.com/en-GB/emira"
+  },
+  {
+    "id": "CAR26",
+    "catalogKey": "jaguar/f-type",
+    "bodyStyle": "双门跑车",
+    "fact": "捷豹在 2024 年造完最后一辆 F-Type。最后那辆是敞篷车，加入了捷豹的历史收藏。",
+    "source": "https://media.jlr.com/archive-jaguar/news/2024/06/jaguar-marks-sports-car-anniversary-final-f-type"
+  },
+  {
+    "id": "CAR29",
+    "catalogKey": "dodge/viper",
+    "bodyStyle": "双门跑车",
+    "fact": "Viper 使用 V10 发动机。V10 有十个气缸，分成两列，排布成 V 形。",
+    "source": "https://www.dodge.com/viper.html"
+  },
+  {
+    "id": "CAR30",
+    "catalogKey": "bmw/i8",
+    "bodyStyle": "双门跑车",
+    "fact": "i8 使用插电式混合动力系统。它既能用电动机行驶，也能让电动机和汽油发动机一起工作。",
+    "source": "https://www.press.bmwgroup.com/canada/article/attachment/T0310099EN/453341"
+  },
+  {
+    "id": "CAR31",
+    "catalogKey": "lamborghini/countach",
+    "bodyStyle": "双门跑车",
+    "fact": "经典 Countach 的车身低矮，侧面像一个楔子。它的剪刀门沿着车身侧面向上打开。",
+    "source": "https://www.lamborghini.com/en-en/history"
+  },
+  {
+    "id": "CAR32",
+    "catalogKey": "lamborghini/aventador",
+    "bodyStyle": "双门跑车",
+    "fact": "Aventador SVJ 能控制空气通过前部和尾翼的路径。直道和弯道上需要的空气阻力和下压力不同。",
+    "source": "https://www.lamborghini.com/en-en/newsroom/news/lamborghini-at-monterey-car-week-history-and-premieres"
+  },
+  {
+    "id": "CAR39",
+    "catalogKey": "lamborghini/centenario",
+    "bodyStyle": "双门跑车",
+    "fact": "Centenario 是为纪念兰博基尼创始人费鲁吉欧诞辰一百周年而推出的车型。",
+    "source": "https://www.lamborghini.com/en-en/history/few-off/centenario"
+  },
+  {
+    "id": "CAR43",
+    "catalogKey": "ferrari/f40",
+    "bodyStyle": "双门跑车",
+    "fact": "F40 于 1987 年推出，名字里的 40 纪念法拉利品牌成立四十周年。",
+    "source": "https://www.ferrari.com/en-EN/auto/f40"
+  },
+  {
+    "id": "CAR45",
+    "catalogKey": "ferrari/599-gto",
+    "bodyStyle": "双门跑车",
+    "fact": "599 GTO 的开发借鉴了赛道用车 599XX。599 GTO 是道路车型，可以在符合当地规定的公路上行驶。",
+    "source": "https://www.ferrari.com/en-EN/auto/599-gto"
+  },
+  {
+    "id": "CAR48",
+    "catalogKey": "mclaren/senna",
+    "bodyStyle": "双门跑车",
+    "fact": "Senna 以车手埃尔顿·塞纳命名。车尾的大尾翼利用气流增加高速行驶时的下压力。",
+    "source": "https://cars.mclaren.com/en/ultimate-series/mclaren-senna"
+  },
+  {
+    "id": "CAR56",
+    "catalogKey": "porsche/918-spyder",
+    "bodyStyle": "敞篷跑车",
+    "fact": "918 Spyder 把一台 V8 发动机和两台电动机组合在一起，是可外接充电的混合动力跑车。",
+    "source": "https://newsroom.porsche.com/pdf/e9920c42-d519-4f3d-8ae8-b43cae7e3b83?print="
+  },
+  {
+    "id": "CAR60",
+    "catalogKey": "bugatti/veyron",
+    "bodyStyle": "双门跑车",
+    "fact": "Veyron 的 W16 发动机有十六个气缸。W 形排布让这么多气缸能装进相对短的发动机。",
+    "source": "https://newsroom.bugatti.com/api/en/press-releases/pdf/bugatti-w16-engine-the-last-of-its-kind"
+  },
+  {
+    "id": "CAR62",
+    "catalogKey": "pagani/utopia",
+    "bodyStyle": "双门跑车",
+    "fact": "Utopia 提供手动变速箱。开手动挡版本时，要由驾驶者用换挡杆选择挡位。",
+    "source": "https://www.pagani.com/utopia/"
+  },
+  {
+    "id": "CAR65",
+    "catalogKey": "koenigsegg/ccx",
+    "bodyStyle": "双门跑车",
+    "fact": "CCX 的名字来自 Competition Coupé X。X 是罗马数字十，纪念科尼赛克第一辆原型车诞生十周年。",
+    "source": "https://www.koenigsegg.com/model/ccx"
+  },
+  {
+    "id": "CAR66",
+    "catalogKey": "aston-martin/db11",
+    "bodyStyle": "双门跑车",
+    "fact": "DB11 是阿斯顿·马丁的 GT 跑车。这个车系曾提供 V8 和 V12 版本，分别使用八个和十二个气缸。",
+    "source": "https://media.astonmartin.com/sublime-choices-db11-now-offered-with-v8-engine/?lang=eng"
+  },
+  {
+    "id": "CAR85",
+    "catalogKey": "toyota/mr2",
+    "bodyStyle": "双门跑车",
+    "fact": "W20 是 MR2 的第二代。它只有两个座位，发动机布置在座椅后方。",
+    "source": "https://global.toyota/en/detail/7838423"
+  },
+  {
+    "id": "CAR89",
+    "catalogKey": "toyota/corolla",
+    "bodyStyle": "双门轿跑车",
+    "fact": "AE92 Corolla Levin 于 1987 年推出。它把发动机布置在前方，动力也传给前轮。",
+    "source": "https://en.wikipedia.org/wiki/Toyota_Corolla_Levin_and_Sprinter_Trueno"
+  },
+  {
+    "id": "CAR98",
+    "catalogKey": "honda/integra",
+    "bodyStyle": "四门运动轿车",
+    "fact": "DB8 是四门 Integra Type R。这个年代的 Integra Type R 也有双门版本，代号为 DC2。",
+    "source": "https://www.honda.co.jp/factbook/auto/INTEGRA/19950824/in95-011.html"
+  },
+  {
+    "id": "CAR99",
+    "catalogKey": "honda/nsx",
+    "bodyStyle": "双门跑车",
+    "fact": "1990 年推出的第一代 NSX 使用大量铝合金。铝合金车体帮助减轻这辆跑车的重量。",
+    "source": "https://global.honda/en/heritage/episodes/1990thensx.html"
+  },
+  {
+    "id": "CAR100",
+    "catalogKey": "honda/s800",
+    "bodyStyle": "双座跑车",
+    "fact": "S800 是本田早期的小型双座跑车。车系有可打开车顶的版本，也有固定车顶的版本。",
+    "source": "https://en.wikipedia.org/wiki/Honda_S800"
+  },
+  {
+    "id": "CAR105",
+    "catalogKey": "bmw/m4",
+    "bodyStyle": "双门跑车",
+    "fact": "CSL 是 Coupé、Sport、Lightweight 的缩写。M4 CSL 用轻量部件减重，并去掉了后排座椅。",
+    "source": "https://www.press.bmwgroup.com/global/article/detail/T0386533EN/the-all-new-bmw-m4-csl-the-re-edition-of-a-legend"
+  },
+  {
+    "id": "CAR108",
+    "catalogKey": "bmw/m6",
+    "bodyStyle": "四门轿跑车",
+    "fact": "M6 Gran Coupé 有四扇车门，也保留了低矮的车顶线条。Gran Coupé 是宝马用来称呼这种车身的名字。",
+    "source": "https://www.press.bmwgroup.com/usa/article/detail/T0135219EN_US/introducing-the-all-new-bmw-m6-gran-coupe?language=en_US"
+  },
+  {
+    "id": "CAR111",
+    "catalogKey": "bmw/m3",
+    "bodyStyle": "双门运动轿车",
+    "fact": "E30 是第一代宝马 M3。宝马打造公路版 M3，是为了让基于它的赛车符合当时房车赛的参赛要求。",
+    "source": "https://www.bmw-m.com/en/topics/magazine-article-pool/bmw-m3-generationen.html"
+  },
+  {
+    "id": "CAR113",
+    "catalogKey": "mercedes-benz/300-sl",
+    "bodyStyle": "经典跑车",
+    "fact": "经典 300 SL 的硬顶版车门铰链在车顶，左右车门打开后像海鸥翅膀，因此被称为「鸥翼」。",
+    "source": "https://media.mercedes-benz.com/en/article/35d4b3c7-87e9-4c0a-a536-7c4964268f72"
+  },
+  {
+    "id": "CAR118",
+    "catalogKey": "audi/rs5",
+    "bodyStyle": "运动轿跑车",
+    "fact": "RS5 是 Audi Sport 打造的高性能车型，使用奥迪的 quattro 四轮驱动系统，动力能传给前后两轴。",
+    "source": "https://www.audi-press.jp/press-releases/2017/b7rqqm0000005sq8.html"
+  },
+  {
+    "id": "CAR119",
+    "catalogKey": "chevrolet/camaro",
+    "bodyStyle": "双门轿跑车",
+    "fact": "1970 年的 Camaro 开启了第二代。它拥有低矮的双门车身，是雪佛兰 Camaro 历史上的一次换代。",
+    "source": "https://www.chevrolet.com/legacy/camaro"
+  },
+  {
+    "id": "CAR120",
+    "catalogKey": "dodge/challenger",
+    "bodyStyle": "双门轿跑车",
+    "fact": "SRT 是道奇推出的高性能 Challenger 版本系列。车名中的 Challenger 对应车型，SRT 标记性能版本。",
+    "source": "https://www.dodge.com/challenger.html"
+  },
+  {
+    "id": "CAR125",
+    "catalogKey": "ford/mustang",
+    "bodyStyle": "双门轿跑车",
+    "fact": "Shelby GT500 是 Mustang 车系的高性能版本。名称里的 Shelby 来自参与开发早期 Shelby Mustang 的卡罗尔·谢尔比。",
+    "source": "https://www.ford.mx/content/dam/Ford/website-assets/latam/mx/nameplate/shelby-gt500/2022/pdf/ford-shelby-gt500-2022-catalogo-descargable.pdf"
+  },
+  {
+    "id": "CAR135",
+    "catalogKey": "pontiac/firebird",
+    "bodyStyle": "双门轿跑车",
+    "fact": "Trans Am 是庞蒂亚克为 Firebird 推出的性能版本。Firebird 是车系名，Trans Am 是这个版本的名字。",
+    "source": "https://en.wikipedia.org/wiki/Pontiac_Firebird"
+  },
+  {
+    "id": "CAR140",
+    "catalogKey": "ferrari/288-gto",
+    "bodyStyle": "双门跑车",
+    "fact": "法拉利于 1984 年推出 GTO，常被称作 288 GTO。它的 V8 发动机配有两个涡轮增压器。",
+    "source": "https://www.ferrari.com/en-EN/auto/gto"
+  },
+  {
+    "id": "CAR141",
+    "catalogKey": "ferrari/roma",
+    "bodyStyle": "双门跑车",
+    "fact": "Roma 的 V8 发动机装在车头一侧，并向车身中心靠拢。法拉利把这种布置称为前中置。",
+    "source": "https://www.ferrari.com/en-EN/auto/ferrari-roma"
+  },
+  {
+    "id": "CAR143",
+    "catalogKey": "mclaren/p1",
+    "bodyStyle": "双门跑车",
+    "fact": "P1 同时使用汽油发动机和电动机。它的尾翼可以升起并改变角度，帮助管理车身周围的气流。",
+    "source": "https://cars.mclaren.com/us_en/legacy/mclaren-p1"
+  },
+  {
+    "id": "CAR144",
+    "catalogKey": "mclaren/570s",
+    "bodyStyle": "敞篷跑车",
+    "fact": "570S Spider 的硬顶可以收起。车顶打开后，乘员能从座位上直接看到天空。",
+    "source": "https://cars.mclaren.com/es_es/legacy/570s-spider"
+  },
+  {
+    "id": "CAR147",
+    "catalogKey": "aston-martin/valour",
+    "bodyStyle": "双门跑车",
+    "fact": "Valour 为纪念阿斯顿·马丁成立 110 周年推出。它把 V12 发动机与手动变速箱配在一起。",
+    "source": "https://media.astonmartin.com/valour-a-spectacular-celebration-of-110-years-of-history/?lang=eng"
+  },
+  {
+    "id": "CAR149",
+    "catalogKey": "porsche/taycan",
+    "bodyStyle": "四门电动跑车",
+    "fact": "Taycan Turbo S 是纯电动车，由电动机驱动。「Turbo S」是保时捷给这个性能版本取的名字。",
+    "source": "https://www.porsche.com/international/models/taycan/"
+  },
+  {
+    "id": "CAR152",
+    "catalogKey": "mitsubishi/lancer-evolution",
+    "bodyStyle": "四门运动轿车",
+    "fact": "Lancer Evolution VI 的动力可以传到四个车轮。三菱也曾以这一代 Lancer Evolution 为基础参加拉力赛。",
+    "source": "https://www.mitsubishi-motors.com/en/company/history/car/"
+  },
+  {
+    "id": "CAR158",
+    "catalogKey": "rolls-royce/phantom",
+    "bodyStyle": "四门豪华轿车",
+    "fact": "Phantom 的后门铰链在车门后沿，开门时朝着与前门相反的方向。",
+    "source": "https://www.rolls-roycemotorcars.com/en_GB/showroom/phantom.html"
+  },
+  {
+    "id": "CAR160",
+    "catalogKey": "byd/seal",
+    "bodyStyle": "四门电动轿车",
+    "fact": "Seal 是纯电动轿车，行驶时由电动机驱动。它的英文车名 Seal 是「海豹」。",
+    "source": "https://www.byd.com/eu/electric-cars/seal"
+  },
+  {
+    "id": "CAR161",
+    "catalogKey": "honda/civic",
+    "bodyStyle": "三门掀背车",
+    "fact": "EK9 是第一代 Civic Type R，采用三门掀背车身。后部的掀背门和后窗一起打开。",
+    "source": "https://global.honda/en/stories/048.html"
+  },
+  {
+    "id": "CAR163",
+    "catalogKey": "volkswagen/golf",
+    "bodyStyle": "掀背车",
+    "fact": "Mk8 表示第八代 Golf。GTI 是这一代 Golf 里的运动版本，属于可以打开尾门的掀背车。",
+    "source": "https://www.volkswagen-newsroom.com/en/the-new-golf-gti-edition-50-international-media-drive-20143/the-history-of-the-golf-gti-in-detail-20156"
+  },
+  {
+    "id": "CAR165",
+    "catalogKey": "suzuki/swift",
+    "bodyStyle": "小型掀背车",
+    "fact": "Swift 是小型掀背车。打开后面的尾门时，尾门上的后窗也会一起抬起。",
+    "source": "https://www.globalsuzuki.com/automobile/lineup/swift/"
+  },
+  {
+    "id": "CAR168",
+    "catalogKey": "subaru/impreza",
+    "bodyStyle": "四门运动轿车",
+    "fact": "2004 年的 Impreza WRX STI 是这一年 Impreza 系列的高性能版本，采用四轮驱动。",
+    "source": "https://www.subaru.ca/WebPage.aspx?ArticleID=611&WebPageID=4749&WebSiteID=282"
+  },
+  {
+    "id": "CAR169",
+    "catalogKey": "toyota/crown",
+    "bodyStyle": "四门轿车",
+    "fact": "S210 是第十四代 Crown。Athlete 是其中造型与调校偏运动的版本，同代还有 Royal 等版本。",
+    "source": "https://global.toyota/en/newsroom/toyota/22932467.html"
+  },
+  {
+    "id": "CAR171",
+    "catalogKey": "tesla/model-3",
+    "bodyStyle": "四门电动轿车",
+    "fact": "Model 3 的电池布置在乘员舱的地板下方，车头也有能放随身物品的储物空间。",
+    "source": "https://www.tesla.com/model3"
+  },
+  {
+    "id": "CAR172",
+    "catalogKey": "cadillac/escalade",
+    "bodyStyle": "大型 SUV",
+    "fact": "Escalade 是凯迪拉克的大型 SUV，采用三排座椅。第三排在车辆后部，可以根据载物需要折叠。",
+    "source": "https://www.cadillac.com/suvs/escalade"
+  },
+  {
+    "id": "CAR173",
+    "catalogKey": "buick/skylark",
+    "bodyStyle": "双门敞篷车",
+    "fact": "别克在 1953 年推出 Skylark 敞篷车。它是别克为庆祝品牌五十周年而推出的车型。",
+    "source": "https://www.gm.com/heritage/collection/buick/1953-buick-skylark"
+  },
+  {
+    "id": "CAR174",
+    "catalogKey": "land-rover/range-rover",
+    "bodyStyle": "越野 SUV",
+    "fact": "2006 年的 Range Rover 属于代号 L322 的第三代，采用四轮驱动。",
+    "source": "https://media.jlr.com/range-rover/en-gb/news/2015/06/range-rover-celebrates-45-years-luxury-design-and-innovation"
+  },
+  {
+    "id": "CAR177",
+    "catalogKey": "lexus/es",
+    "bodyStyle": "四门轿车",
+    "fact": "ES Hybrid 的动力系统结合了汽油发动机与电动机。Hybrid 在车型名里表示混合动力。",
+    "source": "https://pressroom.lexus.com/vehicle/2025-lexus-es/"
+  },
+  {
+    "id": "CAR178",
+    "catalogKey": "ford/bronco",
+    "bodyStyle": "越野 SUV",
+    "fact": "Bronco 是福特的越野车型。现款双门和四门 Bronco 的车门可以拆卸。",
+    "source": "https://www.ford.com/suvs/bronco/"
+  },
+  {
+    "id": "CAR181",
+    "catalogKey": "fiat/500",
+    "bodyStyle": "小型掀背车",
+    "fact": "500 Abarth 以菲亚特 500 为基础，采用了面向运动驾驶的动力和底盘调校。",
+    "source": "https://www.media.stellantis.com/de-de/abarth/press/neuer-500-abarth-deutschlandstart-am-19-juli-offizielle-premiere-des-kult-modells-mit-live-act-in-munchen"
+  },
+  {
+    "id": "CAR182",
+    "catalogKey": "bmw/x5",
+    "bodyStyle": "高性能 SUV",
+    "fact": "X5 M Competition 保留了 X5 的 SUV 车身。宝马 M 为这个版本重新调校了发动机和底盘。",
+    "source": "https://www.bmw-m.com/en/all-models/overview-m-and-m-performance/bmw-x5-m/2023/bmw-x5-m.html"
+  },
+  {
+    "id": "CAR185",
+    "catalogKey": "fiat/850",
+    "bodyStyle": "双座敞篷车",
+    "fact": "850 Spider 是双座敞篷车。它把发动机安在车尾，行李空间在前部。",
+    "source": "https://www.media.stellantis.com/es-es/fiat/press/decadas-de-veranos-de-ensueno-con-los-descapotables-fiat"
+  },
+  {
+    "id": "CAR192",
+    "catalogKey": "byd/dolphin",
+    "bodyStyle": "小型电动掀背车",
+    "fact": "Dolphin 是纯电动掀背车。它的后门带着后窗一起打开，方便从车尾装取物品。",
+    "source": "https://www.byd.com/eu/electric-cars/dolphin"
+  },
+  {
+    "id": "CAR194",
+    "catalogKey": "mercedes-benz/190-e",
+    "bodyStyle": "四门轿车",
+    "fact": "190 E 属于代号 W201 的 190 系列。梅赛德斯-奔驰用字母 E 标记采用汽油喷射的版本。",
+    "source": "https://en.wikipedia.org/wiki/Mercedes-Benz_W201"
+  }
+]

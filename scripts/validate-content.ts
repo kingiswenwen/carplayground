@@ -3,9 +3,29 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import sharp from 'sharp';
 import releaseData from '../content/r3.json';
+import profiles from '../content/vehicle-profiles.json';
+import nameAudio from '../content/vehicle-name-audio.json';
 import {releaseSchema} from '../src/domain/content-schema';
 const content=releaseSchema.parse(releaseData);
 import {assertIllustrationSubject} from './illustration-alpha';
+
+const profileIds=new Set(profiles.map(profile=>profile.id));
+if(profiles.length!==content.cars.length||profileIds.size!==profiles.length)throw Error('车型资料清单缺失或重复');
+const nameHashes=new Set<string>();
+for(const car of content.cars){
+  const profile=profiles.find(row=>row.id===car.id);
+  if(!profile||profile.catalogKey!==car.catalogKey||!profile.bodyStyle.trim()||!profile.fact.trim()||new URL(profile.source).protocol!=='https:')throw Error('车型资料与审核车型或来源不匹配 '+car.id);
+  const clip=content.assets.find(asset=>asset.id===car.audio)!;
+  if(nameHashes.has(clip.sha256))throw Error('两辆车型共用了车名音频 '+car.id);
+  nameHashes.add(clip.sha256);
+  if(car.audio.startsWith('vehicle-name-')&&!Object.hasOwn(nameAudio.clips,car.audio))throw Error('车名语音缺少离线生成记录 '+car.id);
+}
+for(const [id,record] of Object.entries(nameAudio.clips)){
+  const car=content.cars.find(car=>car.id===record.carId&&car.audio===id);
+  const asset=content.assets.find(asset=>asset.id===id);
+  if(!car||car.name!==record.text||!record.phonemes||!asset||asset.sha256!==record.sha256||asset.duration!==record.duration)throw Error('车名语音文件和生成记录不一致 '+id);
+}
+console.log(`${profiles.length} 款车型的科普来源和专属全名语音通过车型、文案与素材登记核对。`);
 
 const publicRoot = path.resolve('public');
 for (const asset of content.assets) {
@@ -62,7 +82,7 @@ for(const model of models){
  if(model.playFile){const lod=await fs.readFile(path.join('public',model.playFile));if(lod.length!==model.playBytes||createHash('sha256').update(lod).digest('hex')!==model.playSha256||!content.assets.some(a=>a.id==='model-play-'+model.id&&a.sha256===model.playSha256))throw Error('玩法模型哈希不一致 '+model.id);}
  const gltf=JSON.parse(b.subarray(20,20+b.readUInt32LE(12)).toString());if((gltf.buffers||[]).some((b:{uri?:string})=>b.uri)||(gltf.images||[]).some((i:{uri?:string})=>i.uri))throw Error('模型含外部运行时依赖 '+model.id);
 }
-console.log(`${models.length}款独立车型GLB、来源署名与文件哈希一致；其余车型使用六角度图，不替换成通用车身。`);
+console.log(`${models.length}款独立车型GLB、来源署名与文件哈希一致。`);
 
 const turnarounds=JSON.parse(await fs.readFile('content/car-turnarounds-production.json','utf8')) as {id:string;tool:string;generatedFile:string;sheetSha256:string;prompt:string;views:{id:string;image:string}[]}[];
 if(turnarounds.length!==sources.length||new Set(turnarounds.map(s=>s.id)).size!==turnarounds.length||new Set(turnarounds.map(s=>s.generatedFile)).size!==turnarounds.length||new Set(turnarounds.map(s=>s.sheetSha256)).size!==turnarounds.length)throw Error('保留跑车需要独立生成的多角度车辆记录');

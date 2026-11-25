@@ -3,18 +3,19 @@ import {activityHref,teachingActions} from '../domain/town';
 import {CatalogueSelect} from '../components/CatalogueSelect';
 import {TownSearch} from '../components/TownSearch';
 import {activeCar,rememberCar} from '../domain/active-car';
-import {useEffect,useLayoutEffect,useRef,useState,type CSSProperties} from 'react';
+import {useEffect,useLayoutEffect,useRef,useState,type CSSProperties,type Ref} from 'react';
 import {VehicleViews} from '../components/VehicleViews';
-import {ArrowLeft,ArrowRight,Box,Camera,Heart,Volume2,Download,RotateCcw} from '../components/TownIcons';
+import {ArrowLeft,ArrowRight,Box,Camera,ChevronDown,Heart,Volume2,Download,RotateCcw} from '../components/TownIcons';
 import {CarImage} from '../components/CarImage';
 import {PlayPicture} from '../components/PlayPicture';
 import {PlaySymbol} from '../components/PlaySymbol';
 import {vehicleModel,vehicleModels} from '../domain/vehicle-models';
-import {assetUrl,content,getCar,selectableCarIds} from '../domain/content';
+import {assetUrl,content,getCar,selectableCarIds,type Car} from '../domain/content';
 import {brandOrigin,filterCatalogue} from '../domain/catalog';
 import {audio} from '../services/audio';
 import {db,safely,type Creation} from '../services/storage';
 import {ArtworkView} from './Studio';
+import vehicleProfiles from '../../content/vehicle-profiles.json';
 const vehicleBayUrl=new URL(assetUrl('town-vehicle-bay'),document.baseURI);
 const vehicleBayStyle={'--town-bay-art':`url("${vehicleBayUrl.href}")`} as CSSProperties;
 
@@ -22,21 +23,32 @@ export function ActivityLinks({ids,carId,domain,scene}:{ids?:string[];carId?:str
  const chosen=carId||activeCar();const list=content.activities.filter(a=>(!ids||ids.includes(a.id))&&(!domain||a.domain===domain)&&(!scene||a.scene===scene)).sort((a,b)=>ids?ids.indexOf(a.id)-ids.indexOf(b.id):0);
  return <div className="activity-links picture-activities">{list.map(item=><a href={activityHref(item.id,chosen)} className={`activity-link picture-activity play-${item.id}`} key={item.id} aria-label={item.title}><PlayPicture id={item.id}/><span className="town-activity-caption"><strong>{item.title}</strong><small>{teachingActions[item.id]}</small><ArrowRight aria-hidden="true"/></span></a>)}</div>;
 }
-function useCarNameVoice(){const[available,setAvailable]=useState(()=>!!window.speechSynthesis?.getVoices().some(v=>v.localService&&/^zh[-_]/i.test(v.lang)));useEffect(()=>{const update=()=>setAvailable(!!window.speechSynthesis?.getVoices().some(v=>v.localService&&/^zh[-_]/i.test(v.lang)));window.speechSynthesis?.addEventListener('voiceschanged',update);return()=>window.speechSynthesis?.removeEventListener('voiceschanged',update);},[]);return available;}
-function CarNameButton({car}:{car:typeof content.cars[number]}){
- const localNameVoice=useCarNameVoice(),unavailable=car.audio==='car-name-local'&&!localNameVoice;
- return <button className="vehicle-secondary" type="button" disabled={unavailable}
-  title={unavailable?'本机没有可用的中文车名语音':undefined}
-  onClick={()=>{if(car.audio==='car-name-local')audio.announce(car.name,[]);else void audio.playRequested(car.audio);}}>
-  <Volume2 aria-hidden="true"/>{unavailable?'暂无音频':'听车名'}
+function CarNameButton({car}:{car:Car}){
+ return <button className="vehicle-secondary" type="button" onClick={()=>void audio.playRequested(car.audio)}>
+  <Volume2 aria-hidden="true"/>听车名
  </button>;
+}
+function VehicleProfile({car,id,panel,hidden=false,showName=false}:{car:Car;id:string;panel?:Ref<HTMLElement>;hidden?:boolean;showName?:boolean}){
+ const profile=vehicleProfiles.find(item=>item.id===car.id)!;
+ return <section className="vehicle-profile" id={id} ref={panel} hidden={hidden} tabIndex={panel?-1:undefined} aria-labelledby={`${id}-heading`}>
+  <header className="vehicle-profile-header"><h2 id={`${id}-heading`}>车型详情</h2>{showName&&<p>{car.name}</p>}</header>
+  <dl className="vehicle-specs">
+   <div><dt>品牌</dt><dd>{car.zhBrand}</dd></div>
+   <div><dt>品牌发源地</dt><dd>{brandOrigin(car.brand)}</dd></div>
+   <div><dt>车身类型</dt><dd>{profile.bodyStyle}</dd></div>
+  </dl>
+  <p className="vehicle-fact">{profile.fact}</p>
+  <a className="vehicle-text-control vehicle-source" href={profile.source} target="_blank" rel="noreferrer">查看车型资料<ArrowRight aria-hidden="true"/></a>
+ </section>;
 }
 function WashLink({carId}:{carId:string}){
  return <a className="town-primary-link" href={activityHref('H03',carId)}>带它去洗车 <ArrowRight aria-hidden="true"/></a>;
 }
 export function Showroom(_props:{welcome:boolean;begin:(sound:boolean)=>void}){
  const[index,setIndex]=useState(Math.max(0,content.cars.findIndex(c=>c.id===activeCar()&&vehicleModel(c.id))));
- const preview=useRef<HTMLDivElement>(null),revealPreview=useRef(false);
+ const preview=useRef<HTMLDivElement>(null),revealPreview=useRef(false),profilePanel=useRef<HTMLElement>(null);
+ const [profileOpen,setProfileOpen]=useState(false);
+ useLayoutEffect(()=>{if(profileOpen)profilePanel.current?.focus();},[profileOpen]);
  useLayoutEffect(()=>{
   if(!revealPreview.current)return;
   revealPreview.current=false;
@@ -54,17 +66,18 @@ export function Showroom(_props:{welcome:boolean;begin:(sound:boolean)=>void}){
  const brands=[...new Set(available.map(c=>c.brand))],countries=[...new Set(available.map(c=>brandOrigin(c.brand)).filter(Boolean))];
  const filtered=filterCatalogue(available,{brand,origin,query});const pages=Math.max(1,Math.ceil(filtered.length/8)),current=Math.min(page,pages-1);
  const clearFilters=()=>{setBrand('all');setOrigin('all');setQuery('');setPage(0);};
- const choose=(id:string)=>{const next=content.cars.findIndex(c=>c.id===id);if(next===index)return;revealPreview.current=true;setIndex(next);rememberCar(id);};
+ const choose=(id:string)=>{const next=content.cars.findIndex(c=>c.id===id);if(next===index)return;audio.stop();setProfileOpen(false);revealPreview.current=true;setIndex(next);rememberCar(id);};
  return <div className="picture-showroom"><TownHeading title="带哪辆小车出发？"/>
  <div className="car-roundabout" ref={preview}>
-  <VehicleViews carId={car.id} title={`${car.zhBrand} ${car.model}`}>
+  <VehicleViews carId={car.id} title={car.name}>
    <div className="vehicle-utilities">
     <CarNameButton car={car}/>
-    <a className="vehicle-secondary" href={`#/cars/${car.id}`}>车型详情<ArrowRight aria-hidden="true"/></a>
+    <button type="button" className="vehicle-secondary vehicle-profile-toggle" aria-expanded={profileOpen} aria-controls="showroom-vehicle-profile" onClick={()=>setProfileOpen(value=>!value)}>车型详情<ChevronDown aria-hidden="true"/></button>
    </div>
    <WashLink carId={car.id}/>
   </VehicleViews>
  </div>
+ <VehicleProfile car={car} id="showroom-vehicle-profile" panel={profilePanel} hidden={!profileOpen} showName/>
  <section className="garage-picker" aria-label="挑选跑车" style={vehicleBayStyle}><div className="garage-picker-bar"><span className="garage-count">{references?<Camera aria-hidden="true"/>:<Box aria-hidden="true"/>}{references?`${content.cars.length-vehicleModels.length} 款真实车型 · 模型待补`:`${vehicleModels.length} 款立体车 · ${content.cars.length} 款真实车型`}</span></div>
  <div className="garage-filters">
   <TownSearch className="garage-search" label="查找车型或品牌" clearLabel="清空车型搜索" placeholder="找车型或品牌" value={query}
@@ -83,7 +96,8 @@ export function Detail({carId,favorite,favoriteBusy=false,favoriteError,toggleFa
  const car=getCar(carId)!;useEffect(()=>{void safely(()=>db.recent.put({carId,at:new Date().toISOString()}),undefined,`recent:${carId}`);},[carId]);
  return <div className="picture-detail">
  <a className="vehicle-back vehicle-text-control" href="#/cars"><ArrowLeft aria-hidden="true"/>回到选车</a>
- <TownHeading title={`${car.zhBrand} ${car.model}`}/>
+ <TownHeading title={car.name}/>
+ <VehicleProfile car={car} id="vehicle-profile"/>
  <div className="car-roundabout">
   <VehicleViews carId={carId}>
    <div className="vehicle-utilities">

@@ -29,7 +29,8 @@ test('立体车库支持品牌筛选、八辆分页与对应模型默认打开 @
  await expect(page.locator('.car-gallery-card')).toHaveCount(Math.min(8,ferraris.length));
  await expect(page.locator('.car-gallery-card .garage-car-name')).toHaveText(ferraris.slice(0,8).map(car=>car.model));
  await page.goto('/#/cars/CAR135');await expect(page.locator('.vehicle-webgl[data-ready=true]')).toHaveAttribute('data-car','CAR135',{timeout:45000});
- await page.goto('/#/cars/CAR03');await page.getByRole('button',{name:'外观图',exact:true}).click();await expect(page.locator('.vehicle-angle')).toBeVisible();await expect(page.getByRole('button',{name:'立体模型',exact:true})).toBeVisible();
+ await page.goto('/#/cars/CAR03');await expect(page.locator('.vehicle-webgl[data-ready=true]')).toHaveAttribute('data-car','CAR03',{timeout:45000});
+ await expect(page.getByRole('region',{name:'车型详情'})).toContainText('尾翼');
 });
 test('所有26个玩法均进入直接操作场景，无必读文字选择器 @smoke',async({page})=>{
  test.setTimeout(90000);const errors:string[]=[];page.on('pageerror',e=>errors.push(e.message));
