@@ -124,6 +124,8 @@ for(const id of ids)test(`${id} 立体场景完整实际操作 @worldmatrix`,asy
  else if(id==='A02'){
   const H=(await snap(page)).boardHeight;
   await drag(page,'my-car',await ground(page,710,H*.48));
+  // Wait for the first stroke to enter undo history before reading its length.
+  await expect.poll(async()=>(await snap(page)).trackArt.canUndo).toBe(true);
   const first=(await snap(page)).tracks.count;
   await page.getByRole('button',{name:'折线轮纹'}).click();
   await drag(page,'my-car',await ground(page,310,H*.42));
