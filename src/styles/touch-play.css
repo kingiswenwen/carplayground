@@ -43,3 +43,25 @@
 .touch-icon:has(.play-view-label){position:relative}.play-view-label{position:absolute;right:3px;bottom:2px;font-size:8px;font-weight:800;line-height:1;color:#3d6b52;pointer-events:none}
 
 .town-play .pictorial-error{align-items:center;flex-wrap:wrap;color:var(--town-ink,#294d42)}
+
+.touch-canvas:focus-visible { outline-offset: -5px; }
+.touch-canvas-wrap[data-view=flat] > .touch-world { visibility: hidden; pointer-events: none; }
+.play-view-loading {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 6px 12px;
+  border-radius: 12px;
+  background: var(--town-paper);
+  color: var(--town-ink);
+  font-size: 13px;
+  pointer-events: none;
+}
+.play-view-feedback {
+  margin-block: 8px;
+  color: var(--town-muted);
+  font-size: 14px;
+}
+.restart-play[open] {
+  animation: family-appear var(--motion-standard) var(--motion-ease);
+}

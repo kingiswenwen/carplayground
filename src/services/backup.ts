@@ -4,6 +4,7 @@ import {z}from'zod';
 import{activityIds,content,historicalCarIds}from'../domain/content';
 import{db,defaultSettings,storageStatus}from'./storage';
 import{resetPendingResultsAfter}from'./pending-session-results';
+import{clearPendingStoryProgress}from'./pending-story-progress';
 // Exported files, imported files and the pre-replacement recovery snapshot use
 // the same limits. Per-field bounds and semantic validation remain in force.
 export const MAX_BACKUP_BYTES=64*1024*1024;
@@ -87,7 +88,7 @@ export async function replaceBackup(input:Backup,beforeReplace?:(current:Backup)
   await db.observations.bulkPut(next.observations);
   return current;
  }));
- storageStatus.reset();return previous;
+ clearPendingStoryProgress();storageStatus.reset();return previous;
 }
-export async function clearLocalData(){await resetPendingResultsAfter(()=>db.transaction('rw',[...tables(),db.recovery],async()=>{for(const table of [...tables(),db.recovery])await table.clear();}));storageStatus.reset();}
+export async function clearLocalData(){await resetPendingResultsAfter(()=>db.transaction('rw',[...tables(),db.recovery],async()=>{for(const table of [...tables(),db.recovery])await table.clear();}));clearPendingStoryProgress();storageStatus.reset();}
 export function domainSummary(sessions:{activityId:string}[]){return content.activities.reduce((map,a)=>{map[a.domain]=(map[a.domain]||0)+sessions.filter(s=>s.activityId===a.id).length;return map;},{}as Record<string,number>);}

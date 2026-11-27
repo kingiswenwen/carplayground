@@ -52,6 +52,8 @@ export class VehicleRenderer{
  private disposed=false;
  private needsRender=true;
  private frame=0;
+ private aspect=1;
+ private reduceMotion=window.matchMedia('(prefers-reduced-motion: reduce)');
  private carId='';
  private first=false;
  private down:{id:number;x:number;y:number}|null=null;
@@ -77,7 +79,7 @@ export class VehicleRenderer{
   const fill=new T.DirectionalLight('#e0edff',.65);fill.position.set(-4,3,-5);this.scene.add(fill);
   this.floor.rotation.x=-Math.PI/2;this.floor.position.y=-.008;this.floor.receiveShadow=true;this.scene.add(this.floor,this.contactShadow);
   canvas.className='vehicle-webgl';canvas.setAttribute('aria-label','立体汽车，拖动或按方向键旋转，双指或按加减键缩放');canvas.setAttribute('role','application');canvas.tabIndex=0;box.append(canvas);
-  this.camera.position.set(5,2.5,6);this.controls=new OrbitControls(this.camera,canvas);this.controls.enablePan=false;this.controls.enableDamping=!software;this.controls.dampingFactor=.12;this.controls.addEventListener('change',this.invalidate);
+  this.camera.position.set(5,2.5,6);this.controls=new OrbitControls(this.camera,canvas);this.controls.enablePan=false;this.controls.enableDamping=!software&&!this.reduceMotion.matches;this.controls.dampingFactor=.12;this.controls.addEventListener('change',this.invalidate);
   this.controls.minZoom=MIN_VEHICLE_ZOOM/100;this.controls.maxZoom=MAX_VEHICLE_ZOOM/100;
   this.controls.minPolarAngle=.12;this.controls.maxPolarAngle=Math.PI*.48;this.controls.rotateSpeed=.65;
   // OrbitControls sets touch-action:none on connect. Let vertical swipes
@@ -89,9 +91,18 @@ export class VehicleRenderer{
   canvas.addEventListener('gesturestart',this.gestureStart);
   canvas.addEventListener('gesturechange',this.gestureChange);
   canvas.addEventListener('pointerdown',this.start);canvas.addEventListener('pointerup',this.end,true);canvas.addEventListener('pointercancel',this.cancel);canvas.addEventListener('lostpointercapture',this.cancel);canvas.addEventListener('keydown',this.key);canvas.addEventListener('webglcontextlost',this.lost);
-  this.observer=new ResizeObserver(this.resize);this.observer.observe(box);this.resize();this.frame=requestAnimationFrame(this.render);
+  this.reduceMotion.addEventListener('change',this.updateMotion);
+  document.addEventListener('visibilitychange',this.invalidate);
+  this.observer=new ResizeObserver(this.resize);this.observer.observe(box);this.resize();
  }
- private invalidate=()=>{this.needsRender=true;};
+ private requestFrame(){
+  if(!this.frame&&!this.disposed&&!document.hidden&&this.root&&this.bounds)this.frame=requestAnimationFrame(this.render);
+ }
+ private invalidate=()=>{this.needsRender=true;this.requestFrame();};
+ private updateMotion=()=>{
+  this.controls.enableDamping=!this.software&&!this.reduceMotion.matches;
+  this.invalidate();
+ };
  private resize=()=>{
   if(this.disposed)return;const w=Math.max(1,this.box.clientWidth),h=Math.max(1,this.box.clientHeight);
   // Preserve a sharp one-pixel-per-CSS-pixel view at typical phone sizes and
@@ -99,7 +110,8 @@ export class VehicleRenderer{
   const ratio=Math.min(devicePixelRatio,this.software?Math.min(1,900/Math.max(w,h)):1.5);
   if(this.renderer.getPixelRatio()!==ratio)this.renderer.setPixelRatio(ratio);
   this.renderer.setSize(w,h,false);
-  if(this.bounds)frameModel(this.camera,this.bounds,w/h);this.needsRender=true;
+  this.aspect=w/h;
+  this.invalidate();
  };
  private clearCar(){
   this.abort?.abort();clearTimeout(this.timer);this.bounds=undefined;this.contactShadow.visible=false;this.lamps.clear();this.paint?.dispose();this.paint=undefined;this.down=null;this.pointers.clear();
@@ -145,7 +157,7 @@ export class VehicleRenderer{
   const key=color??'original',finish=paint?.finish??'original';
   if(!this.paint||(canvas.dataset.paint===key&&canvas.dataset.finish===finish))return;
   this.paint.setPaint(color,paint?.finish??'gloss');
-  canvas.dataset.paint=key;canvas.dataset.finish=finish;this.needsRender=true;
+  canvas.dataset.paint=key;canvas.dataset.finish=finish;this.invalidate();
  }
  private setZoom(zoom:number){
   this.camera.zoom=T.MathUtils.clamp(zoom,this.controls.minZoom,this.controls.maxZoom);
@@ -193,7 +205,7 @@ export class VehicleRenderer{
   if(!this.root||!down||down.id!==event.pointerId||this.pointers.size||Math.hypot(event.clientX-down.x,event.clientY-down.y)>9)return;
   const rect=this.renderer.domElement.getBoundingClientRect(),ray=new T.Raycaster();ray.setFromCamera(new T.Vector2((event.clientX-rect.left)/rect.width*2-1,-(event.clientY-rect.top)/rect.height*2+1),this.camera);
   if(!ray.intersectObject(this.root,true).length||!this.lamps.size)return;this.lights=!this.lights;
-  this.lamps.forEach((base,m)=>{m.emissive.copy(this.lights?new T.Color('#fff6d4'):base.color);m.emissiveIntensity=this.lights?2:base.intensity;});this.renderer.domElement.dataset.lights=this.lights?'on':'off';this.needsRender=true;
+  this.lamps.forEach((base,m)=>{m.emissive.copy(this.lights?new T.Color('#fff6d4'):base.color);m.emissiveIntensity=this.lights?2:base.intensity;});this.renderer.domElement.dataset.lights=this.lights?'on':'off';this.invalidate();
  };
  private key=(event:KeyboardEvent)=>{
   if(['+','=','-','_','0','Home'].includes(event.key)){
@@ -205,23 +217,30 @@ export class VehicleRenderer{
   if(!['ArrowLeft','ArrowRight','ArrowUp','ArrowDown'].includes(event.key))return;event.preventDefault();
   const sphere=new T.Spherical().setFromVector3(this.camera.position.clone().sub(this.controls.target));sphere.theta+=event.key==='ArrowLeft'?.25:event.key==='ArrowRight'?-.25:0;
   sphere.phi=T.MathUtils.clamp(sphere.phi+(event.key==='ArrowUp'?-.15:event.key==='ArrowDown'?.15:0),.12,Math.PI*.48);
-  this.camera.position.copy(this.controls.target).add(new T.Vector3().setFromSpherical(sphere));this.controls.update();this.needsRender=true;
+  this.camera.position.copy(this.controls.target).add(new T.Vector3().setFromSpherical(sphere));this.controls.update();this.invalidate();
  };
  private lost=(event:Event)=>{event.preventDefault();this.fail();};
  private render=()=>{
   if(this.disposed)return;
-  if(!document.hidden&&this.root&&this.bounds){const changed=this.controls.update();if(changed||this.needsRender){
-   // Elevation can change during a drag. Refit without changing the user's zoom.
-   frameModel(this.camera,this.bounds,Math.max(1,this.box.clientWidth)/Math.max(1,this.box.clientHeight));
-   try{this.renderer.render(this.scene,this.camera);}catch{this.fail();return;}
-   const canvas=this.renderer.domElement,zoom=Math.round(this.camera.zoom*100);canvas.dataset.yaw=String(Math.atan2(this.camera.position.z-this.controls.target.z,this.camera.position.x-this.controls.target.x));canvas.dataset.zoom=String(zoom);canvas.dataset.car=this.carId;canvas.dataset.ready='true';canvas.dataset.source='reviewed-gltf';canvas.style.visibility='';this.needsRender=false;
-   if(zoom!==this.reportedZoom){this.reportedZoom=zoom;this.onZoom(zoom);}
-   if(this.first){this.first=false;this.onReady(this.carId);}
-  }}
-  this.frame=requestAnimationFrame(this.render);
+  let settling=false;
+  if(!document.hidden&&this.root&&this.bounds){
+   const changed=this.controls.update();
+   settling=changed&&this.controls.enableDamping;
+   if(changed||this.needsRender){
+    // Elevation can change during a drag. Refit without changing the user's zoom.
+    frameModel(this.camera,this.bounds,this.aspect);
+    try{this.renderer.render(this.scene,this.camera);}catch{this.fail();return;}
+    const canvas=this.renderer.domElement,zoom=Math.round(this.camera.zoom*100);canvas.dataset.yaw=String(Math.atan2(this.camera.position.z-this.controls.target.z,this.camera.position.x-this.controls.target.x));canvas.dataset.zoom=String(zoom);canvas.dataset.car=this.carId;canvas.dataset.ready='true';canvas.dataset.source='reviewed-gltf';canvas.style.visibility='';this.needsRender=false;
+    if(zoom!==this.reportedZoom){this.reportedZoom=zoom;this.onZoom(zoom);}
+    if(this.first){this.first=false;this.onReady(this.carId);}
+   }
+  }
+  this.frame=0;
+  if(settling||this.needsRender)this.requestFrame();
  };
  dispose(){
   if(this.disposed)return;this.disposed=true;++this.epoch;cancelAnimationFrame(this.frame);this.observer.disconnect();this.controls.removeEventListener('change',this.invalidate);this.controls.dispose();this.clearCar();
+  this.reduceMotion.removeEventListener('change',this.updateMotion);document.removeEventListener('visibilitychange',this.invalidate);
   const canvas=this.renderer.domElement;canvas.removeEventListener('pointerdown',this.start);canvas.removeEventListener('pointerup',this.end,true);canvas.removeEventListener('pointercancel',this.cancel);canvas.removeEventListener('lostpointercapture',this.cancel);canvas.removeEventListener('keydown',this.key);canvas.removeEventListener('webglcontextlost',this.lost);
   canvas.removeEventListener('wheel',this.wheel,true);canvas.removeEventListener('touchstart',this.touchStart);canvas.removeEventListener('touchmove',this.touchMove);canvas.removeEventListener('gesturestart',this.gestureStart);canvas.removeEventListener('gesturechange',this.gestureChange);
   this.environment?.dispose();this.floor.geometry.dispose();this.floor.material.dispose();disposeModel(this.contactShadow);canvas.remove();this.renderer.dispose();this.renderer.forceContextLoss();

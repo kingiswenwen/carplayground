@@ -30,3 +30,26 @@ test('历史重复收藏归并为一个车型，取消收藏不残留旧别名 @
 test('空白地面不能代替车身擦洗或部件触碰 @smoke',async({page})=>{
  test.setTimeout(90000);for(const id of ['E02','H03']){await open(page,id);const before=await state(page),b=(await world(page).boundingBox())!;for(const p of [{x:.04,y:.15},{x:.04,y:.85},{x:.96,y:.85}])await page.mouse.click(b.x+p.x*b.width,b.y+p.y*b.height);const after=await state(page);expect(after.progress).toBe(before.progress);expect(after.parts).toEqual(before.parts);expect(after.dirt.length).toBe(before.dirt.length);}
 });
+
+test('减少动态效果时转动立体镜头，松手后保持最后的视角',async({page})=>{
+ await page.emulateMedia({reducedMotion:'reduce'});
+ await open(page,'M01');
+ await page.getByRole('button',{name:'转动看看立体场景'}).click();
+ const before=(await state(page)).camera;
+ const bounds=(await world(page).boundingBox())!;
+ const x=bounds.x+bounds.width*.5,y=bounds.y+bounds.height*.5;
+ await page.mouse.move(x,y);
+ await page.mouse.down();
+ await page.mouse.move(x+60,y+20,{steps:6});
+ await page.mouse.up();
+ await expect.poll(async()=>(await state(page)).camera).not.toEqual(before);
+ // Read the final pointer update after the renderer posts it.
+ await expect.poll(async()=>{
+  const old=(await state(page)).camera;
+  await page.waitForTimeout(250);
+  return JSON.stringify((await state(page)).camera)===JSON.stringify(old);
+ }).toBe(true);
+ const settled=(await state(page)).camera;
+ await page.waitForTimeout(500);
+ expect((await state(page)).camera).toEqual(settled);
+});

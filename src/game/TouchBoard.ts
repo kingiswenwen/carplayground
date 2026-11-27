@@ -386,6 +386,14 @@ export class TouchBoard {
     this.storyReplay={index:0,next:this.time+.48};
     this.setupStory(this.storyActions[0].act);this.notify();
   }
+  stopStory(){
+    if(!this.storyReplay)return;
+    this.storyReplay=undefined;
+    this.arrivals.clear();
+    this.pulses=[];
+    this.setupStory(this.storyAct);
+    this.notify();
+  }
   private advanceStory(){
     const replay=this.storyReplay;
     if(!replay||this.time<replay.next)return;

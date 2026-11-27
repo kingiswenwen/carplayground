@@ -11,8 +11,8 @@ export function CarThumbnail({imageId,className,priority}:{imageId:string;classN
     src={failed===imageId?symbolPreview('wheel'):assetUrl(imageId)} onError={()=>setFailed(imageId)}/>;
 }
 
-type Props = { presentation?: 'object' | 'showcase' | 'catalogue'; lazy?: boolean; carId?: string; color?: Color; hotspots?: boolean; active?: Part; onPart?: (part: Part) => void; marker?: { x: number; y: number }; priority?: boolean; onReadyChange?: (ready: boolean) => void };
-export function CarImage({ presentation = 'object', lazy = false, carId = 'CAR01', color = 'white', hotspots = false, active, onPart, marker, priority, onReadyChange }: Props) {
+type Props = { presentation?: 'object' | 'showcase' | 'catalogue'; lazy?: boolean; carId?: string; color?: Color; hotspots?: boolean; active?: Part; onPart?: (part: Part) => void; marker?: { x: number; y: number }; priority?: boolean; recovery?: 'retry' | 'symbol'; onReadyChange?: (ready: boolean) => void };
+export function CarImage({ presentation = 'object', lazy = false, carId = 'CAR01', color = 'white', hotspots = false, active, onPart, marker, priority, recovery = 'retry', onReadyChange }: Props) {
   const [status, setStatus] = useState<'loading' | 'ready' | 'error'>('loading');
   const [retry, setRetry] = useState(0);
   const holder = useRef<HTMLDivElement>(null);
@@ -43,8 +43,8 @@ export function CarImage({ presentation = 'object', lazy = false, carId = 'CAR01
       width={image.width} height={image.height} draggable={false} loading={lazy ? 'lazy' : 'eager'} fetchPriority={priority ? 'high' : 'auto'}
       onLoad={() => setStatus('ready')} onError={() => setStatus('error')} />}
     {status === 'loading' && <span className="image-loading" role="status" aria-label="正在准备小车"><PlaySymbol name="wheel"/></span>}
-    {status === 'error' && <div className="image-error" role="alert"><span className="sr-only">这张图片还没到，再试一次</span>
-      <button aria-label="重新加载小车图片" onClick={event => { event.preventDefault(); event.stopPropagation(); setStatus('loading'); setRetry(r => r + 1); }}><RefreshCw size={20} /></button></div>}
+    {status === 'error' && <div className="image-error" role="alert"><span className="sr-only">{recovery==='retry'?'这张图片还没到，再试一次':'暂时无法显示车辆图片'}</span>
+      {recovery==='retry'?<button aria-label="重新加载小车图片" onClick={event => { event.preventDefault(); event.stopPropagation(); setStatus('loading'); setRetry(r => r + 1); }}><RefreshCw size={20} /></button>:<PlaySymbol name="wheel"/>}</div>}
     {showPoints && points.map(part =>
       <button key={part.id} className={`hotspot ${active === part.id ? 'active' : ''}`} aria-label={`${part.zh} ${part.id}`}
         aria-pressed={active === part.id} style={{ left: `${part.x * 100}%`, top: `${part.y * 100}%` }} onClick={() => onPart?.(part.id)}>

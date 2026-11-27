@@ -6,7 +6,7 @@ test('替换前备份下载失败不改记录，重试导入保留正确恢复�
   await page.goto('/#/parent');
   await page.getByRole('textbox', {name: '档案昵称（可留空）'}).fill('替换前测试档案');
   await page.getByRole('button', {name: '保存昵称', exact: true}).click();
-  await expect(page.getByRole('status')).toContainText('档案已保存在这台设备');
+  await expect(page.getByRole('region',{name:'本机档案与观察'}).getByRole('status')).toContainText('档案已保存在这台设备');
   const fixture = {
     formatVersion: 1, exportedAt: new Date().toISOString(),
     profile: {id: 'default', nickname: '导入测试档案'},
@@ -20,14 +20,14 @@ test('替换前备份下载失败不改记录，重试导入保留正确恢复�
     URL.createObjectURL = () => {throw new DOMException('Simulated download failure', 'NotSupportedError');};
   });
   await page.getByRole('button', {name: '替换并保存当前备份', exact: true}).click();
-  await expect(page.getByRole('status')).toContainText('本机记录还没有替换');
+  await expect(page.locator('.backup-card').getByRole('status')).toContainText('本机记录还没有替换');
   await expect(page.getByRole('textbox', {name: '档案昵称（可留空）'})).toHaveValue('替换前测试档案');
   await expect(page.getByRole('heading', {name: '导入前确认'})).toBeVisible();
   await page.evaluate(() => {URL.createObjectURL = Reflect.get(window, '__originalBlobUrl');});
   const downloaded = page.waitForEvent('download');
   await page.getByRole('button', {name: '替换并保存当前备份', exact: true}).click();
   const download = await downloaded;
-  await expect(page.getByRole('status')).toContainText('备份导入完成');
+  await expect(page.locator('.backup-card').getByRole('status')).toContainText('备份导入完成');
   await expect(page.getByRole('textbox', {name: '档案昵称（可留空）'})).toHaveValue('导入测试档案');
   await expect(page.getByRole('heading', {name: '导入前确认'})).toHaveCount(0);
   const recovery = JSON.parse(await fs.readFile((await download.path())!, 'utf8'));
@@ -49,4 +49,20 @@ test('替换前备份下载失败不改记录，重试导入保留正确恢复�
   expect(reverseSnapshot.profile.nickname).toBe('导入测试档案');
   await expect(page.getByRole('textbox', {name: '档案昵称（可留空）'})).toHaveValue('替换前测试档案');
   await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+});
+
+test('家长可以在清空确认中备份，取消后保留本机记录',async({page})=>{
+ await page.goto('/#/parent');
+ const nickname=page.getByRole('textbox',{name:'档案昵称（可留空）'});
+ await nickname.fill('保留档案');
+ await page.getByRole('button',{name:'保存昵称',exact:true}).click();
+ await page.getByText('档案已保存在这台设备。').waitFor();
+ await page.getByRole('button',{name:'清空这台设备的记录',exact:true}).click();
+ const confirmation=page.getByRole('dialog',{name:'清空这台设备的记录？'});
+ await expect(confirmation.getByRole('button',{name:'保留记录',exact:true})).toBeFocused();
+ const backup=page.waitForEvent('download');
+ await confirmation.getByRole('button',{name:'先下载备份'}).click();
+ expect(JSON.parse(await fs.readFile((await (await backup).path())!,'utf8')).profile.nickname).toBe('保留档案');
+ await confirmation.getByRole('button',{name:'保留记录',exact:true}).click();
+ await expect(nickname).toHaveValue('保留档案');
 });

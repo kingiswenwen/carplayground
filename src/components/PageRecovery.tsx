@@ -11,8 +11,8 @@ export class PageRecovery extends Component<{children:ReactNode},{failed:boolean
   if(!this.state.failed)return this.props.children;
   return <div className="empty-state pictorial-error page-recovery" role="alert">
    <PlaySymbol name="car"/>
-   <span>这一页暂时没能打开。点下方箭头重试，本机记录仍保留。</span>
-   <button className="picture-button" aria-label="重新打开当前页面" onClick={()=>window.location.reload()}><RotateCcw/></button>
+   <span>这一页暂时没能打开。本机记录仍保留。</span>
+   <button className="button" aria-label="重新打开当前页面" onClick={()=>window.location.reload()}><RotateCcw/>重新打开</button>
   </div>;
  }
 }
