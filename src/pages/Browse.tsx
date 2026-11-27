@@ -149,7 +149,10 @@ export function Showroom({favorites,favoritePending,favoriteErrors,toggleFavorit
  const filtered=filterCatalogue(available,{brand,origin,query});const pages=Math.max(1,Math.ceil(filtered.length/8)),current=Math.min(page,pages-1);
  const clearFilters=()=>updateCatalogue({brand:'all',origin:'all',query:'',page:0});
  const choose=(id:string)=>{const next=content.cars.findIndex(c=>c.id===id);if(next===index)return;audio.stop();setProfileOpen(false);revealPreview.current=true;setIndex(next);rememberCar(id);};
- return <div className="picture-showroom"><TownHeading title="带哪辆小车出发？"/>
+ return <div className="picture-showroom"><TownHeading title="带哪辆小车出发？"><button type="button" className="vehicle-text-control showroom-picker-shortcut" aria-controls="showroom-picker" onClick={()=>{
+    picker.current?.focus({preventScroll:true});
+    picker.current?.scrollIntoView({block:'start',behavior:'instant'});
+   }}>换辆车</button></TownHeading>
  <div className="car-roundabout" ref={preview}>
   <VehicleViews carId={car.id} title={car.name}>
    <div className="vehicle-utilities">
@@ -158,10 +161,6 @@ export function Showroom({favorites,favoritePending,favoriteErrors,toggleFavorit
     <button type="button" className="vehicle-secondary vehicle-profile-toggle" aria-expanded={profileOpen} aria-controls="showroom-vehicle-profile" onClick={()=>setProfileOpen(value=>!value)}>车型详情<ChevronDown aria-hidden="true"/></button>
    </div>
    <FavoriteError message={favoritesUnavailable?undefined:favoriteErrors[car.id]} retry={()=>toggleFavorite(car.id)}/>
-   <button type="button" className="vehicle-text-control" aria-controls="showroom-picker" onClick={()=>{
-    picker.current?.focus({preventScroll:true});
-    picker.current?.scrollIntoView({block:'start',behavior:'instant'});
-   }}>换辆车</button>
    <WashLink carId={car.id}/>
   </VehicleViews>
  </div>

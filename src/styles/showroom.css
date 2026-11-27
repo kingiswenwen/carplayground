@@ -349,3 +349,9 @@
     background-color: #36473c;
   }
 }
+
+.showroom-picker-shortcut {
+  margin-inline-start: auto;
+  padding-inline: 12px;
+  white-space: nowrap;
+}
