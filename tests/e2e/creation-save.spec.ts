@@ -51,3 +51,52 @@ test('重开确认可以取消，保留当前海报', async ({page}) => {
  await expect(confirm).toHaveCount(0);
  await expect(undo).toBeEnabled();
 });
+
+test('离开未保存的海报可撤回，也能直接保存到车库', async ({page}) => {
+ await page.goto('/#/explore');
+ await page.getByRole('heading',{level:1}).waitFor();
+ await openTouch(page,'A01');
+ const sticker=await touchPosition(page,(await touchState(page)).items.find(item=>item.id==='stamp-0')!);
+ const sheet=await touchPosition(page,{x:240,y:240});
+ await page.mouse.click(sticker.x,sticker.y);
+ await page.mouse.click(sheet.x,sheet.y);
+ const garage=page.getByRole('link',{name:'我的车库',exact:true});
+ const undo=page.getByRole('button',{name:'撤回',exact:true});
+ await expect(undo).toBeEnabled();
+
+ const confirmation=page.getByRole('dialog',{name:'要离开这次玩法吗？'});
+ await garage.click();
+ await expect(confirmation).toBeVisible();
+ await page.goBack();
+ await expect(confirmation).toHaveCount(0);
+ await expect(page).toHaveURL(/#\/play\/A01/);
+ await expect(undo).toBeEnabled();
+
+ await garage.click();
+ await confirmation.getByRole('button',{name:'接着玩',exact:true}).click();
+ await expect(page).toHaveURL(/#\/play\/A01/);
+ await expect(undo).toBeEnabled();
+
+ await garage.click();
+ await confirmation.getByRole('button',{name:'保存并离开',exact:true}).click();
+ await expect(page.locator('.picture-garage .creation-card')).toHaveCount(1);
+});
+
+test('画完轮印立刻离开会先保存，失败时可以留在原画面重试',async({page})=>{
+ await page.addInitScript(()=>{
+  const put=IDBObjectStore.prototype.put;
+  Reflect.set(window,'__failTracks',true);
+  IDBObjectStore.prototype.put=function(...args:Parameters<typeof put>){
+   if(this.name==='creations'&&Reflect.get(window,'__failTracks'))throw new DOMException('Simulated quota','QuotaExceededError');
+   return put.apply(this,args);
+  };
+ });
+ await openTouch(page,'A02');
+ await dragTouch(page,(await touchState(page)).items[0],{x:680,y:250});
+ await page.getByRole('link',{name:'我的车库',exact:true}).click();
+ const dialog=page.getByRole('dialog',{name:'要离开这次玩法吗？'});
+ await expect(dialog).toBeVisible();
+ await page.evaluate(()=>Reflect.set(window,'__failTracks',false));
+ await dialog.getByRole('button',{name:'保存并离开',exact:true}).click();
+ await expect(page.locator('.picture-garage .creation-card')).toHaveCount(1);
+});

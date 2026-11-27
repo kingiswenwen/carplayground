@@ -60,3 +60,11 @@
   gap: 10px;
   text-align: center;
 }
+
+.town-shell .pictorial-loading {
+  display: grid;
+  justify-items: center;
+  gap: 12px;
+  color: var(--town-muted);
+  font-size: 14px;
+}

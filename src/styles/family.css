@@ -84,3 +84,17 @@
     from { opacity: .72; transform: translateX(var(--turn-offset)); }
   }
 }
+
+.family-clear-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+.family-clear-actions .text-button { min-height: 44px; }
+.story-turn-button {
+  min-height: 44px;
+  gap: 8px;
+  padding-inline: 14px;
+}

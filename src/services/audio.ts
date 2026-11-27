@@ -8,7 +8,8 @@ let cancelSpeech: (() => void) | undefined;
 let error = '';
 const listeners = new Set<() => void>();
 function report(message: string) { error = message; listeners.forEach(fn => fn()); }
-async function playSequence(ids:string[],requested=false) {
+type ClipFeedback = { onPlay: () => void; onError: () => void };
+async function playSequence(ids:string[],requested=false,feedback?:ClipFeedback) {
   audio.stop();
   if ((!enabled&&!requested)||document.hidden) return;
   const token=generation;
@@ -18,13 +19,18 @@ async function playSequence(ids:string[],requested=false) {
     const success=await new Promise<boolean>(resolve=>{
       const settle=(success:boolean)=>{if(settleCurrent===settle)settleCurrent=undefined;resolve(success);};
       settleCurrent=settle;
+      const fail=(message:string)=>{
+        if(token===generation){if(feedback)feedback.onError();else report(message);}
+        settle(false);
+      };
       const clip=new Howl({src:[assetUrl(id)],volume:.85,preload:true,
+        onplay:()=>{if(token===generation)feedback?.onPlay();},
         onend:()=>settle(true),onstop:()=>settle(false),
-        onloaderror:()=>{if(token===generation)report('声音还没到，点“重听”再试一次。');settle(false);},
-        onplayerror:()=>{if(token===generation)report('声音暂时没播放，点“重听”再试一次。');settle(false);},
+        onloaderror:()=>fail('声音还没到，点“重听”再试一次。'),
+        onplayerror:()=>fail('声音暂时没播放，点“重听”再试一次。'),
       });
       current=clip;
-      void Howler.ctx?.resume().catch(()=>{if(token!==generation)return;report('声音暂时没播放，点“重听”再试一次。');settle(false);});
+      void Howler.ctx?.resume().catch(()=>fail('声音暂时没播放，点“重听”再试一次。'));
       clip.play();
     });
     if(token!==generation)return;
@@ -79,4 +85,5 @@ export const audio = {
   prepareRequested(){const token=generation;Howler.volume(1);void Howler.ctx?.resume().catch(()=>{if(token===generation)report('声音暂时没播放，点“重听”再试一次。');});},
   play(...ids:string[]){return playSequence(ids);},
   playRequested(...ids:string[]){return playSequence(ids,true);},
+  playRequestedClip(id:string,feedback:ClipFeedback){return playSequence([id],true,feedback);},
 };

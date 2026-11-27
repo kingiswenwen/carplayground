@@ -87,7 +87,6 @@ export class TouchWorldRenderer{
  private orbit=false;
  private pointer:{id:number;item?:string;start:T.Vector3;boardStart:{x:number;y:number};wash?:boolean;turnWheel?:number}|null=null;
  private last=performance.now();
- private time=0;
  private rendered=0;
  private revision='';
  private needsRender=true;
@@ -102,34 +101,67 @@ export class TouchWorldRenderer{
  paused=false;
  constructor(private host:HTMLDivElement,private board:TouchBoard,private carId:string,private activity:string,state:BoardSnapshot,private changed:(ready:boolean)=>void,private failed:()=>void){
   this.state=state;
-  this.renderer=new T.WebGLRenderer({antialias:true,alpha:false,powerPreference:'low-power'});
-  const gl=this.renderer.getContext(),debug=gl.getExtension('WEBGL_debug_renderer_info');const identity=debug?String(gl.getParameter(debug.UNMASKED_RENDERER_WEBGL)):'';const software=/swiftshader|llvmpipe|software/i.test(identity)||!/apple|adreno|mali|powervr|nvidia|geforce|radeon|intel|iris|qualcomm|vivante|nouveau/i.test(identity);// Gameplay uses light diffuse surfaces; the showroom retains full PBR detail.
+  const options={alpha:false,powerPreference:'low-power'} as const;
+  let canvas=document.createElement('canvas');
+  let context=canvas.getContext('webgl2',{...options,antialias:true});
+  if(!context)throw Error('WebGL 2 is unavailable');
+  const debug=context.getExtension('WEBGL_debug_renderer_info');
+  const identity=debug?String(context.getParameter(debug.UNMASKED_RENDERER_WEBGL)):'';
+  const software=/swiftshader|llvmpipe|software/i.test(identity)||!/apple|adreno|mali|powervr|nvidia|geforce|radeon|intel|iris|qualcomm|vivante|nouveau/i.test(identity);
+  if(software&&context.getContextAttributes()?.antialias){
+   // Request an unmultisampled buffer before Three.js initializes the scene.
+   const simpler=document.createElement('canvas');
+   const next=simpler.getContext('webgl2',{...options,antialias:false});
+   if(next){context.getExtension('WEBGL_lose_context')?.loseContext();canvas=simpler;context=next;}
+  }
+  this.renderer=new T.WebGLRenderer({...options,canvas,context});
   this.software=software;this.simpleMaterials=software;this.renderer.domElement.dataset.quality=software?'simple':'balanced';this.renderer.setClearColor('#f5efdf');
   this.renderer.outputColorSpace=T.SRGBColorSpace;this.renderer.toneMapping=T.ACESFilmicToneMapping;this.renderer.toneMappingExposure=1;
   this.renderer.shadowMap.enabled=!software&&activity!=='S02';this.renderer.shadowMap.type=T.PCFSoftShadowMap;
   if(!software){let room:RoomEnvironment|undefined,pmrem:T.PMREMGenerator|undefined;try{room=new RoomEnvironment();pmrem=new T.PMREMGenerator(this.renderer);this.environment=pmrem.fromScene(room,.06,.1,100,{size:64});this.scene.environment=this.environment.texture;this.scene.environmentIntensity=.7;}catch{this.environment?.dispose();this.environment=undefined;this.scene.environment=null;this.software=this.simpleMaterials=true;this.renderer.shadowMap.enabled=false;this.renderer.domElement.dataset.quality='simple';}finally{room?.dispose();pmrem?.dispose();}}
-  const canvas=this.renderer.domElement;canvas.className='touch-world-canvas';canvas.tabIndex=0;canvas.setAttribute('role','application');canvas.setAttribute('aria-label',activity==='H03'?'立体洗车场景，直接擦洗车身；回车擦洗下一处，第一辆洗净后回车换车':'立体汽车互动场景，直接拖动车辆和物件；方向键移动，回车放下，方括号选择物体');canvas.dataset.ready='false';canvas.dataset.activity=activity;host.append(canvas);
+  canvas.className='touch-world-canvas';canvas.tabIndex=0;canvas.setAttribute('role','application');canvas.setAttribute('aria-label',activity==='H03'?'立体洗车场景，直接擦洗车身；回车擦洗下一处，第一辆洗净后回车换车':'立体汽车互动场景，直接拖动车辆和物件；方向键移动，回车放下，方括号选择物体');canvas.dataset.ready='false';canvas.dataset.activity=activity;host.append(canvas);
   this.scene.add(new T.HemisphereLight('#f2f8fa','#b8c5ab',1.6));
   const sun=new T.DirectionalLight('#fff1dc',2.5);sun.position.set(-8,18,10);sun.castShadow=true;sun.shadow.mapSize.set(1024,1024);sun.shadow.camera.left=-15;sun.shadow.camera.right=15;sun.shadow.camera.top=20;sun.shadow.camera.bottom=-20;sun.shadow.camera.far=60;sun.shadow.normalBias=.035;sun.shadow.bias=-.0003;this.scene.add(sun);
   const fill=new T.DirectionalLight('#dbeaf4',.65);fill.position.set(8,7,-10);this.scene.add(fill);
   this.scene.add(this.retired,this.scenery,this.dirt,this.tracks,this.selection);this.retired.visible=false;this.selection.rotation.x=-Math.PI/2;this.selection.visible=false;
 
-  this.controls=new OrbitControls(this.camera,canvas);this.controls.enablePan=false;this.controls.enableDamping=true;this.controls.minPolarAngle=.25;this.controls.maxPolarAngle=1.35;this.controls.minDistance=8;this.controls.maxDistance=65;this.controls.enabled=false;
+  this.controls=new OrbitControls(this.camera,canvas);this.controls.enablePan=false;this.controls.enableDamping=!this.software&&!this.reduced;this.controls.minPolarAngle=.25;this.controls.maxPolarAngle=1.35;this.controls.minDistance=8;this.controls.maxDistance=65;this.controls.enabled=false;
+  this.controls.addEventListener('change',this.invalidate);
+  this.motionPreference.addEventListener('change',this.setMotionPreference);
+  document.addEventListener('visibilitychange',this.schedule);
   this.buildScenery();this.resetCamera();
   void this.materialImage('paper').then(image=>{
    if(!image||this.disposed)return;
-   this.paperBackdrop=this.makeTexture(image);this.scene.background=this.paperBackdrop;this.needsRender=true;
+   this.paperBackdrop=this.makeTexture(image);this.scene.background=this.paperBackdrop;this.invalidate();
   });
   canvas.addEventListener('pointerdown',this.down);canvas.addEventListener('pointermove',this.move);canvas.addEventListener('pointerup',this.up);canvas.addEventListener('pointercancel',this.cancel);canvas.addEventListener('lostpointercapture',this.cancel);canvas.addEventListener('keydown',this.key);canvas.addEventListener('webglcontextlost',this.lost);
   this.observer=new ResizeObserver(this.resize);this.observer.observe(host);this.resize();
   void this.load().catch(error=>this.reportFailure('model loading',error));
-  this.frame=requestAnimationFrame(this.draw);
+  this.schedule();
  }
- update(state:BoardSnapshot){this.state=state;}
- setOrbit(enabled:boolean){this.orbit=enabled;this.controls.enabled=enabled;this.needsRender=true;this.cancel();}
- setPaused(value:boolean){this.paused=value;this.controls.enabled=this.orbit&&!value;if(value)this.cancel();}
+ update(state:BoardSnapshot){this.state=state;this.schedule();}
+ setOrbit(enabled:boolean){this.orbit=enabled;this.controls.enabled=enabled&&!this.paused;this.cancel();this.invalidate();}
+ setPaused(value:boolean){this.paused=value;this.controls.enabled=this.orbit&&!value;if(value)this.cancel();this.schedule();}
+ private schedule=()=>{
+  if(!this.disposed&&!document.hidden&&!this.frame)this.frame=requestAnimationFrame(this.draw);
+ };
+ private invalidate=()=>{
+  this.needsRender=true;
+  this.schedule();
+ };
+ private setMotionPreference=()=>{
+  const next=!this.software&&!this.reduced;
+  if(this.controls.enableDamping&&!next){
+   const position=this.camera.position.clone(),target=this.controls.target.clone();
+   this.controls.enableDamping=false;
+   this.controls.update();
+   this.camera.position.copy(position);this.controls.target.copy(target);
+  }
+  this.controls.enableDamping=next;
+  this.invalidate();
+ };
  resetCamera(){const length=this.board.height*UNIT,portrait=this.host.clientWidth<this.host.clientHeight;this.camera.position.set(portrait?0:10,Math.max(19,length*1.2),Math.max(18,length*1.15));this.camera.lookAt(0,0,0);this.controls.target.set(0,0,0);this.controls.update();this.resize();}
- private resize=()=>{if(this.disposed)return;const w=Math.max(1,this.host.clientWidth),h=Math.max(1,this.host.clientHeight);this.renderer.setPixelRatio(Math.min(devicePixelRatio,this.software?Math.min(1,720/Math.max(w,h)):2));this.renderer.setSize(w,h,false);this.camera.aspect=w/h;const depth=this.board.height*UNIT;const distance=Math.max(depth*1.9,22/this.camera.aspect/Math.tan(37*Math.PI/360)/2)*1.12;const direction=this.camera.position.clone().sub(this.controls.target).normalize();this.camera.position.copy(this.controls.target).addScaledVector(direction,distance);this.camera.updateProjectionMatrix();if((['T04','E02','T01','H03'].includes(this.activity)||this.phoneFocus())&&this.actors.size)this.fitContentCamera();this.needsRender=true;};
+ private resize=()=>{if(this.disposed)return;const w=Math.max(1,this.host.clientWidth),h=Math.max(1,this.host.clientHeight);this.renderer.setPixelRatio(Math.min(devicePixelRatio,this.software?Math.min(1,720/Math.max(w,h)):2));this.renderer.setSize(w,h,false);this.camera.aspect=w/h;const depth=this.board.height*UNIT;const distance=Math.max(depth*1.9,22/this.camera.aspect/Math.tan(37*Math.PI/360)/2)*1.12;const direction=this.camera.position.clone().sub(this.controls.target).normalize();this.camera.position.copy(this.controls.target).addScaledVector(direction,distance);this.camera.updateProjectionMatrix();if((['T04','E02','T01','H03'].includes(this.activity)||this.phoneFocus())&&this.actors.size)this.fitContentCamera();this.invalidate();};
  private phoneFocus(){return this.host.clientWidth<this.host.clientHeight&&['M01','M02','M03','T02','L01','S03','H02','L02','C02'].includes(this.activity);}
  private fitContentCamera(){
   const depth=this.board.height*UNIT,bounds=this.activity==='H03'||this.phoneFocus()?new T.Box3():new T.Box3(new T.Vector3(-11,-.5,-depth/2-1),new T.Vector3(11,0,depth/2+1));
@@ -148,7 +180,7 @@ export class TouchWorldRenderer{
   for(let attempt=0;attempt<20&&!fits(far);attempt++)far*=1.2;
   for(let attempt=0;attempt<16;attempt++){const middle=(near+far)/2;if(fits(middle))far=middle;else near=middle;}
   this.controls.maxDistance=Math.max(65,far*2);fits(far);
-  this.controls.update();this.needsRender=true;
+  this.controls.update();this.invalidate();
  }
  private actorBounds(actor:Actor){actor.group.updateWorldMatrix(true,false);return actor.bounds!.clone().applyMatrix4(actor.group.matrixWorld);}
  private screenBounds(bounds:T.Box3){const min=new T.Vector2(Infinity,Infinity),max=new T.Vector2(-Infinity,-Infinity);for(const x of [bounds.min.x,bounds.max.x])for(const y of [bounds.min.y,bounds.max.y])for(const z of [bounds.min.z,bounds.max.z]){const p=this.project(new T.Vector3(x,y,z));min.min(new T.Vector2(p.x,p.y));max.max(new T.Vector2(p.x,p.y));}return{min:{x:min.x,y:min.y},max:{x:max.x,y:max.y}};}
@@ -156,7 +188,7 @@ export class TouchWorldRenderer{
   const ids=new Set([this.carId,...this.board.items.filter(i=>i.kind==='car'&&i.carId&&vehicleModel(i.carId)).map(i=>i.carId!)]);
   const timer=setTimeout(()=>{this.abort.abort();this.reportFailure('model timeout');},30000);
   try{await Promise.all([...ids].map(async id=>{const model=await loadPlayVehicle(id,this.abort.signal);if(this.disposed){disposeModel(model.root);return;}this.templates.set(id,model);}));
-   if(this.disposed)return;this.sync();if(['E02','T01'].includes(this.activity))this.fitContentCamera();this.renderer.render(this.scene,this.camera);this.publishViewState();this.ready=true;this.renderer.domElement.dataset.ready='true';this.renderer.domElement.dataset.modelCount=String(this.templates.size);this.changed(true);
+   if(this.disposed)return;this.sync();if(['E02','T01'].includes(this.activity))this.fitContentCamera();this.renderer.render(this.scene,this.camera);this.publishViewState();this.ready=true;this.renderer.domElement.dataset.ready='true';this.renderer.domElement.dataset.modelCount=String(this.templates.size);this.changed(true);this.schedule();
   }finally{clearTimeout(timer);}
  }
  private world(x:number,y:number){return new T.Vector3((x-500)*UNIT,0,(y-this.board.height/2)*UNIT);}
@@ -246,7 +278,7 @@ export class TouchWorldRenderer{
   this.burst(point,part==='light'?'#fff4b2':'#a5d6d3');
  }
  private down=(event:PointerEvent)=>{
-  if(!this.ready||this.paused||this.orbit||this.pointer)return;const floor=this.point(event);if(!floor)return;
+  if(!this.ready||this.paused||this.orbit||this.pointer)return;this.schedule();const floor=this.point(event);if(!floor)return;
   if(['A01','C01'].includes(this.activity)&&this.board.placeSelectedPosterStamp(this.boardPoint(floor))){this.needsRender=true;return;}
   const hit=this.pick(),surface=['E02','T01','H03'].includes(this.activity),id=(hit&&this.actorId(hit.object))||(!surface?this.nearbyItem(event):undefined);const item=this.board.items.find(i=>i.id===id);
   if(this.activity==='H03'&&(item?.id==='water'||item?.id==='sponge')){
@@ -269,7 +301,7 @@ export class TouchWorldRenderer{
   this.pointer={id:event.pointerId,item:item.id,start:floor.clone(),boardStart:{x:item.x,y:item.y}};
   this.board.down(event.pointerId,{x:item.x,y:item.y},event.timeStamp);this.renderer.domElement.setPointerCapture(event.pointerId);
  };
- private move=(event:PointerEvent)=>{const pointer=this.pointer;if(!pointer||pointer.id!==event.pointerId||this.paused)return;const p=this.point(event);if(!p)return;
+ private move=(event:PointerEvent)=>{const pointer=this.pointer;if(!pointer||pointer.id!==event.pointerId||this.paused)return;this.schedule();const p=this.point(event);if(!p)return;
   if(pointer.wash){const point=this.washPoint(this.pick());if(point)this.scrub(point);return;}
   if(pointer.turnWheel!==undefined){this.board.turnShowroomWheel((event.clientX-pointer.turnWheel)*.075);pointer.turnWheel=event.clientX;return;}
   this.board.move(pointer.id,this.dragPoint(pointer,p),event.timeStamp);
@@ -279,7 +311,7 @@ export class TouchWorldRenderer{
    ?this.boardPoint(point)
    :{x:pointer.boardStart.x+(point.x-pointer.start.x)/UNIT,y:pointer.boardStart.y+(point.z-pointer.start.z)/UNIT};
  }
- private up=(event:PointerEvent)=>{const pointer=this.pointer;if(!pointer||pointer.id!==event.pointerId)return;const p=this.point(event);this.pointer=null;
+ private up=(event:PointerEvent)=>{const pointer=this.pointer;if(!pointer||pointer.id!==event.pointerId)return;this.schedule();const p=this.point(event);this.pointer=null;
   if(!pointer.wash&&pointer.turnWheel===undefined&&p){
    const moved=p.distanceTo(pointer.start)>.2,posterPiece=['A01','C01','C03'].includes(this.activity)&&!!pointer.item?.match(/^(stamp-|poster-mark-)/);
    const target=this.targetAt(p);
@@ -290,9 +322,10 @@ export class TouchWorldRenderer{
   }
   if(this.renderer.domElement.hasPointerCapture(event.pointerId))this.renderer.domElement.releasePointerCapture(event.pointerId);
  };
- private cancel=(event?:PointerEvent)=>{if(event&&this.pointer?.id!==event.pointerId)return;this.board.cancel(this.pointer?.id);this.pointer=null;};
+ private cancel=(event?:PointerEvent)=>{if(event&&this.pointer?.id!==event.pointerId)return;this.board.cancel(this.pointer?.id);this.pointer=null;this.schedule();};
  private key=(event:KeyboardEvent)=>{
   if(this.paused||!this.ready||this.orbit)return;
+  this.schedule();
   if(['E02','T01'].includes(this.activity)&&['Enter',' '].includes(event.key)){event.preventDefault();const actor=this.actors.get('parts-car');if(actor){const part=this.board.workshopAction??(['wheel','door','light'] as const).find(p=>!this.state.parts.includes(p))??'wheel';if(part==='done')return;const point=this.partScreens()?.[part];let hit:T.Intersection|undefined;if(point){this.ray.setFromCamera(new T.Vector2(point.x*2-1,1-point.y*2),this.camera);hit=this.ray.intersectObject(actor.model!,true).find(h=>this.visibleParents(h.object));}this.activatePart(actor,part,hit?.point||this.actorBounds(actor).getCenter(new T.Vector3()));}return;}
   if(this.activity==='H03'&&['Enter',' '].includes(event.key)){event.preventDefault();
    if(this.state.wash.waiting){const next=this.board.items.find(i=>i.id==='next-car');if(next)this.board.down(-1,{x:next.x,y:next.y},performance.now());}
@@ -417,7 +450,7 @@ export class TouchWorldRenderer{
    const texture=this.makeTexture(image);
    if(repeat>1){texture.wrapS=texture.wrapT=T.MirroredRepeatWrapping;texture.repeat.set(repeat,repeat);}
    mesh.material.map=texture;mesh.material.color.set('#ffffff');mesh.material.needsUpdate=true;
-   this.needsRender=true;
+   this.invalidate();
   });
   return mesh;
  }
@@ -985,11 +1018,41 @@ export class TouchWorldRenderer{
  }
  private burst(at:T.Vector3,color:string,count=7){if(this.reduced||this.software)return;if(this.simpleMaterials)count=Math.min(count,8);for(let i=0;i<count;i++){const mesh=new T.Mesh(new T.IcosahedronGeometry(.08,0),material(i%2?color:'#b8dccc'));mesh.position.copy(at);this.scene.add(mesh);this.particles.push({mesh,velocity:new T.Vector3((Math.random()-.5)*5,2+Math.random()*4,(Math.random()-.5)*5),life:1.1});}}
  private draw=(now:number)=>{
-  if(this.disposed)return;const interacting=this.pointer!==null||this.orbit||this.state.moving||this.state.recovering||this.partPulse||this.particles.length;
-  if(document.hidden||((this.software||!interacting)&&now-this.rendered<33)){this.frame=requestAnimationFrame(this.draw);return;}this.rendered=now;const dt=Math.min(.25,(now-this.last)/1000);this.last=now;
-  if(!this.paused){this.time+=dt;const revision=JSON.stringify([this.state,this.board.artworkBackground,this.board.items.map(i=>[i.x,i.y,i.w,i.h,i.placed,i.turn]),this.board.selectedItem,this.board.assemblyWobble,this.activity==='T01'?this.board.workshopEffect('door'):0,this.board.rainTime]);if(revision!==this.revision){this.revision=revision;this.needsRender=true;}for(const p of this.particles){p.life-=dt;p.velocity.y-=dt*4;p.mesh.position.addScaledVector(p.velocity,dt);p.mesh.scale.setScalar(Math.max(.01,p.life));if(p.life<=0){p.mesh.removeFromParent();disposeModel(p.mesh);}}this.particles=this.particles.filter(p=>p.life>0);}
-  if(!this.paused&&this.partPulse){const pulse=this.partPulse;pulse.life-=dt;pulse.mesh.scale.setScalar(this.reduced?1:1+(1.2-pulse.life)*.45);if(pulse.life<=0){pulse.mesh.removeFromParent();disposeModel(pulse.mesh);this.partPulse=undefined;this.needsRender=true;}}
-  const changed=this.controls.update();if(this.needsRender||changed||this.particles.length||this.partPulse){try{if(this.ready)this.sync();this.renderer.render(this.scene,this.camera);if(this.ready)this.publishViewState();this.needsRender=false;}catch(error){this.reportFailure('render',error);return;}}this.frame=requestAnimationFrame(this.draw);
+  this.frame=0;
+  if(this.disposed||document.hidden)return;
+  const interacting=!this.paused&&(!!this.pointer||this.state.moving||this.state.recovering);
+  const effects=!this.paused&&(this.particles.length>0||!!this.partPulse);
+  if((this.software||!(interacting||this.orbit||effects))&&now-this.rendered<33){this.schedule();return;}
+  this.rendered=now;
+  const dt=Math.min(.05,(now-this.last)/1000);
+  this.last=now;
+  if(!this.paused){
+   const revision=JSON.stringify([this.state,this.board.artworkBackground,this.board.items.map(i=>[i.x,i.y,i.w,i.h,i.placed,i.turn]),this.board.selectedItem,this.board.assemblyWobble,this.activity==='T01'?this.board.workshopEffect('door'):0,this.board.rainTime]);
+   if(revision!==this.revision){this.revision=revision;this.needsRender=true;}
+   for(const p of this.particles){
+    p.life-=dt;p.velocity.y-=dt*4;p.mesh.position.addScaledVector(p.velocity,dt);
+    p.mesh.scale.setScalar(Math.max(.01,p.life));
+    if(p.life<=0){p.mesh.removeFromParent();disposeModel(p.mesh);this.needsRender=true;}
+   }
+   this.particles=this.particles.filter(p=>p.life>0);
+   if(this.partPulse){
+    const pulse=this.partPulse;
+    pulse.life-=dt;
+    if(!this.reduced)pulse.mesh.scale.setScalar(1+(1.2-pulse.life)*.45);
+    if(pulse.life<=0){pulse.mesh.removeFromParent();disposeModel(pulse.mesh);this.partPulse=undefined;this.needsRender=true;}
+   }
+  }
+  const changed=this.controls.update();
+  const draw=this.needsRender||changed||(!this.paused&&(this.particles.length>0||!!this.partPulse&&!this.reduced));
+  if(draw){
+   try{
+    if(this.ready)this.sync();
+    this.renderer.render(this.scene,this.camera);
+    if(this.ready)this.publishViewState();
+    this.needsRender=false;
+   }catch(error){this.reportFailure('render',error);return;}
+  }
+  if(interacting||effects||draw)this.schedule();
  };
  guidePreview(canvas:HTMLCanvasElement,step:number,phase:number,large=false){
   if(!this.ready)return;const cue=this.board.demonstration,actor=this.actors.get(cue.item?.id||'wash-car');
@@ -1003,10 +1066,10 @@ export class TouchWorldRenderer{
   else if(cue.item){const target=this.board.targets.find(t=>t.x===cue.end.x&&t.y===cue.end.y),start=this.actors.get(cue.item.id);if(start){const from=this.actorBounds(start).getCenter(new T.Vector3()),to=target?this.targetPoint(target):from;if(step===2&&target)projected=this.project(to);else if(step===0)projected=this.project(from);}}
   const x=projected.x*canvas.width,y=projected.y*canvas.height,scale=canvas.width/1000;
   ctx.strokeStyle='#ba8135';ctx.lineWidth=6*scale;ctx.beginPath();ctx.ellipse(x,y,50*scale,30*scale,0,0,Math.PI*2);ctx.stroke();drawPlaySymbol(ctx,'hand',x+25*scale,y+35*scale,75*scale);
-  if(original&&actor){actor.group.position.copy(original.position);actor.group.quaternion.copy(original.quaternion);}this.needsRender=true;
+  if(original&&actor){actor.group.position.copy(original.position);actor.group.quaternion.copy(original.quaternion);}this.invalidate();
  }
  private reportFailure(reason:string,error?:unknown){if(!this.disposed){console.warn('立体玩法暂时无法打开：'+reason,error);this.failed();}}
- dispose(){if(this.disposed)return;this.cancel();this.disposed=true;this.abort.abort();cancelAnimationFrame(this.frame);this.observer.disconnect();this.controls.dispose();const canvas=this.renderer.domElement;
+ dispose(){if(this.disposed)return;this.cancel();this.disposed=true;this.abort.abort();cancelAnimationFrame(this.frame);this.observer.disconnect();this.motionPreference.removeEventListener('change',this.setMotionPreference);document.removeEventListener('visibilitychange',this.schedule);this.controls.removeEventListener('change',this.invalidate);this.controls.dispose();const canvas=this.renderer.domElement;
   canvas.removeEventListener('pointerdown',this.down);canvas.removeEventListener('pointermove',this.move);canvas.removeEventListener('pointerup',this.up);canvas.removeEventListener('pointercancel',this.cancel);canvas.removeEventListener('lostpointercapture',this.cancel);canvas.removeEventListener('keydown',this.key);canvas.removeEventListener('webglcontextlost',this.lost);
   disposeModel(new T.Group().add(this.scene,...[...this.templates.values()].map(t=>t.root)));this.scene.traverse(node=>{if(node instanceof T.DirectionalLight)node.dispose();});this.paperBackdrop?.dispose();this.environment?.dispose();this.renderer.dispose();this.renderer.forceContextLoss();canvas.remove();}
 }

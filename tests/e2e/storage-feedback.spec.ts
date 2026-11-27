@@ -60,6 +60,7 @@ test('加载中的语音关闭后不恢复旧请求，重新开启仍可播放',
   await page.route('**/media/**/*.mp3', route => {if (hold) pending.push(route); else void route.continue();});
   await page.goto('/#/play/E02');
   await page.getByRole('button', {name: '开启声音', exact: true}).click();
+  await page.getByRole('button', {name: '重听玩法', exact: true}).click();
   await expect.poll(() => pending.length).toBeGreaterThan(0);
   const sounds = () => page.evaluate(() => (Reflect.get(window, 'Howler') as unknown as {_howls: unknown[]})._howls.length);
   await page.getByRole('button', {name: '关闭声音', exact: true}).click();
@@ -69,13 +70,14 @@ test('加载中的语音关闭后不恢复旧请求，重新开启仍可播放',
   await page.waitForLoadState('networkidle');
   await expect.poll(sounds).toBe(0);
   await page.getByRole('button', {name: '开启声音', exact: true}).click();
+  await page.getByRole('button', {name: '重听玩法', exact: true}).click();
   await expect.poll(() => page.evaluate(() => (Reflect.get(window, 'Howler') as unknown as {_howls: {playing: () => boolean}[]})._howls.filter(howl => howl.playing()).length)).toBe(1);
   await page.getByRole('link', {name: '回到乐园', exact: true}).click();
   await expect.poll(sounds).toBe(0);
   expect(errors).toEqual([]);
 });
 
-test('故事进度写入等待时不提前换幕，显示后立即刷新仍停在同一幕 @smoke',async({page})=>{
+test('故事进度写入等待时仍能连续换幕，立刻刷新也保留最后一幕 @smoke',async({page})=>{
  await page.goto('/#/stories/ST01');
  await expect(page.locator('.picture-story')).toHaveAttribute('data-frame','0');
  await page.evaluate(()=>new Promise<void>(resolve=>{
@@ -94,10 +96,9 @@ test('故事进度写入等待时不提前换幕，显示后立即刷新仍停�
  }));
  await page.getByRole('button',{name:'跳过玩法，继续故事',exact:true}).click();
  await expect(page.getByRole('status')).toContainText('正在记下这一幕');
- await expect(page.locator('.picture-story')).toHaveAttribute('data-frame','0');
- await expect(page.getByRole('button',{name:'跳过玩法，继续故事',exact:true})).toBeDisabled();
- await page.evaluate(()=>Reflect.set(window,'__holdStoryTransaction',false));
  await expect(page.locator('.picture-story')).toHaveAttribute('data-frame','1');
- await page.reload();
- await expect(page.locator('.picture-story')).toHaveAttribute('data-frame','1');
+ await page.getByRole('button',{name:'跳过玩法，继续故事',exact:true}).click();
+ await expect(page.locator('.picture-story')).toHaveAttribute('data-frame','2');
+ await page.reload({waitUntil:'domcontentloaded'});
+ await expect(page.locator('.picture-story')).toHaveAttribute('data-frame','2');
 });

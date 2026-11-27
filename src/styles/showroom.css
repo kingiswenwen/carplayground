@@ -332,3 +332,20 @@
     .vehicle-profile:not([hidden]) { opacity: 0; }
   }
 }
+
+.vehicle-audio { display: grid; min-width: 0; }
+.vehicle-audio .vehicle-secondary { width: 100%; }
+.garage-read-error { display: flex; align-items: center; gap: 8px 14px; flex-wrap: wrap; }
+.garage-read-error p { margin: 0; }
+.garage-read-error button { min-width: 44px; text-decoration: underline; text-underline-offset: 3px; }
+.garage-paged .image-error > .play-symbol,
+.favorite-grid .image-error > .play-symbol { width: 36px; height: 36px; }
+
+.vehicle-text-control:active, .vehicle-secondary:not(:disabled):active,
+.vehicle-swatches button:active { background-color: #e4ebd7; }
+
+@media (prefers-color-scheme: dark) {
+  .town-shell :is(.vehicle-text-control, .vehicle-secondary:not(:disabled), .vehicle-swatches button):active {
+    background-color: #36473c;
+  }
+}
