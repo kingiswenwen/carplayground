@@ -117,7 +117,10 @@ test('WebGL不可用时自动切回平面，停车仍可完整玩完', async ({p
     });
   });
   await page.goto('/#/play/M01?car=CAR01&view=3d');
-  await expect(page.locator('.touch-canvas[data-presentation=flat]')).toBeVisible();
+  const canvas = page.locator('.touch-canvas[data-presentation=flat]');
+  await expect(canvas).toBeVisible();
+  await expect(canvas).toHaveAttribute('data-state', /"ready":true/);
+  await expect(page.getByText('立体场景暂时打不开，可以继续在这里玩。')).toBeVisible();
   await dropTouch(page, 'car-0', 'bay-0');
   await dropTouch(page, 'car-1', 'bay-1');
   await completedTouch(page);
