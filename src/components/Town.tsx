@@ -19,7 +19,7 @@ export function TownImage({name,className='',priority=false,alt='',linkSymbol}:{
   </span>;
 }
 export function TownHeading({title,description,back,children}:{title:string;description?:string;back?:string;children?:ReactNode}) {
-  return <div className="town-heading">{back&&<a className="picture-button" href={back} aria-label="回到小镇"><ArrowLeft/></a>}<div><h1>{title}</h1>{description&&<p>{description}</p>}</div>{children}</div>;
+  return <div className="town-heading">{back&&<a className="picture-button" data-town-back href={back} aria-label="回到小镇"><ArrowLeft/></a>}<div><h1>{title}</h1>{description&&<p>{description}</p>}</div>{children}</div>;
 }
 export function TownStories() {
   return <section className="town-stories" aria-label="小镇故事"><div className="town-section-heading"><h2>小车的故事时间</h2><PlaySymbol name="book"/></div><div className="town-story-shelf">{content.stories.map((story,index)=><a href={`#/stories/${story.id}`} aria-label={story.title} key={story.id} className={`town-story-book book-${index}`}><TownImage name={`story-${story.id}`} linkSymbol="book"/><span><strong>{story.title}</strong><small>四幕故事 · 一起听，一起玩</small></span><ArrowRight aria-hidden="true"/></a>)}</div></section>;

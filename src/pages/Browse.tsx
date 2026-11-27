@@ -3,7 +3,7 @@ import {activityHref,teachingActions} from '../domain/town';
 import {CatalogueSelect} from '../components/CatalogueSelect';
 import {TownSearch} from '../components/TownSearch';
 import {activeCar,rememberCar} from '../domain/active-car';
-import {useEffect,useLayoutEffect,useRef,useState,type CSSProperties,type Ref} from 'react';
+import {useEffect,useLayoutEffect,useRef,useState,type CSSProperties} from 'react';
 import {VehicleViews} from '../components/VehicleViews';
 import {ArrowLeft,ArrowRight,Box,Camera,ChevronDown,Heart,Volume2,Download,RotateCcw} from '../components/TownIcons';
 import {CarImage} from '../components/CarImage';
@@ -28,9 +28,9 @@ function CarNameButton({car}:{car:Car}){
   <Volume2 aria-hidden="true"/>听车名
  </button>;
 }
-function VehicleProfile({car,id,panel,hidden=false,showName=false}:{car:Car;id:string;panel?:Ref<HTMLElement>;hidden?:boolean;showName?:boolean}){
+function VehicleProfile({car,id,hidden=false,showName=false}:{car:Car;id:string;hidden?:boolean;showName?:boolean}){
  const profile=vehicleProfiles.find(item=>item.id===car.id)!;
- return <section className="vehicle-profile" id={id} ref={panel} hidden={hidden} tabIndex={panel?-1:undefined} aria-labelledby={`${id}-heading`}>
+ return <section className="vehicle-profile" id={id} hidden={hidden} aria-labelledby={`${id}-heading`}>
   <header className="vehicle-profile-header"><h2 id={`${id}-heading`}>车型详情</h2>{showName&&<p>{car.name}</p>}</header>
   <dl className="vehicle-specs">
    <div><dt>品牌</dt><dd>{car.zhBrand}</dd></div>
@@ -44,11 +44,44 @@ function VehicleProfile({car,id,panel,hidden=false,showName=false}:{car:Car;id:s
 function WashLink({carId}:{carId:string}){
  return <a className="town-primary-link" href={activityHref('H03',carId)}>带它去洗车 <ArrowRight aria-hidden="true"/></a>;
 }
-export function Showroom(_props:{welcome:boolean;begin:(sound:boolean)=>void}){
+type FavoriteProps = {
+ favorite:boolean;
+ favoriteBusy?:boolean;
+ favoriteError?:string;
+ toggleFavorite:()=>void;
+};
+function FavoriteButton({favorite,favoriteBusy,toggleFavorite}:{favorite:boolean;favoriteBusy?:boolean;toggleFavorite:()=>void}){
+ const label=favoriteBusy?'正在保存…':favorite?'取消收藏':'收藏这辆车';
+ return <button className="vehicle-secondary favorite-button" type="button" onClick={toggleFavorite} disabled={favoriteBusy}
+   aria-label={label} aria-pressed={favorite}>
+   <Heart aria-hidden="true"/><span>{label}</span>
+ </button>;
+}
+function FavoriteError({message,retry}:{message?:string;retry:()=>void}){
+ if(!message)return null;
+ return <div className="activity-feedback vehicle-favorite-error" role="status">
+   <span>{message}</span><button className="vehicle-text-control" onClick={retry}>重试收藏</button>
+ </div>;
+}
+type ShowroomProps = {
+ favorites:string[];
+ favoritePending:string[];
+ favoriteErrors:Record<string,string>;
+ toggleFavorite:(id:string)=>void;
+ loaded:boolean;
+};
+const defaultCatalogue = { brand: 'all', origin: 'all', query: '', page: 0, references: false };
+export function Showroom({favorites,favoritePending,favoriteErrors,toggleFavorite,loaded}:ShowroomProps){
+ const [catalogue,setCatalogue]=useState<typeof defaultCatalogue>(()=>history.state?.townCatalogue??defaultCatalogue);
+ const {brand,origin,query,page,references}=catalogue;
+ const updateCatalogue=(patch:Partial<typeof defaultCatalogue>)=>{
+  const next={...catalogue,...patch};
+  history.replaceState({...history.state,townCatalogue:next},'');
+  setCatalogue(next);
+ };
  const[index,setIndex]=useState(Math.max(0,content.cars.findIndex(c=>c.id===activeCar()&&vehicleModel(c.id))));
- const preview=useRef<HTMLDivElement>(null),revealPreview=useRef(false),profilePanel=useRef<HTMLElement>(null);
+ const preview=useRef<HTMLDivElement>(null),revealPreview=useRef(false);
  const [profileOpen,setProfileOpen]=useState(false);
- useLayoutEffect(()=>{if(profileOpen)profilePanel.current?.focus();},[profileOpen]);
  useLayoutEffect(()=>{
   if(!revealPreview.current)return;
   revealPreview.current=false;
@@ -61,38 +94,41 @@ export function Showroom(_props:{welcome:boolean;begin:(sound:boolean)=>void}){
   });
   return()=>cancelAnimationFrame(frame);
  },[index]);
- const[brand,setBrand]=useState('all'),[origin,setOrigin]=useState('all'),[query,setQuery]=useState(''),[page,setPage]=useState(0),[references,setReferences]=useState(false);const car=content.cars[index];
+ const car=content.cars[index];
  const available=content.cars.filter(c=>references?!vehicleModel(c.id):!!vehicleModel(c.id));
- const brands=[...new Set(available.map(c=>c.brand))],countries=[...new Set(available.map(c=>brandOrigin(c.brand)).filter(Boolean))];
+ const brands=[...new Set(available.filter(c=>origin==='all'||brandOrigin(c.brand)===origin).map(c=>c.brand))];
+ const countries=[...new Set(available.filter(c=>brand==='all'||c.brand===brand).map(c=>brandOrigin(c.brand)).filter(Boolean))];
  const filtered=filterCatalogue(available,{brand,origin,query});const pages=Math.max(1,Math.ceil(filtered.length/8)),current=Math.min(page,pages-1);
- const clearFilters=()=>{setBrand('all');setOrigin('all');setQuery('');setPage(0);};
+ const clearFilters=()=>updateCatalogue({brand:'all',origin:'all',query:'',page:0});
  const choose=(id:string)=>{const next=content.cars.findIndex(c=>c.id===id);if(next===index)return;audio.stop();setProfileOpen(false);revealPreview.current=true;setIndex(next);rememberCar(id);};
  return <div className="picture-showroom"><TownHeading title="带哪辆小车出发？"/>
  <div className="car-roundabout" ref={preview}>
   <VehicleViews carId={car.id} title={car.name}>
    <div className="vehicle-utilities">
     <CarNameButton car={car}/>
+    <FavoriteButton favorite={favorites.includes(car.id)} favoriteBusy={!loaded||favoritePending.includes(car.id)} toggleFavorite={()=>toggleFavorite(car.id)}/>
     <button type="button" className="vehicle-secondary vehicle-profile-toggle" aria-expanded={profileOpen} aria-controls="showroom-vehicle-profile" onClick={()=>setProfileOpen(value=>!value)}>车型详情<ChevronDown aria-hidden="true"/></button>
    </div>
+   <FavoriteError message={favoriteErrors[car.id]} retry={()=>toggleFavorite(car.id)}/>
    <WashLink carId={car.id}/>
   </VehicleViews>
  </div>
- <VehicleProfile car={car} id="showroom-vehicle-profile" panel={profilePanel} hidden={!profileOpen} showName/>
+ <VehicleProfile car={car} id="showroom-vehicle-profile" hidden={!profileOpen} showName/>
  <section className="garage-picker" aria-label="挑选跑车" style={vehicleBayStyle}><div className="garage-picker-bar"><span className="garage-count">{references?<Camera aria-hidden="true"/>:<Box aria-hidden="true"/>}{references?`${content.cars.length-vehicleModels.length} 款真实车型 · 模型待补`:`${vehicleModels.length} 款立体车 · ${content.cars.length} 款真实车型`}</span></div>
  <div className="garage-filters">
   <TownSearch className="garage-search" label="查找车型或品牌" clearLabel="清空车型搜索" placeholder="找车型或品牌" value={query}
-    change={value=>{setQuery(value);setPage(0);}}/>
-  <CatalogueSelect label="品牌" name="按汽车品牌筛选" value={brand} onChange={value=>{setBrand(value);setPage(0);}} options={[{value:'all',label:'全部品牌'},...brands.map(b=>({value:b,label:available.find(c=>c.brand===b)?.zhBrand||b,keywords:b}))]}/>
-  <CatalogueSelect label="品牌发源地" name="按品牌发源地筛选" value={origin} onChange={value=>{setOrigin(value);setPage(0);}} options={[{value:'all',label:'世界各地'},...countries.map(country=>({value:country,label:country}))]}/>
+    change={value=>updateCatalogue({query:value,page:0})}/>
+  <CatalogueSelect label="品牌" name="按汽车品牌筛选" value={brand} onChange={value=>updateCatalogue({brand:value,page:0})} options={[{value:'all',label:'全部品牌'},...brands.map(b=>({value:b,label:available.find(c=>c.brand===b)?.zhBrand||b,keywords:b}))]}/>
+  <CatalogueSelect label="品牌发源地" name="按品牌发源地筛选" value={origin} onChange={value=>updateCatalogue({origin:value,page:0})} options={[{value:'all',label:'世界各地'},...countries.map(country=>({value:country,label:country}))]}/>
  </div>
  <p className="garage-results" role="status">{filtered.length} 款可选车型{(brand!=='all'||origin!=='all'||query.trim())&&<button className="text-button" onClick={clearFilters}>清除筛选</button>}</p>
  <div className="car-gallery car-ribbon garage-paged" aria-label="选择跑车">{filtered.slice(current*8,current*8+8).map(c=><button key={c.id} className={`car-gallery-card ${c.id===car.id?'selected':''}`} aria-label={`选择 ${c.name}${vehicleModel(c.id)?'，有独立立体模型':'，参考图片，模型待补'}`} aria-pressed={c.id===car.id} onClick={()=>choose(c.id)}><CarImage carId={c.id} presentation="catalogue" lazy/><span className="garage-car-name">{c.model}</span>{!vehicleModel(c.id)&&<small>参考图片 · 模型待补</small>}</button>)}</div>
  {!filtered.length&&<p className="garage-empty">没有找到这辆车，可以换个名字，或清除筛选再看看。</p>}
- {!!filtered.length&&<div className="garage-pager"><button className="picture-button" aria-label="上一组跑车" disabled={current===0} onClick={()=>setPage(current-1)}><ArrowLeft/></button><span aria-live="polite">{current+1} / {pages}</span><button className="picture-button" aria-label="下一组跑车" disabled={current===pages-1} onClick={()=>setPage(current+1)}><ArrowRight/></button></div>}
- {content.cars.some(c=>!vehicleModel(c.id))&&<button className="garage-reference-switch" aria-pressed={references} onClick={()=>{setReferences(!references);clearFilters();}}>{references?'回到立体车库':`查看 ${content.cars.length-vehicleModels.length} 款参考车图（模型待补）`}</button>}</section>
+ {pages>1&&<div className="garage-pager"><button className="picture-button" aria-label="上一组跑车" disabled={current===0} onClick={()=>updateCatalogue({page:current-1})}><ArrowLeft/></button><span aria-live="polite">{current+1} / {pages}</span><button className="picture-button" aria-label="下一组跑车" disabled={current===pages-1} onClick={()=>updateCatalogue({page:current+1})}><ArrowRight/></button></div>}
+ {content.cars.some(c=>!vehicleModel(c.id))&&<button className="garage-reference-switch" aria-pressed={references} onClick={()=>updateCatalogue({...defaultCatalogue,references:!references})}>{references?'回到立体车库':`查看 ${content.cars.length-vehicleModels.length} 款参考车图（模型待补）`}</button>}</section>
  <ActivityLinks carId={car.id} ids={['H03','M01','T04']}/></div>;
 }
-export function Detail({carId,favorite,favoriteBusy=false,favoriteError,toggleFavorite}:{carId:string;favorite:boolean;favoriteBusy?:boolean;favoriteError?:string;toggleFavorite:()=>void}){
+export function Detail({carId,favorite,favoriteBusy=false,favoriteError,toggleFavorite}:{carId:string} & FavoriteProps){
  const car=getCar(carId)!;useEffect(()=>{void safely(()=>db.recent.put({carId,at:new Date().toISOString()}),undefined,`recent:${carId}`);},[carId]);
  return <div className="picture-detail">
  <a className="vehicle-back vehicle-text-control" href="#/cars"><ArrowLeft aria-hidden="true"/>回到选车</a>
@@ -102,15 +138,9 @@ export function Detail({carId,favorite,favoriteBusy=false,favoriteError,toggleFa
   <VehicleViews carId={carId}>
    <div className="vehicle-utilities">
     <CarNameButton car={car}/>
-    <button className="vehicle-secondary favorite-button" type="button" onClick={toggleFavorite} disabled={favoriteBusy}
-     aria-pressed={favorite}>
-     <Heart fill={favorite?'currentColor':'none'} aria-hidden="true"/>
-     {favoriteBusy?'正在保存…':favorite?'取消收藏':'收藏这辆车'}
-    </button>
+    <FavoriteButton favorite={favorite} favoriteBusy={favoriteBusy} toggleFavorite={toggleFavorite}/>
    </div>
-   {favoriteError&&<div className="activity-feedback vehicle-favorite-error" role="status">
-    <span>{favoriteError}</span><button className="vehicle-text-control" onClick={toggleFavorite}>重试收藏</button>
-   </div>}
+   <FavoriteError message={favoriteError} retry={toggleFavorite}/>
    <WashLink carId={carId}/>
   </VehicleViews>
  </div>

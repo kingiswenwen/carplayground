@@ -97,7 +97,8 @@ export class TouchWorldRenderer{
  private assemblyWidth=0;
  private phoneFocusKey='';
  private state:BoardSnapshot;
- private reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+ private motionPreference=matchMedia('(prefers-reduced-motion: reduce)');
+ private get reduced(){return this.motionPreference.matches;}
  paused=false;
  constructor(private host:HTMLDivElement,private board:TouchBoard,private carId:string,private activity:string,state:BoardSnapshot,private changed:(ready:boolean)=>void,private failed:()=>void){
   this.state=state;
@@ -155,7 +156,7 @@ export class TouchWorldRenderer{
   const ids=new Set([this.carId,...this.board.items.filter(i=>i.kind==='car'&&i.carId&&vehicleModel(i.carId)).map(i=>i.carId!)]);
   const timer=setTimeout(()=>{this.abort.abort();this.reportFailure('model timeout');},30000);
   try{await Promise.all([...ids].map(async id=>{const model=await loadPlayVehicle(id,this.abort.signal);if(this.disposed){disposeModel(model.root);return;}this.templates.set(id,model);}));
-   if(this.disposed)return;this.sync();if(['E02','T01'].includes(this.activity))this.fitContentCamera();this.renderer.render(this.scene,this.camera);this.sync();this.ready=true;this.renderer.domElement.dataset.ready='true';this.renderer.domElement.dataset.modelCount=String(this.templates.size);this.changed(true);
+   if(this.disposed)return;this.sync();if(['E02','T01'].includes(this.activity))this.fitContentCamera();this.renderer.render(this.scene,this.camera);this.publishViewState();this.ready=true;this.renderer.domElement.dataset.ready='true';this.renderer.domElement.dataset.modelCount=String(this.templates.size);this.changed(true);
   }finally{clearTimeout(timer);}
  }
  private world(x:number,y:number){return new T.Vector3((x-500)*UNIT,0,(y-this.board.height/2)*UNIT);}
@@ -892,6 +893,8 @@ export class TouchWorldRenderer{
   if(this.activity==='A02')this.updateTreadCanvas();
 
   if(this.state.completed&&!this.complete){this.burst(new T.Vector3(0,2,0),'#f1ca6c',32);}this.complete=this.state.completed;
+ }
+ private publishViewState(){
   const marks=this.activity==='A02'?this.board.artwork:[];
   const trackPosition=(mark:typeof marks[number]|undefined)=>mark?this.world(mark.x*1000,mark.y*this.board.height).toArray():undefined;
   this.renderer.domElement.dataset.state=JSON.stringify({...this.state,orbit:this.orbit,washPatchIds:this.dirtPoints.filter(p=>p.visible).map(p=>p.userData.patchId),tracks:{revision:this.markRevision,count:marks.length,first:trackPosition(marks[0]),last:trackPosition(marks.at(-1))},partScreens:this.partScreens(),partEffect:this.partPulse?{part:this.partPulse.part,screen:this.project(this.partPulse.mesh.position)}:undefined,boardHeight:this.board.height,floorProjection:new T.Matrix4().multiplyMatrices(this.camera.projectionMatrix,this.camera.matrixWorldInverse).toArray(),items:this.board.items.map(i=>({id:i.id,x:i.x,y:i.y,placed:!!i.placed,available:i.available})),actors:[...this.actors].map(([id,a])=>({id,sourceCar:a.sourceCar,position:a.group.position.toArray(),screen:this.project(this.actorBounds(a).getCenter(new T.Vector3())),screenBounds:this.screenBounds(this.actorBounds(a)),yaw:a.group.rotation.y,mesh:!!a.model,wheelCount:a.wheels.length,wheelRotation:a.wheels[0]?.quaternion.toArray()})),targetScreens:this.board.targets.map(t=>({id:t.id,screen:this.project(this.targetPoint(t)),color:this.targets.get(t.id)?.userData.color})),dirt:this.dirtPoints.filter(p=>p.visible).map(p=>this.project(p.position)),washDirt:this.dirtPoints.filter(mesh=>mesh.visible).map(mesh=>({kind:mesh.userData.kind,point:this.project(mesh.position)})),camera:this.camera.position.toArray(),triangles:this.renderer.info.render.triangles});
@@ -982,17 +985,18 @@ export class TouchWorldRenderer{
  }
  private burst(at:T.Vector3,color:string,count=7){if(this.reduced||this.software)return;if(this.simpleMaterials)count=Math.min(count,8);for(let i=0;i<count;i++){const mesh=new T.Mesh(new T.IcosahedronGeometry(.08,0),material(i%2?color:'#b8dccc'));mesh.position.copy(at);this.scene.add(mesh);this.particles.push({mesh,velocity:new T.Vector3((Math.random()-.5)*5,2+Math.random()*4,(Math.random()-.5)*5),life:1.1});}}
  private draw=(now:number)=>{
-  if(this.disposed)return;if(now-this.rendered<33||document.hidden){this.frame=requestAnimationFrame(this.draw);return;}this.rendered=now;const dt=Math.min(.25,(now-this.last)/1000);this.last=now;
-  if(!this.paused){this.time+=dt;const revision=JSON.stringify([this.state,this.board.artworkBackground,this.board.items.map(i=>[i.x,i.y,i.w,i.h,i.placed,i.turn]),this.board.selectedItem,this.board.assemblyWobble,this.activity==='T01'?this.board.workshopEffect('door'):0,this.board.rainTime]);if(revision!==this.revision){this.revision=revision;this.needsRender=true;if(this.ready)this.sync();}for(const p of this.particles){p.life-=dt;p.velocity.y-=dt*4;p.mesh.position.addScaledVector(p.velocity,dt);p.mesh.scale.setScalar(Math.max(.01,p.life));if(p.life<=0){p.mesh.removeFromParent();disposeModel(p.mesh);}}this.particles=this.particles.filter(p=>p.life>0);}
+  if(this.disposed)return;const interacting=this.pointer!==null||this.orbit||this.state.moving||this.state.recovering||this.partPulse||this.particles.length;
+  if(document.hidden||((this.software||!interacting)&&now-this.rendered<33)){this.frame=requestAnimationFrame(this.draw);return;}this.rendered=now;const dt=Math.min(.25,(now-this.last)/1000);this.last=now;
+  if(!this.paused){this.time+=dt;const revision=JSON.stringify([this.state,this.board.artworkBackground,this.board.items.map(i=>[i.x,i.y,i.w,i.h,i.placed,i.turn]),this.board.selectedItem,this.board.assemblyWobble,this.activity==='T01'?this.board.workshopEffect('door'):0,this.board.rainTime]);if(revision!==this.revision){this.revision=revision;this.needsRender=true;}for(const p of this.particles){p.life-=dt;p.velocity.y-=dt*4;p.mesh.position.addScaledVector(p.velocity,dt);p.mesh.scale.setScalar(Math.max(.01,p.life));if(p.life<=0){p.mesh.removeFromParent();disposeModel(p.mesh);}}this.particles=this.particles.filter(p=>p.life>0);}
   if(!this.paused&&this.partPulse){const pulse=this.partPulse;pulse.life-=dt;pulse.mesh.scale.setScalar(this.reduced?1:1+(1.2-pulse.life)*.45);if(pulse.life<=0){pulse.mesh.removeFromParent();disposeModel(pulse.mesh);this.partPulse=undefined;this.needsRender=true;}}
-  const changed=this.controls.update();if(this.needsRender||changed||this.particles.length||this.partPulse){try{this.renderer.render(this.scene,this.camera);if(this.ready)this.sync();this.needsRender=false;}catch(error){this.reportFailure('render',error);return;}}this.frame=requestAnimationFrame(this.draw);
+  const changed=this.controls.update();if(this.needsRender||changed||this.particles.length||this.partPulse){try{if(this.ready)this.sync();this.renderer.render(this.scene,this.camera);if(this.ready)this.publishViewState();this.needsRender=false;}catch(error){this.reportFailure('render',error);return;}}this.frame=requestAnimationFrame(this.draw);
  };
  guidePreview(canvas:HTMLCanvasElement,step:number,phase:number,large=false){
   if(!this.ready)return;const cue=this.board.demonstration,actor=this.actors.get(cue.item?.id||'wash-car');
   const original=actor&&{position:actor.group.position.clone(),quaternion:actor.group.quaternion.clone()};
   const point=step===0?cue.start:step===2?cue.end:{x:cue.start.x+(cue.end.x-cue.start.x)*phase,y:cue.start.y+(cue.end.y-cue.start.y)*phase};
   if(actor&&step>0){if(['drag','push'].includes(cue.action)){const target=this.board.targets.find(t=>t.x===cue.end.x&&t.y===cue.end.y),t=step===2?1:phase,end=target?this.targetPoint(target):this.world(cue.end.x,cue.end.y);actor.group.position.lerpVectors(original!.position,end,t).add(new T.Vector3(0,Math.sin(t*Math.PI)*.35,0));}if(cue.action==='turn')actor.group.rotation.y+=Math.PI/2*phase;}
-  this.renderer.render(this.scene,this.camera);canvas.width=large?1000:240;canvas.height=Math.round(canvas.width/this.camera.aspect);const ctx=canvas.getContext('2d')!;ctx.drawImage(this.renderer.domElement,0,0,canvas.width,canvas.height);
+  this.renderer.render(this.scene,this.camera);const width=large?1000:240,height=Math.round(width/this.camera.aspect);if(canvas.width!==width)canvas.width=width;if(canvas.height!==height)canvas.height=height;const ctx=canvas.getContext('2d')!;ctx.drawImage(this.renderer.domElement,0,0,canvas.width,canvas.height);
   let projected=this.project(this.world(point.x,point.y).add(new T.Vector3(0,actor?1:0,0)));
   if(['E02','T01'].includes(this.activity)){const part=(['wheel','light','door'] as const).find(p=>!this.state.parts.includes(p))||'wheel';projected=this.partScreens()?.[part]||projected;}
   else if(this.activity==='H03'&&cue.action==='wipe'){const visible=this.dirtPoints.filter(d=>d.visible);const dirt=visible[Math.min(visible.length-1,Math.floor(phase*Math.max(0,visible.length-1)))];if(dirt)projected=this.project(dirt.position);}

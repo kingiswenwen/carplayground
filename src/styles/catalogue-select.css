@@ -29,3 +29,23 @@
 .garage-search:has(.town-search-clear) input{padding-inline-end:48px}
 .garage-search .town-search-clear{position:absolute;inset-inline-end:2px;top:2px}
 .garage-search .town-search-clear>.town-icon{position:static}
+
+.catalogue-select-popup[hidden] { display: none; }
+.catalogue-select-trigger[aria-expanded=true] .town-icon { rotate: 180deg; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .catalogue-select-trigger .town-icon {
+    transition: rotate var(--motion-fast, 110ms) var(--motion-ease, ease-out);
+  }
+  .catalogue-select-popup {
+    --from-trigger: -4px;
+    transition: opacity var(--motion-fast, 110ms) var(--motion-ease, ease-out),
+      translate var(--motion-fast, 110ms) var(--motion-ease, ease-out),
+      display var(--motion-fast, 110ms) allow-discrete;
+  }
+  .catalogue-select-popup[data-side=above] { --from-trigger: 4px; }
+  .catalogue-select-popup[hidden] { opacity: 0; translate: 0 var(--from-trigger); }
+  @starting-style {
+    .catalogue-select-popup:not([hidden]) { opacity: 0; translate: 0 var(--from-trigger); }
+  }
+}

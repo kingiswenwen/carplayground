@@ -21,7 +21,8 @@ test('手机展厅仅显示立体车，能自定义换色和就地展开对应�
  await expect(details).toHaveAttribute('aria-expanded','false');
  await details.click();
  await expect(page).toHaveURL(/#\/cars$/);
- await expect(profile).toBeFocused();
+ await expect(details).toBeFocused();
+ await expect(profile).toBeVisible();
  await expect(profile).toContainText('兰博基尼 Revuelto');
  await expect(profile).toContainText('三台电动机');
  await expect(profile.getByRole('link',{name:'查看车型资料'})).toHaveAttribute('href',/lamborghini\.com.*revuelto/);

@@ -39,16 +39,6 @@
   object-fit: contain;
   pointer-events: none;
 }
-.vehicle-model-error {
-  position: absolute;
-  inset: 0;
-  display: grid;
-  place-content: center;
-  justify-items: center;
-  gap: 10px;
-  text-align: center;
-}
-.vehicle-model-error .vehicle-secondary { padding-inline: 12px; }
 .vehicle-frame .stage-loading {
   position: absolute;
   bottom: 16px;
@@ -324,4 +314,21 @@
   .vehicle-swatch { width: 21px; height: 21px; }
   .vehicle-paint-placeholder { min-height: 334px; }
   .vehicle-console { padding-inline: 13px; }
+}
+
+.picture-showroom .vehicle-utilities { grid-template-columns: repeat(3, minmax(0,1fr)); }
+.picture-showroom .vehicle-secondary { gap: 4px; }
+.vehicle-secondary .town-icon { flex-shrink: 0; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .vehicle-profile-toggle .town-icon, .vehicle-paint-value .town-icon {
+    transition: transform var(--motion-fast, 110ms) var(--motion-ease, ease-out);
+  }
+  .vehicle-secondary, .vehicle-paint-finish {
+    transition: background-color var(--motion-fast, 110ms), border-color var(--motion-fast, 110ms);
+  }
+  .vehicle-profile { transition: opacity var(--motion-fast, 110ms) var(--motion-ease, ease-out); }
+  @starting-style {
+    .vehicle-profile:not([hidden]) { opacity: 0; }
+  }
 }

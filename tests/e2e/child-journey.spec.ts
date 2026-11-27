@@ -30,7 +30,8 @@ test('故事完成玩法回到下一幕，不被普通下一站替换，刷新�
  await expect(page.locator('.picture-story')).toHaveAttribute('data-frame','3');await page.reload();
  await expect(page.locator('.picture-story')).toHaveAttribute('data-frame','3');
  await page.getByRole('button',{name:'故事看完啦',exact:true}).click();
- await expect(page.getByRole('button',{name:'故事的小脚印已记下',exact:true})).toBeVisible();await page.reload();
+ await expect(page.getByRole('button',{name:'故事的小脚印已记下',exact:true})).toBeVisible();
+ await page.locator('.story-dot[aria-current=step]').click();await page.reload();
  await expect(page.getByRole('button',{name:'故事的小脚印已记下',exact:true})).toBeVisible();
 });
 

@@ -9,7 +9,7 @@ import {PlaySymbol} from '../components/PlaySymbol';
 import {CarThumbnail} from '../components/CarImage';
 import {PlayGuide} from '../components/PlayGuide';
 import {nextInvitation} from '../domain/play-journey';
-import { lazy,Suspense,useEffect, useRef, useState, type PointerEvent } from 'react';
+import { lazy,Suspense,useCallback,useEffect, useLayoutEffect, useRef, useState, type PointerEvent } from 'react';
 import {Layers, ArrowLeft, ArrowRight, Box, Check, Hand, Pause, Play, RotateCcw, Save, Download, Smartphone, Users, Volume2 } from '../components/TownIcons';
 import { getActivity,getCar,type ActivityId } from '../domain/content';
 import { TouchBoard, type BoardSnapshot } from '../game/TouchBoard';
@@ -43,9 +43,28 @@ export function TouchPlay({id,carId,settings,backHref='#/explore',continueHref}:
   const [portrait,setPortrait]=useState(()=>window.matchMedia('(max-width: 600px)').matches);
   const [creationStatus,setCreationStatus]=useState<'idle'|'saving'|'saved'|'error'>('idle');
   const [note,setNote]=useState(''),[noteMessage,setNoteMessage]=useState(''),[noteBusy,setNoteBusy]=useState(false);
+  const [restartOpen,setRestartOpen]=useState(false);
+  const restartDialog=useRef<HTMLDialogElement>(null);
+  const played=useRef(false),savedNote=useRef('');
+  const restart=()=>window.dispatchEvent(new Event('restart-activity'));
+  const requestRestart=()=>{
+    const unsavedWork=creation.current&&creationStatus!=='saved';
+    if((!state.completed&&played.current)||unsavedWork||note.trim()!==savedNote.current){
+      audio.stop();setRestartOpen(true);
+    }else restart();
+  };
+  useEffect(()=>{
+    if(!restartOpen)return;
+    const dialog=restartDialog.current;
+    dialog?.showModal();
+    return()=>dialog?.close();
+  },[restartOpen]);
   const [guideStep,setGuideStep]=useState<number|null>(null);
   const guide=(step:number|null)=>{board.current?.setGuideStep(step);setGuideStep(step);};
   const worldPreview=useRef<((canvas:HTMLCanvasElement,step:number,phase:number,large?:boolean)=>void)|null>(null);
+  const renderWorldPreview=useCallback((canvas:HTMLCanvasElement,step:number,phase:number,large?:boolean)=>{
+    worldPreview.current?.(canvas,step,phase,large);
+  },[]);
   const revision=useRef(0);
   const [exporting,setExporting]=useState(false);
   const creation=useRef<Creation|null>(null),writeTimer=useRef<ReturnType<typeof setTimeout>|null>(null),writeChain=useRef(Promise.resolve());
@@ -83,16 +102,17 @@ export function TouchPlay({id,carId,settings,backHref='#/explore',continueHref}:
       speakRequested:sound=>{if(!callbacks.current.paused)void audio.playRequested(sound);},finish:(summary,sounds)=>callbacks.current.finish(summary,sounds),feedback:text=>callbacks.current.setMessage(text),
       changed:value=>{if(alive)setState(value);},paint:(points,background)=>{if(alive)paint(points,background);}});
     board.current=next;
-    void next.load().catch(()=>{if(alive)setError('跑车素材暂时没准备好，请重试。');});
+    void next.load().catch(()=>{if(alive)setError('小车暂时没加载好，点一下再试。');});
     return()=>{alive=false;next.dispose();board.current=null;};
   },[id,carId,attempt]);
   useEffect(()=>{board.current?.resize(portrait);},[portrait]);
+  useLayoutEffect(()=>{if(!three)board.current?.draw(0);},[three]);
   useEffect(()=>{
-    if(session.paused||guideStep!==null){board.current?.cancel();return;}
+    if(session.paused||guideStep!==null||restartOpen){board.current?.cancel();return;}
     let request=0,previous=performance.now();
-    const frame=(now:number)=>{const dt=Math.min(.25,(now-previous)/1000);previous=now;board.current?.draw(dt);request=requestAnimationFrame(frame);};
+    const frame=(now:number)=>{const dt=Math.min(.25,(now-previous)/1000);previous=now;board.current?.draw(dt,!three);request=requestAnimationFrame(frame);};
     request=requestAnimationFrame(frame);return()=>cancelAnimationFrame(request);
-  },[session.paused,portrait,attempt,guideStep]);
+  },[session.paused,portrait,attempt,guideStep,restartOpen,three]);
   useEffect(()=>()=>{
     if(writeTimer.current)clearTimeout(writeTimer.current);
     if(id==='A02'&&creation.current){const snapshot=structuredClone(creation.current);void writeChain.current.then(()=>safely(()=>db.creations.put(snapshot),undefined,`creation:${snapshot.id}`));}
@@ -197,19 +217,27 @@ export function TouchPlay({id,carId,settings,backHref='#/explore',continueHref}:
   const bridgeCue=bridge?.phase==='blocked'?(bridge.shed==='open'?'木料棚里找到了长板，换上再试':bridge.shed==='closed'?'桥板还够不到，看看岸边木料棚':'看亮起来的石头，桥板还够不到它')
     :bridge?.phase==='crossed'?(bridge.reach===0?'过河啦！前面还有更宽的一段':'两段河都过啦')
     :bridge?.phase==='try'?'推推小车，试试桥板':bridge?.reach===1?'河变宽了，再比一比桥板':'让桥板搭在两岸的石头上';
-  return <div className={`touch-play town-play place-${activityPlace(id).id}`} data-activity={id} data-content-level={session.contentLevel} data-completed={state.completed}>
+  return <div className={`touch-play town-play place-${activityPlace(id).id}`} data-activity={id} data-content-level={session.contentLevel} data-completed={state.completed}
+    onPointerDownCapture={event=>{if(active&&event.target instanceof HTMLCanvasElement)played.current=true;}}
+    onClickCapture={event=>{if(event.target instanceof Element&&event.target.closest('.touch-action-row button'))played.current=true;}}
+    onKeyDownCapture={event=>{if(active&&event.target instanceof HTMLCanvasElement&&['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Enter',' ','[',']'].includes(event.key))played.current=true;}}>
     <div className="town-play-heading"><span>{activityPlace(id).name}</span><h1>{activity.title}</h1></div>
     <div className="touch-toolbar">
-      <a className="touch-icon" href={backHref} aria-label="回到乐园"><ArrowLeft/></a>
+      <a className="touch-icon" data-town-back href={backHref} aria-label="回到乐园"><ArrowLeft/></a>
       <a className="touch-title" href={`#/cars/${carId}`} aria-label="旋转看看这辆车"><CarThumbnail className="touch-car-preview" imageId={vehiclePreview(carId)||getCar(carId)!.game!.side}/></a>
       <div className="touch-tools">
         {threeAvailable&&<button className="touch-icon" aria-label={three?'使用平面简化玩法':'打开立体玩法'} aria-pressed={three} onClick={()=>{setThreeFailed(false);setFlat(three);}}>{three?<Box/>:<Layers/>}<span className="play-view-label" aria-hidden="true">{three?'3D':'2D'}</span></button>}
         {id==='P01'&&typeof window.DeviceOrientationEvent!=='undefined'&&<button className="touch-icon" aria-label={sensor?'关闭倾斜操控':'启用倾斜操控'} aria-pressed={sensor} onClick={()=>void tilt()}><Smartphone/></button>}
         <button className="touch-icon help-demonstration" aria-label="看看怎么玩" aria-expanded={guideStep!==null} disabled={!active||state.completed||(three&&!worldReady)} onClick={()=>{if(guideStep!==null){guide(null);return;}guide(0);session.hint();}}><PlaySymbol name="hand"/><Play className="help-play" fill="currentColor"/></button>
         <button className="touch-icon" aria-label="重听玩法" disabled={session.paused} onClick={session.replay}><Volume2/></button>
-        <button className="touch-icon" aria-label="重新玩" onClick={()=>window.dispatchEvent(new Event('restart-activity'))}><RotateCcw/></button>
+        <button className="touch-icon" aria-label="重新玩" onClick={requestRestart}><RotateCcw/></button>
       </div>
     </div>
+    {restartOpen&&<dialog className="parent-gate restart-play" ref={restartDialog} aria-labelledby="restart-title" onCancel={()=>setRestartOpen(false)}>
+      <div><h2 id="restart-title">从头再玩？</h2><p>重新开始会清空当前玩法进度和未保存的内容。</p>
+        <button className="button primary" onClick={()=>setRestartOpen(false)}>接着玩</button>
+        <button className="text-button" onClick={restart}>从头再玩</button>
+      </div></dialog>}
     <div className="touch-canvas-wrap">
       <canvas ref={canvas} className="touch-canvas" data-presentation={three?'three':'flat'} aria-hidden={three} aria-label={`${activity.title}互动场景，${['E02','T01'].includes(id)?(session.contentLevel==='starter'?'回车或空格找车轮':'回车或空格逐个探索车轮、车门和车灯'):id==='H03'?'回车或空格逐处擦洗车身，第一辆洗净后再按一次换车':id==='T02'?'方括号选择桥板和木料棚，回车放桥、开棚或推车，过河后回车去下一段':id==='S01'?'上箭头猜小球，下箭头猜方块，回车放挡板或换坡面':id==='A01'?'拖动贴纸，或者选择贴纸后点画纸；键盘用方括号选贴纸，回车放置':id==='E03'?'拖动车辆，或按回车推车；红灯停住等行人，绿灯再走':'直接拖动物体；键盘方向键移动，回车放下，Escape取消，左右方括号选择物体'}`} role="application" tabIndex={three?-1:0}
         data-state={JSON.stringify(state)}
@@ -220,16 +248,16 @@ export function TouchPlay({id,carId,settings,backHref='#/explore',continueHref}:
         onLostPointerCapture={event=>board.current?.cancel(event.pointerId)}
         onKeyDown={event=>{if(active&&['ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Enter',' ','Escape','[',']'].includes(event.key)){event.preventDefault();if(guideStep!==null)guide(null);board.current?.keyboard(event.key);}}}
       >直接拖动车、零件和场景里的物件。</canvas>
-      {three&&state.ready&&board.current&&<Suspense fallback={<div className="world-preparing" role="status" aria-label="正在准备立体场景"><Box/></div>}><TouchWorld3D board={board.current} carId={carId} id={id} state={state} paused={session.paused||guideStep!==null} onUnavailable={()=>setThreeFailed(true)} onReadyChange={setWorldReady} onPreview={render=>{worldPreview.current=render;}}/></Suspense>}
-      {!state.ready&&!error&&<div className="touch-loading" role="status"><PlaySymbol name="wheel"/></div>}
-      {error&&<div className="touch-loading" role="alert"><PlaySymbol name="wheel"/><span className="sr-only">{error}</span><button className="touch-icon" aria-label="重新加载游戏跑车" onClick={()=>setAttempt(n=>n+1)}><RotateCcw/></button></div>}
+      {three&&state.ready&&board.current&&<Suspense fallback={<div className="world-preparing" role="status" aria-label="正在准备立体场景"><Box/></div>}><TouchWorld3D board={board.current} carId={carId} id={id} state={state} paused={session.paused||guideStep!==null||restartOpen} onUnavailable={()=>setThreeFailed(true)} onReadyChange={setWorldReady} onPreview={render=>{worldPreview.current=render;}}/></Suspense>}
+      {!state.ready&&!error&&<div className="touch-loading" role="status" aria-label="正在准备玩法"><PlaySymbol name="wheel"/></div>}
+      {error&&<div className="touch-loading" role="alert"><PlaySymbol name="wheel"/><span>{error}</span><button className="touch-icon" aria-label="重新加载游戏跑车" onClick={()=>setAttempt(n=>n+1)}><RotateCcw/></button></div>}
       {session.paused&&<div className="pause-overlay"><Pause size={44}/><button className="touch-icon" aria-label="继续探索" onClick={session.resume}><Play/></button></div>}
     </div>
-    {guideStep!==null&&board.current&&<PlayGuide board={board.current} step={guideStep} onStep={guide} close={()=>guide(null)} portrait={portrait} renderPreview={three?((...args)=>worldPreview.current?.(...args)):undefined}/>}
+    {guideStep!==null&&board.current&&<PlayGuide board={board.current} step={guideStep} onStep={guide} close={()=>guide(null)} portrait={portrait} renderPreview={three?renderWorldPreview:undefined}/>}
     <div className="touch-bottom">
       <span className="town-action-cue"><Hand size={20}/><span>{id==='H03'?washCue:id==='T02'?bridgeCue:id==='E03'?trafficCue:assembly?assemblyCue:id==='T03'?roadCue:helpers?helperCue:helpful?requestCue:rolling?rollingCue:rain?rainCue:trip?tripCue:visit?visitCue:sequence?sequenceCue:stand?standCue:story?storyCue:colorStage?colorCue:showroom?showroomCue:id==='S02'?shadowCue:id==='P01'?trackCue:state.workshop?workshopCue:parking?(state.completed?'车都停好啦':parkingCue):parade?paradeCue:sorting?sortingCue:teachingActions[id]}</span></span>
       <div className="touch-progress" aria-label="本次探索进度" role="progressbar" aria-valuenow={Math.round(state.progress*100)} aria-valuemin={0} aria-valuemax={100}><span style={{transform:`scaleX(${Math.min(1,state.progress)})`}}/></div>
-      {state.completed&&<span className="town-record-state"><Check aria-label="记录一次探索"/>{activity.mode==='open'?'记下一次参与':'记下这次发现'}</span>}
+      {state.completed&&session.recordStatus==='saved'&&<span className="town-record-state"><Check aria-label="记录一次探索"/>{activity.mode==='open'?'已记下一次参与':'已记下这次发现'}</span>}
       {continueHref&&state.completed&&<a className="touch-icon" aria-label="继续故事" href={continueHref}><ArrowRight/></a>}
     </div>
     {helpful&&(helpful.phase==='stuck'||helpful.phase==='clear')&&<div className="touch-action-row">
@@ -292,7 +320,7 @@ export function TouchPlay({id,carId,settings,backHref='#/explore',continueHref}:
       </>}
       <button className="button" disabled={!active||guideStep!==null} onClick={()=>board.current?.setStandView(!stand.preview)}>{stand.preview?'继续布置':'从观众席看'}</button>
       <button className="button primary" disabled={!active||guideStep!==null||!stand.preview||creationStatus==='saving'||creationStatus==='saved'}
-        onClick={writeCreation}><Save size={18}/>{creationStatus==='saved'?'展位已保存':'保存展位'}</button>
+        onClick={writeCreation}><Save size={18}/>{creationStatus==='saved'?'展位已保存':creationStatus==='saving'?'正在保存':'保存展位'}</button>
     </div>}
     {story&&<div className="touch-action-row" aria-label="编排故事">
       <button className="button" disabled={!active||guideStep!==null||story.replaying} onClick={()=>board.current?.changeStory(story.act===0?1:0)}>{story.act===0?'去第二幕':'回第一幕'}</button>
@@ -327,16 +355,14 @@ export function TouchPlay({id,carId,settings,backHref='#/explore',continueHref}:
     </div>}
     {poster&&<div className="touch-action-row" aria-label="海报工具">
       <button className="button" disabled={!active||guideStep!==null||!poster.canUndo} onClick={()=>board.current?.undoPoster()}><RotateCcw size={18}/>撤回</button>
-      <button className="button primary" disabled={!active||guideStep!==null||!poster.count||creationStatus==='saving'||creationStatus==='saved'} onClick={writeCreation}><Save size={18}/>{creationStatus==='saved'?'已保存':'保存海报'}</button>
+      <button className="button primary" disabled={!active||guideStep!==null||!poster.count||creationStatus==='saving'||creationStatus==='saved'} onClick={writeCreation}><Save size={18}/>{creationStatus==='saved'?'已保存':creationStatus==='saving'?'正在保存':'保存海报'}</button>
       <button className="button" disabled={!active||guideStep!==null||!poster.count||exporting} onClick={()=>void downloadPoster()}><Download size={18}/>下载图片</button>
     </div>}
     {trackArt&&<div className="touch-action-row" aria-label="轮印工具">
       {treadShapes.map((tread,i)=><button className={trackArt.tread===tread?'button primary':'button'} key={tread}
         aria-pressed={trackArt.tread===tread} disabled={!active||guideStep!==null} onClick={()=>board.current?.changeTread(tread)}>{treadNames[i]}</button>)}
       <button className="button" disabled={!active||guideStep!==null||!trackArt.canUndo} onClick={()=>board.current?.undoTrack()}><RotateCcw size={18}/>撤回</button>
-      <button className="button" disabled={!active||guideStep!==null||!trackArt.count||creationStatus==='saving'} onClick={writeCreation}>
-        <Save size={18}/>{creationStatus==='saved'?'轮印已保存':'保存轮印'}
-      </button>
+      {creationStatus==='saved'&&<span className="town-record-state" role="status"><Check/>轮印已自动保存</span>}
     </div>}
     {state.completed&&!continueHref&&<div className="next-invitation" role="region" aria-label="小车接下来想去哪里">
       {session.completion&&<button className="completion-replay" aria-label="重听这次发现" onClick={()=>audio.announce(session.completion!.text,session.completion!.sounds,session.completion!.preferClips)}><PlaySymbol name={session.completion.symbol}/><Volume2/><span className="sr-only">{session.completion.text}</span></button>}
@@ -344,8 +370,8 @@ export function TouchPlay({id,carId,settings,backHref='#/explore',continueHref}:
       <a href={next.href} className="next-destination" aria-label={next.label}><PlayPicture id={next.picture}/><ArrowRight aria-hidden="true"/></a>
     </div>}
     <span className="sr-only" role="status" aria-live="polite">{session.message}</span>
-    {(session.recordStatus==='error'||creationStatus==='error')&&<div className="pictorial-error" role="status"><span className="sr-only">这次记录暂时没保存。</span><button className="picture-button" aria-label="重试保存" onClick={()=>{void session.retrySave();writeCreation();}}><RotateCcw/></button></div>}
+    {(session.recordStatus==='error'||creationStatus==='error')&&<div className="pictorial-error" role="status"><span>{creationStatus==='error'?'作品暂时没保存。':'这次记录暂时没保存。'}</span><button className="picture-button" aria-label="重试保存" onClick={()=>{if(session.recordStatus==='error')void session.retrySave();if(creationStatus==='error')writeCreation();}}><RotateCcw/></button></div>}
     {sensorMessage&&<span className="sr-only" role="status">{sensorMessage}</span>}
-    <details className="touch-adult"><summary role="button" aria-label="给一起玩的家长"><Users/></summary><p>{stageGoal(id,session.contentLevel)||activity.goal}</p>{activity.mode==='open'&&<p>这里只记录参与探索，不自动评价表达能力或学习掌握程度。</p>}<p>{activity.extension}</p><p>直接触碰画面中的物体开始。需要时点手掌播放按钮，按三幅图查看当前这一步的示范；演示不替孩子操作，也不计入完成记录。拖动不方便时，可以点选物件再点轮廓。车辆使用各自登记来源的立体模型和游戏预览；运动和装配使用教学示意，不代表车型真实性能或维修步骤。</p><p>会话：{session.recordStatus==='saved'?'已保存在本机':session.recordStatus==='saving'?'正在保存':'探索中'}{creationStatus==='saved'?'；作品已保存':''}</p><label>家长观察（可选）<textarea aria-label="家长观察（可选）" maxLength={500} value={note} onChange={event=>setNote(event.target.value)}/></label><button disabled={noteBusy} onClick={async()=>{setNoteBusy(true);const saved=await session.observe(note);setNoteBusy(false);setNoteMessage(saved?'观察已保存在本机':'观察暂时没保存，文字仍在，可以重试');}}>保存观察</button>{noteMessage&&<p role="status">{noteMessage}</p>}</details>
+    <details className="touch-adult"><summary role="button" aria-label="给一起玩的家长"><Users/></summary><p>{stageGoal(id,session.contentLevel)||activity.goal}</p>{activity.mode==='open'&&<p>这里只记录参与探索，不自动评价表达能力或学习掌握程度。</p>}<p>{activity.extension}</p><p>直接触碰画面中的物体开始。需要时点手掌播放按钮，按三幅图查看当前这一步的示范；演示不替孩子操作，也不计入完成记录。拖动不方便时，可以点选物件再点轮廓。车辆使用各自登记来源的立体模型和游戏预览；运动和装配使用教学示意，不代表车型真实性能或维修步骤。</p><p>会话：{session.recordStatus==='saved'?'已保存在本机':session.recordStatus==='saving'?'正在保存':session.recordStatus==='error'?'暂时没保存':'探索中'}{creationStatus==='saved'?'；作品已保存':''}</p><label>家长观察（可选）<textarea readOnly={noteBusy} aria-label="家长观察（可选）" maxLength={500} value={note} onChange={event=>{setNote(event.target.value);setNoteMessage('');}}/></label><button disabled={noteBusy||!note.trim()||note.trim()===savedNote.current} onClick={async()=>{setNoteBusy(true);const saved=await session.observe(note);if(saved)savedNote.current=note.trim();setNoteBusy(false);setNoteMessage(saved?'观察已保存在本机':'观察暂时没保存，文字仍在，可以重试');}}>保存观察</button>{noteMessage&&<p role="status">{noteMessage}</p>}</details>
   </div>;
 }

@@ -36,3 +36,7 @@ import './styles/catalogue-select.css';
 
 import './styles/town.css';
 import './styles/showroom.css';
+
+import './styles/interaction.css';
+
+import './styles/appearance.css';

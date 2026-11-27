@@ -54,3 +54,22 @@ test('静音时可重听当前展台颜色，仍保留静音设置',async({page}
  await expect.poll(()=>playing(page)).toBe(1);
  await expect(page.getByRole('button',{name:'开启声音',exact:true})).toBeVisible();
 });
+
+test('家长试听可以停止，退出入口回到原按钮，试听保持原静音设置',async({page})=>{
+ await page.goto('/#/explore');
+ const gate=page.getByRole('button',{name:/家长设置/});
+ await gate.click();
+ await page.getByRole('dialog',{name:'请家长来看看'}).press('Escape');
+ await expect(gate).toBeFocused();
+ await gate.click();
+ await page.getByRole('link',{name:'我是家长，进入设置'}).click();
+ const soundSetting=page.getByRole('checkbox',{name:/声音引导/});
+ await expect(soundSetting).not.toBeChecked();
+ await page.getByRole('button',{name:'听一段中文引导'}).click();
+ await expect.poll(()=>playing(page)).toBe(1);
+ await page.getByRole('button',{name:'停止试听'}).click();
+ await expect.poll(()=>playing(page)).toBe(0);
+ await expect(soundSetting).not.toBeChecked();
+ await page.reload();
+ await expect(soundSetting).not.toBeChecked();
+});

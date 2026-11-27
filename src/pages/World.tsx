@@ -25,6 +25,5 @@ export function World({sceneId}:{sceneId?:string}) {
       </a>)}</nav>
     </div>
     <TownStories/>
-    <div className="town-home-note"><PlaySymbol name="hand"/><span>慢慢试，随时重来。每一个小发现，都值得一起看看。</span></div>
   </div>;
 }

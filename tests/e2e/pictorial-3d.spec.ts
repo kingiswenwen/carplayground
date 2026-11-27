@@ -69,7 +69,8 @@ test('WebGL不可用时可以读车型资料，也可以重试立体模型 @smok
  const retry=page.getByRole('button',{name:'重试立体模型'});
  await expect(retry).toBeVisible();
  await expect(page.getByRole('region',{name:'车型详情'})).toContainText('三台电动机');
- await expect(page.locator('.vehicle-poster,.vehicle-angle,.vehicle-webgl')).toHaveCount(0);
+ await expect(page.locator('.vehicle-poster')).toHaveAttribute('src',/car01-front-left\.webp/);
+ await expect(page.locator('.vehicle-webgl')).toHaveCount(0);
  const attempts=await page.evaluate(()=>Reflect.get(window,'__webglAttempts') as number);
  await retry.click();
  await expect.poll(()=>page.evaluate(()=>Reflect.get(window,'__webglAttempts') as number)).toBeGreaterThan(attempts);

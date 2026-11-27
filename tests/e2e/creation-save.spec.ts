@@ -35,3 +35,19 @@ test('海报贴纸可以点放、重复拖贴和撤回，孩子主动保存才�
  expect((await download).suggestedFilename()).toMatch(/^carplayground-poster-.*\.png$/);
  await page.goto('/#/garage');await expect(page.locator('.creation-card .art-mark')).toHaveCount(1);
 });
+
+test('重开确认可以取消，保留当前海报', async ({page}) => {
+ await openTouch(page,'A01');
+ const stamp=await touchPosition(page,(await touchState(page)).items.find(i=>i.id==='stamp-0')!);
+ const paper=await touchPosition(page,{x:240,y:240});
+ await page.mouse.click(stamp.x,stamp.y);
+ await page.mouse.click(paper.x,paper.y);
+ const undo=page.getByRole('button',{name:'撤回',exact:true});
+ await expect(undo).toBeEnabled();
+ await page.getByRole('button',{name:'重新玩',exact:true}).click();
+ const confirm=page.getByRole('dialog',{name:'从头再玩？'});
+ await expect(confirm).toBeVisible();
+ await confirm.getByRole('button',{name:'接着玩'}).click();
+ await expect(confirm).toHaveCount(0);
+ await expect(undo).toBeEnabled();
+});
