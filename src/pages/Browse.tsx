@@ -128,6 +128,7 @@ export function Showroom({favorites,favoritePending,favoriteErrors,toggleFavorit
  };
  const[index,setIndex]=useState(Math.max(0,content.cars.findIndex(c=>c.id===activeCar()&&vehicleModel(c.id))));
  const preview=useRef<HTMLDivElement>(null),revealPreview=useRef(false);
+ const picker=useRef<HTMLElement>(null);
  const [profileOpen,setProfileOpen]=useState(false);
  useLayoutEffect(()=>{
   if(!revealPreview.current)return;
@@ -157,11 +158,15 @@ export function Showroom({favorites,favoritePending,favoriteErrors,toggleFavorit
     <button type="button" className="vehicle-secondary vehicle-profile-toggle" aria-expanded={profileOpen} aria-controls="showroom-vehicle-profile" onClick={()=>setProfileOpen(value=>!value)}>车型详情<ChevronDown aria-hidden="true"/></button>
    </div>
    <FavoriteError message={favoritesUnavailable?undefined:favoriteErrors[car.id]} retry={()=>toggleFavorite(car.id)}/>
+   <button type="button" className="vehicle-text-control" aria-controls="showroom-picker" onClick={()=>{
+    picker.current?.focus({preventScroll:true});
+    picker.current?.scrollIntoView({block:'start',behavior:'instant'});
+   }}>换辆车</button>
    <WashLink carId={car.id}/>
   </VehicleViews>
  </div>
  <VehicleProfile car={car} id="showroom-vehicle-profile" hidden={!profileOpen} showName/>
- <section className="garage-picker" aria-label="挑选跑车" style={vehicleBayStyle}><div className="garage-picker-bar"><span className="garage-count">{references?<Camera aria-hidden="true"/>:<Box aria-hidden="true"/>}{references?`${content.cars.length-vehicleModels.length} 款真实车型 · 模型待补`:`${vehicleModels.length} 款立体车 · ${content.cars.length} 款真实车型`}</span></div>
+ <section className="garage-picker" id="showroom-picker" ref={picker} tabIndex={-1} aria-label="挑选跑车" style={vehicleBayStyle}><div className="garage-picker-bar"><span className="garage-count">{references?<Camera aria-hidden="true"/>:<Box aria-hidden="true"/>}{references?`${content.cars.length-vehicleModels.length} 款真实车型 · 模型待补`:`${vehicleModels.length} 款立体车 · ${content.cars.length} 款真实车型`}</span></div>
  <div className="garage-filters">
   <TownSearch className="garage-search" label="查找车型或品牌" clearLabel="清空车型搜索" placeholder="找车型或品牌" value={query}
     change={value=>updateCatalogue({query:value,page:0})}/>

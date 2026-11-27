@@ -70,10 +70,10 @@ export function VehicleViews({carId, title, children}:{carId:string; title?:stri
     </div>
     <div className="vehicle-console">
       {title&&<h2 className="vehicle-name">{title}</h2>}
+      <div className="vehicle-actions">{children}</div>
       {!failed&&(ready
         ? <VehiclePaintControls key={carId} paint={paint} original={original} change={setPaint}/>
         : <div className="vehicle-paint-placeholder" aria-hidden="true"/>)}
-      <div className="vehicle-actions">{children}</div>
     </div>
   </div>;
 }

@@ -261,7 +261,7 @@
 .vehicle-color-code input[aria-invalid=true] { border-color: #a1422a; }
 .vehicle-color-code button { min-width: 44px; }
 .vehicle-color-error { flex-basis: 100%; font-size: 13px; line-height: 1.5; color: #8a381e; }
-.vehicle-actions { display: grid; gap: 10px; margin-top: auto; padding-top: 15px; border-top: 1px solid #e4e0d1; }
+.vehicle-actions { display: grid; gap: 10px; padding-bottom: 15px; border-bottom: 1px solid #e4e0d1; }
 .vehicle-utilities { display: grid; grid-template-columns: repeat(2,minmax(0,1fr)); gap: 8px; }
 .vehicle-secondary { border: 1px solid #dcdac8; background: #faf7eb; }
 .vehicle-secondary[aria-pressed=true] { border-color: #96ab8d; background: #e9efdf; }
