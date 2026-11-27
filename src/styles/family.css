@@ -1,0 +1,86 @@
+/* Changes stay with the action that caused them. */
+.family-feedback {
+  margin: 12px 0 0;
+  border-inline-start: 3px solid currentColor;
+  padding-inline-start: 12px;
+}
+.family-recovery {
+  margin-top: 12px;
+}
+.town-shell .parent-card .clear-data .backup-preview .text-button {
+  min-height: 44px;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .parent-card .backup-preview,
+  .parent-card .family-feedback {
+    animation: family-appear var(--motion-standard, 180ms) var(--motion-ease, ease-out);
+  }
+  @keyframes family-appear {
+    from { opacity: .65; transform: translateY(-3px); }
+    to { opacity: 1; transform: none; }
+  }
+}
+
+.parent-gate .gate-close {
+  min-width: 44px;
+  min-height: 44px;
+}
+.story-activity-link { display: block; }
+.story-activity-link figure { margin: 0; }
+.story-invitation {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  font-size: 13px;
+  color: var(--town-ink, #294d42);
+}
+.picture-story .pictorial-error {
+  align-items: center;
+  line-height: 1.6;
+}
+.story-completion {
+  display: block;
+  text-align: center;
+  margin-block: 8px;
+}
+.town-shell .picture-story .story-progress button.story-dot,
+.town-shell .picture-story .story-progress button.story-dot[aria-current=step] {
+  display: grid;
+  place-items: center;
+  background: transparent;
+}
+.story-dot::after {
+  content: "";
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background-color: var(--town-line, #c4ceb4);
+}
+.story-dot[aria-current=step]::after {
+  background-color: var(--town-green, #4f7657);
+  transform: scale(1.28);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .parent-gate[open] {
+    animation: family-appear var(--motion-standard, 180ms) var(--motion-ease, ease-out);
+  }
+  .parent-gate[open][data-closing] {
+    animation: family-dismiss var(--motion-fast, 110ms) var(--motion-ease, ease-out) forwards;
+  }
+  @keyframes family-dismiss {
+    to { opacity: 0; transform: translateY(3px); }
+  }
+  .story-dot::after {
+    transition: transform var(--motion-fast, 110ms) var(--motion-ease, ease-out),
+                background-color var(--motion-fast, 110ms);
+  }
+  .town-story-caption[data-turn="1"] { --turn-offset: 5px; }
+  .town-story-caption[data-turn="-1"] { --turn-offset: -5px; }
+  .town-story-caption:is([data-turn="1"],[data-turn="-1"]) p {
+    animation: story-turn var(--motion-standard, 180ms) var(--motion-ease, ease-out);
+  }
+  @keyframes story-turn {
+    from { opacity: .72; transform: translateX(var(--turn-offset)); }
+  }
+}

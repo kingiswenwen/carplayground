@@ -1,0 +1,128 @@
+/* Keep the lighting, paint swatches and learning scenes in their authored colours. */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    --town-paper: #17231e;
+    --town-ink: #f1f3e9;
+    --town-muted: #c0cfc0;
+    --town-green: #aad8ad;
+    --town-line: #54685a;
+    --town-panel: #24332c;
+    --town-control: #304137;
+    --town-selected: #3e5643;
+    --town-danger: #ffbda8;
+    --town-focus: #ffd493;
+    --town-shadow: 0 8px 24px #0c150f38;
+    --line: var(--town-line);
+    --ink: var(--town-ink);
+    --muted: var(--town-muted);
+    background-color: var(--town-paper);
+    color: var(--town-ink);
+  }
+
+  .town-shell .site-header.child-dock,
+  .town-shell .town-heading-art,
+  .town-shell .town-destination,
+  .town-shell .town-map,
+  .town-shell .town-teaching-map :is(details, li),
+  .town-shell :is(.car-roundabout, .vehicle-console, .vehicle-actions, .vehicle-specs > div) {
+    border-color: var(--town-line);
+  }
+  .town-shell .child-dock .main-nav a:hover,
+  .town-shell .town-neighbours a:hover {
+    background-color: var(--town-control);
+  }
+  .town-shell .child-dock .main-nav a.active {
+    background-color: var(--town-selected);
+    border-color: var(--town-line);
+  }
+
+  .town-shell :is(.town-place-sign, .town-story-book, .town-activity-caption,
+      .picture-activities .picture-activity, .picture-garage .creation-card,
+      .garage-paged .car-gallery-card, .car-roundabout, .vehicle-profile,
+      .parent-card, .parent-gate, .play-guide, .town-art-recovery) {
+    background-color: var(--town-panel);
+    color: var(--town-ink);
+    border-color: var(--town-line);
+  }
+  .town-shell :is(.town-car-invitation, .touch-icon, .picture-button, .touch-title,
+      .touch-adult summary, .story-return a, .town-art-recovery button, .button, .round-button,
+      .vehicle-view-footer, .vehicle-specs, .vehicle-zoom, .vehicle-secondary, .vehicle-paint-finish,
+      .parent-card details, .domain-summary > div, .backup-preview) {
+    background-color: var(--town-control);
+    border-color: var(--town-line);
+    color: var(--town-ink);
+  }
+  .town-shell .picture-home { background: transparent; }
+  .town-shell :is(.town-primary-link, .button.primary, .button.primary:hover) {
+    background-color: var(--town-green);
+    color: #193722;
+    border-color: var(--town-green);
+  }
+
+  .town-shell :is(.town-place-sign small, .town-story-book small, .town-activity-caption small,
+      .town-empty-copy, .garage-count, .garage-car-name, .garage-results,
+      .garage-empty, .garage-pager > span, .garage-filters, .garage-reference-switch,
+      .vehicle-specs dt, .vehicle-paint-slider, .vehicle-color-code, .paint-reset[aria-pressed=true],
+      .town-play-heading > span, .touch-adult, .touch-bottom, .town-story-caption > span,
+      .parent-page-title p, .town-teaching-map > p, .town-teaching-map li :is(small, p),
+      .town-teaching-map summary > span:not(.play-symbol), .parent-gate p,
+      .parent-card p, .parent-card > small, .setting-row small, .record-numbers span,
+      .observations small, .domain-summary > div) {
+    color: var(--town-muted);
+  }
+  .town-shell :is(.vehicle-views, .town-story-caption p) { color: var(--town-ink); }
+  .town-shell :is(.town-record-state, .play-view-label, .vehicle-text-control, .text-button:hover) {
+    color: var(--town-green);
+  }
+
+  .town-shell :is(.garage-paged .car-gallery-card.selected, .vehicle-paint-finish:has(:checked),
+      .vehicle-secondary[aria-pressed=true], .touch-icon[aria-pressed=true]) {
+    border-color: var(--town-green);
+    background-color: var(--town-selected);
+    color: var(--town-ink);
+  }
+  .town-shell :is(.vehicle-text-control:hover, .vehicle-secondary:not(:disabled):hover,
+      .vehicle-paint-value:hover, .vehicle-paint-value[aria-expanded=true],
+      .vehicle-swatches button:is(:hover,[aria-pressed=true]), .town-search-clear:hover) {
+    background-color: var(--town-selected);
+  }
+  .town-shell .vehicle-swatches button[aria-pressed=true] .vehicle-swatch {
+    outline-color: var(--town-green);
+  }
+  .town-shell .vehicle-secondary:disabled {
+    background-color: var(--town-panel);
+    color: var(--town-muted);
+  }
+
+  .town-shell :is(.garage-search input, .vehicle-color-code input, .profile-field input,
+      .setting-row select, .touch-adult textarea, .catalogue-select-trigger),
+  .catalogue-select-popup, .catalogue-option-search input {
+    color: var(--town-ink);
+    background-color: var(--town-panel);
+    border-color: #819383;
+  }
+  .town-shell .setting-row input[type=checkbox] { background-color: var(--town-panel); border-color: #819383; }
+  .town-shell .setting-row input[type=checkbox]:checked { background-color: var(--town-selected); border-color: var(--town-green); }
+  .town-shell .garage-search input::placeholder,
+  .catalogue-option-search input::placeholder, .catalogue-no-options { color: var(--town-muted); }
+  .catalogue-options > [role=option] { color: var(--town-ink); }
+  .town-shell .catalogue-select-trigger[aria-expanded=true],
+  .catalogue-options > [role=option]:is(:hover,:focus-visible,[aria-selected=true]),
+  .catalogue-select-popup .town-search-clear:hover { background-color: var(--town-selected); }
+
+  .town-shell .touch-progress { background-color: var(--town-control); }
+  .town-shell .touch-progress > span, .guide-dots > [data-current=true] { background-color: var(--town-green); }
+  .town-shell :is(.audio-notice, .storage-warning, .parent-message, .pictorial-error, .activity-feedback) {
+    background-color: var(--town-selected);
+    color: var(--town-ink);
+  }
+  .town-shell :is(.danger, .vehicle-color-error) { color: var(--town-danger); }
+  .town-shell .button.danger { background-color: #55342c; border-color: var(--town-danger); }
+  .town-shell .vehicle-color-code input[aria-invalid=true] { border-color: var(--town-danger); }
+  .town-shell :is(a,button,input,summary,select,textarea):focus-visible,
+  .vehicle-paint-finish:has(:focus-visible), .catalogue-select-popup :focus-visible {
+    outline-color: var(--town-focus);
+  }
+  .town-shell *, .catalogue-options { scrollbar-color: #8fa38f var(--town-panel); }
+}

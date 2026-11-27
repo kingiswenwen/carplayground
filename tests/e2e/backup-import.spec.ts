@@ -38,5 +38,15 @@ test('替换前备份下载失败不改记录，重试导入保留正确恢复�
   expect(localCopy.profile.nickname).toBe('替换前测试档案');
   await page.reload();
   await expect(page.getByRole('textbox', {name: '档案昵称（可留空）'})).toHaveValue('导入测试档案');
+  await page.getByRole('button', {name: '恢复替换前记录', exact: true}).click();
+  await expect(page.getByRole('heading', {name: '导入前确认'})).toBeVisible();
+  await page.getByRole('button', {name: '取消导入'}).click();
+  await expect(page.getByRole('textbox', {name: '档案昵称（可留空）'})).toHaveValue('导入测试档案');
+  await page.getByRole('button', {name: '恢复替换前记录', exact: true}).click();
+  const reverseDownload = page.waitForEvent('download');
+  await page.getByRole('button', {name: '替换并保存当前备份', exact: true}).click();
+  const reverseSnapshot = JSON.parse(await fs.readFile((await (await reverseDownload).path())!, 'utf8'));
+  expect(reverseSnapshot.profile.nickname).toBe('导入测试档案');
+  await expect(page.getByRole('textbox', {name: '档案昵称（可留空）'})).toHaveValue('替换前测试档案');
   await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
 });

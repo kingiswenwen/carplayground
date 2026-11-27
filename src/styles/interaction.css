@@ -1,0 +1,62 @@
+:root {
+  --motion-fast: 110ms;
+  --motion-standard: 180ms;
+  --motion-ease: cubic-bezier(.2, .72, .25, 1);
+}
+
+#main-content:focus { outline: none; }
+.town-shell .audio-notice {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  pointer-events: none;
+  font-size: 14px;
+}
+.audio-notice .town-icon { flex: 0 0 22px; }
+.town-shell .parent-entry { position: relative; }
+.town-shell .parent-entry:active::after {
+  content: '';
+  position: absolute;
+  inset: auto 12% 2px;
+  height: 3px;
+  border-radius: 2px;
+  background: currentColor;
+  transform-origin: left;
+  animation: town-hold 2s linear;
+}
+@keyframes town-hold { from { transform: scaleX(0); } }
+
+@media (prefers-reduced-motion: no-preference) {
+  .town-shell :is(.picture-button, .touch-icon, .button, .town-primary-link, .town-car-invitation, .town-story-book, .picture-activity),
+  .town-shell .child-dock .main-nav a {
+    transition: transform var(--motion-fast) var(--motion-ease),
+                background-color var(--motion-fast), border-color var(--motion-fast);
+  }
+  .town-shell :is(.button, .town-primary-link, .town-car-invitation, .town-story-book, .picture-activity):not(:disabled):active {
+    transform: translateY(1px);
+  }
+  .town-place-sign,
+  .town-shell summary > .town-disclosure {
+    transition: transform var(--motion-standard) var(--motion-ease);
+  }
+  .town-heading,
+  .town-play-heading,
+  .parent-page-title {
+    animation: town-heading-in var(--motion-standard) var(--motion-ease);
+  }
+  @keyframes town-heading-in {
+    from { opacity: .65; transform: translateY(4px); }
+  }
+}
+@media (hover: none) {
+  .town-shell .town-destination:hover .town-place-sign,
+  .town-shell .picture-activity:hover { transform: none; }
+  .town-shell .town-destination:active .town-place-sign { translate: 0 1px; }
+}
+
+.town-shell .page-recovery {
+  display: grid;
+  justify-items: center;
+  gap: 10px;
+  text-align: center;
+}

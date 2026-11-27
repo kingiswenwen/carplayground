@@ -82,6 +82,7 @@ export class TouchBoard {
   private destroyed = false;
   private loading=new AbortController();
   private notifyAt = 0;
+  private motionPreference=window.matchMedia('(prefers-reduced-motion: reduce)');
   private time = 0;
   private rough = false;
   private seen = new Set<string>();
@@ -1036,8 +1037,10 @@ export class TouchBoard {
     return step===0?`找到${cue.subject}`:step===1?verbs[cue.action]:cue.action==='drag'?'放下，再自己试试':cue.action==='turn'?'看看开口有没有对齐':cue.action==='wipe'?'看看干净的地方，再自己擦一擦':'看看变化，再自己试试';
   }
   guidePreview(canvas:HTMLCanvasElement,step:number,phase=step===1?.6:1,large=false){
-    const width=large?1000:240;canvas.width=width;canvas.height=Math.round(width*this.height/1000);
-    const c=canvas.getContext('2d')!;c.scale(width/1000,width/1000);c.drawImage(this.guideBase,0,0);this.guideOverlay(c,step,phase);
+    const width=large?1000:240,height=Math.round(width*this.height/1000);
+    if(canvas.width!==width)canvas.width=width;
+    if(canvas.height!==height)canvas.height=height;
+    const c=canvas.getContext('2d')!;c.setTransform(width/1000,0,0,width/1000,0,0);c.drawImage(this.guideBase,0,0);this.guideOverlay(c,step,phase);
   }
   private guideOverlay(c:CanvasRenderingContext2D,step:number,phase:number){
     const cue=this.guideCue(),p=step===0?cue.start:step===2?cue.end:{x:cue.start.x+(cue.end.x-cue.start.x)*phase,y:cue.start.y+(cue.end.y-cue.start.y)*phase};
@@ -2056,11 +2059,11 @@ export class TouchBoard {
     if(this.mode==='sequence'){c.strokeStyle='#92724c';c.lineWidth=5;for(let i=0;i<2;i++){c.beginPath();c.moveTo(310+i*320,H*.51);c.lineTo(365+i*320,H*.51);c.lineTo(350+i*320,H*.51-12);c.stroke();}}
 
   }
-  draw(seconds:number){
+  draw(seconds:number,paint=true){
     if(this.destroyed)return;
     this.guideTime+=seconds;if(this.guideStep!==null)seconds=0;
-    this.time+=seconds;const c=this.ctx,H=this.height;c.clearRect(0,0,1000,H);this.background();
-    if(!this.ready){this.glyph('🛞',500,H*.45,100);return;}
+    this.time+=seconds;const c=this.ctx,H=this.height;
+    if(!this.ready)return;
     if(this.guideStep===null){
     if(this.correction){const r=this.correction,phase=clamp((this.time-r.at-(this.mode==='bridge'?.9:.08))/.28,0,1),ease=1-(1-phase)**3;r.item.x=r.from.x+(r.to.x-r.from.x)*ease;r.item.y=r.from.y+(r.to.y-r.from.y)*ease;if(phase===1){this.correction=null;this.options.feedback('');}}
     if(this.mode==='rolling')this.advanceRolling(seconds);
@@ -2087,6 +2090,11 @@ export class TouchBoard {
       for(const runner of this.items)runner.x=clamp(runner.x+this.tilt*seconds*9,140,860);this.seen.add('tilted');
     }
     }
+    if(this.time-this.notifyAt>.2){this.notifyAt=this.time;this.notify();}
+    if(this.pulses.length)this.pulses=this.pulses.filter(p=>this.time-p.at<.7);
+    // Three.js presents the same simulation. Only the visible surface needs painting.
+    if(!paint)return;
+    c.clearRect(0,0,1000,H);this.background();
     if(this.mode==='shadow'){
       const {lampX,lampY}=this.currentShadow,previous=this.previousShadow;
       const drawShadow=(sample:{lampX:number;lampY:number},color:string)=>{
@@ -2231,9 +2239,9 @@ export class TouchBoard {
       c.save();c.shadowColor='#304d3926';c.shadowBlur=9;c.shadowOffsetY=6;
       if(item===this.grab?.item){
         c.save();c.fillStyle='#304f4933';c.beginPath();c.ellipse(item.x,item.y+item.h*.4,item.w*.44,item.h*.23,0,0,Math.PI*2);c.fill();c.restore();
-        c.translate(item.x,item.y);if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches)c.scale(1.03,1.03);c.translate(-item.x,-item.y);
+        c.translate(item.x,item.y);if(!this.motionPreference.matches)c.scale(1.03,1.03);c.translate(-item.x,-item.y);
       }
-      const arrival=this.arrivals.get(item.id),reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const arrival=this.arrivals.get(item.id),reduced=this.motionPreference.matches;
       if(arrival){const phase=clamp((this.time-arrival.at)/.24,0,1);if(phase===1)this.arrivals.delete(item.id);else if(!reduced){const rest=(1-phase)**3;c.translate((arrival.from.x-item.x)*rest,(arrival.from.y-item.y)*rest);}}
       if(item.kind==='car')this.sprite(item.carId||this.options.carId,item,['parking','spaces','sorting','road','visit','bridge'].includes(this.mode)||this.mode==='traffic'&&!!this.sceneArtwork);
       else if(item.kind==='body'&&this.body){
@@ -2261,7 +2269,7 @@ export class TouchBoard {
       }
       else if(item.kind==='road'){
         const animation=this.roadTurns.get(item.turn!),phase=animation?clamp((this.time-animation.at)/.25,0,1):1;
-        const animate=animation&&phase<1&&!window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const animate=animation&&phase<1&&!this.motionPreference.matches;
         const shape=animate?animation.from:this.road[item.turn!],halfW=item.w/2,halfH=item.h/2;
         if(this.sceneArtwork){
           const turns:Record<RoadShape,number>={LR:0,UD:1,LU:0,UR:1,RD:2,DL:3};
@@ -2468,7 +2476,7 @@ export class TouchBoard {
     if(this.mode==='parts'){
       for(const part of partRegions(getCar(this.options.carId)!,this.items[0])){if(!this.seen.has(part.id))continue;
         c.strokeStyle=part.id==='light'?'#ffdd68':'#fffcdf';c.lineWidth=5;c.beginPath();c.ellipse(part.x,part.y,part.rx,part.ry,0,0,Math.PI*2);c.stroke();
-        const age=this.time-(this.partPulses.get(part.id)??-10),motion=!window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const age=this.time-(this.partPulses.get(part.id)??-10),motion=!this.motionPreference.matches;
         if(part.id==='wheel'&&age<1.3){c.save();c.translate(part.x,part.y);c.rotate(motion?Math.min(1,age/1.3)*Math.PI*3:0);c.beginPath();c.moveTo(-part.rx*.65,0);c.lineTo(part.rx*.65,0);c.moveTo(0,-part.ry*.65);c.lineTo(0,part.ry*.65);c.stroke();c.restore();}
         if(part.id==='light'&&age<1.2){c.fillStyle='#fff4a466';c.beginPath();c.moveTo(part.x,part.y);c.lineTo(995,part.y-60);c.lineTo(995,part.y+50);c.fill();}
         if(this.options.id==='E02'&&part.id==='wheel'){
@@ -2497,7 +2505,7 @@ export class TouchBoard {
       if(this.mode==='road')first=this.roadWon?this.items.find(i=>i.id==='next-road'):this.items.find(i=>i.kind==='road'&&!roadLessons[this.roadLevel].locked.includes(i.turn!)&&this.road[i.turn!]!==roadLessons[this.roadLevel].solution[i.turn!]);
       if(this.mode==='traffic')first=this.items.find(i=>i.id===(this.trafficPhase==='crossing'?'signal':'runner'));
       if(this.mode==='wash'&&this.washReady)first=this.items.find(i=>i.id==='next-car');
-      const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches,phase=reduced?0:Math.min(1,(this.time%3)/1.8);
+      const reduced=this.motionPreference.matches,phase=reduced?0:Math.min(1,(this.time%3)/1.8);
       let cue=this.mode==='wash'&&!this.washReady?{x:420+(reduced?0:Math.sin(this.time*2)*140),y:H*.4}:first&&destination?{x:first.x+(destination.x-first.x)*phase,y:first.y+(destination.y-first.y)*phase}:first||{x:500,y:H*.5};
       if(first&&(['motion','rolling'].includes(this.mode)||this.mode==='traffic'&&this.trafficPhase!=='crossing'))cue={x:first.x+(reduced?0:phase*140),y:first.y};
       if(this.mode==='parts'){const regions=this.requiredParts();cue=regions.find(p=>!this.seen.has(p.id))||regions[0];}
@@ -2507,11 +2515,9 @@ export class TouchBoard {
     if(this.correction?.target){const target=this.correction.target;c.strokeStyle='#e6a14c';c.lineWidth=10;this.round({...target,w:target.w+20,h:target.h+20},24);c.stroke();
     }
     if(this.complete&&['parking','spaces','sorting'].includes(this.mode)){for(const t of this.targets.filter(t=>t.occupied))this.glyph('home',t.x,t.y-t.h*.82,65);}
-    const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    this.pulses=this.pulses.filter(p=>this.time-p.at<.7);
+    const reduced=this.motionPreference.matches;
     for(const p of this.pulses){const phase=(this.time-p.at)/.7;c.save();c.globalAlpha=1-phase;c.strokeStyle='#e8bc5a';c.lineWidth=7;c.beginPath();c.arc(p.x,p.y,reduced?55:45+phase*60,0,Math.PI*2);c.stroke();this.glyph('sparkle',p.x+65,p.y-55,45,c);c.restore();}
     if(this.complete){const age=this.time-this.completedAt;if(age<1.4){for(const side of [-1,1]){const phase=Math.min(1,age/1.4);c.save();c.globalAlpha=1-phase;this.glyph('sparkle',500+side*(reduced?180:100+phase*260),H*.3-(reduced?0:phase*90),55+phase*20,c);c.restore();}}}
     if(this.guideStep!==null){this.guideBase.getContext('2d')!.clearRect(0,0,1000,H);this.guideBase.getContext('2d')!.drawImage(this.canvas,0,0);this.guideOverlay(c,this.guideStep,reduced?1:Math.min(1,this.guideTime/1.4));}
-    if(this.time-this.notifyAt>.2){this.notifyAt=this.time;this.notify();}
   }
 }
