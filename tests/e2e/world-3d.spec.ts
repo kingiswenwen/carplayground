@@ -36,7 +36,9 @@ test('立体装车和推车使用实体模型，松手惯性仍按实际操作�
 
 test('新增跑车进入玩法时加载自己的车型网格，模型失败可简化并重试 @smoke',async({page})=>{
  test.setTimeout(90000);await open(page,'M01','CAR31');expect((await snapshot(page)).actors.find((a:{id:string})=>a.id==='car-0').sourceCar).toBe('CAR31');
- await page.route(/\/models\/(?:play\/)?car31\.glb/,r=>r.abort());await page.reload();await expect(page.locator('.touch-canvas[data-presentation=flat]')).toBeVisible({timeout:45000});
+ await page.route(/\/models\/(?:play\/)?car31\.glb/,r=>r.abort());await page.reload();
+ await expect(page.getByText('立体场景暂时打不开，可以继续在这里玩。')).toBeVisible({timeout:45000});
+ await expect(page.locator('.touch-canvas[data-presentation=flat]')).toBeVisible();
  await page.unroute(/\/models\/(?:play\/)?car31\.glb/);await page.getByRole('button',{name:'打开立体玩法',exact:true}).click();await expect(world(page)).toHaveAttribute('data-ready','true',{timeout:45000});expect((await snapshot(page)).actors.find((a:{id:string})=>a.id==='car-0').sourceCar).toBe('CAR31');
 });
 test('26个玩法均可打开真实立体场景 @smoke',async({page})=>{
