@@ -12,6 +12,7 @@ import {vehicleModel} from '../domain/vehicle-models';
 import {loadPlayVehicle,type PlayVehicle} from './play-model';
 import {disposeModel} from './model';
 import {isVehicleLampName} from './part-names';
+import {StaticBackdrop} from './static-backdrop';
 import {withinPartRange} from '../domain/play-difficulty';
 
 type Item=TouchBoard['items'][number];
@@ -36,6 +37,7 @@ export class TouchWorldRenderer{
  private targets=new Map<string,T.Group>();
  private retired=new T.Group();
  private scenery=new T.Group();
+ private backdrop?:StaticBackdrop;
  private bridgeScenery=new T.Group();
  private bridgeSceneryKey='';
  private bridgeStone?:T.Mesh;
@@ -129,10 +131,15 @@ export class TouchWorldRenderer{
   this.controls.addEventListener('change',this.invalidate);
   this.motionPreference.addEventListener('change',this.setMotionPreference);
   document.addEventListener('visibilitychange',this.schedule);
-  this.buildScenery();this.resetCamera();
+  this.buildScenery();
+  if(this.software&&context.getExtension('EXT_color_buffer_float')){
+   const staticObjects=this.scenery.children.filter(object=>object!==this.bridgeScenery&&object!==this.crossingScenery&&object!==this.washGantry);
+   this.backdrop=new StaticBackdrop(this.scene,staticObjects);
+  }
+  this.resetCamera();
   void this.materialImage('paper').then(image=>{
    if(!image||this.disposed)return;
-   this.paperBackdrop=this.makeTexture(image);this.scene.background=this.paperBackdrop;this.invalidate();
+   this.paperBackdrop=this.makeTexture(image);this.scene.background=this.paperBackdrop;this.backdrop?.invalidate();this.invalidate();
   });
   canvas.addEventListener('pointerdown',this.down);canvas.addEventListener('pointermove',this.move);canvas.addEventListener('pointerup',this.up);canvas.addEventListener('pointercancel',this.cancel);canvas.addEventListener('lostpointercapture',this.cancel);canvas.addEventListener('keydown',this.key);canvas.addEventListener('webglcontextlost',this.lost);
   this.observer=new ResizeObserver(this.resize);this.observer.observe(host);this.resize();
@@ -161,7 +168,25 @@ export class TouchWorldRenderer{
   this.invalidate();
  };
  resetCamera(){const length=this.board.height*UNIT,portrait=this.host.clientWidth<this.host.clientHeight;this.camera.position.set(portrait?0:10,Math.max(19,length*1.2),Math.max(18,length*1.15));this.camera.lookAt(0,0,0);this.controls.target.set(0,0,0);this.controls.update();this.resize();}
- private resize=()=>{if(this.disposed)return;const w=Math.max(1,this.host.clientWidth),h=Math.max(1,this.host.clientHeight);this.renderer.setPixelRatio(Math.min(devicePixelRatio,this.software?Math.min(1,720/Math.max(w,h)):2));this.renderer.setSize(w,h,false);this.camera.aspect=w/h;const depth=this.board.height*UNIT;const distance=Math.max(depth*1.9,22/this.camera.aspect/Math.tan(37*Math.PI/360)/2)*1.12;const direction=this.camera.position.clone().sub(this.controls.target).normalize();this.camera.position.copy(this.controls.target).addScaledVector(direction,distance);this.camera.updateProjectionMatrix();if((['T04','E02','T01','H03'].includes(this.activity)||this.phoneFocus())&&this.actors.size)this.fitContentCamera();this.invalidate();};
+ private resize=()=>{
+  if(this.disposed)return;
+  const width=Math.max(1,this.host.clientWidth),height=Math.max(1,this.host.clientHeight);
+  // Keep a one-pixel backing buffer on narrow software displays and cap the
+  // raster cost when the same stage is enlarged on wider displays.
+  const maxSoftwareEdge=this.backdrop?576:720;
+  const limit=this.software?Math.min(1,maxSoftwareEdge/Math.max(width,height)):2;
+  const ratio=Math.min(devicePixelRatio,limit);
+  if(this.renderer.getPixelRatio()!==ratio)this.renderer.setPixelRatio(ratio);
+  this.renderer.setSize(width,height,false);
+  this.camera.aspect=width/height;
+  const depth=this.board.height*UNIT;
+  const distance=Math.max(depth*1.9,22/this.camera.aspect/Math.tan(37*Math.PI/360)/2)*1.12;
+  const direction=this.camera.position.clone().sub(this.controls.target).normalize();
+  this.camera.position.copy(this.controls.target).addScaledVector(direction,distance);
+  this.camera.updateProjectionMatrix();
+  if((['T04','E02','T01','H03'].includes(this.activity)||this.phoneFocus())&&this.actors.size)this.fitContentCamera();
+  this.invalidate();
+ };
  private phoneFocus(){return this.host.clientWidth<this.host.clientHeight&&['M01','M02','M03','T02','L01','S03','H02','L02','C02'].includes(this.activity);}
  private fitContentCamera(){
   const depth=this.board.height*UNIT,bounds=this.activity==='H03'||this.phoneFocus()?new T.Box3():new T.Box3(new T.Vector3(-11,-.5,-depth/2-1),new T.Vector3(11,0,depth/2+1));
@@ -188,7 +213,7 @@ export class TouchWorldRenderer{
   const ids=new Set([this.carId,...this.board.items.filter(i=>i.kind==='car'&&i.carId&&vehicleModel(i.carId)).map(i=>i.carId!)]);
   const timer=setTimeout(()=>{this.abort.abort();this.reportFailure('model timeout');},30000);
   try{await Promise.all([...ids].map(async id=>{const model=await loadPlayVehicle(id,this.abort.signal);if(this.disposed){disposeModel(model.root);return;}this.templates.set(id,model);}));
-   if(this.disposed)return;this.sync();if(['E02','T01'].includes(this.activity))this.fitContentCamera();this.renderer.render(this.scene,this.camera);this.publishViewState();this.ready=true;this.renderer.domElement.dataset.ready='true';this.renderer.domElement.dataset.modelCount=String(this.templates.size);this.changed(true);this.schedule();
+   if(this.disposed)return;this.sync();if(['E02','T01'].includes(this.activity))this.fitContentCamera();this.renderScene();this.publishViewState();this.ready=true;this.renderer.domElement.dataset.ready='true';this.renderer.domElement.dataset.modelCount=String(this.templates.size);this.changed(true);this.schedule();
   }finally{clearTimeout(timer);}
  }
  private world(x:number,y:number){return new T.Vector3((x-500)*UNIT,0,(y-this.board.height/2)*UNIT);}
@@ -450,6 +475,7 @@ export class TouchWorldRenderer{
    const texture=this.makeTexture(image);
    if(repeat>1){texture.wrapS=texture.wrapT=T.MirroredRepeatWrapping;texture.repeat.set(repeat,repeat);}
    mesh.material.map=texture;mesh.material.color.set('#ffffff');mesh.material.needsUpdate=true;
+   this.backdrop?.invalidate();
    this.invalidate();
   });
   return mesh;
@@ -1017,12 +1043,17 @@ export class TouchWorldRenderer{
   if(!this.reduced&&!this.software&&this.particles.length<12){const mesh=ball(.1,'#d5f5f6');mesh.material.opacity=.65;mesh.material.transparent=true;mesh.position.copy(point);this.scene.add(mesh);this.particles.push({mesh,velocity:new T.Vector3((Math.random()-.5)*1.5,1.2,(Math.random()-.5)*1.5),life:1});}
  }
  private burst(at:T.Vector3,color:string,count=7){if(this.reduced||this.software)return;if(this.simpleMaterials)count=Math.min(count,8);for(let i=0;i<count;i++){const mesh=new T.Mesh(new T.IcosahedronGeometry(.08,0),material(i%2?color:'#b8dccc'));mesh.position.copy(at);this.scene.add(mesh);this.particles.push({mesh,velocity:new T.Vector3((Math.random()-.5)*5,2+Math.random()*4,(Math.random()-.5)*5),life:1.1});}}
+ private renderScene(){
+  if(this.backdrop)this.backdrop.render(this.renderer,this.scene,this.camera);
+  else this.renderer.render(this.scene,this.camera);
+ }
  private draw=(now:number)=>{
   this.frame=0;
   if(this.disposed||document.hidden)return;
   const interacting=!this.paused&&(!!this.pointer||this.state.moving||this.state.recovering);
   const effects=!this.paused&&(this.particles.length>0||!!this.partPulse);
-  if((this.software||!(interacting||this.orbit||effects))&&now-this.rendered<33){this.schedule();return;}
+  const immediateDrag=!!this.backdrop&&!!this.pointer;
+  if(!immediateDrag&&(this.software||!(interacting||this.orbit||effects))&&now-this.rendered<33){this.schedule();return;}
   this.rendered=now;
   const dt=Math.min(.05,(now-this.last)/1000);
   this.last=now;
@@ -1047,7 +1078,7 @@ export class TouchWorldRenderer{
   if(draw){
    try{
     if(this.ready)this.sync();
-    this.renderer.render(this.scene,this.camera);
+    this.renderScene();
     if(this.ready)this.publishViewState();
     this.needsRender=false;
    }catch(error){this.reportFailure('render',error);return;}
@@ -1059,7 +1090,7 @@ export class TouchWorldRenderer{
   const original=actor&&{position:actor.group.position.clone(),quaternion:actor.group.quaternion.clone()};
   const point=step===0?cue.start:step===2?cue.end:{x:cue.start.x+(cue.end.x-cue.start.x)*phase,y:cue.start.y+(cue.end.y-cue.start.y)*phase};
   if(actor&&step>0){if(['drag','push'].includes(cue.action)){const target=this.board.targets.find(t=>t.x===cue.end.x&&t.y===cue.end.y),t=step===2?1:phase,end=target?this.targetPoint(target):this.world(cue.end.x,cue.end.y);actor.group.position.lerpVectors(original!.position,end,t).add(new T.Vector3(0,Math.sin(t*Math.PI)*.35,0));}if(cue.action==='turn')actor.group.rotation.y+=Math.PI/2*phase;}
-  this.renderer.render(this.scene,this.camera);const width=large?1000:240,height=Math.round(width/this.camera.aspect);if(canvas.width!==width)canvas.width=width;if(canvas.height!==height)canvas.height=height;const ctx=canvas.getContext('2d')!;ctx.drawImage(this.renderer.domElement,0,0,canvas.width,canvas.height);
+  this.renderScene();const width=large?1000:240,height=Math.round(width/this.camera.aspect);if(canvas.width!==width)canvas.width=width;if(canvas.height!==height)canvas.height=height;const ctx=canvas.getContext('2d')!;ctx.drawImage(this.renderer.domElement,0,0,canvas.width,canvas.height);
   let projected=this.project(this.world(point.x,point.y).add(new T.Vector3(0,actor?1:0,0)));
   if(['E02','T01'].includes(this.activity)){const part=(['wheel','light','door'] as const).find(p=>!this.state.parts.includes(p))||'wheel';projected=this.partScreens()?.[part]||projected;}
   else if(this.activity==='H03'&&cue.action==='wipe'){const visible=this.dirtPoints.filter(d=>d.visible);const dirt=visible[Math.min(visible.length-1,Math.floor(phase*Math.max(0,visible.length-1)))];if(dirt)projected=this.project(dirt.position);}
@@ -1071,5 +1102,5 @@ export class TouchWorldRenderer{
  private reportFailure(reason:string,error?:unknown){if(!this.disposed){console.warn('立体玩法暂时无法打开：'+reason,error);this.failed();}}
  dispose(){if(this.disposed)return;this.cancel();this.disposed=true;this.abort.abort();cancelAnimationFrame(this.frame);this.observer.disconnect();this.motionPreference.removeEventListener('change',this.setMotionPreference);document.removeEventListener('visibilitychange',this.schedule);this.controls.removeEventListener('change',this.invalidate);this.controls.dispose();const canvas=this.renderer.domElement;
   canvas.removeEventListener('pointerdown',this.down);canvas.removeEventListener('pointermove',this.move);canvas.removeEventListener('pointerup',this.up);canvas.removeEventListener('pointercancel',this.cancel);canvas.removeEventListener('lostpointercapture',this.cancel);canvas.removeEventListener('keydown',this.key);canvas.removeEventListener('webglcontextlost',this.lost);
-  disposeModel(new T.Group().add(this.scene,...[...this.templates.values()].map(t=>t.root)));this.scene.traverse(node=>{if(node instanceof T.DirectionalLight)node.dispose();});this.paperBackdrop?.dispose();this.environment?.dispose();this.renderer.dispose();this.renderer.forceContextLoss();canvas.remove();}
+  disposeModel(new T.Group().add(this.scene,...[...this.templates.values()].map(t=>t.root)));this.scene.traverse(node=>{if(node instanceof T.DirectionalLight)node.dispose();});this.backdrop?.dispose();this.paperBackdrop?.dispose();this.environment?.dispose();this.renderer.dispose();this.renderer.forceContextLoss();canvas.remove();}
 }
